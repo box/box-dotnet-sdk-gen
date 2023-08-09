@@ -1,0 +1,89 @@
+# TermsOfServiceUserStatusesManager
+
+
+- [List terms of service user statuses](#list-terms-of-service-user-statuses)
+- [Create terms of service status for new user](#create-terms-of-service-status-for-new-user)
+- [Update terms of service status for existing user](#update-terms-of-service-status-for-existing-user)
+
+## List terms of service user statuses
+
+Retrieves an overview of users and their status for a
+terms of service, including Whether they have accepted
+the terms and when.
+
+This operation is performed by calling function `GetTermOfServiceUserStatuses`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-terms-of-service-user-statuses/).
+
+*Currently we don't have an example for calling `GetTermOfServiceUserStatuses` in integration tests*
+
+### Arguments
+
+- queryParams `GetTermOfServiceUserStatusesQueryParamsArg`
+  - Query parameters of getTermOfServiceUserStatuses method
+- headers `GetTermOfServiceUserStatusesHeadersArg`
+  - Headers of getTermOfServiceUserStatuses method
+
+
+### Returns
+
+This function returns a value of type `TermsOfServiceUserStatuses`.
+
+Returns a list of terms of service statuses.
+
+
+## Create terms of service status for new user
+
+Sets the status for a terms of service for a user.
+
+This operation is performed by calling function `CreateTermOfServiceUserStatus`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-terms-of-service-user-statuses/).
+
+*Currently we don't have an example for calling `CreateTermOfServiceUserStatus` in integration tests*
+
+### Arguments
+
+- requestBody `CreateTermOfServiceUserStatusRequestBodyArg`
+  - Request body of createTermOfServiceUserStatus method
+- headers `CreateTermOfServiceUserStatusHeadersArg`
+  - Headers of createTermOfServiceUserStatus method
+
+
+### Returns
+
+This function returns a value of type `TermsOfServiceUserStatus`.
+
+Returns a terms of service status object.
+
+
+## Update terms of service status for existing user
+
+Updates the status for a terms of service for a user.
+
+This operation is performed by calling function `UpdateTermOfServiceUserStatusById`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-terms-of-service-user-statuses-id/).
+
+*Currently we don't have an example for calling `UpdateTermOfServiceUserStatusById` in integration tests*
+
+### Arguments
+
+- termsOfServiceUserStatusId `string`
+  - The ID of the terms of service status. Example: "324234"
+- requestBody `UpdateTermOfServiceUserStatusByIdRequestBodyArg`
+  - Request body of updateTermOfServiceUserStatusById method
+- headers `UpdateTermOfServiceUserStatusByIdHeadersArg`
+  - Headers of updateTermOfServiceUserStatusById method
+
+
+### Returns
+
+This function returns a value of type `TermsOfServiceUserStatus`.
+
+Returns the updated terms of service status object.
+
+

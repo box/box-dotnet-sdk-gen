@@ -1,0 +1,117 @@
+# ShieldInformationBarriersManager
+
+
+- [Get shield information barrier with specified ID](#get-shield-information-barrier-with-specified-id)
+- [Add changed status of shield information barrier with specified ID](#add-changed-status-of-shield-information-barrier-with-specified-id)
+- [List shield information barriers](#list-shield-information-barriers)
+- [Create shield information barrier](#create-shield-information-barrier)
+
+## Get shield information barrier with specified ID
+
+Get shield information barrier based on provided ID..
+
+This operation is performed by calling function `GetShieldInformationBarrierById`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barriers-id/).
+
+*Currently we don't have an example for calling `GetShieldInformationBarrierById` in integration tests*
+
+### Arguments
+
+- shieldInformationBarrierId `string`
+  - The ID of the shield information barrier. Example: "1910967"
+- headers `GetShieldInformationBarrierByIdHeadersArg`
+  - Headers of getShieldInformationBarrierById method
+
+
+### Returns
+
+This function returns a value of type `ShieldInformationBarrier`.
+
+Returns the shield information barrier object.
+
+
+## Add changed status of shield information barrier with specified ID
+
+Change status of shield information barrier with the specified ID.
+
+This operation is performed by calling function `CreateShieldInformationBarrierChangeStatus`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-shield-information-barriers-change-status/).
+
+*Currently we don't have an example for calling `CreateShieldInformationBarrierChangeStatus` in integration tests*
+
+### Arguments
+
+- requestBody `CreateShieldInformationBarrierChangeStatusRequestBodyArg`
+  - Request body of createShieldInformationBarrierChangeStatus method
+- headers `CreateShieldInformationBarrierChangeStatusHeadersArg`
+  - Headers of createShieldInformationBarrierChangeStatus method
+
+
+### Returns
+
+This function returns a value of type `ShieldInformationBarrier`.
+
+Returns the updated shield information barrier object.
+
+
+## List shield information barriers
+
+Retrieves a list of shield information barrier objects
+for the enterprise of JWT.
+
+This operation is performed by calling function `GetShieldInformationBarriers`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barriers/).
+
+*Currently we don't have an example for calling `GetShieldInformationBarriers` in integration tests*
+
+### Arguments
+
+- queryParams `GetShieldInformationBarriersQueryParamsArg`
+  - Query parameters of getShieldInformationBarriers method
+- headers `GetShieldInformationBarriersHeadersArg`
+  - Headers of getShieldInformationBarriers method
+
+
+### Returns
+
+This function returns a value of type `null`.
+
+Returns a paginated list of
+shield information barrier objects,
+empty list if currently no barrier.
+
+
+## Create shield information barrier
+
+Creates a shield information barrier to
+separate individuals/groups within the same
+firm and prevents confidential information passing between them.
+
+This operation is performed by calling function `CreateShieldInformationBarrier`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-shield-information-barriers/).
+
+*Currently we don't have an example for calling `CreateShieldInformationBarrier` in integration tests*
+
+### Arguments
+
+- requestBody `ShieldInformationBarrier`
+  - Request body of createShieldInformationBarrier method
+- headers `CreateShieldInformationBarrierHeadersArg`
+  - Headers of createShieldInformationBarrier method
+
+
+### Returns
+
+This function returns a value of type `ShieldInformationBarrier`.
+
+Returns a new shield information barrier object.
+
+
