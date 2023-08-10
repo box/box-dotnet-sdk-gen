@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<UpdateFileMetadataByIdRequestBodyArgItemOpField>))]
-    public enum UpdateFileMetadataByIdRequestBodyArgItemOpField {
+    [JsonConverter(typeof(StringEnumConverter<UpdateFolderMetadataByIdRequestBodyArgOpField>))]
+    public enum UpdateFolderMetadataByIdRequestBodyArgOpField {
         [Description("add")]
         Add,
         [Description("replace")]

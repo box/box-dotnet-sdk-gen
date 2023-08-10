@@ -3,10 +3,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
-using System;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
+using System;
 using Box.Schemas;
 using Box;
 
@@ -38,7 +38,7 @@ namespace Box.Managers {
             return SimpleJsonConverter.Deserialize<Metadata>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<Metadata> UpdateFileMetadataById(string fileId, UpdateFileMetadataByIdScopeArg scope, string templateKey, UpdateFileMetadataByIdRequestBodyArg requestBody, UpdateFileMetadataByIdHeadersArg headers) {
+        public async System.Threading.Tasks.Task<Metadata> UpdateFileMetadataById(string fileId, UpdateFileMetadataByIdScopeArg scope, string templateKey, IReadOnlyList<UpdateFileMetadataByIdRequestBodyArg> requestBody, UpdateFileMetadataByIdHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/files/", fileId, "/metadata/", scope, "/", templateKey), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<Metadata>(response.Text);

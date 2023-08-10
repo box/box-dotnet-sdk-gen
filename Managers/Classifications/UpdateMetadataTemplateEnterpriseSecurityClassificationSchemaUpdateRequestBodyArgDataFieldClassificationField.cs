@@ -7,14 +7,14 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgItemDataFieldClassificationField {
+    public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgDataFieldClassificationField {
         [JsonPropertyName("classificationDefinition")]
         public string ClassificationDefinition { get; }
 
         [JsonPropertyName("colorID")]
         public int? ColorId { get; }
 
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgItemDataFieldClassificationField(string classificationDefinition, int? colorId) {
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgDataFieldClassificationField(string classificationDefinition, int? colorId) {
             ClassificationDefinition = classificationDefinition;
             ColorId = colorId;
         }

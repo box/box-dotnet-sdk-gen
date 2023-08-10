@@ -93,7 +93,7 @@ See the endpoint docs at
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderMetadataEnterpriseSecurityClassificationRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateFolderMetadataEnterpriseSecurityClassificationRequestBodyArg>`
   - Request body of updateFolderMetadataEnterpriseSecurityClassification method
 - headers `UpdateFolderMetadataEnterpriseSecurityClassificationHeadersArg`
   - Headers of updateFolderMetadataEnterpriseSecurityClassification method

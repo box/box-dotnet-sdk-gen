@@ -28,7 +28,7 @@ namespace Box.Managers {
 
         public async System.Threading.Tasks.Task<UserAvatar> CreateUserAvatar(string userId, CreateUserAvatarRequestBodyArg requestBody, CreateUserAvatarHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/users/", userId, "/avatar"), new FetchOptions(method: "POST", headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "pic", fileStream: requestBody.Pic, contentType: requestBody.PicContentType, fileName: requestBody.PicFileName)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/users/", userId, "/avatar"), new FetchOptions(method: "POST", headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "pic", fileStream: requestBody.Pic, fileName: requestBody.PicFileName, contentType: requestBody.PicContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<UserAvatar>(response.Text);
         }
 

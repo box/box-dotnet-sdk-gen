@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemOpField>))]
-    public enum UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemOpField {
+    [JsonConverter(typeof(StringEnumConverter<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgOpField>))]
+    public enum UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgOpField {
         [Description("replace")]
         Replace
     }

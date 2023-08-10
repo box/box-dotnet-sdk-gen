@@ -31,19 +31,19 @@ namespace Box.Managers {
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
         }
 
-        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd(UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg headers) {
+        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd(IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg> requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#add"), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<ClassificationTemplate>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate(UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateHeadersArg headers) {
+        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate(IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg> requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#update"), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<ClassificationTemplate>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete(UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg headers) {
+        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete(IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg> requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#delete"), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<ClassificationTemplate>(response.Text);

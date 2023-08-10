@@ -137,7 +137,7 @@ See the endpoint docs at
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `UpdateFolderMetadataByIdRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateFolderMetadataByIdRequestBodyArg>`
   - Request body of updateFolderMetadataById method
 - headers `UpdateFolderMetadataByIdHeadersArg`
   - Headers of updateFolderMetadataById method

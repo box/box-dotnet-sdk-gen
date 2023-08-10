@@ -3,10 +3,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
-using System;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
+using System;
 using Box.Schemas;
 using Box;
 
@@ -32,7 +32,7 @@ namespace Box.Managers {
             return SimpleJsonConverter.Deserialize<Classification>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<Classification> UpdateFileMetadataEnterpriseSecurityClassification(string fileId, UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArg requestBody, UpdateFileMetadataEnterpriseSecurityClassificationHeadersArg headers) {
+        public async System.Threading.Tasks.Task<Classification> UpdateFileMetadataEnterpriseSecurityClassification(string fileId, IReadOnlyList<UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArg> requestBody, UpdateFileMetadataEnterpriseSecurityClassificationHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/files/", fileId, "/metadata/enterprise/securityClassification-6VMVochwUWo"), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<Classification>(response.Text);

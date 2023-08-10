@@ -93,7 +93,7 @@ See the endpoint docs at
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `UpdateMetadataTemplateSchemaRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateMetadataTemplateSchemaRequestBodyArg>`
   - Request body of updateMetadataTemplateSchema method
 - headers `UpdateMetadataTemplateSchemaHeadersArg`
   - Headers of updateMetadataTemplateSchema method

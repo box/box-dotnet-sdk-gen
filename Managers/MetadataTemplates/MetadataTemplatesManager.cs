@@ -33,7 +33,7 @@ namespace Box.Managers {
             return SimpleJsonConverter.Deserialize<MetadataTemplate>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<MetadataTemplate> UpdateMetadataTemplateSchema(UpdateMetadataTemplateSchemaScopeArg scope, string templateKey, UpdateMetadataTemplateSchemaRequestBodyArg requestBody, UpdateMetadataTemplateSchemaHeadersArg headers) {
+        public async System.Threading.Tasks.Task<MetadataTemplate> UpdateMetadataTemplateSchema(UpdateMetadataTemplateSchemaScopeArg scope, string templateKey, IReadOnlyList<UpdateMetadataTemplateSchemaRequestBodyArg> requestBody, UpdateMetadataTemplateSchemaHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_templates/", scope, "/", templateKey, "/schema"), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<MetadataTemplate>(response.Text);

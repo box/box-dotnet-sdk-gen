@@ -9,8 +9,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueFieldConverter))]
-    public class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField : OneOf<KeywordSkillCard, TimelineSkillCard, TranscriptSkillCard, StatusSkillCard> {
+    [JsonConverter(typeof(UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueFieldConverter))]
+    public class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField : OneOf<KeywordSkillCard, TimelineSkillCard, TranscriptSkillCard, StatusSkillCard> {
         public KeywordSkillCard KeywordSkillCard => _val0;
         
         public TimelineSkillCard TimelineSkillCard => _val1;
@@ -19,25 +19,25 @@ namespace Box.Managers {
         
         public StatusSkillCard StatusSkillCard => _val3;
         
-        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(KeywordSkillCard value) : base(value) {}
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(KeywordSkillCard value) : base(value) {}
         
-        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(TimelineSkillCard value) : base(value) {}
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(TimelineSkillCard value) : base(value) {}
         
-        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(TranscriptSkillCard value) : base(value) {}
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(TranscriptSkillCard value) : base(value) {}
         
-        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(StatusSkillCard value) : base(value) {}
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(StatusSkillCard value) : base(value) {}
         
-        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(KeywordSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(value);
+        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(KeywordSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(value);
         
-        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(TimelineSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(value);
+        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(TimelineSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(value);
         
-        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(TranscriptSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(value);
+        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(TranscriptSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(value);
         
-        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(StatusSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField(value);
+        public static implicit operator UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(StatusSkillCard value) => new UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField(value);
         
-        class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueFieldConverter : JsonConverter<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField> {
+        class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueFieldConverter : JsonConverter<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField> {
 
-            public override UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+            public override UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
                 var discriminant0Present = document.RootElement.TryGetProperty("skill_card_type", out var discriminant0);
                 if (discriminant0Present) {
@@ -55,7 +55,7 @@ namespace Box.Managers {
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItemValueField value, JsonSerializerOptions options) {
+            public override void Write(Utf8JsonWriter writer, UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField value, JsonSerializerOptions options) {
                 if (value.KeywordSkillCard != null) {
                     JsonSerializer.Serialize(writer, value.KeywordSkillCard, options);
                     return;

@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArgItemPathField>))]
-    public enum UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArgItemPathField {
+    [JsonConverter(typeof(StringEnumConverter<UpdateFolderMetadataEnterpriseSecurityClassificationRequestBodyArgPathField>))]
+    public enum UpdateFolderMetadataEnterpriseSecurityClassificationRequestBodyArgPathField {
         [Description("/Box__Security__Classification__Key")]
         BoxSecurityClassificationKey
     }

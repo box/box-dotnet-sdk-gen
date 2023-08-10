@@ -132,7 +132,7 @@ See the endpoint docs at
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `UpdateFileMetadataByIdRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateFileMetadataByIdRequestBodyArg>`
   - Request body of updateFileMetadataById method
 - headers `UpdateFileMetadataByIdHeadersArg`
   - Headers of updateFileMetadataById method

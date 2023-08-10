@@ -80,7 +80,7 @@ See the endpoint docs at
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg>`
   - Request body of updateFileMetadataGlobalBoxSkillsCard method
 - headers `UpdateFileMetadataGlobalBoxSkillsCardHeadersArg`
   - Headers of updateFileMetadataGlobalBoxSkillsCard method

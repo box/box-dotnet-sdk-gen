@@ -9,6 +9,20 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg : List<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgItem> {
+    public class UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg {
+        [JsonPropertyName("op")]
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgOpField Op { get; }
+
+        [JsonPropertyName("path")]
+        public string Path { get; }
+
+        [JsonPropertyName("value")]
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField Value { get; }
+
+        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg(UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgOpField op, string path, UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField value) {
+            Op = op;
+            Path = path;
+            Value = value;
+        }
     }
 }
