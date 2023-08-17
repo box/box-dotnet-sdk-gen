@@ -20,11 +20,15 @@ namespace Box.Schemas {
         [JsonPropertyName("embed_url")]
         public string EmbedUrl { get; }
 
-        public SignRequestSigner(string email, SignRequestCreateSignerRoleField role, bool? isInPerson, int? order, string embedUrlExternalUserId, string redirectUrl, string declinedRedirectUrl, bool? loginRequired, string verificationPhoneNumber, string password, bool? hasViewedDocument, SignRequestSignerSignerDecisionField signerDecision, IReadOnlyList<SignRequestSignerInput> inputs, string embedUrl) : base(email, role, isInPerson, order, embedUrlExternalUserId, redirectUrl, declinedRedirectUrl, loginRequired, verificationPhoneNumber, password) {
+        [JsonPropertyName("iframeable_embed_url")]
+        public string IframeableEmbedUrl { get; }
+
+        public SignRequestSigner(string email, SignRequestCreateSignerRoleField role, bool? isInPerson, int? order, string embedUrlExternalUserId, string redirectUrl, string declinedRedirectUrl, bool? loginRequired, string verificationPhoneNumber, string password, bool? hasViewedDocument, SignRequestSignerSignerDecisionField signerDecision, IReadOnlyList<SignRequestSignerInput> inputs, string embedUrl, string iframeableEmbedUrl) : base(email, role, isInPerson, order, embedUrlExternalUserId, redirectUrl, declinedRedirectUrl, loginRequired, verificationPhoneNumber, password) {
             HasViewedDocument = hasViewedDocument;
             SignerDecision = signerDecision;
             Inputs = inputs;
             EmbedUrl = embedUrl;
+            IframeableEmbedUrl = iframeableEmbedUrl;
         }
     }
 }
