@@ -9,11 +9,11 @@ namespace Box.Managers {
 
         public string Fields { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetGroupsQueryParamsArg(string filterTerm, string fields, int? limit, int? offset) {
+        public GetGroupsQueryParamsArg(string filterTerm, string fields, long? limit, long? offset) {
             FilterTerm = filterTerm;
             Fields = fields;
             Limit = limit;

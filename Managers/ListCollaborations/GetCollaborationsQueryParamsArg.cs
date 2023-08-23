@@ -11,11 +11,11 @@ namespace Box.Managers {
 
         public string Fields { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetCollaborationsQueryParamsArg(GetCollaborationsQueryParamsArgStatusField status, string fields, int? offset, int? limit) {
+        public GetCollaborationsQueryParamsArg(GetCollaborationsQueryParamsArgStatusField status, string fields, long? offset, long? limit) {
             Status = status;
             Fields = fields;
             Offset = offset;

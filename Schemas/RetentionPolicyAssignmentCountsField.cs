@@ -8,15 +8,15 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class RetentionPolicyAssignmentCountsField {
         [JsonPropertyName("enterprise")]
-        public int? Enterprise { get; }
+        public long? Enterprise { get; }
 
         [JsonPropertyName("folder")]
-        public int? Folder { get; }
+        public long? Folder { get; }
 
         [JsonPropertyName("metadata_template")]
-        public int? MetadataTemplate { get; }
+        public long? MetadataTemplate { get; }
 
-        public RetentionPolicyAssignmentCountsField(int? enterprise, int? folder, int? metadataTemplate) {
+        public RetentionPolicyAssignmentCountsField(long? enterprise, long? folder, long? metadataTemplate) {
             Enterprise = enterprise;
             Folder = folder;
             MetadataTemplate = metadataTemplate;

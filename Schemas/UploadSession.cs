@@ -17,7 +17,7 @@ namespace Box.Schemas {
         public string SessionExpiresAt { get; }
 
         [JsonPropertyName("part_size")]
-        public int? PartSize { get; }
+        public long? PartSize { get; }
 
         [JsonPropertyName("total_parts")]
         public int? TotalParts { get; }
@@ -28,7 +28,7 @@ namespace Box.Schemas {
         [JsonPropertyName("session_endpoints")]
         public UploadSessionSessionEndpointsField SessionEndpoints { get; }
 
-        public UploadSession(string id, UploadSessionTypeField type, string sessionExpiresAt, int? partSize, int? totalParts, int? numPartsProcessed, UploadSessionSessionEndpointsField sessionEndpoints) {
+        public UploadSession(string id, UploadSessionTypeField type, string sessionExpiresAt, long? partSize, int? totalParts, int? numPartsProcessed, UploadSessionSessionEndpointsField sessionEndpoints) {
             Id = id;
             Type = type;
             SessionExpiresAt = sessionExpiresAt;

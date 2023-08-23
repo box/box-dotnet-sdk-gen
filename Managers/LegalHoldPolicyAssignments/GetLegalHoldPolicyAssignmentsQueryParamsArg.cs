@@ -13,11 +13,11 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string Fields { get; }
 
-        public GetLegalHoldPolicyAssignmentsQueryParamsArg(string policyId, GetLegalHoldPolicyAssignmentsQueryParamsArgAssignToTypeField assignToType, string assignToId, string marker, int? limit, string fields) {
+        public GetLegalHoldPolicyAssignmentsQueryParamsArg(string policyId, GetLegalHoldPolicyAssignmentsQueryParamsArgAssignToTypeField assignToType, string assignToId, string marker, long? limit, string fields) {
             PolicyId = policyId;
             AssignToType = assignToType;
             AssignToId = assignToId;

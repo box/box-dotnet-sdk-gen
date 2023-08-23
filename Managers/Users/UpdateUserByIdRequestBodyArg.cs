@@ -64,7 +64,7 @@ namespace Box.Managers {
         public UpdateUserByIdRequestBodyArgStatusField Status { get; }
 
         [JsonPropertyName("space_amount")]
-        public int? SpaceAmount { get; }
+        public long? SpaceAmount { get; }
 
         [JsonPropertyName("notification_email")]
         public UpdateUserByIdRequestBodyArgNotificationEmailField NotificationEmail { get; }
@@ -72,7 +72,7 @@ namespace Box.Managers {
         [JsonPropertyName("external_app_user_id")]
         public string ExternalAppUserId { get; }
 
-        public UpdateUserByIdRequestBodyArg(string enterprise, bool? notify, string name, string login, UpdateUserByIdRequestBodyArgRoleField role, string language, bool? isSyncEnabled, string jobTitle, string phone, string address, IReadOnlyList<TrackingCode> trackingCodes, bool? canSeeManagedUsers, string timezone, bool? isExternalCollabRestricted, bool? isExemptFromDeviceLimits, bool? isExemptFromLoginVerification, bool? isPasswordResetRequired, UpdateUserByIdRequestBodyArgStatusField status, int? spaceAmount, UpdateUserByIdRequestBodyArgNotificationEmailField notificationEmail, string externalAppUserId) {
+        public UpdateUserByIdRequestBodyArg(string enterprise, bool? notify, string name, string login, UpdateUserByIdRequestBodyArgRoleField role, string language, bool? isSyncEnabled, string jobTitle, string phone, string address, IReadOnlyList<TrackingCode> trackingCodes, bool? canSeeManagedUsers, string timezone, bool? isExternalCollabRestricted, bool? isExemptFromDeviceLimits, bool? isExemptFromLoginVerification, bool? isPasswordResetRequired, UpdateUserByIdRequestBodyArgStatusField status, long? spaceAmount, UpdateUserByIdRequestBodyArgNotificationEmailField notificationEmail, string externalAppUserId) {
             Enterprise = enterprise;
             Notify = notify;
             Name = name;

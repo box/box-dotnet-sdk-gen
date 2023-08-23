@@ -8,18 +8,18 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class FolderLocks {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<FolderLock> Entries { get; }
 
-        public FolderLocks(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<FolderLock> entries) {
+        public FolderLocks(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<FolderLock> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

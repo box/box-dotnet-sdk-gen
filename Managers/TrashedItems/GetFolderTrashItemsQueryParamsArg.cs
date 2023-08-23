@@ -7,9 +7,9 @@ namespace Box.Managers {
     public class GetFolderTrashItemsQueryParamsArg {
         public string Fields { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         public bool? Usemarker { get; }
 
@@ -19,7 +19,7 @@ namespace Box.Managers {
 
         public GetFolderTrashItemsQueryParamsArgSortField Sort { get; }
 
-        public GetFolderTrashItemsQueryParamsArg(string fields, int? limit, int? offset, bool? usemarker, string marker, GetFolderTrashItemsQueryParamsArgDirectionField direction, GetFolderTrashItemsQueryParamsArgSortField sort) {
+        public GetFolderTrashItemsQueryParamsArg(string fields, long? limit, long? offset, bool? usemarker, string marker, GetFolderTrashItemsQueryParamsArgDirectionField direction, GetFolderTrashItemsQueryParamsArgSortField sort) {
             Fields = fields;
             Limit = limit;
             Offset = offset;

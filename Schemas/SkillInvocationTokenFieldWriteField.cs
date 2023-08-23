@@ -12,7 +12,7 @@ namespace Box.Schemas {
         public string AccessToken { get; }
 
         [JsonPropertyName("expires_in")]
-        public int? ExpiresIn { get; }
+        public long? ExpiresIn { get; }
 
         [JsonPropertyName("token_type")]
         public SkillInvocationTokenFieldWriteFieldTokenTypeField TokenType { get; }
@@ -20,7 +20,7 @@ namespace Box.Schemas {
         [JsonPropertyName("restricted_to")]
         public string RestrictedTo { get; }
 
-        public SkillInvocationTokenFieldWriteField(string accessToken, int? expiresIn, SkillInvocationTokenFieldWriteFieldTokenTypeField tokenType, string restrictedTo) {
+        public SkillInvocationTokenFieldWriteField(string accessToken, long? expiresIn, SkillInvocationTokenFieldWriteFieldTokenTypeField tokenType, string restrictedTo) {
             AccessToken = accessToken;
             ExpiresIn = expiresIn;
             TokenType = tokenType;

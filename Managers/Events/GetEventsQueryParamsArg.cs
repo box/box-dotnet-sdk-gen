@@ -9,7 +9,7 @@ namespace Box.Managers {
 
         public string StreamPosition { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string EventType { get; }
 
@@ -17,7 +17,7 @@ namespace Box.Managers {
 
         public string CreatedBefore { get; }
 
-        public GetEventsQueryParamsArg(GetEventsQueryParamsArgStreamTypeField streamType, string streamPosition, int? limit, string eventType, string createdAfter, string createdBefore) {
+        public GetEventsQueryParamsArg(GetEventsQueryParamsArgStreamTypeField streamType, string streamPosition, long? limit, string eventType, string createdAfter, string createdBefore) {
             StreamType = streamType;
             StreamPosition = streamPosition;
             Limit = limit;

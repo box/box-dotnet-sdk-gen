@@ -17,11 +17,11 @@ namespace Box.Managers {
 
         public string DispositionAfter { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string Marker { get; }
 
-        public GetFileVersionRetentionsQueryParamsArg(string fileId, string fileVersionId, string policyId, GetFileVersionRetentionsQueryParamsArgDispositionActionField dispositionAction, string dispositionBefore, string dispositionAfter, int? limit, string marker) {
+        public GetFileVersionRetentionsQueryParamsArg(string fileId, string fileVersionId, string policyId, GetFileVersionRetentionsQueryParamsArgDispositionActionField dispositionAction, string dispositionBefore, string dispositionAfter, long? limit, string marker) {
             FileId = fileId;
             FileVersionId = fileVersionId;
             PolicyId = policyId;

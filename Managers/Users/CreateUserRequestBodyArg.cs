@@ -37,7 +37,7 @@ namespace Box.Managers {
         public string Address { get; }
 
         [JsonPropertyName("space_amount")]
-        public int? SpaceAmount { get; }
+        public long? SpaceAmount { get; }
 
         [JsonPropertyName("tracking_codes")]
         public IReadOnlyList<TrackingCode> TrackingCodes { get; }
@@ -63,7 +63,7 @@ namespace Box.Managers {
         [JsonPropertyName("external_app_user_id")]
         public string ExternalAppUserId { get; }
 
-        public CreateUserRequestBodyArg(string name, string login, bool? isPlatformAccessOnly, CreateUserRequestBodyArgRoleField role, string language, bool? isSyncEnabled, string jobTitle, string phone, string address, int? spaceAmount, IReadOnlyList<TrackingCode> trackingCodes, bool? canSeeManagedUsers, string timezone, bool? isExternalCollabRestricted, bool? isExemptFromDeviceLimits, bool? isExemptFromLoginVerification, CreateUserRequestBodyArgStatusField status, string externalAppUserId) {
+        public CreateUserRequestBodyArg(string name, string login, bool? isPlatformAccessOnly, CreateUserRequestBodyArgRoleField role, string language, bool? isSyncEnabled, string jobTitle, string phone, string address, long? spaceAmount, IReadOnlyList<TrackingCode> trackingCodes, bool? canSeeManagedUsers, string timezone, bool? isExternalCollabRestricted, bool? isExemptFromDeviceLimits, bool? isExemptFromLoginVerification, CreateUserRequestBodyArgStatusField status, string externalAppUserId) {
             Name = name;
             Login = login;
             IsPlatformAccessOnly = isPlatformAccessOnly;

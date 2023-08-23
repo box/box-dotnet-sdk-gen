@@ -7,9 +7,9 @@ namespace Box.Managers {
     public class GetCollaborationWhitelistExemptTargetsQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetCollaborationWhitelistExemptTargetsQueryParamsArg(string marker, int? limit) {
+        public GetCollaborationWhitelistExemptTargetsQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

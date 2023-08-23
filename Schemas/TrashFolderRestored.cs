@@ -32,7 +32,7 @@ namespace Box.Schemas {
         public string Description { get; }
 
         [JsonPropertyName("size")]
-        public int? Size { get; }
+        public long? Size { get; }
 
         [JsonPropertyName("path_collection")]
         public TrashFolderRestoredPathCollectionField PathCollection { get; }
@@ -70,7 +70,7 @@ namespace Box.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFolderRestoredItemStatusField ItemStatus { get; }
 
-        public TrashFolderRestored(string id, string etag, TrashFolderRestoredTypeField type, string sequenceId, string name, string createdAt, string modifiedAt, string description, int? size, TrashFolderRestoredPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini ownedBy, string sharedLink, string folderUploadEmail, FolderMini parent, TrashFolderRestoredItemStatusField itemStatus) {
+        public TrashFolderRestored(string id, string etag, TrashFolderRestoredTypeField type, string sequenceId, string name, string createdAt, string modifiedAt, string description, long? size, TrashFolderRestoredPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini ownedBy, string sharedLink, string folderUploadEmail, FolderMini parent, TrashFolderRestoredItemStatusField itemStatus) {
             Id = id;
             Etag = etag;
             Type = type;

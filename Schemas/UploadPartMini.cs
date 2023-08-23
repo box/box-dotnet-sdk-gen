@@ -11,12 +11,12 @@ namespace Box.Schemas {
         public string PartId { get; }
 
         [JsonPropertyName("offset")]
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         [JsonPropertyName("size")]
-        public int? Size { get; }
+        public long? Size { get; }
 
-        public UploadPartMini(string partId, int? offset, int? size) {
+        public UploadPartMini(string partId, long? offset, long? size) {
             PartId = partId;
             Offset = offset;
             Size = size;

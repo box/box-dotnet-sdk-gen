@@ -10,9 +10,9 @@ namespace Box.Managers {
     public class GetShieldInformationBarriersQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetShieldInformationBarriersQueryParamsArg(string marker, int? limit) {
+        public GetShieldInformationBarriersQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

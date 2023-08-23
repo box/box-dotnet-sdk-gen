@@ -11,9 +11,9 @@ namespace Box.Managers {
     public class GetMetadataTemplateGlobalQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetMetadataTemplateGlobalQueryParamsArg(string marker, int? limit) {
+        public GetMetadataTemplateGlobalQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

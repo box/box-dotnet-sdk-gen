@@ -11,7 +11,7 @@ namespace Box.Schemas {
         public string AccessToken { get; }
 
         [JsonPropertyName("expires_in")]
-        public int? ExpiresIn { get; }
+        public long? ExpiresIn { get; }
 
         [JsonPropertyName("token_type")]
         public FileFullExpiringEmbedLinkFieldTokenTypeField TokenType { get; }
@@ -22,7 +22,7 @@ namespace Box.Schemas {
         [JsonPropertyName("url")]
         public string Url { get; }
 
-        public FileFullExpiringEmbedLinkField(string accessToken, int? expiresIn, FileFullExpiringEmbedLinkFieldTokenTypeField tokenType, IReadOnlyList<FileScope> restrictedTo, string url) {
+        public FileFullExpiringEmbedLinkField(string accessToken, long? expiresIn, FileFullExpiringEmbedLinkFieldTokenTypeField tokenType, IReadOnlyList<FileScope> restrictedTo, string url) {
             AccessToken = accessToken;
             ExpiresIn = expiresIn;
             TokenType = tokenType;

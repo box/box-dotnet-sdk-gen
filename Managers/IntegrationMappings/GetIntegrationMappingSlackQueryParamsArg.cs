@@ -7,7 +7,7 @@ namespace Box.Managers {
     public class GetIntegrationMappingSlackQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField PartnerItemType { get; }
 
@@ -19,7 +19,7 @@ namespace Box.Managers {
 
         public bool? IsManuallyCreated { get; }
 
-        public GetIntegrationMappingSlackQueryParamsArg(string marker, int? limit, GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField partnerItemType, string partnerItemId, string boxItemId, GetIntegrationMappingSlackQueryParamsArgBoxItemTypeField boxItemType, bool? isManuallyCreated) {
+        public GetIntegrationMappingSlackQueryParamsArg(string marker, long? limit, GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField partnerItemType, string partnerItemId, string boxItemId, GetIntegrationMappingSlackQueryParamsArgBoxItemTypeField boxItemType, bool? isManuallyCreated) {
             Marker = marker;
             Limit = limit;
             PartnerItemType = partnerItemType;

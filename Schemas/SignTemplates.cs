@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class SignTemplates {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
         public string NextMarker { get; }
@@ -16,7 +16,7 @@ namespace Box.Schemas {
         [JsonPropertyName("prev_marker")]
         public string PrevMarker { get; }
 
-        public SignTemplates(int? limit, string nextMarker, string prevMarker) {
+        public SignTemplates(long? limit, string nextMarker, string prevMarker) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

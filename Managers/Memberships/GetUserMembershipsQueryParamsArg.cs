@@ -5,11 +5,11 @@ using Box;
 
 namespace Box.Managers {
     public class GetUserMembershipsQueryParamsArg {
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetUserMembershipsQueryParamsArg(int? limit, int? offset) {
+        public GetUserMembershipsQueryParamsArg(long? limit, long? offset) {
             Limit = limit;
             Offset = offset;
         }

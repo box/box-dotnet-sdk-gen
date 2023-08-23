@@ -9,9 +9,9 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetStoragePoliciesQueryParamsArg(string fields, string marker, int? limit) {
+        public GetStoragePoliciesQueryParamsArg(string fields, string marker, long? limit) {
             Fields = fields;
             Marker = marker;
             Limit = limit;

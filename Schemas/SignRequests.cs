@@ -9,18 +9,18 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class SignRequests {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<SignRequest> Entries { get; }
 
-        public SignRequests(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<SignRequest> entries) {
+        public SignRequests(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<SignRequest> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

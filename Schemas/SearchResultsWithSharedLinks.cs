@@ -9,13 +9,13 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class SearchResultsWithSharedLinks {
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; }
 
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("offset")]
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         [JsonPropertyName("type")]
         public SearchResultsWithSharedLinksTypeField Type { get; }
@@ -23,7 +23,7 @@ namespace Box.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<SearchResultWithSharedLink> Entries { get; }
 
-        public SearchResultsWithSharedLinks(int? totalCount, int? limit, int? offset, SearchResultsWithSharedLinksTypeField type, IReadOnlyList<SearchResultWithSharedLink> entries) {
+        public SearchResultsWithSharedLinks(long? totalCount, long? limit, long? offset, SearchResultsWithSharedLinksTypeField type, IReadOnlyList<SearchResultWithSharedLink> entries) {
             TotalCount = totalCount;
             Limit = limit;
             Offset = offset;

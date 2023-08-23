@@ -9,18 +9,18 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class Workflows {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<Workflow> Entries { get; }
 
-        public Workflows(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<Workflow> entries) {
+        public Workflows(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<Workflow> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

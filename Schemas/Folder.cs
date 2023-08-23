@@ -18,7 +18,7 @@ namespace Box.Schemas {
         public string Description { get; }
 
         [JsonPropertyName("size")]
-        public int? Size { get; }
+        public long? Size { get; }
 
         [JsonPropertyName("path_collection")]
         public FolderPathCollectionField PathCollection { get; }
@@ -59,7 +59,7 @@ namespace Box.Schemas {
         [JsonPropertyName("item_collection")]
         public Items ItemCollection { get; }
 
-        public Folder(string id, string etag, FolderBaseTypeField type, string name, string sequenceId, string createdAt, string modifiedAt, string description, int? size, FolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini ownedBy, FolderSharedLinkField sharedLink, FolderFolderUploadEmailField folderUploadEmail, FolderMini parent, FolderItemStatusField itemStatus, Items itemCollection) : base(id, etag, type, name, sequenceId) {
+        public Folder(string id, string etag, FolderBaseTypeField type, string name, string sequenceId, string createdAt, string modifiedAt, string description, long? size, FolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini ownedBy, FolderSharedLinkField sharedLink, FolderFolderUploadEmailField folderUploadEmail, FolderMini parent, FolderItemStatusField itemStatus, Items itemCollection) : base(id, etag, type, name, sequenceId) {
             CreatedAt = createdAt;
             ModifiedAt = modifiedAt;
             Description = description;

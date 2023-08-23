@@ -8,13 +8,13 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class FileVersions {
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; }
 
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("offset")]
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         [JsonPropertyName("order")]
         public IReadOnlyList<FileVersionsOrderField> Order { get; }
@@ -22,7 +22,7 @@ namespace Box.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<FileVersion> Entries { get; }
 
-        public FileVersions(int? totalCount, int? limit, int? offset, IReadOnlyList<FileVersionsOrderField> order, IReadOnlyList<FileVersion> entries) {
+        public FileVersions(long? totalCount, long? limit, long? offset, IReadOnlyList<FileVersionsOrderField> order, IReadOnlyList<FileVersion> entries) {
             TotalCount = totalCount;
             Limit = limit;
             Offset = offset;

@@ -7,11 +7,11 @@ namespace Box.Managers {
     public class GetCollectionsQueryParamsArg {
         public string Fields { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetCollectionsQueryParamsArg(string fields, int? offset, int? limit) {
+        public GetCollectionsQueryParamsArg(string fields, long? offset, long? limit) {
             Fields = fields;
             Offset = offset;
             Limit = limit;

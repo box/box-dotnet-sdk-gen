@@ -11,7 +11,7 @@ namespace Box.Schemas {
         public string AccessTokenField { get; }
 
         [JsonPropertyName("expires_in")]
-        public int? ExpiresIn { get; }
+        public long? ExpiresIn { get; }
 
         [JsonPropertyName("token_type")]
         public AccessTokenTokenTypeField TokenType { get; }
@@ -25,7 +25,7 @@ namespace Box.Schemas {
         [JsonPropertyName("issued_token_type")]
         public AccessTokenIssuedTokenTypeField IssuedTokenType { get; }
 
-        public AccessToken(string accessTokenField, int? expiresIn, AccessTokenTokenTypeField tokenType, IReadOnlyList<FileScope> restrictedTo, string refreshToken, AccessTokenIssuedTokenTypeField issuedTokenType) {
+        public AccessToken(string accessTokenField, long? expiresIn, AccessTokenTokenTypeField tokenType, IReadOnlyList<FileScope> restrictedTo, string refreshToken, AccessTokenIssuedTokenTypeField issuedTokenType) {
             AccessTokenField = accessTokenField;
             ExpiresIn = expiresIn;
             TokenType = tokenType;

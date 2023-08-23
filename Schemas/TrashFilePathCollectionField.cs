@@ -8,12 +8,12 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class TrashFilePathCollectionField {
         [JsonPropertyName("total_count")]
-        public int TotalCount { get; }
+        public long TotalCount { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<TrashFilePathCollectionFieldEntriesField> Entries { get; }
 
-        public TrashFilePathCollectionField(int totalCount, IReadOnlyList<TrashFilePathCollectionFieldEntriesField> entries) {
+        public TrashFilePathCollectionField(long totalCount, IReadOnlyList<TrashFilePathCollectionFieldEntriesField> entries) {
             TotalCount = totalCount;
             Entries = entries;
         }

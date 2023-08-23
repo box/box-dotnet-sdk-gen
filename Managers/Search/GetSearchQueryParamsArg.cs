@@ -37,19 +37,19 @@ namespace Box.Managers {
 
         public GetSearchQueryParamsArgDirectionField Direction { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public bool? IncludeRecentSharedLinks { get; }
 
         public string Fields { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         public string DeletedUserIds { get; }
 
         public string DeletedAtRange { get; }
 
-        public GetSearchQueryParamsArg(string query, GetSearchQueryParamsArgScopeField scope, string fileExtensions, string createdAtRange, string updatedAtRange, string sizeRange, string ownerUserIds, string recentUpdaterUserIds, string ancestorFolderIds, string contentTypes, GetSearchQueryParamsArgTypeField type, GetSearchQueryParamsArgTrashContentField trashContent, string mdfilters, GetSearchQueryParamsArgSortField sort, GetSearchQueryParamsArgDirectionField direction, int? limit, bool? includeRecentSharedLinks, string fields, int? offset, string deletedUserIds, string deletedAtRange) {
+        public GetSearchQueryParamsArg(string query, GetSearchQueryParamsArgScopeField scope, string fileExtensions, string createdAtRange, string updatedAtRange, string sizeRange, string ownerUserIds, string recentUpdaterUserIds, string ancestorFolderIds, string contentTypes, GetSearchQueryParamsArgTypeField type, GetSearchQueryParamsArgTrashContentField trashContent, string mdfilters, GetSearchQueryParamsArgSortField sort, GetSearchQueryParamsArgDirectionField direction, long? limit, bool? includeRecentSharedLinks, string fields, long? offset, string deletedUserIds, string deletedAtRange) {
             Query = query;
             Scope = scope;
             FileExtensions = fileExtensions;

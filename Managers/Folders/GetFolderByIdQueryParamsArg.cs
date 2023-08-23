@@ -11,11 +11,11 @@ namespace Box.Managers {
 
         public GetFolderByIdQueryParamsArgDirectionField Direction { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetFolderByIdQueryParamsArg(string fields, GetFolderByIdQueryParamsArgSortField sort, GetFolderByIdQueryParamsArgDirectionField direction, int? offset, int? limit) {
+        public GetFolderByIdQueryParamsArg(string fields, GetFolderByIdQueryParamsArgSortField sort, GetFolderByIdQueryParamsArgDirectionField direction, long? offset, long? limit) {
             Fields = fields;
             Sort = sort;
             Direction = direction;

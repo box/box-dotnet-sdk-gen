@@ -8,12 +8,12 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class TermsOfServiceUserStatuses {
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<TermsOfServiceUserStatus> Entries { get; }
 
-        public TermsOfServiceUserStatuses(int? totalCount, IReadOnlyList<TermsOfServiceUserStatus> entries) {
+        public TermsOfServiceUserStatuses(long? totalCount, IReadOnlyList<TermsOfServiceUserStatus> entries) {
             TotalCount = totalCount;
             Entries = entries;
         }

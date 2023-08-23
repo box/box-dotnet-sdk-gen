@@ -11,9 +11,9 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetFileVersionLegalHoldsQueryParamsArg(string policyId, string marker, int? limit) {
+        public GetFileVersionLegalHoldsQueryParamsArg(string policyId, string marker, long? limit) {
             PolicyId = policyId;
             Marker = marker;
             Limit = limit;

@@ -8,18 +8,18 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class MetadataTemplates {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<MetadataTemplate> Entries { get; }
 
-        public MetadataTemplates(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<MetadataTemplate> entries) {
+        public MetadataTemplates(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<MetadataTemplate> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

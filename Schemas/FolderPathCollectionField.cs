@@ -9,12 +9,12 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class FolderPathCollectionField {
         [JsonPropertyName("total_count")]
-        public int TotalCount { get; }
+        public long TotalCount { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<FolderMini> Entries { get; }
 
-        public FolderPathCollectionField(int totalCount, IReadOnlyList<FolderMini> entries) {
+        public FolderPathCollectionField(long totalCount, IReadOnlyList<FolderMini> entries) {
             TotalCount = totalCount;
             Entries = entries;
         }

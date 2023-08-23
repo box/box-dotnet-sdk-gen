@@ -13,15 +13,15 @@ namespace Box.Managers {
 
         public string Fields { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public bool? Usemarker { get; }
 
         public string Marker { get; }
 
-        public GetUsersQueryParamsArg(string filterTerm, GetUsersQueryParamsArgUserTypeField userType, string externalAppUserId, string fields, int? offset, int? limit, bool? usemarker, string marker) {
+        public GetUsersQueryParamsArg(string filterTerm, GetUsersQueryParamsArgUserTypeField userType, string externalAppUserId, string fields, long? offset, long? limit, bool? usemarker, string marker) {
             FilterTerm = filterTerm;
             UserType = userType;
             ExternalAppUserId = externalAppUserId;

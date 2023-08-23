@@ -11,15 +11,15 @@ namespace Box.Schemas {
         public IReadOnlyList<DevicePinner> Entries { get; }
 
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("order")]
         public IReadOnlyList<DevicePinnersOrderField> Order { get; }
 
-        public DevicePinners(IReadOnlyList<DevicePinner> entries, int? limit, int? nextMarker, IReadOnlyList<DevicePinnersOrderField> order) {
+        public DevicePinners(IReadOnlyList<DevicePinner> entries, long? limit, long? nextMarker, IReadOnlyList<DevicePinnersOrderField> order) {
             Entries = entries;
             Limit = limit;
             NextMarker = nextMarker;

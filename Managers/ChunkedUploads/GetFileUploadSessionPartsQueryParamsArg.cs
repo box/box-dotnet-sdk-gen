@@ -8,11 +8,11 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileUploadSessionPartsQueryParamsArg {
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetFileUploadSessionPartsQueryParamsArg(int? offset, int? limit) {
+        public GetFileUploadSessionPartsQueryParamsArg(long? offset, long? limit) {
             Offset = offset;
             Limit = limit;
         }

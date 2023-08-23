@@ -8,18 +8,18 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class CollaborationAllowlistExemptTargets {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<CollaborationAllowlistExemptTarget> Entries { get; }
 
-        public CollaborationAllowlistExemptTargets(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<CollaborationAllowlistExemptTarget> entries) {
+        public CollaborationAllowlistExemptTargets(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<CollaborationAllowlistExemptTarget> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

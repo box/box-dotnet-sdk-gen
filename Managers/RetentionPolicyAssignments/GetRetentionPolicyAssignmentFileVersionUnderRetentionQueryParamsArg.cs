@@ -11,9 +11,9 @@ namespace Box.Managers {
     public class GetRetentionPolicyAssignmentFileVersionUnderRetentionQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetRetentionPolicyAssignmentFileVersionUnderRetentionQueryParamsArg(string marker, int? limit) {
+        public GetRetentionPolicyAssignmentFileVersionUnderRetentionQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

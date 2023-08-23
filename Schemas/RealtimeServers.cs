@@ -8,12 +8,12 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class RealtimeServers {
         [JsonPropertyName("chunk_size")]
-        public int? ChunkSize { get; }
+        public long? ChunkSize { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<RealtimeServer> Entries { get; }
 
-        public RealtimeServers(int? chunkSize, IReadOnlyList<RealtimeServer> entries) {
+        public RealtimeServers(long? chunkSize, IReadOnlyList<RealtimeServer> entries) {
             ChunkSize = chunkSize;
             Entries = entries;
         }

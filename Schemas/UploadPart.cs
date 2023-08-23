@@ -10,7 +10,7 @@ namespace Box.Schemas {
         [JsonPropertyName("sha1")]
         public string Sha1 { get; }
 
-        public UploadPart(string partId, int? offset, int? size, string sha1) : base(partId, offset, size) {
+        public UploadPart(string partId, long? offset, long? size, string sha1) : base(partId, offset, size) {
             Sha1 = sha1;
         }
     }

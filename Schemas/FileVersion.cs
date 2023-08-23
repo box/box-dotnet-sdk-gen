@@ -11,7 +11,7 @@ namespace Box.Schemas {
         public string Name { get; }
 
         [JsonPropertyName("size")]
-        public int? Size { get; }
+        public long? Size { get; }
 
         [JsonPropertyName("created_at")]
         public string CreatedAt { get; }
@@ -40,7 +40,7 @@ namespace Box.Schemas {
         [JsonPropertyName("uploader_display_name")]
         public string UploaderDisplayName { get; }
 
-        public FileVersion(string id, FileVersionBaseTypeField type, string sha1, string name, int? size, string createdAt, string modifiedAt, UserMini modifiedBy, string trashedAt, UserMini trashedBy, string restoredAt, UserMini restoredBy, string purgedAt, string uploaderDisplayName) : base(id, type, sha1) {
+        public FileVersion(string id, FileVersionBaseTypeField type, string sha1, string name, long? size, string createdAt, string modifiedAt, UserMini modifiedBy, string trashedAt, UserMini trashedBy, string restoredAt, UserMini restoredBy, string purgedAt, string uploaderDisplayName) : base(id, type, sha1) {
             Name = name;
             Size = size;
             CreatedAt = createdAt;

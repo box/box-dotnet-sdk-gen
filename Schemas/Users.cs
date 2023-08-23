@@ -8,13 +8,13 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class Users {
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; }
 
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("offset")]
-        public int? Offset { get; }
+        public long? Offset { get; }
 
         [JsonPropertyName("order")]
         public IReadOnlyList<UsersOrderField> Order { get; }
@@ -22,7 +22,7 @@ namespace Box.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<User> Entries { get; }
 
-        public Users(int? totalCount, int? limit, int? offset, IReadOnlyList<UsersOrderField> order, IReadOnlyList<User> entries) {
+        public Users(long? totalCount, long? limit, long? offset, IReadOnlyList<UsersOrderField> order, IReadOnlyList<User> entries) {
             TotalCount = totalCount;
             Limit = limit;
             Offset = offset;

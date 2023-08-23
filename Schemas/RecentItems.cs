@@ -9,18 +9,18 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class RecentItems {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<RecentItem> Entries { get; }
 
-        public RecentItems(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<RecentItem> entries) {
+        public RecentItems(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<RecentItem> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

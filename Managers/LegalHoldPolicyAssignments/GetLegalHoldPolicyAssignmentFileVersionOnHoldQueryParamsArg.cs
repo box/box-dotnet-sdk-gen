@@ -10,11 +10,11 @@ namespace Box.Managers {
     public class GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string Fields { get; }
 
-        public GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParamsArg(string marker, int? limit, string fields) {
+        public GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParamsArg(string marker, long? limit, string fields) {
             Marker = marker;
             Limit = limit;
             Fields = fields;

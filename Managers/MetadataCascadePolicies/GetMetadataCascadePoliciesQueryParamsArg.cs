@@ -11,9 +11,9 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetMetadataCascadePoliciesQueryParamsArg(string folderId, string ownerEnterpriseId, string marker, int? offset) {
+        public GetMetadataCascadePoliciesQueryParamsArg(string folderId, string ownerEnterpriseId, string marker, long? offset) {
             FolderId = folderId;
             OwnerEnterpriseId = ownerEnterpriseId;
             Marker = marker;

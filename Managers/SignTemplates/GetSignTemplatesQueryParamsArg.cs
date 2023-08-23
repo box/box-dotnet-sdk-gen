@@ -7,9 +7,9 @@ namespace Box.Managers {
     public class GetSignTemplatesQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetSignTemplatesQueryParamsArg(string marker, int? limit) {
+        public GetSignTemplatesQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

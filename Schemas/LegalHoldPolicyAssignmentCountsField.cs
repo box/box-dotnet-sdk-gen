@@ -8,18 +8,18 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class LegalHoldPolicyAssignmentCountsField {
         [JsonPropertyName("user")]
-        public int? User { get; }
+        public long? User { get; }
 
         [JsonPropertyName("folder")]
-        public int? Folder { get; }
+        public long? Folder { get; }
 
         [JsonPropertyName("file")]
-        public int? File { get; }
+        public long? File { get; }
 
         [JsonPropertyName("file_version")]
-        public int? FileVersion { get; }
+        public long? FileVersion { get; }
 
-        public LegalHoldPolicyAssignmentCountsField(int? user, int? folder, int? file, int? fileVersion) {
+        public LegalHoldPolicyAssignmentCountsField(long? user, long? folder, long? file, long? fileVersion) {
             User = user;
             Folder = folder;
             File = file;

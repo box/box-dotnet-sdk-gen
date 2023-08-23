@@ -7,11 +7,11 @@ using Box;
 
 namespace Box.Managers {
     public class GetGroupMembershipsQueryParamsArg {
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetGroupMembershipsQueryParamsArg(int? limit, int? offset) {
+        public GetGroupMembershipsQueryParamsArg(long? limit, long? offset) {
             Limit = limit;
             Offset = offset;
         }

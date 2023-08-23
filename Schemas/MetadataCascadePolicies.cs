@@ -8,18 +8,18 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class MetadataCascadePolicies {
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; }
 
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; }
 
         [JsonPropertyName("entries")]
         public IReadOnlyList<MetadataCascadePolicy> Entries { get; }
 
-        public MetadataCascadePolicies(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<MetadataCascadePolicy> entries) {
+        public MetadataCascadePolicies(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<MetadataCascadePolicy> entries) {
             Limit = limit;
             NextMarker = nextMarker;
             PrevMarker = prevMarker;

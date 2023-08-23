@@ -7,11 +7,11 @@ namespace Box.Managers {
     public class GetFileVersionsQueryParamsArg {
         public string Fields { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetFileVersionsQueryParamsArg(string fields, int? limit, int? offset) {
+        public GetFileVersionsQueryParamsArg(string fields, long? limit, long? offset) {
             Fields = fields;
             Limit = limit;
             Offset = offset;

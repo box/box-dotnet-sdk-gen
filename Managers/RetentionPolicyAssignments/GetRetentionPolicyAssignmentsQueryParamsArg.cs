@@ -11,9 +11,9 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetRetentionPolicyAssignmentsQueryParamsArg(GetRetentionPolicyAssignmentsQueryParamsArgTypeField type, string fields, string marker, int? limit) {
+        public GetRetentionPolicyAssignmentsQueryParamsArg(GetRetentionPolicyAssignmentsQueryParamsArgTypeField type, string fields, string marker, long? limit) {
             Type = type;
             Fields = fields;
             Marker = marker;

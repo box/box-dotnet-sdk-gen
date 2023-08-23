@@ -9,9 +9,9 @@ namespace Box.Managers {
     public class GetSignRequestsQueryParamsArg {
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetSignRequestsQueryParamsArg(string marker, int? limit) {
+        public GetSignRequestsQueryParamsArg(string marker, long? limit) {
             Marker = marker;
             Limit = limit;
         }

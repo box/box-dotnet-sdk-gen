@@ -11,9 +11,9 @@ namespace Box.Managers {
 
         public string Marker { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public GetShieldInformationBarrierSegmentRestrictionsQueryParamsArg(string shieldInformationBarrierSegmentId, string marker, int? limit) {
+        public GetShieldInformationBarrierSegmentRestrictionsQueryParamsArg(string shieldInformationBarrierSegmentId, string marker, long? limit) {
             ShieldInformationBarrierSegmentId = shieldInformationBarrierSegmentId;
             Marker = marker;
             Limit = limit;

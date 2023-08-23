@@ -7,11 +7,11 @@ using Box;
 
 namespace Box.Managers {
     public class GetGroupCollaborationsQueryParamsArg {
-        public int? Limit { get; }
+        public long? Limit { get; }
 
-        public int? Offset { get; }
+        public long? Offset { get; }
 
-        public GetGroupCollaborationsQueryParamsArg(int? limit, int? offset) {
+        public GetGroupCollaborationsQueryParamsArg(long? limit, long? offset) {
             Limit = limit;
             Offset = offset;
         }

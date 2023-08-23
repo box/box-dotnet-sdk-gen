@@ -9,11 +9,11 @@ namespace Box.Managers {
 
         public string TriggerType { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string Marker { get; }
 
-        public GetWorkflowsQueryParamsArg(string folderId, string triggerType, int? limit, string marker) {
+        public GetWorkflowsQueryParamsArg(string folderId, string triggerType, long? limit, string marker) {
             FolderId = folderId;
             TriggerType = triggerType;
             Limit = limit;

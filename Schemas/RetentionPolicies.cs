@@ -11,12 +11,12 @@ namespace Box.Schemas {
         public IReadOnlyList<RetentionPolicyMini> Entries { get; }
 
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         [JsonPropertyName("next_marker")]
         public string NextMarker { get; }
 
-        public RetentionPolicies(IReadOnlyList<RetentionPolicyMini> entries, int? limit, string nextMarker) {
+        public RetentionPolicies(IReadOnlyList<RetentionPolicyMini> entries, long? limit, string nextMarker) {
             Entries = entries;
             Limit = limit;
             NextMarker = nextMarker;

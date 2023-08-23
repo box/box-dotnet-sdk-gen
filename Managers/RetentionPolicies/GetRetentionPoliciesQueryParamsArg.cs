@@ -13,11 +13,11 @@ namespace Box.Managers {
 
         public string Fields { get; }
 
-        public int? Limit { get; }
+        public long? Limit { get; }
 
         public string Marker { get; }
 
-        public GetRetentionPoliciesQueryParamsArg(string policyName, GetRetentionPoliciesQueryParamsArgPolicyTypeField policyType, string createdByUserId, string fields, int? limit, string marker) {
+        public GetRetentionPoliciesQueryParamsArg(string policyName, GetRetentionPoliciesQueryParamsArgPolicyTypeField policyType, string createdByUserId, string fields, long? limit, string marker) {
             PolicyName = policyName;
             PolicyType = policyType;
             CreatedByUserId = createdByUserId;

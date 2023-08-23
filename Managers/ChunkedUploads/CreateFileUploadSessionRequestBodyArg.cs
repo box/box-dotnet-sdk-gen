@@ -9,12 +9,12 @@ namespace Box.Managers {
         public string FolderId { get; }
 
         [JsonPropertyName("file_size")]
-        public int FileSize { get; }
+        public long FileSize { get; }
 
         [JsonPropertyName("file_name")]
         public string FileName { get; }
 
-        public CreateFileUploadSessionRequestBodyArg(string folderId, int fileSize, string fileName) {
+        public CreateFileUploadSessionRequestBodyArg(string folderId, long fileSize, string fileName) {
             FolderId = folderId;
             FileSize = fileSize;
             FileName = fileName;
