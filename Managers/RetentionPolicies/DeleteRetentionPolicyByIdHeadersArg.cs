@@ -9,10 +9,13 @@ using Box;
 
 namespace Box.Managers {
     public class DeleteRetentionPolicyByIdHeadersArg {
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public DeleteRetentionPolicyByIdHeadersArg(Dictionary<string, string> extraHeaders) {
-            ExtraHeaders = extraHeaders;
+        public DeleteRetentionPolicyByIdHeadersArg() {
+            
         }
     }
 }

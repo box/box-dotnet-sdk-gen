@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class EventSourceClassificationField {
+        /// <summary>
+        /// The classification's name
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
-        public EventSourceClassificationField(string name) {
-            Name = name;
+        public EventSourceClassificationField() {
+            
         }
     }
 }

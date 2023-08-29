@@ -8,11 +8,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileByIdRequestBodyArgParentField {
+        /// <summary>
+        /// The ID of parent item
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public UpdateFileByIdRequestBodyArgParentField(string id) {
-            Id = id;
+        public UpdateFileByIdRequestBodyArgParentField() {
+            
         }
     }
 }

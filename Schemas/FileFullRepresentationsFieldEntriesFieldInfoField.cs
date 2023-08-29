@@ -7,11 +7,16 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileFullRepresentationsFieldEntriesFieldInfoField {
+        /// <summary>
+        /// The API URL that can be used to get more info on this file
+        /// representation. Make sure to make an authenticated API call
+        /// to this endpoint.
+        /// </summary>
         [JsonPropertyName("url")]
-        public string Url { get; }
+        public string? Url { get; set; } = default;
 
-        public FileFullRepresentationsFieldEntriesFieldInfoField(string url) {
-            Url = url;
+        public FileFullRepresentationsFieldEntriesFieldInfoField() {
+            
         }
     }
 }

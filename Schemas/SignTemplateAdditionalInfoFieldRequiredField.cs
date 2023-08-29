@@ -8,11 +8,14 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignTemplateAdditionalInfoFieldRequiredField {
+        /// <summary>
+        /// Required signer fields.
+        /// </summary>
         [JsonPropertyName("signers")]
-        public IReadOnlyList<IReadOnlyList<SignTemplateAdditionalInfoFieldRequiredFieldSignersField>> Signers { get; }
+        public IReadOnlyList<IReadOnlyList<SignTemplateAdditionalInfoFieldRequiredFieldSignersField>>? Signers { get; set; } = default;
 
-        public SignTemplateAdditionalInfoFieldRequiredField(IReadOnlyList<IReadOnlyList<SignTemplateAdditionalInfoFieldRequiredFieldSignersField>> signers) {
-            Signers = signers;
+        public SignTemplateAdditionalInfoFieldRequiredField() {
+            
         }
     }
 }

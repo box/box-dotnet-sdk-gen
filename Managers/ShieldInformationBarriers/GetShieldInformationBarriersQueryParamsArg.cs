@@ -8,13 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class GetShieldInformationBarriersQueryParamsArg {
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public int? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetShieldInformationBarriersQueryParamsArg(string marker, int? limit) {
-            Marker = marker;
-            Limit = limit;
+        public GetShieldInformationBarriersQueryParamsArg() {
+            
         }
     }
 }

@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class GroupMini : GroupBase {
+        /// <summary>
+        /// The name of the group
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The type of the group.
+        /// </summary>
         [JsonPropertyName("group_type")]
-        public GroupMiniGroupTypeField GroupType { get; }
+        public GroupMiniGroupTypeField? GroupType { get; set; } = default;
 
-        public GroupMini(string id, GroupBaseTypeField type, string name, GroupMiniGroupTypeField groupType) : base(id, type) {
-            Name = name;
-            GroupType = groupType;
+        public GroupMini() {
+            
         }
     }
 }

@@ -8,11 +8,16 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileByIdRequestBodyArgSharedLinkFieldPermissionsField {
+        /// <summary>
+        /// If the shared link allows for downloading of files.
+        /// This can only be set when `access` is set to
+        /// `open` or `company`.
+        /// </summary>
         [JsonPropertyName("can_download")]
-        public bool? CanDownload { get; }
+        public bool? CanDownload { get; set; } = default;
 
-        public UpdateFileByIdRequestBodyArgSharedLinkFieldPermissionsField(bool? canDownload) {
-            CanDownload = canDownload;
+        public UpdateFileByIdRequestBodyArgSharedLinkFieldPermissionsField() {
+            
         }
     }
 }

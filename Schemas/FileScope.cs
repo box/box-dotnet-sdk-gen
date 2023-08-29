@@ -7,15 +7,17 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileScope {
+        /// <summary>
+        /// The file scopes for the file access
+        /// </summary>
         [JsonPropertyName("scope")]
-        public FileScopeScopeField Scope { get; }
+        public FileScopeScopeField? Scope { get; set; } = default;
 
         [JsonPropertyName("object")]
-        public FileMini Object { get; }
+        public FileMini? Object { get; set; } = default;
 
-        public FileScope(FileScopeScopeField scope, FileMini objectParam) {
-            Scope = scope;
-            Object = objectParam;
+        public FileScope() {
+            
         }
     }
 }

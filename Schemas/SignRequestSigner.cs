@@ -8,23 +8,40 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignRequestSigner : SignRequestCreateSigner {
+        /// <summary>
+        /// Set to `true` if the signer views the document
+        /// </summary>
         [JsonPropertyName("has_viewed_document")]
-        public bool? HasViewedDocument { get; }
+        public bool? HasViewedDocument { get; set; } = default;
 
+        /// <summary>
+        /// Final decision made by the signer
+        /// </summary>
         [JsonPropertyName("signer_decision")]
-        public SignRequestSignerSignerDecisionField SignerDecision { get; }
+        public SignRequestSignerSignerDecisionField? SignerDecision { get; set; } = default;
 
         [JsonPropertyName("inputs")]
-        public IReadOnlyList<SignRequestSignerInput> Inputs { get; }
+        public IReadOnlyList<SignRequestSignerInput>? Inputs { get; set; } = default;
 
+        /// <summary>
+        /// URL to direct a signer to for signing
+        /// </summary>
         [JsonPropertyName("embed_url")]
-        public string EmbedUrl { get; }
+        public string? EmbedUrl { get; set; } = default;
 
-        public SignRequestSigner(string email, SignRequestCreateSignerRoleField role, bool? isInPerson, int? order, string embedUrlExternalUserId, string redirectUrl, string declinedRedirectUrl, bool? loginRequired, string verificationPhoneNumber, string password, bool? hasViewedDocument, SignRequestSignerSignerDecisionField signerDecision, IReadOnlyList<SignRequestSignerInput> inputs, string embedUrl) : base(email, role, isInPerson, order, embedUrlExternalUserId, redirectUrl, declinedRedirectUrl, loginRequired, verificationPhoneNumber, password) {
-            HasViewedDocument = hasViewedDocument;
-            SignerDecision = signerDecision;
-            Inputs = inputs;
-            EmbedUrl = embedUrl;
+        /// <summary>
+        /// This URL is specifically designed for
+        /// signing documents within an HTML `iframe` tag.
+        /// It will be returned in the response
+        /// only if the `embed_url_external_user_id`
+        /// parameter was passed in the
+        /// `create sign request` call.
+        /// </summary>
+        [JsonPropertyName("iframeable_embed_url")]
+        public string? IframeableEmbedUrl { get; set; } = default;
+
+        public SignRequestSigner(string email) : base(email) {
+            
         }
     }
 }

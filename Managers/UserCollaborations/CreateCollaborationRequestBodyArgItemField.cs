@@ -8,15 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class CreateCollaborationRequestBodyArgItemField {
+        /// <summary>
+        /// The type of the item that this collaboration will be
+        /// granted access to
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateCollaborationRequestBodyArgItemFieldTypeField Type { get; }
+        public CreateCollaborationRequestBodyArgItemFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The ID of the item that will be granted access to
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public CreateCollaborationRequestBodyArgItemField(CreateCollaborationRequestBodyArgItemFieldTypeField type, string id) {
-            Type = type;
-            Id = id;
+        public CreateCollaborationRequestBodyArgItemField() {
+            
         }
     }
 }

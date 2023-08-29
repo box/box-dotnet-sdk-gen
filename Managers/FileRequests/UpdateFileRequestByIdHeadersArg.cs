@@ -7,13 +7,24 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileRequestByIdHeadersArg {
-        public string IfMatch { get; }
+        /// <summary>
+        /// Ensures this item hasn't recently changed before
+        /// making changes.
+        /// 
+        /// Pass in the item's last observed `etag` value
+        /// into this header and the endpoint will fail
+        /// with a `412 Precondition Failed` if it
+        /// has changed since.
+        /// </summary>
+        public string? IfMatch { get; set; } = default;
 
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public UpdateFileRequestByIdHeadersArg(string ifMatch, Dictionary<string, string> extraHeaders) {
-            IfMatch = ifMatch;
-            ExtraHeaders = extraHeaders;
+        public UpdateFileRequestByIdHeadersArg() {
+            
         }
     }
 }

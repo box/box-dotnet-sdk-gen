@@ -8,23 +8,32 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SkillInvocationSkillField {
+        /// <summary>
+        /// The unique identifier for this skill
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `skill`
+        /// </summary>
         [JsonPropertyName("type")]
-        public SkillInvocationSkillFieldTypeField Type { get; }
+        public SkillInvocationSkillFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The name of the skill
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The client ID of the application
+        /// </summary>
         [JsonPropertyName("api_key")]
-        public string ApiKey { get; }
+        public string? ApiKey { get; set; } = default;
 
-        public SkillInvocationSkillField(string id, SkillInvocationSkillFieldTypeField type, string name, string apiKey) {
-            Id = id;
-            Type = type;
-            Name = name;
-            ApiKey = apiKey;
+        public SkillInvocationSkillField() {
+            
         }
     }
 }

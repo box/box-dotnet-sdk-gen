@@ -8,23 +8,26 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class WorkflowFull : Workflow {
+        /// <summary>
+        /// The date and time when the workflow was created on Box
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The date and time when the workflow was last updated on Box
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
         [JsonPropertyName("modified_by")]
-        public UserBase ModifiedBy { get; }
+        public UserBase? ModifiedBy { get; set; } = default;
 
-        public WorkflowFull(string id, WorkflowMiniTypeField type, string name, string description, bool? isEnabled, IReadOnlyList<WorkflowFlowsField> flows, string createdAt, string modifiedAt, UserBase createdBy, UserBase modifiedBy) : base(id, type, name, description, isEnabled, flows) {
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            CreatedBy = createdBy;
-            ModifiedBy = modifiedBy;
+        public WorkflowFull() {
+            
         }
     }
 }

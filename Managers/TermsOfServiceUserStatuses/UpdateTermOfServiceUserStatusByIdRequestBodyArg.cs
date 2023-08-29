@@ -8,8 +8,11 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateTermOfServiceUserStatusByIdRequestBodyArg {
+        /// <summary>
+        /// Whether the user has accepted the terms.
+        /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool IsAccepted { get; }
+        public bool IsAccepted { get; set; }
 
         public UpdateTermOfServiceUserStatusByIdRequestBodyArg(bool isAccepted) {
             IsAccepted = isAccepted;

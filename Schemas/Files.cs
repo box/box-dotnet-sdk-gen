@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Files {
+        /// <summary>
+        /// The number of files.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; set; } = default;
 
+        /// <summary>
+        /// A list of files
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<File> Entries { get; }
+        public IReadOnlyList<File>? Entries { get; set; } = default;
 
-        public Files(int? totalCount, IReadOnlyList<File> entries) {
-            TotalCount = totalCount;
-            Entries = entries;
+        public Files() {
+            
         }
     }
 }

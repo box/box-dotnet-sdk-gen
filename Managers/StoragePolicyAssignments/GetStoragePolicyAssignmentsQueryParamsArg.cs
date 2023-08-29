@@ -5,14 +5,25 @@ using Box;
 
 namespace Box.Managers {
     public class GetStoragePolicyAssignmentsQueryParamsArg {
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public GetStoragePolicyAssignmentsQueryParamsArgResolvedForTypeField ResolvedForType { get; }
+        /// <summary>
+        /// The target type to return assignments for
+        /// </summary>
+        public GetStoragePolicyAssignmentsQueryParamsArgResolvedForTypeField ResolvedForType { get; set; }
 
-        public string ResolvedForId { get; }
+        /// <summary>
+        /// The ID of the user or enterprise to return assignments for
+        /// </summary>
+        public string ResolvedForId { get; set; }
 
-        public GetStoragePolicyAssignmentsQueryParamsArg(string marker, GetStoragePolicyAssignmentsQueryParamsArgResolvedForTypeField resolvedForType, string resolvedForId) {
-            Marker = marker;
+        public GetStoragePolicyAssignmentsQueryParamsArg(GetStoragePolicyAssignmentsQueryParamsArgResolvedForTypeField resolvedForType, string resolvedForId) {
             ResolvedForType = resolvedForType;
             ResolvedForId = resolvedForId;
         }

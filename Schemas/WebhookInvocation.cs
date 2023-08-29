@@ -8,35 +8,39 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class WebhookInvocation {
+        /// <summary>
+        /// The unique identifier for this webhook invocation
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `webhook_event`
+        /// </summary>
         [JsonPropertyName("type")]
-        public WebhookInvocationTypeField Type { get; }
+        public WebhookInvocationTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("webhook")]
-        public Webhook Webhook { get; }
+        public Webhook? Webhook { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserMini CreatedBy { get; }
+        public UserMini? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// A timestamp identifying the time that
+        /// the webhook event was triggered.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("trigger")]
-        public WebhookInvocationTriggerField Trigger { get; }
+        public WebhookInvocationTriggerField? Trigger { get; set; } = default;
 
         [JsonPropertyName("source")]
-        public WebhookInvocationSourceField Source { get; }
+        public WebhookInvocationSourceField? Source { get; set; } = default;
 
-        public WebhookInvocation(string id, WebhookInvocationTypeField type, Webhook webhook, UserMini createdBy, string createdAt, WebhookInvocationTriggerField trigger, WebhookInvocationSourceField source) {
-            Id = id;
-            Type = type;
-            Webhook = webhook;
-            CreatedBy = createdBy;
-            CreatedAt = createdAt;
-            Trigger = trigger;
-            Source = source;
+        public WebhookInvocation() {
+            
         }
     }
 }

@@ -8,8 +8,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateCollaborationWhitelistExemptTargetRequestBodyArgUserField {
+        /// <summary>
+        /// The ID of the user to exempt.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CreateCollaborationWhitelistExemptTargetRequestBodyArgUserField(string id) {
             Id = id;

@@ -8,11 +8,15 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileVersionByIdRequestBodyArg {
+        /// <summary>
+        /// Set this to `null` to clear
+        /// the date and restore the file.
+        /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string TrashedAt { get; }
+        public string? TrashedAt { get; set; } = default;
 
-        public UpdateFileVersionByIdRequestBodyArg(string trashedAt) {
-            TrashedAt = trashedAt;
+        public UpdateFileVersionByIdRequestBodyArg() {
+            
         }
     }
 }

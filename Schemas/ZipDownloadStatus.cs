@@ -8,27 +8,44 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class ZipDownloadStatus {
+        /// <summary>
+        /// The total number of files in the archive.
+        /// </summary>
         [JsonPropertyName("total_file_count")]
-        public int? TotalFileCount { get; }
+        public int? TotalFileCount { get; set; } = default;
 
+        /// <summary>
+        /// The number of files that have already been downloaded.
+        /// </summary>
         [JsonPropertyName("downloaded_file_count")]
-        public int? DownloadedFileCount { get; }
+        public int? DownloadedFileCount { get; set; } = default;
 
+        /// <summary>
+        /// The number of files that have been skipped as they could not be
+        /// downloaded. In many cases this is due to permission issues that have
+        /// surfaced between the creation of the request for the archive and the
+        /// archive being downloaded.
+        /// </summary>
         [JsonPropertyName("skipped_file_count")]
-        public int? SkippedFileCount { get; }
+        public int? SkippedFileCount { get; set; } = default;
 
+        /// <summary>
+        /// The number of folders that have been skipped as they could not be
+        /// downloaded. In many cases this is due to permission issues that have
+        /// surfaced between the creation of the request for the archive and the
+        /// archive being downloaded.
+        /// </summary>
         [JsonPropertyName("skipped_folder_count")]
-        public int? SkippedFolderCount { get; }
+        public int? SkippedFolderCount { get; set; } = default;
 
+        /// <summary>
+        /// The state of the archive being downloaded.
+        /// </summary>
         [JsonPropertyName("state")]
-        public ZipDownloadStatusStateField State { get; }
+        public ZipDownloadStatusStateField? State { get; set; } = default;
 
-        public ZipDownloadStatus(int? totalFileCount, int? downloadedFileCount, int? skippedFileCount, int? skippedFolderCount, ZipDownloadStatusStateField state) {
-            TotalFileCount = totalFileCount;
-            DownloadedFileCount = downloadedFileCount;
-            SkippedFileCount = skippedFileCount;
-            SkippedFolderCount = skippedFolderCount;
-            State = state;
+        public ZipDownloadStatus() {
+            
         }
     }
 }

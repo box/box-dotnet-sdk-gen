@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class GroupBase {
+        /// <summary>
+        /// The unique identifier for this object
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `group`
+        /// </summary>
         [JsonPropertyName("type")]
-        public GroupBaseTypeField Type { get; }
+        public GroupBaseTypeField? Type { get; set; } = default;
 
-        public GroupBase(string id, GroupBaseTypeField type) {
-            Id = id;
-            Type = type;
+        public GroupBase() {
+            
         }
     }
 }

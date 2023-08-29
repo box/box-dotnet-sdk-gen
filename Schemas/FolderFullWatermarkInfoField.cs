@@ -8,11 +8,14 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class FolderFullWatermarkInfoField {
+        /// <summary>
+        /// Specifies if this item has a watermark applied.
+        /// </summary>
         [JsonPropertyName("is_watermarked")]
-        public bool? IsWatermarked { get; }
+        public bool? IsWatermarked { get; set; } = default;
 
-        public FolderFullWatermarkInfoField(bool? isWatermarked) {
-            IsWatermarked = isWatermarked;
+        public FolderFullWatermarkInfoField() {
+            
         }
     }
 }

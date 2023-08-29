@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class CommentsOrderField {
+        /// <summary>
+        /// The field to order by
+        /// </summary>
         [JsonPropertyName("by")]
-        public string By { get; }
+        public string? By { get; set; } = default;
 
+        /// <summary>
+        /// The direction to order by, either ascending or descending
+        /// </summary>
         [JsonPropertyName("direction")]
-        public CommentsOrderFieldDirectionField Direction { get; }
+        public CommentsOrderFieldDirectionField? Direction { get; set; } = default;
 
-        public CommentsOrderField(string by, CommentsOrderFieldDirectionField direction) {
-            By = by;
-            Direction = direction;
+        public CommentsOrderField() {
+            
         }
     }
 }

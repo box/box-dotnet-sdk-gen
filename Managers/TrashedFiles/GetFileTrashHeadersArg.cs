@@ -8,10 +8,13 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileTrashHeadersArg {
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public GetFileTrashHeadersArg(Dictionary<string, string> extraHeaders) {
-            ExtraHeaders = extraHeaders;
+        public GetFileTrashHeadersArg() {
+            
         }
     }
 }

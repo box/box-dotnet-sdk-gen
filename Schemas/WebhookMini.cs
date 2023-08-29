@@ -7,19 +7,26 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class WebhookMini {
+        /// <summary>
+        /// The unique identifier for this webhook.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `webhook`
+        /// </summary>
         [JsonPropertyName("type")]
-        public WebhookMiniTypeField Type { get; }
+        public WebhookMiniTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The item that will trigger the webhook
+        /// </summary>
         [JsonPropertyName("target")]
-        public WebhookMiniTargetField Target { get; }
+        public WebhookMiniTargetField? Target { get; set; } = default;
 
-        public WebhookMini(string id, WebhookMiniTypeField type, WebhookMiniTargetField target) {
-            Id = id;
-            Type = type;
-            Target = target;
+        public WebhookMini() {
+            
         }
     }
 }

@@ -7,19 +7,26 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class MetadataQueryIndices {
+        /// <summary>
+        /// A collection of metadata query indices.
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<MetadataQueryIndex> Entries { get; }
+        public IReadOnlyList<MetadataQueryIndex>? Entries { get; set; } = default;
 
+        /// <summary>
+        /// The limit that was used for this request.
+        /// </summary>
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the next page of results.
+        /// </summary>
         [JsonPropertyName("next_marker")]
-        public string NextMarker { get; }
+        public string? NextMarker { get; set; } = default;
 
-        public MetadataQueryIndices(IReadOnlyList<MetadataQueryIndex> entries, int? limit, string nextMarker) {
-            Entries = entries;
-            Limit = limit;
-            NextMarker = nextMarker;
+        public MetadataQueryIndices() {
+            
         }
     }
 }

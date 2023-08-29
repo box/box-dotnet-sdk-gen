@@ -8,13 +8,22 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileUploadSessionPartsQueryParamsArg {
-        public int? Offset { get; }
+        /// <summary>
+        /// The offset of the item at which to begin the response.
+        /// 
+        /// Queries with offset parameter value
+        /// exceeding 10000 will be rejected
+        /// with a 400 response.
+        /// </summary>
+        public long? Offset { get; set; } = default;
 
-        public int? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetFileUploadSessionPartsQueryParamsArg(int? offset, int? limit) {
-            Offset = offset;
-            Limit = limit;
+        public GetFileUploadSessionPartsQueryParamsArg() {
+            
         }
     }
 }

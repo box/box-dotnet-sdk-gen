@@ -8,31 +8,35 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class WorkflowFlowsField {
+        /// <summary>
+        /// The identifier of the flow
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The flow's resource type
+        /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsFieldTypeField Type { get; }
+        public WorkflowFlowsFieldTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("trigger")]
-        public WorkflowFlowsFieldTriggerField Trigger { get; }
+        public WorkflowFlowsFieldTriggerField? Trigger { get; set; } = default;
 
         [JsonPropertyName("outcomes")]
-        public IReadOnlyList<WorkflowFlowsFieldOutcomesField> Outcomes { get; }
+        public IReadOnlyList<WorkflowFlowsFieldOutcomesField>? Outcomes { get; set; } = default;
 
+        /// <summary>
+        /// When this flow was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
-        public WorkflowFlowsField(string id, WorkflowFlowsFieldTypeField type, WorkflowFlowsFieldTriggerField trigger, IReadOnlyList<WorkflowFlowsFieldOutcomesField> outcomes, string createdAt, UserBase createdBy) {
-            Id = id;
-            Type = type;
-            Trigger = trigger;
-            Outcomes = outcomes;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
+        public WorkflowFlowsField() {
+            
         }
     }
 }

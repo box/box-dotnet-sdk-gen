@@ -7,23 +7,34 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileVersionRetentions {
+        /// <summary>
+        /// The limit that was used for these entries. This will be the same as the
+        /// `limit` query parameter unless that value exceeded the maximum value
+        /// allowed. The maximum value varies by API.
+        /// </summary>
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the next page of results.
+        /// </summary>
         [JsonPropertyName("next_marker")]
-        public int? NextMarker { get; }
+        public long? NextMarker { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the previous page of results.
+        /// </summary>
         [JsonPropertyName("prev_marker")]
-        public int? PrevMarker { get; }
+        public long? PrevMarker { get; set; } = default;
 
+        /// <summary>
+        /// A list of file version retentions
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileVersionRetention> Entries { get; }
+        public IReadOnlyList<FileVersionRetention>? Entries { get; set; } = default;
 
-        public FileVersionRetentions(int? limit, int? nextMarker, int? prevMarker, IReadOnlyList<FileVersionRetention> entries) {
-            Limit = limit;
-            NextMarker = nextMarker;
-            PrevMarker = prevMarker;
-            Entries = entries;
+        public FileVersionRetentions() {
+            
         }
     }
 }

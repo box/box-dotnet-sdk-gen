@@ -7,9 +7,15 @@ using Box;
 
 namespace Box.Managers {
     public class GetMetadataQueryIndicesQueryParamsArg {
-        public GetMetadataQueryIndicesQueryParamsArgScopeField Scope { get; }
+        /// <summary>
+        /// The scope of the metadata template
+        /// </summary>
+        public GetMetadataQueryIndicesQueryParamsArgScopeField Scope { get; set; }
 
-        public string TemplateKey { get; }
+        /// <summary>
+        /// The name of the metadata template
+        /// </summary>
+        public string TemplateKey { get; set; }
 
         public GetMetadataQueryIndicesQueryParamsArg(GetMetadataQueryIndicesQueryParamsArgScopeField scope, string templateKey) {
             Scope = scope;

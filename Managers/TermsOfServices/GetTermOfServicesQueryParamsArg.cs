@@ -5,10 +5,13 @@ using Box;
 
 namespace Box.Managers {
     public class GetTermOfServicesQueryParamsArg {
-        public GetTermOfServicesQueryParamsArgTosTypeField TosType { get; }
+        /// <summary>
+        /// Limits the results to the terms of service of the given type.
+        /// </summary>
+        public GetTermOfServicesQueryParamsArgTosTypeField? TosType { get; set; } = default;
 
-        public GetTermOfServicesQueryParamsArg(GetTermOfServicesQueryParamsArgTosTypeField tosType) {
-            TosType = tosType;
+        public GetTermOfServicesQueryParamsArg() {
+            
         }
     }
 }

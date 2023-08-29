@@ -83,7 +83,7 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg>`
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg>`
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
@@ -149,7 +149,7 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg`
+- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg>`
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method

@@ -9,8 +9,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateGroupTerminateSessionRequestBodyArg {
+        /// <summary>
+        /// A list of group IDs
+        /// </summary>
         [JsonPropertyName("group_ids")]
-        public IReadOnlyList<string> GroupIds { get; }
+        public IReadOnlyList<string> GroupIds { get; set; }
 
         public CreateGroupTerminateSessionRequestBodyArg(IReadOnlyList<string> groupIds) {
             GroupIds = groupIds;

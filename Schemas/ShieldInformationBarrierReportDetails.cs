@@ -9,10 +9,10 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class ShieldInformationBarrierReportDetails {
         [JsonPropertyName("details")]
-        public ShieldInformationBarrierReportDetailsDetailsField Details { get; }
+        public ShieldInformationBarrierReportDetailsDetailsField? Details { get; set; } = default;
 
-        public ShieldInformationBarrierReportDetails(ShieldInformationBarrierReportDetailsDetailsField details) {
-            Details = details;
+        public ShieldInformationBarrierReportDetails() {
+            
         }
     }
 }

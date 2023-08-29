@@ -8,8 +8,12 @@ using Box;
 
 namespace Box.Managers {
     public class UploadFileRequestBodyArgAttributesFieldParentField {
+        /// <summary>
+        /// The id of the parent folder. Use
+        /// `0` for the user's root folder.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public UploadFileRequestBodyArgAttributesFieldParentField(string id) {
             Id = id;

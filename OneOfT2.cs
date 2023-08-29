@@ -1,8 +1,8 @@
 namespace Unions {
     public class OneOf<T0,T1> {
-        protected T0 _val0 { get; }
+        protected T0? _val0 { get; }
         
-        protected T1 _val1 { get; }
+        protected T1? _val1 { get; }
         
         protected OneOf (T0 value) { _val0 = value; }
         

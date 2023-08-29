@@ -1,4 +1,5 @@
 using System.IO;
+
 namespace Fetch
 {
     /// <summary>
@@ -9,15 +10,15 @@ namespace Fetch
         /// <summary>
         /// Status code of a response.
         /// </summary>
-        public int Status { get; init; }
+        public int Status { get; set; }
 
         /// <summary>
         /// Response text representation.
         /// </summary>
-        public string Text { get; init; }
+        public string Text { get; set; } = string.Empty;
         
         //TODO implement usage 
-        public Stream Content { get; init; }
+        public Stream Content { get; set; } = new MemoryStream();
     }
 
 }

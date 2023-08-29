@@ -8,14 +8,13 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class StoragePolicyAssignment {
         [JsonPropertyName("storage_policy")]
-        public StoragePolicyMini StoragePolicy { get; }
+        public StoragePolicyMini? StoragePolicy { get; set; } = default;
 
         [JsonPropertyName("assigned_to")]
-        public StoragePolicyAssignmentAssignedToField AssignedTo { get; }
+        public StoragePolicyAssignmentAssignedToField? AssignedTo { get; set; } = default;
 
-        public StoragePolicyAssignment(StoragePolicyMini storagePolicy, StoragePolicyAssignmentAssignedToField assignedTo) {
-            StoragePolicy = storagePolicy;
-            AssignedTo = assignedTo;
+        public StoragePolicyAssignment() {
+            
         }
     }
 }

@@ -8,8 +8,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateGroupMembershipRequestBodyArgGroupField {
+        /// <summary>
+        /// The ID of the group to add the user to
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CreateGroupMembershipRequestBodyArgGroupField(string id) {
             Id = id;

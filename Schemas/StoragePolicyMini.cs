@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class StoragePolicyMini {
+        /// <summary>
+        /// The unique identifier for this storage policy
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `storage_policy`
+        /// </summary>
         [JsonPropertyName("type")]
-        public StoragePolicyMiniTypeField Type { get; }
+        public StoragePolicyMiniTypeField? Type { get; set; } = default;
 
-        public StoragePolicyMini(string id, StoragePolicyMiniTypeField type) {
-            Id = id;
-            Type = type;
+        public StoragePolicyMini() {
+            
         }
     }
 }

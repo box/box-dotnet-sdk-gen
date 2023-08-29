@@ -8,14 +8,19 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class KeywordSkillCardSkillCardTitleField {
+        /// <summary>
+        /// An optional identifier for the title.
+        /// </summary>
         [JsonPropertyName("code")]
-        public string Code { get; }
+        public string? Code { get; set; } = default;
 
+        /// <summary>
+        /// The actual title to show in the UI.
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string Message { get; set; }
 
-        public KeywordSkillCardSkillCardTitleField(string code, string message) {
-            Code = code;
+        public KeywordSkillCardSkillCardTitleField(string message) {
             Message = message;
         }
     }

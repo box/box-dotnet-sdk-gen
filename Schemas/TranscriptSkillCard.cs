@@ -8,38 +8,64 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TranscriptSkillCard {
+        /// <summary>
+        /// The optional date and time this card was created at.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// `skill_card`
+        /// </summary>
         [JsonPropertyName("type")]
-        public TranscriptSkillCardTypeField Type { get; }
+        public TranscriptSkillCardTypeField Type { get; set; }
 
+        /// <summary>
+        /// `transcript`
+        /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public TranscriptSkillCardSkillCardTypeField SkillCardType { get; }
+        public TranscriptSkillCardSkillCardTypeField SkillCardType { get; set; }
 
+        /// <summary>
+        /// The title of the card.
+        /// </summary>
         [JsonPropertyName("skill_card_title")]
-        public TranscriptSkillCardSkillCardTitleField SkillCardTitle { get; }
+        public TranscriptSkillCardSkillCardTitleField? SkillCardTitle { get; set; } = default;
 
+        /// <summary>
+        /// The service that applied this metadata.
+        /// </summary>
         [JsonPropertyName("skill")]
-        public TranscriptSkillCardSkillField Skill { get; }
+        public TranscriptSkillCardSkillField Skill { get; set; }
 
+        /// <summary>
+        /// The invocation of this service, used to track
+        /// which instance of a service applied the metadata.
+        /// </summary>
         [JsonPropertyName("invocation")]
-        public TranscriptSkillCardInvocationField Invocation { get; }
+        public TranscriptSkillCardInvocationField Invocation { get; set; }
 
+        /// <summary>
+        /// An optional total duration in seconds.
+        /// 
+        /// Used with a `skill_card_type` of `transcript` or
+        /// `timeline`.
+        /// </summary>
         [JsonPropertyName("duration")]
-        public int? Duration { get; }
+        public int? Duration { get; set; } = default;
 
+        /// <summary>
+        /// An list of entries for the card. This represents the individual entries of
+        /// the transcription.
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TranscriptSkillCardEntriesField> Entries { get; }
+        public IReadOnlyList<TranscriptSkillCardEntriesField> Entries { get; set; }
 
-        public TranscriptSkillCard(string createdAt, TranscriptSkillCardTypeField type, TranscriptSkillCardSkillCardTypeField skillCardType, TranscriptSkillCardSkillCardTitleField skillCardTitle, TranscriptSkillCardSkillField skill, TranscriptSkillCardInvocationField invocation, int? duration, IReadOnlyList<TranscriptSkillCardEntriesField> entries) {
-            CreatedAt = createdAt;
+        public TranscriptSkillCard(TranscriptSkillCardTypeField type, TranscriptSkillCardSkillCardTypeField skillCardType, TranscriptSkillCardSkillField skill, TranscriptSkillCardInvocationField invocation, IReadOnlyList<TranscriptSkillCardEntriesField> entries) {
             Type = type;
             SkillCardType = skillCardType;
-            SkillCardTitle = skillCardTitle;
             Skill = skill;
             Invocation = invocation;
-            Duration = duration;
             Entries = entries;
         }
     }

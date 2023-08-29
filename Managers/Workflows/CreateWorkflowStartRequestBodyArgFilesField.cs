@@ -8,15 +8,20 @@ using Box;
 
 namespace Box.Managers {
     public class CreateWorkflowStartRequestBodyArgFilesField {
+        /// <summary>
+        /// The type of the file object
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateWorkflowStartRequestBodyArgFilesFieldTypeField Type { get; }
+        public CreateWorkflowStartRequestBodyArgFilesFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The id of the file
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public CreateWorkflowStartRequestBodyArgFilesField(CreateWorkflowStartRequestBodyArgFilesFieldTypeField type, string id) {
-            Type = type;
-            Id = id;
+        public CreateWorkflowStartRequestBodyArgFilesField() {
+            
         }
     }
 }

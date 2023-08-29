@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFolderLockRequestBodyArgLockedOperationsField {
+        /// <summary>
+        /// Whether moving the folder should be locked.
+        /// </summary>
         [JsonPropertyName("move")]
-        public bool Move { get; }
+        public bool Move { get; set; }
 
+        /// <summary>
+        /// Whether deleting the folder should be locked.
+        /// </summary>
         [JsonPropertyName("delete")]
-        public bool Delete { get; }
+        public bool Delete { get; set; }
 
         public CreateFolderLockRequestBodyArgLockedOperationsField(bool move, bool delete) {
             Move = move;

@@ -8,15 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class CreateRetentionPolicyAssignmentRequestBodyArgFilterFieldsField {
+        /// <summary>
+        /// The metadata attribute key id.
+        /// </summary>
         [JsonPropertyName("field")]
-        public string Field { get; }
+        public string? Field { get; set; } = default;
 
+        /// <summary>
+        /// The metadata attribute field id. For value, only
+        /// enum and multiselect types are supported.
+        /// </summary>
         [JsonPropertyName("value")]
-        public string Value { get; }
+        public string? Value { get; set; } = default;
 
-        public CreateRetentionPolicyAssignmentRequestBodyArgFilterFieldsField(string field, string value) {
-            Field = field;
-            Value = value;
+        public CreateRetentionPolicyAssignmentRequestBodyArgFilterFieldsField() {
+            
         }
     }
 }

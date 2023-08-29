@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class UserMini : UserBase {
+        /// <summary>
+        /// The display name of this user
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The primary email address of this user
+        /// </summary>
         [JsonPropertyName("login")]
-        public string Login { get; }
+        public string? Login { get; set; } = default;
 
-        public UserMini(string id, UserBaseTypeField type, string name, string login) : base(id, type) {
-            Name = name;
-            Login = login;
+        public UserMini(UserBaseTypeField type) : base(type) {
+            
         }
     }
 }

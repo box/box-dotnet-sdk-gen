@@ -8,11 +8,15 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileRemoveSharedLinkRequestBodyArg {
+        /// <summary>
+        /// By setting this value to `null`, the shared link
+        /// is removed from the file.
+        /// </summary>
         [JsonPropertyName("shared_link")]
-        public UpdateFileRemoveSharedLinkRequestBodyArgSharedLinkField SharedLink { get; }
+        public UpdateFileRemoveSharedLinkRequestBodyArgSharedLinkField? SharedLink { get; set; } = default;
 
-        public UpdateFileRemoveSharedLinkRequestBodyArg(UpdateFileRemoveSharedLinkRequestBodyArgSharedLinkField sharedLink) {
-            SharedLink = sharedLink;
+        public UpdateFileRemoveSharedLinkRequestBodyArg() {
+            
         }
     }
 }

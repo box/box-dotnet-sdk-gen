@@ -7,31 +7,44 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ClassificationTemplateFieldsField {
+        /// <summary>
+        /// The unique ID of the field.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `enum`
+        /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateFieldsFieldTypeField Type { get; }
+        public ClassificationTemplateFieldsFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// `Box__Security__Classification__Key`
+        /// </summary>
         [JsonPropertyName("key")]
-        public ClassificationTemplateFieldsFieldKeyField Key { get; }
+        public ClassificationTemplateFieldsFieldKeyField? Key { get; set; } = default;
 
+        /// <summary>
+        /// `Classification`
+        /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateFieldsFieldDisplayNameField DisplayName { get; }
+        public ClassificationTemplateFieldsFieldDisplayNameField? DisplayName { get; set; } = default;
 
+        /// <summary>
+        /// Classifications are always visible to web and mobile users.
+        /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; }
+        public bool? Hidden { get; set; } = default;
 
+        /// <summary>
+        /// A list of classifications available in this enterprise.
+        /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> Options { get; }
+        public IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField>? Options { get; set; } = default;
 
-        public ClassificationTemplateFieldsField(string id, ClassificationTemplateFieldsFieldTypeField type, ClassificationTemplateFieldsFieldKeyField key, ClassificationTemplateFieldsFieldDisplayNameField displayName, bool? hidden, IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> options) {
-            Id = id;
-            Type = type;
-            Key = key;
-            DisplayName = displayName;
-            Hidden = hidden;
-            Options = options;
+        public ClassificationTemplateFieldsField() {
+            
         }
     }
 }

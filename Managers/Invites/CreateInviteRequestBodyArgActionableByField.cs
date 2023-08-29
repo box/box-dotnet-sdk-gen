@@ -6,11 +6,14 @@ using Box;
 
 namespace Box.Managers {
     public class CreateInviteRequestBodyArgActionableByField {
+        /// <summary>
+        /// The login of the invited user
+        /// </summary>
         [JsonPropertyName("login")]
-        public string Login { get; }
+        public string? Login { get; set; } = default;
 
-        public CreateInviteRequestBodyArgActionableByField(string login) {
-            Login = login;
+        public CreateInviteRequestBodyArgActionableByField() {
+            
         }
     }
 }

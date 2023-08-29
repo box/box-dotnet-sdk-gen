@@ -9,15 +9,20 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateWebhookByIdRequestBodyArgTargetField {
+        /// <summary>
+        /// The ID of the item to trigger a webhook
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of item to trigger a webhook
+        /// </summary>
         [JsonPropertyName("type")]
-        public UpdateWebhookByIdRequestBodyArgTargetFieldTypeField Type { get; }
+        public UpdateWebhookByIdRequestBodyArgTargetFieldTypeField? Type { get; set; } = default;
 
-        public UpdateWebhookByIdRequestBodyArgTargetField(string id, UpdateWebhookByIdRequestBodyArgTargetFieldTypeField type) {
-            Id = id;
-            Type = type;
+        public UpdateWebhookByIdRequestBodyArgTargetField() {
+            
         }
     }
 }

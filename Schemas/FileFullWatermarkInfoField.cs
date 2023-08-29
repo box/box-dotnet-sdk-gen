@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileFullWatermarkInfoField {
+        /// <summary>
+        /// Specifies if this item has a watermark applied.
+        /// </summary>
         [JsonPropertyName("is_watermarked")]
-        public bool? IsWatermarked { get; }
+        public bool? IsWatermarked { get; set; } = default;
 
-        public FileFullWatermarkInfoField(bool? isWatermarked) {
-            IsWatermarked = isWatermarked;
+        public FileFullWatermarkInfoField() {
+            
         }
     }
 }

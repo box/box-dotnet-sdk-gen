@@ -7,94 +7,148 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class TrashFile {
+        /// <summary>
+        /// The unique identifier that represent a file.
+        /// 
+        /// The ID for any file can be determined
+        /// by visiting a file in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/files/123`
+        /// the `file_id` is `123`.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
+        /// <summary>
+        /// The HTTP `etag` of this file. This can be used within some API
+        /// endpoints in the `If-Match` and `If-None-Match` headers to only
+        /// perform changes on the file if (no) changes have happened.
+        /// </summary>
         [JsonPropertyName("etag")]
-        public string Etag { get; }
+        public string? Etag { get; set; } = default;
 
+        /// <summary>
+        /// `file`
+        /// </summary>
         [JsonPropertyName("type")]
-        public TrashFileTypeField Type { get; }
+        public TrashFileTypeField Type { get; set; }
 
         [JsonPropertyName("sequence_id")]
-        public string SequenceId { get; }
+        public string SequenceId { get; set; }
 
+        /// <summary>
+        /// The name of the file
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The SHA1 hash of the file. This can be used to compare the contents
+        /// of a file on Box with a local file.
+        /// </summary>
         [JsonPropertyName("sha1")]
-        public string Sha1 { get; }
+        public string Sha1 { get; set; }
 
         [JsonPropertyName("file_version")]
-        public FileVersionMini FileVersion { get; }
+        public FileVersionMini? FileVersion { get; set; } = default;
 
+        /// <summary>
+        /// The optional description of this file
+        /// </summary>
         [JsonPropertyName("description")]
-        public string Description { get; }
+        public string Description { get; set; }
 
+        /// <summary>
+        /// The file size in bytes. Be careful parsing this integer as it can
+        /// get very large and cause an integer overflow.
+        /// </summary>
         [JsonPropertyName("size")]
-        public int Size { get; }
+        public int Size { get; set; }
 
         [JsonPropertyName("path_collection")]
-        public TrashFilePathCollectionField PathCollection { get; }
+        public TrashFilePathCollectionField PathCollection { get; set; }
 
+        /// <summary>
+        /// The date and time when the file was created on Box.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string CreatedAt { get; set; }
 
+        /// <summary>
+        /// The date and time when the file was last updated on Box.
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string ModifiedAt { get; set; }
 
+        /// <summary>
+        /// The time at which this file was put in the trash.
+        /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string TrashedAt { get; }
+        public string? TrashedAt { get; set; } = default;
 
+        /// <summary>
+        /// The time at which this file is expected to be purged
+        /// from the trash.
+        /// </summary>
         [JsonPropertyName("purged_at")]
-        public string PurgedAt { get; }
+        public string? PurgedAt { get; set; } = default;
 
+        /// <summary>
+        /// The date and time at which this file was originally
+        /// created, which might be before it was uploaded to Box.
+        /// </summary>
         [JsonPropertyName("content_created_at")]
-        public string ContentCreatedAt { get; }
+        public string? ContentCreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The date and time at which this file was last updated,
+        /// which might be before it was uploaded to Box.
+        /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public string ContentModifiedAt { get; }
+        public string? ContentModifiedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserMini CreatedBy { get; }
+        public UserMini? CreatedBy { get; set; } = default;
 
         [JsonPropertyName("modified_by")]
-        public UserMini ModifiedBy { get; }
+        public UserMini ModifiedBy { get; set; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini OwnedBy { get; }
+        public UserMini OwnedBy { get; set; }
 
+        /// <summary>
+        /// The shared link for this file. This will
+        /// be `null` if a file has been trashed, since the link will no longer
+        /// be active.
+        /// </summary>
         [JsonPropertyName("shared_link")]
-        public string SharedLink { get; }
+        public string? SharedLink { get; set; } = default;
 
         [JsonPropertyName("parent")]
-        public FolderMini Parent { get; }
+        public FolderMini? Parent { get; set; } = default;
 
+        /// <summary>
+        /// Defines if this item has been deleted or not.
+        /// 
+        /// * `active` when the item has is not in the trash
+        /// * `trashed` when the item has been moved to the trash but not deleted
+        /// * `deleted` when the item has been permanently deleted.
+        /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFileItemStatusField ItemStatus { get; }
+        public TrashFileItemStatusField ItemStatus { get; set; }
 
-        public TrashFile(string id, string etag, TrashFileTypeField type, string sequenceId, string name, string sha1, FileVersionMini fileVersion, string description, int size, TrashFilePathCollectionField pathCollection, string createdAt, string modifiedAt, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, string sharedLink, FolderMini parent, TrashFileItemStatusField itemStatus) {
+        public TrashFile(string id, TrashFileTypeField type, string sequenceId, string sha1, string description, int size, TrashFilePathCollectionField pathCollection, string createdAt, string modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus) {
             Id = id;
-            Etag = etag;
             Type = type;
             SequenceId = sequenceId;
-            Name = name;
             Sha1 = sha1;
-            FileVersion = fileVersion;
             Description = description;
             Size = size;
             PathCollection = pathCollection;
             CreatedAt = createdAt;
             ModifiedAt = modifiedAt;
-            TrashedAt = trashedAt;
-            PurgedAt = purgedAt;
-            ContentCreatedAt = contentCreatedAt;
-            ContentModifiedAt = contentModifiedAt;
-            CreatedBy = createdBy;
             ModifiedBy = modifiedBy;
             OwnedBy = ownedBy;
-            SharedLink = sharedLink;
-            Parent = parent;
             ItemStatus = itemStatus;
         }
     }

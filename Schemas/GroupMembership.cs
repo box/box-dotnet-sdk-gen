@@ -7,35 +7,44 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class GroupMembership {
+        /// <summary>
+        /// The unique identifier for this group membership
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `group_membership`
+        /// </summary>
         [JsonPropertyName("type")]
-        public GroupMembershipTypeField Type { get; }
+        public GroupMembershipTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("user")]
-        public UserMini User { get; }
+        public UserMini? User { get; set; } = default;
 
         [JsonPropertyName("group")]
-        public GroupMini Group { get; }
+        public GroupMini? Group { get; set; } = default;
 
+        /// <summary>
+        /// The role of the user in the group.
+        /// </summary>
         [JsonPropertyName("role")]
-        public GroupMembershipRoleField Role { get; }
+        public GroupMembershipRoleField? Role { get; set; } = default;
 
+        /// <summary>
+        /// The time this membership was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The time this membership was last modified.
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
-        public GroupMembership(string id, GroupMembershipTypeField type, UserMini user, GroupMini group, GroupMembershipRoleField role, string createdAt, string modifiedAt) {
-            Id = id;
-            Type = type;
-            User = user;
-            Group = group;
-            Role = role;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
+        public GroupMembership() {
+            
         }
     }
 }

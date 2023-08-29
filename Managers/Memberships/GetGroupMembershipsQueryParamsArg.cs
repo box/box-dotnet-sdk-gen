@@ -7,13 +7,22 @@ using Box;
 
 namespace Box.Managers {
     public class GetGroupMembershipsQueryParamsArg {
-        public int? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public int? Offset { get; }
+        /// <summary>
+        /// The offset of the item at which to begin the response.
+        /// 
+        /// Queries with offset parameter value
+        /// exceeding 10000 will be rejected
+        /// with a 400 response.
+        /// </summary>
+        public long? Offset { get; set; } = default;
 
-        public GetGroupMembershipsQueryParamsArg(int? limit, int? offset) {
-            Limit = limit;
-            Offset = offset;
+        public GetGroupMembershipsQueryParamsArg() {
+            
         }
     }
 }

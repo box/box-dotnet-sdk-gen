@@ -7,19 +7,28 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileFullRepresentationsFieldEntriesFieldPropertiesField {
+        /// <summary>
+        /// The width by height size of this representation in pixels.
+        /// </summary>
         [JsonPropertyName("dimensions")]
-        public string Dimensions { get; }
+        public string? Dimensions { get; set; } = default;
 
+        /// <summary>
+        /// Indicates if the representation is build up out of multiple
+        /// pages.
+        /// </summary>
         [JsonPropertyName("paged")]
-        public bool? Paged { get; }
+        public bool? Paged { get; set; } = default;
 
+        /// <summary>
+        /// Indicates if the representation can be used as a thumbnail of
+        /// the file.
+        /// </summary>
         [JsonPropertyName("thumb")]
-        public bool? Thumb { get; }
+        public bool? Thumb { get; set; } = default;
 
-        public FileFullRepresentationsFieldEntriesFieldPropertiesField(string dimensions, bool? paged, bool? thumb) {
-            Dimensions = dimensions;
-            Paged = paged;
-            Thumb = thumb;
+        public FileFullRepresentationsFieldEntriesFieldPropertiesField() {
+            
         }
     }
 }

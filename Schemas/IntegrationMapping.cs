@@ -8,43 +8,69 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class IntegrationMapping : IntegrationMappingBase {
+        /// <summary>
+        /// Mapping type
+        /// </summary>
         [JsonPropertyName("type")]
-        public IntegrationMappingTypeField Type { get; }
+        public IntegrationMappingTypeField Type { get; set; }
 
+        /// <summary>
+        /// Mapped item object for Slack
+        /// </summary>
         [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemField PartnerItem { get; }
+        public IntegrationMappingPartnerItemField PartnerItem { get; set; }
 
+        /// <summary>
+        /// The Box folder, to which the object from the
+        /// partner app domain (referenced in `partner_item_id`) is mapped
+        /// </summary>
         [JsonPropertyName("box_item")]
-        public FolderMini BoxItem { get; }
+        public FolderMini BoxItem { get; set; }
 
+        /// <summary>
+        /// Identifies whether the mapping has
+        /// been manually set
+        /// (as opposed to being automatically created)
+        /// </summary>
         [JsonPropertyName("is_manually_created")]
-        public bool? IsManuallyCreated { get; }
+        public bool? IsManuallyCreated { get; set; } = default;
 
+        /// <summary>
+        /// Integration mapping options for Slack
+        /// </summary>
         [JsonPropertyName("options")]
-        public IntegrationMappingOptionsField Options { get; }
+        public IntegrationMappingOptionsField? Options { get; set; } = default;
 
+        /// <summary>
+        /// An object representing the user who
+        /// created the integration mapping
+        /// </summary>
         [JsonPropertyName("created_by")]
-        public UserIntegrationMappings CreatedBy { get; }
+        public UserIntegrationMappings? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// The user who
+        /// last modified the integration mapping
+        /// </summary>
         [JsonPropertyName("modified_by")]
-        public UserIntegrationMappings ModifiedBy { get; }
+        public UserIntegrationMappings? ModifiedBy { get; set; } = default;
 
+        /// <summary>
+        /// When the integration mapping object was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// When the integration mapping object was last modified
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
-        public IntegrationMapping(string id, IntegrationMappingBaseIntegrationTypeField integrationType, IntegrationMappingTypeField type, IntegrationMappingPartnerItemField partnerItem, FolderMini boxItem, bool? isManuallyCreated, IntegrationMappingOptionsField options, UserIntegrationMappings createdBy, UserIntegrationMappings modifiedBy, string createdAt, string modifiedAt) : base(id, integrationType) {
+        public IntegrationMapping(IntegrationMappingTypeField type, IntegrationMappingPartnerItemField partnerItem, FolderMini boxItem) {
             Type = type;
             PartnerItem = partnerItem;
             BoxItem = boxItem;
-            IsManuallyCreated = isManuallyCreated;
-            Options = options;
-            CreatedBy = createdBy;
-            ModifiedBy = modifiedBy;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
         }
     }
 }

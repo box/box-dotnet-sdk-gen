@@ -8,14 +8,19 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TimelineSkillCardSkillCardTitleField {
+        /// <summary>
+        /// An optional identifier for the title.
+        /// </summary>
         [JsonPropertyName("code")]
-        public string Code { get; }
+        public string? Code { get; set; } = default;
 
+        /// <summary>
+        /// The actual title to show in the UI.
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string Message { get; set; }
 
-        public TimelineSkillCardSkillCardTitleField(string code, string message) {
-            Code = code;
+        public TimelineSkillCardSkillCardTitleField(string message) {
             Message = message;
         }
     }

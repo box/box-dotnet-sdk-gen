@@ -7,31 +7,38 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class CollaborationAllowlistExemptTarget {
+        /// <summary>
+        /// The unique identifier for this exemption
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `collaboration_whitelist`
+        /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistExemptTargetTypeField Type { get; }
+        public CollaborationAllowlistExemptTargetTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("enterprise")]
-        public CollaborationAllowlistExemptTargetEnterpriseField Enterprise { get; }
+        public CollaborationAllowlistExemptTargetEnterpriseField? Enterprise { get; set; } = default;
 
         [JsonPropertyName("user")]
-        public CollaborationAllowlistExemptTargetUserField User { get; }
+        public CollaborationAllowlistExemptTargetUserField? User { get; set; } = default;
 
+        /// <summary>
+        /// The time the entry was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The time the entry was modified
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
-        public CollaborationAllowlistExemptTarget(string id, CollaborationAllowlistExemptTargetTypeField type, CollaborationAllowlistExemptTargetEnterpriseField enterprise, CollaborationAllowlistExemptTargetUserField user, string createdAt, string modifiedAt) {
-            Id = id;
-            Type = type;
-            Enterprise = enterprise;
-            User = user;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
+        public CollaborationAllowlistExemptTarget() {
+            
         }
     }
 }

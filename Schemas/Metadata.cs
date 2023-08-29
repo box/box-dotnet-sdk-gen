@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Metadata : MetadataBase {
-        public Metadata(string parent, string template, string scope, int? version) : base(parent, template, scope, version) {
+        public Metadata() {
             
         }
     }

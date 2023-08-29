@@ -8,15 +8,32 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class FolderFolderUploadEmailField {
+        /// <summary>
+        /// When this parameter has been set, users can email files
+        /// to the email address that has been automatically
+        /// created for this folder.
+        /// 
+        /// To create an email address, set this property either when
+        /// creating or updating the folder.
+        /// 
+        /// When set to `collaborators`, only emails from registered email
+        /// addresses for collaborators will be accepted. This includes
+        /// any email aliases a user might have registered.
+        /// 
+        /// When set to `open` it will accept emails from any email
+        /// address.
+        /// </summary>
         [JsonPropertyName("access")]
-        public FolderFolderUploadEmailFieldAccessField Access { get; }
+        public FolderFolderUploadEmailFieldAccessField? Access { get; set; } = default;
 
+        /// <summary>
+        /// The optional upload email address for this folder.
+        /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; }
+        public string? Email { get; set; } = default;
 
-        public FolderFolderUploadEmailField(FolderFolderUploadEmailFieldAccessField access, string email) {
-            Access = access;
-            Email = email;
+        public FolderFolderUploadEmailField() {
+            
         }
     }
 }

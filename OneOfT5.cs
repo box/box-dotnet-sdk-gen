@@ -1,14 +1,14 @@
 namespace Unions {
     public class OneOf<T0,T1,T2,T3,T4> {
-        protected T0 _val0 { get; }
+        protected T0? _val0 { get; }
         
-        protected T1 _val1 { get; }
+        protected T1? _val1 { get; }
         
-        protected T2 _val2 { get; }
+        protected T2? _val2 { get; }
         
-        protected T3 _val3 { get; }
+        protected T3? _val3 { get; }
         
-        protected T4 _val4 { get; }
+        protected T4? _val4 { get; }
         
         protected OneOf (T0 value) { _val0 = value; }
         

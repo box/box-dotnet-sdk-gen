@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class MetadataQueryIndexFieldsField {
+        /// <summary>
+        /// The metadata template field key.
+        /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; }
+        public string? Key { get; set; } = default;
 
+        /// <summary>
+        /// The sort direction of the field.
+        /// </summary>
         [JsonPropertyName("sort_direction")]
-        public MetadataQueryIndexFieldsFieldSortDirectionField SortDirection { get; }
+        public MetadataQueryIndexFieldsFieldSortDirectionField? SortDirection { get; set; } = default;
 
-        public MetadataQueryIndexFieldsField(string key, MetadataQueryIndexFieldsFieldSortDirectionField sortDirection) {
-            Key = key;
-            SortDirection = sortDirection;
+        public MetadataQueryIndexFieldsField() {
+            
         }
     }
 }

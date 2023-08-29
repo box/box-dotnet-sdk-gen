@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileVersionMini : FileVersionBase {
+        /// <summary>
+        /// The SHA1 hash of this version of the file.
+        /// </summary>
         [JsonPropertyName("sha1")]
-        public string Sha1 { get; }
+        public string? Sha1 { get; set; } = default;
 
-        public FileVersionMini(string id, FileVersionBaseTypeField type, string sha1) : base(id, type) {
-            Sha1 = sha1;
+        public FileVersionMini(string id, FileVersionBaseTypeField type) : base(id, type) {
+            
         }
     }
 }

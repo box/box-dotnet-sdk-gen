@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ShieldInformationBarrierReportBase {
+        /// <summary>
+        /// The unique identifier for the shield information barrier report
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of the shield information barrier report
+        /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierReportBaseTypeField Type { get; }
+        public ShieldInformationBarrierReportBaseTypeField? Type { get; set; } = default;
 
-        public ShieldInformationBarrierReportBase(string id, ShieldInformationBarrierReportBaseTypeField type) {
-            Id = id;
-            Type = type;
+        public ShieldInformationBarrierReportBase() {
+            
         }
     }
 }

@@ -8,19 +8,28 @@ using Box;
 
 namespace Box.Managers {
     public class CreateWorkflowStartRequestBodyArgOutcomesField {
+        /// <summary>
+        /// The id of the outcome
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of the outcome object
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateWorkflowStartRequestBodyArgOutcomesFieldTypeField Type { get; }
+        public CreateWorkflowStartRequestBodyArgOutcomesFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// This is a placeholder example for various objects that
+        /// can be passed in - refer to the guides section to find
+        /// out more information.
+        /// </summary>
         [JsonPropertyName("parameter")]
-        public string Parameter { get; }
+        public string? Parameter { get; set; } = default;
 
-        public CreateWorkflowStartRequestBodyArgOutcomesField(string id, CreateWorkflowStartRequestBodyArgOutcomesFieldTypeField type, string parameter) {
-            Id = id;
-            Type = type;
-            Parameter = parameter;
+        public CreateWorkflowStartRequestBodyArgOutcomesField() {
+            
         }
     }
 }

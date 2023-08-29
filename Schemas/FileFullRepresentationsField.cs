@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileFullRepresentationsField {
+        /// <summary>
+        /// A list of files
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileFullRepresentationsFieldEntriesField> Entries { get; }
+        public IReadOnlyList<FileFullRepresentationsFieldEntriesField>? Entries { get; set; } = default;
 
-        public FileFullRepresentationsField(IReadOnlyList<FileFullRepresentationsFieldEntriesField> entries) {
-            Entries = entries;
+        public FileFullRepresentationsField() {
+            
         }
     }
 }

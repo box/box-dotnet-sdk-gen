@@ -10,8 +10,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFileMetadataGlobalBoxSkillsCardRequestBodyArg {
+        /// <summary>
+        /// A list of Box Skill cards to apply to this file.
+        /// </summary>
         [JsonPropertyName("cards")]
-        public IReadOnlyList<CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField> Cards { get; }
+        public IReadOnlyList<CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField> Cards { get; set; }
 
         public CreateFileMetadataGlobalBoxSkillsCardRequestBodyArg(IReadOnlyList<CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField> cards) {
             Cards = cards;

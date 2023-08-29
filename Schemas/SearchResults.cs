@@ -8,27 +8,43 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SearchResults {
+        /// <summary>
+        /// One greater than the offset of the last entry in the search results.
+        /// The total number of entries in the collection may be less than
+        /// `total_count`.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public int? TotalCount { get; }
+        public long? TotalCount { get; set; } = default;
 
+        /// <summary>
+        /// The limit that was used for this search. This will be the same as the
+        /// `limit` query parameter unless that value exceeded the maximum value
+        /// allowed.
+        /// </summary>
         [JsonPropertyName("limit")]
-        public int? Limit { get; }
+        public long? Limit { get; set; } = default;
 
+        /// <summary>
+        /// The 0-based offset of the first entry in this set. This will be the same
+        /// as the `offset` query parameter used.
+        /// </summary>
         [JsonPropertyName("offset")]
-        public int? Offset { get; }
+        public long? Offset { get; set; } = default;
 
+        /// <summary>
+        /// Specifies the response as search result items without shared links
+        /// </summary>
         [JsonPropertyName("type")]
-        public SearchResultsTypeField Type { get; }
+        public SearchResultsTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The search results for the query provided.
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<SearchResultsEntriesField> Entries { get; }
+        public IReadOnlyList<SearchResultsEntriesField>? Entries { get; set; } = default;
 
-        public SearchResults(int? totalCount, int? limit, int? offset, SearchResultsTypeField type, IReadOnlyList<SearchResultsEntriesField> entries) {
-            TotalCount = totalCount;
-            Limit = limit;
-            Offset = offset;
-            Type = type;
-            Entries = entries;
+        public SearchResults() {
+            
         }
     }
 }

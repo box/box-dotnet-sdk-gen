@@ -9,10 +9,10 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class FolderFullMetadataField {
         [JsonPropertyName("extraData")]
-        public Dictionary<string, Dictionary<string, Metadata>> ExtraData { get; }
+        public Dictionary<string, Dictionary<string, Metadata>>? ExtraData { get; set; } = default;
 
-        public FolderFullMetadataField(Dictionary<string, Dictionary<string, Metadata>> extraData) {
-            ExtraData = extraData;
+        public FolderFullMetadataField() {
+            
         }
     }
 }

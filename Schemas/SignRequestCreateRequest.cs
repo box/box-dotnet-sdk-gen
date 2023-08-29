@@ -8,14 +8,20 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignRequestCreateRequest : SignRequestBase {
+        /// <summary>
+        /// List of files to create a signing document from. This is currently limited to ten files. Only the ID and type fields are required for each file.
+        /// </summary>
         [JsonPropertyName("source_files")]
-        public IReadOnlyList<FileBase> SourceFiles { get; }
+        public IReadOnlyList<FileBase>? SourceFiles { get; set; } = default;
 
+        /// <summary>
+        /// Array of signers for the sign request. 35 is the
+        /// max number of signers permitted.
+        /// </summary>
         [JsonPropertyName("signers")]
-        public IReadOnlyList<SignRequestCreateSigner> Signers { get; }
+        public IReadOnlyList<SignRequestCreateSigner> Signers { get; set; }
 
-        public SignRequestCreateRequest(bool? isDocumentPreparationNeeded, string redirectUrl, string declinedRedirectUrl, bool? areTextSignaturesEnabled, string emailSubject, string emailMessage, bool? areRemindersEnabled, FolderMini parentFolder, string name, IReadOnlyList<SignRequestPrefillTag> prefillTags, int? daysValid, string externalId, bool? isPhoneVerificationRequiredToView, string templateId, IReadOnlyList<FileBase> sourceFiles, IReadOnlyList<SignRequestCreateSigner> signers) : base(isDocumentPreparationNeeded, redirectUrl, declinedRedirectUrl, areTextSignaturesEnabled, emailSubject, emailMessage, areRemindersEnabled, parentFolder, name, prefillTags, daysValid, externalId, isPhoneVerificationRequiredToView, templateId) {
-            SourceFiles = sourceFiles;
+        public SignRequestCreateRequest(FolderMini parentFolder, IReadOnlyList<SignRequestCreateSigner> signers) : base(parentFolder) {
             Signers = signers;
         }
     }

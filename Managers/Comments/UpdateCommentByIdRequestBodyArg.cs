@@ -8,11 +8,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateCommentByIdRequestBodyArg {
+        /// <summary>
+        /// The text of the comment to update
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string? Message { get; set; } = default;
 
-        public UpdateCommentByIdRequestBodyArg(string message) {
-            Message = message;
+        public UpdateCommentByIdRequestBodyArg() {
+            
         }
     }
 }

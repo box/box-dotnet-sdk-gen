@@ -7,31 +7,39 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Comment : CommentBase {
+        /// <summary>
+        /// Whether or not this comment is a reply to another
+        /// comment
+        /// </summary>
         [JsonPropertyName("is_reply_comment")]
-        public bool? IsReplyComment { get; }
+        public bool? IsReplyComment { get; set; } = default;
 
+        /// <summary>
+        /// The text of the comment, as provided by the user
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string? Message { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserMini CreatedBy { get; }
+        public UserMini? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// The time this comment was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The time this comment was last modified
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("item")]
-        public CommentItemField Item { get; }
+        public CommentItemField? Item { get; set; } = default;
 
-        public Comment(string id, CommentBaseTypeField type, bool? isReplyComment, string message, UserMini createdBy, string createdAt, string modifiedAt, CommentItemField item) : base(id, type) {
-            IsReplyComment = isReplyComment;
-            Message = message;
-            CreatedBy = createdBy;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            Item = item;
+        public Comment() {
+            
         }
     }
 }

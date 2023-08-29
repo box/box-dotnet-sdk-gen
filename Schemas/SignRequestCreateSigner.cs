@@ -8,47 +8,86 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignRequestCreateSigner {
+        /// <summary>
+        /// Email address of the signer
+        /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; }
+        public string Email { get; set; }
 
+        /// <summary>
+        /// Defines the role of the signer in the sign request. A `signer`
+        /// must sign the document and an `approver` must approve the document. A
+        /// `final_copy_reader` only receives the final signed document and signing
+        /// log.
+        /// </summary>
         [JsonPropertyName("role")]
-        public SignRequestCreateSignerRoleField Role { get; }
+        public SignRequestCreateSignerRoleField? Role { get; set; } = default;
 
+        /// <summary>
+        /// Used in combination with an embed URL for a sender. After the
+        /// sender signs, they are redirected to the next `in_person` signer.
+        /// </summary>
         [JsonPropertyName("is_in_person")]
-        public bool? IsInPerson { get; }
+        public bool? IsInPerson { get; set; } = default;
 
+        /// <summary>
+        /// Order of the signer
+        /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get; }
+        public int? Order { get; set; } = default;
 
+        /// <summary>
+        /// User ID for the signer in an external application responsible
+        /// for authentication when accessing the embed URL.
+        /// </summary>
         [JsonPropertyName("embed_url_external_user_id")]
-        public string EmbedUrlExternalUserId { get; }
+        public string? EmbedUrlExternalUserId { get; set; } = default;
 
+        /// <summary>
+        /// The URL that a signer will be redirected
+        /// to after signing a document. Defining this URL
+        /// overrides default or global redirect URL
+        /// settings for a specific signer.
+        /// If no declined redirect URL is specified,
+        /// this URL will be used for decline actions as well.
+        /// </summary>
         [JsonPropertyName("redirect_url")]
-        public string RedirectUrl { get; }
+        public string? RedirectUrl { get; set; } = default;
 
+        /// <summary>
+        /// The URL that a signer will be redirect
+        /// to after declining to sign a document.
+        /// Defining this URL overrides default or global
+        /// declined redirect URL settings for a specific signer.
+        /// </summary>
         [JsonPropertyName("declined_redirect_url")]
-        public string DeclinedRedirectUrl { get; }
+        public string? DeclinedRedirectUrl { get; set; } = default;
 
+        /// <summary>
+        /// If set to true, signer will need to login to a Box account
+        /// before signing the request. If the signer does not have
+        /// an existing account, they will have an option to create
+        /// a free Box account.
+        /// </summary>
         [JsonPropertyName("login_required")]
-        public bool? LoginRequired { get; }
+        public bool? LoginRequired { get; set; } = default;
 
+        /// <summary>
+        /// If set, this phone number is be used to verify the signer
+        /// via two factor authentication before they are able to sign the document.
+        /// </summary>
         [JsonPropertyName("verification_phone_number")]
-        public string VerificationPhoneNumber { get; }
+        public string? VerificationPhoneNumber { get; set; } = default;
 
+        /// <summary>
+        /// If set, the signer is required to enter the password before they are able
+        /// to sign a document. This field is write only.
+        /// </summary>
         [JsonPropertyName("password")]
-        public string Password { get; }
+        public string? Password { get; set; } = default;
 
-        public SignRequestCreateSigner(string email, SignRequestCreateSignerRoleField role, bool? isInPerson, int? order, string embedUrlExternalUserId, string redirectUrl, string declinedRedirectUrl, bool? loginRequired, string verificationPhoneNumber, string password) {
+        public SignRequestCreateSigner(string email) {
             Email = email;
-            Role = role;
-            IsInPerson = isInPerson;
-            Order = order;
-            EmbedUrlExternalUserId = embedUrlExternalUserId;
-            RedirectUrl = redirectUrl;
-            DeclinedRedirectUrl = declinedRedirectUrl;
-            LoginRequired = loginRequired;
-            VerificationPhoneNumber = verificationPhoneNumber;
-            Password = password;
         }
     }
 }

@@ -7,35 +7,43 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileVersionRetention {
+        /// <summary>
+        /// The unique identifier for this file version retention.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `file_version_retention`
+        /// </summary>
         [JsonPropertyName("type")]
-        public FileVersionRetentionTypeField Type { get; }
+        public FileVersionRetentionTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("file_version")]
-        public FileVersionMini FileVersion { get; }
+        public FileVersionMini? FileVersion { get; set; } = default;
 
         [JsonPropertyName("file")]
-        public FileMini File { get; }
+        public FileMini? File { get; set; } = default;
 
+        /// <summary>
+        /// When this file version retention object was
+        /// created
+        /// </summary>
         [JsonPropertyName("applied_at")]
-        public string AppliedAt { get; }
+        public string? AppliedAt { get; set; } = default;
 
+        /// <summary>
+        /// When the retention expires on this file
+        /// version retention
+        /// </summary>
         [JsonPropertyName("disposition_at")]
-        public string DispositionAt { get; }
+        public string? DispositionAt { get; set; } = default;
 
         [JsonPropertyName("winning_retention_policy")]
-        public RetentionPolicyMini WinningRetentionPolicy { get; }
+        public RetentionPolicyMini? WinningRetentionPolicy { get; set; } = default;
 
-        public FileVersionRetention(string id, FileVersionRetentionTypeField type, FileVersionMini fileVersion, FileMini file, string appliedAt, string dispositionAt, RetentionPolicyMini winningRetentionPolicy) {
-            Id = id;
-            Type = type;
-            FileVersion = fileVersion;
-            File = file;
-            AppliedAt = appliedAt;
-            DispositionAt = dispositionAt;
-            WinningRetentionPolicy = winningRetentionPolicy;
+        public FileVersionRetention() {
+            
         }
     }
 }

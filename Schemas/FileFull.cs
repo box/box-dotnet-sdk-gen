@@ -7,87 +7,108 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileFull : File {
+        /// <summary>
+        /// The version number of this file
+        /// </summary>
         [JsonPropertyName("version_number")]
-        public string VersionNumber { get; }
+        public string? VersionNumber { get; set; } = default;
 
+        /// <summary>
+        /// The number of comments on this file
+        /// </summary>
         [JsonPropertyName("comment_count")]
-        public int? CommentCount { get; }
+        public int? CommentCount { get; set; } = default;
 
         [JsonPropertyName("permissions")]
-        public FileFullPermissionsField Permissions { get; }
+        public FileFullPermissionsField? Permissions { get; set; } = default;
 
         [JsonPropertyName("tags")]
-        public IReadOnlyList<string> Tags { get; }
+        public IReadOnlyList<string>? Tags { get; set; } = default;
 
         [JsonPropertyName("lock")]
-        public FileFullLockField Lock { get; }
+        public FileFullLockField? Lock { get; set; } = default;
 
+        /// <summary>
+        /// Indicates the (optional) file extension for this file. By default,
+        /// this is set to an empty string.
+        /// </summary>
         [JsonPropertyName("extension")]
-        public string Extension { get; }
+        public string? Extension { get; set; } = default;
 
+        /// <summary>
+        /// Indicates if the file is a package. Packages are commonly used
+        /// by Mac Applications and can include iWork files.
+        /// </summary>
         [JsonPropertyName("is_package")]
-        public bool? IsPackage { get; }
+        public bool? IsPackage { get; set; } = default;
 
         [JsonPropertyName("expiring_embed_link")]
-        public FileFullExpiringEmbedLinkField ExpiringEmbedLink { get; }
+        public FileFullExpiringEmbedLinkField? ExpiringEmbedLink { get; set; } = default;
 
         [JsonPropertyName("watermark_info")]
-        public FileFullWatermarkInfoField WatermarkInfo { get; }
+        public FileFullWatermarkInfoField? WatermarkInfo { get; set; } = default;
 
+        /// <summary>
+        /// Specifies if the file can be accessed
+        /// via the direct shared link or a shared link
+        /// to a parent folder.
+        /// </summary>
         [JsonPropertyName("is_accessible_via_shared_link")]
-        public bool? IsAccessibleViaSharedLink { get; }
+        public bool? IsAccessibleViaSharedLink { get; set; } = default;
 
+        /// <summary>
+        /// A list of the types of roles that user can be invited at
+        /// when sharing this file.
+        /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
-        public IReadOnlyList<FileFullAllowedInviteeRolesField> AllowedInviteeRoles { get; }
+        public IReadOnlyList<FileFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; set; } = default;
 
+        /// <summary>
+        /// Specifies if this file is owned by a user outside of the
+        /// authenticated enterprise.
+        /// </summary>
         [JsonPropertyName("is_externally_owned")]
-        public bool? IsExternallyOwned { get; }
+        public bool? IsExternallyOwned { get; set; } = default;
 
+        /// <summary>
+        /// Specifies if this file has any other collaborators.
+        /// </summary>
         [JsonPropertyName("has_collaborations")]
-        public bool? HasCollaborations { get; }
+        public bool? HasCollaborations { get; set; } = default;
 
         [JsonPropertyName("metadata")]
-        public FileFullMetadataField Metadata { get; }
+        public FileFullMetadataField? Metadata { get; set; } = default;
 
+        /// <summary>
+        /// When the file will automatically be deleted
+        /// </summary>
         [JsonPropertyName("expires_at")]
-        public string ExpiresAt { get; }
+        public string? ExpiresAt { get; set; } = default;
 
         [JsonPropertyName("representations")]
-        public FileFullRepresentationsField Representations { get; }
+        public FileFullRepresentationsField? Representations { get; set; } = default;
 
         [JsonPropertyName("classification")]
-        public FileFullClassificationField Classification { get; }
+        public FileFullClassificationField? Classification { get; set; } = default;
 
         [JsonPropertyName("uploader_display_name")]
-        public string UploaderDisplayName { get; }
+        public string? UploaderDisplayName { get; set; } = default;
 
+        /// <summary>
+        /// The retention expiration timestamp for the given file
+        /// </summary>
         [JsonPropertyName("disposition_at")]
-        public string DispositionAt { get; }
+        public string? DispositionAt { get; set; } = default;
 
+        /// <summary>
+        /// A list of the types of roles that user can be invited at
+        /// when sharing this file.
+        /// </summary>
         [JsonPropertyName("shared_link_permission_options")]
-        public IReadOnlyList<FileFullSharedLinkPermissionOptionsField> SharedLinkPermissionOptions { get; }
+        public IReadOnlyList<FileFullSharedLinkPermissionOptionsField>? SharedLinkPermissionOptions { get; set; } = default;
 
-        public FileFull(string id, string etag, FileBaseTypeField type, string sequenceId, string name, string sha1, FileVersionMini fileVersion, string description, int? size, FilePathCollectionField pathCollection, string createdAt, string modifiedAt, string trashedAt, string purgedAt, string contentCreatedAt, string contentModifiedAt, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, FileSharedLinkField sharedLink, FolderMini parent, FileItemStatusField itemStatus, string versionNumber, int? commentCount, FileFullPermissionsField permissions, IReadOnlyList<string> tags, FileFullLockField lockParam, string extension, bool? isPackage, FileFullExpiringEmbedLinkField expiringEmbedLink, FileFullWatermarkInfoField watermarkInfo, bool? isAccessibleViaSharedLink, IReadOnlyList<FileFullAllowedInviteeRolesField> allowedInviteeRoles, bool? isExternallyOwned, bool? hasCollaborations, FileFullMetadataField metadata, string expiresAt, FileFullRepresentationsField representations, FileFullClassificationField classification, string uploaderDisplayName, string dispositionAt, IReadOnlyList<FileFullSharedLinkPermissionOptionsField> sharedLinkPermissionOptions) : base(id, etag, type, sequenceId, name, sha1, fileVersion, description, size, pathCollection, createdAt, modifiedAt, trashedAt, purgedAt, contentCreatedAt, contentModifiedAt, createdBy, modifiedBy, ownedBy, sharedLink, parent, itemStatus) {
-            VersionNumber = versionNumber;
-            CommentCount = commentCount;
-            Permissions = permissions;
-            Tags = tags;
-            Lock = lockParam;
-            Extension = extension;
-            IsPackage = isPackage;
-            ExpiringEmbedLink = expiringEmbedLink;
-            WatermarkInfo = watermarkInfo;
-            IsAccessibleViaSharedLink = isAccessibleViaSharedLink;
-            AllowedInviteeRoles = allowedInviteeRoles;
-            IsExternallyOwned = isExternallyOwned;
-            HasCollaborations = hasCollaborations;
-            Metadata = metadata;
-            ExpiresAt = expiresAt;
-            Representations = representations;
-            Classification = classification;
-            UploaderDisplayName = uploaderDisplayName;
-            DispositionAt = dispositionAt;
-            SharedLinkPermissionOptions = sharedLinkPermissionOptions;
+        public FileFull(string id, FileBaseTypeField type) : base(id, type) {
+            
         }
     }
 }

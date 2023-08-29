@@ -8,13 +8,19 @@ using Box;
 
 namespace Box.Managers {
     public class UploadFileHeadersArg {
-        public string ContentMd5 { get; }
+        /// <summary>
+        /// An optional header containing the SHA1 hash of the file to
+        /// ensure that the file was not corrupted in transit.
+        /// </summary>
+        public string? ContentMd5 { get; set; } = default;
 
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public UploadFileHeadersArg(string contentMd5, Dictionary<string, string> extraHeaders) {
-            ContentMd5 = contentMd5;
-            ExtraHeaders = extraHeaders;
+        public UploadFileHeadersArg() {
+            
         }
     }
 }

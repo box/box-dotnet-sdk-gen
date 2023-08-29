@@ -10,15 +10,20 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateSkillInvocationByIdRequestBodyArgFileField {
+        /// <summary>
+        /// `file`
+        /// </summary>
         [JsonPropertyName("type")]
-        public UpdateSkillInvocationByIdRequestBodyArgFileFieldTypeField Type { get; }
+        public UpdateSkillInvocationByIdRequestBodyArgFileFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The ID of the file
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public UpdateSkillInvocationByIdRequestBodyArgFileField(UpdateSkillInvocationByIdRequestBodyArgFileFieldTypeField type, string id) {
-            Type = type;
-            Id = id;
+        public UpdateSkillInvocationByIdRequestBodyArgFileField() {
+            
         }
     }
 }

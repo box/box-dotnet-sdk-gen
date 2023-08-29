@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFolderAddSharedLinkRequestBodyArg {
+        /// <summary>
+        /// The settings for the shared link to create on the folder.
+        /// 
+        /// Use an empty object (`{}`) to use the default settings for shared
+        /// links.
+        /// </summary>
         [JsonPropertyName("shared_link")]
-        public UpdateFolderAddSharedLinkRequestBodyArgSharedLinkField SharedLink { get; }
+        public UpdateFolderAddSharedLinkRequestBodyArgSharedLinkField? SharedLink { get; set; } = default;
 
-        public UpdateFolderAddSharedLinkRequestBodyArg(UpdateFolderAddSharedLinkRequestBodyArgSharedLinkField sharedLink) {
-            SharedLink = sharedLink;
+        public UpdateFolderAddSharedLinkRequestBodyArg() {
+            
         }
     }
 }

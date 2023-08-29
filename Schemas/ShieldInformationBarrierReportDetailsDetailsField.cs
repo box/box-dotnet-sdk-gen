@@ -8,11 +8,14 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class ShieldInformationBarrierReportDetailsDetailsField {
+        /// <summary>
+        /// Folder ID for locating this report
+        /// </summary>
         [JsonPropertyName("folder_id")]
-        public string FolderId { get; }
+        public string? FolderId { get; set; } = default;
 
-        public ShieldInformationBarrierReportDetailsDetailsField(string folderId) {
-            FolderId = folderId;
+        public ShieldInformationBarrierReportDetailsDetailsField() {
+            
         }
     }
 }

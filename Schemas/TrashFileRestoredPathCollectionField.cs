@@ -7,13 +7,19 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class TrashFileRestoredPathCollectionField {
+        /// <summary>
+        /// The number of folders in this list.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public int TotalCount { get; }
+        public long TotalCount { get; set; }
 
+        /// <summary>
+        /// The parent folders for this item
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FolderMini> Entries { get; }
+        public IReadOnlyList<FolderMini> Entries { get; set; }
 
-        public TrashFileRestoredPathCollectionField(int totalCount, IReadOnlyList<FolderMini> entries) {
+        public TrashFileRestoredPathCollectionField(long totalCount, IReadOnlyList<FolderMini> entries) {
             TotalCount = totalCount;
             Entries = entries;
         }

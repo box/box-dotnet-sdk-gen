@@ -7,15 +7,21 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class RetentionPolicyAssignmentFilterFieldsField {
+        /// <summary>
+        /// The metadata attribute key id.
+        /// </summary>
         [JsonPropertyName("field")]
-        public string Field { get; }
+        public string? Field { get; set; } = default;
 
+        /// <summary>
+        /// The metadata attribute field id. For value, only
+        /// enum and multiselect types are supported.
+        /// </summary>
         [JsonPropertyName("value")]
-        public string Value { get; }
+        public string? Value { get; set; } = default;
 
-        public RetentionPolicyAssignmentFilterFieldsField(string field, string value) {
-            Field = field;
-            Value = value;
+        public RetentionPolicyAssignmentFilterFieldsField() {
+            
         }
     }
 }

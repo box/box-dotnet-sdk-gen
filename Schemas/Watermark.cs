@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class Watermark {
         [JsonPropertyName("watermark")]
-        public WatermarkWatermarkField WatermarkField { get; }
+        public WatermarkWatermarkField? WatermarkField { get; set; } = default;
 
-        public Watermark(WatermarkWatermarkField watermarkField) {
-            WatermarkField = watermarkField;
+        public Watermark() {
+            
         }
     }
 }

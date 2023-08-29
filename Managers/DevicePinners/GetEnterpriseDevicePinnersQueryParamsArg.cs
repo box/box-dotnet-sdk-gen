@@ -7,16 +7,27 @@ using Box;
 
 namespace Box.Managers {
     public class GetEnterpriseDevicePinnersQueryParamsArg {
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public int? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetEnterpriseDevicePinnersQueryParamsArgDirectionField Direction { get; }
+        /// <summary>
+        /// The direction to sort results in. This can be either in alphabetical ascending
+        /// (`ASC`) or descending (`DESC`) order.
+        /// </summary>
+        public GetEnterpriseDevicePinnersQueryParamsArgDirectionField? Direction { get; set; } = default;
 
-        public GetEnterpriseDevicePinnersQueryParamsArg(string marker, int? limit, GetEnterpriseDevicePinnersQueryParamsArgDirectionField direction) {
-            Marker = marker;
-            Limit = limit;
-            Direction = direction;
+        public GetEnterpriseDevicePinnersQueryParamsArg() {
+            
         }
     }
 }

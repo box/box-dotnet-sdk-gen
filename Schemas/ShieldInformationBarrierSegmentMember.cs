@@ -8,30 +8,37 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegmentMember : ShieldInformationBarrierSegmentMemberMini {
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase ShieldInformationBarrier { get; }
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
 
+        /// <summary>
+        /// The `type` and `id` of the requested
+        /// shield information barrier segment.
+        /// </summary>
         [JsonPropertyName("shield_information_barrier_segment")]
-        public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; }
+        public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField? ShieldInformationBarrierSegment { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this shield
+        /// information barrier object was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier segment Member was updated.
+        /// </summary>
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; }
+        public string? UpdatedAt { get; set; } = default;
 
         [JsonPropertyName("updated_by")]
-        public UserBase UpdatedBy { get; }
+        public UserBase? UpdatedBy { get; set; } = default;
 
-        public ShieldInformationBarrierSegmentMember(string id, ShieldInformationBarrierSegmentMemberBaseTypeField type, UserBase user, ShieldInformationBarrierBase shieldInformationBarrier, ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField shieldInformationBarrierSegment, string createdAt, UserBase createdBy, string updatedAt, UserBase updatedBy) : base(id, type, user) {
-            ShieldInformationBarrier = shieldInformationBarrier;
-            ShieldInformationBarrierSegment = shieldInformationBarrierSegment;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            UpdatedAt = updatedAt;
-            UpdatedBy = updatedBy;
+        public ShieldInformationBarrierSegmentMember() {
+            
         }
     }
 }

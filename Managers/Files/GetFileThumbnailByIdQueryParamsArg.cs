@@ -9,19 +9,28 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileThumbnailByIdQueryParamsArg {
-        public int? MinHeight { get; }
+        /// <summary>
+        /// The minimum height of the thumbnail
+        /// </summary>
+        public int? MinHeight { get; set; } = default;
 
-        public int? MinWidth { get; }
+        /// <summary>
+        /// The minimum width of the thumbnail
+        /// </summary>
+        public int? MinWidth { get; set; } = default;
 
-        public int? MaxHeight { get; }
+        /// <summary>
+        /// The maximum height of the thumbnail
+        /// </summary>
+        public int? MaxHeight { get; set; } = default;
 
-        public int? MaxWidth { get; }
+        /// <summary>
+        /// The maximum width of the thumbnail
+        /// </summary>
+        public int? MaxWidth { get; set; } = default;
 
-        public GetFileThumbnailByIdQueryParamsArg(int? minHeight, int? minWidth, int? maxHeight, int? maxWidth) {
-            MinHeight = minHeight;
-            MinWidth = minWidth;
-            MaxHeight = maxHeight;
-            MaxWidth = maxWidth;
+        public GetFileThumbnailByIdQueryParamsArg() {
+            
         }
     }
 }

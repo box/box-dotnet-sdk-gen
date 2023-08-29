@@ -8,15 +8,20 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFileUploadSessionForExistingFileRequestBodyArg {
+        /// <summary>
+        /// The total number of bytes of the file to be uploaded
+        /// </summary>
         [JsonPropertyName("file_size")]
-        public int FileSize { get; }
+        public long FileSize { get; set; }
 
+        /// <summary>
+        /// The optional new name of new file
+        /// </summary>
         [JsonPropertyName("file_name")]
-        public string FileName { get; }
+        public string? FileName { get; set; } = default;
 
-        public CreateFileUploadSessionForExistingFileRequestBodyArg(int fileSize, string fileName) {
+        public CreateFileUploadSessionForExistingFileRequestBodyArg(long fileSize) {
             FileSize = fileSize;
-            FileName = fileName;
         }
     }
 }

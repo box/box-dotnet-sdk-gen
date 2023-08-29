@@ -7,10 +7,13 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileCommentsHeadersArg {
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public GetFileCommentsHeadersArg(Dictionary<string, string> extraHeaders) {
-            ExtraHeaders = extraHeaders;
+        public GetFileCommentsHeadersArg() {
+            
         }
     }
 }

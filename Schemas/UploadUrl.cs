@@ -7,15 +7,21 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class UploadUrl {
+        /// <summary>
+        /// A URL for an upload session that can be used to upload
+        /// the file.
+        /// </summary>
         [JsonPropertyName("upload_url")]
-        public string UploadUrlField { get; }
+        public string? UploadUrlField { get; set; } = default;
 
+        /// <summary>
+        /// An optional access token to use to upload the file
+        /// </summary>
         [JsonPropertyName("upload_token")]
-        public string UploadToken { get; }
+        public string? UploadToken { get; set; } = default;
 
-        public UploadUrl(string uploadUrlField, string uploadToken) {
-            UploadUrlField = uploadUrlField;
-            UploadToken = uploadToken;
+        public UploadUrl() {
+            
         }
     }
 }

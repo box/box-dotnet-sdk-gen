@@ -5,25 +5,51 @@ using Box;
 
 namespace Box.Managers {
     public class GetLegalHoldPolicyAssignmentsQueryParamsArg {
-        public string PolicyId { get; }
+        /// <summary>
+        /// The ID of the legal hold policy
+        /// </summary>
+        public string PolicyId { get; set; }
 
-        public GetLegalHoldPolicyAssignmentsQueryParamsArgAssignToTypeField AssignToType { get; }
+        /// <summary>
+        /// Filters the results by the type of item the
+        /// policy was applied to.
+        /// </summary>
+        public GetLegalHoldPolicyAssignmentsQueryParamsArgAssignToTypeField? AssignToType { get; set; } = default;
 
-        public string AssignToId { get; }
+        /// <summary>
+        /// Filters the results by the ID of item the
+        /// policy was applied to.
+        /// </summary>
+        public string? AssignToId { get; set; } = default;
 
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public int? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public string Fields { get; }
+        /// <summary>
+        /// A comma-separated list of attributes to include in the
+        /// response. This can be used to request fields that are
+        /// not normally returned in a standard response.
+        /// 
+        /// Be aware that specifying this parameter will have the
+        /// effect that none of the standard fields are returned in
+        /// the response unless explicitly specified, instead only
+        /// fields for the mini representation are returned, additional
+        /// to the fields requested.
+        /// </summary>
+        public string? Fields { get; set; } = default;
 
-        public GetLegalHoldPolicyAssignmentsQueryParamsArg(string policyId, GetLegalHoldPolicyAssignmentsQueryParamsArgAssignToTypeField assignToType, string assignToId, string marker, int? limit, string fields) {
+        public GetLegalHoldPolicyAssignmentsQueryParamsArg(string policyId) {
             PolicyId = policyId;
-            AssignToType = assignToType;
-            AssignToId = assignToId;
-            Marker = marker;
-            Limit = limit;
-            Fields = fields;
         }
     }
 }

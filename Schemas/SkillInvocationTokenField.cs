@@ -8,15 +8,20 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SkillInvocationTokenField {
+        /// <summary>
+        /// The basics of an access token
+        /// </summary>
         [JsonPropertyName("read")]
-        public SkillInvocationTokenFieldReadField Read { get; }
+        public SkillInvocationTokenFieldReadField? Read { get; set; } = default;
 
+        /// <summary>
+        /// The basics of an access token
+        /// </summary>
         [JsonPropertyName("write")]
-        public SkillInvocationTokenFieldWriteField Write { get; }
+        public SkillInvocationTokenFieldWriteField? Write { get; set; } = default;
 
-        public SkillInvocationTokenField(SkillInvocationTokenFieldReadField read, SkillInvocationTokenFieldWriteField write) {
-            Read = read;
-            Write = write;
+        public SkillInvocationTokenField() {
+            
         }
     }
 }

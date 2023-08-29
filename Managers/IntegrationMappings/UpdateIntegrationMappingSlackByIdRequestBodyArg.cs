@@ -9,14 +9,13 @@ using Box;
 namespace Box.Managers {
     public class UpdateIntegrationMappingSlackByIdRequestBodyArg {
         [JsonPropertyName("box_item")]
-        public IntegrationMappingBoxItemSlack BoxItem { get; }
+        public IntegrationMappingBoxItemSlack? BoxItem { get; set; } = default;
 
         [JsonPropertyName("options")]
-        public IntegrationMappingSlackOptions Options { get; }
+        public IntegrationMappingSlackOptions? Options { get; set; } = default;
 
-        public UpdateIntegrationMappingSlackByIdRequestBodyArg(IntegrationMappingBoxItemSlack boxItem, IntegrationMappingSlackOptions options) {
-            BoxItem = boxItem;
-            Options = options;
+        public UpdateIntegrationMappingSlackByIdRequestBodyArg() {
+            
         }
     }
 }

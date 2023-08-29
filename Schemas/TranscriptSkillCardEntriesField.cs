@@ -8,15 +8,22 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TranscriptSkillCardEntriesField {
+        /// <summary>
+        /// The text of the entry. This would be the transcribed text assigned
+        /// to the entry on the timeline.
+        /// </summary>
         [JsonPropertyName("text")]
-        public string Text { get; }
+        public string? Text { get; set; } = default;
 
+        /// <summary>
+        /// Defines when a transcribed bit of text appears. This only includes a
+        /// start time and no end time.
+        /// </summary>
         [JsonPropertyName("appears")]
-        public IReadOnlyList<TranscriptSkillCardEntriesFieldAppearsField> Appears { get; }
+        public IReadOnlyList<TranscriptSkillCardEntriesFieldAppearsField>? Appears { get; set; } = default;
 
-        public TranscriptSkillCardEntriesField(string text, IReadOnlyList<TranscriptSkillCardEntriesFieldAppearsField> appears) {
-            Text = text;
-            Appears = appears;
+        public TranscriptSkillCardEntriesField() {
+            
         }
     }
 }

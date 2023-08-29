@@ -9,18 +9,17 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class IntegrationMappingSlackCreateRequest {
         [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemSlack PartnerItem { get; }
+        public IntegrationMappingPartnerItemSlack PartnerItem { get; set; }
 
         [JsonPropertyName("box_item")]
-        public IntegrationMappingBoxItemSlack BoxItem { get; }
+        public IntegrationMappingBoxItemSlack BoxItem { get; set; }
 
         [JsonPropertyName("options")]
-        public IntegrationMappingSlackOptions Options { get; }
+        public IntegrationMappingSlackOptions? Options { get; set; } = default;
 
-        public IntegrationMappingSlackCreateRequest(IntegrationMappingPartnerItemSlack partnerItem, IntegrationMappingBoxItemSlack boxItem, IntegrationMappingSlackOptions options) {
+        public IntegrationMappingSlackCreateRequest(IntegrationMappingPartnerItemSlack partnerItem, IntegrationMappingBoxItemSlack boxItem) {
             PartnerItem = partnerItem;
             BoxItem = boxItem;
-            Options = options;
         }
     }
 }

@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateTermOfServiceUserStatusRequestBodyArgTosField {
+        /// <summary>
+        /// The type of object.
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateTermOfServiceUserStatusRequestBodyArgTosFieldTypeField Type { get; }
+        public CreateTermOfServiceUserStatusRequestBodyArgTosFieldTypeField Type { get; set; }
 
+        /// <summary>
+        /// The ID of terms of service
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CreateTermOfServiceUserStatusRequestBodyArgTosField(CreateTermOfServiceUserStatusRequestBodyArgTosFieldTypeField type, string id) {
             Type = type;

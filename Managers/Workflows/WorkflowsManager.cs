@@ -12,23 +12,24 @@ using Box;
 
 namespace Box.Managers {
     public class WorkflowsManager {
-        public IAuth Auth { get; }
+        public IAuth? Auth { get; set; } = default;
 
-        public NetworkSession NetworkSession { get; }
+        public NetworkSession? NetworkSession { get; set; } = default;
 
-        public WorkflowsManager(IAuth auth, NetworkSession networkSession) {
-            Auth = auth;
-            NetworkSession = networkSession;
+        public WorkflowsManager() {
+            
         }
-        public async System.Threading.Tasks.Task<Workflows> GetWorkflows(GetWorkflowsQueryParamsArg queryParams, GetWorkflowsHeadersArg headers) {
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string>() { { "folder_id", Utils.ToString(queryParams.FolderId) }, { "trigger_type", Utils.ToString(queryParams.TriggerType) }, { "limit", Utils.ToString(queryParams.Limit) }, { "marker", Utils.ToString(queryParams.Marker) } });
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
+        public async System.Threading.Tasks.Task<Workflows> GetWorkflows(GetWorkflowsQueryParamsArg queryParams, GetWorkflowsHeadersArg? headers = default) {
+            headers = headers ?? new GetWorkflowsHeadersArg();
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "folder_id", Utils.ToString(queryParams.FolderId) }, { "trigger_type", Utils.ToString(queryParams.TriggerType) }, { "limit", Utils.ToString(queryParams.Limit) }, { "marker", Utils.ToString(queryParams.Marker) } });
+            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/workflows"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<Workflows>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task CreateWorkflowStart(string workflowId, CreateWorkflowStartRequestBodyArg requestBody, CreateWorkflowStartHeadersArg headers) {
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string>() {  }, headers.ExtraHeaders));
+        public async System.Threading.Tasks.Task CreateWorkflowStart(string workflowId, CreateWorkflowStartRequestBodyArg requestBody, CreateWorkflowStartHeadersArg? headers = default) {
+            headers = headers ?? new CreateWorkflowStartHeadersArg();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/workflows/", workflowId, "/start"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
         }
 

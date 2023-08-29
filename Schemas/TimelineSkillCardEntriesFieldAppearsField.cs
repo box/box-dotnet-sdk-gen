@@ -8,15 +8,22 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TimelineSkillCardEntriesFieldAppearsField {
+        /// <summary>
+        /// The time in seconds when an
+        /// entry should start appearing on a timeline.
+        /// </summary>
         [JsonPropertyName("start")]
-        public int? Start { get; }
+        public int? Start { get; set; } = default;
 
+        /// <summary>
+        /// The time in seconds when an
+        /// entry should stop appearing on a timeline.
+        /// </summary>
         [JsonPropertyName("end")]
-        public int? End { get; }
+        public int? End { get; set; } = default;
 
-        public TimelineSkillCardEntriesFieldAppearsField(int? start, int? end) {
-            Start = start;
-            End = end;
+        public TimelineSkillCardEntriesFieldAppearsField() {
+            
         }
     }
 }

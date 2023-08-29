@@ -8,11 +8,18 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TranscriptSkillCardSkillField {
+        /// <summary>
+        /// `service`
+        /// </summary>
         [JsonPropertyName("type")]
-        public TranscriptSkillCardSkillFieldTypeField Type { get; }
+        public TranscriptSkillCardSkillFieldTypeField Type { get; set; }
 
+        /// <summary>
+        /// A custom identifier that represent the service that
+        /// applied this metadata.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public TranscriptSkillCardSkillField(TranscriptSkillCardSkillFieldTypeField type, string id) {
             Type = type;

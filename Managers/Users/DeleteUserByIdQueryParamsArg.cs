@@ -9,13 +9,20 @@ using Box;
 
 namespace Box.Managers {
     public class DeleteUserByIdQueryParamsArg {
-        public bool? Notify { get; }
+        /// <summary>
+        /// Whether the user will receive email notification of
+        /// the deletion
+        /// </summary>
+        public bool? Notify { get; set; } = default;
 
-        public bool? Force { get; }
+        /// <summary>
+        /// Whether the user should be deleted even if this user
+        /// still own files
+        /// </summary>
+        public bool? Force { get; set; } = default;
 
-        public DeleteUserByIdQueryParamsArg(bool? notify, bool? force) {
-            Notify = notify;
-            Force = force;
+        public DeleteUserByIdQueryParamsArg() {
+            
         }
     }
 }

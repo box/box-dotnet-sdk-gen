@@ -7,39 +7,50 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Invite {
+        /// <summary>
+        /// The unique identifier for this invite
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `invite`
+        /// </summary>
         [JsonPropertyName("type")]
-        public InviteTypeField Type { get; }
+        public InviteTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// A representation of a Box enterprise
+        /// </summary>
         [JsonPropertyName("invited_to")]
-        public InviteInvitedToField InvitedTo { get; }
+        public InviteInvitedToField? InvitedTo { get; set; } = default;
 
         [JsonPropertyName("actionable_by")]
-        public UserMini ActionableBy { get; }
+        public UserMini? ActionableBy { get; set; } = default;
 
         [JsonPropertyName("invited_by")]
-        public UserMini InvitedBy { get; }
+        public UserMini? InvitedBy { get; set; } = default;
 
+        /// <summary>
+        /// The status of the invite
+        /// </summary>
         [JsonPropertyName("status")]
-        public string Status { get; }
+        public string? Status { get; set; } = default;
 
+        /// <summary>
+        /// When the invite was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// When the invite was modified.
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
-        public Invite(string id, InviteTypeField type, InviteInvitedToField invitedTo, UserMini actionableBy, UserMini invitedBy, string status, string createdAt, string modifiedAt) {
-            Id = id;
-            Type = type;
-            InvitedTo = invitedTo;
-            ActionableBy = actionableBy;
-            InvitedBy = invitedBy;
-            Status = status;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
+        public Invite() {
+            
         }
     }
 }

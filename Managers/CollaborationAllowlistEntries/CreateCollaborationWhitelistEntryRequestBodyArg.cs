@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateCollaborationWhitelistEntryRequestBodyArg {
+        /// <summary>
+        /// The domain to add to the list of allowed domains.
+        /// </summary>
         [JsonPropertyName("domain")]
-        public string Domain { get; }
+        public string Domain { get; set; }
 
+        /// <summary>
+        /// The direction in which to allow collaborations.
+        /// </summary>
         [JsonPropertyName("direction")]
-        public CreateCollaborationWhitelistEntryRequestBodyArgDirectionField Direction { get; }
+        public CreateCollaborationWhitelistEntryRequestBodyArgDirectionField Direction { get; set; }
 
         public CreateCollaborationWhitelistEntryRequestBodyArg(string domain, CreateCollaborationWhitelistEntryRequestBodyArgDirectionField direction) {
             Domain = domain;

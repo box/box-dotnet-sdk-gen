@@ -8,23 +8,33 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class IntegrationMappingPartnerItemSlack {
+        /// <summary>
+        /// Type of the mapped item referenced in `id`
+        /// </summary>
         [JsonPropertyName("type")]
-        public IntegrationMappingPartnerItemSlackTypeField Type { get; }
+        public IntegrationMappingPartnerItemSlackTypeField Type { get; set; }
 
+        /// <summary>
+        /// ID of the mapped item (of type referenced in `type`)
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
+        /// <summary>
+        /// ID of the Slack workspace with which the item is associated. Use this parameter if Box for Slack is installed at a workspace level. Do not use `slack_org_id` at the same time.
+        /// </summary>
         [JsonPropertyName("slack_workspace_id")]
-        public string SlackWorkspaceId { get; }
+        public string? SlackWorkspaceId { get; set; } = default;
 
+        /// <summary>
+        /// ID of the Slack org with which the item is associated. Use this parameter if Box for Slack is installed at the org level. Do not use `slack_workspace_id` at the same time.
+        /// </summary>
         [JsonPropertyName("slack_org_id")]
-        public string SlackOrgId { get; }
+        public string? SlackOrgId { get; set; } = default;
 
-        public IntegrationMappingPartnerItemSlack(IntegrationMappingPartnerItemSlackTypeField type, string id, string slackWorkspaceId, string slackOrgId) {
+        public IntegrationMappingPartnerItemSlack(IntegrationMappingPartnerItemSlackTypeField type, string id) {
             Type = type;
             Id = id;
-            SlackWorkspaceId = slackWorkspaceId;
-            SlackOrgId = slackOrgId;
         }
     }
 }

@@ -9,14 +9,27 @@ using Box;
 
 namespace Box.Managers {
     public class CopyFolderRequestBodyArg {
+        /// <summary>
+        /// An optional new name for the copied folder.
+        /// 
+        /// There are some restrictions to the file name. Names containing
+        /// non-printable ASCII characters, forward and backward slashes
+        /// (`/`, `\`), as well as names with trailing spaces are
+        /// prohibited.
+        /// 
+        /// Additionally, the names `.` and `..` are
+        /// not allowed either.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The destination folder to copy the folder to.
+        /// </summary>
         [JsonPropertyName("parent")]
-        public CopyFolderRequestBodyArgParentField Parent { get; }
+        public CopyFolderRequestBodyArgParentField Parent { get; set; }
 
-        public CopyFolderRequestBodyArg(string name, CopyFolderRequestBodyArgParentField parent) {
-            Name = name;
+        public CopyFolderRequestBodyArg(CopyFolderRequestBodyArgParentField parent) {
             Parent = parent;
         }
     }

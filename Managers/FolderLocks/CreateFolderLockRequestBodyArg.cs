@@ -8,14 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFolderLockRequestBodyArg {
+        /// <summary>
+        /// The operations to lock for the folder. If `locked_operations` is
+        /// included in the request, both `move` and `delete` must also be
+        /// included and both set to `true`.
+        /// </summary>
         [JsonPropertyName("locked_operations")]
-        public CreateFolderLockRequestBodyArgLockedOperationsField LockedOperations { get; }
+        public CreateFolderLockRequestBodyArgLockedOperationsField? LockedOperations { get; set; } = default;
 
+        /// <summary>
+        /// The folder to apply the lock to.
+        /// </summary>
         [JsonPropertyName("folder")]
-        public CreateFolderLockRequestBodyArgFolderField Folder { get; }
+        public CreateFolderLockRequestBodyArgFolderField Folder { get; set; }
 
-        public CreateFolderLockRequestBodyArg(CreateFolderLockRequestBodyArgLockedOperationsField lockedOperations, CreateFolderLockRequestBodyArgFolderField folder) {
-            LockedOperations = lockedOperations;
+        public CreateFolderLockRequestBodyArg(CreateFolderLockRequestBodyArgFolderField folder) {
             Folder = folder;
         }
     }

@@ -7,11 +7,17 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class CommentFull : Comment {
+        /// <summary>
+        /// The string representing the comment text with
+        /// @mentions included. @mention format is @[id:username]
+        /// where `id` is user's Box ID and `username` is
+        /// their display name.
+        /// </summary>
         [JsonPropertyName("tagged_message")]
-        public string TaggedMessage { get; }
+        public string? TaggedMessage { get; set; } = default;
 
-        public CommentFull(string id, CommentBaseTypeField type, bool? isReplyComment, string message, UserMini createdBy, string createdAt, string modifiedAt, CommentItemField item, string taggedMessage) : base(id, type, isReplyComment, message, createdBy, createdAt, modifiedAt, item) {
-            TaggedMessage = taggedMessage;
+        public CommentFull() {
+            
         }
     }
 }

@@ -8,11 +8,14 @@ using Box;
 
 namespace Box.Managers {
     public class PreflightFileUploadRequestBodyArgParentField {
+        /// <summary>
+        /// The ID of parent item
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public PreflightFileUploadRequestBodyArgParentField(string id) {
-            Id = id;
+        public PreflightFileUploadRequestBodyArgParentField() {
+            
         }
     }
 }

@@ -7,15 +7,21 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class RetentionPolicyAssignmentAssignedToField {
+        /// <summary>
+        /// The ID of the folder, enterprise, or metadata template
+        /// the policy is assigned to.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of resource the policy is assigned to.
+        /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentAssignedToFieldTypeField Type { get; }
+        public RetentionPolicyAssignmentAssignedToFieldTypeField? Type { get; set; } = default;
 
-        public RetentionPolicyAssignmentAssignedToField(string id, RetentionPolicyAssignmentAssignedToFieldTypeField type) {
-            Id = id;
-            Type = type;
+        public RetentionPolicyAssignmentAssignedToField() {
+            
         }
     }
 }

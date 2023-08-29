@@ -7,23 +7,32 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class LegalHoldPolicyAssignmentCountsField {
+        /// <summary>
+        /// The number of users this policy is applied to
+        /// </summary>
         [JsonPropertyName("user")]
-        public int? User { get; }
+        public long? User { get; set; } = default;
 
+        /// <summary>
+        /// The number of folders this policy is applied to
+        /// </summary>
         [JsonPropertyName("folder")]
-        public int? Folder { get; }
+        public long? Folder { get; set; } = default;
 
+        /// <summary>
+        /// The number of files this policy is applied to
+        /// </summary>
         [JsonPropertyName("file")]
-        public int? File { get; }
+        public long? File { get; set; } = default;
 
+        /// <summary>
+        /// The number of file versions this policy is applied to
+        /// </summary>
         [JsonPropertyName("file_version")]
-        public int? FileVersion { get; }
+        public long? FileVersion { get; set; } = default;
 
-        public LegalHoldPolicyAssignmentCountsField(int? user, int? folder, int? file, int? fileVersion) {
-            User = user;
-            Folder = folder;
-            File = file;
-            FileVersion = fileVersion;
+        public LegalHoldPolicyAssignmentCountsField() {
+            
         }
     }
 }

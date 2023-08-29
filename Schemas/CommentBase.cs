@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class CommentBase {
+        /// <summary>
+        /// The unique identifier for this comment.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `comment`
+        /// </summary>
         [JsonPropertyName("type")]
-        public CommentBaseTypeField Type { get; }
+        public CommentBaseTypeField? Type { get; set; } = default;
 
-        public CommentBase(string id, CommentBaseTypeField type) {
-            Id = id;
-            Type = type;
+        public CommentBase() {
+            
         }
     }
 }

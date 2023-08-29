@@ -8,19 +8,23 @@ using Box;
 
 namespace Box.Managers {
     public class PreflightFileUploadRequestBodyArg {
+        /// <summary>
+        /// The name for the file
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The size of the file in bytes
+        /// </summary>
         [JsonPropertyName("size")]
-        public int? Size { get; }
+        public int? Size { get; set; } = default;
 
         [JsonPropertyName("parent")]
-        public PreflightFileUploadRequestBodyArgParentField Parent { get; }
+        public PreflightFileUploadRequestBodyArgParentField? Parent { get; set; } = default;
 
-        public PreflightFileUploadRequestBodyArg(string name, int? size, PreflightFileUploadRequestBodyArgParentField parent) {
-            Name = name;
-            Size = size;
-            Parent = parent;
+        public PreflightFileUploadRequestBodyArg() {
+            
         }
     }
 }

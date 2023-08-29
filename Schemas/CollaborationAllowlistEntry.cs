@@ -7,31 +7,41 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class CollaborationAllowlistEntry {
+        /// <summary>
+        /// The unique identifier for this entry
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `collaboration_whitelist_entry`
+        /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistEntryTypeField Type { get; }
+        public CollaborationAllowlistEntryTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The whitelisted domain
+        /// </summary>
         [JsonPropertyName("domain")]
-        public string Domain { get; }
+        public string? Domain { get; set; } = default;
 
+        /// <summary>
+        /// The direction of the collaborations to allow.
+        /// </summary>
         [JsonPropertyName("direction")]
-        public CollaborationAllowlistEntryDirectionField Direction { get; }
+        public CollaborationAllowlistEntryDirectionField? Direction { get; set; } = default;
 
         [JsonPropertyName("enterprise")]
-        public CollaborationAllowlistEntryEnterpriseField Enterprise { get; }
+        public CollaborationAllowlistEntryEnterpriseField? Enterprise { get; set; } = default;
 
+        /// <summary>
+        /// The time the entry was created at
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
-        public CollaborationAllowlistEntry(string id, CollaborationAllowlistEntryTypeField type, string domain, CollaborationAllowlistEntryDirectionField direction, CollaborationAllowlistEntryEnterpriseField enterprise, string createdAt) {
-            Id = id;
-            Type = type;
-            Domain = domain;
-            Direction = direction;
-            Enterprise = enterprise;
-            CreatedAt = createdAt;
+        public CollaborationAllowlistEntry() {
+            
         }
     }
 }

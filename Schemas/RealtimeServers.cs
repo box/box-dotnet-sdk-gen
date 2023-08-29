@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class RealtimeServers {
+        /// <summary>
+        /// The number of items in this response.
+        /// </summary>
         [JsonPropertyName("chunk_size")]
-        public int? ChunkSize { get; }
+        public long? ChunkSize { get; set; } = default;
 
+        /// <summary>
+        /// A list of real-time servers
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RealtimeServer> Entries { get; }
+        public IReadOnlyList<RealtimeServer>? Entries { get; set; } = default;
 
-        public RealtimeServers(int? chunkSize, IReadOnlyList<RealtimeServer> entries) {
-            ChunkSize = chunkSize;
-            Entries = entries;
+        public RealtimeServers() {
+            
         }
     }
 }

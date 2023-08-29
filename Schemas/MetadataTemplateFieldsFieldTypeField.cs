@@ -14,6 +14,8 @@ namespace Box.Schemas {
         [Description("enum")]
         Enum,
         [Description("multiSelect")]
-        MultiSelect
+        MultiSelect,
+        [Description("integer")]
+        Integer
     }
 }
