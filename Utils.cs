@@ -13,7 +13,7 @@ namespace Box {
         /// </summary>
         /// <param name="name">Name of the environment variable.</param>
         /// <returns>A environment variable</returns>
-        public static string GetEnvVar(string name) => Environment.GetEnvironmentVariable(name);
+        public static string? GetEnvVar(string name) => Environment.GetEnvironmentVariable(name);
 
         /// <summary>
         /// Generates GUID.
@@ -33,14 +33,14 @@ namespace Box {
         /// </summary>
         /// <param name="obj">Object class.</param>
         /// <returns>A string representation of an object.</returns>
-        public static string ToString<T>(T obj) => obj.ToString();
+        public static string? ToString<T>(T? obj) => obj?.ToString();
 
         /// <summary>
         /// Remove empty entries from dictionary. Used for headers and query params.
         /// </summary>
         /// <param name="dict">Input dictionary.</param>
         /// <returns>Dictionary without empty entries.</returns>
-        public static Dictionary<string, string> PrepareParams(Dictionary<string, string> dict) =>
-            dict.Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(pair => pair.Key, pair => pair.Value);
+        public static Dictionary<string, string> PrepareParams(Dictionary<string, string?> dict) =>
+            dict.Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(pair => pair.Key, pair => pair.Value!);
     }
 }

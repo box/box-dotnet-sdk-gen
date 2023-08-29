@@ -8,15 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateShieldInformationBarrierSegmentByIdRequestBodyArg {
+        /// <summary>
+        /// The updated name for the shield information barrier segment.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The updated description for
+        /// the shield information barrier segment.
+        /// </summary>
         [JsonPropertyName("description")]
-        public string Description { get; }
+        public string? Description { get; set; } = default;
 
-        public UpdateShieldInformationBarrierSegmentByIdRequestBodyArg(string name, string description) {
-            Name = name;
-            Description = description;
+        public UpdateShieldInformationBarrierSegmentByIdRequestBodyArg() {
+            
         }
     }
 }

@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class OAuth2Error {
+        /// <summary>
+        /// The type of the error returned.
+        /// </summary>
         [JsonPropertyName("error")]
-        public string Error { get; }
+        public string? Error { get; set; } = default;
 
+        /// <summary>
+        /// The type of the error returned.
+        /// </summary>
         [JsonPropertyName("error_description")]
-        public string ErrorDescription { get; }
+        public string? ErrorDescription { get; set; } = default;
 
-        public OAuth2Error(string error, string errorDescription) {
-            Error = error;
-            ErrorDescription = errorDescription;
+        public OAuth2Error() {
+            
         }
     }
 }

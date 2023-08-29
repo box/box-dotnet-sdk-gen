@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class ShieldInformationBarrierReference {
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase ShieldInformationBarrier { get; }
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
 
-        public ShieldInformationBarrierReference(ShieldInformationBarrierBase shieldInformationBarrier) {
-            ShieldInformationBarrier = shieldInformationBarrier;
+        public ShieldInformationBarrierReference() {
+            
         }
     }
 }

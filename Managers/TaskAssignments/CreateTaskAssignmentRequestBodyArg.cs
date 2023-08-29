@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateTaskAssignmentRequestBodyArg {
+        /// <summary>
+        /// The task to assign to a user.
+        /// </summary>
         [JsonPropertyName("task")]
-        public CreateTaskAssignmentRequestBodyArgTaskField Task { get; }
+        public CreateTaskAssignmentRequestBodyArgTaskField Task { get; set; }
 
+        /// <summary>
+        /// The user to assign the task to.
+        /// </summary>
         [JsonPropertyName("assign_to")]
-        public CreateTaskAssignmentRequestBodyArgAssignToField AssignTo { get; }
+        public CreateTaskAssignmentRequestBodyArgAssignToField AssignTo { get; set; }
 
         public CreateTaskAssignmentRequestBodyArg(CreateTaskAssignmentRequestBodyArgTaskField task, CreateTaskAssignmentRequestBodyArgAssignToField assignTo) {
             Task = task;

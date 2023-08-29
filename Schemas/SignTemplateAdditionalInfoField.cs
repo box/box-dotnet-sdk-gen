@@ -8,15 +8,20 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignTemplateAdditionalInfoField {
+        /// <summary>
+        /// Non editable fields.
+        /// </summary>
         [JsonPropertyName("non_editable")]
-        public IReadOnlyList<SignTemplateAdditionalInfoFieldNonEditableField> NonEditable { get; }
+        public IReadOnlyList<SignTemplateAdditionalInfoFieldNonEditableField>? NonEditable { get; set; } = default;
 
+        /// <summary>
+        /// Required fields.
+        /// </summary>
         [JsonPropertyName("required")]
-        public SignTemplateAdditionalInfoFieldRequiredField Required { get; }
+        public SignTemplateAdditionalInfoFieldRequiredField? Required { get; set; } = default;
 
-        public SignTemplateAdditionalInfoField(IReadOnlyList<SignTemplateAdditionalInfoFieldNonEditableField> nonEditable, SignTemplateAdditionalInfoFieldRequiredField required) {
-            NonEditable = nonEditable;
-            Required = required;
+        public SignTemplateAdditionalInfoField() {
+            
         }
     }
 }

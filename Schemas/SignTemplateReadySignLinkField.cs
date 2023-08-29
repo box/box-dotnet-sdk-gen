@@ -8,31 +8,49 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignTemplateReadySignLinkField {
+        /// <summary>
+        /// The URL that can be sent to signers.
+        /// </summary>
         [JsonPropertyName("url")]
-        public string Url { get; }
+        public string? Url { get; set; } = default;
 
+        /// <summary>
+        /// Request name.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// Extra instructions for all signers.
+        /// </summary>
         [JsonPropertyName("instructions")]
-        public string Instructions { get; }
+        public string? Instructions { get; set; } = default;
 
+        /// <summary>
+        /// The destination folder to place final,
+        /// signed document and signing
+        /// log. Only `ID` and `type` fields are required.
+        /// The root folder,
+        /// folder ID `0`, cannot be used.
+        /// </summary>
         [JsonPropertyName("folder_id")]
-        public string FolderId { get; }
+        public string? FolderId { get; set; } = default;
 
+        /// <summary>
+        /// Whether to disable notifications when
+        /// a signer has signed.
+        /// </summary>
         [JsonPropertyName("is_notification_disabled")]
-        public bool? IsNotificationDisabled { get; }
+        public bool? IsNotificationDisabled { get; set; } = default;
 
+        /// <summary>
+        /// Whether the ready sign link is enabled or not.
+        /// </summary>
         [JsonPropertyName("is_active")]
-        public bool? IsActive { get; }
+        public bool? IsActive { get; set; } = default;
 
-        public SignTemplateReadySignLinkField(string url, string name, string instructions, string folderId, bool? isNotificationDisabled, bool? isActive) {
-            Url = url;
-            Name = name;
-            Instructions = instructions;
-            FolderId = folderId;
-            IsNotificationDisabled = isNotificationDisabled;
-            IsActive = isActive;
+        public SignTemplateReadySignLinkField() {
+            
         }
     }
 }

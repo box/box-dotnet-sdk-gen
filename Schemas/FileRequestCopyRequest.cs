@@ -7,10 +7,13 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class FileRequestCopyRequest : FileRequestUpdateRequest {
+        /// <summary>
+        /// The folder to associate the new file request to.
+        /// </summary>
         [JsonPropertyName("folder")]
-        public FileRequestCopyRequestFolderField Folder { get; }
+        public FileRequestCopyRequestFolderField Folder { get; set; }
 
-        public FileRequestCopyRequest(string title, string description, FileRequestUpdateRequestStatusField status, bool? isEmailRequired, bool? isDescriptionRequired, string expiresAt, FileRequestCopyRequestFolderField folder) : base(title, description, status, isEmailRequired, isDescriptionRequired, expiresAt) {
+        public FileRequestCopyRequest(FileRequestCopyRequestFolderField folder) {
             Folder = folder;
         }
     }

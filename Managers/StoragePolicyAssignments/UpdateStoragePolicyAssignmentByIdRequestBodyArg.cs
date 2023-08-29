@@ -8,8 +8,12 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateStoragePolicyAssignmentByIdRequestBodyArg {
+        /// <summary>
+        /// The storage policy to assign to the user or
+        /// enterprise
+        /// </summary>
         [JsonPropertyName("storage_policy")]
-        public UpdateStoragePolicyAssignmentByIdRequestBodyArgStoragePolicyField StoragePolicy { get; }
+        public UpdateStoragePolicyAssignmentByIdRequestBodyArgStoragePolicyField StoragePolicy { get; set; }
 
         public UpdateStoragePolicyAssignmentByIdRequestBodyArg(UpdateStoragePolicyAssignmentByIdRequestBodyArgStoragePolicyField storagePolicy) {
             StoragePolicy = storagePolicy;

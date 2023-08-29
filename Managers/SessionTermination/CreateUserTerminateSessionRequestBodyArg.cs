@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateUserTerminateSessionRequestBodyArg {
+        /// <summary>
+        /// A list of user IDs
+        /// </summary>
         [JsonPropertyName("user_ids")]
-        public IReadOnlyList<string> UserIds { get; }
+        public IReadOnlyList<string> UserIds { get; set; }
 
+        /// <summary>
+        /// A list of user logins
+        /// </summary>
         [JsonPropertyName("user_logins")]
-        public IReadOnlyList<string> UserLogins { get; }
+        public IReadOnlyList<string> UserLogins { get; set; }
 
         public CreateUserTerminateSessionRequestBodyArg(IReadOnlyList<string> userIds, IReadOnlyList<string> userLogins) {
             UserIds = userIds;

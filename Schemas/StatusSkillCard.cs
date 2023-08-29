@@ -8,32 +8,52 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class StatusSkillCard {
+        /// <summary>
+        /// The optional date and time this card was created at.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// `skill_card`
+        /// </summary>
         [JsonPropertyName("type")]
-        public StatusSkillCardTypeField Type { get; }
+        public StatusSkillCardTypeField Type { get; set; }
 
+        /// <summary>
+        /// `status`
+        /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public StatusSkillCardSkillCardTypeField SkillCardType { get; }
+        public StatusSkillCardSkillCardTypeField SkillCardType { get; set; }
 
+        /// <summary>
+        /// The title of the card.
+        /// </summary>
         [JsonPropertyName("skill_card_title")]
-        public StatusSkillCardSkillCardTitleField SkillCardTitle { get; }
+        public StatusSkillCardSkillCardTitleField? SkillCardTitle { get; set; } = default;
 
+        /// <summary>
+        /// Sets the status of the skill. This can be used to show a message to the user while the Skill is processing the data, or if it was not able to process the file.
+        /// </summary>
         [JsonPropertyName("status")]
-        public StatusSkillCardStatusField Status { get; }
+        public StatusSkillCardStatusField Status { get; set; }
 
+        /// <summary>
+        /// The service that applied this metadata.
+        /// </summary>
         [JsonPropertyName("skill")]
-        public StatusSkillCardSkillField Skill { get; }
+        public StatusSkillCardSkillField Skill { get; set; }
 
+        /// <summary>
+        /// The invocation of this service, used to track
+        /// which instance of a service applied the metadata.
+        /// </summary>
         [JsonPropertyName("invocation")]
-        public StatusSkillCardInvocationField Invocation { get; }
+        public StatusSkillCardInvocationField Invocation { get; set; }
 
-        public StatusSkillCard(string createdAt, StatusSkillCardTypeField type, StatusSkillCardSkillCardTypeField skillCardType, StatusSkillCardSkillCardTitleField skillCardTitle, StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation) {
-            CreatedAt = createdAt;
+        public StatusSkillCard(StatusSkillCardTypeField type, StatusSkillCardSkillCardTypeField skillCardType, StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation) {
             Type = type;
             SkillCardType = skillCardType;
-            SkillCardTitle = skillCardTitle;
             Status = status;
             Skill = skill;
             Invocation = invocation;

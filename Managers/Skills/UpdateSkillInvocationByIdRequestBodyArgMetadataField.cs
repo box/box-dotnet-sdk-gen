@@ -10,11 +10,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateSkillInvocationByIdRequestBodyArgMetadataField {
+        /// <summary>
+        /// A list of Box Skill cards to apply to this file.
+        /// </summary>
         [JsonPropertyName("cards")]
-        public IReadOnlyList<UpdateSkillInvocationByIdRequestBodyArgMetadataFieldCardsField> Cards { get; }
+        public IReadOnlyList<UpdateSkillInvocationByIdRequestBodyArgMetadataFieldCardsField>? Cards { get; set; } = default;
 
-        public UpdateSkillInvocationByIdRequestBodyArgMetadataField(IReadOnlyList<UpdateSkillInvocationByIdRequestBodyArgMetadataFieldCardsField> cards) {
-            Cards = cards;
+        public UpdateSkillInvocationByIdRequestBodyArgMetadataField() {
+            
         }
     }
 }

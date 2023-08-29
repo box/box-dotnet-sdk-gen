@@ -8,11 +8,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileUpdateSharedLinkRequestBodyArg {
+        /// <summary>
+        /// The settings for the shared link to update.
+        /// </summary>
         [JsonPropertyName("shared_link")]
-        public UpdateFileUpdateSharedLinkRequestBodyArgSharedLinkField SharedLink { get; }
+        public UpdateFileUpdateSharedLinkRequestBodyArgSharedLinkField? SharedLink { get; set; } = default;
 
-        public UpdateFileUpdateSharedLinkRequestBodyArg(UpdateFileUpdateSharedLinkRequestBodyArgSharedLinkField sharedLink) {
-            SharedLink = sharedLink;
+        public UpdateFileUpdateSharedLinkRequestBodyArg() {
+            
         }
     }
 }

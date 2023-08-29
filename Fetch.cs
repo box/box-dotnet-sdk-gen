@@ -22,7 +22,12 @@ namespace Fetch
         static SimpleHttpClient()
         {
             var serviceProvider = new ServiceCollection().AddHttpClient().BuildServiceProvider();
-            _clientFactory = serviceProvider.GetService<IHttpClientFactory>();
+            var httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
+            if (httpClientFactory == null)
+            {
+                throw new Exception("Unable to create HttpClient. Cannot get an IHttpClientFactory instance from a ServiceProvider.");
+            }
+            _clientFactory = httpClientFactory;
         }
 
         /// <summary>

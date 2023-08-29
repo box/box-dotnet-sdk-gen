@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class UploadedPart {
         [JsonPropertyName("part")]
-        public UploadPart Part { get; }
+        public UploadPart? Part { get; set; } = default;
 
-        public UploadedPart(UploadPart part) {
-            Part = part;
+        public UploadedPart() {
+            
         }
     }
 }

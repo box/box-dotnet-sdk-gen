@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class FileFullMetadataField {
         [JsonPropertyName("extraData")]
-        public Dictionary<string, Dictionary<string, Metadata>> ExtraData { get; }
+        public Dictionary<string, Dictionary<string, Metadata>>? ExtraData { get; set; } = default;
 
-        public FileFullMetadataField(Dictionary<string, Dictionary<string, Metadata>> extraData) {
-            ExtraData = extraData;
+        public FileFullMetadataField() {
+            
         }
     }
 }

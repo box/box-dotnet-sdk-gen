@@ -8,11 +8,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFolderByIdRequestBodyArgParentField {
+        /// <summary>
+        /// The ID of the new parent folder
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public UpdateFolderByIdRequestBodyArgParentField(string id) {
-            Id = id;
+        public UpdateFolderByIdRequestBodyArgParentField() {
+            
         }
     }
 }

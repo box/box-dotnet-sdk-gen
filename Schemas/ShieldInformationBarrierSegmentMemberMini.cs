@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegmentMemberMini : ShieldInformationBarrierSegmentMemberBase {
         [JsonPropertyName("user")]
-        public UserBase User { get; }
+        public UserBase? User { get; set; } = default;
 
-        public ShieldInformationBarrierSegmentMemberMini(string id, ShieldInformationBarrierSegmentMemberBaseTypeField type, UserBase user) : base(id, type) {
-            User = user;
+        public ShieldInformationBarrierSegmentMemberMini() {
+            
         }
     }
 }

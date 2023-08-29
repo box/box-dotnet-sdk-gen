@@ -8,26 +8,32 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegmentRestriction : ShieldInformationBarrierSegmentRestrictionMini {
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase ShieldInformationBarrier { get; }
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier
+        /// Segment Restriction object was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier segment
+        /// Restriction was updated.
+        /// </summary>
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; }
+        public string? UpdatedAt { get; set; } = default;
 
         [JsonPropertyName("updated_by")]
-        public UserBase UpdatedBy { get; }
+        public UserBase? UpdatedBy { get; set; } = default;
 
-        public ShieldInformationBarrierSegmentRestriction(ShieldInformationBarrierSegmentRestrictionBaseTypeField type, string id, ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField shieldInformationBarrierSegment, ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField restrictedSegment, ShieldInformationBarrierBase shieldInformationBarrier, string createdAt, UserBase createdBy, string updatedAt, UserBase updatedBy) : base(type, id, shieldInformationBarrierSegment, restrictedSegment) {
-            ShieldInformationBarrier = shieldInformationBarrier;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            UpdatedAt = updatedAt;
-            UpdatedBy = updatedBy;
+        public ShieldInformationBarrierSegmentRestriction(ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField shieldInformationBarrierSegment, ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField restrictedSegment) : base(shieldInformationBarrierSegment, restrictedSegment) {
+            
         }
     }
 }

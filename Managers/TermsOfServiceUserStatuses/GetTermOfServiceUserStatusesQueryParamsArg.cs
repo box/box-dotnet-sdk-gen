@@ -5,13 +5,18 @@ using Box;
 
 namespace Box.Managers {
     public class GetTermOfServiceUserStatusesQueryParamsArg {
-        public string TosId { get; }
+        /// <summary>
+        /// The ID of the terms of service.
+        /// </summary>
+        public string TosId { get; set; }
 
-        public string UserId { get; }
+        /// <summary>
+        /// Limits results to the given user ID.
+        /// </summary>
+        public string? UserId { get; set; } = default;
 
-        public GetTermOfServiceUserStatusesQueryParamsArg(string tosId, string userId) {
+        public GetTermOfServiceUserStatusesQueryParamsArg(string tosId) {
             TosId = tosId;
-            UserId = userId;
         }
     }
 }

@@ -8,15 +8,20 @@ using Box;
 
 namespace Box.Managers {
     public class CreateTaskRequestBodyArgItemField {
+        /// <summary>
+        /// The ID of the file
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `file`
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateTaskRequestBodyArgItemFieldTypeField Type { get; }
+        public CreateTaskRequestBodyArgItemFieldTypeField? Type { get; set; } = default;
 
-        public CreateTaskRequestBodyArgItemField(string id, CreateTaskRequestBodyArgItemFieldTypeField type) {
-            Id = id;
-            Type = type;
+        public CreateTaskRequestBodyArgItemField() {
+            
         }
     }
 }

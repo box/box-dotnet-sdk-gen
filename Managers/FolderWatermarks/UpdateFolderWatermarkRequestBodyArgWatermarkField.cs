@@ -8,8 +8,13 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFolderWatermarkRequestBodyArgWatermarkField {
+        /// <summary>
+        /// The type of watermark to apply.
+        /// 
+        /// Currently only supports one option.
+        /// </summary>
         [JsonPropertyName("imprint")]
-        public UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField Imprint { get; }
+        public UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField Imprint { get; set; }
 
         public UpdateFolderWatermarkRequestBodyArgWatermarkField(UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField imprint) {
             Imprint = imprint;

@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class MetadataCascadePolicyParentField {
+        /// <summary>
+        /// `folder`
+        /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyParentFieldTypeField Type { get; }
+        public MetadataCascadePolicyParentFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The ID of the folder the policy is applied to.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public MetadataCascadePolicyParentField(MetadataCascadePolicyParentFieldTypeField type, string id) {
-            Type = type;
-            Id = id;
+        public MetadataCascadePolicyParentField() {
+            
         }
     }
 }

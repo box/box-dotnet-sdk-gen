@@ -9,8 +9,11 @@ using Box;
 
 namespace Box.Managers {
     public class CopyFileRequestBodyArgParentField {
+        /// <summary>
+        /// The ID of folder to copy the file to.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CopyFileRequestBodyArgParentField(string id) {
             Id = id;

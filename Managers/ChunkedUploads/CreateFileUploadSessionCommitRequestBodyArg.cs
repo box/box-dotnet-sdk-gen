@@ -9,8 +9,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFileUploadSessionCommitRequestBodyArg {
+        /// <summary>
+        /// The list details for the uploaded parts
+        /// </summary>
         [JsonPropertyName("parts")]
-        public IReadOnlyList<UploadPart> Parts { get; }
+        public IReadOnlyList<UploadPart> Parts { get; set; }
 
         public CreateFileUploadSessionCommitRequestBodyArg(IReadOnlyList<UploadPart> parts) {
             Parts = parts;

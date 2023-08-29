@@ -8,47 +8,56 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SkillInvocation {
+        /// <summary>
+        /// `skill_invocation`
+        /// </summary>
         [JsonPropertyName("type")]
-        public SkillInvocationTypeField Type { get; }
+        public SkillInvocationTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// Unique identifier for the invocation request.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
         [JsonPropertyName("skill")]
-        public SkillInvocationSkillField Skill { get; }
+        public SkillInvocationSkillField? Skill { get; set; } = default;
 
+        /// <summary>
+        /// The read-only and read-write access tokens for this item
+        /// </summary>
         [JsonPropertyName("token")]
-        public SkillInvocationTokenField Token { get; }
+        public SkillInvocationTokenField? Token { get; set; } = default;
 
+        /// <summary>
+        /// The details status of this event.
+        /// </summary>
         [JsonPropertyName("status")]
-        public SkillInvocationStatusField Status { get; }
+        public SkillInvocationStatusField? Status { get; set; } = default;
 
+        /// <summary>
+        /// The time this invocation was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// Action that triggered the invocation
+        /// </summary>
         [JsonPropertyName("trigger")]
-        public string Trigger { get; }
+        public string? Trigger { get; set; } = default;
 
         [JsonPropertyName("enterprise")]
-        public SkillInvocationEnterpriseField Enterprise { get; }
+        public SkillInvocationEnterpriseField? Enterprise { get; set; } = default;
 
         [JsonPropertyName("source")]
-        public SkillInvocationSourceField Source { get; }
+        public SkillInvocationSourceField? Source { get; set; } = default;
 
         [JsonPropertyName("event")]
-        public Event Event { get; }
+        public Event? Event { get; set; } = default;
 
-        public SkillInvocation(SkillInvocationTypeField type, string id, SkillInvocationSkillField skill, SkillInvocationTokenField token, SkillInvocationStatusField status, string createdAt, string trigger, SkillInvocationEnterpriseField enterprise, SkillInvocationSourceField source, Event eventParam) {
-            Type = type;
-            Id = id;
-            Skill = skill;
-            Token = token;
-            Status = status;
-            CreatedAt = createdAt;
-            Trigger = trigger;
-            Enterprise = enterprise;
-            Source = source;
-            Event = eventParam;
+        public SkillInvocation() {
+            
         }
     }
 }

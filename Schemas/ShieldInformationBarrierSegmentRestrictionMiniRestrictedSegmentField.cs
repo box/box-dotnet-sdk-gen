@@ -7,15 +7,21 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField {
+        /// <summary>
+        /// The ID reference of the
+        /// restricted shield information barrier segment.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of the shield information segment
+        /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldTypeField Type { get; }
+        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldTypeField? Type { get; set; } = default;
 
-        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField(string id, ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldTypeField type) {
-            Id = id;
-            Type = type;
+        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField() {
+            
         }
     }
 }

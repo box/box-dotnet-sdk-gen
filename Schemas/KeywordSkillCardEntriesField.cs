@@ -8,11 +8,14 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class KeywordSkillCardEntriesField {
+        /// <summary>
+        /// The text of the keyword.
+        /// </summary>
         [JsonPropertyName("text")]
-        public string Text { get; }
+        public string? Text { get; set; } = default;
 
-        public KeywordSkillCardEntriesField(string text) {
-            Text = text;
+        public KeywordSkillCardEntriesField() {
+            
         }
     }
 }

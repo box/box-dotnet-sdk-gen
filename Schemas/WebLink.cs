@@ -8,54 +8,65 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class WebLink : WebLinkMini {
         [JsonPropertyName("parent")]
-        public FolderMini Parent { get; }
+        public FolderMini? Parent { get; set; } = default;
 
+        /// <summary>
+        /// The description accompanying the web link. This is
+        /// visible within the Box web application.
+        /// </summary>
         [JsonPropertyName("description")]
-        public string Description { get; }
+        public string? Description { get; set; } = default;
 
         [JsonPropertyName("path_collection")]
-        public WebLinkPathCollectionField PathCollection { get; }
+        public WebLinkPathCollectionField? PathCollection { get; set; } = default;
 
+        /// <summary>
+        /// When this file was created on Box’s servers.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// When this file was last updated on the Box
+        /// servers.
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
+        /// <summary>
+        /// When this file was moved to the trash.
+        /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string TrashedAt { get; }
+        public string? TrashedAt { get; set; } = default;
 
+        /// <summary>
+        /// When this file will be permanently deleted.
+        /// </summary>
         [JsonPropertyName("purged_at")]
-        public string PurgedAt { get; }
+        public string? PurgedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserMini CreatedBy { get; }
+        public UserMini? CreatedBy { get; set; } = default;
 
         [JsonPropertyName("modified_by")]
-        public UserMini ModifiedBy { get; }
+        public UserMini? ModifiedBy { get; set; } = default;
 
         [JsonPropertyName("owned_by")]
-        public UserMini OwnedBy { get; }
+        public UserMini? OwnedBy { get; set; } = default;
 
         [JsonPropertyName("shared_link")]
-        public WebLinkSharedLinkField SharedLink { get; }
+        public WebLinkSharedLinkField? SharedLink { get; set; } = default;
 
+        /// <summary>
+        /// Whether this item is deleted or not. Values include `active`,
+        /// `trashed` if the file has been moved to the trash, and `deleted` if
+        /// the file has been permanently deleted
+        /// </summary>
         [JsonPropertyName("item_status")]
-        public WebLinkItemStatusField ItemStatus { get; }
+        public WebLinkItemStatusField? ItemStatus { get; set; } = default;
 
-        public WebLink(string id, WebLinkBaseTypeField type, string etag, string url, string sequenceId, string name, FolderMini parent, string description, WebLinkPathCollectionField pathCollection, string createdAt, string modifiedAt, string trashedAt, string purgedAt, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, WebLinkSharedLinkField sharedLink, WebLinkItemStatusField itemStatus) : base(id, type, etag, url, sequenceId, name) {
-            Parent = parent;
-            Description = description;
-            PathCollection = pathCollection;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            TrashedAt = trashedAt;
-            PurgedAt = purgedAt;
-            CreatedBy = createdBy;
-            ModifiedBy = modifiedBy;
-            OwnedBy = ownedBy;
-            SharedLink = sharedLink;
-            ItemStatus = itemStatus;
+        public WebLink(string id, WebLinkBaseTypeField type) : base(id, type) {
+            
         }
     }
 }

@@ -7,43 +7,55 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegment {
+        /// <summary>
+        /// The unique identifier for the shield information barrier segment
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type of the shield information barrier segment
+        /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentTypeField Type { get; }
+        public ShieldInformationBarrierSegmentTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase ShieldInformationBarrier { get; }
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
 
+        /// <summary>
+        /// Name of the shield information barrier segment
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// Description of the shield information barrier segment
+        /// </summary>
         [JsonPropertyName("description")]
-        public string Description { get; }
+        public string? Description { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this shield information
+        /// barrier object was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier segment was updated.
+        /// </summary>
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; }
+        public string? UpdatedAt { get; set; } = default;
 
         [JsonPropertyName("updated_by")]
-        public UserBase UpdatedBy { get; }
+        public UserBase? UpdatedBy { get; set; } = default;
 
-        public ShieldInformationBarrierSegment(string id, ShieldInformationBarrierSegmentTypeField type, ShieldInformationBarrierBase shieldInformationBarrier, string name, string description, string createdAt, UserBase createdBy, string updatedAt, UserBase updatedBy) {
-            Id = id;
-            Type = type;
-            ShieldInformationBarrier = shieldInformationBarrier;
-            Name = name;
-            Description = description;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            UpdatedAt = updatedAt;
-            UpdatedBy = updatedBy;
+        public ShieldInformationBarrierSegment() {
+            
         }
     }
 }

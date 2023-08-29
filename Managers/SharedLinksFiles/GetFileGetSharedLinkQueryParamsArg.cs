@@ -7,7 +7,11 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileGetSharedLinkQueryParamsArg {
-        public string Fields { get; }
+        /// <summary>
+        /// Explicitly request the `shared_link` fields
+        /// to be returned for this item.
+        /// </summary>
+        public string Fields { get; set; }
 
         public GetFileGetSharedLinkQueryParamsArg(string fields) {
             Fields = fields;

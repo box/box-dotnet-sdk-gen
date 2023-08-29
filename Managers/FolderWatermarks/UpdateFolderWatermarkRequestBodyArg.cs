@@ -8,8 +8,11 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFolderWatermarkRequestBodyArg {
+        /// <summary>
+        /// The watermark to imprint on the folder
+        /// </summary>
         [JsonPropertyName("watermark")]
-        public UpdateFolderWatermarkRequestBodyArgWatermarkField Watermark { get; }
+        public UpdateFolderWatermarkRequestBodyArgWatermarkField Watermark { get; set; }
 
         public UpdateFolderWatermarkRequestBodyArg(UpdateFolderWatermarkRequestBodyArgWatermarkField watermark) {
             Watermark = watermark;

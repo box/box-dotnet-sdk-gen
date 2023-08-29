@@ -7,19 +7,26 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class UserAvatarPicUrlsField {
+        /// <summary>
+        /// The location of a small-sized avatar.
+        /// </summary>
         [JsonPropertyName("small")]
-        public string Small { get; }
+        public string? Small { get; set; } = default;
 
+        /// <summary>
+        /// The location of a large-sized avatar.
+        /// </summary>
         [JsonPropertyName("large")]
-        public string Large { get; }
+        public string? Large { get; set; } = default;
 
+        /// <summary>
+        /// The location of the avatar preview.
+        /// </summary>
         [JsonPropertyName("preview")]
-        public string Preview { get; }
+        public string? Preview { get; set; } = default;
 
-        public UserAvatarPicUrlsField(string small, string large, string preview) {
-            Small = small;
-            Large = large;
-            Preview = preview;
+        public UserAvatarPicUrlsField() {
+            
         }
     }
 }

@@ -8,15 +8,20 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class TemplateSignerInputDimensionsField {
+        /// <summary>
+        /// Relative width to the page the input is on, ranging from 0 to 1.
+        /// </summary>
         [JsonPropertyName("width")]
-        public int? Width { get; }
+        public int? Width { get; set; } = default;
 
+        /// <summary>
+        /// Relative height to the page the input is on, ranging from 0 to 1.
+        /// </summary>
         [JsonPropertyName("height")]
-        public int? Height { get; }
+        public int? Height { get; set; } = default;
 
-        public TemplateSignerInputDimensionsField(int? width, int? height) {
-            Width = width;
-            Height = height;
+        public TemplateSignerInputDimensionsField() {
+            
         }
     }
 }

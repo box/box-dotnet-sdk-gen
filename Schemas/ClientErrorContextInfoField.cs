@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ClientErrorContextInfoField {
+        /// <summary>
+        /// More details on the error.
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string? Message { get; set; } = default;
 
-        public ClientErrorContextInfoField(string message) {
-            Message = message;
+        public ClientErrorContextInfoField() {
+            
         }
     }
 }

@@ -8,11 +8,14 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class Workflow : WorkflowMini {
+        /// <summary>
+        /// A list of flows assigned to a workflow.
+        /// </summary>
         [JsonPropertyName("flows")]
-        public IReadOnlyList<WorkflowFlowsField> Flows { get; }
+        public IReadOnlyList<WorkflowFlowsField>? Flows { get; set; } = default;
 
-        public Workflow(string id, WorkflowMiniTypeField type, string name, string description, bool? isEnabled, IReadOnlyList<WorkflowFlowsField> flows) : base(id, type, name, description, isEnabled) {
-            Flows = flows;
+        public Workflow() {
+            
         }
     }
 }

@@ -5,28 +5,46 @@ using Box;
 
 namespace Box.Managers {
     public class GetIntegrationMappingSlackQueryParamsArg {
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public long? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField PartnerItemType { get; }
+        /// <summary>
+        /// Mapped item type, for which the mapping should be returned
+        /// </summary>
+        public GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField? PartnerItemType { get; set; } = default;
 
-        public string PartnerItemId { get; }
+        /// <summary>
+        /// ID of the mapped item, for which the mapping should be returned
+        /// </summary>
+        public string? PartnerItemId { get; set; } = default;
 
-        public string BoxItemId { get; }
+        /// <summary>
+        /// Box item ID, for which the mappings should be returned
+        /// </summary>
+        public string? BoxItemId { get; set; } = default;
 
-        public GetIntegrationMappingSlackQueryParamsArgBoxItemTypeField BoxItemType { get; }
+        /// <summary>
+        /// Box item type, for which the mappings should be returned
+        /// </summary>
+        public GetIntegrationMappingSlackQueryParamsArgBoxItemTypeField? BoxItemType { get; set; } = default;
 
-        public bool? IsManuallyCreated { get; }
+        /// <summary>
+        /// Whether the mapping has been manually created
+        /// </summary>
+        public bool? IsManuallyCreated { get; set; } = default;
 
-        public GetIntegrationMappingSlackQueryParamsArg(string marker, long? limit, GetIntegrationMappingSlackQueryParamsArgPartnerItemTypeField partnerItemType, string partnerItemId, string boxItemId, GetIntegrationMappingSlackQueryParamsArgBoxItemTypeField boxItemType, bool? isManuallyCreated) {
-            Marker = marker;
-            Limit = limit;
-            PartnerItemType = partnerItemType;
-            PartnerItemId = partnerItemId;
-            BoxItemId = boxItemId;
-            BoxItemType = boxItemType;
-            IsManuallyCreated = isManuallyCreated;
+        public GetIntegrationMappingSlackQueryParamsArg() {
+            
         }
     }
 }

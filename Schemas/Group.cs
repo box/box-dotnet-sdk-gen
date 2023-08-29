@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Group : GroupMini {
+        /// <summary>
+        /// When the group object was created
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// When the group object was last modified
+        /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; }
+        public string? ModifiedAt { get; set; } = default;
 
-        public Group(string id, GroupBaseTypeField type, string name, GroupMiniGroupTypeField groupType, string createdAt, string modifiedAt) : base(id, type, name, groupType) {
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
+        public Group() {
+            
         }
     }
 }

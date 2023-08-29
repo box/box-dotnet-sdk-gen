@@ -8,19 +8,22 @@ using Box;
 
 namespace Box.Managers {
     public class CreateUserAvatarRequestBodyArg {
+        /// <summary>
+        /// The image file to be uploaded to Box.
+        /// Accepted file extensions are `.jpg` or `.png`.
+        /// The maximum file size is 1MB.
+        /// </summary>
         [JsonPropertyName("pic")]
-        public Stream Pic { get; }
+        public Stream Pic { get; set; }
 
         [JsonPropertyName("picFileName")]
-        public string PicFileName { get; }
+        public string? PicFileName { get; set; } = default;
 
         [JsonPropertyName("picContentType")]
-        public string PicContentType { get; }
+        public string? PicContentType { get; set; } = default;
 
-        public CreateUserAvatarRequestBodyArg(Stream pic, string picFileName, string picContentType) {
+        public CreateUserAvatarRequestBodyArg(Stream pic) {
             Pic = pic;
-            PicFileName = picFileName;
-            PicContentType = picContentType;
         }
     }
 }

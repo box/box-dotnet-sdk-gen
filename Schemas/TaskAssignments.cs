@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class TaskAssignments {
+        /// <summary>
+        /// The total number of items in this collection.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; }
+        public long? TotalCount { get; set; } = default;
 
+        /// <summary>
+        /// A list of task assignments
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TaskAssignment> Entries { get; }
+        public IReadOnlyList<TaskAssignment>? Entries { get; set; } = default;
 
-        public TaskAssignments(long? totalCount, IReadOnlyList<TaskAssignment> entries) {
-            TotalCount = totalCount;
-            Entries = entries;
+        public TaskAssignments() {
+            
         }
     }
 }

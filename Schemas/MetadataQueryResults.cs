@@ -8,19 +8,33 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataQueryResults {
+        /// <summary>
+        /// The mini representation of the files and folders that match the search
+        /// terms.
+        /// 
+        /// By default, this endpoint returns only the most basic info about the
+        /// items. To get additional fields for each item, including any of the
+        /// metadata, use the `fields` attribute in the query.
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<MetadataQueryResultsEntriesField> Entries { get; }
+        public IReadOnlyList<MetadataQueryResultsEntriesField>? Entries { get; set; } = default;
 
+        /// <summary>
+        /// The limit that was used for this search. This will be the same as the
+        /// `limit` query parameter unless that value exceeded the maximum value
+        /// allowed.
+        /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; }
+        public long? Limit { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the next page of results.
+        /// </summary>
         [JsonPropertyName("next_marker")]
-        public string NextMarker { get; }
+        public string? NextMarker { get; set; } = default;
 
-        public MetadataQueryResults(IReadOnlyList<MetadataQueryResultsEntriesField> entries, long? limit, string nextMarker) {
-            Entries = entries;
-            Limit = limit;
-            NextMarker = nextMarker;
+        public MetadataQueryResults() {
+            
         }
     }
 }

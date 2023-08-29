@@ -9,30 +9,36 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class ShieldInformationBarrierReport : ShieldInformationBarrierReportBase {
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierReference ShieldInformationBarrier { get; }
+        public ShieldInformationBarrierReference? ShieldInformationBarrier { get; set; } = default;
 
+        /// <summary>
+        /// Status of the shield information report
+        /// </summary>
         [JsonPropertyName("status")]
-        public ShieldInformationBarrierReportStatusField Status { get; }
+        public ShieldInformationBarrierReportStatusField? Status { get; set; } = default;
 
         [JsonPropertyName("details")]
-        public ShieldInformationBarrierReportDetails Details { get; }
+        public ShieldInformationBarrierReportDetails? Details { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier report object was created.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
-        public UserBase CreatedBy { get; }
+        public UserBase? CreatedBy { get; set; } = default;
 
+        /// <summary>
+        /// ISO date time string when this
+        /// shield information barrier report was updated.
+        /// </summary>
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; }
+        public string? UpdatedAt { get; set; } = default;
 
-        public ShieldInformationBarrierReport(string id, ShieldInformationBarrierReportBaseTypeField type, ShieldInformationBarrierReference shieldInformationBarrier, ShieldInformationBarrierReportStatusField status, ShieldInformationBarrierReportDetails details, string createdAt, UserBase createdBy, string updatedAt) : base(id, type) {
-            ShieldInformationBarrier = shieldInformationBarrier;
-            Status = status;
-            Details = details;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            UpdatedAt = updatedAt;
+        public ShieldInformationBarrierReport() {
+            
         }
     }
 }

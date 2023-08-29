@@ -8,23 +8,29 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class WorkflowFlowsFieldOutcomesFieldIfRejectedField {
+        /// <summary>
+        /// The identifier of the outcome
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The outcomes resource type
+        /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsFieldOutcomesFieldIfRejectedFieldTypeField Type { get; }
+        public WorkflowFlowsFieldOutcomesFieldIfRejectedFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The name of the outcome
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
         [JsonPropertyName("action_type")]
-        public WorkflowFlowsFieldOutcomesFieldIfRejectedFieldActionTypeField ActionType { get; }
+        public WorkflowFlowsFieldOutcomesFieldIfRejectedFieldActionTypeField? ActionType { get; set; } = default;
 
-        public WorkflowFlowsFieldOutcomesFieldIfRejectedField(string id, WorkflowFlowsFieldOutcomesFieldIfRejectedFieldTypeField type, string name, WorkflowFlowsFieldOutcomesFieldIfRejectedFieldActionTypeField actionType) {
-            Id = id;
-            Type = type;
-            Name = name;
-            ActionType = actionType;
+        public WorkflowFlowsFieldOutcomesFieldIfRejectedField() {
+            
         }
     }
 }

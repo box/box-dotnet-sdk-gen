@@ -149,9 +149,9 @@ namespace Box
         public static JwtConfig FromConfigJsonString(string jsonString, string userId = "")
         {
             var json = JsonNode.Parse(jsonString);
-            string clientId = "", clientSecret = "", privateKey = "", passPhrase = "", publicKeyId = "";
+            string? clientId = "", clientSecret = "", privateKey = "", passPhrase = "", publicKeyId = "";
 
-            var boxAppSettings = json["boxAppSettings"];
+            var boxAppSettings = json?["boxAppSettings"];
             if (boxAppSettings != null)
             {
                 clientId = boxAppSettings["clientID"]?.ToString();
@@ -170,7 +170,7 @@ namespace Box
                 }
             }
 
-            var enterpriseId = json["enterpriseID"]?.ToString();
+            var enterpriseId = json?["enterpriseID"]?.ToString();
 
             return !string.IsNullOrEmpty(userId) ?
                 User(clientId, clientSecret, publicKeyId, privateKey, passPhrase, userId) :
@@ -320,7 +320,7 @@ namespace Box
             public char[] GetPassword() => _password.ToCharArray();
         }
 
-        public async Task<string> RefreshToken(NetworkSession networkSession = null)
+        public async Task<string> RefreshToken(NetworkSession? networkSession = null)
         {
             if (_needsRefresh)
             {
@@ -331,7 +331,7 @@ namespace Box
             return _token;
         }
 
-        public async Task<string> RetrieveToken(NetworkSession networkSession = null)
+        public async Task<string> RetrieveToken(NetworkSession? networkSession = null)
         {
             var randomNumber = new byte[64];
             using (var rng = RandomNumberGenerator.Create())

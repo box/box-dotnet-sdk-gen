@@ -8,47 +8,69 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignRequest : SignRequestBase {
+        /// <summary>
+        /// object type
+        /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestTypeField Type { get; }
+        public SignRequestTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// List of files to create a signing document from. This is currently limited to ten files. Only the ID and type fields are required for each file.
+        /// </summary>
         [JsonPropertyName("source_files")]
-        public IReadOnlyList<FileBase> SourceFiles { get; }
+        public IReadOnlyList<FileBase>? SourceFiles { get; set; } = default;
 
+        /// <summary>
+        /// Array of signers for the sign request
+        /// </summary>
         [JsonPropertyName("signers")]
-        public IReadOnlyList<SignRequestSigner> Signers { get; }
+        public IReadOnlyList<SignRequestSigner>? Signers { get; set; } = default;
 
+        /// <summary>
+        /// Force a specific color for the signature (blue, black, or red).
+        /// </summary>
         [JsonPropertyName("signature_color")]
-        public string SignatureColor { get; }
+        public string? SignatureColor { get; set; } = default;
 
+        /// <summary>
+        /// Sign request ID
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// This URL is returned if `is_document_preparation_needed` is
+        /// set to `true` in the request. It is used to prepare the sign request
+        /// via UI. The sign request is not sent until preparation is complete.
+        /// </summary>
         [JsonPropertyName("prepare_url")]
-        public string PrepareUrl { get; }
+        public string? PrepareUrl { get; set; } = default;
 
         [JsonPropertyName("signing_log")]
-        public FileMini SigningLog { get; }
+        public FileMini? SigningLog { get; set; } = default;
 
+        /// <summary>
+        /// Describes the status of the sign request
+        /// </summary>
         [JsonPropertyName("status")]
-        public SignRequestStatusField Status { get; }
+        public SignRequestStatusField? Status { get; set; } = default;
 
+        /// <summary>
+        /// List of files that will be signed, which are copies of the original
+        /// source files. A new version of these files are created as signers sign
+        /// and can be downloaded at any point in the signing process.
+        /// </summary>
         [JsonPropertyName("sign_files")]
-        public SignRequestSignFilesField SignFiles { get; }
+        public SignRequestSignFilesField? SignFiles { get; set; } = default;
 
+        /// <summary>
+        /// Uses `days_valid` to calculate the date and time, in GMT, the sign request will expire if unsigned.
+        /// </summary>
         [JsonPropertyName("auto_expire_at")]
-        public string AutoExpireAt { get; }
+        public string? AutoExpireAt { get; set; } = default;
 
-        public SignRequest(bool? isDocumentPreparationNeeded, string redirectUrl, string declinedRedirectUrl, bool? areTextSignaturesEnabled, string emailSubject, string emailMessage, bool? areRemindersEnabled, FolderMini parentFolder, string name, IReadOnlyList<SignRequestPrefillTag> prefillTags, int? daysValid, string externalId, bool? isPhoneVerificationRequiredToView, string templateId, SignRequestTypeField type, IReadOnlyList<FileBase> sourceFiles, IReadOnlyList<SignRequestSigner> signers, string signatureColor, string id, string prepareUrl, FileMini signingLog, SignRequestStatusField status, SignRequestSignFilesField signFiles, string autoExpireAt) : base(isDocumentPreparationNeeded, redirectUrl, declinedRedirectUrl, areTextSignaturesEnabled, emailSubject, emailMessage, areRemindersEnabled, parentFolder, name, prefillTags, daysValid, externalId, isPhoneVerificationRequiredToView, templateId) {
-            Type = type;
-            SourceFiles = sourceFiles;
-            Signers = signers;
-            SignatureColor = signatureColor;
-            Id = id;
-            PrepareUrl = prepareUrl;
-            SigningLog = signingLog;
-            Status = status;
-            SignFiles = signFiles;
-            AutoExpireAt = autoExpireAt;
+        public SignRequest(FolderMini parentFolder) : base(parentFolder) {
+            
         }
     }
 }

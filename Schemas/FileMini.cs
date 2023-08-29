@@ -8,22 +8,26 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class FileMini : FileBase {
         [JsonPropertyName("sequence_id")]
-        public string SequenceId { get; }
+        public string? SequenceId { get; set; } = default;
 
+        /// <summary>
+        /// The name of the file
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
+        /// <summary>
+        /// The SHA1 hash of the file. This can be used to compare the contents
+        /// of a file on Box with a local file.
+        /// </summary>
         [JsonPropertyName("sha1")]
-        public string Sha1 { get; }
+        public string? Sha1 { get; set; } = default;
 
         [JsonPropertyName("file_version")]
-        public FileVersionMini FileVersion { get; }
+        public FileVersionMini? FileVersion { get; set; } = default;
 
-        public FileMini(string id, string etag, FileBaseTypeField type, string sequenceId, string name, string sha1, FileVersionMini fileVersion) : base(id, etag, type) {
-            SequenceId = sequenceId;
-            Name = name;
-            Sha1 = sha1;
-            FileVersion = fileVersion;
+        public FileMini(string id, FileBaseTypeField type) : base(id, type) {
+            
         }
     }
 }

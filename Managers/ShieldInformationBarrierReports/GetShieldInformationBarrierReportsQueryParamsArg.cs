@@ -5,16 +5,26 @@ using Box;
 
 namespace Box.Managers {
     public class GetShieldInformationBarrierReportsQueryParamsArg {
-        public string ShieldInformationBarrierId { get; }
+        /// <summary>
+        /// The ID of the shield information barrier.
+        /// </summary>
+        public string ShieldInformationBarrierId { get; set; }
 
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public long? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetShieldInformationBarrierReportsQueryParamsArg(string shieldInformationBarrierId, string marker, long? limit) {
+        public GetShieldInformationBarrierReportsQueryParamsArg(string shieldInformationBarrierId) {
             ShieldInformationBarrierId = shieldInformationBarrierId;
-            Marker = marker;
-            Limit = limit;
         }
     }
 }

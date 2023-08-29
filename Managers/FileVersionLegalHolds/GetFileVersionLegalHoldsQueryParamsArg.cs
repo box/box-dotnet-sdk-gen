@@ -7,16 +7,27 @@ using Box;
 
 namespace Box.Managers {
     public class GetFileVersionLegalHoldsQueryParamsArg {
-        public string PolicyId { get; }
+        /// <summary>
+        /// The ID of the legal hold policy to get the file version legal
+        /// holds for.
+        /// </summary>
+        public string PolicyId { get; set; }
 
-        public string Marker { get; }
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; set; } = default;
 
-        public long? Limit { get; }
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; set; } = default;
 
-        public GetFileVersionLegalHoldsQueryParamsArg(string policyId, string marker, long? limit) {
+        public GetFileVersionLegalHoldsQueryParamsArg(string policyId) {
             PolicyId = policyId;
-            Marker = marker;
-            Limit = limit;
         }
     }
 }

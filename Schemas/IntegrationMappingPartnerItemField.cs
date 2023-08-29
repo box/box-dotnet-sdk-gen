@@ -9,7 +9,7 @@ using System.Text.Json;
 namespace Box.Schemas {
     [JsonConverter(typeof(IntegrationMappingPartnerItemFieldConverter))]
     public class IntegrationMappingPartnerItemField : OneOf<IntegrationMappingPartnerItemSlack> {
-        public IntegrationMappingPartnerItemSlack IntegrationMappingPartnerItemSlack => _val0;
+        public IntegrationMappingPartnerItemSlack? IntegrationMappingPartnerItemSlack => _val0;
         
         public IntegrationMappingPartnerItemField(IntegrationMappingPartnerItemSlack value) : base(value) {}
         
@@ -23,14 +23,14 @@ namespace Box.Schemas {
                 if (discriminant0Present) {
                     switch (discriminant0.ToString()){
                         case "channel":
-                            return JsonSerializer.Deserialize<IntegrationMappingPartnerItemSlack>(document);
+                            return JsonSerializer.Deserialize<IntegrationMappingPartnerItemSlack>(document) ?? throw new Exception($"Could not deserialize {document} to IntegrationMappingPartnerItemSlack");
                     }
                 }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, IntegrationMappingPartnerItemField value, JsonSerializerOptions options) {
-                if (value.IntegrationMappingPartnerItemSlack != null) {
+            public override void Write(Utf8JsonWriter writer, IntegrationMappingPartnerItemField? value, JsonSerializerOptions options) {
+                if (value?.IntegrationMappingPartnerItemSlack != null) {
                     JsonSerializer.Serialize(writer, value.IntegrationMappingPartnerItemSlack, options);
                     return;
                 }

@@ -8,15 +8,25 @@ using Box;
 
 namespace Box.Managers {
     public class CreateTaskAssignmentRequestBodyArgAssignToField {
+        /// <summary>
+        /// The ID of the user to assign to the
+        /// task.
+        /// 
+        /// To specify a user by their email
+        /// address use the `login` parameter.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The email address of the user to assign to the task.
+        /// To specify a user by their user ID please use the `id` parameter.
+        /// </summary>
         [JsonPropertyName("login")]
-        public string Login { get; }
+        public string? Login { get; set; } = default;
 
-        public CreateTaskAssignmentRequestBodyArgAssignToField(string id, string login) {
-            Id = id;
-            Login = login;
+        public CreateTaskAssignmentRequestBodyArgAssignToField() {
+            
         }
     }
 }

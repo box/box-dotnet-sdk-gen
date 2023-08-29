@@ -8,19 +8,26 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class WorkflowFlowsFieldTriggerField {
+        /// <summary>
+        /// The trigger's resource type
+        /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsFieldTriggerFieldTypeField Type { get; }
+        public WorkflowFlowsFieldTriggerFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The type of trigger selected for this flow
+        /// </summary>
         [JsonPropertyName("trigger_type")]
-        public WorkflowFlowsFieldTriggerFieldTriggerTypeField TriggerType { get; }
+        public WorkflowFlowsFieldTriggerFieldTriggerTypeField? TriggerType { get; set; } = default;
 
+        /// <summary>
+        /// List of trigger scopes
+        /// </summary>
         [JsonPropertyName("scope")]
-        public IReadOnlyList<WorkflowFlowsFieldTriggerFieldScopeField> Scope { get; }
+        public IReadOnlyList<WorkflowFlowsFieldTriggerFieldScopeField>? Scope { get; set; } = default;
 
-        public WorkflowFlowsFieldTriggerField(WorkflowFlowsFieldTriggerFieldTypeField type, WorkflowFlowsFieldTriggerFieldTriggerTypeField triggerType, IReadOnlyList<WorkflowFlowsFieldTriggerFieldScopeField> scope) {
-            Type = type;
-            TriggerType = triggerType;
-            Scope = scope;
+        public WorkflowFlowsFieldTriggerField() {
+            
         }
     }
 }

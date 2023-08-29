@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class EmailAliases {
+        /// <summary>
+        /// The number of email aliases.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; }
+        public long? TotalCount { get; set; } = default;
 
+        /// <summary>
+        /// A list of email aliases
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<EmailAlias> Entries { get; }
+        public IReadOnlyList<EmailAlias>? Entries { get; set; } = default;
 
-        public EmailAliases(long? totalCount, IReadOnlyList<EmailAlias> entries) {
-            TotalCount = totalCount;
-            Entries = entries;
+        public EmailAliases() {
+            
         }
     }
 }

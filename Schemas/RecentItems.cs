@@ -8,23 +8,34 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class RecentItems {
+        /// <summary>
+        /// The limit that was used for these entries. This will be the same as the
+        /// `limit` query parameter unless that value exceeded the maximum value
+        /// allowed. The maximum value varies by API.
+        /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; }
+        public long? Limit { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the next page of results.
+        /// </summary>
         [JsonPropertyName("next_marker")]
-        public long? NextMarker { get; }
+        public long? NextMarker { get; set; } = default;
 
+        /// <summary>
+        /// The marker for the start of the previous page of results.
+        /// </summary>
         [JsonPropertyName("prev_marker")]
-        public long? PrevMarker { get; }
+        public long? PrevMarker { get; set; } = default;
 
+        /// <summary>
+        /// A list of recent items
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RecentItem> Entries { get; }
+        public IReadOnlyList<RecentItem>? Entries { get; set; } = default;
 
-        public RecentItems(long? limit, long? nextMarker, long? prevMarker, IReadOnlyList<RecentItem> entries) {
-            Limit = limit;
-            NextMarker = nextMarker;
-            PrevMarker = prevMarker;
-            Entries = entries;
+        public RecentItems() {
+            
         }
     }
 }

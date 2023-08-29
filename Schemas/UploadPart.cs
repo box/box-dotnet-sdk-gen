@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class UploadPart : UploadPartMini {
+        /// <summary>
+        /// The SHA1 hash of the chunk.
+        /// </summary>
         [JsonPropertyName("sha1")]
-        public string Sha1 { get; }
+        public string? Sha1 { get; set; } = default;
 
-        public UploadPart(string partId, long? offset, long? size, string sha1) : base(partId, offset, size) {
-            Sha1 = sha1;
+        public UploadPart() {
+            
         }
     }
 }

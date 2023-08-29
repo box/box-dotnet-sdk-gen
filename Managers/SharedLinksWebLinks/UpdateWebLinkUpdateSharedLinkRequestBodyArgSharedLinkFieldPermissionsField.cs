@@ -8,19 +8,30 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkFieldPermissionsField {
+        /// <summary>
+        /// If the shared link allows for downloading of files.
+        /// This can only be set when `access` is set to
+        /// `open` or `company`.
+        /// </summary>
         [JsonPropertyName("can_download")]
-        public bool? CanDownload { get; }
+        public bool? CanDownload { get; set; } = default;
 
+        /// <summary>
+        /// If the shared link allows for previewing of files.
+        /// This value is always `true`. For shared links on folders
+        /// this also applies to any items in the folder.
+        /// </summary>
         [JsonPropertyName("can_preview")]
-        public bool? CanPreview { get; }
+        public bool? CanPreview { get; set; } = default;
 
+        /// <summary>
+        /// This value can only be `true` is `type` is `file`.
+        /// </summary>
         [JsonPropertyName("can_edit")]
-        public bool? CanEdit { get; }
+        public bool? CanEdit { get; set; } = default;
 
-        public UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkFieldPermissionsField(bool? canDownload, bool? canPreview, bool? canEdit) {
-            CanDownload = canDownload;
-            CanPreview = canPreview;
-            CanEdit = canEdit;
+        public UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkFieldPermissionsField() {
+            
         }
     }
 }

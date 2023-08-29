@@ -7,15 +7,25 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class IntegrationMappingBase {
+        /// <summary>
+        /// A unique identifier of a folder mapping
+        /// (part of a composite key together
+        /// with `integration_type`)
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// Identifies the Box partner app,
+        /// with which the mapping is associated.
+        /// Currently only supports Slack.
+        /// (part of the composite key together with `id`)
+        /// </summary>
         [JsonPropertyName("integration_type")]
-        public IntegrationMappingBaseIntegrationTypeField IntegrationType { get; }
+        public IntegrationMappingBaseIntegrationTypeField? IntegrationType { get; set; } = default;
 
-        public IntegrationMappingBase(string id, IntegrationMappingBaseIntegrationTypeField integrationType) {
-            Id = id;
-            IntegrationType = integrationType;
+        public IntegrationMappingBase() {
+            
         }
     }
 }

@@ -9,11 +9,11 @@ using System.Text.Json;
 namespace Box.Schemas {
     [JsonConverter(typeof(ItemsEntriesFieldConverter))]
     public class ItemsEntriesField : OneOf<FileMini, FolderMini, WebLinkMini> {
-        public FileMini FileMini => _val0;
+        public FileMini? FileMini => _val0;
         
-        public FolderMini FolderMini => _val1;
+        public FolderMini? FolderMini => _val1;
         
-        public WebLinkMini WebLinkMini => _val2;
+        public WebLinkMini? WebLinkMini => _val2;
         
         public ItemsEntriesField(FileMini value) : base(value) {}
         
@@ -35,26 +35,26 @@ namespace Box.Schemas {
                 if (discriminant0Present) {
                     switch (discriminant0.ToString()){
                         case "file":
-                            return JsonSerializer.Deserialize<FileMini>(document);
+                            return JsonSerializer.Deserialize<FileMini>(document) ?? throw new Exception($"Could not deserialize {document} to FileMini");
                         case "folder":
-                            return JsonSerializer.Deserialize<FolderMini>(document);
+                            return JsonSerializer.Deserialize<FolderMini>(document) ?? throw new Exception($"Could not deserialize {document} to FolderMini");
                         case "web_link":
-                            return JsonSerializer.Deserialize<WebLinkMini>(document);
+                            return JsonSerializer.Deserialize<WebLinkMini>(document) ?? throw new Exception($"Could not deserialize {document} to WebLinkMini");
                     }
                 }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, ItemsEntriesField value, JsonSerializerOptions options) {
-                if (value.FileMini != null) {
+            public override void Write(Utf8JsonWriter writer, ItemsEntriesField? value, JsonSerializerOptions options) {
+                if (value?.FileMini != null) {
                     JsonSerializer.Serialize(writer, value.FileMini, options);
                     return;
                 }
-                if (value.FolderMini != null) {
+                if (value?.FolderMini != null) {
                     JsonSerializer.Serialize(writer, value.FolderMini, options);
                     return;
                 }
-                if (value.WebLinkMini != null) {
+                if (value?.WebLinkMini != null) {
                     JsonSerializer.Serialize(writer, value.WebLinkMini, options);
                     return;
                 }

@@ -8,11 +8,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateStoragePolicyAssignmentRequestBodyArgStoragePolicyField {
+        /// <summary>
+        /// The type to assign.
+        /// </summary>
         [JsonPropertyName("type")]
-        public CreateStoragePolicyAssignmentRequestBodyArgStoragePolicyFieldTypeField Type { get; }
+        public CreateStoragePolicyAssignmentRequestBodyArgStoragePolicyFieldTypeField Type { get; set; }
 
+        /// <summary>
+        /// The ID of the storage policy to assign.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CreateStoragePolicyAssignmentRequestBodyArgStoragePolicyField(CreateStoragePolicyAssignmentRequestBodyArgStoragePolicyFieldTypeField type, string id) {
             Type = type;

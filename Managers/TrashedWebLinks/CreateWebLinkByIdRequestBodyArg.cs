@@ -6,15 +6,17 @@ using Box;
 
 namespace Box.Managers {
     public class CreateWebLinkByIdRequestBodyArg {
+        /// <summary>
+        /// An optional new name for the web link.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
         [JsonPropertyName("parent")]
-        public CreateWebLinkByIdRequestBodyArgParentField Parent { get; }
+        public CreateWebLinkByIdRequestBodyArgParentField? Parent { get; set; } = default;
 
-        public CreateWebLinkByIdRequestBodyArg(string name, CreateWebLinkByIdRequestBodyArgParentField parent) {
-            Name = name;
-            Parent = parent;
+        public CreateWebLinkByIdRequestBodyArg() {
+            
         }
     }
 }

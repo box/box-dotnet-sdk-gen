@@ -7,19 +7,26 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class InviteInvitedToField {
+        /// <summary>
+        /// The unique identifier for this enterprise.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `enterprise`
+        /// </summary>
         [JsonPropertyName("type")]
-        public InviteInvitedToFieldTypeField Type { get; }
+        public InviteInvitedToFieldTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The name of the enterprise
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
-        public InviteInvitedToField(string id, InviteInvitedToFieldTypeField type, string name) {
-            Id = id;
-            Type = type;
-            Name = name;
+        public InviteInvitedToField() {
+            
         }
     }
 }

@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class SessionTerminationMessage {
+        /// <summary>
+        /// The unique identifier for the termination job status
+        /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; }
+        public string? Message { get; set; } = default;
 
-        public SessionTerminationMessage(string message) {
-            Message = message;
+        public SessionTerminationMessage() {
+            
         }
     }
 }

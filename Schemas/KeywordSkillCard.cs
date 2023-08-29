@@ -8,32 +8,52 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class KeywordSkillCard {
+        /// <summary>
+        /// The optional date and time this card was created at.
+        /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; }
+        public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// `skill_card`
+        /// </summary>
         [JsonPropertyName("type")]
-        public KeywordSkillCardTypeField Type { get; }
+        public KeywordSkillCardTypeField Type { get; set; }
 
+        /// <summary>
+        /// `keyword`
+        /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public KeywordSkillCardSkillCardTypeField SkillCardType { get; }
+        public KeywordSkillCardSkillCardTypeField SkillCardType { get; set; }
 
+        /// <summary>
+        /// The title of the card.
+        /// </summary>
         [JsonPropertyName("skill_card_title")]
-        public KeywordSkillCardSkillCardTitleField SkillCardTitle { get; }
+        public KeywordSkillCardSkillCardTitleField? SkillCardTitle { get; set; } = default;
 
+        /// <summary>
+        /// The service that applied this metadata.
+        /// </summary>
         [JsonPropertyName("skill")]
-        public KeywordSkillCardSkillField Skill { get; }
+        public KeywordSkillCardSkillField Skill { get; set; }
 
+        /// <summary>
+        /// The invocation of this service, used to track
+        /// which instance of a service applied the metadata.
+        /// </summary>
         [JsonPropertyName("invocation")]
-        public KeywordSkillCardInvocationField Invocation { get; }
+        public KeywordSkillCardInvocationField Invocation { get; set; }
 
+        /// <summary>
+        /// An list of entries in the metadata card.
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<KeywordSkillCardEntriesField> Entries { get; }
+        public IReadOnlyList<KeywordSkillCardEntriesField> Entries { get; set; }
 
-        public KeywordSkillCard(string createdAt, KeywordSkillCardTypeField type, KeywordSkillCardSkillCardTypeField skillCardType, KeywordSkillCardSkillCardTitleField skillCardTitle, KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries) {
-            CreatedAt = createdAt;
+        public KeywordSkillCard(KeywordSkillCardTypeField type, KeywordSkillCardSkillCardTypeField skillCardType, KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries) {
             Type = type;
             SkillCardType = skillCardType;
-            SkillCardTitle = skillCardTitle;
             Skill = skill;
             Invocation = invocation;
             Entries = entries;

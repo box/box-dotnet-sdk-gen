@@ -7,23 +7,34 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class Collection {
+        /// <summary>
+        /// The unique identifier for this collection.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `collection`
+        /// </summary>
         [JsonPropertyName("type")]
-        public CollectionTypeField Type { get; }
+        public CollectionTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The name of the collection.
+        /// </summary>
         [JsonPropertyName("name")]
-        public CollectionNameField Name { get; }
+        public CollectionNameField? Name { get; set; } = default;
 
+        /// <summary>
+        /// The type of the collection. This is used to
+        /// determine the proper visual treatment for
+        /// collections.
+        /// </summary>
         [JsonPropertyName("collection_type")]
-        public CollectionCollectionTypeField CollectionType { get; }
+        public CollectionCollectionTypeField? CollectionType { get; set; } = default;
 
-        public Collection(string id, CollectionTypeField type, CollectionNameField name, CollectionCollectionTypeField collectionType) {
-            Id = id;
-            Type = type;
-            Name = name;
-            CollectionType = collectionType;
+        public Collection() {
+            
         }
     }
 }

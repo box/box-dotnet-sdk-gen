@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class EnterpriseBase {
+        /// <summary>
+        /// The unique identifier for this enterprise
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `enterprise`
+        /// </summary>
         [JsonPropertyName("type")]
-        public EnterpriseBaseTypeField Type { get; }
+        public EnterpriseBaseTypeField? Type { get; set; } = default;
 
-        public EnterpriseBase(string id, EnterpriseBaseTypeField type) {
-            Id = id;
-            Type = type;
+        public EnterpriseBase() {
+            
         }
     }
 }

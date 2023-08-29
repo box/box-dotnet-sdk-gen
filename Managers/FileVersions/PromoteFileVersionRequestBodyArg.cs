@@ -8,15 +8,20 @@ using Box;
 
 namespace Box.Managers {
     public class PromoteFileVersionRequestBodyArg {
+        /// <summary>
+        /// The file version ID
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The type to promote
+        /// </summary>
         [JsonPropertyName("type")]
-        public PromoteFileVersionRequestBodyArgTypeField Type { get; }
+        public PromoteFileVersionRequestBodyArgTypeField? Type { get; set; } = default;
 
-        public PromoteFileVersionRequestBodyArg(string id, PromoteFileVersionRequestBodyArgTypeField type) {
-            Id = id;
-            Type = type;
+        public PromoteFileVersionRequestBodyArg() {
+            
         }
     }
 }

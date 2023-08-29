@@ -11,13 +11,13 @@ using Box;
 namespace Box.Managers {
     [JsonConverter(typeof(CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsFieldConverter))]
     public class CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField : OneOf<KeywordSkillCard, TimelineSkillCard, TranscriptSkillCard, StatusSkillCard> {
-        public KeywordSkillCard KeywordSkillCard => _val0;
+        public KeywordSkillCard? KeywordSkillCard => _val0;
         
-        public TimelineSkillCard TimelineSkillCard => _val1;
+        public TimelineSkillCard? TimelineSkillCard => _val1;
         
-        public TranscriptSkillCard TranscriptSkillCard => _val2;
+        public TranscriptSkillCard? TranscriptSkillCard => _val2;
         
-        public StatusSkillCard StatusSkillCard => _val3;
+        public StatusSkillCard? StatusSkillCard => _val3;
         
         public CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField(KeywordSkillCard value) : base(value) {}
         
@@ -43,32 +43,32 @@ namespace Box.Managers {
                 if (discriminant0Present) {
                     switch (discriminant0.ToString()){
                         case "keyword":
-                            return JsonSerializer.Deserialize<KeywordSkillCard>(document);
+                            return JsonSerializer.Deserialize<KeywordSkillCard>(document) ?? throw new Exception($"Could not deserialize {document} to KeywordSkillCard");
                         case "timeline":
-                            return JsonSerializer.Deserialize<TimelineSkillCard>(document);
+                            return JsonSerializer.Deserialize<TimelineSkillCard>(document) ?? throw new Exception($"Could not deserialize {document} to TimelineSkillCard");
                         case "transcript":
-                            return JsonSerializer.Deserialize<TranscriptSkillCard>(document);
+                            return JsonSerializer.Deserialize<TranscriptSkillCard>(document) ?? throw new Exception($"Could not deserialize {document} to TranscriptSkillCard");
                         case "status":
-                            return JsonSerializer.Deserialize<StatusSkillCard>(document);
+                            return JsonSerializer.Deserialize<StatusSkillCard>(document) ?? throw new Exception($"Could not deserialize {document} to StatusSkillCard");
                     }
                 }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField value, JsonSerializerOptions options) {
-                if (value.KeywordSkillCard != null) {
+            public override void Write(Utf8JsonWriter writer, CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField? value, JsonSerializerOptions options) {
+                if (value?.KeywordSkillCard != null) {
                     JsonSerializer.Serialize(writer, value.KeywordSkillCard, options);
                     return;
                 }
-                if (value.TimelineSkillCard != null) {
+                if (value?.TimelineSkillCard != null) {
                     JsonSerializer.Serialize(writer, value.TimelineSkillCard, options);
                     return;
                 }
-                if (value.TranscriptSkillCard != null) {
+                if (value?.TranscriptSkillCard != null) {
                     JsonSerializer.Serialize(writer, value.TranscriptSkillCard, options);
                     return;
                 }
-                if (value.StatusSkillCard != null) {
+                if (value?.StatusSkillCard != null) {
                     JsonSerializer.Serialize(writer, value.StatusSkillCard, options);
                     return;
                 }

@@ -9,11 +9,14 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateUserByIdRequestBodyArgNotificationEmailField {
+        /// <summary>
+        /// The email address to send the notifications to.
+        /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; }
+        public string? Email { get; set; } = default;
 
-        public UpdateUserByIdRequestBodyArgNotificationEmailField(string email) {
-            Email = email;
+        public UpdateUserByIdRequestBodyArgNotificationEmailField() {
+            
         }
     }
 }

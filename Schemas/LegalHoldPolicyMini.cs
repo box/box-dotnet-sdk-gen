@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class LegalHoldPolicyMini {
+        /// <summary>
+        /// The unique identifier for this legal hold policy
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `legal_hold_policy`
+        /// </summary>
         [JsonPropertyName("type")]
-        public LegalHoldPolicyMiniTypeField Type { get; }
+        public LegalHoldPolicyMiniTypeField? Type { get; set; } = default;
 
-        public LegalHoldPolicyMini(string id, LegalHoldPolicyMiniTypeField type) {
-            Id = id;
-            Type = type;
+        public LegalHoldPolicyMini() {
+            
         }
     }
 }

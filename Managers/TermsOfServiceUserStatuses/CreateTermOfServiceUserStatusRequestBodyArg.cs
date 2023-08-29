@@ -8,14 +8,23 @@ using Box;
 
 namespace Box.Managers {
     public class CreateTermOfServiceUserStatusRequestBodyArg {
+        /// <summary>
+        /// The terms of service to set the status for.
+        /// </summary>
         [JsonPropertyName("tos")]
-        public CreateTermOfServiceUserStatusRequestBodyArgTosField Tos { get; }
+        public CreateTermOfServiceUserStatusRequestBodyArgTosField Tos { get; set; }
 
+        /// <summary>
+        /// The user to set the status for.
+        /// </summary>
         [JsonPropertyName("user")]
-        public CreateTermOfServiceUserStatusRequestBodyArgUserField User { get; }
+        public CreateTermOfServiceUserStatusRequestBodyArgUserField User { get; set; }
 
+        /// <summary>
+        /// Whether the user has accepted the terms.
+        /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool IsAccepted { get; }
+        public bool IsAccepted { get; set; }
 
         public CreateTermOfServiceUserStatusRequestBodyArg(CreateTermOfServiceUserStatusRequestBodyArgTosField tos, CreateTermOfServiceUserStatusRequestBodyArgUserField user, bool isAccepted) {
             Tos = tos;

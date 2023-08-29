@@ -8,15 +8,21 @@ using Box;
 
 namespace Box.Managers {
     public class CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField {
+        /// <summary>
+        /// The display name and key this classification. This
+        /// will be show in the Box UI.
+        /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; }
+        public string? Key { get; set; } = default;
 
+        /// <summary>
+        /// Additional information about the classification.
+        /// </summary>
         [JsonPropertyName("staticConfig")]
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsFieldStaticConfigField StaticConfig { get; }
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsFieldStaticConfigField? StaticConfig { get; set; } = default;
 
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField(string key, CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsFieldStaticConfigField staticConfig) {
-            Key = key;
-            StaticConfig = staticConfig;
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField() {
+            
         }
     }
 }

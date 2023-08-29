@@ -8,19 +8,26 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateLegalHoldPolicyByIdRequestBodyArg {
+        /// <summary>
+        /// The name of the policy.
+        /// </summary>
         [JsonPropertyName("policy_name")]
-        public string PolicyName { get; }
+        public string? PolicyName { get; set; } = default;
 
+        /// <summary>
+        /// A description for the policy.
+        /// </summary>
         [JsonPropertyName("description")]
-        public string Description { get; }
+        public string? Description { get; set; } = default;
 
+        /// <summary>
+        /// Notes around why the policy was released.
+        /// </summary>
         [JsonPropertyName("release_notes")]
-        public string ReleaseNotes { get; }
+        public string? ReleaseNotes { get; set; } = default;
 
-        public UpdateLegalHoldPolicyByIdRequestBodyArg(string policyName, string description, string releaseNotes) {
-            PolicyName = policyName;
-            Description = description;
-            ReleaseNotes = releaseNotes;
+        public UpdateLegalHoldPolicyByIdRequestBodyArg() {
+            
         }
     }
 }

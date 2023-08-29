@@ -4,7 +4,10 @@ using Box;
 
 namespace Box.Managers {
     public class GetMetadataTemplatesQueryParamsArg {
-        public string MetadataInstanceId { get; }
+        /// <summary>
+        /// The ID of an instance of the metadata template to find.
+        /// </summary>
+        public string MetadataInstanceId { get; set; }
 
         public GetMetadataTemplatesQueryParamsArg(string metadataInstanceId) {
             MetadataInstanceId = metadataInstanceId;

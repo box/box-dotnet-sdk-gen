@@ -9,8 +9,11 @@ using Box;
 
 namespace Box.Managers {
     public class CreateFolderRequestBodyArgParentField {
+        /// <summary>
+        /// The ID of parent folder
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string Id { get; set; }
 
         public CreateFolderRequestBodyArgParentField(string id) {
             Id = id;

@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class StoragePolicy : StoragePolicyMini {
+        /// <summary>
+        /// A descriptive name of the region
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
-        public StoragePolicy(string id, StoragePolicyMiniTypeField type, string name) : base(id, type) {
-            Name = name;
+        public StoragePolicy() {
+            
         }
     }
 }

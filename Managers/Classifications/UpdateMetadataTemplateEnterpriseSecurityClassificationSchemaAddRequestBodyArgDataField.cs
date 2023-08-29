@@ -8,15 +8,22 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField {
+        /// <summary>
+        /// The label of the classification as shown in the web and
+        /// mobile interfaces. This is the only field required to
+        /// add a classification.
+        /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; }
+        public string Key { get; set; }
 
+        /// <summary>
+        /// Additional details for the classification.
+        /// </summary>
         [JsonPropertyName("classification")]
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField Classification { get; }
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField? Classification { get; set; } = default;
 
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField(string key, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField classification) {
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField(string key) {
             Key = key;
-            Classification = classification;
         }
     }
 }

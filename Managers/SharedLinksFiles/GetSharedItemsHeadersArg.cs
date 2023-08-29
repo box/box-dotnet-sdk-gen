@@ -7,16 +7,33 @@ using Box;
 
 namespace Box.Managers {
     public class GetSharedItemsHeadersArg {
-        public string IfNoneMatch { get; }
+        /// <summary>
+        /// Ensures an item is only returned if it has changed.
+        /// 
+        /// Pass in the item's last observed `etag` value
+        /// into this header and the endpoint will fail
+        /// with a `304 Not Modified` if the item has not
+        /// changed since.
+        /// </summary>
+        public string? IfNoneMatch { get; set; } = default;
 
-        public string Boxapi { get; }
+        /// <summary>
+        /// A header containing the shared link and optional password for the
+        /// shared link.
+        /// 
+        /// The format for this header is as follows.
+        /// 
+        /// `shared_link=[link]&shared_link_password=[password]`
+        /// </summary>
+        public string Boxapi { get; set; }
 
-        public Dictionary<string, string> ExtraHeaders { get; }
+        /// <summary>
+        /// Extra headers that will be included in the HTTP request.
+        /// </summary>
+        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public GetSharedItemsHeadersArg(string ifNoneMatch, string boxapi, Dictionary<string, string> extraHeaders) {
-            IfNoneMatch = ifNoneMatch;
+        public GetSharedItemsHeadersArg(string boxapi) {
             Boxapi = boxapi;
-            ExtraHeaders = extraHeaders;
         }
     }
 }

@@ -7,39 +7,56 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class RetentionPolicyAssignment {
+        /// <summary>
+        /// The unique identifier for a retention policy assignment.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// `retention_policy_assignment`
+        /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentTypeField Type { get; }
+        public RetentionPolicyAssignmentTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("retention_policy")]
-        public RetentionPolicyMini RetentionPolicy { get; }
+        public RetentionPolicyMini? RetentionPolicy { get; set; } = default;
 
+        /// <summary>
+        /// The `type` and `id` of the content that is under
+        /// retention. The `type` can either be `folder`
+        /// `enterprise`, or `metadata_template`.
+        /// </summary>
         [JsonPropertyName("assigned_to")]
-        public RetentionPolicyAssignmentAssignedToField AssignedTo { get; }
+        public RetentionPolicyAssignmentAssignedToField? AssignedTo { get; set; } = default;
 
+        /// <summary>
+        /// An array of field objects. Values are only returned if the `assigned_to`
+        /// type is `metadata_template`. Otherwise, the array is blank.
+        /// </summary>
         [JsonPropertyName("filter_fields")]
-        public IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField> FilterFields { get; }
+        public IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField>? FilterFields { get; set; } = default;
 
         [JsonPropertyName("assigned_by")]
-        public UserMini AssignedBy { get; }
+        public UserMini? AssignedBy { get; set; } = default;
 
+        /// <summary>
+        /// When the retention policy assignment object was
+        /// created.
+        /// </summary>
         [JsonPropertyName("assigned_at")]
-        public string AssignedAt { get; }
+        public string? AssignedAt { get; set; } = default;
 
+        /// <summary>
+        /// The date the retention policy assignment begins.
+        /// If the `assigned_to` type is `metadata_template`,
+        /// this field can be a date field's metadata attribute key id.
+        /// </summary>
         [JsonPropertyName("start_date_field")]
-        public string StartDateField { get; }
+        public string? StartDateField { get; set; } = default;
 
-        public RetentionPolicyAssignment(string id, RetentionPolicyAssignmentTypeField type, RetentionPolicyMini retentionPolicy, RetentionPolicyAssignmentAssignedToField assignedTo, IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField> filterFields, UserMini assignedBy, string assignedAt, string startDateField) {
-            Id = id;
-            Type = type;
-            RetentionPolicy = retentionPolicy;
-            AssignedTo = assignedTo;
-            FilterFields = filterFields;
-            AssignedBy = assignedBy;
-            AssignedAt = assignedAt;
-            StartDateField = startDateField;
+        public RetentionPolicyAssignment() {
+            
         }
     }
 }

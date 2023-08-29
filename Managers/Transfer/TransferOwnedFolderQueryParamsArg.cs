@@ -6,13 +6,27 @@ using Box;
 
 namespace Box.Managers {
     public class TransferOwnedFolderQueryParamsArg {
-        public string Fields { get; }
+        /// <summary>
+        /// A comma-separated list of attributes to include in the
+        /// response. This can be used to request fields that are
+        /// not normally returned in a standard response.
+        /// 
+        /// Be aware that specifying this parameter will have the
+        /// effect that none of the standard fields are returned in
+        /// the response unless explicitly specified, instead only
+        /// fields for the mini representation are returned, additional
+        /// to the fields requested.
+        /// </summary>
+        public string? Fields { get; set; } = default;
 
-        public bool? Notify { get; }
+        /// <summary>
+        /// Determines if users should receive email notification
+        /// for the action performed.
+        /// </summary>
+        public bool? Notify { get; set; } = default;
 
-        public TransferOwnedFolderQueryParamsArg(string fields, bool? notify) {
-            Fields = fields;
-            Notify = notify;
+        public TransferOwnedFolderQueryParamsArg() {
+            
         }
     }
 }

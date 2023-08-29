@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class GroupsOrderField {
+        /// <summary>
+        /// The field to order by
+        /// </summary>
         [JsonPropertyName("by")]
-        public string By { get; }
+        public string? By { get; set; } = default;
 
+        /// <summary>
+        /// The direction to order by, either ascending or descending
+        /// </summary>
         [JsonPropertyName("direction")]
-        public GroupsOrderFieldDirectionField Direction { get; }
+        public GroupsOrderFieldDirectionField? Direction { get; set; } = default;
 
-        public GroupsOrderField(string by, GroupsOrderFieldDirectionField direction) {
-            By = by;
-            Direction = direction;
+        public GroupsOrderField() {
+            
         }
     }
 }

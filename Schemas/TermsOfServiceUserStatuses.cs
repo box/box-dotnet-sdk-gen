@@ -7,15 +7,20 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class TermsOfServiceUserStatuses {
+        /// <summary>
+        /// The total number of objects.
+        /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; }
+        public long? TotalCount { get; set; } = default;
 
+        /// <summary>
+        /// A list of terms of service user statuses
+        /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TermsOfServiceUserStatus> Entries { get; }
+        public IReadOnlyList<TermsOfServiceUserStatus>? Entries { get; set; } = default;
 
-        public TermsOfServiceUserStatuses(long? totalCount, IReadOnlyList<TermsOfServiceUserStatus> entries) {
-            TotalCount = totalCount;
-            Entries = entries;
+        public TermsOfServiceUserStatuses() {
+            
         }
     }
 }

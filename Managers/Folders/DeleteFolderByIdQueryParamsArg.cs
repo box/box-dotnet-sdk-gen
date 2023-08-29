@@ -9,10 +9,14 @@ using Box;
 
 namespace Box.Managers {
     public class DeleteFolderByIdQueryParamsArg {
-        public bool? Recursive { get; }
+        /// <summary>
+        /// Delete a folder that is not empty by recursively deleting the
+        /// folder and all of its content.
+        /// </summary>
+        public bool? Recursive { get; set; } = default;
 
-        public DeleteFolderByIdQueryParamsArg(bool? recursive) {
-            Recursive = recursive;
+        public DeleteFolderByIdQueryParamsArg() {
+            
         }
     }
 }

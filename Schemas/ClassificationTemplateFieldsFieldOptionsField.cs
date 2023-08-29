@@ -7,19 +7,26 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ClassificationTemplateFieldsFieldOptionsField {
+        /// <summary>
+        /// The unique ID of this classification.
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
+        /// <summary>
+        /// The display name and key for this classification.
+        /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; }
+        public string? Key { get; set; } = default;
 
+        /// <summary>
+        /// Additional information about the classification.
+        /// </summary>
         [JsonPropertyName("staticConfig")]
-        public ClassificationTemplateFieldsFieldOptionsFieldStaticConfigField StaticConfig { get; }
+        public ClassificationTemplateFieldsFieldOptionsFieldStaticConfigField? StaticConfig { get; set; } = default;
 
-        public ClassificationTemplateFieldsFieldOptionsField(string id, string key, ClassificationTemplateFieldsFieldOptionsFieldStaticConfigField staticConfig) {
-            Id = id;
-            Key = key;
-            StaticConfig = staticConfig;
+        public ClassificationTemplateFieldsFieldOptionsField() {
+            
         }
     }
 }

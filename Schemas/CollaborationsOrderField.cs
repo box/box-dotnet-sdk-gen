@@ -8,15 +8,20 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     public class CollaborationsOrderField {
+        /// <summary>
+        /// The field to order by
+        /// </summary>
         [JsonPropertyName("by")]
-        public string By { get; }
+        public string? By { get; set; } = default;
 
+        /// <summary>
+        /// The direction to order by, either ascending or descending
+        /// </summary>
         [JsonPropertyName("direction")]
-        public CollaborationsOrderFieldDirectionField Direction { get; }
+        public CollaborationsOrderFieldDirectionField? Direction { get; set; } = default;
 
-        public CollaborationsOrderField(string by, CollaborationsOrderFieldDirectionField direction) {
-            By = by;
-            Direction = direction;
+        public CollaborationsOrderField() {
+            
         }
     }
 }

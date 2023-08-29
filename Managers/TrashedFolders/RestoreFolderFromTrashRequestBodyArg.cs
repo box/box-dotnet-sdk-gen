@@ -6,15 +6,17 @@ using Box;
 
 namespace Box.Managers {
     public class RestoreFolderFromTrashRequestBodyArg {
+        /// <summary>
+        /// An optional new name for the folder.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; }
+        public string? Name { get; set; } = default;
 
         [JsonPropertyName("parent")]
-        public RestoreFolderFromTrashRequestBodyArgParentField Parent { get; }
+        public RestoreFolderFromTrashRequestBodyArgParentField? Parent { get; set; } = default;
 
-        public RestoreFolderFromTrashRequestBodyArg(string name, RestoreFolderFromTrashRequestBodyArgParentField parent) {
-            Name = name;
-            Parent = parent;
+        public RestoreFolderFromTrashRequestBodyArg() {
+            
         }
     }
 }

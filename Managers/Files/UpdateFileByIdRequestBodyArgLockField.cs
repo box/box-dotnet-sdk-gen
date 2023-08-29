@@ -8,19 +8,26 @@ using Box;
 
 namespace Box.Managers {
     public class UpdateFileByIdRequestBodyArgLockField {
+        /// <summary>
+        /// The type of this object.
+        /// </summary>
         [JsonPropertyName("access")]
-        public UpdateFileByIdRequestBodyArgLockFieldAccessField Access { get; }
+        public UpdateFileByIdRequestBodyArgLockFieldAccessField? Access { get; set; } = default;
 
+        /// <summary>
+        /// Defines the time at which the lock expires.
+        /// </summary>
         [JsonPropertyName("expires_at")]
-        public string ExpiresAt { get; }
+        public string? ExpiresAt { get; set; } = default;
 
+        /// <summary>
+        /// Defines if the file can be downloaded while it is locked.
+        /// </summary>
         [JsonPropertyName("is_download_prevented")]
-        public bool? IsDownloadPrevented { get; }
+        public bool? IsDownloadPrevented { get; set; } = default;
 
-        public UpdateFileByIdRequestBodyArgLockField(UpdateFileByIdRequestBodyArgLockFieldAccessField access, string expiresAt, bool? isDownloadPrevented) {
-            Access = access;
-            ExpiresAt = expiresAt;
-            IsDownloadPrevented = isDownloadPrevented;
+        public UpdateFileByIdRequestBodyArgLockField() {
+            
         }
     }
 }

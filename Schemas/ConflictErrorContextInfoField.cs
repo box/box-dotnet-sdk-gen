@@ -7,11 +7,14 @@ using System.Collections.Generic;
 
 namespace Box.Schemas {
     public class ConflictErrorContextInfoField {
+        /// <summary>
+        /// A list of the file conflicts that caused this error.
+        /// </summary>
         [JsonPropertyName("conflicts")]
-        public IReadOnlyList<FileConflict> Conflicts { get; }
+        public IReadOnlyList<FileConflict>? Conflicts { get; set; } = default;
 
-        public ConflictErrorContextInfoField(IReadOnlyList<FileConflict> conflicts) {
-            Conflicts = conflicts;
+        public ConflictErrorContextInfoField() {
+            
         }
     }
 }

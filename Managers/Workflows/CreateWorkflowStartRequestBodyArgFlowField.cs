@@ -8,15 +8,20 @@ using Box;
 
 namespace Box.Managers {
     public class CreateWorkflowStartRequestBodyArgFlowField {
+        /// <summary>
+        /// The type of the flow object
+        /// </summary>
         [JsonPropertyName("type")]
-        public string Type { get; }
+        public string? Type { get; set; } = default;
 
+        /// <summary>
+        /// The id of the flow
+        /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; set; } = default;
 
-        public CreateWorkflowStartRequestBodyArgFlowField(string type, string id) {
-            Type = type;
-            Id = id;
+        public CreateWorkflowStartRequestBodyArgFlowField() {
+            
         }
     }
 }
