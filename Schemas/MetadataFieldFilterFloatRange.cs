@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFieldFilterFloatRange {
-        public MetadataFieldFilterFloatRange() {
-            
-        }
+    public class MetadataFieldFilterFloatRange : Dictionary<string, MetadataFieldFilterFloatRangeMapValue> {
     }
 }

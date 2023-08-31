@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFieldFilterMultiSelect {
-        public MetadataFieldFilterMultiSelect() {
-            
-        }
+    public class MetadataFieldFilterMultiSelect : Dictionary<string, IReadOnlyList<string>> {
     }
 }

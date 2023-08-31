@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFieldFilterString {
-        public MetadataFieldFilterString() {
-            
-        }
+    public class MetadataFieldFilterString : Dictionary<string, string> {
     }
 }

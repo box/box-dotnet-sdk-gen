@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFieldFilterDateRange {
-        public MetadataFieldFilterDateRange() {
-            
-        }
+    public class MetadataFieldFilterDateRange : Dictionary<string, MetadataFieldFilterDateRangeMapValue> {
     }
 }
