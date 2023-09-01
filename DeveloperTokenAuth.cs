@@ -1,18 +1,19 @@
+using Box.Schemas;
 using System;
 using System.Threading.Tasks;
 
-namespace Box 
+namespace Box
 {
     /// <summary>
     /// Class used to authenticate with Box using a developer token.
-    /// </summary> 
+    /// </summary>
     public class DeveloperTokenAuth : IAuth
     {
         /// <summary>
         /// Developer token.
         /// </summary>
-        public string Token;
-        
+        public AccessToken Token;
+
 
         /// <summary>
         /// Creates DeveloperTokenAuth from parameters.
@@ -21,15 +22,15 @@ namespace Box
         /// <returns>A DeveloperTokenAuth.</returns>
         public DeveloperTokenAuth(string token)
         {
-            Token = token;
+            Token = new AccessToken() { AccessTokenField = token };
         }
 
-        public async Task<string> RetrieveToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveToken(NetworkSession? NetworkSession = null)
         {
-            return await Task.FromResult(Token);
+            return await System.Threading.Tasks.Task.FromResult(Token);
         }
 
-        public async Task<string> RefreshToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RefreshToken(NetworkSession? NetworkSession = null)
         {
             throw new Exception("Developer token has expired. Please provide a new one.");
         }

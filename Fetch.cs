@@ -53,7 +53,8 @@ namespace Fetch
 
             if (options.Auth != null)
             {
-                httpRequestMessage.Headers.Add("Authorization", $"Bearer {await options.Auth.RetrieveToken()}");
+                var token = await options.Auth.RetrieveToken();
+                httpRequestMessage.Headers.Add("Authorization", $"Bearer {token.AccessTokenField}");
             }
 
             if (options.ContentType == ContentTypes.FormUrlEncoded)

@@ -1,3 +1,4 @@
+using Box.Schemas;
 using Fetch;
 using Microsoft.IdentityModel.Tokens;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -15,7 +16,7 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Box 
+namespace Box
 {
     /// <summary>
     /// Config used for JWT authentication
@@ -28,7 +29,7 @@ namespace Box
         public string ClientId { get; }
 
         /// <summary>
-        /// Box API secret used for making auth requests. 
+        /// Box API secret used for making auth requests.
         /// </summary>
         public string ClientSecret { get; }
 
@@ -225,7 +226,7 @@ namespace Box
     /// </summary>
     public class JwtAuth : IAuth
     {
-        string _token { get; set; }
+        AccessToken _token { get; set; }
         bool _needsRefresh { get; set; }
 
         /// <summary>
@@ -277,11 +278,11 @@ namespace Box
 
         private void MarkForRefresh()
         {
-            _token = string.Empty;
+            _token = null;
             _needsRefresh = true;
         }
 
-        private void SetToken(string token)
+        private void SetToken(AccessToken token)
         {
             _token = token;
             _needsRefresh = false;
@@ -320,7 +321,7 @@ namespace Box
             public char[] GetPassword() => _password.ToCharArray();
         }
 
-        public async Task<string> RefreshToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RefreshToken(NetworkSession? networkSession = null)
         {
             if (_needsRefresh)
             {
@@ -331,7 +332,7 @@ namespace Box
             return _token;
         }
 
-        public async Task<string> RetrieveToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RetrieveToken(NetworkSession? networkSession = null)
         {
             var randomNumber = new byte[64];
             using (var rng = RandomNumberGenerator.Create())
@@ -372,15 +373,7 @@ namespace Box
                 ContentType = ContentTypes.FormUrlEncoded,
             });
 
-            var deserializedResponse = SimpleJsonConverter.Deserialize<TokenResponse>(response.Text);
-
-            return deserializedResponse.AccessToken;
+            return SimpleJsonConverter.Deserialize<AccessToken>(response.Text);
         }
-    }
-
-    class TokenResponse
-    {
-        [JsonPropertyName("access_token")]
-        public string AccessToken { get; set; }
     }
 }
