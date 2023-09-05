@@ -19,7 +19,7 @@ namespace Box.Schemas {
         [JsonPropertyName("login")]
         public string? Login { get; set; } = default;
 
-        public UserMini(UserBaseTypeField type) : base(type) {
+        public UserMini(string id, UserBaseTypeField type) : base(id, type) {
             
         }
     }

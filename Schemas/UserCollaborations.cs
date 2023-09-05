@@ -19,7 +19,7 @@ namespace Box.Schemas {
         [JsonPropertyName("login")]
         public string? Login { get; set; } = default;
 
-        public UserCollaborations(UserBaseTypeField type) : base(type) {
+        public UserCollaborations(string id, UserBaseTypeField type) : base(id, type) {
             
         }
     }

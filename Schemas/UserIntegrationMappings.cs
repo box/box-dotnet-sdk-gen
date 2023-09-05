@@ -19,7 +19,7 @@ namespace Box.Schemas {
         [JsonPropertyName("login")]
         public string? Login { get; set; } = default;
 
-        public UserIntegrationMappings(UserBaseTypeField type) : base(type) {
+        public UserIntegrationMappings(string id, UserBaseTypeField type) : base(id, type) {
             
         }
     }

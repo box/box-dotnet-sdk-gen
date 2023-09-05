@@ -11,7 +11,7 @@ namespace Box.Schemas {
         /// The unique identifier for this user
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `user`
@@ -19,7 +19,8 @@ namespace Box.Schemas {
         [JsonPropertyName("type")]
         public UserBaseTypeField Type { get; set; }
 
-        public UserBase(UserBaseTypeField type) {
+        public UserBase(string id, UserBaseTypeField type) {
+            Id = id;
             Type = type;
         }
     }
