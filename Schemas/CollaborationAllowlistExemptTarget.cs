@@ -14,7 +14,7 @@ namespace Box.Schemas {
         public string? Id { get; set; } = default;
 
         /// <summary>
-        /// `collaboration_whitelist`
+        /// `collaboration_whitelist_exempt_target`
         /// </summary>
         [JsonPropertyName("type")]
         public CollaborationAllowlistExemptTargetTypeField? Type { get; set; } = default;
@@ -23,7 +23,7 @@ namespace Box.Schemas {
         public CollaborationAllowlistExemptTargetEnterpriseField? Enterprise { get; set; } = default;
 
         [JsonPropertyName("user")]
-        public CollaborationAllowlistExemptTargetUserField? User { get; set; } = default;
+        public UserMini? User { get; set; } = default;
 
         /// <summary>
         /// The time the entry was created

@@ -63,7 +63,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Metadata`.
+This function returns a value of type `MetadataFull`.
 
 An instance of the metadata template that includes
 additional "key:value" pairs defined by the user or
