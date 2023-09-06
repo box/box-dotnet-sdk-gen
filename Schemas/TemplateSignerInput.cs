@@ -62,6 +62,12 @@ namespace Box.Schemas {
         [JsonPropertyName("dimensions")]
         public TemplateSignerInputDimensionsField? Dimensions { get; set; } = default;
 
+        /// <summary>
+        /// The label field is used especially for text, attachment, radio, and checkbox type inputs.
+        /// </summary>
+        [JsonPropertyName("label")]
+        public string? Label { get; set; } = default;
+
         public TemplateSignerInput(int pageIndex) {
             PageIndex = pageIndex;
         }
