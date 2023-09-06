@@ -9,6 +9,12 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class SignTemplate {
         /// <summary>
+        /// object type
+        /// </summary>
+        [JsonPropertyName("type")]
+        public SignTemplateTypeField? Type { get; set; } = default;
+
+        /// <summary>
         /// Template identifier.
         /// </summary>
         [JsonPropertyName("id")]
