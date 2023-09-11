@@ -11,7 +11,7 @@ namespace Fetch
     public class FetchOptions
     {
         /// <summary>
-        /// Http/s Method as string. 
+        /// Http/s Method as string.
         /// </summary>
         public string? Method { get; set; }
 
@@ -25,6 +25,9 @@ namespace Fetch
         /// </summary>
         public string? Body { get; set; }
 
+        //TODO change to more specific type
+        public object? FileStream { get; set; }
+
         /// <summary>
         /// Headers of the http/s request.
         /// </summary>
@@ -36,17 +39,17 @@ namespace Fetch
         public string? ContentType { get; set; }
 
         internal HttpMethod _httpMethod { get; set; }
-        
-        
+
+
         //TODO still not used.
         public NetworkSession? NetworkSession { get; set; }
-        
+
         //TODO change to oneOf when it's fixed on the jsx side. still not used
         public object? Parameters { get; set; }
-        
+
         //TODO implement usage
         public IReadOnlyCollection<MultipartItem>? MultipartData { get; set; }
-        
+
         //TODO implement usage
         public string? ResponseFormat { get; set; }
 
@@ -65,15 +68,17 @@ namespace Fetch
         /// </summary>
         /// <param name="method"></param>
         /// <param name="body"></param>
+        /// <param name="fileStream"></param>
         /// <param name="auth"></param>
         /// <param name="headers"></param>
         /// <param name="contentType"></param>
-        public FetchOptions(string? method = null, string? body = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, object? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null)
+        public FetchOptions(string? method = null, string? body = null, object? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, object? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null)
         {
             httpMethodsMap.TryGetValue(method ?? "GET", out var tempMethod);
             _httpMethod = tempMethod!;
             Auth = auth;
             Body = body;
+            FileStream = fileStream;
             Headers = headers ?? new ReadOnlyDictionary<string, string>(new Dictionary<string, string>());
             ContentType = contentType;
             NetworkSession = networkSession;

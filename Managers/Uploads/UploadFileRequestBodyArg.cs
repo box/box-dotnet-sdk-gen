@@ -22,7 +22,6 @@ namespace Box.Managers {
         /// 
         /// </Message>
         /// </summary>
-        [JsonPropertyName("attributes")]
         public UploadFileRequestBodyArgAttributesField Attributes { get; set; }
 
         /// <summary>
@@ -37,13 +36,10 @@ namespace Box.Managers {
         /// 
         /// </Message>
         /// </summary>
-        [JsonPropertyName("file")]
         public Stream File { get; set; }
 
-        [JsonPropertyName("fileFileName")]
         public string? FileFileName { get; set; } = default;
 
-        [JsonPropertyName("fileContentType")]
         public string? FileContentType { get; set; } = default;
 
         public UploadFileRequestBodyArg(UploadFileRequestBodyArgAttributesField attributes, Stream file) {

@@ -40,9 +40,9 @@ namespace Box.Managers {
             return SimpleJsonConverter.Deserialize<UploadSession>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<UploadedPart> UploadFilePart(string uploadSessionId, string requestBody, UploadFilePartHeadersArg headers) {
+        public async System.Threading.Tasks.Task<UploadedPart> UploadFilePart(string uploadSessionId, Stream requestBody, UploadFilePartHeadersArg headers) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", Utils.ToString(headers.Digest) }, { "content-range", Utils.ToString(headers.ContentRange) } }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://upload.box.com/api/2.0/files/upload_sessions/", uploadSessionId), new FetchOptions(method: "PUT", headers: headersMap, body: requestBody, contentType: "application/octet-stream", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://upload.box.com/api/2.0/files/upload_sessions/", uploadSessionId), new FetchOptions(method: "PUT", headers: headersMap, fileStream: requestBody, contentType: "application/octet-stream", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<UploadedPart>(response.Text);
         }
 
