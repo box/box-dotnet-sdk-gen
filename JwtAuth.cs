@@ -58,9 +58,14 @@ namespace Box
         /// </summary>
         public string UserId { get; private init; }
 
+        /// <summary>
+        /// Token storage
+        /// </summary>
+        public ITokenStorage TokenStorage { get; private init; }
+
         internal SubjectType SubjectType { get; init; }
 
-        private JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, SubjectType subjectType)
+        private JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, SubjectType subjectType, ITokenStorage? tokenStorage = default)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
@@ -68,6 +73,7 @@ namespace Box
             PrivateKey = privateKey;
             PrivateKeyPassphrase = privateKeyPassphrase;
             SubjectType = subjectType;
+            TokenStorage = tokenStorage ?? new InMemoryTokenStorage();
         }
 
         /// <summary>
@@ -79,10 +85,11 @@ namespace Box
         /// <param name="privateKey"></param>
         /// <param name="privateKeyPassphrase"></param>
         /// <param name="enterpriseId"></param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig Enterprise(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string enterpriseId)
+        public static JwtConfig Enterprise(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string enterpriseId, ITokenStorage? tokenStorage = default)
         {
-            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.Enterprise) { EnterpriseId = enterpriseId };
+            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.Enterprise) { EnterpriseId = enterpriseId, TokenStorage = tokenStorage };
         }
 
         /// <summary>
@@ -94,20 +101,22 @@ namespace Box
         /// <param name="privateKey"></param>
         /// <param name="privateKeyPassphrase"></param>
         /// <param name="userId"></param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig User(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string userId)
+        public static JwtConfig User(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string userId, ITokenStorage? tokenStorage = default)
         {
-            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.User) { UserId = userId };
+            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.User) { UserId = userId, TokenStorage = tokenStorage };
         }
 
         /// <summary>
         /// Creates JwtConfig for Enteprise from Json string.
         /// </summary>
         /// <param name="jsonString">Box Jwt configuration as json</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig EnterpriseFromJson(string jsonString)
+        public static JwtConfig EnterpriseFromJson(string jsonString, ITokenStorage? tokenStorage = default)
         {
-            return FromConfigJsonString(jsonString);
+            return FromConfigJsonString(jsonString, "", tokenStorage);
         }
 
         /// <summary>
@@ -115,30 +124,33 @@ namespace Box
         /// </summary>
         /// <param name="jsonString">Box Jwt configuration as json.</param>
         /// <param name="userId">User ID used to authenticate.</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig UserFromJson(string jsonString, string userId)
+        public static JwtConfig UserFromJson(string jsonString, string userId, ITokenStorage? tokenStorage = default)
         {
-            return FromConfigJsonString(jsonString, userId);
+            return FromConfigJsonString(jsonString, userId, tokenStorage);
         }
 
         /// <summary>
         /// Creates JwtConfig for Enterprise from Json Stream. Can be used e.g with FileStream.
         /// </summary>
         /// <param name="configStream">Box Jwt configuration as stream.</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig EnterpriseFromJsonStream(Stream configStream)
+        public static JwtConfig EnterpriseFromJsonStream(Stream configStream, ITokenStorage? tokenStorage = default)
         {
-            return FromConfigFile(configStream);
+            return FromConfigFile(configStream, "", tokenStorage);
         }
 
         /// <summary>
         /// Creates JwtConfig for Enterprise from Json Stream. Can be used e.g with FileStream.
         /// </summary>
         /// <param name="configStream">Box Jwt configuration as stream.</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig UserFromJsonStream(Stream configStream, string userId)
+        public static JwtConfig UserFromJsonStream(Stream configStream, string userId, ITokenStorage? tokenStorage = default)
         {
-            return FromConfigFile(configStream, userId);
+            return FromConfigFile(configStream, userId, tokenStorage);
         }
 
         /// <summary>
@@ -146,8 +158,9 @@ namespace Box
         /// </summary>
         /// <param name="jsonString">Box Jwt configuration as json.</param>
         /// <param name="userId">The user ID to authenticate.</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for either user or enterprise.</returns>
-        public static JwtConfig FromConfigJsonString(string jsonString, string userId = "")
+        public static JwtConfig FromConfigJsonString(string jsonString, string userId = "", ITokenStorage? tokenStorage = default)
         {
             var json = JsonNode.Parse(jsonString);
             string? clientId = "", clientSecret = "", privateKey = "", passPhrase = "", publicKeyId = "";
@@ -174,8 +187,8 @@ namespace Box
             var enterpriseId = json?["enterpriseID"]?.ToString();
 
             return !string.IsNullOrEmpty(userId) ?
-                User(clientId, clientSecret, publicKeyId, privateKey, passPhrase, userId) :
-                Enterprise(clientId, clientSecret, publicKeyId, privateKey, passPhrase, enterpriseId);
+                User(clientId, clientSecret, publicKeyId, privateKey, passPhrase, userId, tokenStorage) :
+                Enterprise(clientId, clientSecret, publicKeyId, privateKey, passPhrase, enterpriseId, tokenStorage);
         }
 
         /// <summary>
@@ -183,8 +196,9 @@ namespace Box
         /// </summary>
         /// <param name="configStream">Box Jwt configuration as stream.</param>
         /// <param name="userId">User ID used to authenticate.</param>
+        /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig FromConfigFile(Stream configStream, string userId = "")
+        public static JwtConfig FromConfigFile(Stream configStream, string userId = "", ITokenStorage? tokenStorage = default)
         {
             using (var reader = new StreamReader(configStream, Encoding.UTF8))
             {
@@ -226,7 +240,7 @@ namespace Box
     /// </summary>
     public class JwtAuth : IAuth
     {
-        AccessToken _token { get; set; }
+        ITokenStorage _tokenStorage { get; set; }
         bool _needsRefresh { get; set; }
 
         /// <summary>
@@ -250,6 +264,8 @@ namespace Box
 
             _subjectId = Config.SubjectType == SubjectType.Enterprise ? config.EnterpriseId : config.UserId;
 
+            _tokenStorage = Config.TokenStorage;
+
             _signingCredentials = GetSigningCredentials();
             MarkForRefresh();
         }
@@ -258,33 +274,33 @@ namespace Box
         /// Used to switch Auth to authenticate as enterprise.
         /// </summary>
         /// <param name="enterpriseId">Box EnterpriseID used for authentication.</param>
-        public void AsEnterprise(string enterpriseId)
+        public async System.Threading.Tasks.Task AsEnterprise(string enterpriseId)
         {
             _subjectType = SubjectType.Enterprise;
             _subjectId = enterpriseId;
-            MarkForRefresh();
+            await MarkForRefresh();
         }
 
         /// <summary>
         /// Used to switch Auth to authenticate as user.
         /// </summary>
         /// <param name="userId">Box UserID used for authentication.</param>
-        public void AsUser(string userId)
+        public async System.Threading.Tasks.Task AsUser(string userId)
         {
             _subjectType = SubjectType.User;
             _subjectId = userId;
-            MarkForRefresh();
+            await MarkForRefresh();
         }
 
-        private void MarkForRefresh()
+        private async System.Threading.Tasks.Task MarkForRefresh()
         {
-            _token = null;
+            await _tokenStorage.Clear();
             _needsRefresh = true;
         }
 
-        private void SetToken(AccessToken token)
+        private async System.Threading.Tasks.Task SetToken(AccessToken token)
         {
-            _token = token;
+            await _tokenStorage.Store(token);
             _needsRefresh = false;
         }
 
@@ -321,18 +337,16 @@ namespace Box
             public char[] GetPassword() => _password.ToCharArray();
         }
 
-        public async Task<AccessToken> RefreshToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RetrieveToken(NetworkSession? networkSession = null)
         {
             if (_needsRefresh)
             {
-                var token = await RetrieveToken();
-                SetToken(token);
-                return _token;
+                return await RefreshToken();
             }
-            return _token;
+            return await _tokenStorage.Get();
         }
 
-        public async Task<AccessToken> RetrieveToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RefreshToken(NetworkSession? networkSession = null)
         {
             var randomNumber = new byte[64];
             using (var rng = RandomNumberGenerator.Create())
@@ -373,7 +387,9 @@ namespace Box
                 ContentType = ContentTypes.FormUrlEncoded,
             });
 
-            return SimpleJsonConverter.Deserialize<AccessToken>(response.Text);
+            var newToken = SimpleJsonConverter.Deserialize<AccessToken>(response.Text);
+            await SetToken(newToken);
+            return newToken;
         }
     }
 }
