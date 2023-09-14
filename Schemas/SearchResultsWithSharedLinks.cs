@@ -35,7 +35,7 @@ namespace Box.Schemas {
         /// Specifies the response as search result items with shared links
         /// </summary>
         [JsonPropertyName("type")]
-        public SearchResultsWithSharedLinksTypeField? Type { get; set; } = default;
+        public SearchResultsWithSharedLinksTypeField Type { get; set; }
 
         /// <summary>
         /// The search results for the query provided, including the
@@ -45,8 +45,8 @@ namespace Box.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<SearchResultWithSharedLink>? Entries { get; set; } = default;
 
-        public SearchResultsWithSharedLinks() {
-            
+        public SearchResultsWithSharedLinks(SearchResultsWithSharedLinksTypeField type) {
+            Type = type;
         }
     }
 }
