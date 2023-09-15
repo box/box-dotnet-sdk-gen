@@ -26,7 +26,10 @@ This operation is performed by calling function `GetFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id/).
 
-*Currently we don't have an example for calling `GetFolderById` in integration tests*
+<!-- sample get_folders_id -->
+```
+await client.Folders.GetFolderById(folder.Id)
+```
 
 ### Arguments
 
@@ -105,7 +108,10 @@ This operation is performed by calling function `DeleteFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id/).
 
-*Currently we don't have an example for calling `DeleteFolderById` in integration tests*
+<!-- sample delete_folders_id -->
+```
+await client.Folders.DeleteFolderById(folder.Id)
+```
 
 ### Arguments
 
@@ -166,7 +172,10 @@ This operation is performed by calling function `CreateFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders/).
 
-*Currently we don't have an example for calling `CreateFolder` in integration tests*
+<!-- sample post_folders -->
+```
+await client.Folders.CreateFolder(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0")))
+```
 
 ### Arguments
 

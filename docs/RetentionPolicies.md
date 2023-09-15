@@ -16,7 +16,10 @@ This operation is performed by calling function `GetRetentionPolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policies/).
 
-*Currently we don't have an example for calling `GetRetentionPolicies` in integration tests*
+<!-- sample get_retention_policies -->
+```
+await client.RetentionPolicies.GetRetentionPolicies()
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `CreateRetentionPolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-retention-policies/).
 
-*Currently we don't have an example for calling `CreateRetentionPolicy` in integration tests*
+<!-- sample post_retention_policies -->
+```
+await client.RetentionPolicies.CreateRetentionPolicy(new CreateRetentionPolicyRequestBodyArg(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyArgPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyArgDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyArgRetentionTypeField.Modifiable))
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `GetRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policies-id/).
 
-*Currently we don't have an example for calling `GetRetentionPolicyById` in integration tests*
+<!-- sample get_retention_policies_id -->
+```
+await client.RetentionPolicies.GetRetentionPolicyById(retentionPolicy.Id)
+```
 
 ### Arguments
 
@@ -96,7 +105,10 @@ This operation is performed by calling function `UpdateRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-retention-policies-id/).
 
-*Currently we don't have an example for calling `UpdateRetentionPolicyById` in integration tests*
+<!-- sample put_retention_policies_id -->
+```
+await client.RetentionPolicies.UpdateRetentionPolicyById(retentionPolicy.Id, new UpdateRetentionPolicyByIdRequestBodyArg(policyName: updatedRetentionPolicyName))
+```
 
 ### Arguments
 
@@ -124,7 +136,10 @@ This operation is performed by calling function `DeleteRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-retention-policies-id/).
 
-*Currently we don't have an example for calling `DeleteRetentionPolicyById` in integration tests*
+<!-- sample delete_retention_policies_id -->
+```
+await client.RetentionPolicies.DeleteRetentionPolicyById(retentionPolicy.Id)
+```
 
 ### Arguments
 

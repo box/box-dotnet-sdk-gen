@@ -19,7 +19,10 @@ This operation is performed by calling function `GetFileVersions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-versions/).
 
-*Currently we don't have an example for calling `GetFileVersions` in integration tests*
+<!-- sample get_files_id_versions -->
+```
+await client.FileVersions.GetFileVersions(file.Id)
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `GetFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-versions-id/).
 
-*Currently we don't have an example for calling `GetFileVersionById` in integration tests*
+<!-- sample get_files_id_versions_id -->
+```
+await client.FileVersions.GetFileVersionById(file.Id, fileVersions.Entries[0].Id)
+```
 
 ### Arguments
 
@@ -118,7 +124,10 @@ This operation is performed by calling function `DeleteFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-versions-id/).
 
-*Currently we don't have an example for calling `DeleteFileVersionById` in integration tests*
+<!-- sample delete_files_id_versions_id -->
+```
+await client.FileVersions.DeleteFileVersionById(file.Id, fileVersionsRestored.Entries[0].Id)
+```
 
 ### Arguments
 
@@ -162,7 +171,10 @@ This operation is performed by calling function `PromoteFileVersion`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-versions-current/).
 
-*Currently we don't have an example for calling `PromoteFileVersion` in integration tests*
+<!-- sample post_files_id_versions_current -->
+```
+await client.FileVersions.PromoteFileVersion(file.Id, new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries[0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion))
+```
 
 ### Arguments
 

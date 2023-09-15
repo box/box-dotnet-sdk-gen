@@ -57,7 +57,10 @@ This operation is performed by calling function `GetFileTrash`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-trash/).
 
-*Currently we don't have an example for calling `GetFileTrash` in integration tests*
+<!-- sample get_files_id_trash -->
+```
+await client.TrashedFiles.GetFileTrash(uploadedFile.Id)
+```
 
 ### Arguments
 

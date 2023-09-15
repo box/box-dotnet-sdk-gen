@@ -50,7 +50,10 @@ This operation is performed by calling function `CreateUser`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users/).
 
-*Currently we don't have an example for calling `CreateUser` in integration tests*
+<!-- sample post_users -->
+```
+await client.Users.CreateUser(new CreateUserRequestBodyArg(name: newUserName, login: newUserLogin))
+```
 
 ### Arguments
 
@@ -87,7 +90,10 @@ This operation is performed by calling function `GetUserMe`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-me/).
 
-*Currently we don't have an example for calling `GetUserMe` in integration tests*
+<!-- sample get_users_me -->
+```
+await client.Users.GetUserMe()
+```
 
 ### Arguments
 
@@ -191,7 +197,10 @@ This operation is performed by calling function `DeleteUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-users-id/).
 
-*Currently we don't have an example for calling `DeleteUserById` in integration tests*
+<!-- sample delete_users_id -->
+```
+await client.Users.DeleteUserById(newUser.Id)
+```
 
 ### Arguments
 

@@ -81,7 +81,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Stream`.
+This function returns a value of type `System.IO.Stream`.
 
 Returns the content of the items requested for this download, formatted as
 a stream of files and folders in a `zip` archive.

@@ -16,7 +16,10 @@ This operation is performed by calling function `GetFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id/).
 
-*Currently we don't have an example for calling `GetFileById` in integration tests*
+<!-- sample get_files_id -->
+```
+await client.Files.GetFileById(uploadedFile.Id, new GetFileByIdQueryParamsArg(fields: "name"), new GetFileByIdHeadersArg(extraHeaders: new Dictionary<string, string>() { { "if-none-match", file.Etag } }))
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `UpdateFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id/).
 
-*Currently we don't have an example for calling `UpdateFileById` in integration tests*
+<!-- sample put_files_id -->
+```
+await client.Files.UpdateFileById(fileToUpdate.Id, new UpdateFileByIdRequestBodyArg(name: updatedName, description: "Updated description"))
+```
 
 ### Arguments
 
@@ -87,7 +93,10 @@ This operation is performed by calling function `DeleteFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id/).
 
-*Currently we don't have an example for calling `DeleteFileById` in integration tests*
+<!-- sample delete_files_id -->
+```
+await client.Files.DeleteFileById(newFileVersion.Id)
+```
 
 ### Arguments
 
@@ -114,7 +123,10 @@ This operation is performed by calling function `CopyFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-copy/).
 
-*Currently we don't have an example for calling `CopyFile` in integration tests*
+<!-- sample post_files_id_copy -->
+```
+await client.Files.CopyFile(fileOrigin.Id, new CopyFileRequestBodyArg(parent: new CopyFileRequestBodyArgParentField(id: "0"), name: copiedFileName))
+```
 
 ### Arguments
 
@@ -157,7 +169,10 @@ This operation is performed by calling function `GetFileThumbnailById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-thumbnail-id/).
 
-*Currently we don't have an example for calling `GetFileThumbnailById` in integration tests*
+<!-- sample get_files_id_thumbnail_id -->
+```
+await client.Files.GetFileThumbnailById(thumbnailFile.Id, GetFileThumbnailByIdExtensionArg.Png)
+```
 
 ### Arguments
 
@@ -173,7 +188,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Stream`.
+This function returns a value of type `System.IO.Stream`.
 
 When a thumbnail can be created the thumbnail data will be
 returned in the body of the response.Sometimes generating a thumbnail can take a few seconds. In these

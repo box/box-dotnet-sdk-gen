@@ -26,7 +26,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Stream`.
+This function returns a value of type `System.IO.Stream`.
 
 When an avatar can be found for the user the
 image data will be returned in the body of the

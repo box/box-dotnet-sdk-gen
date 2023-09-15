@@ -17,7 +17,10 @@ This operation is performed by calling function `GetGroups`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups/).
 
-*Currently we don't have an example for calling `GetGroups` in integration tests*
+<!-- sample get_groups -->
+```
+await client.Groups.GetGroups()
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `CreateGroup`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-groups/).
 
-*Currently we don't have an example for calling `CreateGroup` in integration tests*
+<!-- sample post_groups -->
+```
+await client.Groups.CreateGroup(new CreateGroupRequestBodyArg(name: groupName, description: groupDescription))
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `GetGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id/).
 
-*Currently we don't have an example for calling `GetGroupById` in integration tests*
+<!-- sample get_groups_id -->
+```
+await client.Groups.GetGroupById(group.Id)
+```
 
 ### Arguments
 
@@ -105,7 +114,10 @@ This operation is performed by calling function `UpdateGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-groups-id/).
 
-*Currently we don't have an example for calling `UpdateGroupById` in integration tests*
+<!-- sample put_groups_id -->
+```
+await client.Groups.UpdateGroupById(group.Id, new UpdateGroupByIdRequestBodyArg(name: updatedGroupName))
+```
 
 ### Arguments
 
@@ -136,7 +148,10 @@ This operation is performed by calling function `DeleteGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-groups-id/).
 
-*Currently we don't have an example for calling `DeleteGroupById` in integration tests*
+<!-- sample delete_groups_id -->
+```
+await client.Groups.DeleteGroupById(group.Id)
+```
 
 ### Arguments
 
