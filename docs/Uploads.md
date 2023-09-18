@@ -22,7 +22,10 @@ This operation is performed by calling function `UploadFileVersion`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-content/).
 
-*Currently we don't have an example for calling `UploadFileVersion` in integration tests*
+<!-- sample post_files_id_content -->
+```
+await client.Uploads.UploadFileVersion(uploadedFile.Id, new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newFileVersionName), file: newFileContentStream))
+```
 
 ### Arguments
 
@@ -60,7 +63,10 @@ This operation is performed by calling function `UploadFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-content/).
 
-*Currently we don't have an example for calling `UploadFile` in integration tests*
+<!-- sample post_files_content -->
+```
+await client.Uploads.UploadFile(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream))
+```
 
 ### Arguments
 

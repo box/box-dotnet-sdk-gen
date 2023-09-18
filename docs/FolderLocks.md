@@ -17,7 +17,10 @@ This operation is performed by calling function `GetFolderLocks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folder-locks/).
 
-*Currently we don't have an example for calling `GetFolderLocks` in integration tests*
+<!-- sample get_folder_locks -->
+```
+await client.FolderLocks.GetFolderLocks(new GetFolderLocksQueryParamsArg(folderId: folder.Id))
+```
 
 ### Arguments
 
@@ -48,7 +51,10 @@ This operation is performed by calling function `CreateFolderLock`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folder-locks/).
 
-*Currently we don't have an example for calling `CreateFolderLock` in integration tests*
+<!-- sample post_folder_locks -->
+```
+await client.FolderLocks.CreateFolderLock(new CreateFolderLockRequestBodyArg(folder: new CreateFolderLockRequestBodyArgFolderField(id: folder.Id, type: "folder"), lockedOperations: new CreateFolderLockRequestBodyArgLockedOperationsField(move: true, delete: true)))
+```
 
 ### Arguments
 
@@ -78,7 +84,10 @@ This operation is performed by calling function `DeleteFolderLockById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folder-locks-id/).
 
-*Currently we don't have an example for calling `DeleteFolderLockById` in integration tests*
+<!-- sample delete_folder_locks_id -->
+```
+await client.FolderLocks.DeleteFolderLockById(folderLock.Id)
+```
 
 ### Arguments
 

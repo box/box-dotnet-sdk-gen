@@ -50,7 +50,10 @@ This operation is performed by calling function `GetMetadataTemplateSchema`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `GetMetadataTemplateSchema` in integration tests*
+<!-- sample get_metadata_templates_id_id_schema -->
+```
+await client.MetadataTemplates.GetMetadataTemplateSchema(GetMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey)
+```
 
 ### Arguments
 
@@ -117,7 +120,10 @@ This operation is performed by calling function `DeleteMetadataTemplateSchema`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `DeleteMetadataTemplateSchema` in integration tests*
+<!-- sample delete_metadata_templates_id_id_schema -->
+```
+await client.MetadataTemplates.DeleteMetadataTemplateSchema(DeleteMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey)
+```
 
 ### Arguments
 
@@ -146,7 +152,10 @@ This operation is performed by calling function `GetMetadataTemplateById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-id/).
 
-*Currently we don't have an example for calling `GetMetadataTemplateById` in integration tests*
+<!-- sample get_metadata_templates_id -->
+```
+await client.MetadataTemplates.GetMetadataTemplateById(template.Id)
+```
 
 ### Arguments
 
@@ -173,7 +182,10 @@ This operation is performed by calling function `GetMetadataTemplateGlobal`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-global/).
 
-*Currently we don't have an example for calling `GetMetadataTemplateGlobal` in integration tests*
+<!-- sample get_metadata_templates_global -->
+```
+await client.MetadataTemplates.GetMetadataTemplateGlobal()
+```
 
 ### Arguments
 
@@ -201,7 +213,10 @@ This operation is performed by calling function `GetMetadataTemplateEnterprise`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise/).
 
-*Currently we don't have an example for calling `GetMetadataTemplateEnterprise` in integration tests*
+<!-- sample get_metadata_templates_enterprise -->
+```
+await client.MetadataTemplates.GetMetadataTemplateEnterprise()
+```
 
 ### Arguments
 
@@ -229,7 +244,10 @@ This operation is performed by calling function `CreateMetadataTemplateSchema`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-templates-schema/).
 
-*Currently we don't have an example for calling `CreateMetadataTemplateSchema` in integration tests*
+<!-- sample post_metadata_templates_schema -->
+```
+await client.MetadataTemplates.CreateMetadataTemplateSchema(new CreateMetadataTemplateSchemaRequestBodyArg(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateSchemaRequestBodyArgFieldsField(type: CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField.String, key: "testName", displayName: "testName")})))
+```
 
 ### Arguments
 

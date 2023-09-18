@@ -17,7 +17,10 @@ This operation is performed by calling function `GetFileTasks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-tasks/).
 
-*Currently we don't have an example for calling `GetFileTasks` in integration tests*
+<!-- sample get_files_id_tasks -->
+```
+await client.Tasks.GetFileTasks(file.Id)
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `CreateTask`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-tasks/).
 
-*Currently we don't have an example for calling `CreateTask` in integration tests*
+<!-- sample post_tasks -->
+```
+await client.Tasks.CreateTask(new CreateTaskRequestBodyArg(item: new CreateTaskRequestBodyArgItemField(type: CreateTaskRequestBodyArgItemFieldTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyArgActionField.Review, completionRule: CreateTaskRequestBodyArgCompletionRuleField.AllAssignees))
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `GetTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-tasks-id/).
 
-*Currently we don't have an example for calling `GetTaskById` in integration tests*
+<!-- sample get_tasks_id -->
+```
+await client.Tasks.GetTaskById(task.Id)
+```
 
 ### Arguments
 
@@ -100,7 +109,10 @@ This operation is performed by calling function `UpdateTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-tasks-id/).
 
-*Currently we don't have an example for calling `UpdateTaskById` in integration tests*
+<!-- sample put_tasks_id -->
+```
+await client.Tasks.UpdateTaskById(task.Id, new UpdateTaskByIdRequestBodyArg(message: "updated message"))
+```
 
 ### Arguments
 
@@ -128,7 +140,10 @@ This operation is performed by calling function `DeleteTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-tasks-id/).
 
-*Currently we don't have an example for calling `DeleteTaskById` in integration tests*
+<!-- sample delete_tasks_id -->
+```
+await client.Tasks.DeleteTaskById(task.Id)
+```
 
 ### Arguments
 

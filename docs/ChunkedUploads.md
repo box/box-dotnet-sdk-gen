@@ -105,7 +105,7 @@ See the endpoint docs at
 
 - uploadSessionId `string`
   - The ID of the upload session. Example: "D5E3F7A"
-- requestBody `Stream`
+- requestBody `System.IO.Stream`
   - Request body of uploadFilePart method
 - headers `UploadFilePartHeadersArg`
   - Headers of uploadFilePart method

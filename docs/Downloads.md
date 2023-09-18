@@ -12,7 +12,10 @@ This operation is performed by calling function `DownloadFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-content/).
 
-*Currently we don't have an example for calling `DownloadFile` in integration tests*
+<!-- sample get_files_id_content -->
+```
+await client.Downloads.DownloadFile(uploadedFile.Id)
+```
 
 ### Arguments
 
@@ -26,7 +29,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Stream`.
+This function returns a value of type `System.IO.Stream`.
 
 Returns the requested file if the client has the **follow
 redirects** setting enabled to automatically
