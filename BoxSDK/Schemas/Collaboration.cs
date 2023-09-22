@@ -23,7 +23,7 @@ namespace Box.Schemas {
         public CollaborationItemField? Item { get; set; } = default;
 
         [JsonPropertyName("accessible_by")]
-        public UserCollaborations? AccessibleBy { get; set; } = default;
+        public CollaborationAccessibleByField? AccessibleBy { get; set; } = default;
 
         /// <summary>
         /// The email address used to invite an unregistered collaborator, if
