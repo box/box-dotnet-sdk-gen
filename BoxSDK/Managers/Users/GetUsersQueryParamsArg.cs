@@ -1,4 +1,7 @@
 using Unions;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Schemas;
 using Box;
 
@@ -52,7 +55,7 @@ namespace Box.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public string? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; set; } = default;
 
         /// <summary>
         /// The offset of the item at which to begin the response.

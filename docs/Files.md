@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-await client.Files.GetFileById(uploadedFile.Id, new GetFileByIdQueryParamsArg(fields: "name"), new GetFileByIdHeadersArg(extraHeaders: new Dictionary<string, string>() { { "if-none-match", file.Etag } }))
+await client.Files.GetFileById(uploadedFile.Id, new GetFileByIdQueryParamsArg(fields: Array.AsReadOnly(new [] {"name"})), new GetFileByIdHeadersArg(extraHeaders: new Dictionary<string, string>() { { "if-none-match", file.Etag } }))
 ```
 
 ### Arguments

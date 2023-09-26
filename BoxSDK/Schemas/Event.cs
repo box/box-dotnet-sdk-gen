@@ -45,7 +45,7 @@ namespace Box.Schemas {
         public string? SessionId { get; set; } = default;
 
         [JsonPropertyName("source")]
-        public EventSourceField? Source { get; set; } = default;
+        public EventSourceOrFileOrFolderOrUser? Source { get; set; } = default;
 
         /// <summary>
         /// This object provides additional information about the event if available.

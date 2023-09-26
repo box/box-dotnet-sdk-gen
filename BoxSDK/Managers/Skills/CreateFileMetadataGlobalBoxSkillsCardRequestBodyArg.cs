@@ -2,7 +2,6 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Box.Schemas;
 using Box;
@@ -13,9 +12,9 @@ namespace Box.Managers {
         /// A list of Box Skill cards to apply to this file.
         /// </summary>
         [JsonPropertyName("cards")]
-        public IReadOnlyList<CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField> Cards { get; set; }
+        public IReadOnlyList<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> Cards { get; set; }
 
-        public CreateFileMetadataGlobalBoxSkillsCardRequestBodyArg(IReadOnlyList<CreateFileMetadataGlobalBoxSkillsCardRequestBodyArgCardsField> cards) {
+        public CreateFileMetadataGlobalBoxSkillsCardRequestBodyArg(IReadOnlyList<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards) {
             Cards = cards;
         }
     }

@@ -1,4 +1,7 @@
 using Unions;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Schemas;
 using Box;
 
@@ -53,7 +56,7 @@ namespace Box.Managers {
         /// `adming_logs_streaming`. For any other `stream_type` this value will be
         /// ignored.
         /// </summary>
-        public string? EventType { get; set; } = default;
+        public IReadOnlyList<GetEventsQueryParamsArgEventTypeField>? EventType { get; set; } = default;
 
         /// <summary>
         /// The lower bound date and time to return events for. This can only be used

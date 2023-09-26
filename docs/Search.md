@@ -84,7 +84,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `SearchResultsOrSearchResultsWithSharedLinks`.
 
 Returns a collection of search results. If there are no matching
 search results, the `entries` array will be empty.

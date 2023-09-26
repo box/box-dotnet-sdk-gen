@@ -1,6 +1,7 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
@@ -18,7 +19,7 @@ namespace Box.Managers {
         }
         public async System.Threading.Tasks.Task GetShieldInformationBarrierReports(GetShieldInformationBarrierReportsQueryParamsArg queryParams, GetShieldInformationBarrierReportsHeadersArg? headers = default) {
             headers = headers ?? new GetShieldInformationBarrierReportsHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "shield_information_barrier_id", Utils.ToString(queryParams.ShieldInformationBarrierId) }, { "marker", Utils.ToString(queryParams.Marker) }, { "limit", Utils.ToString(queryParams.Limit) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "shield_information_barrier_id", StringUtils.ToStringRepresentation(queryParams.ShieldInformationBarrierId) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/shield_information_barrier_reports"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
         }
@@ -33,7 +34,7 @@ namespace Box.Managers {
         public async System.Threading.Tasks.Task<ShieldInformationBarrierReport> GetShieldInformationBarrierReportById(string shieldInformationBarrierReportId, GetShieldInformationBarrierReportByIdHeadersArg? headers = default) {
             headers = headers ?? new GetShieldInformationBarrierReportByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/shield_information_barrier_reports/", shieldInformationBarrierReportId), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/shield_information_barrier_reports/", StringUtils.ToStringRepresentation(shieldInformationBarrierReportId)), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<ShieldInformationBarrierReport>(response.Text);
         }
 

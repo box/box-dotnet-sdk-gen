@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Schemas;
 using Box.Managers;
 using Box;
@@ -30,7 +32,7 @@ namespace Box.Tests.Integration {
             const string groupDescription = "Group description";
             Group group = await client.Groups.CreateGroup(new CreateGroupRequestBodyArg(name: groupName) { Description = groupDescription });
             Assert.IsTrue(group.Name == groupName);
-            GroupFull groupById = await client.Groups.GetGroupById(group.Id, new GetGroupByIdQueryParamsArg() { Fields = "id,name,description,group_type" });
+            GroupFull groupById = await client.Groups.GetGroupById(group.Id, new GetGroupByIdQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) });
             Assert.IsTrue(groupById.Id == group.Id);
             Assert.IsTrue(groupById.Description == groupDescription);
             string updatedGroupName = Utils.GetUUID();

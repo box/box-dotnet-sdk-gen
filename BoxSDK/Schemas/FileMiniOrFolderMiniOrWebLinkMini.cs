@@ -6,28 +6,28 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    [JsonConverter(typeof(ItemsEntriesFieldConverter))]
-    public class ItemsEntriesField : OneOf<FileMini, FolderMini, WebLinkMini> {
+    [JsonConverter(typeof(FileMiniOrFolderMiniOrWebLinkMiniConverter))]
+    public class FileMiniOrFolderMiniOrWebLinkMini : OneOf<FileMini, FolderMini, WebLinkMini> {
         public FileMini? FileMini => _val0;
         
         public FolderMini? FolderMini => _val1;
         
         public WebLinkMini? WebLinkMini => _val2;
         
-        public ItemsEntriesField(FileMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLinkMini(FileMini value) : base(value) {}
         
-        public ItemsEntriesField(FolderMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLinkMini(FolderMini value) : base(value) {}
         
-        public ItemsEntriesField(WebLinkMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLinkMini(WebLinkMini value) : base(value) {}
         
-        public static implicit operator ItemsEntriesField(FileMini value) => new ItemsEntriesField(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(FileMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
         
-        public static implicit operator ItemsEntriesField(FolderMini value) => new ItemsEntriesField(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(FolderMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
         
-        public static implicit operator ItemsEntriesField(WebLinkMini value) => new ItemsEntriesField(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(WebLinkMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
         
-        class ItemsEntriesFieldConverter : JsonConverter<ItemsEntriesField> {
-            public override ItemsEntriesField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        class FileMiniOrFolderMiniOrWebLinkMiniConverter : JsonConverter<FileMiniOrFolderMiniOrWebLinkMini> {
+            public override FileMiniOrFolderMiniOrWebLinkMini Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
                 var discriminant0Present = document.RootElement.TryGetProperty("type", out var discriminant0);
                 if (discriminant0Present) {
@@ -43,7 +43,7 @@ namespace Box.Schemas {
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, ItemsEntriesField? value, JsonSerializerOptions options) {
+            public override void Write(Utf8JsonWriter writer, FileMiniOrFolderMiniOrWebLinkMini? value, JsonSerializerOptions options) {
                 if (value?.FileMini != null) {
                     JsonSerializer.Serialize(writer, value.FileMini, options);
                     return;

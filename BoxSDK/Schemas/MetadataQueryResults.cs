@@ -16,7 +16,7 @@ namespace Box.Schemas {
         /// metadata, use the `fields` attribute in the query.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<MetadataQueryResultsEntriesField>? Entries { get; set; } = default;
+        public IReadOnlyList<FileOrFolder>? Entries { get; set; } = default;
 
         /// <summary>
         /// The limit that was used for this search. This will be the same as the

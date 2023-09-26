@@ -1,4 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Managers;
 using Box.Schemas;
 using Box;
@@ -17,7 +20,7 @@ namespace Box.Tests.Integration {
             UserFull currentUser = await client.Users.GetUserMe();
             Assert.IsTrue(currentUser.Id == userId);
             await auth.AsEnterprise(enterpriseId);
-            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = "enterprise" });
+            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) });
             Assert.IsTrue(newUser.Enterprise != null && newUser.Enterprise.Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }
@@ -33,7 +36,7 @@ namespace Box.Tests.Integration {
             UserFull currentUser = await client.Users.GetUserMe();
             Assert.IsTrue(currentUser.Id == userId);
             await auth.AsEnterprise(enterpriseId);
-            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = "enterprise" });
+            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) });
             Assert.IsTrue(newUser.Enterprise != null && newUser.Enterprise.Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }

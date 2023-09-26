@@ -1,6 +1,8 @@
 using Unions;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
@@ -19,7 +21,7 @@ namespace Box.Managers {
         public async System.Threading.Tasks.Task<Events> GetEvents(GetEventsQueryParamsArg? queryParams = default, GetEventsHeadersArg? headers = default) {
             queryParams = queryParams ?? new GetEventsQueryParamsArg();
             headers = headers ?? new GetEventsHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "stream_type", Utils.ToString(queryParams.StreamType) }, { "stream_position", Utils.ToString(queryParams.StreamPosition) }, { "limit", Utils.ToString(queryParams.Limit) }, { "event_type", Utils.ToString(queryParams.EventType) }, { "created_after", Utils.ToString(queryParams.CreatedAfter) }, { "created_before", Utils.ToString(queryParams.CreatedBefore) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "stream_type", StringUtils.ToStringRepresentation(queryParams.StreamType) }, { "stream_position", StringUtils.ToStringRepresentation(queryParams.StreamPosition) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "event_type", StringUtils.ToStringRepresentation(queryParams.EventType) }, { "created_after", StringUtils.ToStringRepresentation(queryParams.CreatedAfter) }, { "created_before", StringUtils.ToStringRepresentation(queryParams.CreatedBefore) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/events"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
             return SimpleJsonConverter.Deserialize<Events>(response.Text);

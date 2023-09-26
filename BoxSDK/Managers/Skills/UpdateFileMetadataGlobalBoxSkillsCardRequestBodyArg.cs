@@ -2,7 +2,6 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Box.Schemas;
 using Box;
@@ -24,7 +23,7 @@ namespace Box.Managers {
         public string? Path { get; set; } = default;
 
         [JsonPropertyName("value")]
-        public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArgValueField? Value { get; set; } = default;
+        public KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard? Value { get; set; } = default;
 
         public UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg() {
             

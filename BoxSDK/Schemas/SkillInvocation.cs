@@ -50,7 +50,7 @@ namespace Box.Schemas {
         public SkillInvocationEnterpriseField? Enterprise { get; set; } = default;
 
         [JsonPropertyName("source")]
-        public SkillInvocationSourceField? Source { get; set; } = default;
+        public FileOrFolder? Source { get; set; } = default;
 
         [JsonPropertyName("event")]
         public Event? Event { get; set; } = default;
