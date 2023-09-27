@@ -16,7 +16,10 @@ This operation is performed by calling function `GetCollaborationWhitelistExempt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets/).
 
-*Currently we don't have an example for calling `GetCollaborationWhitelistExemptTargets` in integration tests*
+<!-- sample get_collaboration_whitelist_exempt_targets -->
+```
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `CreateCollaborationWhitelistExe
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-collaboration-whitelist-exempt-targets/).
 
-*Currently we don't have an example for calling `CreateCollaborationWhitelistExemptTarget` in integration tests*
+<!-- sample post_collaboration_whitelist_exempt_targets -->
+```
+await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(new CreateCollaborationWhitelistExemptTargetRequestBodyArg(user: new CreateCollaborationWhitelistExemptTargetRequestBodyArgUserField(id: user.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -70,7 +76,10 @@ This operation is performed by calling function `GetCollaborationWhitelistExempt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets-id/).
 
-*Currently we don't have an example for calling `GetCollaborationWhitelistExemptTargetById` in integration tests*
+<!-- sample get_collaboration_whitelist_exempt_targets_id -->
+```
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(exemptTarget.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -97,7 +106,10 @@ This operation is performed by calling function `DeleteCollaborationWhitelistExe
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-collaboration-whitelist-exempt-targets-id/).
 
-*Currently we don't have an example for calling `DeleteCollaborationWhitelistExemptTargetById` in integration tests*
+<!-- sample delete_collaboration_whitelist_exempt_targets_id -->
+```
+await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(exemptTarget.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

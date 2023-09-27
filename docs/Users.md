@@ -22,7 +22,10 @@ This operation is performed by calling function `GetUsers`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users/).
 
-*Currently we don't have an example for calling `GetUsers` in integration tests*
+<!-- sample get_users -->
+```
+await client.Users.GetUsersAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -52,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-await client.Users.CreateUser(new CreateUserRequestBodyArg(name: newUserName, login: newUserLogin))
+await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName, login: userLogin, isPlatformAccessOnly: true)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -92,7 +95,7 @@ See the endpoint docs at
 
 <!-- sample get_users_me -->
 ```
-await client.Users.GetUserMe()
+await client.Users.GetUserMeAsync().ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -129,7 +132,10 @@ This operation is performed by calling function `GetUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id/).
 
-*Currently we don't have an example for calling `GetUserById` in integration tests*
+<!-- sample get_users_id -->
+```
+await client.Users.GetUserByIdAsync(user.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -164,7 +170,10 @@ This operation is performed by calling function `UpdateUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-users-id/).
 
-*Currently we don't have an example for calling `UpdateUserById` in integration tests*
+<!-- sample put_users_id -->
+```
+await client.Users.UpdateUserByIdAsync(user.Id, new UpdateUserByIdRequestBodyArg(name: updatedUserName)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -199,7 +208,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id -->
 ```
-await client.Users.DeleteUserById(newUser.Id)
+await client.Users.DeleteUserByIdAsync(user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

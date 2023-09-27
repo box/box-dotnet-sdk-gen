@@ -13,7 +13,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Box
@@ -185,7 +184,7 @@ namespace Box
             }
 
             var enterpriseId = json?["enterpriseID"]?.ToString();
-            
+
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
 
             return !string.IsNullOrEmpty(userId) ?
@@ -227,7 +226,7 @@ namespace Box
                 case SubjectType.Enterprise:
                     return "enterprise";
                 default:
-                    throw new Exception($"Unknown Subject type: {subType}");
+                    throw new ArgumentException($"Unknown Subject type: {subType}");
             }
         }
     }
@@ -243,7 +242,7 @@ namespace Box
     public class BoxJwtAuth : IAuth
     {
         ITokenStorage _tokenStorage { get; set; }
-        bool _needsRefresh { get; set; }
+        bool _needsRefresh { get; set; } = true;
 
         /// <summary>
         /// Box Jwt configuration.
@@ -269,40 +268,39 @@ namespace Box
             _tokenStorage = Config.TokenStorage;
 
             _signingCredentials = GetSigningCredentials();
-            MarkForRefresh();
         }
 
         /// <summary>
         /// Used to switch Auth to authenticate as enterprise.
         /// </summary>
         /// <param name="enterpriseId">Box EnterpriseID used for authentication.</param>
-        public async System.Threading.Tasks.Task AsEnterprise(string enterpriseId)
+        public async System.Threading.Tasks.Task AsEnterpriseAsync(string enterpriseId)
         {
             _subjectType = SubjectType.Enterprise;
             _subjectId = enterpriseId;
-            await MarkForRefresh();
+            await MarkForRefreshAsync().ConfigureAwait(false);
         }
 
         /// <summary>
         /// Used to switch Auth to authenticate as user.
         /// </summary>
         /// <param name="userId">Box UserID used for authentication.</param>
-        public async System.Threading.Tasks.Task AsUser(string userId)
+        public async System.Threading.Tasks.Task AsUserAsync(string userId)
         {
             _subjectType = SubjectType.User;
             _subjectId = userId;
-            await MarkForRefresh();
+            await MarkForRefreshAsync().ConfigureAwait(false);
         }
 
-        private async System.Threading.Tasks.Task MarkForRefresh()
+        private async System.Threading.Tasks.Task MarkForRefreshAsync()
         {
-            await _tokenStorage.Clear();
+            await _tokenStorage.ClearAsync().ConfigureAwait(false);
             _needsRefresh = true;
         }
 
-        private async System.Threading.Tasks.Task SetToken(AccessToken token)
+        private async System.Threading.Tasks.Task SetTokenAsync(AccessToken token)
         {
-            await _tokenStorage.Store(token);
+            await _tokenStorage.StoreAsync(token).ConfigureAwait(false);
             _needsRefresh = false;
         }
 
@@ -315,7 +313,7 @@ namespace Box
 
                 if (privateCrtKeyParams == null)
                 {
-                    throw new Exception("Invalid private JWT key!");
+                    throw new ArgumentException("Invalid private JWT key!");
                 }
 
                 var rsaParams = DotNetUtilities.ToRSAParameters(privateCrtKeyParams);
@@ -339,16 +337,16 @@ namespace Box
             public char[] GetPassword() => _password.ToCharArray();
         }
 
-        public async Task<AccessToken> RetrieveToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null)
         {
             if (_needsRefresh)
             {
-                return await RefreshToken();
+                return await RefreshTokenAsync().ConfigureAwait(false);
             }
-            return await _tokenStorage.Get();
+            return await _tokenStorage.GetAsync().ConfigureAwait(false);
         }
 
-        public async Task<AccessToken> RefreshToken(NetworkSession? networkSession = null)
+        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null)
         {
             var randomNumber = new byte[64];
             using (var rng = RandomNumberGenerator.Create())
@@ -382,15 +380,15 @@ namespace Box
                 { "client_secret", Config.ClientSecret }
             };
 
-            var response = await SimpleHttpClient.Fetch(tokenUrl, new FetchOptions
+            var response = await HttpClientAdapter.FetchAsync(tokenUrl, new FetchOptions
             {
                 Method = "POST",
-                Body = SimpleJsonConverter.Serialize(payload),
+                Body = SimpleJsonSerializer.Serialize(payload),
                 ContentType = ContentTypes.FormUrlEncoded,
-            });
+            }).ConfigureAwait(false);
 
-            var newToken = SimpleJsonConverter.Deserialize<AccessToken>(response.Text);
-            await SetToken(newToken);
+            var newToken = SimpleJsonSerializer.Deserialize<AccessToken>(response.Text);
+            await SetTokenAsync(newToken).ConfigureAwait(false);
             return newToken;
         }
     }

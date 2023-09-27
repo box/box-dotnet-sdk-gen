@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_content -->
 ```
-await client.Uploads.UploadFileVersion(uploadedFile.Id, new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newFileVersionName), file: newFileContentStream))
+await client.Uploads.UploadFileVersionAsync(uploadedFile.Id, new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newFileVersionName), file: newFileContentStream)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -65,7 +65,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-await client.Uploads.UploadFile(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream))
+await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false)
 ```
 
 ### Arguments

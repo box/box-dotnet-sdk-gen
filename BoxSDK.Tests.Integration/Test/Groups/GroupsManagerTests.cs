@@ -22,7 +22,7 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetGroups() {
-            Groups groups = await client.Groups.GetGroups();
+            Groups groups = await client.Groups.GetGroupsAsync().ConfigureAwait(false);
             Assert.IsTrue(groups.TotalCount >= 0);
         }
 
@@ -30,16 +30,16 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateGetDeleteGroup() {
             string groupName = Utils.GetUUID();
             const string groupDescription = "Group description";
-            Group group = await client.Groups.CreateGroup(new CreateGroupRequestBodyArg(name: groupName) { Description = groupDescription });
+            Group group = await client.Groups.CreateGroupAsync(new CreateGroupRequestBodyArg(name: groupName) { Description = groupDescription }).ConfigureAwait(false);
             Assert.IsTrue(group.Name == groupName);
-            GroupFull groupById = await client.Groups.GetGroupById(group.Id, new GetGroupByIdQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) });
+            GroupFull groupById = await client.Groups.GetGroupByIdAsync(group.Id, new GetGroupByIdQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) }).ConfigureAwait(false);
             Assert.IsTrue(groupById.Id == group.Id);
             Assert.IsTrue(groupById.Description == groupDescription);
             string updatedGroupName = Utils.GetUUID();
-            GroupFull updatedGroup = await client.Groups.UpdateGroupById(group.Id, new UpdateGroupByIdRequestBodyArg() { Name = updatedGroupName });
+            GroupFull updatedGroup = await client.Groups.UpdateGroupByIdAsync(group.Id, new UpdateGroupByIdRequestBodyArg() { Name = updatedGroupName }).ConfigureAwait(false);
             Assert.IsTrue(updatedGroup.Name == updatedGroupName);
-            await client.Groups.DeleteGroupById(group.Id);
-            await Assert.ThrowsExceptionAsync<Exception>(async() => await client.Groups.GetGroupById(group.Id));
+            await client.Groups.DeleteGroupByIdAsync(group.Id).ConfigureAwait(false);
+            await Assert.That.IsExceptionAsync(async() => await client.Groups.GetGroupByIdAsync(group.Id).ConfigureAwait(false));
         }
 
     }

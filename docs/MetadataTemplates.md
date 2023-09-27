@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateSchema(GetMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey)
+await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(GetMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -122,7 +122,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateSchema(DeleteMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey)
+await client.MetadataTemplates.DeleteMetadataTemplateSchemaAsync(DeleteMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -154,7 +154,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateById(template.Id)
+await client.MetadataTemplates.GetMetadataTemplateByIdAsync(template.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -184,7 +184,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_global -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateGlobal()
+await client.MetadataTemplates.GetMetadataTemplateGlobalAsync().ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -215,7 +215,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_enterprise -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateEnterprise()
+await client.MetadataTemplates.GetMetadataTemplateEnterpriseAsync().ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -246,7 +246,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_templates_schema -->
 ```
-await client.MetadataTemplates.CreateMetadataTemplateSchema(new CreateMetadataTemplateSchemaRequestBodyArg(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateSchemaRequestBodyArgFieldsField(type: CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField.String, key: "testName", displayName: "testName")})))
+await client.MetadataTemplates.CreateMetadataTemplateSchemaAsync(new CreateMetadataTemplateSchemaRequestBodyArg(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateSchemaRequestBodyArgFieldsField(type: CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField.String, key: "testName", displayName: "testName")}))).ConfigureAwait(false)
 ```
 
 ### Arguments

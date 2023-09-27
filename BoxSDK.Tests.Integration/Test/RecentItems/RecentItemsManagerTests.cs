@@ -15,9 +15,9 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestRecentItems() {
-            await auth.AsUser(Utils.GetEnvVar("USER_ID"));
+            await auth.AsUserAsync(Utils.GetEnvVar("USER_ID")).ConfigureAwait(false);
             BoxClient client = new BoxClient(auth: auth);
-            RecentItems recentItems = await client.RecentItems.GetRecentItems();
+            RecentItems recentItems = await client.RecentItems.GetRecentItemsAsync().ConfigureAwait(false);
             Assert.IsTrue(recentItems.Entries.Count >= 0);
         }
 

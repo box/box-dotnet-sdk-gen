@@ -21,7 +21,10 @@ This operation is performed by calling function `GetWebhooks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-webhooks/).
 
-*Currently we don't have an example for calling `GetWebhooks` in integration tests*
+<!-- sample get_webhooks -->
+```
+await client.Webhooks.GetWebhooksAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `CreateWebhook`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-webhooks/).
 
-*Currently we don't have an example for calling `CreateWebhook` in integration tests*
+<!-- sample post_webhooks -->
+```
+await client.Webhooks.CreateWebhookAsync(new CreateWebhookRequestBodyArg(target: new CreateWebhookRequestBodyArgTargetField(id: folder.Id, type: CreateWebhookRequestBodyArgTargetFieldTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyArgTriggersField.FileUploaded}))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `GetWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-webhooks-id/).
 
-*Currently we don't have an example for calling `GetWebhookById` in integration tests*
+<!-- sample get_webhooks_id -->
+```
+await client.Webhooks.GetWebhookByIdAsync(webhook.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -99,7 +108,10 @@ This operation is performed by calling function `UpdateWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-webhooks-id/).
 
-*Currently we don't have an example for calling `UpdateWebhookById` in integration tests*
+<!-- sample put_webhooks_id -->
+```
+await client.Webhooks.UpdateWebhookByIdAsync(webhook.Id, new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -127,7 +139,10 @@ This operation is performed by calling function `DeleteWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-webhooks-id/).
 
-*Currently we don't have an example for calling `DeleteWebhookById` in integration tests*
+<!-- sample delete_webhooks_id -->
+```
+await client.Webhooks.DeleteWebhookByIdAsync(webhook.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

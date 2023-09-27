@@ -14,7 +14,10 @@ This operation is performed by calling function `GetUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id-avatar/).
 
-*Currently we don't have an example for calling `GetUserAvatar` in integration tests*
+<!-- sample get_users_id_avatar -->
+```
+await client.Avatars.GetUserAvatarAsync(user.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `CreateUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users-id-avatar/).
 
-*Currently we don't have an example for calling `CreateUserAvatar` in integration tests*
+<!-- sample post_users_id_avatar -->
+```
+await client.Avatars.CreateUserAvatarAsync(user.Id, new CreateUserAvatarRequestBodyArg(pic: Utils.DecodeBase64ByteStream("iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `DeleteUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-users-id-avatar/).
 
-*Currently we don't have an example for calling `DeleteUserAvatar` in integration tests*
+<!-- sample delete_users_id_avatar -->
+```
+await client.Avatars.DeleteUserAvatarAsync(user.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

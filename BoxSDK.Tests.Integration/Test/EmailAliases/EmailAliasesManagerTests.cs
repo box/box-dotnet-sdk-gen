@@ -21,18 +21,18 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestEmailAliases() {
             string newUserName = Utils.GetUUID();
             string newUserLogin = string.Concat(Utils.GetUUID(), "@boxdemo.com");
-            User newUser = await client.Users.CreateUser(new CreateUserRequestBodyArg(name: newUserName) { Login = newUserLogin });
-            EmailAliases aliases = await client.EmailAliases.GetUserEmailAliases(newUser.Id);
+            User newUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: newUserName) { Login = newUserLogin }).ConfigureAwait(false);
+            EmailAliases aliases = await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(false);
             Assert.IsTrue(aliases.TotalCount == 0);
             string newAliasEmail = string.Concat(newUser.Id, "@boxdemo.com");
-            EmailAlias newAlias = await client.EmailAliases.CreateUserEmailAlias(newUser.Id, new CreateUserEmailAliasRequestBodyArg(email: newAliasEmail));
-            EmailAliases updatedAliases = await client.EmailAliases.GetUserEmailAliases(newUser.Id);
+            EmailAlias newAlias = await client.EmailAliases.CreateUserEmailAliasAsync(newUser.Id, new CreateUserEmailAliasRequestBodyArg(email: newAliasEmail)).ConfigureAwait(false);
+            EmailAliases updatedAliases = await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(false);
             Assert.IsTrue(updatedAliases.TotalCount == 1);
             Assert.IsTrue(updatedAliases.Entries[0].Email == newAliasEmail);
-            await client.EmailAliases.DeleteUserEmailAliasById(newUser.Id, newAlias.Id);
-            EmailAliases finalAliases = await client.EmailAliases.GetUserEmailAliases(newUser.Id);
+            await client.EmailAliases.DeleteUserEmailAliasByIdAsync(newUser.Id, newAlias.Id).ConfigureAwait(false);
+            EmailAliases finalAliases = await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(false);
             Assert.IsTrue(finalAliases.TotalCount == 0);
-            await client.Users.DeleteUserById(newUser.Id);
+            await client.Users.DeleteUserByIdAsync(newUser.Id).ConfigureAwait(false);
         }
 
     }

@@ -11,17 +11,17 @@ namespace Box
         /// <summary>
         /// Stores access token.
         /// </summary>
-        System.Threading.Tasks.Task Store(AccessToken token);
+        System.Threading.Tasks.Task StoreAsync(AccessToken token);
 
         /// <summary>
         /// Gets stored the token.
         /// </summary>
         /// <returns>An access token.</returns>
-        Task<AccessToken> Get();
+        Task<AccessToken?> GetAsync();
 
         /// <summary>
         /// Clears the stored token.
         /// </summary>
-        System.Threading.Tasks.Task Clear();
+        System.Threading.Tasks.Task ClearAsync();
     }
 }

@@ -14,7 +14,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_content -->
 ```
-await client.Downloads.DownloadFile(uploadedFile.Id)
+await client.Downloads.DownloadFileAsync(uploadedFile.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

@@ -20,19 +20,19 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestTrashedFolders() {
-            FolderFull folder = await client.Folders.CreateFolder(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0")));
-            await client.Folders.DeleteFolderById(folder.Id);
-            TrashFolder fromTrash = await client.TrashedFolders.GetFolderTrash(folder.Id);
+            FolderFull folder = await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false);
+            await client.Folders.DeleteFolderByIdAsync(folder.Id).ConfigureAwait(false);
+            TrashFolder fromTrash = await client.TrashedFolders.GetFolderTrashAsync(folder.Id).ConfigureAwait(false);
             Assert.IsTrue(fromTrash.Id == folder.Id);
             Assert.IsTrue(fromTrash.Name == folder.Name);
-            await Assert.ThrowsExceptionAsync<Exception>(async() => await client.Folders.GetFolderById(folder.Id));
-            TrashFolderRestored restoredFolder = await client.TrashedFolders.RestoreFolderFromTrash(folder.Id);
-            FolderFull fromApi = await client.Folders.GetFolderById(folder.Id);
+            await Assert.That.IsExceptionAsync(async() => await client.Folders.GetFolderByIdAsync(folder.Id).ConfigureAwait(false));
+            TrashFolderRestored restoredFolder = await client.TrashedFolders.RestoreFolderFromTrashAsync(folder.Id).ConfigureAwait(false);
+            FolderFull fromApi = await client.Folders.GetFolderByIdAsync(folder.Id).ConfigureAwait(false);
             Assert.IsTrue(restoredFolder.Id == fromApi.Id);
             Assert.IsTrue(restoredFolder.Name == fromApi.Name);
-            await client.Folders.DeleteFolderById(folder.Id);
-            await client.TrashedFolders.DeleteFolderTrash(folder.Id);
-            await Assert.ThrowsExceptionAsync<Exception>(async() => await client.TrashedFolders.GetFolderTrash(folder.Id));
+            await client.Folders.DeleteFolderByIdAsync(folder.Id).ConfigureAwait(false);
+            await client.TrashedFolders.DeleteFolderTrashAsync(folder.Id).ConfigureAwait(false);
+            await Assert.That.IsExceptionAsync(async() => await client.TrashedFolders.GetFolderTrashAsync(folder.Id).ConfigureAwait(false));
         }
 
     }

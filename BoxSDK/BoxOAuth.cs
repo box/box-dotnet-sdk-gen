@@ -46,12 +46,12 @@ namespace Box
             throw new NotImplementedException();
         }
 
-        public async Task<AccessToken> RetrieveToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? NetworkSession = null)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<AccessToken> RefreshToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? NetworkSession = null)
         {
             throw new NotImplementedException();
         }

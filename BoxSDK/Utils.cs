@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 
-namespace Box {
+namespace Box
+{
     /// <summary>
     /// Class for various utilities functions used in SDK.
     /// </summary>
@@ -43,20 +44,26 @@ namespace Box {
         /// <returns>Dictionary without empty entries.</returns>
         public static Dictionary<string, string> PrepareParams(Dictionary<string, string?> dict) =>
             dict.Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(pair => pair.Key, pair => pair.Value!);
-        
+
         /// <summary>
-        /// Creates MemoryStream of given size.
+        /// Creates MemoryStream of given size and fills it with random data.
         /// </summary>
         /// <param name="size">Size of MemoryStream.</param>
         /// <returns>MemoryStream.</returns>
-        public static Stream GenerateByteStream(int size) => new MemoryStream(size);
+        public static Stream GenerateByteStream(int size)
+        {
+            var buffer = new byte[size];
+            new Random().NextBytes(buffer);
+            return new MemoryStream(buffer);
+        }
 
         /// <summary>
         /// Creates Byte Array of given size with random values.
         /// </summary>
         /// <param name="size">Size of byte array.</param>
         /// <returns>byte array.</returns>
-        public static byte[] GenerateByteBuffer(int size) {
+        public static byte[] GenerateByteBuffer(int size)
+        {
             var buffer = new byte[size];
             new Random().NextBytes(buffer);
             return buffer;
@@ -74,20 +81,20 @@ namespace Box {
         /// </summary>
         /// <param name="data">Base64 encoded string.</param>
         /// <returns>MemoryStream.</returns>
-        public static Stream DecodeBase64ByteStream(string data) => new MemoryStream(Convert.FromBase64String(data)); 
+        public static Stream DecodeBase64ByteStream(string data) => new MemoryStream(Convert.FromBase64String(data));
 
         /// <summary>
         /// Creates byte array from Stream
         /// </summary>
         /// <param name="byteStream">Stream.</param>
         /// <returns>byte array.</returns>
-        public static async System.Threading.Tasks.Task<byte[]> ReadByteStream(Stream byteStream)
+        public static async System.Threading.Tasks.Task<byte[]> ReadByteStreamAsync(Stream byteStream)
         {
             using var memoryStream = new MemoryStream();
-            await memoryStream.CopyToAsync(byteStream);
+            await byteStream.CopyToAsync(memoryStream);
             return memoryStream.ToArray();
         }
-        
+
         /// <summary>
         /// Checks if two byte arrays are equal.
         /// </summary>
