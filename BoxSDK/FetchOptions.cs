@@ -1,8 +1,9 @@
+using Box;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net.Http;
 using System.IO;
-using Box;
+using System.Net.Http;
 
 namespace Fetch
 {
@@ -26,7 +27,9 @@ namespace Fetch
         /// </summary>
         public string? Body { get; set; }
 
-        //TODO change to more specific type
+        /// <summary>
+        /// A stream containing the contents of a file.
+        /// </summary>
         public Stream? FileStream { get; set; }
 
         /// <summary>
@@ -39,24 +42,37 @@ namespace Fetch
         /// </summary>
         public string? ContentType { get; set; }
 
+        /// <summary>
+        /// HttpMethod string mapping to the .NET HttpMethod class.
+        /// </summary>
         internal HttpMethod _httpMethod
         {
             get
             {
-                httpMethodsMap.TryGetValue(Method ?? "GET", out var tempMethod);
+                httpMethodsMap.TryGetValue(Method ?? throw new ArgumentException($"Provided http method {Method} is not supported."), out var tempMethod);
                 return tempMethod!;
             }
         }
 
-        //TODO still not used.
+        /// <summary>
+        /// Network session for the request.
+        /// </summary>
+        //TODO implement usage.
         public NetworkSession? NetworkSession { get; set; }
 
+        /// <summary>
+        /// Query parameters.
+        /// </summary>
         public IReadOnlyDictionary<string, string>? Parameters { get; set; }
 
-        //TODO implement usage
+        /// <summary>
+        /// List of multipart items for the request.
+        /// </summary>
         public IReadOnlyCollection<MultipartItem>? MultipartData { get; set; }
 
-        //TODO implement usage
+        /// <summary>
+        /// Format of the response e.g. "binary" in case of stream response.
+        /// </summary>
         public string? ResponseFormat { get; set; }
 
 
@@ -66,7 +82,9 @@ namespace Fetch
             { "PUT", HttpMethod.Put },
             { "PATCH", HttpMethod.Patch },
             { "DELETE", HttpMethod.Delete },
-            { "OPTIONS", HttpMethod.Options }
+            { "OPTIONS", HttpMethod.Options },
+            { "HEAD", HttpMethod.Head },
+            { "TRACE", HttpMethod.Trace },
         };
 
         /// <summary>

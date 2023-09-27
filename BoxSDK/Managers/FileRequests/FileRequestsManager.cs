@@ -2,6 +2,7 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DictionaryExtensions;
+using StringExtensions;
 using Fetch;
 using Serializer;
 using Box.Schemas;
@@ -16,31 +17,103 @@ namespace Box.Managers {
         public FileRequestsManager() {
             
         }
-        public async System.Threading.Tasks.Task<FileRequest> GetFileRequestById(string fileRequestId, GetFileRequestByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Retrieves the information about a file request.
+        /// </summary>
+        /// <param name="fileRequestId">
+        /// The unique identifier that represent a file request.
+        /// 
+        /// The ID for any file request can be determined
+        /// by visiting a file request builder in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/filerequest/123`
+        /// the `file_request_id` is `123`.
+        /// Example: "123"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getFileRequestById method
+        /// </param>
+        public async System.Threading.Tasks.Task<FileRequest> GetFileRequestByIdAsync(string fileRequestId, GetFileRequestByIdHeadersArg? headers = default) {
             headers = headers ?? new GetFileRequestByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/file_requests/", fileRequestId), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<FileRequest>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/file_requests/", StringUtils.ToStringRepresentation(fileRequestId)), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<FileRequest>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<FileRequest> UpdateFileRequestById(string fileRequestId, FileRequestUpdateRequest requestBody, UpdateFileRequestByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Updates a file request. This can be used to activate or
+        /// deactivate a file request.
+        /// </summary>
+        /// <param name="fileRequestId">
+        /// The unique identifier that represent a file request.
+        /// 
+        /// The ID for any file request can be determined
+        /// by visiting a file request builder in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/filerequest/123`
+        /// the `file_request_id` is `123`.
+        /// Example: "123"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of updateFileRequestById method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of updateFileRequestById method
+        /// </param>
+        public async System.Threading.Tasks.Task<FileRequest> UpdateFileRequestByIdAsync(string fileRequestId, FileRequestUpdateRequest requestBody, UpdateFileRequestByIdHeadersArg? headers = default) {
             headers = headers ?? new UpdateFileRequestByIdHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", Utils.ToString(headers.IfMatch) } }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/file_requests/", fileRequestId), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<FileRequest>(response.Text);
+            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) } }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/file_requests/", StringUtils.ToStringRepresentation(fileRequestId)), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<FileRequest>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task DeleteFileRequestById(string fileRequestId, DeleteFileRequestByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Deletes a file request permanently.
+        /// </summary>
+        /// <param name="fileRequestId">
+        /// The unique identifier that represent a file request.
+        /// 
+        /// The ID for any file request can be determined
+        /// by visiting a file request builder in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/filerequest/123`
+        /// the `file_request_id` is `123`.
+        /// Example: "123"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of deleteFileRequestById method
+        /// </param>
+        public async System.Threading.Tasks.Task DeleteFileRequestByIdAsync(string fileRequestId, DeleteFileRequestByIdHeadersArg? headers = default) {
             headers = headers ?? new DeleteFileRequestByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/file_requests/", fileRequestId), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/file_requests/", StringUtils.ToStringRepresentation(fileRequestId)), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
         }
 
-        public async System.Threading.Tasks.Task<FileRequest> CreateFileRequestCopy(string fileRequestId, FileRequestCopyRequest requestBody, CreateFileRequestCopyHeadersArg? headers = default) {
+        /// <summary>
+        /// Copies an existing file request that is already present on one folder,
+        /// and applies it to another folder.
+        /// </summary>
+        /// <param name="fileRequestId">
+        /// The unique identifier that represent a file request.
+        /// 
+        /// The ID for any file request can be determined
+        /// by visiting a file request builder in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/filerequest/123`
+        /// the `file_request_id` is `123`.
+        /// Example: "123"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of createFileRequestCopy method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createFileRequestCopy method
+        /// </param>
+        public async System.Threading.Tasks.Task<FileRequest> CreateFileRequestCopyAsync(string fileRequestId, FileRequestCopyRequest requestBody, CreateFileRequestCopyHeadersArg? headers = default) {
             headers = headers ?? new CreateFileRequestCopyHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/file_requests/", fileRequestId, "/copy"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<FileRequest>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/file_requests/", StringUtils.ToStringRepresentation(fileRequestId), "/copy"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<FileRequest>(response.Text);
         }
 
     }

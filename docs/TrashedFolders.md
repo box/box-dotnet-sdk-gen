@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id -->
 ```
-await client.TrashedFolders.RestoreFolderFromTrash(folder.Id)
+await client.TrashedFolders.RestoreFolderFromTrashAsync(folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -71,7 +71,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_trash -->
 ```
-await client.TrashedFolders.GetFolderTrash(folder.Id)
+await client.TrashedFolders.GetFolderTrashAsync(folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -105,7 +105,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_trash -->
 ```
-await client.TrashedFolders.DeleteFolderTrash(folder.Id)
+await client.TrashedFolders.DeleteFolderTrashAsync(folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

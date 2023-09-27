@@ -18,7 +18,7 @@ namespace Box.Schemas {
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
 
-        public Group() {
+        public Group(string id, GroupBaseTypeField type) : base(id, type) {
             
         }
     }

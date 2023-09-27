@@ -1,6 +1,7 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System;
 using Box.Schemas;
 using Box;
 
@@ -64,7 +65,7 @@ namespace Box.Managers {
         /// file extensions. This list is a comma-separated list of file extensions
         /// without the dots.
         /// </summary>
-        public string? FileExtensions { get; set; } = default;
+        public IReadOnlyList<string>? FileExtensions { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items created within
@@ -79,7 +80,7 @@ namespace Box.Managers {
         /// If the end date is omitted (`2014-05-15T13:35:01-07:00,`) the
         /// current date will be used as the end date instead.
         /// </summary>
-        public string? CreatedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? CreatedAtRange { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items updated within
@@ -94,7 +95,7 @@ namespace Box.Managers {
         /// If the end date is omitted (`2014-05-15T13:35:01-07:00,`) the
         /// current date will be used as the end date instead.
         /// </summary>
-        public string? UpdatedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? UpdatedAtRange { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items with a size within
@@ -105,7 +106,7 @@ namespace Box.Managers {
         /// 
         /// The upper and lower bound can be omitted to create open ranges.
         /// </summary>
-        public string? SizeRange { get; set; } = default;
+        public IReadOnlyList<int>? SizeRange { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items that are owned
@@ -121,7 +122,7 @@ namespace Box.Managers {
         /// `enterprise_content` scope parameter which can be requested with our
         /// support team.
         /// </summary>
-        public string? OwnerUserIds { get; set; } = default;
+        public IReadOnlyList<string>? OwnerUserIds { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items that have been updated
@@ -135,7 +136,7 @@ namespace Box.Managers {
         /// 
         /// This feature only searches back to the last 10 versions of an item.
         /// </summary>
-        public string? RecentUpdaterUserIds { get; set; } = default;
+        public IReadOnlyList<string>? RecentUpdaterUserIds { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to items within the given
@@ -154,7 +155,7 @@ namespace Box.Managers {
         /// `enterprise_content` scope parameter which can be requested with our
         /// support team.
         /// </summary>
-        public string? AncestorFolderIds { get; set; } = default;
+        public IReadOnlyList<string>? AncestorFolderIds { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items that match the search query
@@ -172,7 +173,7 @@ namespace Box.Managers {
         /// * `tags` - Any tags that are applied to an item, as defined by its
         ///    `tags` field.
         /// </summary>
-        public string? ContentTypes { get; set; } = default;
+        public IReadOnlyList<GetSearchQueryParamsArgContentTypesField>? ContentTypes { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items of this type. This
@@ -209,7 +210,7 @@ namespace Box.Managers {
         /// 
         /// This parameter is required unless the `query` parameter is provided.
         /// </summary>
-        public string? Mdfilters { get; set; } = default;
+        public IReadOnlyList<MetadataFilter>? Mdfilters { get; set; } = default;
 
         /// <summary>
         /// Defines the order in which search results are returned. This API
@@ -262,7 +263,7 @@ namespace Box.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public string? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; set; } = default;
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -289,7 +290,7 @@ namespace Box.Managers {
         /// 
         /// Data available from 2023-02-01 onwards.
         /// </summary>
-        public string? DeletedUserIds { get; set; } = default;
+        public IReadOnlyList<string>? DeletedUserIds { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items deleted within a given
@@ -310,7 +311,7 @@ namespace Box.Managers {
         /// 
         /// Data available from 2023-02-01 onwards.
         /// </summary>
-        public string? DeletedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? DeletedAtRange { get; set; } = default;
 
         public GetSearchQueryParamsArg() {
             

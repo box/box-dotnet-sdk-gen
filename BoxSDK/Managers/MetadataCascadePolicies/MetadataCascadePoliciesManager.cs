@@ -2,6 +2,7 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
@@ -17,38 +18,99 @@ namespace Box.Managers {
         public MetadataCascadePoliciesManager() {
             
         }
-        public async System.Threading.Tasks.Task<MetadataCascadePolicies> GetMetadataCascadePolicies(GetMetadataCascadePoliciesQueryParamsArg queryParams, GetMetadataCascadePoliciesHeadersArg? headers = default) {
+        /// <summary>
+        /// Retrieves a list of all the metadata cascade policies
+        /// that are applied to a given folder. This can not be used on the root
+        /// folder with ID `0`.
+        /// </summary>
+        /// <param name="queryParams">
+        /// Query parameters of getMetadataCascadePolicies method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getMetadataCascadePolicies method
+        /// </param>
+        public async System.Threading.Tasks.Task<MetadataCascadePolicies> GetMetadataCascadePoliciesAsync(GetMetadataCascadePoliciesQueryParamsArg queryParams, GetMetadataCascadePoliciesHeadersArg? headers = default) {
             headers = headers ?? new GetMetadataCascadePoliciesHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "folder_id", Utils.ToString(queryParams.FolderId) }, { "owner_enterprise_id", Utils.ToString(queryParams.OwnerEnterpriseId) }, { "marker", Utils.ToString(queryParams.Marker) }, { "offset", Utils.ToString(queryParams.Offset) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "folder_id", StringUtils.ToStringRepresentation(queryParams.FolderId) }, { "owner_enterprise_id", StringUtils.ToStringRepresentation(queryParams.OwnerEnterpriseId) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "offset", StringUtils.ToStringRepresentation(queryParams.Offset) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_cascade_policies"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<MetadataCascadePolicies>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_cascade_policies"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<MetadataCascadePolicies>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<MetadataCascadePolicy> CreateMetadataCascadePolicy(CreateMetadataCascadePolicyRequestBodyArg requestBody, CreateMetadataCascadePolicyHeadersArg? headers = default) {
+        /// <summary>
+        /// Creates a new metadata cascade policy that applies a given
+        /// metadata template to a given folder and automatically
+        /// cascades it down to any files within that folder.
+        /// 
+        /// In order for the policy to be applied a metadata instance must first
+        /// be applied to the folder the policy is to be applied to.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of createMetadataCascadePolicy method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createMetadataCascadePolicy method
+        /// </param>
+        public async System.Threading.Tasks.Task<MetadataCascadePolicy> CreateMetadataCascadePolicyAsync(CreateMetadataCascadePolicyRequestBodyArg requestBody, CreateMetadataCascadePolicyHeadersArg? headers = default) {
             headers = headers ?? new CreateMetadataCascadePolicyHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_cascade_policies"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<MetadataCascadePolicy>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_cascade_policies"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<MetadataCascadePolicy>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<MetadataCascadePolicy> GetMetadataCascadePolicyById(string metadataCascadePolicyId, GetMetadataCascadePolicyByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Retrieve a specific metadata cascade policy assigned to a folder.
+        /// </summary>
+        /// <param name="metadataCascadePolicyId">
+        /// The ID of the metadata cascade policy.
+        /// Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getMetadataCascadePolicyById method
+        /// </param>
+        public async System.Threading.Tasks.Task<MetadataCascadePolicy> GetMetadataCascadePolicyByIdAsync(string metadataCascadePolicyId, GetMetadataCascadePolicyByIdHeadersArg? headers = default) {
             headers = headers ?? new GetMetadataCascadePolicyByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", metadataCascadePolicyId), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<MetadataCascadePolicy>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", StringUtils.ToStringRepresentation(metadataCascadePolicyId)), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<MetadataCascadePolicy>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task DeleteMetadataCascadePolicyById(string metadataCascadePolicyId, DeleteMetadataCascadePolicyByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Deletes a metadata cascade policy.
+        /// </summary>
+        /// <param name="metadataCascadePolicyId">
+        /// The ID of the metadata cascade policy.
+        /// Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of deleteMetadataCascadePolicyById method
+        /// </param>
+        public async System.Threading.Tasks.Task DeleteMetadataCascadePolicyByIdAsync(string metadataCascadePolicyId, DeleteMetadataCascadePolicyByIdHeadersArg? headers = default) {
             headers = headers ?? new DeleteMetadataCascadePolicyByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", metadataCascadePolicyId), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", StringUtils.ToStringRepresentation(metadataCascadePolicyId)), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
         }
 
-        public async System.Threading.Tasks.Task CreateMetadataCascadePolicyApply(string metadataCascadePolicyId, CreateMetadataCascadePolicyApplyRequestBodyArg requestBody, CreateMetadataCascadePolicyApplyHeadersArg? headers = default) {
+        /// <summary>
+        /// Force the metadata on a folder with a metadata cascade policy to be applied to
+        /// all of its children. This can be used after creating a new cascade policy to
+        /// enforce the metadata to be cascaded down to all existing files within that
+        /// folder.
+        /// </summary>
+        /// <param name="metadataCascadePolicyId">
+        /// The ID of the cascade policy to force-apply.
+        /// Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of createMetadataCascadePolicyApply method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createMetadataCascadePolicyApply method
+        /// </param>
+        public async System.Threading.Tasks.Task CreateMetadataCascadePolicyApplyAsync(string metadataCascadePolicyId, CreateMetadataCascadePolicyApplyRequestBodyArg requestBody, CreateMetadataCascadePolicyApplyHeadersArg? headers = default) {
             headers = headers ?? new CreateMetadataCascadePolicyApplyHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", metadataCascadePolicyId, "/apply"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_cascade_policies/", StringUtils.ToStringRepresentation(metadataCascadePolicyId), "/apply"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
         }
 
     }

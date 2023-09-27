@@ -19,7 +19,10 @@ This operation is performed by calling function `GetUserMemberships`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id-memberships/).
 
-*Currently we don't have an example for calling `GetUserMemberships` in integration tests*
+<!-- sample get_users_id_memberships -->
+```
+await client.Memberships.GetUserMembershipsAsync(user.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -50,7 +53,10 @@ This operation is performed by calling function `GetGroupMemberships`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id-memberships/).
 
-*Currently we don't have an example for calling `GetGroupMemberships` in integration tests*
+<!-- sample get_groups_id_memberships -->
+```
+await client.Memberships.GetGroupMembershipsAsync(group.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -80,7 +86,10 @@ This operation is performed by calling function `CreateGroupMembership`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-group-memberships/).
 
-*Currently we don't have an example for calling `CreateGroupMembership` in integration tests*
+<!-- sample post_group_memberships -->
+```
+await client.Memberships.CreateGroupMembershipAsync(new CreateGroupMembershipRequestBodyArg(user: new CreateGroupMembershipRequestBodyArgUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyArgGroupField(id: group.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -110,7 +119,10 @@ This operation is performed by calling function `GetGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-group-memberships-id/).
 
-*Currently we don't have an example for calling `GetGroupMembershipById` in integration tests*
+<!-- sample get_group_memberships_id -->
+```
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -140,7 +152,10 @@ This operation is performed by calling function `UpdateGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-group-memberships-id/).
 
-*Currently we don't have an example for calling `UpdateGroupMembershipById` in integration tests*
+<!-- sample put_group_memberships_id -->
+```
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -172,7 +187,10 @@ This operation is performed by calling function `DeleteGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-group-memberships-id/).
 
-*Currently we don't have an example for calling `DeleteGroupMembershipById` in integration tests*
+<!-- sample delete_group_memberships_id -->
+```
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

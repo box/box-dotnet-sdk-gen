@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderById(folder.Id)
+await client.Folders.GetFolderByIdAsync(folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await client.Folders.DeleteFolderById(folder.Id)
+await client.Folders.DeleteFolderByIdAsync(folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -174,7 +174,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await client.Folders.CreateFolder(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0")))
+await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false)
 ```
 
 ### Arguments

@@ -1,6 +1,8 @@
 using Unions;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
@@ -16,13 +18,24 @@ namespace Box.Managers {
         public RecentItemsManager() {
             
         }
-        public async System.Threading.Tasks.Task<RecentItems> GetRecentItems(GetRecentItemsQueryParamsArg? queryParams = default, GetRecentItemsHeadersArg? headers = default) {
+        /// <summary>
+        /// Returns information about the recent items accessed
+        /// by a user, either in the last 90 days or up to the last
+        /// 1000 items accessed.
+        /// </summary>
+        /// <param name="queryParams">
+        /// Query parameters of getRecentItems method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getRecentItems method
+        /// </param>
+        public async System.Threading.Tasks.Task<RecentItems> GetRecentItemsAsync(GetRecentItemsQueryParamsArg? queryParams = default, GetRecentItemsHeadersArg? headers = default) {
             queryParams = queryParams ?? new GetRecentItemsQueryParamsArg();
             headers = headers ?? new GetRecentItemsHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", Utils.ToString(queryParams.Fields) }, { "limit", Utils.ToString(queryParams.Limit) }, { "marker", Utils.ToString(queryParams.Marker) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/recent_items"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<RecentItems>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/recent_items"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<RecentItems>(response.Text);
         }
 
     }

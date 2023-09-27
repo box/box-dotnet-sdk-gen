@@ -36,7 +36,7 @@ namespace Box.Schemas {
         public WebhookInvocationTriggerField? Trigger { get; set; } = default;
 
         [JsonPropertyName("source")]
-        public WebhookInvocationSourceField? Source { get; set; } = default;
+        public FileOrFolder? Source { get; set; } = default;
 
         public WebhookInvocation() {
             

@@ -1,6 +1,7 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Box.Schemas;
@@ -15,11 +16,26 @@ namespace Box.Managers {
         public AuthorizationManager() {
             
         }
-        public async System.Threading.Tasks.Task GetAuthorize(GetAuthorizeQueryParamsArg queryParams, GetAuthorizeHeadersArg? headers = default) {
+        /// <summary>
+        /// Authorize a user by sending them through the [Box](https://box.com)
+        /// website and request their permission to act on their behalf.
+        /// 
+        /// This is the first step when authenticating a user using
+        /// OAuth 2.0. To request a user's authorization to use the Box APIs
+        /// on their behalf you will need to send a user to the URL with this
+        /// format.
+        /// </summary>
+        /// <param name="queryParams">
+        /// Query parameters of getAuthorize method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getAuthorize method
+        /// </param>
+        public async System.Threading.Tasks.Task GetAuthorizeAsync(GetAuthorizeQueryParamsArg queryParams, GetAuthorizeHeadersArg? headers = default) {
             headers = headers ?? new GetAuthorizeHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "response_type", Utils.ToString(queryParams.ResponseType) }, { "client_id", Utils.ToString(queryParams.ClientId) }, { "redirect_uri", Utils.ToString(queryParams.RedirectUri) }, { "state", Utils.ToString(queryParams.State) }, { "scope", Utils.ToString(queryParams.Scope) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "response_type", StringUtils.ToStringRepresentation(queryParams.ResponseType) }, { "client_id", StringUtils.ToStringRepresentation(queryParams.ClientId) }, { "redirect_uri", StringUtils.ToStringRepresentation(queryParams.RedirectUri) }, { "state", StringUtils.ToStringRepresentation(queryParams.State) }, { "scope", StringUtils.ToStringRepresentation(queryParams.Scope) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://account.box.com/api/oauth2/authorize"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://account.box.com/api/oauth2/authorize"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
         }
 
     }

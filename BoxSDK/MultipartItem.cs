@@ -1,22 +1,39 @@
-using System.Threading.Tasks;
+using System.IO;
 
-namespace Box 
+namespace Box
 {
-    //TODO implement usage
-    public class MultipartItem 
+    /// <summary>
+    /// Multipart item used in Fetch, usually for stream requests.
+    /// </summary>
+    public class MultipartItem
     {
-        public string? PartName { get; set; }
+        /// <summary>
+        /// Name of the multipart item.
+        /// </summary>
+        public string PartName { get; set; }
+
+        /// <summary>
+        /// Name of the multipart item.
+        /// </summary>
 
         public string? Body { get; set; }
-        
-        //TODO change to more specific type
-        public object? FileStream { get; set; }
-        
+
+        /// <summary>
+        /// A stream containing the contents of a file.
+        /// </summary>
+        public Stream? FileStream { get; set; }
+
+        /// <summary>
+        /// Name of the file.
+        /// </summary>
         public string? FileName { get; set; }
 
+        /// <summary>
+        /// Content type of the multipart item.
+        /// </summary>
         public string? ContentType { get; set; }
-        
-        public MultipartItem(string? partName = null, string? body = null, object? fileStream = null, string? fileName = null, string? contentType = null)
+
+        public MultipartItem(string partName, Stream? fileStream = null, string? body = null, string? fileName = null, string? contentType = null)
         {
             PartName = partName;
             Body = body;

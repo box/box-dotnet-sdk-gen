@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// Mapped item object for Slack
         /// </summary>
         [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemField PartnerItem { get; set; }
+        public IntegrationMappingPartnerItemSlack PartnerItem { get; set; }
 
         /// <summary>
         /// The Box folder, to which the object from the
@@ -66,7 +66,7 @@ namespace Box.Schemas {
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
 
-        public IntegrationMapping(IntegrationMappingTypeField type, IntegrationMappingPartnerItemField partnerItem, FolderMini boxItem) {
+        public IntegrationMapping(IntegrationMappingTypeField type, IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem) {
             Type = type;
             PartnerItem = partnerItem;
             BoxItem = boxItem;

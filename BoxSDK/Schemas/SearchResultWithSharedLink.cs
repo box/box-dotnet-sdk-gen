@@ -17,7 +17,7 @@ namespace Box.Schemas {
         public string? AccessibleViaSharedLink { get; set; } = default;
 
         [JsonPropertyName("item")]
-        public SearchResultWithSharedLinkItemField? Item { get; set; } = default;
+        public FileOrFolderOrWebLink? Item { get; set; } = default;
 
         /// <summary>
         /// The result type. The value is always `search_result`.

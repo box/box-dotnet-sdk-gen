@@ -11,7 +11,7 @@ namespace Box.Schemas {
         public LegalHoldPolicyMini? LegalHoldPolicy { get; set; } = default;
 
         [JsonPropertyName("assigned_to")]
-        public LegalHoldPolicyAssignmentAssignedToField? AssignedTo { get; set; } = default;
+        public FileOrFolderOrWebLink? AssignedTo { get; set; } = default;
 
         [JsonPropertyName("assigned_by")]
         public UserMini? AssignedBy { get; set; } = default;

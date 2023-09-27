@@ -1,8 +1,8 @@
 using Unions;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
 using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using Box.Schemas;
 using Box;
 
@@ -24,7 +24,7 @@ namespace Box.Managers {
         /// as the scope and key of the template to retrieve, for example
         /// `?field=metadata.enterprise_12345.contractTemplate`.
         /// </summary>
-        public string? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; set; } = default;
 
         /// <summary>
         /// Specifies whether to use marker-based pagination instead of

@@ -17,7 +17,10 @@ This operation is performed by calling function `RestoreFileFromTrash`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id/).
 
-*Currently we don't have an example for calling `RestoreFileFromTrash` in integration tests*
+<!-- sample post_files_id -->
+```
+await client.TrashedFiles.RestoreFileFromTrashAsync(file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -59,7 +62,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_trash -->
 ```
-await client.TrashedFiles.GetFileTrash(uploadedFile.Id)
+await client.TrashedFiles.GetFileTrashAsync(file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -91,7 +94,10 @@ This operation is performed by calling function `DeleteFileTrash`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-trash/).
 
-*Currently we don't have an example for calling `DeleteFileTrash` in integration tests*
+<!-- sample delete_files_id_trash -->
+```
+await client.TrashedFiles.DeleteFileTrashAsync(file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

@@ -63,7 +63,7 @@ namespace Box.Schemas {
         /// A list of Box Skill cards that have been applied to this file.
         /// </summary>
         [JsonPropertyName("cards")]
-        public IReadOnlyList<SkillCardsMetadataCardsField>? Cards { get; set; } = default;
+        public IReadOnlyList<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard>? Cards { get; set; } = default;
 
         public SkillCardsMetadata() {
             

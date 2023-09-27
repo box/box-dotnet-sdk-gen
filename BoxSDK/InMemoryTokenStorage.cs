@@ -8,29 +8,33 @@ namespace Box
     /// </summary>
     public class InMemoryTokenStorage : ITokenStorage
     {
-
-        private AccessToken _token;
+        private AccessToken? _token;
 
         /// <summary>
         /// Stores access token.
         /// </summary>
-        public async System.Threading.Tasks.Task Store(AccessToken token) {
+        public System.Threading.Tasks.Task StoreAsync(AccessToken token)
+        {
             _token = token;
+            return System.Threading.Tasks.Task.FromResult(_token);
         }
 
         /// <summary>
         /// Gets stored the token.
         /// </summary>
         /// <returns>An access token.</returns>
-        public async Task<AccessToken> Get() {
-            return _token;
+        public Task<AccessToken?> GetAsync()
+        {
+            return System.Threading.Tasks.Task.FromResult(_token);
         }
 
         /// <summary>
         /// Clears the stored token.
         /// </summary>
-        public async System.Threading.Tasks.Task Clear() {
+        public System.Threading.Tasks.Task ClearAsync()
+        {
             _token = null;
+            return System.Threading.Tasks.Task.CompletedTask;
         }
     }
 }

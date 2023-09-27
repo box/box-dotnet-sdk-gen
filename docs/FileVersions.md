@@ -21,7 +21,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions -->
 ```
-await client.FileVersions.GetFileVersions(file.Id)
+await client.FileVersions.GetFileVersionsAsync(file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionById(file.Id, fileVersions.Entries[0].Id)
+await client.FileVersions.GetFileVersionByIdAsync(file.Id, fileVersions.Entries[0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_versions_id -->
 ```
-await client.FileVersions.DeleteFileVersionById(file.Id, fileVersionsRestored.Entries[0].Id)
+await client.FileVersions.DeleteFileVersionByIdAsync(file.Id, fileVersionsRestored.Entries[0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -173,7 +173,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-await client.FileVersions.PromoteFileVersion(file.Id, new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries[0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion))
+await client.FileVersions.PromoteFileVersionAsync(file.Id, new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries[0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion)).ConfigureAwait(false)
 ```
 
 ### Arguments

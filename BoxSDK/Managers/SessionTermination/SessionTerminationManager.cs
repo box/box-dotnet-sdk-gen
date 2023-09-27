@@ -18,18 +18,42 @@ namespace Box.Managers {
         public SessionTerminationManager() {
             
         }
-        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateUserTerminateSession(CreateUserTerminateSessionRequestBodyArg requestBody, CreateUserTerminateSessionHeadersArg? headers = default) {
+        /// <summary>
+        /// Validates the roles and permissions of the user,
+        /// and creates asynchronous jobs
+        /// to terminate the user's sessions.
+        /// Returns the status for the POST request.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of createUserTerminateSession method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createUserTerminateSession method
+        /// </param>
+        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateUserTerminateSessionAsync(CreateUserTerminateSessionRequestBodyArg requestBody, CreateUserTerminateSessionHeadersArg? headers = default) {
             headers = headers ?? new CreateUserTerminateSessionHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/users/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<SessionTerminationMessage>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/users/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<SessionTerminationMessage>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateGroupTerminateSession(CreateGroupTerminateSessionRequestBodyArg requestBody, CreateGroupTerminateSessionHeadersArg? headers = default) {
+        /// <summary>
+        /// Validates the roles and permissions of the group,
+        /// and creates asynchronous jobs
+        /// to terminate the group's sessions.
+        /// Returns the status for the POST request.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of createGroupTerminateSession method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createGroupTerminateSession method
+        /// </param>
+        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateGroupTerminateSessionAsync(CreateGroupTerminateSessionRequestBodyArg requestBody, CreateGroupTerminateSessionHeadersArg? headers = default) {
             headers = headers ?? new CreateGroupTerminateSessionHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/groups/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<SessionTerminationMessage>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/groups/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<SessionTerminationMessage>(response.Text);
         }
 
     }

@@ -20,10 +20,10 @@ namespace Box.Schemas {
         public CollaborationTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("item")]
-        public CollaborationItemField? Item { get; set; } = default;
+        public FileOrFolderOrWebLink? Item { get; set; } = default;
 
         [JsonPropertyName("accessible_by")]
-        public UserCollaborations? AccessibleBy { get; set; } = default;
+        public GroupMiniOrUserCollaborations? AccessibleBy { get; set; } = default;
 
         /// <summary>
         /// The email address used to invite an unregistered collaborator, if

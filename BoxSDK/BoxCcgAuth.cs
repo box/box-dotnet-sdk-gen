@@ -58,22 +58,22 @@ namespace Box
             throw new NotImplementedException();
         }
 
-        public async Task<AccessToken> RetrieveToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? NetworkSession = null)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<AccessToken> RefreshToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? NetworkSession = null)
         {
             throw new NotImplementedException();
         }
         
-        public async System.Threading.Tasks.Task AsUser(string userId)
+        public async System.Threading.Tasks.Task AsUserAsync(string userId)
         {
             throw new NotImplementedException();
         }  
 
-        public async System.Threading.Tasks.Task AsEnterprise(string enterpriseid)
+        public async System.Threading.Tasks.Task AsEnterpriseAsync(string enterpriseid)
         {
             throw new NotImplementedException();
         }   

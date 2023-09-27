@@ -1,4 +1,7 @@
 using Unions;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Schemas;
 using Box;
 
@@ -20,7 +23,7 @@ namespace Box.Managers {
         /// as the scope and key of the template to retrieve, for example
         /// `?field=metadata.enterprise_12345.contractTemplate`.
         /// </summary>
-        public string? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; set; } = default;
 
         public GetFileByIdQueryParamsArg() {
             

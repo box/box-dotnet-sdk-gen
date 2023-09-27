@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    [JsonConverter(typeof(SkillInvocationSourceFieldConverter))]
-    public class SkillInvocationSourceField : OneOf<File, Folder> {
+    [JsonConverter(typeof(FileOrFolderConverter))]
+    public class FileOrFolder : OneOf<File, Folder> {
         public File? File => _val0;
         
         public Folder? Folder => _val1;
         
-        public SkillInvocationSourceField(File value) : base(value) {}
+        public FileOrFolder(File value) : base(value) {}
         
-        public SkillInvocationSourceField(Folder value) : base(value) {}
+        public FileOrFolder(Folder value) : base(value) {}
         
-        public static implicit operator SkillInvocationSourceField(File value) => new SkillInvocationSourceField(value);
+        public static implicit operator FileOrFolder(File value) => new FileOrFolder(value);
         
-        public static implicit operator SkillInvocationSourceField(Folder value) => new SkillInvocationSourceField(value);
+        public static implicit operator FileOrFolder(Folder value) => new FileOrFolder(value);
         
-        class SkillInvocationSourceFieldConverter : JsonConverter<SkillInvocationSourceField> {
-            public override SkillInvocationSourceField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        class FileOrFolderConverter : JsonConverter<FileOrFolder> {
+            public override FileOrFolder Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
                 var discriminant0Present = document.RootElement.TryGetProperty("type", out var discriminant0);
                 if (discriminant0Present) {
@@ -35,7 +35,7 @@ namespace Box.Schemas {
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, SkillInvocationSourceField? value, JsonSerializerOptions options) {
+            public override void Write(Utf8JsonWriter writer, FileOrFolder? value, JsonSerializerOptions options) {
                 if (value?.File != null) {
                     JsonSerializer.Serialize(writer, value.File, options);
                     return;

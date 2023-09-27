@@ -1,4 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Box.Managers;
 using Box.Schemas;
 using Box;
@@ -13,11 +16,11 @@ namespace Box.Tests.Integration {
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar("CLIENT_ID"), clientSecret: Utils.GetEnvVar("CLIENT_SECRET"), enterpriseId: enterpriseId, userId: userId);
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
             BoxClient client = new BoxClient(auth: auth);
-            await auth.AsUser(userId);
-            UserFull currentUser = await client.Users.GetUserMe();
+            await auth.AsUserAsync(userId).ConfigureAwait(false);
+            UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(currentUser.Id == userId);
-            await auth.AsEnterprise(enterpriseId);
-            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = "enterprise" });
+            await auth.AsEnterpriseAsync(enterpriseId).ConfigureAwait(false);
+            UserFull newUser = await client.Users.GetUserMeAsync(new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
             Assert.IsTrue(newUser.Enterprise != null && newUser.Enterprise.Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }
@@ -29,11 +32,11 @@ namespace Box.Tests.Integration {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
             BoxClient client = new BoxClient(auth: auth);
-            await auth.AsUser(userId);
-            UserFull currentUser = await client.Users.GetUserMe();
+            await auth.AsUserAsync(userId).ConfigureAwait(false);
+            UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(currentUser.Id == userId);
-            await auth.AsEnterprise(enterpriseId);
-            UserFull newUser = await client.Users.GetUserMe(new GetUserMeQueryParamsArg() { Fields = "enterprise" });
+            await auth.AsEnterpriseAsync(enterpriseId).ConfigureAwait(false);
+            UserFull newUser = await client.Users.GetUserMeAsync(new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
             Assert.IsTrue(newUser.Enterprise != null && newUser.Enterprise.Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }
@@ -43,11 +46,11 @@ namespace Box.Tests.Integration {
             string userId = Utils.GetEnvVar("USER_ID");
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
-            await auth.AsUser(userId);
-            AccessToken token = await auth.RetrieveToken();
+            await auth.AsUserAsync(userId).ConfigureAwait(false);
+            AccessToken token = await auth.RetrieveTokenAsync().ConfigureAwait(false);
             BoxDeveloperTokenAuth devAuth = new BoxDeveloperTokenAuth(token: token.AccessTokenField);
             BoxClient client = new BoxClient(auth: devAuth);
-            UserFull currentUser = await client.Users.GetUserMe();
+            UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(currentUser.Id == userId);
         }
 

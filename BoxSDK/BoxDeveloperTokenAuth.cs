@@ -25,14 +25,14 @@ namespace Box
             Token = new AccessToken() { AccessTokenField = token };
         }
 
-        public async Task<AccessToken> RetrieveToken(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? NetworkSession = null)
         {
             return await System.Threading.Tasks.Task.FromResult(Token);
         }
 
-        public async Task<AccessToken> RefreshToken(NetworkSession? NetworkSession = null)
+        public Task<AccessToken> RefreshTokenAsync(NetworkSession? NetworkSession = null)
         {
-            throw new Exception("Developer token has expired. Please provide a new one.");
+            throw new NotSupportedException();
         }
     }
 }

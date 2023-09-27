@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-await client.Files.GetFileById(uploadedFile.Id, new GetFileByIdQueryParamsArg(fields: "name"), new GetFileByIdHeadersArg(extraHeaders: new Dictionary<string, string>() { { "if-none-match", file.Etag } }))
+await client.Files.GetFileByIdAsync(file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-await client.Files.UpdateFileById(fileToUpdate.Id, new UpdateFileByIdRequestBodyArg(name: updatedName, description: "Updated description"))
+await client.Files.UpdateFileByIdAsync(fileToUpdate.Id, new UpdateFileByIdRequestBodyArg(name: updatedName, description: "Updated description")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -95,7 +95,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-await client.Files.DeleteFileById(newFileVersion.Id)
+await client.Files.DeleteFileByIdAsync(newFileVersion.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -125,7 +125,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_copy -->
 ```
-await client.Files.CopyFile(fileOrigin.Id, new CopyFileRequestBodyArg(parent: new CopyFileRequestBodyArgParentField(id: "0"), name: copiedFileName))
+await client.Files.CopyFileAsync(fileOrigin.Id, new CopyFileRequestBodyArg(parent: new CopyFileRequestBodyArgParentField(id: "0"), name: copiedFileName)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -171,7 +171,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_thumbnail_id -->
 ```
-await client.Files.GetFileThumbnailById(thumbnailFile.Id, GetFileThumbnailByIdExtensionArg.Png)
+await client.Files.GetFileThumbnailByIdAsync(thumbnailFile.Id, GetFileThumbnailByIdExtensionArg.Png).ConfigureAwait(false)
 ```
 
 ### Arguments

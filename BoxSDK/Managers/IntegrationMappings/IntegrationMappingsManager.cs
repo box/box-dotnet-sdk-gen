@@ -2,6 +2,7 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
@@ -17,34 +18,90 @@ namespace Box.Managers {
         public IntegrationMappingsManager() {
             
         }
-        public async System.Threading.Tasks.Task<IntegrationMappings> GetIntegrationMappingSlack(GetIntegrationMappingSlackQueryParamsArg? queryParams = default, GetIntegrationMappingSlackHeadersArg? headers = default) {
+        /// <summary>
+        /// Lists [Slack integration mappings](https://support.box.com/hc/en-us/articles/4415585987859-Box-as-the-Content-Layer-for-Slack) in a users' enterprise.
+        /// 
+        /// You need Admin or Co-Admin role to
+        /// use this endpoint.
+        /// </summary>
+        /// <param name="queryParams">
+        /// Query parameters of getIntegrationMappingSlack method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getIntegrationMappingSlack method
+        /// </param>
+        public async System.Threading.Tasks.Task<IntegrationMappings> GetIntegrationMappingSlackAsync(GetIntegrationMappingSlackQueryParamsArg? queryParams = default, GetIntegrationMappingSlackHeadersArg? headers = default) {
             queryParams = queryParams ?? new GetIntegrationMappingSlackQueryParamsArg();
             headers = headers ?? new GetIntegrationMappingSlackHeadersArg();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "marker", Utils.ToString(queryParams.Marker) }, { "limit", Utils.ToString(queryParams.Limit) }, { "partner_item_type", Utils.ToString(queryParams.PartnerItemType) }, { "partner_item_id", Utils.ToString(queryParams.PartnerItemId) }, { "box_item_id", Utils.ToString(queryParams.BoxItemId) }, { "box_item_type", Utils.ToString(queryParams.BoxItemType) }, { "is_manually_created", Utils.ToString(queryParams.IsManuallyCreated) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "partner_item_type", StringUtils.ToStringRepresentation(queryParams.PartnerItemType) }, { "partner_item_id", StringUtils.ToStringRepresentation(queryParams.PartnerItemId) }, { "box_item_id", StringUtils.ToStringRepresentation(queryParams.BoxItemId) }, { "box_item_type", StringUtils.ToStringRepresentation(queryParams.BoxItemType) }, { "is_manually_created", StringUtils.ToStringRepresentation(queryParams.IsManuallyCreated) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/integration_mappings/slack"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<IntegrationMappings>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/integration_mappings/slack"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<IntegrationMappings>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<IntegrationMapping> CreateIntegrationMappingSlack(IntegrationMappingSlackCreateRequest requestBody, CreateIntegrationMappingSlackHeadersArg? headers = default) {
+        /// <summary>
+        /// Creates a [Slack integration mapping](https://support.box.com/hc/en-us/articles/4415585987859-Box-as-the-Content-Layer-for-Slack)
+        /// by mapping a Slack channel to a Box item.
+        /// 
+        /// You need Admin or Co-Admin role to
+        /// use this endpoint.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of createIntegrationMappingSlack method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createIntegrationMappingSlack method
+        /// </param>
+        public async System.Threading.Tasks.Task<IntegrationMapping> CreateIntegrationMappingSlackAsync(IntegrationMappingSlackCreateRequest requestBody, CreateIntegrationMappingSlackHeadersArg? headers = default) {
             headers = headers ?? new CreateIntegrationMappingSlackHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/integration_mappings/slack"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<IntegrationMapping>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/integration_mappings/slack"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<IntegrationMapping>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task<IntegrationMapping> UpdateIntegrationMappingSlackById(string integrationMappingId, UpdateIntegrationMappingSlackByIdRequestBodyArg? requestBody = default, UpdateIntegrationMappingSlackByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Updates a [Slack integration mapping](https://support.box.com/hc/en-us/articles/4415585987859-Box-as-the-Content-Layer-for-Slack).
+        /// Supports updating the Box folder ID and options.
+        /// 
+        /// You need Admin or Co-Admin role to
+        /// use this endpoint.
+        /// </summary>
+        /// <param name="integrationMappingId">
+        /// An ID of an integration mapping
+        /// Example: "11235432"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of updateIntegrationMappingSlackById method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of updateIntegrationMappingSlackById method
+        /// </param>
+        public async System.Threading.Tasks.Task<IntegrationMapping> UpdateIntegrationMappingSlackByIdAsync(string integrationMappingId, UpdateIntegrationMappingSlackByIdRequestBodyArg? requestBody = default, UpdateIntegrationMappingSlackByIdHeadersArg? headers = default) {
             requestBody = requestBody ?? new UpdateIntegrationMappingSlackByIdRequestBodyArg();
             headers = headers ?? new UpdateIntegrationMappingSlackByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/integration_mappings/slack/", integrationMappingId), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonConverter.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession));
-            return SimpleJsonConverter.Deserialize<IntegrationMapping>(response.Text);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/integration_mappings/slack/", StringUtils.ToStringRepresentation(integrationMappingId)), new FetchOptions(method: "PUT", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<IntegrationMapping>(response.Text);
         }
 
-        public async System.Threading.Tasks.Task DeleteIntegrationMappingSlackById(string integrationMappingId, DeleteIntegrationMappingSlackByIdHeadersArg? headers = default) {
+        /// <summary>
+        /// Deletes a [Slack integration mapping](https://support.box.com/hc/en-us/articles/4415585987859-Box-as-the-Content-Layer-for-Slack).
+        /// 
+        /// 
+        /// You need Admin or Co-Admin role to
+        /// use this endpoint.
+        /// </summary>
+        /// <param name="integrationMappingId">
+        /// An ID of an integration mapping
+        /// Example: "11235432"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of deleteIntegrationMappingSlackById method
+        /// </param>
+        public async System.Threading.Tasks.Task DeleteIntegrationMappingSlackByIdAsync(string integrationMappingId, DeleteIntegrationMappingSlackByIdHeadersArg? headers = default) {
             headers = headers ?? new DeleteIntegrationMappingSlackByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await SimpleHttpClient.Fetch(string.Concat("https://api.box.com/2.0/integration_mappings/slack/", integrationMappingId), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/integration_mappings/slack/", StringUtils.ToStringRepresentation(integrationMappingId)), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
         }
 
     }

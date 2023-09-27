@@ -40,7 +40,7 @@ namespace Box.Schemas {
         /// The search results for the query provided.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<SearchResultsEntriesField>? Entries { get; set; } = default;
+        public IReadOnlyList<FileOrFolderOrWebLink>? Entries { get; set; } = default;
 
         public SearchResults(SearchResultsTypeField type) {
             Type = type;
