@@ -38,7 +38,7 @@ namespace Box.Schemas {
         /// Integration mapping options for Slack
         /// </summary>
         [JsonPropertyName("options")]
-        public IntegrationMappingOptionsField? Options { get; set; } = default;
+        public IntegrationMappingSlackOptions? Options { get; set; } = default;
 
         /// <summary>
         /// An object representing the user who
