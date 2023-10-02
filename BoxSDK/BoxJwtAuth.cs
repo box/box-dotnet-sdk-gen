@@ -50,106 +50,28 @@ namespace Box
         /// <summary>
         /// The ID of the Box Developer Edition enterprise.
         /// </summary>
-        public string EnterpriseId { get; private init; }
+        public string? EnterpriseId { get; private init; }
 
         /// <summary>
         /// The user ID to authenticate.
         /// </summary>
-        public string UserId { get; private init; }
+        public string? UserId { get; private init; }
 
         /// <summary>
         /// Token storage
         /// </summary>
         public ITokenStorage TokenStorage { get; private init; }
 
-        internal SubjectType SubjectType { get; init; }
-
-        private JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, SubjectType subjectType, ITokenStorage? tokenStorage = default)
+        private JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string? userId = default, string? enterpriseId = default, ITokenStorage? tokenStorage = default)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
             JwtKeyId = publicKeyId;
             PrivateKey = privateKey;
             PrivateKeyPassphrase = privateKeyPassphrase;
-            SubjectType = subjectType;
+            UserId = userId;
+            EnterpriseId = enterpriseId;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for Enterprise from parameters.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="clientSecret"></param>
-        /// <param name="publicKeyId"></param>
-        /// <param name="privateKey"></param>
-        /// <param name="privateKeyPassphrase"></param>
-        /// <param name="enterpriseId"></param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig Enterprise(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string enterpriseId, ITokenStorage? tokenStorage = default)
-        {
-            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.Enterprise) { EnterpriseId = enterpriseId, TokenStorage = tokenStorage };
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for User from parameters.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="clientSecret"></param>
-        /// <param name="publicKeyId"></param>
-        /// <param name="privateKey"></param>
-        /// <param name="privateKeyPassphrase"></param>
-        /// <param name="userId"></param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig User(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string userId, ITokenStorage? tokenStorage = default)
-        {
-            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, SubjectType.User) { UserId = userId, TokenStorage = tokenStorage };
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for Enteprise from Json string.
-        /// </summary>
-        /// <param name="jsonString">Box Jwt configuration as json</param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig EnterpriseFromJson(string jsonString, ITokenStorage? tokenStorage = default)
-        {
-            return FromConfigJsonString(jsonString, "", tokenStorage);
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for User from Json string.
-        /// </summary>
-        /// <param name="jsonString">Box Jwt configuration as json.</param>
-        /// <param name="userId">User ID used to authenticate.</param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig UserFromJson(string jsonString, string userId, ITokenStorage? tokenStorage = default)
-        {
-            return FromConfigJsonString(jsonString, userId, tokenStorage);
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for Enterprise from Json Stream. Can be used e.g with FileStream.
-        /// </summary>
-        /// <param name="configStream">Box Jwt configuration as stream.</param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the enterprise.</returns>
-        public static JwtConfig EnterpriseFromJsonStream(Stream configStream, ITokenStorage? tokenStorage = default)
-        {
-            return FromConfigFile(configStream, "", tokenStorage);
-        }
-
-        /// <summary>
-        /// Creates JwtConfig for Enterprise from Json Stream. Can be used e.g with FileStream.
-        /// </summary>
-        /// <param name="configStream">Box Jwt configuration as stream.</param>
-        /// <param name="tokenStorage"></param>
-        /// <returns>A JwtConfig for the user.</returns>
-        public static JwtConfig UserFromJsonStream(Stream configStream, string userId, ITokenStorage? tokenStorage = default)
-        {
-            return FromConfigFile(configStream, userId, tokenStorage);
         }
 
         /// <summary>
@@ -162,7 +84,7 @@ namespace Box
         public static JwtConfig FromConfigJsonString(string jsonString, string userId = "", ITokenStorage? tokenStorage = default)
         {
             var json = JsonNode.Parse(jsonString);
-            string? clientId = "", clientSecret = "", privateKey = "", passPhrase = "", publicKeyId = "";
+            string? clientId = "", clientSecret = "", privateKey = "", privateKeyPassphrase = "", publicKeyId = "";
 
             var boxAppSettings = json?["boxAppSettings"];
             if (boxAppSettings != null)
@@ -177,7 +99,7 @@ namespace Box
                 {
                     privateKey = appAuth["privateKey"]?.ToString();
 
-                    passPhrase = appAuth["passphrase"]?.ToString();
+                    privateKeyPassphrase = appAuth["passphrase"]?.ToString();
 
                     publicKeyId = appAuth["publicKeyID"]?.ToString();
                 }
@@ -187,9 +109,7 @@ namespace Box
 
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
 
-            return !string.IsNullOrEmpty(userId) ?
-                User(clientId, clientSecret, publicKeyId, privateKey, passPhrase, userId, tokenStorage) :
-                Enterprise(clientId, clientSecret, publicKeyId, privateKey, passPhrase, enterpriseId, tokenStorage);
+            return new JwtConfig(clientId, clientSecret, publicKeyId, privateKey, privateKeyPassphrase, userId, enterpriseId, tokenStorage);
         }
 
         /// <summary>
@@ -204,29 +124,7 @@ namespace Box
             using (var reader = new StreamReader(configStream, Encoding.UTF8))
             {
                 var jsonString = reader.ReadToEnd();
-                return FromConfigJsonString(jsonString, userId);
-            }
-        }
-    }
-
-    enum SubjectType
-    {
-        User,
-        Enterprise
-    }
-
-    static class SubjectTypeExtensions
-    {
-        public static string AsString(this SubjectType subType)
-        {
-            switch (subType)
-            {
-                case SubjectType.User:
-                    return "user";
-                case SubjectType.Enterprise:
-                    return "enterprise";
-                default:
-                    throw new ArgumentException($"Unknown Subject type: {subType}");
+                return FromConfigJsonString(jsonString, userId, tokenStorage);
             }
         }
     }
@@ -242,8 +140,6 @@ namespace Box
     public class BoxJwtAuth : IAuth
     {
         ITokenStorage _tokenStorage { get; set; }
-        bool _needsRefresh { get; set; } = true;
-
         /// <summary>
         /// Box Jwt configuration.
         /// </summary>
@@ -261,9 +157,20 @@ namespace Box
         {
             Config = config;
 
-            _subjectType = Config.SubjectType;
-
-            _subjectId = Config.SubjectType == SubjectType.Enterprise ? config.EnterpriseId : config.UserId;
+            if (!string.IsNullOrEmpty(config.UserId))
+            {
+                _subjectId = config.UserId;
+                _subjectType = SubjectType.User;
+            }
+            else if (!string.IsNullOrEmpty(config.EnterpriseId))
+            {
+                _subjectId = config.EnterpriseId;
+                _subjectType = SubjectType.Enterprise;
+            }
+            else
+            {
+                throw new ArgumentException("Could not find either UserId or EnterpriseId in the configuration.");
+            }
 
             _tokenStorage = Config.TokenStorage;
 
@@ -278,7 +185,7 @@ namespace Box
         {
             _subjectType = SubjectType.Enterprise;
             _subjectId = enterpriseId;
-            await MarkForRefreshAsync().ConfigureAwait(false);
+            await _tokenStorage.ClearAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -289,19 +196,7 @@ namespace Box
         {
             _subjectType = SubjectType.User;
             _subjectId = userId;
-            await MarkForRefreshAsync().ConfigureAwait(false);
-        }
-
-        private async System.Threading.Tasks.Task MarkForRefreshAsync()
-        {
             await _tokenStorage.ClearAsync().ConfigureAwait(false);
-            _needsRefresh = true;
-        }
-
-        private async System.Threading.Tasks.Task SetTokenAsync(AccessToken token)
-        {
-            await _tokenStorage.StoreAsync(token).ConfigureAwait(false);
-            _needsRefresh = false;
         }
 
         private SigningCredentials GetSigningCredentials()
@@ -339,11 +234,12 @@ namespace Box
 
         public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null)
         {
-            if (_needsRefresh)
+            var token = await _tokenStorage.GetAsync().ConfigureAwait(false);
+            if (token == null)
             {
                 return await RefreshTokenAsync().ConfigureAwait(false);
             }
-            return await _tokenStorage.GetAsync().ConfigureAwait(false);
+            return token;
         }
 
         public async Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null)
@@ -385,10 +281,11 @@ namespace Box
                 Method = "POST",
                 Body = SimpleJsonSerializer.Serialize(payload),
                 ContentType = ContentTypes.FormUrlEncoded,
+                NetworkSession = networkSession
             }).ConfigureAwait(false);
 
             var newToken = SimpleJsonSerializer.Deserialize<AccessToken>(response.Text);
-            await SetTokenAsync(newToken).ConfigureAwait(false);
+            await _tokenStorage.StoreAsync(newToken).ConfigureAwait(false);
             return newToken;
         }
     }
