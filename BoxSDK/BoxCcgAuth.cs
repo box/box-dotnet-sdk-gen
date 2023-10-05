@@ -37,7 +37,7 @@ namespace Box
         /// </summary>
         public ITokenStorage TokenStorage { get; private init; }
 
-        public CcgConfig(string clientId, string clientSecret, string enterpriseId, string userId, ITokenStorage? tokenStorage = default)
+        public CcgConfig(string clientId, string clientSecret, string? enterpriseId = null, string? userId = null, ITokenStorage? tokenStorage = default)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
