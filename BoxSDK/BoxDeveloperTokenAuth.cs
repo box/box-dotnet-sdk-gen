@@ -25,12 +25,12 @@ namespace Box
             Token = new AccessToken() { AccessTokenField = token };
         }
 
-        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null)
         {
             return await System.Threading.Tasks.Task.FromResult(Token);
         }
 
-        public Task<AccessToken> RefreshTokenAsync(NetworkSession? NetworkSession = null)
+        public Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null)
         {
             throw new NotSupportedException();
         }

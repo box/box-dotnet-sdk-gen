@@ -7,7 +7,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Fetch
 {
@@ -108,7 +107,7 @@ namespace Fetch
             var httpRequest = new HttpRequestMessage
             {
                 Method = options._httpMethod,
-                RequestUri = BuildUri(resource, options),
+                RequestUri = HttpUtils.BuildUri(resource, options.Parameters),
                 Content = BuildHttpContent(options)
             };
 
@@ -141,14 +140,6 @@ namespace Fetch
             {
                 throw;
             }
-        }
-
-        private static Uri BuildUri(string resource, FetchOptions options)
-        {
-            return options.Parameters?.Count > 0 ?
-                new Uri(string.Join("?", resource, string.Join('&',
-                    options.Parameters.Select(q => $"{HttpUtility.UrlEncode(q.Key)}={HttpUtility.UrlEncode(q.Value)}")))) :
-                new Uri(resource);
         }
 
         private static HttpContent? BuildHttpContent(FetchOptions options)
