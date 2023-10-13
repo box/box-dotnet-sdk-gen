@@ -29,7 +29,7 @@ namespace Box.Managers {
         /// by users once the retention policy has expired.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public UpdateRetentionPolicyByIdRequestBodyArgDispositionActionField? DispositionAction { get; set; } = default;
+        public string? DispositionAction { get; set; } = default;
 
         /// <summary>
         /// Specifies the retention type:
