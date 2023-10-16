@@ -19,6 +19,9 @@ namespace Box.Schemas {
         [JsonPropertyName("type")]
         public ShieldInformationBarrierTypeField? Type { get; set; } = default;
 
+        /// <summary>
+        /// The `type` and `id` of enterprise this barrier is under.
+        /// </summary>
         [JsonPropertyName("enterprise")]
         public EnterpriseBase? Enterprise { get; set; } = default;
 
@@ -35,6 +38,9 @@ namespace Box.Schemas {
         [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The user who created this shield information barrier.
+        /// </summary>
         [JsonPropertyName("created_by")]
         public UserBase? CreatedBy { get; set; } = default;
 
@@ -44,6 +50,9 @@ namespace Box.Schemas {
         [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; } = default;
 
+        /// <summary>
+        /// The user that updated this shield information barrier.
+        /// </summary>
         [JsonPropertyName("updated_by")]
         public UserBase? UpdatedBy { get; set; } = default;
 

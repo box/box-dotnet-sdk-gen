@@ -20,8 +20,6 @@ namespace Box.Managers {
         }
         /// <summary>
         /// Fetches all the storage policies in the enterprise.
-        /// Only a Primary Admin can access this endpoint. The user
-        /// needs to generate a token for an account to authenticate this request.
         /// </summary>
         /// <param name="queryParams">
         /// Query parameters of getStoragePolicies method
@@ -39,7 +37,7 @@ namespace Box.Managers {
         }
 
         /// <summary>
-        /// Fetches a specific storage policy. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+        /// Fetches a specific storage policy.
         /// </summary>
         /// <param name="storagePolicyId">
         /// The ID of the storage policy.

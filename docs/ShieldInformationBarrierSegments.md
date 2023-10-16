@@ -110,7 +110,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `ShieldInformationBarrierSegments`.
 
 Returns a paginated list of shield information barrier segment objects.
 

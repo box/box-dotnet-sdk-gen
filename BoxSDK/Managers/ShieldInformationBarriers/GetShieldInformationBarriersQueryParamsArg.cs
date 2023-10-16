@@ -10,8 +10,6 @@ namespace Box.Managers {
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
         /// used when paginating using marker-based pagination.
-        /// 
-        /// This requires `usemarker` to be set to `true`.
         /// </summary>
         public string? Marker { get; set; } = default;
 

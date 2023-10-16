@@ -20,11 +20,10 @@ namespace Box.Managers {
         /// `enterprise`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string? Id { get; set; } = default;
 
-        public CreateRetentionPolicyAssignmentRequestBodyArgAssignToField(CreateRetentionPolicyAssignmentRequestBodyArgAssignToFieldTypeField type, string id) {
+        public CreateRetentionPolicyAssignmentRequestBodyArgAssignToField(CreateRetentionPolicyAssignmentRequestBodyArgAssignToFieldTypeField type) {
             Type = type;
-            Id = id;
         }
     }
 }

@@ -8,7 +8,7 @@
 
 ## Get shield information barrier with specified ID
 
-Get shield information barrier based on provided ID..
+Get shield information barrier based on provided ID.
 
 This operation is performed by calling function `GetShieldInformationBarrierById`.
 
@@ -80,7 +80,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `ShieldInformationBarriers`.
 
 Returns a paginated list of
 shield information barrier objects,
@@ -102,7 +102,7 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `ShieldInformationBarrier`
+- requestBody `CreateShieldInformationBarrierRequestBodyArg`
   - Request body of createShieldInformationBarrier method
 - headers `CreateShieldInformationBarrierHeadersArg`
   - Headers of createShieldInformationBarrier method

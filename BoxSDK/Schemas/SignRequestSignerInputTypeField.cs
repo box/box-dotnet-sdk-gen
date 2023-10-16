@@ -12,6 +12,10 @@ namespace Box.Schemas {
         [Description("text")]
         Text,
         [Description("checkbox")]
-        Checkbox
+        Checkbox,
+        [Description("radio")]
+        Radio,
+        [Description("dropdown")]
+        Dropdown
     }
 }

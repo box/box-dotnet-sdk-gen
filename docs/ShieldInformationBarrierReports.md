@@ -7,7 +7,7 @@
 
 ## List shield information barrier reports
 
-Lists shield information barrier reports with specific IDs.
+Lists shield information barrier reports.
 
 This operation is performed by calling function `GetShieldInformationBarrierReports`.
 
@@ -26,7 +26,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `ShieldInformationBarrierReports`.
 
 Returns a paginated list of shield information barrier report objects.
 

@@ -19,7 +19,7 @@ namespace Box.Managers {
             
         }
         /// <summary>
-        /// Get shield information barrier based on provided ID..
+        /// Get shield information barrier based on provided ID.
         /// </summary>
         /// <param name="shieldInformationBarrierId">
         /// The ID of the shield information barrier.
@@ -61,12 +61,13 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of getShieldInformationBarriers method
         /// </param>
-        public async System.Threading.Tasks.Task GetShieldInformationBarriersAsync(GetShieldInformationBarriersQueryParamsArg? queryParams = default, GetShieldInformationBarriersHeadersArg? headers = default) {
+        public async System.Threading.Tasks.Task<ShieldInformationBarriers> GetShieldInformationBarriersAsync(GetShieldInformationBarriersQueryParamsArg? queryParams = default, GetShieldInformationBarriersHeadersArg? headers = default) {
             queryParams = queryParams ?? new GetShieldInformationBarriersQueryParamsArg();
             headers = headers ?? new GetShieldInformationBarriersHeadersArg();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/shield_information_barriers"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<ShieldInformationBarriers>(response.Text);
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of createShieldInformationBarrier method
         /// </param>
-        public async System.Threading.Tasks.Task<ShieldInformationBarrier> CreateShieldInformationBarrierAsync(ShieldInformationBarrier requestBody, CreateShieldInformationBarrierHeadersArg? headers = default) {
+        public async System.Threading.Tasks.Task<ShieldInformationBarrier> CreateShieldInformationBarrierAsync(CreateShieldInformationBarrierRequestBodyArg requestBody, CreateShieldInformationBarrierHeadersArg? headers = default) {
             headers = headers ?? new CreateShieldInformationBarrierHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/shield_information_barriers"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);

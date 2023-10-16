@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class SignTemplates {
+    public class ShieldInformationBarrierReports {
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
         /// `limit` query parameter unless that value exceeded the maximum value
@@ -22,18 +22,13 @@ namespace Box.Schemas {
         public string? NextMarker { get; set; } = default;
 
         /// <summary>
-        /// The marker for the start of the previous page of results.
-        /// </summary>
-        [JsonPropertyName("prev_marker")]
-        public string? PrevMarker { get; set; } = default;
-
-        /// <summary>
-        /// A list of templates.
+        /// A list of shield information
+        /// barrier reports.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<SignTemplate>? Entries { get; set; } = default;
+        public IReadOnlyList<ShieldInformationBarrierReport>? Entries { get; set; } = default;
 
-        public SignTemplates() {
+        public ShieldInformationBarrierReports() {
             
         }
     }

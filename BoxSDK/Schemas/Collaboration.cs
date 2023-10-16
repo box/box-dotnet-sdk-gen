@@ -46,6 +46,16 @@ namespace Box.Schemas {
         public string? ExpiresAt { get; set; } = default;
 
         /// <summary>
+        /// If set to `true`, collaborators have access to
+        /// shared items, but such items won't be visible in the
+        /// All Files list. Additionally, collaborators won't
+        /// see the the path to the root folder for the
+        /// shared item.
+        /// </summary>
+        [JsonPropertyName("is_access_only")]
+        public bool? IsAccessOnly { get; set; } = default;
+
+        /// <summary>
         /// The status of the collaboration invitation. If the status
         /// is `pending`, `login` and `name` return an empty string.
         /// </summary>
@@ -73,16 +83,6 @@ namespace Box.Schemas {
         /// </summary>
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
-
-        /// <summary>
-        /// If set to `true`, collaborators have access to
-        /// shared items, but such items won't be visible in the
-        /// All Files list. Additionally, collaborators won't
-        /// see the the path to the root folder for the
-        /// shared item.
-        /// </summary>
-        [JsonPropertyName("is_access_only")]
-        public bool? IsAccessOnly { get; set; } = default;
 
         [JsonPropertyName("acceptance_requirements_status")]
         public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; set; } = default;

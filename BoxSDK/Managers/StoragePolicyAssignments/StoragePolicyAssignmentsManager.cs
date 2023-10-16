@@ -20,8 +20,6 @@ namespace Box.Managers {
         }
         /// <summary>
         /// Fetches all the storage policy assignment for an enterprise or user.
-        /// Only a Primary Admin can access this endpoint. The user
-        /// needs to generate a token for an account to authenticate this request.
         /// </summary>
         /// <param name="queryParams">
         /// Query parameters of getStoragePolicyAssignments method
@@ -39,8 +37,6 @@ namespace Box.Managers {
 
         /// <summary>
         /// Creates a storage policy assignment for an enterprise or user.
-        /// Only a Primary Admin can access this endpoint. The user
-        /// needs to generate a token for an account to authenticate this request.
         /// </summary>
         /// <param name="requestBody">
         /// Request body of createStoragePolicyAssignment method
@@ -56,7 +52,7 @@ namespace Box.Managers {
         }
 
         /// <summary>
-        /// Fetches a specific storage policy assignment. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+        /// Fetches a specific storage policy assignment.
         /// </summary>
         /// <param name="storagePolicyAssignmentId">
         /// The ID of the storage policy assignment.
@@ -73,7 +69,7 @@ namespace Box.Managers {
         }
 
         /// <summary>
-        /// Updates a specific storage policy assignment. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+        /// Updates a specific storage policy assignment.
         /// </summary>
         /// <param name="storagePolicyAssignmentId">
         /// The ID of the storage policy assignment.
@@ -101,9 +97,6 @@ namespace Box.Managers {
         /// 
         /// There is a rate limit for calling this endpoint of only
         /// twice per user in a 24 hour time frame.
-        /// 
-        /// Only a Primary Admin can access this endpoint. The user
-        /// needs to generate a token for an account to authenticate this request.
         /// </summary>
         /// <param name="storagePolicyAssignmentId">
         /// The ID of the storage policy assignment.

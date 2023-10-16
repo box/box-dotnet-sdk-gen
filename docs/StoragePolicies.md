@@ -7,8 +7,6 @@
 ## List storage policies
 
 Fetches all the storage policies in the enterprise.
-Only a Primary Admin can access this endpoint. The user
-needs to generate a token for an account to authenticate this request.
 
 This operation is performed by calling function `GetStoragePolicies`.
 
@@ -34,7 +32,7 @@ Returns a collection of storage policies.
 
 ## Get storage policy
 
-Fetches a specific storage policy. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+Fetches a specific storage policy.
 
 This operation is performed by calling function `GetStoragePolicyById`.
 

@@ -7,7 +7,7 @@ namespace Box.Schemas {
     public enum RetentionPolicyRetentionTypeField {
         [Description("modifiable")]
         Modifiable,
-        [Description("non-modifiable")]
+        [Description("non_modifiable")]
         NonModifiable
     }
 }

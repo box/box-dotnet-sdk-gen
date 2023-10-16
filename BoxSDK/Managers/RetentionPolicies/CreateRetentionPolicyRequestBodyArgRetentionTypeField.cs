@@ -9,7 +9,7 @@ namespace Box.Managers {
     public enum CreateRetentionPolicyRequestBodyArgRetentionTypeField {
         [Description("modifiable")]
         Modifiable,
-        [Description("non-modifiable")]
+        [Description("non_modifiable")]
         NonModifiable
     }
 }

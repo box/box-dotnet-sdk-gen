@@ -22,11 +22,13 @@ namespace Box.Managers {
 
         /// <summary>
         /// The disposition action of the retention policy.
-        /// `permanently_delete` deletes the content
-        /// retained by the policy permanently.
-        /// `remove_retention` lifts retention policy
-        /// from the content, allowing it to be deleted
-        /// by users once the retention policy has expired.
+        /// This action can be `permanently_delete`, which
+        /// will cause the content retained by the policy
+        /// to be permanently deleted, or `remove_retention`,
+        /// which will lift the retention policy from the content,
+        /// allowing it to be deleted by users,
+        /// once the retention policy has expired.
+        /// You can use "null" if you don't want to change `disposition_action`.
         /// </summary>
         [JsonPropertyName("disposition_action")]
         public string? DispositionAction { get; set; } = default;
@@ -95,7 +97,7 @@ namespace Box.Managers {
         /// A list of users notified when the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("custom_notification_recipients")]
-        public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; set; } = default;
+        public IReadOnlyList<UserBase>? CustomNotificationRecipients { get; set; } = default;
 
         public UpdateRetentionPolicyByIdRequestBodyArg() {
             

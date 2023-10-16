@@ -39,7 +39,7 @@ namespace Box.Schemas {
         [JsonPropertyName("iframeable_embed_url")]
         public string? IframeableEmbedUrl { get; set; } = default;
 
-        public SignRequestSigner(string email) : base(email) {
+        public SignRequestSigner() {
             
         }
     }
