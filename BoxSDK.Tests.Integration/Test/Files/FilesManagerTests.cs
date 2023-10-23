@@ -2,27 +2,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box;
 using Box.Schemas;
 using Box.Managers;
-using Box;
 
 namespace Box.Tests.Integration {
     [TestClass]
     public class FilesManagerTests {
-        public JwtConfig jwtConfig { get; }
-
-        public BoxJwtAuth auth { get; }
-
         public BoxClient client { get; }
 
         public FilesManagerTests() {
-            jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
-            auth = new BoxJwtAuth(config: jwtConfig);
-            client = new BoxClient(auth: auth);
+            client = new CommonsManager().GetDefaultClient();
         }
         public async System.Threading.Tasks.Task<File> UploadFileAsync(string fileName, System.IO.Stream fileStream) {
             Files uploadedFiles = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileStream)).ConfigureAwait(false);
-            return uploadedFiles.Entries[0];
+            return uploadedFiles.Entries![0];
         }
 
         [TestMethod]
@@ -73,7 +67,7 @@ namespace Box.Tests.Integration {
             File fileOrigin = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             string copiedFileName = Utils.GetUUID();
             FileFull copiedFile = await client.Files.CopyFileAsync(fileOrigin.Id, new CopyFileRequestBodyArg(parent: new CopyFileRequestBodyArgParentField(id: "0")) { Name = copiedFileName }).ConfigureAwait(false);
-            Assert.IsTrue(copiedFile.Parent.Id == "0");
+            Assert.IsTrue(copiedFile.Parent!.Id == "0");
             Assert.IsTrue(copiedFile.Name == copiedFileName);
             await client.Files.DeleteFileByIdAsync(fileOrigin.Id).ConfigureAwait(false);
             await client.Files.DeleteFileByIdAsync(copiedFile.Id).ConfigureAwait(false);

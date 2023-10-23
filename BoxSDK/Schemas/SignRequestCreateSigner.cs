@@ -34,7 +34,7 @@ namespace Box.Schemas {
         /// Order of the signer
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get; set; } = default;
+        public long? Order { get; set; } = default;
 
         /// <summary>
         /// User ID for the signer in an external application responsible

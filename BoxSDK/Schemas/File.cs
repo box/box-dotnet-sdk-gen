@@ -18,7 +18,7 @@ namespace Box.Schemas {
         /// get very large and cause an integer overflow.
         /// </summary>
         [JsonPropertyName("size")]
-        public int? Size { get; set; } = default;
+        public long? Size { get; set; } = default;
 
         [JsonPropertyName("path_collection")]
         public FilePathCollectionField? PathCollection { get; set; } = default;

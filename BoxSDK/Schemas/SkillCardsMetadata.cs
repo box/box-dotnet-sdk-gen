@@ -50,14 +50,14 @@ namespace Box.Schemas {
         /// system property and should not be used by a client application.
         /// </summary>
         [JsonPropertyName("$typeVersion")]
-        public int? TypeVersion { get; set; } = default;
+        public long? TypeVersion { get; set; } = default;
 
         /// <summary>
         /// The version of the metadata object. Starts at 0 and increases every time
         /// a user-defined property is modified.
         /// </summary>
         [JsonPropertyName("$version")]
-        public int? Version { get; set; } = default;
+        public long? Version { get; set; } = default;
 
         /// <summary>
         /// A list of Box Skill cards that have been applied to this file.

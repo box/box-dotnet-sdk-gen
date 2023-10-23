@@ -22,7 +22,7 @@ namespace Box.Schemas {
         /// The time in minutes for which this server is available
         /// </summary>
         [JsonPropertyName("ttl")]
-        public int? Ttl { get; set; } = default;
+        public long? Ttl { get; set; } = default;
 
         /// <summary>
         /// The maximum number of retries this server will
@@ -30,7 +30,7 @@ namespace Box.Schemas {
         /// getting a [new list of server](#options-events).
         /// </summary>
         [JsonPropertyName("max_retries")]
-        public int? MaxRetries { get; set; } = default;
+        public long? MaxRetries { get; set; } = default;
 
         /// <summary>
         /// The maximum number of seconds without a response
@@ -41,7 +41,7 @@ namespace Box.Schemas {
         /// through.
         /// </summary>
         [JsonPropertyName("retry_timeout")]
-        public int? RetryTimeout { get; set; } = default;
+        public long? RetryTimeout { get; set; } = default;
 
         public RealtimeServer() {
             

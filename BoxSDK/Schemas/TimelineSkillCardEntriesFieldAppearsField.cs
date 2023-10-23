@@ -12,14 +12,14 @@ namespace Box.Schemas {
         /// entry should start appearing on a timeline.
         /// </summary>
         [JsonPropertyName("start")]
-        public int? Start { get; set; } = default;
+        public long? Start { get; set; } = default;
 
         /// <summary>
         /// The time in seconds when an
         /// entry should stop appearing on a timeline.
         /// </summary>
         [JsonPropertyName("end")]
-        public int? End { get; set; } = default;
+        public long? End { get; set; } = default;
 
         public TimelineSkillCardEntriesFieldAppearsField() {
             

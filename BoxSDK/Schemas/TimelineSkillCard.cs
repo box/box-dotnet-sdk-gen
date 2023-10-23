@@ -48,7 +48,7 @@ namespace Box.Schemas {
         /// An total duration in seconds of the timeline.
         /// </summary>
         [JsonPropertyName("duration")]
-        public int? Duration { get; set; } = default;
+        public long? Duration { get; set; } = default;
 
         /// <summary>
         /// A list of entries on the timeline.

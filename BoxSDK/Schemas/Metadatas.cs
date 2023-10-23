@@ -16,7 +16,7 @@ namespace Box.Schemas {
         /// The limit that was used for this page of results.
         /// </summary>
         [JsonPropertyName("limit")]
-        public int? Limit { get; set; } = default;
+        public long? Limit { get; set; } = default;
 
         public Metadatas() {
             

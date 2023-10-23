@@ -60,7 +60,7 @@ namespace Box.Schemas {
         /// returned.
         /// </summary>
         [JsonPropertyName("limit")]
-        public int? Limit { get; set; } = default;
+        public long? Limit { get; set; } = default;
 
         /// <summary>
         /// Marker to use for requesting the next page.

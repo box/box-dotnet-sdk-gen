@@ -99,15 +99,15 @@ namespace Box.Schemas {
         /// The number of times this item has been downloaded.
         /// </summary>
         [JsonPropertyName("download_count")]
-        public int DownloadCount { get; set; }
+        public long DownloadCount { get; set; }
 
         /// <summary>
         /// The number of times this item has been previewed.
         /// </summary>
         [JsonPropertyName("preview_count")]
-        public int PreviewCount { get; set; }
+        public long PreviewCount { get; set; }
 
-        public WebLinkSharedLinkField(string url, WebLinkSharedLinkFieldEffectiveAccessField effectiveAccess, WebLinkSharedLinkFieldEffectivePermissionField effectivePermission, bool isPasswordEnabled, int downloadCount, int previewCount) {
+        public WebLinkSharedLinkField(string url, WebLinkSharedLinkFieldEffectiveAccessField effectiveAccess, WebLinkSharedLinkFieldEffectivePermissionField effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
             Url = url;
             EffectiveAccess = effectiveAccess;
             EffectivePermission = effectivePermission;

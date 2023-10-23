@@ -86,7 +86,7 @@ See the endpoint docs at
 
 <!-- sample delete_folder_locks_id -->
 ```
-await client.FolderLocks.DeleteFolderLockByIdAsync(folderLock.Id).ConfigureAwait(false)
+await client.FolderLocks.DeleteFolderLockByIdAsync(folderLock.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

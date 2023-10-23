@@ -31,7 +31,7 @@ namespace Box.Managers {
         /// * `7`: Gray
         /// </summary>
         [JsonPropertyName("colorID")]
-        public int? ColorId { get; set; } = default;
+        public double? ColorId { get; set; } = default;
 
         public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsFieldStaticConfigFieldClassificationField() {
             

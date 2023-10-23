@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample get_webhooks_id -->
 ```
-await client.Webhooks.GetWebhookByIdAsync(webhook.Id).ConfigureAwait(false)
+await client.Webhooks.GetWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-await client.Webhooks.UpdateWebhookByIdAsync(webhook.Id, new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
+await client.Webhooks.UpdateWebhookByIdAsync(webhook.Id!, new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -141,7 +141,7 @@ See the endpoint docs at
 
 <!-- sample delete_webhooks_id -->
 ```
-await client.Webhooks.DeleteWebhookByIdAsync(webhook.Id).ConfigureAwait(false)
+await client.Webhooks.DeleteWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

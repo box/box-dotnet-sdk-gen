@@ -77,7 +77,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id_email_aliases_id -->
 ```
-await client.EmailAliases.DeleteUserEmailAliasByIdAsync(newUser.Id, newAlias.Id).ConfigureAwait(false)
+await client.EmailAliases.DeleteUserEmailAliasByIdAsync(newUser.Id, newAlias.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

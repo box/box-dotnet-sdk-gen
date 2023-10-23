@@ -6,16 +6,10 @@ using Box;
 namespace Box.Tests.Integration {
     [TestClass]
     public class RetentionPoliciesManagerTests {
-        public JwtConfig jwtConfig { get; }
-
-        public BoxJwtAuth auth { get; }
-
         public BoxClient client { get; }
 
         public RetentionPoliciesManagerTests() {
-            jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
-            auth = new BoxJwtAuth(config: jwtConfig);
-            client = new BoxClient(auth: auth);
+            client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteRetentionPolicy() {
@@ -27,7 +21,7 @@ namespace Box.Tests.Integration {
             RetentionPolicy retentionPolicyById = await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicy.Id).ConfigureAwait(false);
             Assert.IsTrue(retentionPolicyById.Id == retentionPolicy.Id);
             RetentionPolicies retentionPolicies = await client.RetentionPolicies.GetRetentionPoliciesAsync().ConfigureAwait(false);
-            Assert.IsTrue(retentionPolicies.Entries.Count > 0);
+            Assert.IsTrue(retentionPolicies.Entries!.Count > 0);
             string updatedRetentionPolicyName = Utils.GetUUID();
             RetentionPolicy updatedRetentionPolicy = await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicy.Id, new UpdateRetentionPolicyByIdRequestBodyArg() { PolicyName = updatedRetentionPolicyName }).ConfigureAwait(false);
             Assert.IsTrue(updatedRetentionPolicy.PolicyName == updatedRetentionPolicyName);

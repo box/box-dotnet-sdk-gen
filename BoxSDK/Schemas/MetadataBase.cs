@@ -34,7 +34,7 @@ namespace Box.Schemas {
         /// increases every time a user-defined property is modified.
         /// </summary>
         [JsonPropertyName("$version")]
-        public int? Version { get; set; } = default;
+        public long? Version { get; set; } = default;
 
         public MetadataBase() {
             

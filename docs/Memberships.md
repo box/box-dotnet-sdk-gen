@@ -121,7 +121,7 @@ See the endpoint docs at
 
 <!-- sample get_group_memberships_id -->
 ```
-await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -154,7 +154,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id!, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -189,7 +189,7 @@ See the endpoint docs at
 
 <!-- sample delete_group_memberships_id -->
 ```
-await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

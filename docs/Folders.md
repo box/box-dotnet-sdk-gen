@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync(folder.Id).ConfigureAwait(false)
+await client.Folders.GetFolderByIdAsync("0").ConfigureAwait(false)
 ```
 
 ### Arguments

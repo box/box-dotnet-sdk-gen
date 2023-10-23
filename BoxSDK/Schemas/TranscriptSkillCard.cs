@@ -51,7 +51,7 @@ namespace Box.Schemas {
         /// `timeline`.
         /// </summary>
         [JsonPropertyName("duration")]
-        public int? Duration { get; set; } = default;
+        public long? Duration { get; set; } = default;
 
         /// <summary>
         /// An list of entries for the card. This represents the individual entries of

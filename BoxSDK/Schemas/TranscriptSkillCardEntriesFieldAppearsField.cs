@@ -12,7 +12,7 @@ namespace Box.Schemas {
         /// entry should start appearing on a timeline.
         /// </summary>
         [JsonPropertyName("start")]
-        public int? Start { get; set; } = default;
+        public long? Start { get; set; } = default;
 
         public TranscriptSkillCardEntriesFieldAppearsField() {
             

@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample get_tasks_id -->
 ```
-await client.Tasks.GetTaskByIdAsync(task.Id).ConfigureAwait(false)
+await client.Tasks.GetTaskByIdAsync(task.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -111,7 +111,7 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-await client.Tasks.UpdateTaskByIdAsync(task.Id, new UpdateTaskByIdRequestBodyArg(message: "updated message")).ConfigureAwait(false)
+await client.Tasks.UpdateTaskByIdAsync(task.Id!, new UpdateTaskByIdRequestBodyArg(message: "updated message")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -142,7 +142,7 @@ See the endpoint docs at
 
 <!-- sample delete_tasks_id -->
 ```
-await client.Tasks.DeleteTaskByIdAsync(task.Id).ConfigureAwait(false)
+await client.Tasks.DeleteTaskByIdAsync(task.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

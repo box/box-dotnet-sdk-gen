@@ -40,7 +40,7 @@ namespace Box.Schemas {
         /// increases every time a classification is updated.
         /// </summary>
         [JsonPropertyName("$version")]
-        public int? Version { get; set; } = default;
+        public long? Version { get; set; } = default;
 
         /// <summary>
         /// The unique ID of this classification instance. This will be include
@@ -55,7 +55,7 @@ namespace Box.Schemas {
         /// use.
         /// </summary>
         [JsonPropertyName("$typeVersion")]
-        public int? TypeVersion { get; set; } = default;
+        public double? TypeVersion { get; set; } = default;
 
         /// <summary>
         /// Whether an end user can change the classification.

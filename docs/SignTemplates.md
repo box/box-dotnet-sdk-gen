@@ -13,7 +13,10 @@ This operation is performed by calling function `GetSignTemplates`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-templates/).
 
-*Currently we don't have an example for calling `GetSignTemplates` in integration tests*
+<!-- sample get_sign_templates -->
+```
+await client.SignTemplates.GetSignTemplatesAsync(new GetSignTemplatesQueryParamsArg(limit: 2)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -39,7 +42,10 @@ This operation is performed by calling function `GetSignTemplateById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-templates-id/).
 
-*Currently we don't have an example for calling `GetSignTemplateById` in integration tests*
+<!-- sample get_sign_templates_id -->
+```
+await client.SignTemplates.GetSignTemplateByIdAsync(signTemplates.Entries![0].Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 
