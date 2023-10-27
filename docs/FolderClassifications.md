@@ -28,6 +28,8 @@ See the endpoint docs at
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - headers `GetFolderMetadataEnterpriseSecurityClassification6VmVochwUWoHeadersArg`
   - Headers of getFolderMetadataEnterpriseSecurityClassification6VmVochwUWo method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -64,6 +66,8 @@ See the endpoint docs at
   - Request body of createFolderMetadataEnterpriseSecurityClassification method
 - headers `CreateFolderMetadataEnterpriseSecurityClassificationHeadersArg`
   - Headers of createFolderMetadataEnterpriseSecurityClassification method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -97,6 +101,8 @@ See the endpoint docs at
   - Request body of updateFolderMetadataEnterpriseSecurityClassification method
 - headers `UpdateFolderMetadataEnterpriseSecurityClassificationHeadersArg`
   - Headers of updateFolderMetadataEnterpriseSecurityClassification method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -127,6 +133,8 @@ See the endpoint docs at
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - headers `DeleteFolderMetadataEnterpriseSecurityClassificationHeadersArg`
   - Headers of deleteFolderMetadataEnterpriseSecurityClassification method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

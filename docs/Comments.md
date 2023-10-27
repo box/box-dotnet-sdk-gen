@@ -26,6 +26,8 @@ See the endpoint docs at
   - Query parameters of getFileComments method
 - headers `GetFileCommentsHeadersArg`
   - Headers of getFileComments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -56,6 +58,8 @@ See the endpoint docs at
   - Query parameters of getCommentById method
 - headers `GetCommentByIdHeadersArg`
   - Headers of getCommentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -86,6 +90,8 @@ See the endpoint docs at
   - Query parameters of updateCommentById method
 - headers `UpdateCommentByIdHeadersArg`
   - Headers of updateCommentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -112,6 +118,8 @@ See the endpoint docs at
   - The ID of the comment. Example: "12345"
 - headers `DeleteCommentByIdHeadersArg`
   - Headers of deleteCommentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -141,6 +149,8 @@ See the endpoint docs at
   - Query parameters of createComment method
 - headers `CreateCommentHeadersArg`
   - Headers of createComment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

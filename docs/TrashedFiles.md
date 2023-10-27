@@ -32,6 +32,8 @@ await client.TrashedFiles.RestoreFileFromTrashAsync(file.Id).ConfigureAwait(fals
   - Query parameters of restoreFileFromTrash method
 - headers `RestoreFileFromTrashHeadersArg`
   - Headers of restoreFileFromTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -73,6 +75,8 @@ await client.TrashedFiles.GetFileTrashAsync(file.Id).ConfigureAwait(false)
   - Query parameters of getFileTrash method
 - headers `GetFileTrashHeadersArg`
   - Headers of getFileTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -105,6 +109,8 @@ await client.TrashedFiles.DeleteFileTrashAsync(file.Id).ConfigureAwait(false)
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - headers `DeleteFileTrashHeadersArg`
   - Headers of deleteFileTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

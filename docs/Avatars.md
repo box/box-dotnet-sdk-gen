@@ -25,6 +25,8 @@ await client.Avatars.GetUserAvatarAsync(user.Id).ConfigureAwait(false)
   - The ID of the user. Example: "12345"
 - headers `GetUserAvatarHeadersArg`
   - Headers of getUserAvatar method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -58,6 +60,8 @@ await client.Avatars.CreateUserAvatarAsync(user.Id, new CreateUserAvatarRequestB
   - Request body of createUserAvatar method
 - headers `CreateUserAvatarHeadersArg`
   - Headers of createUserAvatar method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -90,6 +94,8 @@ await client.Avatars.DeleteUserAvatarAsync(user.Id).ConfigureAwait(false)
   - The ID of the user. Example: "12345"
 - headers `DeleteUserAvatarHeadersArg`
   - Headers of deleteUserAvatar method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

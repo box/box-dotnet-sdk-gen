@@ -22,6 +22,8 @@ See the endpoint docs at
   - The ID of the file version legal hold Example: "2348213"
 - headers `GetFileVersionLegalHoldByIdHeadersArg`
   - Headers of getFileVersionLegalHoldById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -67,6 +69,8 @@ See the endpoint docs at
   - Query parameters of getFileVersionLegalHolds method
 - headers `GetFileVersionLegalHoldsHeadersArg`
   - Headers of getFileVersionLegalHolds method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

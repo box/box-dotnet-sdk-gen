@@ -26,6 +26,8 @@ await client.WebLinks.CreateWebLinkAsync(new CreateWebLinkRequestBodyArg(url: ur
   - Request body of createWebLink method
 - headers `CreateWebLinkHeadersArg`
   - Headers of createWebLink method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -55,6 +57,8 @@ await client.WebLinks.GetWebLinkByIdAsync(weblink.Id).ConfigureAwait(false)
   - The ID of the web link. Example: "12345"
 - headers `GetWebLinkByIdHeadersArg`
   - Headers of getWebLinkById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -83,6 +87,8 @@ See the endpoint docs at
   - Request body of updateWebLinkById method
 - headers `UpdateWebLinkByIdHeadersArg`
   - Headers of updateWebLinkById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -112,6 +118,8 @@ await client.WebLinks.DeleteWebLinkByIdAsync(weblink.Id).ConfigureAwait(false)
   - The ID of the web link. Example: "12345"
 - headers `DeleteWebLinkByIdHeadersArg`
   - Headers of deleteWebLinkById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

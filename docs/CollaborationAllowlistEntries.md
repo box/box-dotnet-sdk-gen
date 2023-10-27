@@ -24,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getCollaborationWhitelistEntries method
 - headers `GetCollaborationWhitelistEntriesHeadersArg`
   - Headers of getCollaborationWhitelistEntries method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - Request body of createCollaborationWhitelistEntry method
 - headers `CreateCollaborationWhitelistEntryHeadersArg`
   - Headers of createCollaborationWhitelistEntry method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -78,6 +82,8 @@ See the endpoint docs at
   - The ID of the entry in the list. Example: "213123"
 - headers `GetCollaborationWhitelistEntryByIdHeadersArg`
   - Headers of getCollaborationWhitelistEntryById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -105,6 +111,8 @@ See the endpoint docs at
   - The ID of the entry in the list. Example: "213123"
 - headers `DeleteCollaborationWhitelistEntryByIdHeadersArg`
   - Headers of deleteCollaborationWhitelistEntryById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

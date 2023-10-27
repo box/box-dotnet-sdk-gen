@@ -27,6 +27,8 @@ await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExempt
   - Query parameters of getCollaborationWhitelistExemptTargets method
 - headers `GetCollaborationWhitelistExemptTargetsHeadersArg`
   - Headers of getCollaborationWhitelistExemptTargets method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -57,6 +59,8 @@ await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExe
   - Request body of createCollaborationWhitelistExemptTarget method
 - headers `CreateCollaborationWhitelistExemptTargetHeadersArg`
   - Headers of createCollaborationWhitelistExemptTarget method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -87,6 +91,8 @@ await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExempt
   - The ID of the exemption to the list. Example: "984923"
 - headers `GetCollaborationWhitelistExemptTargetByIdHeadersArg`
   - Headers of getCollaborationWhitelistExemptTargetById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -117,6 +123,8 @@ await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExe
   - The ID of the exemption to the list. Example: "984923"
 - headers `DeleteCollaborationWhitelistExemptTargetByIdHeadersArg`
   - Headers of deleteCollaborationWhitelistExemptTargetById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

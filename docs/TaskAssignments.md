@@ -24,6 +24,8 @@ See the endpoint docs at
   - The ID of the task. Example: "12345"
 - headers `GetTaskAssignmentsHeadersArg`
   - Headers of getTaskAssignments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -54,6 +56,8 @@ See the endpoint docs at
   - Request body of createTaskAssignment method
 - headers `CreateTaskAssignmentHeadersArg`
   - Headers of createTaskAssignment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -80,6 +84,8 @@ See the endpoint docs at
   - The ID of the task assignment. Example: "12345"
 - headers `GetTaskAssignmentByIdHeadersArg`
   - Headers of getTaskAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -110,6 +116,8 @@ See the endpoint docs at
   - Request body of updateTaskAssignmentById method
 - headers `UpdateTaskAssignmentByIdHeadersArg`
   - Headers of updateTaskAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -136,6 +144,8 @@ See the endpoint docs at
   - The ID of the task assignment. Example: "12345"
 - headers `DeleteTaskAssignmentByIdHeadersArg`
   - Headers of deleteTaskAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

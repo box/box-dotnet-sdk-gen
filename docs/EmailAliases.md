@@ -26,6 +26,8 @@ await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(fa
   - The ID of the user. Example: "12345"
 - headers `GetUserEmailAliasesHeadersArg`
   - Headers of getUserEmailAliases method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -57,6 +59,8 @@ await client.EmailAliases.CreateUserEmailAliasAsync(newUser.Id, new CreateUserEm
   - Request body of createUserEmailAlias method
 - headers `CreateUserEmailAliasHeadersArg`
   - Headers of createUserEmailAlias method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -88,6 +92,8 @@ await client.EmailAliases.DeleteUserEmailAliasByIdAsync(newUser.Id, newAlias.Id!
   - The ID of the email alias. Example: "23432"
 - headers `DeleteUserEmailAliasByIdHeadersArg`
   - Headers of deleteUserEmailAliasById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

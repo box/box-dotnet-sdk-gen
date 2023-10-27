@@ -32,6 +32,8 @@ await client.Webhooks.GetWebhooksAsync().ConfigureAwait(false)
   - Query parameters of getWebhooks method
 - headers `GetWebhooksHeadersArg`
   - Headers of getWebhooks method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -61,6 +63,8 @@ await client.Webhooks.CreateWebhookAsync(new CreateWebhookRequestBodyArg(target:
   - Request body of createWebhook method
 - headers `CreateWebhookHeadersArg`
   - Headers of createWebhook method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -90,6 +94,8 @@ await client.Webhooks.GetWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
   - The ID of the webhook. Example: "3321123"
 - headers `GetWebhookByIdHeadersArg`
   - Headers of getWebhookById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -121,6 +127,8 @@ await client.Webhooks.UpdateWebhookByIdAsync(webhook.Id!, new UpdateWebhookByIdR
   - Request body of updateWebhookById method
 - headers `UpdateWebhookByIdHeadersArg`
   - Headers of updateWebhookById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -150,6 +158,8 @@ await client.Webhooks.DeleteWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
   - The ID of the webhook. Example: "3321123"
 - headers `DeleteWebhookByIdHeadersArg`
   - Headers of deleteWebhookById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

@@ -74,6 +74,11 @@ namespace Fetch
         /// Format of the response e.g. "binary" in case of stream response.
         /// </summary>
         public string? ResponseFormat { get; set; }
+        
+        /// <summary>
+        /// Token used for request cancellation.
+        /// </summary>
+        public System.Threading.CancellationToken? CancellationToken { get; set; }
 
 
         private static Dictionary<string, HttpMethod> httpMethodsMap = new Dictionary<string, HttpMethod>() {
@@ -96,7 +101,7 @@ namespace Fetch
         /// <param name="auth"></param>
         /// <param name="headers"></param>
         /// <param name="contentType"></param>
-        public FetchOptions(string? method = null, string? body = null, Stream? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null)
+        public FetchOptions(string? method = null, string? body = null, Stream? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
         {
             Method = method;
             Auth = auth;
@@ -108,6 +113,7 @@ namespace Fetch
             Parameters = parameters;
             MultipartData = multipartData;
             ResponseFormat = responseFormat;
+            CancellationToken = cancellationToken;
         }
     }
 }

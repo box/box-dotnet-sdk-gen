@@ -24,6 +24,8 @@ await client.SignTemplates.GetSignTemplatesAsync(new GetSignTemplatesQueryParams
   - Query parameters of getSignTemplates method
 - headers `GetSignTemplatesHeadersArg`
   - Headers of getSignTemplates method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -53,6 +55,8 @@ await client.SignTemplates.GetSignTemplateByIdAsync(signTemplates.Entries![0].Id
   - The ID of a Box Sign template. Example: "123075213-7d117509-8f05-42e4-a5ef-5190a319d41d"
 - headers `GetSignTemplateByIdHeadersArg`
   - Headers of getSignTemplateById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

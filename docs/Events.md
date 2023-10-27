@@ -29,6 +29,8 @@ See the endpoint docs at
   - Query parameters of getEvents method
 - headers `GetEventsHeadersArg`
   - Headers of getEvents method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -91,6 +93,8 @@ See the endpoint docs at
 
 - headers `GetEventsWithLongPollingHeadersArg`
   - Headers of getEventsWithLongPolling method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

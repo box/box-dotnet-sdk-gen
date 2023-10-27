@@ -26,6 +26,8 @@ See the endpoint docs at
   - Query parameters of getMetadataCascadePolicies method
 - headers `GetMetadataCascadePoliciesHeadersArg`
   - Headers of getMetadataCascadePolicies method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -57,6 +59,8 @@ See the endpoint docs at
   - Request body of createMetadataCascadePolicy method
 - headers `CreateMetadataCascadePolicyHeadersArg`
   - Headers of createMetadataCascadePolicy method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -83,6 +87,8 @@ See the endpoint docs at
   - The ID of the metadata cascade policy. Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
 - headers `GetMetadataCascadePolicyByIdHeadersArg`
   - Headers of getMetadataCascadePolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -109,6 +115,8 @@ See the endpoint docs at
   - The ID of the metadata cascade policy. Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
 - headers `DeleteMetadataCascadePolicyByIdHeadersArg`
   - Headers of deleteMetadataCascadePolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -141,6 +149,8 @@ See the endpoint docs at
   - Request body of createMetadataCascadePolicyApply method
 - headers `CreateMetadataCascadePolicyApplyHeadersArg`
   - Headers of createMetadataCascadePolicyApply method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

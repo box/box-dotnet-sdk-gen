@@ -27,6 +27,8 @@ await client.RetentionPolicies.GetRetentionPoliciesAsync().ConfigureAwait(false)
   - Query parameters of getRetentionPolicies method
 - headers `GetRetentionPoliciesHeadersArg`
   - Headers of getRetentionPolicies method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -56,6 +58,8 @@ await client.RetentionPolicies.CreateRetentionPolicyAsync(new CreateRetentionPol
   - Request body of createRetentionPolicy method
 - headers `CreateRetentionPolicyHeadersArg`
   - Headers of createRetentionPolicy method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -87,6 +91,8 @@ await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicy.Id).C
   - Query parameters of getRetentionPolicyById method
 - headers `GetRetentionPolicyByIdHeadersArg`
   - Headers of getRetentionPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -118,6 +124,8 @@ await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicy.Id
   - Request body of updateRetentionPolicyById method
 - headers `UpdateRetentionPolicyByIdHeadersArg`
   - Headers of updateRetentionPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -147,6 +155,8 @@ await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicy.Id
   - The ID of the retention policy. Example: "982312"
 - headers `DeleteRetentionPolicyByIdHeadersArg`
   - Headers of deleteRetentionPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

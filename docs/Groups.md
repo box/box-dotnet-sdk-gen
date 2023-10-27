@@ -28,6 +28,8 @@ await client.Groups.GetGroupsAsync().ConfigureAwait(false)
   - Query parameters of getGroups method
 - headers `GetGroupsHeadersArg`
   - Headers of getGroups method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -61,6 +63,8 @@ await client.Groups.CreateGroupAsync(new CreateGroupRequestBodyArg(name: Utils.G
   - Query parameters of createGroup method
 - headers `CreateGroupHeadersArg`
   - Headers of createGroup method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -94,6 +98,8 @@ await client.Groups.GetGroupByIdAsync(group.Id).ConfigureAwait(false)
   - Query parameters of getGroupById method
 - headers `GetGroupByIdHeadersArg`
   - Headers of getGroupById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -129,6 +135,8 @@ await client.Groups.UpdateGroupByIdAsync(group.Id, new UpdateGroupByIdRequestBod
   - Query parameters of updateGroupById method
 - headers `UpdateGroupByIdHeadersArg`
   - Headers of updateGroupById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -159,6 +167,8 @@ await client.Groups.DeleteGroupByIdAsync(group.Id).ConfigureAwait(false)
   - The ID of the group. Example: "57645"
 - headers `DeleteGroupByIdHeadersArg`
   - Headers of deleteGroupById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

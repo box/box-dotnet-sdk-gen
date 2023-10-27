@@ -32,6 +32,8 @@ await client.TrashedWebLinks.RestoreWeblinkFromTrashAsync(weblink.Id).ConfigureA
   - Query parameters of restoreWeblinkFromTrash method
 - headers `RestoreWeblinkFromTrashHeadersArg`
   - Headers of restoreWeblinkFromTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -63,6 +65,8 @@ await client.TrashedWebLinks.GetWebLinkTrashAsync(weblink.Id).ConfigureAwait(fal
   - Query parameters of getWebLinkTrash method
 - headers `GetWebLinkTrashHeadersArg`
   - Headers of getWebLinkTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -95,6 +99,8 @@ await client.TrashedWebLinks.DeleteWebLinkTrashAsync(weblink.Id).ConfigureAwait(
   - The ID of the web link. Example: "12345"
 - headers `DeleteWebLinkTrashHeadersArg`
   - Headers of deleteWebLinkTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

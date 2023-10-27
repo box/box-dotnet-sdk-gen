@@ -39,6 +39,8 @@ await client.Folders.GetFolderByIdAsync("0").ConfigureAwait(false)
   - Query parameters of getFolderById method
 - headers `GetFolderByIdHeadersArg`
   - Headers of getFolderById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -80,6 +82,8 @@ See the endpoint docs at
   - Query parameters of updateFolderById method
 - headers `UpdateFolderByIdHeadersArg`
   - Headers of updateFolderById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -121,6 +125,8 @@ await client.Folders.DeleteFolderByIdAsync(folder.Id).ConfigureAwait(false)
   - Query parameters of deleteFolderById method
 - headers `DeleteFolderByIdHeadersArg`
   - Headers of deleteFolderById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -154,6 +160,8 @@ See the endpoint docs at
   - Query parameters of getFolderItems method
 - headers `GetFolderItemsHeadersArg`
   - Headers of getFolderItems method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -185,6 +193,8 @@ await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: Util
   - Query parameters of createFolder method
 - headers `CreateFolderHeadersArg`
   - Headers of createFolder method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -221,6 +231,8 @@ See the endpoint docs at
   - Query parameters of copyFolder method
 - headers `CopyFolderHeadersArg`
   - Headers of copyFolder method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

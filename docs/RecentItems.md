@@ -25,6 +25,8 @@ await client.RecentItems.GetRecentItemsAsync().ConfigureAwait(false)
   - Query parameters of getRecentItems method
 - headers `GetRecentItemsHeadersArg`
   - Headers of getRecentItems method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

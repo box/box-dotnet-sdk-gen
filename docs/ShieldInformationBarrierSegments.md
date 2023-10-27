@@ -24,6 +24,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment. Example: "3423"
 - headers `GetShieldInformationBarrierSegmentByIdHeadersArg`
   - Headers of getShieldInformationBarrierSegmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -52,6 +54,8 @@ See the endpoint docs at
   - Request body of updateShieldInformationBarrierSegmentById method
 - headers `UpdateShieldInformationBarrierSegmentByIdHeadersArg`
   - Headers of updateShieldInformationBarrierSegmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -79,6 +83,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment. Example: "3423"
 - headers `DeleteShieldInformationBarrierSegmentByIdHeadersArg`
   - Headers of deleteShieldInformationBarrierSegmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -106,6 +112,8 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarrierSegments method
 - headers `GetShieldInformationBarrierSegmentsHeadersArg`
   - Headers of getShieldInformationBarrierSegments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -132,6 +140,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierSegment method
 - headers `CreateShieldInformationBarrierSegmentHeadersArg`
   - Headers of createShieldInformationBarrierSegment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

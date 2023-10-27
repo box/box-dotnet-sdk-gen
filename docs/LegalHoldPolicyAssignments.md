@@ -25,6 +25,8 @@ See the endpoint docs at
   - Query parameters of getLegalHoldPolicyAssignments method
 - headers `GetLegalHoldPolicyAssignmentsHeadersArg`
   - Headers of getLegalHoldPolicyAssignments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - Request body of createLegalHoldPolicyAssignment method
 - headers `CreateLegalHoldPolicyAssignmentHeadersArg`
   - Headers of createLegalHoldPolicyAssignment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -77,6 +81,8 @@ See the endpoint docs at
   - The ID of the legal hold policy assignment Example: "753465"
 - headers `GetLegalHoldPolicyAssignmentByIdHeadersArg`
   - Headers of getLegalHoldPolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -106,6 +112,8 @@ See the endpoint docs at
   - The ID of the legal hold policy assignment Example: "753465"
 - headers `DeleteLegalHoldPolicyAssignmentByIdHeadersArg`
   - Headers of deleteLegalHoldPolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -150,6 +158,8 @@ See the endpoint docs at
   - Query parameters of getLegalHoldPolicyAssignmentFileOnHold method
 - headers `GetLegalHoldPolicyAssignmentFileOnHoldHeadersArg`
   - Headers of getLegalHoldPolicyAssignmentFileOnHold method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -194,6 +204,8 @@ See the endpoint docs at
   - Query parameters of getLegalHoldPolicyAssignmentFileVersionOnHold method
 - headers `GetLegalHoldPolicyAssignmentFileVersionOnHoldHeadersArg`
   - Headers of getLegalHoldPolicyAssignmentFileVersionOnHold method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

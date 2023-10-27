@@ -21,6 +21,8 @@ See the endpoint docs at
   - Query parameters of getStoragePolicies method
 - headers `GetStoragePoliciesHeadersArg`
   - Headers of getStoragePolicies method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -47,6 +49,8 @@ See the endpoint docs at
   - The ID of the storage policy. Example: "34342"
 - headers `GetStoragePolicyByIdHeadersArg`
   - Headers of getStoragePolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

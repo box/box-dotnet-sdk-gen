@@ -41,6 +41,8 @@ await client.TrashedFolders.RestoreFolderFromTrashAsync(folder.Id).ConfigureAwai
   - Query parameters of restoreFolderFromTrash method
 - headers `RestoreFolderFromTrashHeadersArg`
   - Headers of restoreFolderFromTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -82,6 +84,8 @@ await client.TrashedFolders.GetFolderTrashAsync(folder.Id).ConfigureAwait(false)
   - Query parameters of getFolderTrash method
 - headers `GetFolderTrashHeadersArg`
   - Headers of getFolderTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -114,6 +118,8 @@ await client.TrashedFolders.DeleteFolderTrashAsync(folder.Id).ConfigureAwait(fal
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - headers `DeleteFolderTrashHeadersArg`
   - Headers of deleteFolderTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

@@ -24,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getStoragePolicyAssignments method
 - headers `GetStoragePolicyAssignmentsHeadersArg`
   - Headers of getStoragePolicyAssignments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - Request body of createStoragePolicyAssignment method
 - headers `CreateStoragePolicyAssignmentHeadersArg`
   - Headers of createStoragePolicyAssignment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -77,6 +81,8 @@ See the endpoint docs at
   - The ID of the storage policy assignment. Example: "932483"
 - headers `GetStoragePolicyAssignmentByIdHeadersArg`
   - Headers of getStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -105,6 +111,8 @@ See the endpoint docs at
   - Request body of updateStoragePolicyAssignmentById method
 - headers `UpdateStoragePolicyAssignmentByIdHeadersArg`
   - Headers of updateStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -138,6 +146,8 @@ See the endpoint docs at
   - The ID of the storage policy assignment. Example: "932483"
 - headers `DeleteStoragePolicyAssignmentByIdHeadersArg`
   - Headers of deleteStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

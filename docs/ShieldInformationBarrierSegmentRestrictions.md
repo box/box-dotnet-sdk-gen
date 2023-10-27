@@ -24,6 +24,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment Restriction. Example: "4563"
 - headers `GetShieldInformationBarrierSegmentRestrictionByIdHeadersArg`
   - Headers of getShieldInformationBarrierSegmentRestrictionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -52,6 +54,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment Restriction. Example: "4563"
 - headers `DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersArg`
   - Headers of deleteShieldInformationBarrierSegmentRestrictionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -79,6 +83,8 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarrierSegmentRestrictions method
 - headers `GetShieldInformationBarrierSegmentRestrictionsHeadersArg`
   - Headers of getShieldInformationBarrierSegmentRestrictions method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -107,6 +113,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierSegmentRestriction method
 - headers `CreateShieldInformationBarrierSegmentRestrictionHeadersArg`
   - Headers of createShieldInformationBarrierSegmentRestriction method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

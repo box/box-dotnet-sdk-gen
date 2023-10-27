@@ -23,6 +23,8 @@ See the endpoint docs at
   - The ID of the shield information barrier. Example: "1910967"
 - headers `GetShieldInformationBarrierByIdHeadersArg`
   - Headers of getShieldInformationBarrierById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -49,6 +51,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierChangeStatus method
 - headers `CreateShieldInformationBarrierChangeStatusHeadersArg`
   - Headers of createShieldInformationBarrierChangeStatus method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -76,6 +80,8 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarriers method
 - headers `GetShieldInformationBarriersHeadersArg`
   - Headers of getShieldInformationBarriers method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -106,6 +112,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrier method
 - headers `CreateShieldInformationBarrierHeadersArg`
   - Headers of createShieldInformationBarrier method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

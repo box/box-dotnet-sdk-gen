@@ -26,6 +26,8 @@ See the endpoint docs at
   - Query parameters of getAuthorize method
 - headers `GetAuthorizeHeadersArg`
   - Headers of getAuthorize method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

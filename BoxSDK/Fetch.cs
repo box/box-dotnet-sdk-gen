@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Fetch
@@ -46,25 +47,26 @@ namespace Fetch
 
             var networkSession = options.NetworkSession ?? new NetworkSession();
             var attempt = 1;
+            var cancellationToken = options.CancellationToken ?? default(System.Threading.CancellationToken);
 
             bool isStreamResponse = options.ResponseFormat == "binary";
             while (true)
             {
                 var request = await BuildHttpRequest(resource, options).ConfigureAwait(false);
-                var response = await ExecuteRequest(client, request).ConfigureAwait(false);
+                var response = await ExecuteRequest(client, request, cancellationToken).ConfigureAwait(false);
 
                 var statusCode = (int)response.StatusCode;
 
                 if (response.IsSuccessStatusCode)
                 {
                     return isStreamResponse ?
-                        new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync().ConfigureAwait(false) } :
-                        new FetchResponse { Status = statusCode, Text = await response.Content.ReadAsStringAsync().ConfigureAwait(false) };
+                        new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
+                        new FetchResponse { Status = statusCode, Text = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) };
                 }
 
                 if (attempt >= networkSession.RetryAttempts)
                 {
-                    throw await BuildApiException(response, statusCode, "Max retry attempts excedeed.").ConfigureAwait(false);
+                    throw await BuildApiException(response, statusCode, cancellationToken, "Max retry attempts excedeed.").ConfigureAwait(false);
                 }
 
                 if (statusCode == 401)
@@ -84,7 +86,7 @@ namespace Fetch
                 }
                 else
                 {
-                    throw await BuildApiException(response, statusCode).ConfigureAwait(false);
+                    throw await BuildApiException(response, statusCode, cancellationToken).ConfigureAwait(false);
                 }
 
                 response?.Dispose();
@@ -93,9 +95,9 @@ namespace Fetch
 
         }
 
-        private static async Task<Exception> BuildApiException(HttpResponseMessage? response, int statusCode, string? message = null)
+        private static async Task<Exception> BuildApiException(HttpResponseMessage? response, int statusCode, System.Threading.CancellationToken cancellationToken, string? message = null)
         {
-            var responseContent = response != null ? await response.Content.ReadAsStringAsync().ConfigureAwait(false) : "empty";
+            var responseContent = response != null ? await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) : "empty";
             response?.Dispose();
             return message != null ?
                 new ApiException(statusCode, responseContent, ApiException.BuildApiExceptionMessage(statusCode, responseContent, message)) :
@@ -130,11 +132,11 @@ namespace Fetch
             return httpRequest;
         }
 
-        private static async Task<HttpResponseMessage> ExecuteRequest(HttpClient client, HttpRequestMessage httpRequestMessage)
+        private static async Task<HttpResponseMessage> ExecuteRequest(HttpClient client, HttpRequestMessage httpRequestMessage, CancellationToken cancellationToken)
         {
             try
             {
-                return await client.SendAsync(httpRequestMessage).ConfigureAwait(false);
+                return await client.SendAsync(httpRequestMessage, cancellationToken).ConfigureAwait(false);
             }
             catch
             {

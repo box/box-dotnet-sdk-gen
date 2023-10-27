@@ -29,6 +29,8 @@ await client.Files.GetFileByIdAsync(file.Id).ConfigureAwait(false)
   - Query parameters of getFileById method
 - headers `GetFileByIdHeadersArg`
   - Headers of getFileById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -67,6 +69,8 @@ await client.Files.UpdateFileByIdAsync(fileToUpdate.Id, new UpdateFileByIdReques
   - Query parameters of updateFileById method
 - headers `UpdateFileByIdHeadersArg`
   - Headers of updateFileById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -104,6 +108,8 @@ await client.Files.DeleteFileByIdAsync(newFileVersion.Id).ConfigureAwait(false)
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - headers `DeleteFileByIdHeadersArg`
   - Headers of deleteFileById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -138,6 +144,8 @@ await client.Files.CopyFileAsync(fileOrigin.Id, new CopyFileRequestBodyArg(paren
   - Query parameters of copyFile method
 - headers `CopyFileHeadersArg`
   - Headers of copyFile method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -184,6 +192,8 @@ await client.Files.GetFileThumbnailByIdAsync(thumbnailFile.Id, GetFileThumbnailB
   - Query parameters of getFileThumbnailById method
 - headers `GetFileThumbnailByIdHeadersArg`
   - Headers of getFileThumbnailById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

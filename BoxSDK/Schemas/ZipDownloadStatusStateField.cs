@@ -9,7 +9,7 @@ namespace Box.Schemas {
         InProgress,
         [Description("failed")]
         Failed,
-        [Description("success")]
-        Success
+        [Description("succeeded")]
+        Succeeded
     }
 }

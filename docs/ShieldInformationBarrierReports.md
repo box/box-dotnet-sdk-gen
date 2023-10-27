@@ -22,6 +22,8 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarrierReports method
 - headers `GetShieldInformationBarrierReportsHeadersArg`
   - Headers of getShieldInformationBarrierReports method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -48,6 +50,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierReport method
 - headers `CreateShieldInformationBarrierReportHeadersArg`
   - Headers of createShieldInformationBarrierReport method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -74,6 +78,8 @@ See the endpoint docs at
   - The ID of the shield information barrier Report. Example: "3423"
 - headers `GetShieldInformationBarrierReportByIdHeadersArg`
   - Headers of getShieldInformationBarrierReportById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

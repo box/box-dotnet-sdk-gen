@@ -24,6 +24,8 @@ See the endpoint docs at
   - The ID of the sign request Example: "33243242"
 - headers `CancelSignRequestHeadersArg`
   - Headers of cancelSignRequest method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -50,6 +52,8 @@ See the endpoint docs at
   - The ID of the sign request Example: "33243242"
 - headers `ResendSignRequestHeadersArg`
   - Headers of resendSignRequest method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -77,6 +81,8 @@ See the endpoint docs at
   - The ID of the sign request Example: "33243242"
 - headers `GetSignRequestByIdHeadersArg`
   - Headers of getSignRequestById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -104,6 +110,8 @@ See the endpoint docs at
   - Query parameters of getSignRequests method
 - headers `GetSignRequestsHeadersArg`
   - Headers of getSignRequests method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -131,6 +139,8 @@ See the endpoint docs at
   - Request body of createSignRequest method
 - headers `CreateSignRequestHeadersArg`
   - Headers of createSignRequest method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

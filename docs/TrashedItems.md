@@ -28,6 +28,8 @@ See the endpoint docs at
   - Query parameters of getFolderTrashItems method
 - headers `GetFolderTrashItemsHeadersArg`
   - Headers of getFolderTrashItems method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

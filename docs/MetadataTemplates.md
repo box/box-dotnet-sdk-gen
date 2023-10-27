@@ -28,6 +28,8 @@ See the endpoint docs at
   - Query parameters of getMetadataTemplates method
 - headers `GetMetadataTemplatesHeadersArg`
   - Headers of getMetadataTemplates method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -63,6 +65,8 @@ await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(GetMetadataTemplat
   - The name of the metadata template Example: "properties"
 - headers `GetMetadataTemplateSchemaHeadersArg`
   - Headers of getMetadataTemplateSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -100,6 +104,8 @@ See the endpoint docs at
   - Request body of updateMetadataTemplateSchema method
 - headers `UpdateMetadataTemplateSchemaHeadersArg`
   - Headers of updateMetadataTemplateSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -133,6 +139,8 @@ await client.MetadataTemplates.DeleteMetadataTemplateSchemaAsync(DeleteMetadataT
   - The name of the metadata template Example: "properties"
 - headers `DeleteMetadataTemplateSchemaHeadersArg`
   - Headers of deleteMetadataTemplateSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -163,6 +171,8 @@ await client.MetadataTemplates.GetMetadataTemplateByIdAsync(template.Id).Configu
   - The ID of the template Example: "f7a9891f"
 - headers `GetMetadataTemplateByIdHeadersArg`
   - Headers of getMetadataTemplateById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -193,6 +203,8 @@ await client.MetadataTemplates.GetMetadataTemplateGlobalAsync().ConfigureAwait(f
   - Query parameters of getMetadataTemplateGlobal method
 - headers `GetMetadataTemplateGlobalHeadersArg`
   - Headers of getMetadataTemplateGlobal method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -224,6 +236,8 @@ await client.MetadataTemplates.GetMetadataTemplateEnterpriseAsync().ConfigureAwa
   - Query parameters of getMetadataTemplateEnterprise method
 - headers `GetMetadataTemplateEnterpriseHeadersArg`
   - Headers of getMetadataTemplateEnterprise method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -255,6 +269,8 @@ await client.MetadataTemplates.CreateMetadataTemplateSchemaAsync(new CreateMetad
   - Request body of createMetadataTemplateSchema method
 - headers `CreateMetadataTemplateSchemaHeadersArg`
   - Headers of createMetadataTemplateSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

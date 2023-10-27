@@ -22,6 +22,8 @@ See the endpoint docs at
   - The ID of the device pin Example: "2324234"
 - headers `GetDevicePinnerByIdHeadersArg`
   - Headers of getDevicePinnerById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -48,6 +50,8 @@ See the endpoint docs at
   - The ID of the device pin Example: "2324234"
 - headers `DeleteDevicePinnerByIdHeadersArg`
   - Headers of deleteDevicePinnerById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -79,6 +83,8 @@ See the endpoint docs at
   - Query parameters of getEnterpriseDevicePinners method
 - headers `GetEnterpriseDevicePinnersHeadersArg`
   - Headers of getEnterpriseDevicePinners method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
