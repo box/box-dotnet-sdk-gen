@@ -106,7 +106,7 @@ namespace Box.Managers {
         /// 
         /// The upper and lower bound can be omitted to create open ranges.
         /// </summary>
-        public IReadOnlyList<int>? SizeRange { get; set; } = default;
+        public IReadOnlyList<long>? SizeRange { get; set; } = default;
 
         /// <summary>
         /// Limits the search results to any items that are owned

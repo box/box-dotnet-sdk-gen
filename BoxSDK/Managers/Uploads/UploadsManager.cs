@@ -49,12 +49,15 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of uploadFileVersion method
         /// </param>
-        public async System.Threading.Tasks.Task<Files> UploadFileVersionAsync(string fileId, UploadFileVersionRequestBodyArg requestBody, UploadFileVersionQueryParamsArg? queryParams = default, UploadFileVersionHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Files> UploadFileVersionAsync(string fileId, UploadFileVersionRequestBodyArg requestBody, UploadFileVersionQueryParamsArg? queryParams = default, UploadFileVersionHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new UploadFileVersionQueryParamsArg();
             headers = headers ?? new UploadFileVersionHeadersArg();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://upload.box.com/api/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", body: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://upload.box.com/api/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", body: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Text);
         }
 
@@ -78,12 +81,15 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of uploadFile method
         /// </param>
-        public async System.Threading.Tasks.Task<Files> UploadFileAsync(UploadFileRequestBodyArg requestBody, UploadFileQueryParamsArg? queryParams = default, UploadFileHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Files> UploadFileAsync(UploadFileRequestBodyArg requestBody, UploadFileQueryParamsArg? queryParams = default, UploadFileHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new UploadFileQueryParamsArg();
             headers = headers ?? new UploadFileHeadersArg();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://upload.box.com/api/2.0/files/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", body: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://upload.box.com/api/2.0/files/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", body: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Text);
         }
 
@@ -97,11 +103,14 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of preflightFileUpload method
         /// </param>
-        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadAsync(PreflightFileUploadRequestBodyArg? requestBody = default, PreflightFileUploadHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadAsync(PreflightFileUploadRequestBodyArg? requestBody = default, PreflightFileUploadHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             requestBody = requestBody ?? new PreflightFileUploadRequestBodyArg();
             headers = headers ?? new PreflightFileUploadHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/content"), new FetchOptions(method: "OPTIONS", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/content"), new FetchOptions(method: "OPTIONS", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadUrl>(response.Text);
         }
 

@@ -1,5 +1,8 @@
 using Box.Schemas;
+using Fetch;
+using Serializer;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Box
@@ -18,24 +21,75 @@ namespace Box
         /// Box API secret used for making auth requests.
         /// </summary>
         public string ClientSecret { get; }
-        
+
         /// <summary>
         /// Token storage
         /// </summary>
         public ITokenStorage TokenStorage { get; private init; }
-        
-        public OAuthConfig(string clientId, string clientSecret, ITokenStorage tokenStorage = default) {
+
+        public OAuthConfig(string clientId, string clientSecret, ITokenStorage? tokenStorage = default)
+        {
             ClientId = clientId;
             ClientSecret = clientSecret;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();
         }
     }
 
+    static class OAuthGrantType
+    {
+        public const string RefreshToken = "refresh_token";
+        public const string AuthorizationCode = "authorization_code";
+    }
+
+    /// <summary>
+    /// Options for GetAuthorizeUrl method of BoxOAuth
+    /// </summary>
+    public class GetAuthorizeUrlOptions
+    {
+        /// <summary>
+        /// The Client ID of the application that is requesting to authenticate the user.
+        /// </summary>
+        public string? ClientId { get; }
+        /// <summary>
+        /// The URI to which Box redirects the browser after the user has granted or denied the application permission
+        /// </summary>
+        public string? RedirectUri { get; }
+        /// <summary>
+        /// he type of response we'd like to receive. Must be 'code'.
+        /// </summary>
+        public string? ResponseType { get; }
+        /// <summary>
+        /// A custom string of your choice used to protect from CSRF attacks. Box will pass the same string to the redirect URL when authentication is complete.
+        /// </summary>
+        public string? State { get; }
+        /// <summary>
+        /// A comma-separated list of application scopes you'd like to authenticate the user for.
+        /// </summary>
+        public string? Scope { get; }
+
+        public GetAuthorizeUrlOptions(string? clientId, string? redirectUri, string? responseType, string? state, string? scope)
+        {
+            ClientId = clientId;
+            RedirectUri = redirectUri;
+            ResponseType = responseType;
+            State = state;
+            Scope = scope;
+        }
+    }
+
+
     /// <summary>
     /// Class used to authenticate with Box using a OAuth 2.0.
     /// </summary>
     public class BoxOAuth : IAuth
     {
+        ITokenStorage _tokenStorage { get; set; }
+
+        /// <summary>
+        /// Box OAuth configuration.
+        /// </summary>
+        public OAuthConfig Config { get; }
+
         /// <summary>
         /// Creates OAuth 2.0 from parameters.
         /// </summary>
@@ -43,22 +97,121 @@ namespace Box
         /// <returns>An OAuth 2.0 config.</returns>
         public BoxOAuth(OAuthConfig config)
         {
-            throw new NotImplementedException();
+            Config = config;
+
+            _tokenStorage = config.TokenStorage;
         }
 
-        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? NetworkSession = null)
+        public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null)
         {
-            throw new NotImplementedException();
+            var token = await _tokenStorage.GetAsync().ConfigureAwait(false);
+            if (token == null)
+            {
+                throw new ArgumentException("Access and refresh tokens not available. Authenticate before making any API call first.");
+            }
+            return token;
         }
 
-        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? NetworkSession = null)
+        /// <summary>
+        /// Refreshes the token.
+        /// </summary>
+        /// <returns>An access token.</returns>
+        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null)
         {
-            throw new NotImplementedException();
+            return await RefreshTokenAsync(networkSession, null).ConfigureAwait(false);
         }
 
-        public string GetAuthorizeUrl()
+
+        public async Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null, string? refreshToken = null)
         {
-            throw new NotImplementedException();
+            var oldToken = await _tokenStorage.GetAsync().ConfigureAwait(false);
+
+            var tokenForRefresh = oldToken?.RefreshToken ?? refreshToken;
+
+            if (tokenForRefresh == null)
+            {
+                throw new ArgumentException("No refresh token is available.");
+            }
+
+            var payload = new Dictionary<string, string>()
+            {
+                { "grant_type", OAuthGrantType.RefreshToken },
+                { "refresh_token", tokenForRefresh },
+                { "client_id", Config.ClientId },
+                { "client_secret", Config.ClientSecret }
+            };
+
+            var newToken = await SendTokenRequest(payload, networkSession).ConfigureAwait(false);
+            await _tokenStorage.StoreAsync(newToken).ConfigureAwait(false);
+
+            return newToken;
         }
+
+        /// <summary>
+        /// Get the authorization URL for the app user.
+        /// </summary>
+        /// <param name="options">The parameters for the authorization URL.</param>
+        /// <returns>AuthorizationURL as string</returns>
+        public string GetAuthorizeUrl(GetAuthorizeUrlOptions? options = null)
+        {
+            var parameters = new Dictionary<string, string>()
+            {
+                { "client_id", options?.ClientId ?? Config.ClientId },
+                { "response_type", options?.ResponseType ?? "code" }
+            };
+
+            if (options?.RedirectUri != null)
+            {
+                parameters["redirect_uri"] = options.RedirectUri;
+            }
+            if (options?.State != null)
+            {
+                parameters["state"] = options.State;
+            }
+            if (options?.Scope != null)
+            {
+                parameters["scope"] = options.Scope;
+            }
+
+            return HttpUtils.BuildUri("https://account.box.com/api/oauth2/authorize", parameters).ToString();
+        }
+
+        /// <summary>
+        /// Send token request and return the access_token
+        /// </summary>
+        /// <param name="code">Short-lived authorization code.</param>
+        /// <param name="networkSession">An object to keep network session state.</param>
+        /// <returns>AccessToken</returns>
+        public async Task<AccessToken> GetTokensAuthorizationCodeGrantAsync(string code, NetworkSession? networkSession = null)
+        {
+            var payload = new Dictionary<string, string>()
+            {
+                { "grant_type", OAuthGrantType.AuthorizationCode },
+                { "code", code },
+                { "client_id", Config.ClientId },
+                { "client_secret", Config.ClientSecret }
+            };
+
+            var newToken = await SendTokenRequest(payload, networkSession).ConfigureAwait(false);
+            await _tokenStorage.StoreAsync(newToken).ConfigureAwait(false);
+
+            return newToken;
+        }
+
+        private async Task<AccessToken> SendTokenRequest(Dictionary<string, string> payload, NetworkSession? networkSession)
+        {
+            var tokenUrl = "https://api.box.com/oauth2/token";
+
+            var response = await HttpClientAdapter.FetchAsync(tokenUrl, new FetchOptions
+            {
+                Method = "POST",
+                Body = SimpleJsonSerializer.Serialize(payload),
+                ContentType = ContentTypes.FormUrlEncoded,
+                NetworkSession = networkSession
+            }).ConfigureAwait(false);
+
+            return SimpleJsonSerializer.Deserialize<AccessToken>(response.Text);
+        }
+
     }
 }

@@ -33,6 +33,8 @@ await client.Users.GetUsersAsync().ConfigureAwait(false)
   - Query parameters of getUsers method
 - headers `GetUsersHeadersArg`
   - Headers of getUsers method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -66,6 +68,8 @@ await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName, 
   - Query parameters of createUser method
 - headers `CreateUserHeadersArg`
   - Headers of createUser method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -104,6 +108,8 @@ await client.Users.GetUserMeAsync().ConfigureAwait(false)
   - Query parameters of getUserMe method
 - headers `GetUserMeHeadersArg`
   - Headers of getUserMe method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -145,6 +151,8 @@ await client.Users.GetUserByIdAsync(user.Id).ConfigureAwait(false)
   - Query parameters of getUserById method
 - headers `GetUserByIdHeadersArg`
   - Headers of getUserById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -185,6 +193,8 @@ await client.Users.UpdateUserByIdAsync(user.Id, new UpdateUserByIdRequestBodyArg
   - Query parameters of updateUserById method
 - headers `UpdateUserByIdHeadersArg`
   - Headers of updateUserById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -219,6 +229,8 @@ await client.Users.DeleteUserByIdAsync(user.Id).ConfigureAwait(false)
   - Query parameters of deleteUserById method
 - headers `DeleteUserByIdHeadersArg`
   - Headers of deleteUserById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

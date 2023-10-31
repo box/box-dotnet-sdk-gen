@@ -4,7 +4,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateWebLinkByIdRequestBodyArg {
+    public class RestoreWeblinkFromTrashRequestBodyArg {
         /// <summary>
         /// An optional new name for the web link.
         /// </summary>
@@ -12,9 +12,9 @@ namespace Box.Managers {
         public string? Name { get; set; } = default;
 
         [JsonPropertyName("parent")]
-        public CreateWebLinkByIdRequestBodyArgParentField? Parent { get; set; } = default;
+        public RestoreWeblinkFromTrashRequestBodyArgParentField? Parent { get; set; } = default;
 
-        public CreateWebLinkByIdRequestBodyArg() {
+        public RestoreWeblinkFromTrashRequestBodyArg() {
             
         }
     }

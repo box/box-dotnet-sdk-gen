@@ -6,6 +6,6 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFieldFilterFloat : Dictionary<string, int> {
+    public class MetadataFieldFilterFloat : Dictionary<string, double> {
     }
 }

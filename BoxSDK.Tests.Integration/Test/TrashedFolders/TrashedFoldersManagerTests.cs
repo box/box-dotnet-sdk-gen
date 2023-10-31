@@ -1,22 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Box;
 using Box.Schemas;
 using Box.Managers;
-using Box;
 
 namespace Box.Tests.Integration {
     [TestClass]
     public class TrashedFoldersManagerTests {
-        public JwtConfig jwtConfig { get; }
-
-        public BoxJwtAuth auth { get; }
-
         public BoxClient client { get; }
 
         public TrashedFoldersManagerTests() {
-            jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
-            auth = new BoxJwtAuth(config: jwtConfig);
-            client = new BoxClient(auth: auth);
+            client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestTrashedFolders() {

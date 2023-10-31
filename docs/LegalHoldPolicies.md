@@ -25,6 +25,8 @@ See the endpoint docs at
   - Query parameters of getLegalHoldPolicies method
 - headers `GetLegalHoldPoliciesHeadersArg`
   - Headers of getLegalHoldPolicies method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - Request body of createLegalHoldPolicy method
 - headers `CreateLegalHoldPolicyHeadersArg`
   - Headers of createLegalHoldPolicy method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -77,6 +81,8 @@ See the endpoint docs at
   - The ID of the legal hold policy Example: "324432"
 - headers `GetLegalHoldPolicyByIdHeadersArg`
   - Headers of getLegalHoldPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -105,6 +111,8 @@ See the endpoint docs at
   - Request body of updateLegalHoldPolicyById method
 - headers `UpdateLegalHoldPolicyByIdHeadersArg`
   - Headers of updateLegalHoldPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -134,6 +142,8 @@ See the endpoint docs at
   - The ID of the legal hold policy Example: "324432"
 - headers `DeleteLegalHoldPolicyByIdHeadersArg`
   - Headers of deleteLegalHoldPolicyById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

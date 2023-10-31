@@ -32,6 +32,8 @@ await client.FileVersions.GetFileVersionsAsync(file.Id).ConfigureAwait(false)
   - Query parameters of getFileVersions method
 - headers `GetFileVersionsHeadersArg`
   - Headers of getFileVersions method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -54,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionByIdAsync(file.Id, fileVersions.Entries[0].Id).ConfigureAwait(false)
+await client.FileVersions.GetFileVersionByIdAsync(file.Id, fileVersions.Entries![0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -67,6 +69,8 @@ await client.FileVersions.GetFileVersionByIdAsync(file.Id, fileVersions.Entries[
   - Query parameters of getFileVersionById method
 - headers `GetFileVersionByIdHeadersArg`
   - Headers of getFileVersionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -104,6 +108,8 @@ See the endpoint docs at
   - Request body of updateFileVersionById method
 - headers `UpdateFileVersionByIdHeadersArg`
   - Headers of updateFileVersionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -126,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_versions_id -->
 ```
-await client.FileVersions.DeleteFileVersionByIdAsync(file.Id, fileVersionsRestored.Entries[0].Id).ConfigureAwait(false)
+await client.FileVersions.DeleteFileVersionByIdAsync(file.Id, fileVersionsRestored.Entries![0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -137,6 +143,8 @@ await client.FileVersions.DeleteFileVersionByIdAsync(file.Id, fileVersionsRestor
   - The ID of the file version Example: "1234"
 - headers `DeleteFileVersionByIdHeadersArg`
   - Headers of deleteFileVersionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -173,7 +181,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-await client.FileVersions.PromoteFileVersionAsync(file.Id, new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries[0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion)).ConfigureAwait(false)
+await client.FileVersions.PromoteFileVersionAsync(file.Id, new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries![0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -186,6 +194,8 @@ await client.FileVersions.PromoteFileVersionAsync(file.Id, new PromoteFileVersio
   - Query parameters of promoteFileVersion method
 - headers `PromoteFileVersionHeadersArg`
   - Headers of promoteFileVersion method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

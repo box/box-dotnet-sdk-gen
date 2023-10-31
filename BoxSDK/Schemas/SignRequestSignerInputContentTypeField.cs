@@ -5,31 +5,35 @@ using System.Text.Json.Serialization;
 namespace Box.Schemas {
     [JsonConverter(typeof(StringEnumConverter<SignRequestSignerInputContentTypeField>))]
     public enum SignRequestSignerInputContentTypeField {
+        [Description("signature")]
+        Signature,
         [Description("initial")]
         Initial,
         [Description("stamp")]
         Stamp,
-        [Description("signature")]
-        Signature,
-        [Description("company")]
-        Company,
-        [Description("title")]
-        Title,
-        [Description("email")]
-        Email,
+        [Description("date")]
+        Date,
+        [Description("checkbox")]
+        Checkbox,
+        [Description("text")]
+        Text,
         [Description("full_name")]
         FullName,
         [Description("first_name")]
         FirstName,
         [Description("last_name")]
         LastName,
-        [Description("text")]
-        Text,
-        [Description("date")]
-        Date,
-        [Description("checkbox")]
-        Checkbox,
+        [Description("company")]
+        Company,
+        [Description("title")]
+        Title,
+        [Description("email")]
+        Email,
         [Description("attachment")]
-        Attachment
+        Attachment,
+        [Description("radio")]
+        Radio,
+        [Description("dropdown")]
+        Dropdown
     }
 }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Box.Schemas {
     public class ClientError {
         /// <summary>
-        /// `error`
+        /// error
         /// </summary>
         [JsonPropertyName("type")]
         public ClientErrorTypeField? Type { get; set; } = default;

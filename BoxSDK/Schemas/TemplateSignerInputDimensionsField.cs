@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// Relative width to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("width")]
-        public int? Width { get; set; } = default;
+        public double? Width { get; set; } = default;
 
         /// <summary>
         /// Relative height to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("height")]
-        public int? Height { get; set; } = default;
+        public double? Height { get; set; } = default;
 
         public TemplateSignerInputDimensionsField() {
             

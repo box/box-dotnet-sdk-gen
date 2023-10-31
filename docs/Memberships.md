@@ -32,6 +32,8 @@ await client.Memberships.GetUserMembershipsAsync(user.Id).ConfigureAwait(false)
   - Query parameters of getUserMemberships method
 - headers `GetUserMembershipsHeadersArg`
   - Headers of getUserMemberships method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -66,6 +68,8 @@ await client.Memberships.GetGroupMembershipsAsync(group.Id).ConfigureAwait(false
   - Query parameters of getGroupMemberships method
 - headers `GetGroupMembershipsHeadersArg`
   - Headers of getGroupMemberships method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -99,6 +103,8 @@ await client.Memberships.CreateGroupMembershipAsync(new CreateGroupMembershipReq
   - Query parameters of createGroupMembership method
 - headers `CreateGroupMembershipHeadersArg`
   - Headers of createGroupMembership method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -121,7 +127,7 @@ See the endpoint docs at
 
 <!-- sample get_group_memberships_id -->
 ```
-await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -132,6 +138,8 @@ await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id).Configu
   - Query parameters of getGroupMembershipById method
 - headers `GetGroupMembershipByIdHeadersArg`
   - Headers of getGroupMembershipById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -154,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id!, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -167,6 +175,8 @@ await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id, new 
   - Query parameters of updateGroupMembershipById method
 - headers `UpdateGroupMembershipByIdHeadersArg`
   - Headers of updateGroupMembershipById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -189,7 +199,7 @@ See the endpoint docs at
 
 <!-- sample delete_group_memberships_id -->
 ```
-await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id).ConfigureAwait(false)
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -198,6 +208,8 @@ await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id).Conf
   - The ID of the group membership. Example: "434534"
 - headers `DeleteGroupMembershipByIdHeadersArg`
   - Headers of deleteGroupMembershipById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

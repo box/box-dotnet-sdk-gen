@@ -7,7 +7,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateWebLinkByIdQueryParamsArg {
+    public class RestoreWeblinkFromTrashQueryParamsArg {
         /// <summary>
         /// A comma-separated list of attributes to include in the
         /// response. This can be used to request fields that are
@@ -21,7 +21,7 @@ namespace Box.Managers {
         /// </summary>
         public IReadOnlyList<string>? Fields { get; set; } = default;
 
-        public CreateWebLinkByIdQueryParamsArg() {
+        public RestoreWeblinkFromTrashQueryParamsArg() {
             
         }
     }

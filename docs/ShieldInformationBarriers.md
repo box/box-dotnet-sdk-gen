@@ -8,7 +8,7 @@
 
 ## Get shield information barrier with specified ID
 
-Get shield information barrier based on provided ID..
+Get shield information barrier based on provided ID.
 
 This operation is performed by calling function `GetShieldInformationBarrierById`.
 
@@ -23,6 +23,8 @@ See the endpoint docs at
   - The ID of the shield information barrier. Example: "1910967"
 - headers `GetShieldInformationBarrierByIdHeadersArg`
   - Headers of getShieldInformationBarrierById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -49,6 +51,8 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierChangeStatus method
 - headers `CreateShieldInformationBarrierChangeStatusHeadersArg`
   - Headers of createShieldInformationBarrierChangeStatus method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -76,11 +80,13 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarriers method
 - headers `GetShieldInformationBarriersHeadersArg`
   - Headers of getShieldInformationBarriers method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `ShieldInformationBarriers`.
 
 Returns a paginated list of
 shield information barrier objects,
@@ -102,10 +108,12 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `ShieldInformationBarrier`
+- requestBody `CreateShieldInformationBarrierRequestBodyArg`
   - Request body of createShieldInformationBarrier method
 - headers `CreateShieldInformationBarrierHeadersArg`
   - Headers of createShieldInformationBarrier method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

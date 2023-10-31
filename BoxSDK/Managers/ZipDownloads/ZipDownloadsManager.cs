@@ -41,10 +41,13 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of createZipDownload method
         /// </param>
-        public async System.Threading.Tasks.Task<ZipDownload> CreateZipDownloadAsync(ZipDownloadRequest requestBody, CreateZipDownloadHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<ZipDownload> CreateZipDownloadAsync(ZipDownloadRequest requestBody, CreateZipDownloadHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new CreateZipDownloadHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/zip_downloads"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/zip_downloads"), new FetchOptions(method: "POST", headers: headersMap, body: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ZipDownload>(response.Text);
         }
 
@@ -70,10 +73,13 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of getZipDownloadContent method
         /// </param>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetZipDownloadContentAsync(string zipDownloadId, GetZipDownloadContentHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetZipDownloadContentAsync(string zipDownloadId, GetZipDownloadContentHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetZipDownloadContentHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://dl.boxcloud.com/2.0/zip_downloads/", StringUtils.ToStringRepresentation(zipDownloadId), "/content"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "binary", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://dl.boxcloud.com/2.0/zip_downloads/", StringUtils.ToStringRepresentation(zipDownloadId), "/content"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "binary", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return response.Content;
         }
 
@@ -98,10 +104,13 @@ namespace Box.Managers {
         /// <param name="headers">
         /// Headers of getZipDownloadStatus method
         /// </param>
-        public async System.Threading.Tasks.Task<ZipDownloadStatus> GetZipDownloadStatusAsync(string zipDownloadId, GetZipDownloadStatusHeadersArg? headers = default) {
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<ZipDownloadStatus> GetZipDownloadStatusAsync(string zipDownloadId, GetZipDownloadStatusHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetZipDownloadStatusHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/zip_downloads/", StringUtils.ToStringRepresentation(zipDownloadId), "/status"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/zip_downloads/", StringUtils.ToStringRepresentation(zipDownloadId), "/status"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ZipDownloadStatus>(response.Text);
         }
 

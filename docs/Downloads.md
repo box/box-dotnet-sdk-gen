@@ -25,6 +25,8 @@ await client.Downloads.DownloadFileAsync(uploadedFile.Id).ConfigureAwait(false)
   - Query parameters of downloadFile method
 - headers `DownloadFileHeadersArg`
   - Headers of downloadFile method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

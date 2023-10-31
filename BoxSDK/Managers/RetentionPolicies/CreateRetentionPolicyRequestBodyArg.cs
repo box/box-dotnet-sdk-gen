@@ -61,7 +61,7 @@ namespace Box.Managers {
         /// Use this type if your retention policy
         /// is not related to any regulatory purposes.
         /// 
-        /// * `non-modifiable`: You can modify the retention policy
+        /// * `non_modifiable`: You can modify the retention policy
         /// only in a limited way: add a folder, lengthen the duration,
         /// retire the policy, change the disposition action
         /// or notification settings. You cannot perform other actions,

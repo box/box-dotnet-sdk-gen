@@ -31,6 +31,8 @@ See the endpoint docs at
   - Query parameters of createInvite method
 - headers `CreateInviteHeadersArg`
   - Headers of createInvite method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -59,6 +61,8 @@ See the endpoint docs at
   - Query parameters of getInviteById method
 - headers `GetInviteByIdHeadersArg`
   - Headers of getInviteById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

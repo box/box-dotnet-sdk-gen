@@ -22,6 +22,8 @@ See the endpoint docs at
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - headers `GetFolderWatermarkHeadersArg`
   - Headers of getFolderWatermark method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - Request body of updateFolderWatermark method
 - headers `UpdateFolderWatermarkHeadersArg`
   - Headers of updateFolderWatermark method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -79,6 +83,8 @@ See the endpoint docs at
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - headers `DeleteFolderWatermarkHeadersArg`
   - Headers of deleteFolderWatermark method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

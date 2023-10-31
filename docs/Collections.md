@@ -24,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getCollections method
 - headers `GetCollectionsHeadersArg`
   - Headers of getCollections method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -53,6 +55,8 @@ See the endpoint docs at
   - Query parameters of getCollectionItems method
 - headers `GetCollectionItemsHeadersArg`
   - Headers of getCollectionItems method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

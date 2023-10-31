@@ -8,10 +8,11 @@ using System.Text.Json;
 namespace Box.Schemas {
     public class SignRequestCreateSigner {
         /// <summary>
-        /// Email address of the signer
+        /// Email address of the signer.
+        /// The email address of the signer is required when making signature requests, except when using templates that are configured to include emails.
         /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; set; }
+        public string? Email { get; set; } = default;
 
         /// <summary>
         /// Defines the role of the signer in the sign request. A `signer`
@@ -33,7 +34,7 @@ namespace Box.Schemas {
         /// Order of the signer
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get; set; } = default;
+        public long? Order { get; set; } = default;
 
         /// <summary>
         /// User ID for the signer in an external application responsible
@@ -85,8 +86,8 @@ namespace Box.Schemas {
         [JsonPropertyName("password")]
         public string? Password { get; set; } = default;
 
-        public SignRequestCreateSigner(string email) {
-            Email = email;
+        public SignRequestCreateSigner() {
+            
         }
     }
 }

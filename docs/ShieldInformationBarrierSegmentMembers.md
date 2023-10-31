@@ -24,6 +24,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment Member. Example: "7815"
 - headers `GetShieldInformationBarrierSegmentMemberByIdHeadersArg`
   - Headers of getShieldInformationBarrierSegmentMemberById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -51,6 +53,8 @@ See the endpoint docs at
   - The ID of the shield information barrier segment Member. Example: "7815"
 - headers `DeleteShieldInformationBarrierSegmentMemberByIdHeadersArg`
   - Headers of deleteShieldInformationBarrierSegmentMemberById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -79,11 +83,13 @@ See the endpoint docs at
   - Query parameters of getShieldInformationBarrierSegmentMembers method
 - headers `GetShieldInformationBarrierSegmentMembersHeadersArg`
   - Headers of getShieldInformationBarrierSegmentMembers method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
 
-This function returns a value of type `null`.
+This function returns a value of type `ShieldInformationBarrierSegmentMembers`.
 
 Returns a paginated list of
 shield information barrier segment member objects.
@@ -106,12 +112,14 @@ See the endpoint docs at
   - Request body of createShieldInformationBarrierSegmentMember method
 - headers `CreateShieldInformationBarrierSegmentMemberHeadersArg`
   - Headers of createShieldInformationBarrierSegmentMember method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
 
 This function returns a value of type `ShieldInformationBarrierSegmentMember`.
 
-Returns a new shield information barrier segment Member object.
+Returns a new shield information barrier segment member object.
 
 

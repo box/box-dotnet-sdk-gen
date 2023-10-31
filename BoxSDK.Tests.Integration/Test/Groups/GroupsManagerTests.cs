@@ -2,28 +2,22 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box;
 using Box.Schemas;
 using Box.Managers;
-using Box;
 
 namespace Box.Tests.Integration {
     [TestClass]
     public class GroupsManagerTests {
-        public JwtConfig jwtConfig { get; }
-
-        public BoxJwtAuth auth { get; }
-
         public BoxClient client { get; }
 
         public GroupsManagerTests() {
-            jwtConfig = JwtConfig.FromConfigJsonString(Utils.DecodeBase64(Utils.GetEnvVar("JWT_CONFIG_BASE_64")));
-            auth = new BoxJwtAuth(config: jwtConfig);
-            client = new BoxClient(auth: auth);
+            client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetGroups() {
             Groups groups = await client.Groups.GetGroupsAsync().ConfigureAwait(false);
-            Assert.IsTrue(groups.TotalCount >= 0);
+            Assert.IsTrue(groups.TotalCount! >= 0);
         }
 
         [TestMethod]

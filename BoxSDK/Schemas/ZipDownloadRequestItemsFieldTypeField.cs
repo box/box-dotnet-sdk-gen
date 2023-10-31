@@ -7,7 +7,7 @@ namespace Box.Schemas {
     public enum ZipDownloadRequestItemsFieldTypeField {
         [Description("file")]
         File,
-        [Description("folder.")]
+        [Description("folder")]
         Folder
     }
 }

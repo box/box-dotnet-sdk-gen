@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// The number of comments on this file
         /// </summary>
         [JsonPropertyName("comment_count")]
-        public int? CommentCount { get; set; } = default;
+        public long? CommentCount { get; set; } = default;
 
         [JsonPropertyName("permissions")]
         public FileFullPermissionsField? Permissions { get; set; } = default;

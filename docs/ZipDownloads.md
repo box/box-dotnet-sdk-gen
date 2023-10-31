@@ -37,6 +37,8 @@ See the endpoint docs at
   - Request body of createZipDownload method
 - headers `CreateZipDownloadHeadersArg`
   - Headers of createZipDownload method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -77,6 +79,8 @@ See the endpoint docs at
   - The unique identifier that represent this `zip` archive. Example: "Lu6fA9Ob-jyysp3AAvMF4AkLEwZwAYbL=tgj2zIC=eK9RvJnJbjJl9rNh2qBgHDpyOCAOhpM=vajg2mKq8Mdd"
 - headers `GetZipDownloadContentHeadersArg`
   - Headers of getZipDownloadContent method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -115,6 +119,8 @@ See the endpoint docs at
   - The unique identifier that represent this `zip` archive. Example: "Lu6fA9Ob-jyysp3AAvMF4AkLEwZwAYbL=tgj2zIC=eK9RvJnJbjJl9rNh2qBgHDpyOCAOhpM=vajg2mKq8Mdd"
 - headers `GetZipDownloadStatusHeadersArg`
   - Headers of getZipDownloadStatus method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

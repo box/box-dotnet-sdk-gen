@@ -26,6 +26,8 @@ See the endpoint docs at
   - Query parameters of getIntegrationMappingSlack method
 - headers `GetIntegrationMappingSlackHeadersArg`
   - Headers of getIntegrationMappingSlack method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -56,6 +58,8 @@ See the endpoint docs at
   - Request body of createIntegrationMappingSlack method
 - headers `CreateIntegrationMappingSlackHeadersArg`
   - Headers of createIntegrationMappingSlack method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -88,6 +92,8 @@ See the endpoint docs at
   - Request body of updateIntegrationMappingSlackById method
 - headers `UpdateIntegrationMappingSlackByIdHeadersArg`
   - Headers of updateIntegrationMappingSlackById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -118,6 +124,8 @@ See the endpoint docs at
   - An ID of an integration mapping Example: "11235432"
 - headers `DeleteIntegrationMappingSlackByIdHeadersArg`
   - Headers of deleteIntegrationMappingSlackById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

@@ -32,7 +32,7 @@ namespace Box.Schemas {
         /// application.
         /// </summary>
         [JsonPropertyName("$typeVersion")]
-        public int? TypeVersion { get; set; } = default;
+        public long? TypeVersion { get; set; } = default;
 
         [JsonPropertyName("extraData")]
         public Dictionary<string, string>? ExtraData { get; set; } = default;

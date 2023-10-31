@@ -37,6 +37,8 @@ await client.Uploads.UploadFileVersionAsync(uploadedFile.Id, new UploadFileVersi
   - Query parameters of uploadFileVersion method
 - headers `UploadFileVersionHeadersArg`
   - Headers of uploadFileVersion method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -65,7 +67,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false)
+await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileByteStream), new UploadFileQueryParamsArg(), new UploadFileHeadersArg(), cancellationToken).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -76,6 +78,8 @@ await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: ne
   - Query parameters of uploadFile method
 - headers `UploadFileHeadersArg`
   - Headers of uploadFile method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -103,6 +107,8 @@ See the endpoint docs at
   - Request body of preflightFileUpload method
 - headers `PreflightFileUploadHeadersArg`
   - Headers of preflightFileUpload method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

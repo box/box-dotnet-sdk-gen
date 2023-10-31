@@ -19,6 +19,12 @@ namespace Box.Schemas {
         [JsonPropertyName("finalized_at")]
         public string? FinalizedAt { get; set; } = default;
 
+        /// <summary>
+        /// Additional info about the decision, such as the decline reason from the signer
+        /// </summary>
+        [JsonPropertyName("additional_info")]
+        public string? AdditionalInfo { get; set; } = default;
+
         public SignRequestSignerSignerDecisionField() {
             
         }

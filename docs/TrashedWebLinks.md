@@ -12,23 +12,28 @@ Restores a web link that has been moved to the trash.
 An optional new parent ID can be provided to restore the  web link to in case
 the original folder has been deleted.
 
-This operation is performed by calling function `CreateWebLinkById`.
+This operation is performed by calling function `RestoreWeblinkFromTrash`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-web-links-id/).
 
-*Currently we don't have an example for calling `CreateWebLinkById` in integration tests*
+<!-- sample post_web_links_id -->
+```
+await client.TrashedWebLinks.RestoreWeblinkFromTrashAsync(weblink.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- requestBody `CreateWebLinkByIdRequestBodyArg`
-  - Request body of createWebLinkById method
-- queryParams `CreateWebLinkByIdQueryParamsArg`
-  - Query parameters of createWebLinkById method
-- headers `CreateWebLinkByIdHeadersArg`
-  - Headers of createWebLinkById method
+- requestBody `RestoreWeblinkFromTrashRequestBodyArg`
+  - Request body of restoreWeblinkFromTrash method
+- queryParams `RestoreWeblinkFromTrashQueryParamsArg`
+  - Query parameters of restoreWeblinkFromTrash method
+- headers `RestoreWeblinkFromTrashHeadersArg`
+  - Headers of restoreWeblinkFromTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -47,7 +52,10 @@ This operation is performed by calling function `GetWebLinkTrash`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-web-links-id-trash/).
 
-*Currently we don't have an example for calling `GetWebLinkTrash` in integration tests*
+<!-- sample get_web_links_id_trash -->
+```
+await client.TrashedWebLinks.GetWebLinkTrashAsync(weblink.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -57,6 +65,8 @@ See the endpoint docs at
   - Query parameters of getWebLinkTrash method
 - headers `GetWebLinkTrashHeadersArg`
   - Headers of getWebLinkTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -78,7 +88,10 @@ This operation is performed by calling function `DeleteWebLinkTrash`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-web-links-id-trash/).
 
-*Currently we don't have an example for calling `DeleteWebLinkTrash` in integration tests*
+<!-- sample delete_web_links_id_trash -->
+```
+await client.TrashedWebLinks.DeleteWebLinkTrashAsync(weblink.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -86,6 +99,8 @@ See the endpoint docs at
   - The ID of the web link. Example: "12345"
 - headers `DeleteWebLinkTrashHeadersArg`
   - Headers of deleteWebLinkTrash method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

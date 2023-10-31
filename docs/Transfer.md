@@ -56,6 +56,8 @@ See the endpoint docs at
   - Query parameters of transferOwnedFolder method
 - headers `TransferOwnedFolderHeadersArg`
   - Headers of transferOwnedFolder method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

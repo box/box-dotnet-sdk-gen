@@ -18,7 +18,7 @@ namespace Box.Managers {
         /// `1`
         /// </summary>
         [JsonPropertyName("value")]
-        public int? Value { get; set; } = default;
+        public double? Value { get; set; } = default;
 
         public UpdateSkillInvocationByIdRequestBodyArgUsageField() {
             

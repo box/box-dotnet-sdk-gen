@@ -14,7 +14,7 @@ namespace Box.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("lt")]
-        public int? Lt { get; set; } = default;
+        public double? Lt { get; set; } = default;
 
         /// <summary>
         /// Specifies the (inclusive) lower bound for the metadata field
@@ -23,7 +23,7 @@ namespace Box.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("gt")]
-        public int? Gt { get; set; } = default;
+        public double? Gt { get; set; } = default;
 
         public MetadataFieldFilterFloatRangeMapValue() {
             

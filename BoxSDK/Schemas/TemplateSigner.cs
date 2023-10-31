@@ -38,7 +38,7 @@ namespace Box.Schemas {
         /// Order of the signer
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get; set; } = default;
+        public long? Order { get; set; } = default;
 
         public TemplateSigner() {
             

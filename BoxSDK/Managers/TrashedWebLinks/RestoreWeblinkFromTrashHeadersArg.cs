@@ -7,13 +7,13 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateWebLinkByIdHeadersArg {
+    public class RestoreWeblinkFromTrashHeadersArg {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?>? ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
+        public Dictionary<string, string?> ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
 
-        public CreateWebLinkByIdHeadersArg() {
+        public RestoreWeblinkFromTrashHeadersArg() {
             
         }
     }

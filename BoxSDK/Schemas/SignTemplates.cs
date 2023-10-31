@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class SignTemplates {
@@ -25,6 +26,12 @@ namespace Box.Schemas {
         /// </summary>
         [JsonPropertyName("prev_marker")]
         public string? PrevMarker { get; set; } = default;
+
+        /// <summary>
+        /// A list of templates.
+        /// </summary>
+        [JsonPropertyName("entries")]
+        public IReadOnlyList<SignTemplate>? Entries { get; set; } = default;
 
         public SignTemplates() {
             

@@ -9,6 +9,7 @@
     - [Obtaining Service Account token](#obtaining-service-account-token)
     - [Obtaining User token](#obtaining-user-token)
     - [Switching between Service Account and User](#switching-between-service-account-and-user)
+  - [OAuth 2.0 Auth](#oauth-20-auth)
 - [Token storage](#token-storage)
   - [In-memory token storage](#in-memory-token-storage)
   - [Custom storage](#custom-storage)
@@ -117,3 +118,68 @@ await auth.AsUserAsync(userId: "YOUR_USER_ID");
 to authenticate as User with provided ID. The new token will be automatically fetched with a next API call.
 
 [ccg_guide]: https://developer.box.com/guides/authentication/client-credentials/client-credentials-setup/
+
+## OAuth 2.0 Auth
+
+If your application needs to integrate with existing Box users who will provide
+their login credentials to grant your application access to their account, you
+will need to go through the standard OAuth2 login flow. A detailed guide for
+this process is available in the
+[Authentication with OAuth API documentation](https://developer.box.com/en/guides/authentication/oauth2/).
+
+Using an auth code is the most common way of authenticating with the Box API for
+existing Box users, to integrate with their accounts.
+Your application must provide a way for the user to login to Box (usually with a
+browser or web view) in order to obtain an auth code.
+
+<!-- sample get_authorize -->
+
+```c#
+using Box;
+
+var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET");
+var auth = new BoxOAuth(config: config);
+
+// the URL to redirect the user to
+var authorizeUrl = auth.GetAuthorizeUrl();
+```
+
+After a user logs in and grants your application access to their Box account,
+they will be redirected to your application's `redirect_uri` which will contain
+an auth code. This auth code can then be used along with your client ID and
+client secret to establish an API connection.
+You need to provide the auth code to the SDK to obtain an access token, then you can use the SDK as usual.
+
+<!-- sample post_oauth2_token --->
+
+```c#
+await auth.GetTokensAuthorizationCodeGrantAsync("code");
+```
+
+# Token storage
+
+## In-memory token storage
+
+By default, the SDK stores the access token in volatile memory. When rerunning your application,
+the access token won't be reused from the previous run; a new token has to be obtained again.
+To use in-memory token storage, you don't need to do anything more than
+create an Auth class using AuthConfig, for example, for BoxOAuth:
+
+```c#
+using Box;
+
+var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET");
+var auth = new BoxOAuth(config: config);
+```
+
+## Custom storage
+
+You can also provide a custom token storage class. All you need to do is create a class that inherits from `TokenStorage`
+and implements all of its abstract methods. Then, pass an instance of your class to the AuthConfig constructor.
+
+```c#
+using Box;
+
+var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", tokenStorage: new MyCustomTokenStorage());
+var auth = new BoxOAuth(config: config)
+```

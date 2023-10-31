@@ -27,6 +27,8 @@ See the endpoint docs at
   - Query parameters of getFileCollaborations method
 - headers `GetFileCollaborationsHeadersArg`
   - Headers of getFileCollaborations method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -62,6 +64,8 @@ See the endpoint docs at
   - Query parameters of getFolderCollaborations method
 - headers `GetFolderCollaborationsHeadersArg`
   - Headers of getFolderCollaborations method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -93,6 +97,8 @@ See the endpoint docs at
   - Query parameters of getCollaborations method
 - headers `GetCollaborationsHeadersArg`
   - Headers of getCollaborations method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -128,6 +134,8 @@ See the endpoint docs at
   - Query parameters of getGroupCollaborations method
 - headers `GetGroupCollaborationsHeadersArg`
   - Headers of getGroupCollaborations method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

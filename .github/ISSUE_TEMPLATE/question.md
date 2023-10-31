@@ -46,7 +46,7 @@ assignees: mwwoda, mhagmajer, arjankowski, lukaszsocha2, bartlomiejleszczynski, 
 ### Versions Used
 
 .NET SDK: <!-- Replace with the version of the .NET SDK you're using. -->
-.NET: <!-- Replace with the version of .NET your application is running on. -—>
+.NET: <!-- Replace with the version of .NET your application is running on. -->
 
 [sdk-docs]: https://github.com/box/box-dotnet-sdk-gen/tree/main/docs
 [api-docs]: https://developer.box.com/docs

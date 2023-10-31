@@ -68,7 +68,7 @@ namespace Box.Schemas {
         /// Set the number of days after which the created signature request will automatically expire if not completed. By default, we do not apply any expiration date on signature requests, and the signature request does not expire.
         /// </summary>
         [JsonPropertyName("days_valid")]
-        public int? DaysValid { get; set; } = default;
+        public long? DaysValid { get; set; } = default;
 
         /// <summary>
         /// This can be used to reference an ID in an external system that the sign request is related to.

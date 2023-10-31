@@ -27,6 +27,8 @@ See the endpoint docs at
   - Request body of createMetadataQueryExecuteRead method
 - headers `CreateMetadataQueryExecuteReadHeadersArg`
   - Headers of createMetadataQueryExecuteRead method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -53,6 +55,8 @@ See the endpoint docs at
   - Query parameters of getMetadataQueryIndices method
 - headers `GetMetadataQueryIndicesHeadersArg`
   - Headers of getMetadataQueryIndices method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -80,6 +84,8 @@ See the endpoint docs at
   - Query parameters of getSearch method
 - headers `GetSearchHeadersArg`
   - Headers of getSearch method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

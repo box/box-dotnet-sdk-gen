@@ -10,8 +10,6 @@
 ## List storage policy assignments
 
 Fetches all the storage policy assignment for an enterprise or user.
-Only a Primary Admin can access this endpoint. The user
-needs to generate a token for an account to authenticate this request.
 
 This operation is performed by calling function `GetStoragePolicyAssignments`.
 
@@ -26,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getStoragePolicyAssignments method
 - headers `GetStoragePolicyAssignmentsHeadersArg`
   - Headers of getStoragePolicyAssignments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -39,8 +39,6 @@ the enterprise or user.
 ## Assign storage policy
 
 Creates a storage policy assignment for an enterprise or user.
-Only a Primary Admin can access this endpoint. The user
-needs to generate a token for an account to authenticate this request.
 
 This operation is performed by calling function `CreateStoragePolicyAssignment`.
 
@@ -55,6 +53,8 @@ See the endpoint docs at
   - Request body of createStoragePolicyAssignment method
 - headers `CreateStoragePolicyAssignmentHeadersArg`
   - Headers of createStoragePolicyAssignment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -66,7 +66,7 @@ Returns the new storage policy assignment created.
 
 ## Get storage policy assignment
 
-Fetches a specific storage policy assignment. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+Fetches a specific storage policy assignment.
 
 This operation is performed by calling function `GetStoragePolicyAssignmentById`.
 
@@ -81,6 +81,8 @@ See the endpoint docs at
   - The ID of the storage policy assignment. Example: "932483"
 - headers `GetStoragePolicyAssignmentByIdHeadersArg`
   - Headers of getStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -92,7 +94,7 @@ Returns a storage policy assignment object.
 
 ## Update storage policy assignment
 
-Updates a specific storage policy assignment. Only a Primary Admin can access this endpoint. The user needs to generate a token for an account to authenticate this request.
+Updates a specific storage policy assignment.
 
 This operation is performed by calling function `UpdateStoragePolicyAssignmentById`.
 
@@ -109,6 +111,8 @@ See the endpoint docs at
   - Request body of updateStoragePolicyAssignmentById method
 - headers `UpdateStoragePolicyAssignmentByIdHeadersArg`
   - Headers of updateStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -129,9 +133,6 @@ storage policy.
 There is a rate limit for calling this endpoint of only
 twice per user in a 24 hour time frame.
 
-Only a Primary Admin can access this endpoint. The user
-needs to generate a token for an account to authenticate this request.
-
 This operation is performed by calling function `DeleteStoragePolicyAssignmentById`.
 
 See the endpoint docs at
@@ -145,6 +146,8 @@ See the endpoint docs at
   - The ID of the storage policy assignment. Example: "932483"
 - headers `DeleteStoragePolicyAssignmentByIdHeadersArg`
   - Headers of deleteStoragePolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

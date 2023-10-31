@@ -24,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getTermOfServiceUserStatuses method
 - headers `GetTermOfServiceUserStatusesHeadersArg`
   - Headers of getTermOfServiceUserStatuses method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -50,6 +52,8 @@ See the endpoint docs at
   - Request body of createTermOfServiceUserStatus method
 - headers `CreateTermOfServiceUserStatusHeadersArg`
   - Headers of createTermOfServiceUserStatus method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -78,6 +82,8 @@ See the endpoint docs at
   - Request body of updateTermOfServiceUserStatusById method
 - headers `UpdateTermOfServiceUserStatusByIdHeadersArg`
   - Headers of updateTermOfServiceUserStatusById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

@@ -24,6 +24,8 @@ See the endpoint docs at
   - Request body of createUserTerminateSession method
 - headers `CreateUserTerminateSessionHeadersArg`
   - Headers of createUserTerminateSession method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -53,6 +55,8 @@ See the endpoint docs at
   - Request body of createGroupTerminateSession method
 - headers `CreateGroupTerminateSessionHeadersArg`
   - Headers of createGroupTerminateSession method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

@@ -23,6 +23,9 @@ namespace Box.Managers {
         [JsonPropertyName("shield_information_barrier_segment")]
         public CreateShieldInformationBarrierSegmentMemberRequestBodyArgShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; set; }
 
+        /// <summary>
+        /// User to which restriction will be applied.
+        /// </summary>
         [JsonPropertyName("user")]
         public UserBase User { get; set; }
 

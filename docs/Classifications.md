@@ -28,6 +28,8 @@ See the endpoint docs at
 
 - headers `GetMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg`
   - Headers of getMetadataTemplateEnterpriseSecurityClassificationSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -55,6 +57,8 @@ See the endpoint docs at
 
 - headers `DeleteMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg`
   - Headers of deleteMetadataTemplateEnterpriseSecurityClassificationSchema method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -87,6 +91,8 @@ See the endpoint docs at
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -120,6 +126,8 @@ See the endpoint docs at
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -153,6 +161,8 @@ See the endpoint docs at
   - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
 - headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg`
   - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -187,6 +197,8 @@ See the endpoint docs at
   - Request body of createMetadataTemplateSchemaClassification method
 - headers `CreateMetadataTemplateSchemaClassificationHeadersArg`
   - Headers of createMetadataTemplateSchemaClassification method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

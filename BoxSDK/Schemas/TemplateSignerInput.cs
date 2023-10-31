@@ -29,7 +29,7 @@ namespace Box.Schemas {
         /// Index of page that the input is on.
         /// </summary>
         [JsonPropertyName("page_index")]
-        public int PageIndex { get; set; }
+        public long PageIndex { get; set; }
 
         /// <summary>
         /// Document identifier.
@@ -67,7 +67,7 @@ namespace Box.Schemas {
         [JsonPropertyName("label")]
         public string? Label { get; set; } = default;
 
-        public TemplateSignerInput(int pageIndex) {
+        public TemplateSignerInput(long pageIndex) {
             PageIndex = pageIndex;
         }
     }

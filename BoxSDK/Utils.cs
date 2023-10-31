@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace Box
 {
@@ -102,5 +103,17 @@ namespace Box
         /// <param name="buffer2">Second byte array.</param>
         /// <returns>True if byte arrays are equals, otherwise false.</returns>
         public static bool BufferEquals(byte[] buffer1, byte[] buffer2) => buffer1.SequenceEqual(buffer2);
+
+        /// <summary>
+        /// Creates a cancellation token that will be cancelled after a given delay in ms.
+        /// </summary>
+        /// <param name="delay">Delay in ms</param>
+        /// <returns>Cancellation token</returns>
+        public static CancellationToken CreateTokenAndCancelAfter(int delay)
+        {
+            var cancellationTokenSource = new CancellationTokenSource();
+            cancellationTokenSource.CancelAfter(delay);
+            return cancellationTokenSource.Token;
+        }
     }
 }

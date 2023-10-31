@@ -63,7 +63,7 @@ namespace Box.Schemas {
         /// get very large and cause an integer overflow.
         /// </summary>
         [JsonPropertyName("size")]
-        public int Size { get; set; }
+        public long Size { get; set; }
 
         [JsonPropertyName("path_collection")]
         public TrashFilePathCollectionField PathCollection { get; set; }
@@ -137,7 +137,7 @@ namespace Box.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFileItemStatusField ItemStatus { get; set; }
 
-        public TrashFile(string id, TrashFileTypeField type, string sequenceId, string sha1, string description, int size, TrashFilePathCollectionField pathCollection, string createdAt, string modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus) {
+        public TrashFile(string id, TrashFileTypeField type, string sequenceId, string sha1, string description, long size, TrashFilePathCollectionField pathCollection, string createdAt, string modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus) {
             Id = id;
             Type = type;
             SequenceId = sequenceId;

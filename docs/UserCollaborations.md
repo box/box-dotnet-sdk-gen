@@ -25,6 +25,8 @@ See the endpoint docs at
   - Query parameters of getCollaborationById method
 - headers `GetCollaborationByIdHeadersArg`
   - Headers of getCollaborationById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -55,6 +57,8 @@ See the endpoint docs at
   - Request body of updateCollaborationById method
 - headers `UpdateCollaborationByIdHeadersArg`
   - Headers of updateCollaborationById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -83,6 +87,8 @@ See the endpoint docs at
   - The ID of the collaboration Example: "1234"
 - headers `DeleteCollaborationByIdHeadersArg`
   - Headers of deleteCollaborationById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -125,6 +131,8 @@ See the endpoint docs at
   - Query parameters of createCollaboration method
 - headers `CreateCollaborationHeadersArg`
   - Headers of createCollaboration method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

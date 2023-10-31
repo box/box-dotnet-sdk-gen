@@ -28,6 +28,8 @@ await client.FolderLocks.GetFolderLocksAsync(new GetFolderLocksQueryParamsArg(fo
   - Query parameters of getFolderLocks method
 - headers `GetFolderLocksHeadersArg`
   - Headers of getFolderLocks method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -62,6 +64,8 @@ await client.FolderLocks.CreateFolderLockAsync(new CreateFolderLockRequestBodyAr
   - Request body of createFolderLock method
 - headers `CreateFolderLockHeadersArg`
   - Headers of createFolderLock method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -86,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample delete_folder_locks_id -->
 ```
-await client.FolderLocks.DeleteFolderLockByIdAsync(folderLock.Id).ConfigureAwait(false)
+await client.FolderLocks.DeleteFolderLockByIdAsync(folderLock.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -95,6 +99,8 @@ await client.FolderLocks.DeleteFolderLockByIdAsync(folderLock.Id).ConfigureAwait
   - The ID of the folder lock. Example: "12345"
 - headers `DeleteFolderLockByIdHeadersArg`
   - Headers of deleteFolderLockById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

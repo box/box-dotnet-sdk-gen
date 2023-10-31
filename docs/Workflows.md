@@ -25,6 +25,8 @@ See the endpoint docs at
   - Query parameters of getWorkflows method
 - headers `GetWorkflowsHeadersArg`
   - Headers of getWorkflows method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -56,6 +58,8 @@ See the endpoint docs at
   - Request body of createWorkflowStart method
 - headers `CreateWorkflowStartHeadersArg`
   - Headers of createWorkflowStart method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

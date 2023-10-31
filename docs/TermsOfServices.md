@@ -24,6 +24,8 @@ See the endpoint docs at
   - Query parameters of getTermOfServices method
 - headers `GetTermOfServicesHeadersArg`
   - Headers of getTermOfServices method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -52,6 +54,8 @@ See the endpoint docs at
   - Request body of createTermOfService method
 - headers `CreateTermOfServiceHeadersArg`
   - Headers of createTermOfService method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -78,6 +82,8 @@ See the endpoint docs at
   - The ID of the terms of service. Example: "324234"
 - headers `GetTermOfServiceByIdHeadersArg`
   - Headers of getTermOfServiceById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -106,6 +112,8 @@ See the endpoint docs at
   - Request body of updateTermOfServiceById method
 - headers `UpdateTermOfServiceByIdHeadersArg`
   - Headers of updateTermOfServiceById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

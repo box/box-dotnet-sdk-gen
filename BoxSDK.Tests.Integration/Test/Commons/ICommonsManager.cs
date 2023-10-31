@@ -1,11 +1,17 @@
 using Box.Schemas;
-using Box;
 using Box.Managers;
+using Box;
 
 namespace Box {
     public interface ICommonsManager {
-        public System.Threading.Tasks.Task<File> UploadNewFileAsync();
+        public BoxClient GetClientWithJwtAuth();
+
+        public BoxClient GetDefaultClient();
 
         public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
+
+        public System.Threading.Tasks.Task<File> UploadNewFileAsync();
+
+        public BoxClient GetClientWithCcgAuth();
     }
 }

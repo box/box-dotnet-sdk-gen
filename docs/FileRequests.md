@@ -23,6 +23,8 @@ See the endpoint docs at
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
 - headers `GetFileRequestByIdHeadersArg`
   - Headers of getFileRequestById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -52,6 +54,8 @@ See the endpoint docs at
   - Request body of updateFileRequestById method
 - headers `UpdateFileRequestByIdHeadersArg`
   - Headers of updateFileRequestById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -78,6 +82,8 @@ See the endpoint docs at
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
 - headers `DeleteFileRequestByIdHeadersArg`
   - Headers of deleteFileRequestById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -108,6 +114,8 @@ See the endpoint docs at
   - Request body of createFileRequestCopy method
 - headers `CreateFileRequestCopyHeadersArg`
   - Headers of createFileRequestCopy method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

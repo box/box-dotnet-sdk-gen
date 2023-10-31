@@ -28,6 +28,8 @@ See the endpoint docs at
   - Query parameters of getRetentionPolicyAssignments method
 - headers `GetRetentionPolicyAssignmentsHeadersArg`
   - Headers of getRetentionPolicyAssignments method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -55,6 +57,8 @@ See the endpoint docs at
   - Request body of createRetentionPolicyAssignment method
 - headers `CreateRetentionPolicyAssignmentHeadersArg`
   - Headers of createRetentionPolicyAssignment method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -83,6 +87,8 @@ See the endpoint docs at
   - Query parameters of getRetentionPolicyAssignmentById method
 - headers `GetRetentionPolicyAssignmentByIdHeadersArg`
   - Headers of getRetentionPolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -110,6 +116,8 @@ See the endpoint docs at
   - The ID of the retention policy assignment. Example: "1233123"
 - headers `DeleteRetentionPolicyAssignmentByIdHeadersArg`
   - Headers of deleteRetentionPolicyAssignmentById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -139,6 +147,8 @@ See the endpoint docs at
   - Query parameters of getRetentionPolicyAssignmentFileUnderRetention method
 - headers `GetRetentionPolicyAssignmentFileUnderRetentionHeadersArg`
   - Headers of getRetentionPolicyAssignmentFileUnderRetention method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -169,6 +179,8 @@ See the endpoint docs at
   - Query parameters of getRetentionPolicyAssignmentFileVersionUnderRetention method
 - headers `GetRetentionPolicyAssignmentFileVersionUnderRetentionHeadersArg`
   - Headers of getRetentionPolicyAssignmentFileVersionUnderRetention method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

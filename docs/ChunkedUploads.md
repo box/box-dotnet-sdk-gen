@@ -27,6 +27,8 @@ See the endpoint docs at
   - Request body of createFileUploadSession method
 - headers `CreateFileUploadSessionHeadersArg`
   - Headers of createFileUploadSession method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -55,6 +57,8 @@ See the endpoint docs at
   - Request body of createFileUploadSessionForExistingFile method
 - headers `CreateFileUploadSessionForExistingFileHeadersArg`
   - Headers of createFileUploadSessionForExistingFile method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -81,6 +85,8 @@ See the endpoint docs at
   - The ID of the upload session. Example: "D5E3F7A"
 - headers `GetFileUploadSessionByIdHeadersArg`
   - Headers of getFileUploadSessionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -109,6 +115,8 @@ See the endpoint docs at
   - Request body of uploadFilePart method
 - headers `UploadFilePartHeadersArg`
   - Headers of uploadFilePart method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -137,6 +145,8 @@ See the endpoint docs at
   - The ID of the upload session. Example: "D5E3F7A"
 - headers `DeleteFileUploadSessionByIdHeadersArg`
   - Headers of deleteFileUploadSessionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -167,6 +177,8 @@ See the endpoint docs at
   - Query parameters of getFileUploadSessionParts method
 - headers `GetFileUploadSessionPartsHeadersArg`
   - Headers of getFileUploadSessionParts method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -196,6 +208,8 @@ See the endpoint docs at
   - Request body of createFileUploadSessionCommit method
 - headers `CreateFileUploadSessionCommitHeadersArg`
   - Headers of createFileUploadSessionCommit method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

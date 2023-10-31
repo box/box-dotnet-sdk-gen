@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The unique identifier for this file request.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `file_request`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestTypeField? Type { get; set; } = default;
+        public FileRequestTypeField Type { get; set; }
 
         /// <summary>
         /// The title of file request. This is shown
@@ -128,7 +128,9 @@ namespace Box.Schemas {
         [JsonPropertyName("updated_at")]
         public string UpdatedAt { get; set; }
 
-        public FileRequest(FolderMini folder, string createdAt, string updatedAt) {
+        public FileRequest(string id, FileRequestTypeField type, FolderMini folder, string createdAt, string updatedAt) {
+            Id = id;
+            Type = type;
             Folder = folder;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;

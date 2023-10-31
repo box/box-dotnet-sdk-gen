@@ -27,6 +27,16 @@ namespace Box.Managers {
         public CreateCollaborationRequestBodyArgRoleField Role { get; set; }
 
         /// <summary>
+        /// If set to `true`, collaborators have access to
+        /// shared items, but such items won't be visible in the
+        /// All Files list. Additionally, collaborators won't
+        /// see the the path to the root folder for the
+        /// shared item.
+        /// </summary>
+        [JsonPropertyName("is_access_only")]
+        public bool? IsAccessOnly { get; set; } = default;
+
+        /// <summary>
         /// Determines if the invited users can see the entire parent path to
         /// the associated folder. The user will not gain privileges in any
         /// parent folder and therefore can not see content the user is not

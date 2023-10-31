@@ -30,6 +30,8 @@ See the endpoint docs at
   - Query parameters of getSharedItemWebLinks method
 - headers `GetSharedItemWebLinksHeadersArg`
   - Headers of getSharedItemWebLinks method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -59,6 +61,8 @@ See the endpoint docs at
   - Query parameters of getWebLinkGetSharedLink method
 - headers `GetWebLinkGetSharedLinkHeadersArg`
   - Headers of getWebLinkGetSharedLink method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -90,6 +94,8 @@ See the endpoint docs at
   - Query parameters of updateWebLinkAddSharedLink method
 - headers `UpdateWebLinkAddSharedLinkHeadersArg`
   - Headers of updateWebLinkAddSharedLink method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -121,6 +127,8 @@ See the endpoint docs at
   - Query parameters of updateWebLinkUpdateSharedLink method
 - headers `UpdateWebLinkUpdateSharedLinkHeadersArg`
   - Headers of updateWebLinkUpdateSharedLink method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -152,6 +160,8 @@ See the endpoint docs at
   - Query parameters of updateWebLinkRemoveSharedLink method
 - headers `UpdateWebLinkRemoveSharedLinkHeadersArg`
   - Headers of updateWebLinkRemoveSharedLink method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

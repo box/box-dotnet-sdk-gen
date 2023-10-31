@@ -21,6 +21,8 @@ See the endpoint docs at
   - Query parameters of getFileVersionRetentions method
 - headers `GetFileVersionRetentionsHeadersArg`
   - Headers of getFileVersionRetentions method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns
@@ -47,6 +49,8 @@ See the endpoint docs at
   - The ID of the file version retention Example: "3424234"
 - headers `GetFileVersionRetentionByIdHeadersArg`
   - Headers of getFileVersionRetentionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
 
 
 ### Returns

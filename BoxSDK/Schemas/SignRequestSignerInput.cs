@@ -23,9 +23,9 @@ namespace Box.Schemas {
         /// Index of page that the input is on
         /// </summary>
         [JsonPropertyName("page_index")]
-        public int PageIndex { get; set; }
+        public long PageIndex { get; set; }
 
-        public SignRequestSignerInput(int pageIndex) {
+        public SignRequestSignerInput(long pageIndex) {
             PageIndex = pageIndex;
         }
     }
