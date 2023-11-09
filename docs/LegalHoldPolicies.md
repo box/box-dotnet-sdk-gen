@@ -17,7 +17,10 @@ This operation is performed by calling function `GetLegalHoldPolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policies/).
 
-*Currently we don't have an example for calling `GetLegalHoldPolicies` in integration tests*
+<!-- sample get_legal_hold_policies -->
+```
+await client.LegalHoldPolicies.GetLegalHoldPoliciesAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `CreateLegalHoldPolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-legal-hold-policies/).
 
-*Currently we don't have an example for calling `CreateLegalHoldPolicy` in integration tests*
+<!-- sample post_legal_hold_policies -->
+```
+await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(new CreateLegalHoldPolicyRequestBodyArg(policyName: legalHoldPolicyName, description: legalHoldDescription, isOngoing: true)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `GetLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `GetLegalHoldPolicyById` in integration tests*
+<!-- sample get_legal_hold_policies_id -->
+```
+await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -101,7 +110,10 @@ This operation is performed by calling function `UpdateLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `UpdateLegalHoldPolicyById` in integration tests*
+<!-- sample put_legal_hold_policies_id -->
+```
+await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId, new UpdateLegalHoldPolicyByIdRequestBodyArg(policyName: updatedLegalHoldPolicyName)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -134,7 +146,10 @@ This operation is performed by calling function `DeleteLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `DeleteLegalHoldPolicyById` in integration tests*
+<!-- sample delete_legal_hold_policies_id -->
+```
+await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 

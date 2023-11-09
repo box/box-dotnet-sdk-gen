@@ -1,4 +1,6 @@
 using System.IO;
+using Serializer;
+using Json;
 
 namespace Fetch
 {
@@ -15,8 +17,8 @@ namespace Fetch
         /// <summary>
         /// Response text representation.
         /// </summary>
-        public string Text { get; set; } = string.Empty;
-        
+        public SerializedData? Data { get; set; } = null;
+
         //TODO implement usage 
         public Stream Content { get; set; } = new MemoryStream();
     }

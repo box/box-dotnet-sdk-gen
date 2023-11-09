@@ -61,7 +61,7 @@ namespace Fetch
                 {
                     return isStreamResponse ?
                         new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
-                        new FetchResponse { Status = statusCode, Text = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) };
+                        new FetchResponse { Status = statusCode, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
                 }
 
                 if (attempt >= networkSession.RetryAttempts)
@@ -113,6 +113,13 @@ namespace Fetch
                 Content = BuildHttpContent(options)
             };
 
+            if (options.NetworkSession != null) {
+                foreach (var header in options.NetworkSession.AdditionalHeaders)
+                    {
+                        httpRequest.Headers.Add(header.Key, header.Value);
+                    }
+            }
+
             foreach (var header in options.Headers)
             {
                 httpRequest.Headers.Add(header.Key, header.Value);
@@ -161,8 +168,8 @@ namespace Fetch
                 {
                     HttpContent partContent = part.FileStream != null ?
                         new StreamContent(part.FileStream) :
-                        part.Body != null ?
-                            new StringContent(part.Body) :
+                        part.Data != null ?
+                            new StringContent(JsonUtils.SdToJson(part.Data)) :
                             throw new ArgumentException($"HttpContent for MultipartData {part} not found");
 
                     // for avatar upload
@@ -189,14 +196,14 @@ namespace Fetch
 
                 httpContent = multipartContent;
             }
-            else if (options.ContentType == ContentTypes.FormUrlEncoded && options.Body != null)
+            else if (options.ContentType == ContentTypes.FormUrlEncoded && options.Data != null)
             {
-                var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Body);
+                var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Data);
                 httpContent = new FormUrlEncodedContent(deserialized);
             }
             else
             {
-                httpContent = options.Body != null ? new StringContent(options.Body) : default;
+                httpContent = options.Data != null ? new StringContent(JsonUtils.SdToJson(options.Data)) : default;
             }
 
             return httpContent;

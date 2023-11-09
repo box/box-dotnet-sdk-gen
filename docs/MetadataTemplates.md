@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(GetMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(GetMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -128,7 +128,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateSchemaAsync(DeleteMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey).ConfigureAwait(false)
+await client.MetadataTemplates.DeleteMetadataTemplateSchemaAsync(DeleteMetadataTemplateSchemaScopeArg.Enterprise, template.TemplateKey!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -162,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateByIdAsync(template.Id).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateByIdAsync(template.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

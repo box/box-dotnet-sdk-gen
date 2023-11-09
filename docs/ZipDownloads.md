@@ -4,6 +4,7 @@
 - [Create zip download](#create-zip-download)
 - [Download zip archive](#download-zip-archive)
 - [Get zip download status](#get-zip-download-status)
+- [](#)
 
 ## Create zip download
 
@@ -29,7 +30,10 @@ This operation is performed by calling function `CreateZipDownload`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-zip-downloads/).
 
-*Currently we don't have an example for calling `CreateZipDownload` in integration tests*
+<!-- sample post_zip_downloads -->
+```
+await client.ZipDownloads.CreateZipDownloadAsync(new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -71,12 +75,15 @@ This operation is performed by calling function `GetZipDownloadContent`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-zip-downloads-id-content/).
 
-*Currently we don't have an example for calling `GetZipDownloadContent` in integration tests*
+<!-- sample get_zip_downloads_id_content -->
+```
+await client.ZipDownloads.GetZipDownloadContentAsync(zipDownload.DownloadUrl!).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- zipDownloadId `string`
-  - The unique identifier that represent this `zip` archive. Example: "Lu6fA9Ob-jyysp3AAvMF4AkLEwZwAYbL=tgj2zIC=eK9RvJnJbjJl9rNh2qBgHDpyOCAOhpM=vajg2mKq8Mdd"
+- downloadUrl `string`
+  - The URL that can be used to download created `zip` archive.  Example: `https://dl.boxcloud.com/2.0/zip_downloads/29l00nfxDyHOt7RphI9zT_w==nDnZEDjY2S8iEWWCHEEiptFxwoWojjlibZjJ6geuE5xnXENDTPxzgbks_yY=/content`
 - headers `GetZipDownloadContentHeadersArg`
   - Headers of getZipDownloadContent method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -111,12 +118,15 @@ This operation is performed by calling function `GetZipDownloadStatus`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-zip-downloads-id-status/).
 
-*Currently we don't have an example for calling `GetZipDownloadStatus` in integration tests*
+<!-- sample get_zip_downloads_id_status -->
+```
+await client.ZipDownloads.GetZipDownloadStatusAsync(zipDownload.StatusUrl!).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- zipDownloadId `string`
-  - The unique identifier that represent this `zip` archive. Example: "Lu6fA9Ob-jyysp3AAvMF4AkLEwZwAYbL=tgj2zIC=eK9RvJnJbjJl9rNh2qBgHDpyOCAOhpM=vajg2mKq8Mdd"
+- statusUrl `string`
+  - The URL that can be used to get the status of the `zip` archive being downloaded.  Example: `https://dl.boxcloud.com/2.0/zip_downloads/29l00nfxDyHOt7RphI9zT_w==nDnZEDjY2S8iEWWCHEEiptFxwoWojjlibZjJ6geuE5xnXENDTPxzgbks_yY=/status`
 - headers `GetZipDownloadStatusHeadersArg`
   - Headers of getZipDownloadStatus method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -128,5 +138,36 @@ See the endpoint docs at
 This function returns a value of type `ZipDownloadStatus`.
 
 Returns the status of the `zip` archive that is being downloaded.
+
+
+## 
+
+
+
+This operation is performed by calling function `DownloadZip`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference//).
+
+<!-- sample  -->
+```
+await client.ZipDownloads.DownloadZipAsync(new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+```
+
+### Arguments
+
+- requestBody `ZipDownloadRequest`
+  - Zip download request body
+- headers `DownloadZipHeadersArg`
+  - Headers of zip download method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `System.IO.Stream`.
+
+
 
 

@@ -3,15 +3,16 @@ using Box.Managers;
 using Box;
 
 namespace Box {
-    public interface ICommonsManager {
-        public BoxClient GetClientWithJwtAuth();
+public interface ICommonsManager {
+    public BoxJwtAuth GetJwtAuth();
 
-        public BoxClient GetDefaultClient();
+    public System.Threading.Tasks.Task<BoxClient> GetDefaultClientAsUserAsync(string userId);
 
-        public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
+    public BoxClient GetDefaultClient();
 
-        public System.Threading.Tasks.Task<File> UploadNewFileAsync();
+    public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
 
-        public BoxClient GetClientWithCcgAuth();
-    }
+    public System.Threading.Tasks.Task<File> UploadNewFileAsync();
+
+}
 }

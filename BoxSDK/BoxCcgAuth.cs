@@ -122,12 +122,12 @@ namespace Box
             var response = await HttpClientAdapter.FetchAsync(tokenUrl, new FetchOptions
             {
                 Method = "POST",
-                Body = SimpleJsonSerializer.Serialize(payload),
+                Data = SimpleJsonSerializer.Serialize(payload),
                 ContentType = ContentTypes.FormUrlEncoded,
                 NetworkSession = networkSession
             }).ConfigureAwait(false);
 
-            var newToken = SimpleJsonSerializer.Deserialize<AccessToken>(response.Text);
+            var newToken = SimpleJsonSerializer.Deserialize<AccessToken>(response.Data);
             await _tokenStorage.StoreAsync(newToken).ConfigureAwait(false);
             return newToken;
         }

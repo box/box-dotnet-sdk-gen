@@ -4,6 +4,7 @@ using Serializer;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Json;
 
 namespace Box
 {
@@ -205,12 +206,12 @@ namespace Box
             var response = await HttpClientAdapter.FetchAsync(tokenUrl, new FetchOptions
             {
                 Method = "POST",
-                Body = SimpleJsonSerializer.Serialize(payload),
+                Data = SimpleJsonSerializer.Serialize(payload),
                 ContentType = ContentTypes.FormUrlEncoded,
                 NetworkSession = networkSession
             }).ConfigureAwait(false);
 
-            return SimpleJsonSerializer.Deserialize<AccessToken>(response.Text);
+            return SimpleJsonSerializer.Deserialize<AccessToken>(new SerializedData(response.Data.Data));
         }
 
     }

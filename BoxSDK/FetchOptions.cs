@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
+using Json;
 
 namespace Fetch
 {
@@ -25,7 +26,7 @@ namespace Fetch
         /// <summary>
         /// Body of the http/s request.
         /// </summary>
-        public string? Body { get; set; }
+        public SerializedData? Data { get; set; }
 
         /// <summary>
         /// A stream containing the contents of a file.
@@ -74,7 +75,7 @@ namespace Fetch
         /// Format of the response e.g. "binary" in case of stream response.
         /// </summary>
         public string? ResponseFormat { get; set; }
-        
+
         /// <summary>
         /// Token used for request cancellation.
         /// </summary>
@@ -96,16 +97,16 @@ namespace Fetch
         /// Creates FetchOptions from the parameters.
         /// </summary>
         /// <param name="method"></param>
-        /// <param name="body"></param>
+        /// <param name="data"></param>
         /// <param name="fileStream"></param>
         /// <param name="auth"></param>
         /// <param name="headers"></param>
         /// <param name="contentType"></param>
-        public FetchOptions(string? method = null, string? body = null, Stream? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
+        public FetchOptions(string? method = null, SerializedData? data = null, Stream? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
         {
             Method = method;
             Auth = auth;
-            Body = body;
+            Data = data;
             FileStream = fileStream;
             Headers = headers ?? new ReadOnlyDictionary<string, string>(new Dictionary<string, string>());
             ContentType = contentType;

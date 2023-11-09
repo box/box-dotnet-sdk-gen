@@ -14,7 +14,7 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestDownloadFile() {
             string newFileName = Utils.GetUUID();
-            byte[] fileBuffer = Utils.GenerateByteBuffer(1048576);
+            byte[] fileBuffer = Utils.GenerateByteBuffer(1024 * 1024);
             System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(fileBuffer);
             Files uploadedFiles = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
             File uploadedFile = uploadedFiles.Entries![0];
