@@ -14,7 +14,7 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteTask() {
             Files files = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: Utils.GenerateByteStream(10))).ConfigureAwait(false);
-            File file = files.Entries![0];
+            FileFull file = files.Entries![0];
             Task task = await client.Tasks.CreateTaskAsync(new CreateTaskRequestBodyArg(item: new CreateTaskRequestBodyArgItemField() { Type = CreateTaskRequestBodyArgItemFieldTypeField.File, Id = file.Id }) { Message = "test message", DueAt = "2035-01-01T00:00:00Z", Action = CreateTaskRequestBodyArgActionField.Review, CompletionRule = CreateTaskRequestBodyArgCompletionRuleField.AllAssignees }).ConfigureAwait(false);
             Assert.IsTrue(task.Message == "test message");
             Assert.IsTrue(task.Item!.Id == file.Id);

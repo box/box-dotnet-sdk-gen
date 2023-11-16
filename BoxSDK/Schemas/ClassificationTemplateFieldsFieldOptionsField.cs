@@ -10,13 +10,13 @@ namespace Box.Schemas {
         /// The unique ID of this classification.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// The display name and key for this classification.
         /// </summary>
         [JsonPropertyName("key")]
-        public string? Key { get; set; } = default;
+        public string Key { get; set; }
 
         /// <summary>
         /// Additional information about the classification.
@@ -24,8 +24,9 @@ namespace Box.Schemas {
         [JsonPropertyName("staticConfig")]
         public ClassificationTemplateFieldsFieldOptionsFieldStaticConfigField? StaticConfig { get; set; } = default;
 
-        public ClassificationTemplateFieldsFieldOptionsField() {
-            
+        public ClassificationTemplateFieldsFieldOptionsField(string id, string key) {
+            Id = id;
+            Key = key;
         }
     }
 }

@@ -6,28 +6,28 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Schemas {
-    [JsonConverter(typeof(FileMiniOrFolderMiniOrWebLinkMiniConverter))]
-    public class FileMiniOrFolderMiniOrWebLinkMini : OneOf<FileMini, FolderMini, WebLinkMini> {
+    [JsonConverter(typeof(FileMiniOrFolderMiniOrWebLinkConverter))]
+    public class FileMiniOrFolderMiniOrWebLink : OneOf<FileMini, FolderMini, WebLink> {
         public FileMini? FileMini => _val0;
         
         public FolderMini? FolderMini => _val1;
         
-        public WebLinkMini? WebLinkMini => _val2;
+        public WebLink? WebLink => _val2;
         
-        public FileMiniOrFolderMiniOrWebLinkMini(FileMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLink(FileMini value) : base(value) {}
         
-        public FileMiniOrFolderMiniOrWebLinkMini(FolderMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLink(FolderMini value) : base(value) {}
         
-        public FileMiniOrFolderMiniOrWebLinkMini(WebLinkMini value) : base(value) {}
+        public FileMiniOrFolderMiniOrWebLink(WebLink value) : base(value) {}
         
-        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(FileMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLink(FileMini value) => new FileMiniOrFolderMiniOrWebLink(value);
         
-        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(FolderMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLink(FolderMini value) => new FileMiniOrFolderMiniOrWebLink(value);
         
-        public static implicit operator FileMiniOrFolderMiniOrWebLinkMini(WebLinkMini value) => new FileMiniOrFolderMiniOrWebLinkMini(value);
+        public static implicit operator FileMiniOrFolderMiniOrWebLink(WebLink value) => new FileMiniOrFolderMiniOrWebLink(value);
         
-        class FileMiniOrFolderMiniOrWebLinkMiniConverter : JsonConverter<FileMiniOrFolderMiniOrWebLinkMini> {
-            public override FileMiniOrFolderMiniOrWebLinkMini Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        class FileMiniOrFolderMiniOrWebLinkConverter : JsonConverter<FileMiniOrFolderMiniOrWebLink> {
+            public override FileMiniOrFolderMiniOrWebLink Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
                 var discriminant0Present = document.RootElement.TryGetProperty("type", out var discriminant0);
                 if (discriminant0Present) {
@@ -37,13 +37,13 @@ namespace Box.Schemas {
                         case "folder":
                             return JsonSerializer.Deserialize<FolderMini>(document) ?? throw new Exception($"Could not deserialize {document} to FolderMini");
                         case "web_link":
-                            return JsonSerializer.Deserialize<WebLinkMini>(document) ?? throw new Exception($"Could not deserialize {document} to WebLinkMini");
+                            return JsonSerializer.Deserialize<WebLink>(document) ?? throw new Exception($"Could not deserialize {document} to WebLink");
                     }
                 }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, FileMiniOrFolderMiniOrWebLinkMini? value, JsonSerializerOptions options) {
+            public override void Write(Utf8JsonWriter writer, FileMiniOrFolderMiniOrWebLink? value, JsonSerializerOptions options) {
                 if (value?.FileMini != null) {
                     JsonSerializer.Serialize(writer, value.FileMini, options);
                     return;
@@ -52,8 +52,8 @@ namespace Box.Schemas {
                     JsonSerializer.Serialize(writer, value.FolderMini, options);
                     return;
                 }
-                if (value?.WebLinkMini != null) {
-                    JsonSerializer.Serialize(writer, value.WebLinkMini, options);
+                if (value?.WebLink != null) {
+                    JsonSerializer.Serialize(writer, value.WebLink, options);
                     return;
                 }
             }

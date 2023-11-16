@@ -12,7 +12,7 @@ public interface ICommonsManager {
 
     public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
 
-    public System.Threading.Tasks.Task<File> UploadNewFileAsync();
+    public System.Threading.Tasks.Task<FileFull> UploadNewFileAsync();
 
 }
 }

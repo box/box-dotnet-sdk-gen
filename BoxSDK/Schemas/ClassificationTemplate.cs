@@ -10,7 +10,7 @@ namespace Box.Schemas {
         /// The ID of the classification template.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `metadata_template`
@@ -23,28 +23,31 @@ namespace Box.Schemas {
         /// `enterprise_{id}` where the `id` is the enterprise ID.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string? Scope { get; set; } = default;
+        public string Scope { get; set; }
 
         /// <summary>
         /// `securityClassification-6VMVochwUWo`
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public ClassificationTemplateTemplateKeyField? TemplateKey { get; set; } = default;
+        public ClassificationTemplateTemplateKeyField TemplateKey { get; set; }
 
         /// <summary>
         /// The name of this template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateDisplayNameField? DisplayName { get; set; } = default;
+        public ClassificationTemplateDisplayNameField DisplayName { get; set; }
 
         /// <summary>
-        /// This template is always available in web and mobile interfaces.
+        /// Determines if the
+        /// template is always available in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("hidden")]
         public bool? Hidden { get; set; } = default;
 
         /// <summary>
-        /// Classifications are always copied along when the file or folder is
+        /// Determines if 
+        /// classifications are
+        /// copied along when the file or folder is
         /// copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
@@ -56,10 +59,15 @@ namespace Box.Schemas {
         /// the different classifications available in this enterprise.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<ClassificationTemplateFieldsField>? Fields { get; set; } = default;
+        public IReadOnlyList<ClassificationTemplateFieldsField> Fields { get; set; }
 
-        public ClassificationTemplate(ClassificationTemplateTypeField type) {
+        public ClassificationTemplate(string id, ClassificationTemplateTypeField type, string scope, ClassificationTemplateTemplateKeyField templateKey, ClassificationTemplateDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsField> fields) {
+            Id = id;
             Type = type;
+            Scope = scope;
+            TemplateKey = templateKey;
+            DisplayName = displayName;
+            Fields = fields;
         }
     }
 }

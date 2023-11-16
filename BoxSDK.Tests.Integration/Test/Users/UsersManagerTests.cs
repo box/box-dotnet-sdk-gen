@@ -28,7 +28,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteUser() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
-            User user = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { Login = userLogin, IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull user = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { Login = userLogin, IsPlatformAccessOnly = true }).ConfigureAwait(false);
             Assert.IsTrue(user.Name == userName);
             UserFull userById = await client.Users.GetUserByIdAsync(user.Id).ConfigureAwait(false);
             Assert.IsTrue(userById.Id == user.Id);

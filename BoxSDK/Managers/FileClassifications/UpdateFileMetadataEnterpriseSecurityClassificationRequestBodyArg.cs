@@ -14,7 +14,8 @@ namespace Box.Managers {
         public UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArgOpField? Op { get; set; } = default;
 
         /// <summary>
-        /// `/Box__Security__Classification__Key`
+        /// Defines classifications 
+        /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("path")]
         public UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArgPathField? Path { get; set; } = default;

@@ -10,25 +10,26 @@ namespace Box.Schemas {
         /// The unique ID of the field.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
-        /// `enum`
+        /// The array item type.
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateFieldsFieldTypeField? Type { get; set; } = default;
+        public ClassificationTemplateFieldsFieldTypeField Type { get; set; }
 
         /// <summary>
-        /// `Box__Security__Classification__Key`
+        /// Defines classifications 
+        /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public ClassificationTemplateFieldsFieldKeyField? Key { get; set; } = default;
+        public ClassificationTemplateFieldsFieldKeyField Key { get; set; }
 
         /// <summary>
         /// `Classification`
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateFieldsFieldDisplayNameField? DisplayName { get; set; } = default;
+        public ClassificationTemplateFieldsFieldDisplayNameField DisplayName { get; set; }
 
         /// <summary>
         /// Classifications are always visible to web and mobile users.
@@ -40,10 +41,14 @@ namespace Box.Schemas {
         /// A list of classifications available in this enterprise.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField>? Options { get; set; } = default;
+        public IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> Options { get; set; }
 
-        public ClassificationTemplateFieldsField() {
-            
+        public ClassificationTemplateFieldsField(string id, ClassificationTemplateFieldsFieldTypeField type, ClassificationTemplateFieldsFieldKeyField key, ClassificationTemplateFieldsFieldDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> options) {
+            Id = id;
+            Type = type;
+            Key = key;
+            DisplayName = displayName;
+            Options = options;
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestZipDownload() {
-            File file1 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
-            File file2 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
+            FileFull file1 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
+            FileFull file2 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             FolderFull folder1 = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
             System.IO.Stream zipStream = await client.ZipDownloads.DownloadZipAsync(new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)})) { DownloadFileName = "zip" }).ConfigureAwait(false);
             Assert.IsTrue(Utils.BufferEquals(await Utils.ReadByteStreamAsync(zipStream).ConfigureAwait(false), Utils.GenerateByteBuffer(10)) == false);
@@ -28,8 +28,8 @@ namespace Box.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestManualZipDownloadAndCheckStatus() {
-            File file1 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
-            File file2 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
+            FileFull file1 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
+            FileFull file2 = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             FolderFull folder1 = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
             ZipDownload zipDownload = await client.ZipDownloads.CreateZipDownloadAsync(new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)})) { DownloadFileName = "zip" }).ConfigureAwait(false);
             Assert.IsTrue(zipDownload.DownloadUrl != "");

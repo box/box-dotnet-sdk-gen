@@ -8,16 +8,18 @@ using Box;
 namespace Box.Managers {
     public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg {
         /// <summary>
-        /// `addEnumOption`
+        /// The type of change to perform on the classification
+        /// object.
         /// </summary>
         [JsonPropertyName("op")]
-        public string Op { get; set; }
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgOpField Op { get; set; }
 
         /// <summary>
-        /// `Box__Security__Classification__Key`
+        /// Defines classifications 
+        /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("fieldKey")]
-        public string FieldKey { get; set; }
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgFieldKeyField FieldKey { get; set; }
 
         /// <summary>
         /// The details of the classification to add.
@@ -25,7 +27,7 @@ namespace Box.Managers {
         [JsonPropertyName("data")]
         public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField Data { get; set; }
 
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg(string op, string fieldKey, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField data) {
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg(UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgOpField op, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgFieldKeyField fieldKey, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField data) {
             Op = op;
             FieldKey = fieldKey;
             Data = data;

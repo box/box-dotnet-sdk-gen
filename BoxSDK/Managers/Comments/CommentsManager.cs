@@ -140,13 +140,13 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Comment> CreateCommentAsync(CreateCommentRequestBodyArg requestBody, CreateCommentQueryParamsArg? queryParams = default, CreateCommentHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<CommentFull> CreateCommentAsync(CreateCommentRequestBodyArg requestBody, CreateCommentQueryParamsArg? queryParams = default, CreateCommentHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new CreateCommentQueryParamsArg();
             headers = headers ?? new CreateCommentHeadersArg();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/comments"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Comment>(response.Data);
+            return SimpleJsonSerializer.Deserialize<CommentFull>(response.Data);
         }
 
     }

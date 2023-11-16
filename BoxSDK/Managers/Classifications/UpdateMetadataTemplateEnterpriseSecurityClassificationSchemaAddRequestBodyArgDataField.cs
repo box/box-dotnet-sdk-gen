@@ -16,10 +16,10 @@ namespace Box.Managers {
         public string Key { get; set; }
 
         /// <summary>
-        /// Additional details for the classification.
+        /// A static configuration for the classification.
         /// </summary>
-        [JsonPropertyName("classification")]
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField? Classification { get; set; } = default;
+        [JsonPropertyName("staticConfig")]
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldStaticConfigField? StaticConfig { get; set; } = default;
 
         public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataField(string key) {
             Key = key;

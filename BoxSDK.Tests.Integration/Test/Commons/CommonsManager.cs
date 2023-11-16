@@ -27,7 +27,7 @@ namespace Box {
             return await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: newFolderName, parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false);
         }
 
-        public async System.Threading.Tasks.Task<File> UploadNewFileAsync() {
+        public async System.Threading.Tasks.Task<FileFull> UploadNewFileAsync() {
             BoxClient client = new CommonsManager().GetDefaultClient();
             string newFileName = string.Concat(Utils.GetUUID(), ".pdf");
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(1024 * 1024);

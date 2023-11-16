@@ -49,7 +49,7 @@ namespace Box.Schemas {
         /// A list of comments
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<Comment>? Entries { get; set; } = default;
+        public IReadOnlyList<CommentFull>? Entries { get; set; } = default;
 
         public Comments() {
             

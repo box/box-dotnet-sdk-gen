@@ -62,13 +62,13 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequestBodyArg requestBody, CreateUserQueryParamsArg? queryParams = default, CreateUserHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<UserFull> CreateUserAsync(CreateUserRequestBodyArg requestBody, CreateUserQueryParamsArg? queryParams = default, CreateUserHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new CreateUserQueryParamsArg();
             headers = headers ?? new CreateUserHeadersArg();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/users"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<User>(response.Data);
+            return SimpleJsonSerializer.Deserialize<UserFull>(response.Data);
         }
 
         /// <summary>

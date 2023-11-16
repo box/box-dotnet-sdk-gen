@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class LegalHoldPolicyAssignments {
@@ -31,7 +32,7 @@ namespace Box.Schemas {
         /// policy assignments
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<LegalHoldPolicyAssignmentBase>? Entries { get; set; } = default;
+        public IReadOnlyList<LegalHoldPolicyAssignment>? Entries { get; set; } = default;
 
         public LegalHoldPolicyAssignments() {
             

@@ -15,7 +15,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestEmailAliases() {
             string newUserName = Utils.GetUUID();
             string newUserLogin = string.Concat(Utils.GetUUID(), "@boxdemo.com");
-            User newUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: newUserName) { Login = newUserLogin }).ConfigureAwait(false);
+            UserFull newUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: newUserName) { Login = newUserLogin }).ConfigureAwait(false);
             EmailAliases aliases = await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(false);
             Assert.IsTrue(aliases.TotalCount == 0);
             string newAliasEmail = string.Concat(newUser.Id, "@boxdemo.com");

@@ -48,7 +48,7 @@ namespace Box.Schemas {
         /// A list of groups
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<GroupMini>? Entries { get; set; } = default;
+        public IReadOnlyList<GroupFull>? Entries { get; set; } = default;
 
         public Groups() {
             

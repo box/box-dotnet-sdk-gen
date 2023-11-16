@@ -17,7 +17,7 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestWithAsUserHeader() {
             string userName = Utils.GetUUID();
-            User createdUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull createdUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
             BoxClient asUserClient = client.WithAsUserHeader(createdUser.Id);
             UserFull adminUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(StringUtils.ToStringRepresentation(adminUser.Name) != userName);
@@ -36,7 +36,7 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestWithExtraHeaders() {
             string userName = Utils.GetUUID();
-            User createdUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull createdUser = await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
             BoxClient asUserClient = client.WithExtraHeaders(new Dictionary<string, string>() { { "As-User", createdUser.Id } });
             UserFull adminUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(StringUtils.ToStringRepresentation(adminUser.Name) != userName);

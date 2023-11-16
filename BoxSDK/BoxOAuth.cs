@@ -50,32 +50,25 @@ namespace Box
         /// <summary>
         /// The Client ID of the application that is requesting to authenticate the user.
         /// </summary>
-        public string? ClientId { get; }
+        public string? ClientId { get; set; }
         /// <summary>
         /// The URI to which Box redirects the browser after the user has granted or denied the application permission
         /// </summary>
-        public string? RedirectUri { get; }
+        public string? RedirectUri { get; set; }
         /// <summary>
         /// he type of response we'd like to receive. Must be 'code'.
         /// </summary>
-        public string? ResponseType { get; }
+        public string? ResponseType { get; set; }
         /// <summary>
         /// A custom string of your choice used to protect from CSRF attacks. Box will pass the same string to the redirect URL when authentication is complete.
         /// </summary>
-        public string? State { get; }
+        public string? State { get; set; }
         /// <summary>
         /// A comma-separated list of application scopes you'd like to authenticate the user for.
         /// </summary>
-        public string? Scope { get; }
+        public string? Scope { get; set; }
 
-        public GetAuthorizeUrlOptions(string? clientId, string? redirectUri, string? responseType, string? state, string? scope)
-        {
-            ClientId = clientId;
-            RedirectUri = redirectUri;
-            ResponseType = responseType;
-            State = state;
-            Scope = scope;
-        }
+        public GetAuthorizeUrlOptions() {}
     }
 
 

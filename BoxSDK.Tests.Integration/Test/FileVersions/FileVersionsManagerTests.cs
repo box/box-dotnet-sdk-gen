@@ -16,11 +16,11 @@ namespace Box.Tests.Integration {
             string oldName = Utils.GetUUID();
             string newName = Utils.GetUUID();
             Files files = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: oldName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: Utils.GenerateByteStream(10))).ConfigureAwait(false);
-            File file = files.Entries![0];
+            FileFull file = files.Entries![0];
             Assert.IsTrue(file.Name == oldName);
             Assert.IsTrue(file.Size == 10);
             Files newFiles = await client.Uploads.UploadFileVersionAsync(file.Id, new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newName), file: Utils.GenerateByteStream(20))).ConfigureAwait(false);
-            File newFile = newFiles.Entries![0];
+            FileFull newFile = newFiles.Entries![0];
             Assert.IsTrue(newFile.Name == newName);
             Assert.IsTrue(newFile.Size == 20);
             FileVersions fileVersions = await client.FileVersions.GetFileVersionsAsync(file.Id).ConfigureAwait(false);

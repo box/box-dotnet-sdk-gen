@@ -9,25 +9,31 @@ using Box;
 namespace Box.Managers {
     public class CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField {
         /// <summary>
-        /// `enum`
+        /// The type of the field
+        /// that is always enum.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldTypeField? Type { get; set; } = default;
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldTypeField Type { get; set; }
 
         /// <summary>
-        /// `Box__Security__Classification__Key`
+        /// Defines classifications 
+        /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldKeyField? Key { get; set; } = default;
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldKeyField Key { get; set; }
 
         /// <summary>
-        /// `Classification`
+        /// A display name for the classification.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldDisplayNameField? DisplayName { get; set; } = default;
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldDisplayNameField DisplayName { get; set; }
 
         /// <summary>
-        /// `false`
+        /// Determines if the classification
+        /// template is
+        /// hidden or available on
+        /// web and mobile
+        /// devices.
         /// </summary>
         [JsonPropertyName("hidden")]
         public bool? Hidden { get; set; } = default;
@@ -37,10 +43,13 @@ namespace Box.Managers {
         /// this template.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField>? Options { get; set; } = default;
+        public IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField> Options { get; set; }
 
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField() {
-            
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField(CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldTypeField type, CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldKeyField key, CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldDisplayNameField displayName, IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField> options) {
+            Type = type;
+            Key = key;
+            DisplayName = displayName;
+            Options = options;
         }
     }
 }

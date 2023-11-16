@@ -75,7 +75,7 @@ namespace Box.Managers {
         public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddAsync(IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg> requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#add"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#add"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ClassificationTemplate>(response.Data);
         }
 
