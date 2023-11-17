@@ -114,7 +114,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await client.Folders.DeleteFolderByIdAsync(folder.Id).ConfigureAwait(false)
+await client.Folders.DeleteFolderByIdAsync(folder1.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

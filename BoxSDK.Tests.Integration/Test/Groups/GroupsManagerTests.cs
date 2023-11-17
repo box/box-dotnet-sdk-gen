@@ -24,7 +24,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateGetDeleteGroup() {
             string groupName = Utils.GetUUID();
             const string groupDescription = "Group description";
-            Group group = await client.Groups.CreateGroupAsync(new CreateGroupRequestBodyArg(name: groupName) { Description = groupDescription }).ConfigureAwait(false);
+            GroupFull group = await client.Groups.CreateGroupAsync(new CreateGroupRequestBodyArg(name: groupName) { Description = groupDescription }).ConfigureAwait(false);
             Assert.IsTrue(group.Name == groupName);
             GroupFull groupById = await client.Groups.GetGroupByIdAsync(group.Id, new GetGroupByIdQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) }).ConfigureAwait(false);
             Assert.IsTrue(groupById.Id == group.Id);

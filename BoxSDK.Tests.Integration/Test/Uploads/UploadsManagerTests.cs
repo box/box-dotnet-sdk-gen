@@ -17,12 +17,12 @@ namespace Box.Tests.Integration {
             string newFileName = Utils.GetUUID();
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(1024 * 1024);
             Files uploadedFiles = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
-            File uploadedFile = uploadedFiles.Entries![0];
+            FileFull uploadedFile = uploadedFiles.Entries![0];
             Assert.IsTrue(uploadedFile.Name == newFileName);
             string newFileVersionName = Utils.GetUUID();
             System.IO.Stream newFileContentStream = Utils.GenerateByteStream(1024 * 1024);
             Files uploadedFilesVersion = await client.Uploads.UploadFileVersionAsync(uploadedFile.Id, new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newFileVersionName), file: newFileContentStream)).ConfigureAwait(false);
-            File newFileVersion = uploadedFilesVersion.Entries![0];
+            FileFull newFileVersion = uploadedFilesVersion.Entries![0];
             Assert.IsTrue(newFileVersion.Name == newFileVersionName);
             await client.Files.DeleteFileByIdAsync(newFileVersion.Id).ConfigureAwait(false);
         }

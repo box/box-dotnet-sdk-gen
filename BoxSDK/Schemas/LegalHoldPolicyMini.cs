@@ -10,16 +10,17 @@ namespace Box.Schemas {
         /// The unique identifier for this legal hold policy
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `legal_hold_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public LegalHoldPolicyMiniTypeField? Type { get; set; } = default;
+        public LegalHoldPolicyMiniTypeField Type { get; set; }
 
-        public LegalHoldPolicyMini() {
-            
+        public LegalHoldPolicyMini(string id, LegalHoldPolicyMiniTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Json;
 using System;
 using System.ComponentModel;
 using System.Reflection;
@@ -21,9 +22,15 @@ namespace Serializer
             };
         }
 
-        public static string Serialize(object obj) => JsonSerializer.Serialize(obj, _options);
+        public static SerializedData Serialize(object obj) => new SerializedData(obj);
 
-        public static T Deserialize<T>(string obj) => JsonSerializer.Deserialize<T>(obj, _options);
+
+        public static T Deserialize<T>(SerializedData obj)
+        {
+            return JsonSerializer.Deserialize<T>(obj.AsJson(), _options);
+        }
+
+        public static string SdToJson(SerializedData obj) => JsonSerializer.Serialize(obj.Data, _options);
     }
 
     class StringEnumConverter<T> : JsonConverter<T>

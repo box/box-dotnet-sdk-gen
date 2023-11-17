@@ -44,7 +44,10 @@ This operation is performed by calling function `TransferOwnedFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-users-id-folders-0/).
 
-*Currently we don't have an example for calling `TransferOwnedFolder` in integration tests*
+<!-- sample put_users_id_folders_0 -->
+```
+await client.Transfer.TransferOwnedFolderAsync(newUser.Id, new TransferOwnedFolderRequestBodyArg(ownedBy: new TransferOwnedFolderRequestBodyArgOwnedByField(id: currentUser.Id)), new TransferOwnedFolderQueryParamsArg(notify: false)).ConfigureAwait(false)
+```
 
 ### Arguments
 

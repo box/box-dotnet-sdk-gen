@@ -8,16 +8,18 @@ using Box;
 namespace Box.Managers {
     public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg {
         /// <summary>
-        /// `editEnumOption`
+        /// The type of change to perform on the classification
+        /// object.
         /// </summary>
         [JsonPropertyName("op")]
-        public string Op { get; set; }
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgOpField Op { get; set; }
 
         /// <summary>
-        /// `Box__Security__Classification__Key`
+        /// Defines classifications 
+        /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("fieldKey")]
-        public string FieldKey { get; set; }
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgFieldKeyField FieldKey { get; set; }
 
         /// <summary>
         /// The original label of the classification to change.
@@ -31,7 +33,7 @@ namespace Box.Managers {
         [JsonPropertyName("data")]
         public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgDataField Data { get; set; }
 
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg(string op, string fieldKey, string enumOptionKey, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgDataField data) {
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg(UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgOpField op, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgFieldKeyField fieldKey, string enumOptionKey, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArgDataField data) {
             Op = op;
             FieldKey = fieldKey;
             EnumOptionKey = enumOptionKey;

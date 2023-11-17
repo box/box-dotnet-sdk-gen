@@ -1,4 +1,6 @@
 using System.IO;
+using Serializer;
+using Json;
 
 namespace Box
 {
@@ -16,7 +18,7 @@ namespace Box
         /// Name of the multipart item.
         /// </summary>
 
-        public string? Body { get; set; }
+        public SerializedData? Data { get; set; }
 
         /// <summary>
         /// A stream containing the contents of a file.
@@ -33,10 +35,10 @@ namespace Box
         /// </summary>
         public string? ContentType { get; set; }
 
-        public MultipartItem(string partName, Stream? fileStream = null, string? body = null, string? fileName = null, string? contentType = null)
+        public MultipartItem(string partName, Stream? fileStream = null, SerializedData? data = null, string? fileName = null, string? contentType = null)
         {
             PartName = partName;
-            Body = body;
+            Data = data;
             FileStream = fileStream;
             FileName = fileName;
             ContentType = contentType;

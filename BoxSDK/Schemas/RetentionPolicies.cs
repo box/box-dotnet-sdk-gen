@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class RetentionPolicies {
@@ -10,7 +11,7 @@ namespace Box.Schemas {
         /// A list in which each entry represents a retention policy object.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RetentionPolicyMini>? Entries { get; set; } = default;
+        public IReadOnlyList<RetentionPolicy>? Entries { get; set; } = default;
 
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the

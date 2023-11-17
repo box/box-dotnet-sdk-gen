@@ -19,7 +19,7 @@ namespace Box.Tests.Integration {
             string fileName = Utils.GetUUID();
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(fileSize);
             Files files = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileByteStream)).ConfigureAwait(false);
-            File file = files.Entries![0];
+            FileFull file = files.Entries![0];
             await client.Files.DeleteFileByIdAsync(file.Id).ConfigureAwait(false);
             TrashFile fromTrash = await client.TrashedFiles.GetFileTrashAsync(file.Id).ConfigureAwait(false);
             Assert.IsTrue(fromTrash.Id == file.Id);

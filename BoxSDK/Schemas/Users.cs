@@ -49,7 +49,7 @@ namespace Box.Schemas {
         /// A list of users
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<User>? Entries { get; set; } = default;
+        public IReadOnlyList<UserFull>? Entries { get; set; } = default;
 
         public Users() {
             

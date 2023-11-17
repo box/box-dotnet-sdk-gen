@@ -17,39 +17,47 @@ namespace Box.Managers {
         public CreateMetadataTemplateSchemaClassificationRequestBodyArgScopeField Scope { get; set; }
 
         /// <summary>
-        /// `securityClassification-6VMVochwUWo`
+        /// Defines the list of metadata templates.
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgTemplateKeyField? TemplateKey { get; set; } = default;
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgTemplateKeyField TemplateKey { get; set; }
 
         /// <summary>
-        /// `Classification`
+        /// The name of the
+        /// template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
         public CreateMetadataTemplateSchemaClassificationRequestBodyArgDisplayNameField DisplayName { get; set; }
 
         /// <summary>
-        /// `false`
+        /// Determines if the classification template is
+        /// hidden or available on web and mobile
+        /// devices.
         /// </summary>
         [JsonPropertyName("hidden")]
         public bool? Hidden { get; set; } = default;
 
         /// <summary>
-        /// `false`
+        /// Determines if classifications are
+        /// copied along when the file or folder is
+        /// copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
         public bool? CopyInstanceOnItemCopy { get; set; } = default;
 
         /// <summary>
-        /// The classification template holds one field, which holds
+        /// The classification template requires exactly
+        /// one field, which holds
         /// all the valid classification values.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField>? Fields { get; set; } = default;
+        public IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField> Fields { get; set; }
 
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArg(CreateMetadataTemplateSchemaClassificationRequestBodyArgScopeField scope, CreateMetadataTemplateSchemaClassificationRequestBodyArgDisplayNameField displayName) {
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArg(CreateMetadataTemplateSchemaClassificationRequestBodyArgScopeField scope, CreateMetadataTemplateSchemaClassificationRequestBodyArgTemplateKeyField templateKey, CreateMetadataTemplateSchemaClassificationRequestBodyArgDisplayNameField displayName, IReadOnlyList<CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsField> fields) {
             Scope = scope;
+            TemplateKey = templateKey;
             DisplayName = displayName;
+            Fields = fields;
         }
     }
 }

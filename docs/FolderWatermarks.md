@@ -14,7 +14,10 @@ This operation is performed by calling function `GetFolderWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-watermark/).
 
-*Currently we don't have an example for calling `GetFolderWatermark` in integration tests*
+<!-- sample get_folders_id_watermark -->
+```
+await client.FolderWatermarks.GetFolderWatermarkAsync(folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `UpdateFolderWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-watermark/).
 
-*Currently we don't have an example for calling `UpdateFolderWatermark` in integration tests*
+<!-- sample put_folders_id_watermark -->
+```
+await client.FolderWatermarks.UpdateFolderWatermarkAsync(folder.Id, new UpdateFolderWatermarkRequestBodyArg(watermark: new UpdateFolderWatermarkRequestBodyArgWatermarkField(imprint: UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `DeleteFolderWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-watermark/).
 
-*Currently we don't have an example for calling `DeleteFolderWatermark` in integration tests*
+<!-- sample delete_folders_id_watermark -->
+```
+await client.FolderWatermarks.DeleteFolderWatermarkAsync(folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

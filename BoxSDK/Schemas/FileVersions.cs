@@ -49,7 +49,7 @@ namespace Box.Schemas {
         /// A list of file versions
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileVersion>? Entries { get; set; } = default;
+        public IReadOnlyList<FileVersionFull>? Entries { get; set; } = default;
 
         public FileVersions() {
             

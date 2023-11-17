@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-await client.Files.DeleteFileByIdAsync(newFileVersion.Id).ConfigureAwait(false)
+await client.Files.DeleteFileByIdAsync(file2.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

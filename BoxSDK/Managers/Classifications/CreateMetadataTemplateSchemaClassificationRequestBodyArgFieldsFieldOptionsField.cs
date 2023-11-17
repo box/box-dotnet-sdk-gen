@@ -12,7 +12,7 @@ namespace Box.Managers {
         /// will be show in the Box UI.
         /// </summary>
         [JsonPropertyName("key")]
-        public string? Key { get; set; } = default;
+        public string Key { get; set; }
 
         /// <summary>
         /// Additional information about the classification.
@@ -20,8 +20,8 @@ namespace Box.Managers {
         [JsonPropertyName("staticConfig")]
         public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsFieldStaticConfigField? StaticConfig { get; set; } = default;
 
-        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField() {
-            
+        public CreateMetadataTemplateSchemaClassificationRequestBodyArgFieldsFieldOptionsField(string key) {
+            Key = key;
         }
     }
 }

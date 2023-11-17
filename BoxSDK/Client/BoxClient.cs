@@ -1,4 +1,5 @@
-using Unions;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Box.Managers;
 using Box;
 
@@ -6,7 +7,7 @@ namespace Box {
     public class BoxClient {
         public IAuth Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; } = new NetworkSession();
+        public NetworkSession NetworkSession { get; set; }
 
         public AuthorizationManager Authorization { get; set; }
 
@@ -144,8 +145,9 @@ namespace Box {
 
         public IntegrationMappingsManager IntegrationMappings { get; set; }
 
-        public BoxClient(IAuth auth) {
+        public BoxClient(IAuth auth, NetworkSession networkSession = default) {
             Auth = auth;
+            NetworkSession = networkSession ?? new NetworkSession();
             Authorization = new AuthorizationManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
             Files = new FilesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
             TrashedFiles = new TrashedFilesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
@@ -215,5 +217,33 @@ namespace Box {
             SignTemplates = new SignTemplatesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
             IntegrationMappings = new IntegrationMappingsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
         }
+        /// <summary>
+        /// Create a new client to impersonate user with the provided ID. All calls made with the new client will be made in context of the impersonated user, leaving the original client unmodified.
+        /// </summary>
+        /// <param name="userId">
+        /// ID of an user to impersonate
+        /// </param>
+        public BoxClient WithAsUserHeader(string userId) {
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(new Dictionary<string, string>() { { "As-User", userId } }));
+        }
+
+        /// <summary>
+        /// Create a new client with suppressed notifications. Calls made with the new client will not trigger email or webhook notifications
+        /// </summary>
+        public BoxClient WithSuppressedNotifications() {
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(new Dictionary<string, string>() { { "Box-Notifications", "off" } }));
+        }
+
+        /// <summary>
+        /// Create a new client with a custom set of headers that will be included in every API call
+        /// </summary>
+        /// <param name="extraHeaders">
+        /// Custom set of headers that will be included in every API call
+        /// </param>
+        public BoxClient WithExtraHeaders(Dictionary<string, string>? extraHeaders = default) {
+            extraHeaders = extraHeaders ?? new Dictionary<string, string>() {  };
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(extraHeaders));
+        }
+
     }
 }

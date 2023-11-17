@@ -30,7 +30,7 @@ namespace Box.Schemas {
         /// * `7`: Gray
         /// </summary>
         [JsonPropertyName("colorID")]
-        public double? ColorId { get; set; } = default;
+        public long? ColorId { get; set; } = default;
 
         public ClassificationTemplateFieldsFieldOptionsFieldStaticConfigFieldClassificationField() {
             

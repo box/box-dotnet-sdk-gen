@@ -14,7 +14,7 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestFolderLocks() {
-            FolderFull folder = await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false);
+            FolderFull folder = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
             FolderLocks folderLocks = await client.FolderLocks.GetFolderLocksAsync(new GetFolderLocksQueryParamsArg(folderId: folder.Id)).ConfigureAwait(false);
             Assert.IsTrue(folderLocks.Entries!.Count == 0);
             FolderLock folderLock = await client.FolderLocks.CreateFolderLockAsync(new CreateFolderLockRequestBodyArg(folder: new CreateFolderLockRequestBodyArgFolderField(id: folder.Id, type: "folder")) { LockedOperations = new CreateFolderLockRequestBodyArgLockedOperationsField(move: true, delete: true) }).ConfigureAwait(false);

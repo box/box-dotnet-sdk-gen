@@ -6,7 +6,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField {
+    public class UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldStaticConfigFieldClassificationField {
         /// <summary>
         /// A longer description of the classification.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Box.Managers {
         /// * `7`: Gray
         /// </summary>
         [JsonPropertyName("colorID")]
-        public double? ColorId { get; set; } = default;
+        public long? ColorId { get; set; } = default;
 
-        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldClassificationField() {
+        public UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArgDataFieldStaticConfigFieldClassificationField() {
             
         }
     }

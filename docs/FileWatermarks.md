@@ -14,7 +14,10 @@ This operation is performed by calling function `GetFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-watermark/).
 
-*Currently we don't have an example for calling `GetFileWatermark` in integration tests*
+<!-- sample get_files_id_watermark -->
+```
+await client.FileWatermarks.GetFileWatermarkAsync(file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `UpdateFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-watermark/).
 
-*Currently we don't have an example for calling `UpdateFileWatermark` in integration tests*
+<!-- sample put_files_id_watermark -->
+```
+await client.FileWatermarks.UpdateFileWatermarkAsync(file.Id, new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `DeleteFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-watermark/).
 
-*Currently we don't have an example for calling `DeleteFileWatermark` in integration tests*
+<!-- sample delete_files_id_watermark -->
+```
+await client.FileWatermarks.DeleteFileWatermarkAsync(file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
