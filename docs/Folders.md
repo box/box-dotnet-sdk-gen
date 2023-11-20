@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync("0").ConfigureAwait(false)
+await client.Folders.GetFolderByIdAsync(folderId: "0").ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -70,7 +70,10 @@ This operation is performed by calling function `UpdateFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id/).
 
-*Currently we don't have an example for calling `UpdateFolderById` in integration tests*
+<!-- sample put_folders_id -->
+```
+await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBodyArg(parent: new UpdateFolderByIdRequestBodyArgParentField(id: folderOrigin.Id), name: movedFolderName)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -114,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await client.Folders.DeleteFolderByIdAsync(folder1.Id).ConfigureAwait(false)
+await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -150,7 +153,10 @@ This operation is performed by calling function `GetFolderItems`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-items/).
 
-*Currently we don't have an example for calling `GetFolderItems` in integration tests*
+<!-- sample get_folders_id_items -->
+```
+await client.Folders.GetFolderItemsAsync(folderId: folderOrigin.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -182,7 +188,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await client.Folders.CreateFolderAsync(new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false)
+await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -219,7 +225,10 @@ This operation is performed by calling function `CopyFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-copy/).
 
-*Currently we don't have an example for calling `CopyFolder` in integration tests*
+<!-- sample post_folders_id_copy -->
+```
+await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBodyArg(parent: new CopyFolderRequestBodyArgParentField(id: "0"), name: copiedFolderName)).ConfigureAwait(false)
+```
 
 ### Arguments
 

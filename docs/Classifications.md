@@ -17,17 +17,17 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/metadata_templates/enterprise_12345/securityClassification-6VMVochwUWo/schema`.
 
-This operation is performed by calling function `GetMetadataTemplateEnterpriseSecurityClassificationSchema`.
+This operation is performed by calling function `GetClassificationTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema/).
 
-*Currently we don't have an example for calling `GetMetadataTemplateEnterpriseSecurityClassificationSchema` in integration tests*
+*Currently we don't have an example for calling `GetClassificationTemplate` in integration tests*
 
 ### Arguments
 
-- headers `GetMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg`
-  - Headers of getMetadataTemplateEnterpriseSecurityClassificationSchema method
+- headers `GetClassificationTemplateHeadersArg`
+  - Headers of getClassificationTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -78,19 +78,19 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/metadata_templates/enterprise_12345/securityClassification-6VMVochwUWo/schema`.
 
-This operation is performed by calling function `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd`.
+This operation is performed by calling function `AddClassification`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-add/).
 
-*Currently we don't have an example for calling `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd` in integration tests*
+*Currently we don't have an example for calling `AddClassification` in integration tests*
 
 ### Arguments
 
-- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddRequestBodyArg>`
-  - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
-- headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaAddHeadersArg`
-  - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaAdd method
+- requestBody `IReadOnlyList<AddClassificationRequestBodyArg>`
+  - Request body of addClassification method
+- headers `AddClassificationHeadersArg`
+  - Headers of addClassification method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -113,19 +113,19 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/metadata_templates/enterprise_12345/securityClassification-6VMVochwUWo/schema`.
 
-This operation is performed by calling function `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate`.
+This operation is performed by calling function `UpdateClassification`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-update/).
 
-*Currently we don't have an example for calling `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate` in integration tests*
+*Currently we don't have an example for calling `UpdateClassification` in integration tests*
 
 ### Arguments
 
-- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateRequestBodyArg>`
-  - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
-- headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdateHeadersArg`
-  - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaUpdate method
+- requestBody `IReadOnlyList<UpdateClassificationRequestBodyArg>`
+  - Request body of updateClassification method
+- headers `UpdateClassificationHeadersArg`
+  - Headers of updateClassification method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -184,19 +184,19 @@ If an enterprise already has a classification, the template will already
 exist and instead an API call should be made to add additional
 classifications.
 
-This operation is performed by calling function `CreateMetadataTemplateSchemaClassification`.
+This operation is performed by calling function `CreateClassificationTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-templates-schema-classifications/).
 
-*Currently we don't have an example for calling `CreateMetadataTemplateSchemaClassification` in integration tests*
+*Currently we don't have an example for calling `CreateClassificationTemplate` in integration tests*
 
 ### Arguments
 
-- requestBody `CreateMetadataTemplateSchemaClassificationRequestBodyArg`
-  - Request body of createMetadataTemplateSchemaClassification method
-- headers `CreateMetadataTemplateSchemaClassificationHeadersArg`
-  - Headers of createMetadataTemplateSchemaClassification method
+- requestBody `CreateClassificationTemplateRequestBodyArg`
+  - Request body of createClassificationTemplate method
+- headers `CreateClassificationTemplateHeadersArg`
+  - Headers of createClassificationTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

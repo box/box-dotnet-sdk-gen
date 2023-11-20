@@ -45,7 +45,7 @@ namespace Box.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<Classification> GetFileMetadataEnterpriseSecurityClassification6VmVochwUWoAsync(string fileId, GetFileMetadataEnterpriseSecurityClassification6VmVochwUWoHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetFileMetadataEnterpriseSecurityClassification6VmVochwUWoHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/enterprise/securityClassification-6VMVochwUWo"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Classification>(response.Data);
         }
@@ -80,7 +80,7 @@ namespace Box.Managers {
         public async System.Threading.Tasks.Task<Classification> CreateFileMetadataEnterpriseSecurityClassificationAsync(string fileId, CreateFileMetadataEnterpriseSecurityClassificationRequestBodyArg? requestBody = default, CreateFileMetadataEnterpriseSecurityClassificationHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             requestBody = requestBody ?? new CreateFileMetadataEnterpriseSecurityClassificationRequestBodyArg();
             headers = headers ?? new CreateFileMetadataEnterpriseSecurityClassificationHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/enterprise/securityClassification-6VMVochwUWo"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Classification>(response.Data);
         }
@@ -113,7 +113,7 @@ namespace Box.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<Classification> UpdateFileMetadataEnterpriseSecurityClassificationAsync(string fileId, IReadOnlyList<UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArg> requestBody, UpdateFileMetadataEnterpriseSecurityClassificationHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new UpdateFileMetadataEnterpriseSecurityClassificationHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/enterprise/securityClassification-6VMVochwUWo"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Classification>(response.Data);
         }
@@ -143,7 +143,7 @@ namespace Box.Managers {
         /// </param>
         public async System.Threading.Tasks.Task DeleteFileMetadataEnterpriseSecurityClassificationAsync(string fileId, DeleteFileMetadataEnterpriseSecurityClassificationHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new DeleteFileMetadataEnterpriseSecurityClassificationHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/enterprise/securityClassification-6VMVochwUWo"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }
 

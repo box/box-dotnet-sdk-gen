@@ -22,7 +22,10 @@ This operation is performed by calling function `GetSharedItemFolders`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-folders/).
 
-*Currently we don't have an example for calling `GetSharedItemFolders` in integration tests*
+<!-- sample get_shared_items#folders -->
+```
+await userClient.SharedLinksFolders.GetSharedItemFoldersAsync(queryParams: new GetSharedItemFoldersQueryParamsArg(), headers: new GetSharedItemFoldersHeadersArg(boxapi: string.Concat("shared_link=", folderFromApi.SharedLink!.Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -51,7 +54,10 @@ This operation is performed by calling function `GetFolderGetSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-get-shared-link/).
 
-*Currently we don't have an example for calling `GetFolderGetSharedLink` in integration tests*
+<!-- sample get_folders_id#get_shared_link -->
+```
+await client.SharedLinksFolders.GetFolderGetSharedLinkAsync(folderId: folder.Id, queryParams: new GetFolderGetSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -82,7 +88,10 @@ This operation is performed by calling function `UpdateFolderAddSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-add-shared-link/).
 
-*Currently we don't have an example for calling `UpdateFolderAddSharedLink` in integration tests*
+<!-- sample put_folders_id#add_shared_link -->
+```
+await client.SharedLinksFolders.UpdateFolderAddSharedLinkAsync(folderId: folder.Id, requestBody: new UpdateFolderAddSharedLinkRequestBodyArg(sharedLink: new UpdateFolderAddSharedLinkRequestBodyArgSharedLinkField(access: UpdateFolderAddSharedLinkRequestBodyArgSharedLinkFieldAccessField.Open, password: "Secret123@")), queryParams: new UpdateFolderAddSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -115,7 +124,10 @@ This operation is performed by calling function `UpdateFolderUpdateSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-update-shared-link/).
 
-*Currently we don't have an example for calling `UpdateFolderUpdateSharedLink` in integration tests*
+<!-- sample put_folders_id#update_shared_link -->
+```
+await client.SharedLinksFolders.UpdateFolderUpdateSharedLinkAsync(folderId: folder.Id, requestBody: new UpdateFolderUpdateSharedLinkRequestBodyArg(sharedLink: new UpdateFolderUpdateSharedLinkRequestBodyArgSharedLinkField(access: UpdateFolderUpdateSharedLinkRequestBodyArgSharedLinkFieldAccessField.Collaborators)), queryParams: new UpdateFolderUpdateSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 

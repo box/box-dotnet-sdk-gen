@@ -16,7 +16,10 @@ This operation is performed by calling function `GetFileComments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-comments/).
 
-*Currently we don't have an example for calling `GetFileComments` in integration tests*
+<!-- sample get_files_id_comments -->
+```
+await client.Comments.GetFileCommentsAsync(fileId: fileId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -48,7 +51,10 @@ This operation is performed by calling function `GetCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-comments-id/).
 
-*Currently we don't have an example for calling `GetCommentById` in integration tests*
+<!-- sample get_comments_id -->
+```
+await client.Comments.GetCommentByIdAsync(commentId: newComment.Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -78,7 +84,10 @@ This operation is performed by calling function `UpdateCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-comments-id/).
 
-*Currently we don't have an example for calling `UpdateCommentById` in integration tests*
+<!-- sample put_comments_id -->
+```
+await client.Comments.UpdateCommentByIdAsync(commentId: newReplyComment.Id!, requestBody: new UpdateCommentByIdRequestBodyArg(message: newMessage)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -110,7 +119,10 @@ This operation is performed by calling function `DeleteCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-comments-id/).
 
-*Currently we don't have an example for calling `DeleteCommentById` in integration tests*
+<!-- sample delete_comments_id -->
+```
+await client.Comments.DeleteCommentByIdAsync(commentId: newComment.Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -139,7 +151,10 @@ This operation is performed by calling function `CreateComment`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-comments/).
 
-*Currently we don't have an example for calling `CreateComment` in integration tests*
+<!-- sample post_comments -->
+```
+await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBodyArg(message: message, item: new CreateCommentRequestBodyArgItemField(id: newComment.Id!, type: CreateCommentRequestBodyArgItemFieldTypeField.Comment))).ConfigureAwait(false)
+```
 
 ### Arguments
 

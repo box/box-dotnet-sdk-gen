@@ -25,7 +25,10 @@ This operation is performed by calling function `GetSharedItems`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items/).
 
-*Currently we don't have an example for calling `GetSharedItems` in integration tests*
+<!-- sample get_shared_items -->
+```
+await userClient.SharedLinksFiles.GetSharedItemsAsync(queryParams: new GetSharedItemsQueryParamsArg(), headers: new GetSharedItemsHeadersArg(boxapi: string.Concat("shared_link=", fileFromApi.SharedLink!.Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -54,7 +57,10 @@ This operation is performed by calling function `GetFileGetSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-get-shared-link/).
 
-*Currently we don't have an example for calling `GetFileGetSharedLink` in integration tests*
+<!-- sample get_files_id#get_shared_link -->
+```
+await client.SharedLinksFiles.GetFileGetSharedLinkAsync(fileId: fileId, queryParams: new GetFileGetSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -85,7 +91,10 @@ This operation is performed by calling function `UpdateFileAddSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-add-shared-link/).
 
-*Currently we don't have an example for calling `UpdateFileAddSharedLink` in integration tests*
+<!-- sample put_files_id#add_shared_link -->
+```
+await client.SharedLinksFiles.UpdateFileAddSharedLinkAsync(fileId: fileId, requestBody: new UpdateFileAddSharedLinkRequestBodyArg(sharedLink: new UpdateFileAddSharedLinkRequestBodyArgSharedLinkField(access: UpdateFileAddSharedLinkRequestBodyArgSharedLinkFieldAccessField.Open, password: "Secret123@")), queryParams: new UpdateFileAddSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -118,7 +127,10 @@ This operation is performed by calling function `UpdateFileUpdateSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-update-shared-link/).
 
-*Currently we don't have an example for calling `UpdateFileUpdateSharedLink` in integration tests*
+<!-- sample put_files_id#update_shared_link -->
+```
+await client.SharedLinksFiles.UpdateFileUpdateSharedLinkAsync(fileId: fileId, requestBody: new UpdateFileUpdateSharedLinkRequestBodyArg(sharedLink: new UpdateFileUpdateSharedLinkRequestBodyArgSharedLinkField(access: UpdateFileUpdateSharedLinkRequestBodyArgSharedLinkFieldAccessField.Collaborators)), queryParams: new UpdateFileUpdateSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 

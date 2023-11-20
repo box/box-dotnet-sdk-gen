@@ -204,7 +204,7 @@ namespace Box
                 NetworkSession = networkSession
             }).ConfigureAwait(false);
 
-            return SimpleJsonSerializer.Deserialize<AccessToken>(new SerializedData(response.Data.Data));
+            return SimpleJsonSerializer.Deserialize<AccessToken>(response.Data);
         }
 
     }

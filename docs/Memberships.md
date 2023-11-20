@@ -21,7 +21,7 @@ See the endpoint docs at
 
 <!-- sample get_users_id_memberships -->
 ```
-await client.Memberships.GetUserMembershipsAsync(user.Id).ConfigureAwait(false)
+await client.Memberships.GetUserMembershipsAsync(userId: user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id_memberships -->
 ```
-await client.Memberships.GetGroupMembershipsAsync(group.Id).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipsAsync(groupId: group.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ See the endpoint docs at
 
 <!-- sample post_group_memberships -->
 ```
-await client.Memberships.CreateGroupMembershipAsync(new CreateGroupMembershipRequestBodyArg(user: new CreateGroupMembershipRequestBodyArgUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyArgGroupField(id: group.Id))).ConfigureAwait(false)
+await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBodyArg(user: new CreateGroupMembershipRequestBodyArgUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyArgGroupField(id: group.Id))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -127,7 +127,7 @@ See the endpoint docs at
 
 <!-- sample get_group_memberships_id -->
 ```
-await client.Memberships.GetGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -162,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembership.Id!, new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!, requestBody: new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -199,7 +199,7 @@ See the endpoint docs at
 
 <!-- sample delete_group_memberships_id -->
 ```
-await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembership.Id!).ConfigureAwait(false)
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

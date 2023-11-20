@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_users_id_email_aliases -->
 ```
-await client.EmailAliases.GetUserEmailAliasesAsync(newUser.Id).ConfigureAwait(false)
+await client.EmailAliases.GetUserEmailAliasesAsync(userId: newUser.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample post_users_id_email_aliases -->
 ```
-await client.EmailAliases.CreateUserEmailAliasAsync(newUser.Id, new CreateUserEmailAliasRequestBodyArg(email: newAliasEmail)).ConfigureAwait(false)
+await client.EmailAliases.CreateUserEmailAliasAsync(userId: newUser.Id, requestBody: new CreateUserEmailAliasRequestBodyArg(email: newAliasEmail)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id_email_aliases_id -->
 ```
-await client.EmailAliases.DeleteUserEmailAliasByIdAsync(newUser.Id, newAlias.Id!).ConfigureAwait(false)
+await client.EmailAliases.DeleteUserEmailAliasByIdAsync(userId: newUser.Id, emailAliasId: newAlias.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

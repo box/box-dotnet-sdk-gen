@@ -77,13 +77,13 @@ namespace Box
         /// <summary>
         /// Creates JwtConfig for Enterprise or User depending of parameters provided from json.
         /// </summary>
-        /// <param name="jsonString">Box Jwt configuration as json.</param>
+        /// <param name="configJsonString">Box Jwt configuration as json.</param>
         /// <param name="userId">The user ID to authenticate.</param>
         /// <param name="tokenStorage"></param>
         /// <returns>A JwtConfig for either user or enterprise.</returns>
-        public static JwtConfig FromConfigJsonString(string jsonString, string userId = "", ITokenStorage? tokenStorage = default)
+        public static JwtConfig FromConfigJsonString(string configJsonString, string userId = "", ITokenStorage? tokenStorage = default)
         {
-            var json = JsonNode.Parse(jsonString);
+            var json = JsonNode.Parse(configJsonString);
             string? clientId = "", clientSecret = "", privateKey = "", privateKeyPassphrase = "", publicKeyId = "";
 
             var boxAppSettings = json?["boxAppSettings"];
@@ -180,11 +180,11 @@ namespace Box
         /// <summary>
         /// Used to switch Auth to authenticate as enterprise.
         /// </summary>
-        /// <param name="enterpriseId">Box EnterpriseID used for authentication.</param>
-        public async System.Threading.Tasks.Task AsEnterpriseAsync(string enterpriseId)
+        /// <param name="userId">Box EnterpriseID used for authentication.</param>
+        public async System.Threading.Tasks.Task AsEnterpriseAsync(string userId)
         {
             _subjectType = SubjectType.Enterprise;
-            _subjectId = enterpriseId;
+            _subjectId = userId;
             await _tokenStorage.ClearAsync().ConfigureAwait(false);
         }
 

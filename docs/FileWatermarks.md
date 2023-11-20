@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_watermark -->
 ```
-await client.FileWatermarks.GetFileWatermarkAsync(file.Id).ConfigureAwait(false)
+await client.FileWatermarks.GetFileWatermarkAsync(fileId: file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id_watermark -->
 ```
-await client.FileWatermarks.UpdateFileWatermarkAsync(file.Id, new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+await client.FileWatermarks.UpdateFileWatermarkAsync(fileId: file.Id, requestBody: new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_watermark -->
 ```
-await client.FileWatermarks.DeleteFileWatermarkAsync(file.Id).ConfigureAwait(false)
+await client.FileWatermarks.DeleteFileWatermarkAsync(fileId: file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_users_id_avatar -->
 ```
-await client.Avatars.GetUserAvatarAsync(user.Id).ConfigureAwait(false)
+await client.Avatars.GetUserAvatarAsync(userId: user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_users_id_avatar -->
 ```
-await client.Avatars.CreateUserAvatarAsync(user.Id, new CreateUserAvatarRequestBodyArg(pic: Utils.DecodeBase64ByteStream("iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png")).ConfigureAwait(false)
+await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBodyArg(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id_avatar -->
 ```
-await client.Avatars.DeleteUserAvatarAsync(user.Id).ConfigureAwait(false)
+await client.Avatars.DeleteUserAvatarAsync(userId: user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

@@ -16,7 +16,10 @@ This operation is performed by calling function `CancelSignRequest`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-sign-requests-id-cancel/).
 
-*Currently we don't have an example for calling `CancelSignRequest` in integration tests*
+<!-- sample post_sign_requests_id_cancel -->
+```
+await client.SignRequests.CancelSignRequestAsync(signRequestId: createdSignRequest.Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +76,10 @@ This operation is performed by calling function `GetSignRequestById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-requests-id/).
 
-*Currently we don't have an example for calling `GetSignRequestById` in integration tests*
+<!-- sample get_sign_requests_id -->
+```
+await client.SignRequests.GetSignRequestByIdAsync(signRequestId: createdSignRequest.Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -102,7 +108,10 @@ This operation is performed by calling function `GetSignRequests`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-requests/).
 
-*Currently we don't have an example for calling `GetSignRequests` in integration tests*
+<!-- sample get_sign_requests -->
+```
+await client.SignRequests.GetSignRequestsAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -131,7 +140,10 @@ This operation is performed by calling function `CreateSignRequest`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-sign-requests/).
 
-*Currently we don't have an example for calling `CreateSignRequest` in integration tests*
+<!-- sample post_sign_requests -->
+```
+await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner(email: signerEmail)}), parentFolder: new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)}))).ConfigureAwait(false)
+```
 
 ### Arguments
 

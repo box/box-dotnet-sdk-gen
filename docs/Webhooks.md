@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_webhooks -->
 ```
-await client.Webhooks.CreateWebhookAsync(new CreateWebhookRequestBodyArg(target: new CreateWebhookRequestBodyArgTargetField(id: folder.Id, type: CreateWebhookRequestBodyArgTargetFieldTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyArgTriggersField.FileUploaded}))).ConfigureAwait(false)
+await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBodyArg(target: new CreateWebhookRequestBodyArgTargetField(id: folder.Id, type: CreateWebhookRequestBodyArgTargetFieldTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyArgTriggersField.FileUploaded}))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample get_webhooks_id -->
 ```
-await client.Webhooks.GetWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
+await client.Webhooks.GetWebhookByIdAsync(webhookId: webhook.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-await client.Webhooks.UpdateWebhookByIdAsync(webhook.Id!, new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
+await client.Webhooks.UpdateWebhookByIdAsync(webhookId: webhook.Id!, requestBody: new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -149,7 +149,7 @@ See the endpoint docs at
 
 <!-- sample delete_webhooks_id -->
 ```
-await client.Webhooks.DeleteWebhookByIdAsync(webhook.Id!).ConfigureAwait(false)
+await client.Webhooks.DeleteWebhookByIdAsync(webhookId: webhook.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

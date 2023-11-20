@@ -15,13 +15,13 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestCreateGetDeleteFileWatermark() {
             string fileName = string.Concat(Utils.GetUUID(), ".txt");
-            Files uploadedFiles = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: Utils.GenerateByteStream(10))).ConfigureAwait(false);
+            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: Utils.GenerateByteStream(size: 10))).ConfigureAwait(false);
             FileFull file = uploadedFiles.Entries![0];
-            Watermark createdWatermark = await client.FileWatermarks.UpdateFileWatermarkAsync(file.Id, new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false);
-            Watermark watermark = await client.FileWatermarks.GetFileWatermarkAsync(file.Id).ConfigureAwait(false);
-            await client.FileWatermarks.DeleteFileWatermarkAsync(file.Id).ConfigureAwait(false);
-            await Assert.That.IsExceptionAsync(async() => await client.FileWatermarks.GetFileWatermarkAsync(file.Id).ConfigureAwait(false));
-            await client.Files.DeleteFileByIdAsync(file.Id).ConfigureAwait(false);
+            Watermark createdWatermark = await client.FileWatermarks.UpdateFileWatermarkAsync(fileId: file.Id, requestBody: new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false);
+            Watermark watermark = await client.FileWatermarks.GetFileWatermarkAsync(fileId: file.Id).ConfigureAwait(false);
+            await client.FileWatermarks.DeleteFileWatermarkAsync(fileId: file.Id).ConfigureAwait(false);
+            await Assert.That.IsExceptionAsync(async() => await client.FileWatermarks.GetFileWatermarkAsync(fileId: file.Id).ConfigureAwait(false));
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id).ConfigureAwait(false);
         }
 
     }

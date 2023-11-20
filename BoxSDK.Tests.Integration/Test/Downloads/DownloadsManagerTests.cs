@@ -14,13 +14,13 @@ namespace Box.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestDownloadFile() {
             string newFileName = Utils.GetUUID();
-            byte[] fileBuffer = Utils.GenerateByteBuffer(1024 * 1024);
-            System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(fileBuffer);
-            Files uploadedFiles = await client.Uploads.UploadFileAsync(new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
+            byte[] fileBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
+            System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(buffer: fileBuffer);
+            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
             FileFull uploadedFile = uploadedFiles.Entries![0];
-            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(uploadedFile.Id).ConfigureAwait(false);
-            Assert.IsTrue(Utils.BufferEquals(await Utils.ReadByteStreamAsync(downloadedFileContent).ConfigureAwait(false), fileBuffer));
-            await client.Files.DeleteFileByIdAsync(uploadedFile.Id).ConfigureAwait(false);
+            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: downloadedFileContent).ConfigureAwait(false), buffer2: fileBuffer));
+            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
         }
 
     }

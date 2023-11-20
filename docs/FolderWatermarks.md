@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_watermark -->
 ```
-await client.FolderWatermarks.GetFolderWatermarkAsync(folder.Id).ConfigureAwait(false)
+await client.FolderWatermarks.GetFolderWatermarkAsync(folderId: folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_watermark -->
 ```
-await client.FolderWatermarks.UpdateFolderWatermarkAsync(folder.Id, new UpdateFolderWatermarkRequestBodyArg(watermark: new UpdateFolderWatermarkRequestBodyArgWatermarkField(imprint: UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+await client.FolderWatermarks.UpdateFolderWatermarkAsync(folderId: folder.Id, requestBody: new UpdateFolderWatermarkRequestBodyArg(watermark: new UpdateFolderWatermarkRequestBodyArgWatermarkField(imprint: UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_watermark -->
 ```
-await client.FolderWatermarks.DeleteFolderWatermarkAsync(folder.Id).ConfigureAwait(false)
+await client.FolderWatermarks.DeleteFolderWatermarkAsync(folderId: folder.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-await client.Users.CreateUserAsync(new CreateUserRequestBodyArg(name: userName, login: userLogin, isPlatformAccessOnly: true)).ConfigureAwait(false)
+await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBodyArg(name: userName, login: userLogin, isPlatformAccessOnly: true)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -140,7 +140,7 @@ See the endpoint docs at
 
 <!-- sample get_users_id -->
 ```
-await client.Users.GetUserByIdAsync(user.Id).ConfigureAwait(false)
+await client.Users.GetUserByIdAsync(userId: user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -180,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id -->
 ```
-await client.Users.UpdateUserByIdAsync(user.Id, new UpdateUserByIdRequestBodyArg(name: updatedUserName)).ConfigureAwait(false)
+await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBodyArg(name: updatedUserName)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -218,7 +218,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id -->
 ```
-await client.Users.DeleteUserByIdAsync(user.Id).ConfigureAwait(false)
+await client.Users.DeleteUserByIdAsync(userId: user.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
