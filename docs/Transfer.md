@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id_folders_0 -->
 ```
-await client.Transfer.TransferOwnedFolderAsync(newUser.Id, new TransferOwnedFolderRequestBodyArg(ownedBy: new TransferOwnedFolderRequestBodyArgOwnedByField(id: currentUser.Id)), new TransferOwnedFolderQueryParamsArg(notify: false)).ConfigureAwait(false)
+await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBodyArg(ownedBy: new TransferOwnedFolderRequestBodyArgOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParamsArg(notify: false)).ConfigureAwait(false)
 ```
 
 ### Arguments

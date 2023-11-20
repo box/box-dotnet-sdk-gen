@@ -22,7 +22,10 @@ This operation is performed by calling function `GetSharedItemWebLinks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-web-links/).
 
-*Currently we don't have an example for calling `GetSharedItemWebLinks` in integration tests*
+<!-- sample get_shared_items#web_links -->
+```
+await userClient.SharedLinksWebLinks.GetSharedItemWebLinksAsync(queryParams: new GetSharedItemWebLinksQueryParamsArg(), headers: new GetSharedItemWebLinksHeadersArg(boxapi: string.Concat("shared_link=", webLinkFromApi.SharedLink!.Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -51,7 +54,10 @@ This operation is performed by calling function `GetWebLinkGetSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-web-links-id-get-shared-link/).
 
-*Currently we don't have an example for calling `GetWebLinkGetSharedLink` in integration tests*
+<!-- sample get_web_links_id#get_shared_link -->
+```
+await client.SharedLinksWebLinks.GetWebLinkGetSharedLinkAsync(webLinkId: webLinkId, queryParams: new GetWebLinkGetSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -82,7 +88,10 @@ This operation is performed by calling function `UpdateWebLinkAddSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-add-shared-link/).
 
-*Currently we don't have an example for calling `UpdateWebLinkAddSharedLink` in integration tests*
+<!-- sample put_web_links_id#add_shared_link -->
+```
+await client.SharedLinksWebLinks.UpdateWebLinkAddSharedLinkAsync(webLinkId: webLinkId, requestBody: new UpdateWebLinkAddSharedLinkRequestBodyArg(sharedLink: new UpdateWebLinkAddSharedLinkRequestBodyArgSharedLinkField(access: UpdateWebLinkAddSharedLinkRequestBodyArgSharedLinkFieldAccessField.Open, password: "Secret123@")), queryParams: new UpdateWebLinkAddSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -115,7 +124,10 @@ This operation is performed by calling function `UpdateWebLinkUpdateSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-update-shared-link/).
 
-*Currently we don't have an example for calling `UpdateWebLinkUpdateSharedLink` in integration tests*
+<!-- sample put_web_links_id#update_shared_link -->
+```
+await client.SharedLinksWebLinks.UpdateWebLinkUpdateSharedLinkAsync(webLinkId: webLinkId, requestBody: new UpdateWebLinkUpdateSharedLinkRequestBodyArg(sharedLink: new UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkField(access: UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkFieldAccessField.Collaborators)), queryParams: new UpdateWebLinkUpdateSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+```
 
 ### Arguments
 

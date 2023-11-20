@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_tasks -->
 ```
-await client.Tasks.GetFileTasksAsync(file.Id).ConfigureAwait(false)
+await client.Tasks.GetFileTasksAsync(fileId: file.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-await client.Tasks.CreateTaskAsync(new CreateTaskRequestBodyArg(item: new CreateTaskRequestBodyArgItemField(type: CreateTaskRequestBodyArgItemFieldTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyArgActionField.Review, completionRule: CreateTaskRequestBodyArgCompletionRuleField.AllAssignees)).ConfigureAwait(false)
+await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBodyArg(item: new CreateTaskRequestBodyArgItemField(type: CreateTaskRequestBodyArgItemFieldTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyArgActionField.Review, completionRule: CreateTaskRequestBodyArgCompletionRuleField.AllAssignees)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample get_tasks_id -->
 ```
-await client.Tasks.GetTaskByIdAsync(task.Id!).ConfigureAwait(false)
+await client.Tasks.GetTaskByIdAsync(taskId: task.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-await client.Tasks.UpdateTaskByIdAsync(task.Id!, new UpdateTaskByIdRequestBodyArg(message: "updated message")).ConfigureAwait(false)
+await client.Tasks.UpdateTaskByIdAsync(taskId: task.Id!, requestBody: new UpdateTaskByIdRequestBodyArg(message: "updated message")).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -150,7 +150,7 @@ See the endpoint docs at
 
 <!-- sample delete_tasks_id -->
 ```
-await client.Tasks.DeleteTaskByIdAsync(task.Id!).ConfigureAwait(false)
+await client.Tasks.DeleteTaskByIdAsync(taskId: task.Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

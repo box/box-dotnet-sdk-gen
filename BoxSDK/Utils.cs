@@ -41,10 +41,10 @@ namespace Box
         /// <summary>
         /// Remove empty entries from dictionary. Used for headers and query params.
         /// </summary>
-        /// <param name="dict">Input dictionary.</param>
+        /// <param name="map">Input dictionary.</param>
         /// <returns>Dictionary without empty entries.</returns>
-        public static Dictionary<string, string> PrepareParams(Dictionary<string, string?> dict) =>
-            dict.Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(pair => pair.Key, pair => pair.Value!);
+        public static Dictionary<string, string> PrepareParams(Dictionary<string, string?> map) =>
+            map.Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(pair => pair.Key, pair => pair.Value!);
 
         /// <summary>
         /// Creates MemoryStream of given size and fills it with random data.

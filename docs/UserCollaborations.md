@@ -15,7 +15,10 @@ This operation is performed by calling function `GetCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaborations-id/).
 
-*Currently we don't have an example for calling `GetCollaborationById` in integration tests*
+<!-- sample get_collaborations_id -->
+```
+await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `UpdateCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-collaborations-id/).
 
-*Currently we don't have an example for calling `UpdateCollaborationById` in integration tests*
+<!-- sample put_collaborations_id -->
+```
+await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBodyArg(role: UpdateCollaborationByIdRequestBodyArgRoleField.Viewer)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -79,7 +85,10 @@ This operation is performed by calling function `DeleteCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-collaborations-id/).
 
-*Currently we don't have an example for calling `DeleteCollaborationById` in integration tests*
+<!-- sample delete_collaborations_id -->
+```
+await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: collaborationId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -121,7 +130,10 @@ This operation is performed by calling function `CreateCollaboration`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-collaborations/).
 
-*Currently we don't have an example for calling `CreateCollaboration` in integration tests*
+<!-- sample post_collaborations -->
+```
+await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBodyArg(item: new CreateCollaborationRequestBodyArgItemField(type: CreateCollaborationRequestBodyArgItemFieldTypeField.Folder, id: folder.Id), accessibleBy: new CreateCollaborationRequestBodyArgAccessibleByField(type: CreateCollaborationRequestBodyArgAccessibleByFieldTypeField.User, id: user.Id), role: CreateCollaborationRequestBodyArgRoleField.Editor)).ConfigureAwait(false)
+```
 
 ### Arguments
 

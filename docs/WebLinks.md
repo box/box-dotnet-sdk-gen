@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample post_web_links -->
 ```
-await client.WebLinks.CreateWebLinkAsync(new CreateWebLinkRequestBodyArg(url: url, parent: new CreateWebLinkRequestBodyArgParentField(id: parent.Id), name: name, description: description)).ConfigureAwait(false)
+await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBodyArg(url: url, parent: new CreateWebLinkRequestBodyArgParentField(id: parent.Id), name: name, description: description)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample get_web_links_id -->
 ```
-await client.WebLinks.GetWebLinkByIdAsync(weblink.Id).ConfigureAwait(false)
+await client.WebLinks.GetWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -109,7 +109,7 @@ See the endpoint docs at
 
 <!-- sample delete_web_links_id -->
 ```
-await client.WebLinks.DeleteWebLinkByIdAsync(weblink.Id).ConfigureAwait(false)
+await client.WebLinks.DeleteWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

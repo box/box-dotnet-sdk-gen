@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample post_legal_hold_policies -->
 ```
-await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(new CreateLegalHoldPolicyRequestBodyArg(policyName: legalHoldPolicyName, description: legalHoldDescription, isOngoing: true)).ConfigureAwait(false)
+await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBodyArg(policyName: legalHoldPolicyName, description: legalHoldDescription, isOngoing: true)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample get_legal_hold_policies_id -->
 ```
-await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId).ConfigureAwait(false)
+await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -112,7 +112,7 @@ See the endpoint docs at
 
 <!-- sample put_legal_hold_policies_id -->
 ```
-await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId, new UpdateLegalHoldPolicyByIdRequestBodyArg(policyName: updatedLegalHoldPolicyName)).ConfigureAwait(false)
+await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId, requestBody: new UpdateLegalHoldPolicyByIdRequestBodyArg(policyName: updatedLegalHoldPolicyName)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -148,7 +148,7 @@ See the endpoint docs at
 
 <!-- sample delete_legal_hold_policies_id -->
 ```
-await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId).ConfigureAwait(false)
+await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId).ConfigureAwait(false)
 ```
 
 ### Arguments

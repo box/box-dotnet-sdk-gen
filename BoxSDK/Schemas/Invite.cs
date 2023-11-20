@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The unique identifier for this invite
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `invite`
         /// </summary>
         [JsonPropertyName("type")]
-        public InviteTypeField? Type { get; set; } = default;
+        public InviteTypeField Type { get; set; }
 
         /// <summary>
         /// A representation of a Box enterprise
@@ -49,8 +49,9 @@ namespace Box.Schemas {
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
 
-        public Invite() {
-            
+        public Invite(string id, InviteTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }

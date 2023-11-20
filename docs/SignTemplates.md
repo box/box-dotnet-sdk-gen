@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_templates -->
 ```
-await client.SignTemplates.GetSignTemplatesAsync(new GetSignTemplatesQueryParamsArg(limit: 2)).ConfigureAwait(false)
+await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParamsArg(limit: 2)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_templates_id -->
 ```
-await client.SignTemplates.GetSignTemplateByIdAsync(signTemplates.Entries![0].Id!).ConfigureAwait(false)
+await client.SignTemplates.GetSignTemplateByIdAsync(templateId: signTemplates.Entries![0].Id!).ConfigureAwait(false)
 ```
 
 ### Arguments

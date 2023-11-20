@@ -224,14 +224,14 @@ namespace Box {
         /// ID of an user to impersonate
         /// </param>
         public BoxClient WithAsUserHeader(string userId) {
-            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(new Dictionary<string, string>() { { "As-User", userId } }));
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(additionalHeaders: new Dictionary<string, string>() { { "As-User", userId } }));
         }
 
         /// <summary>
         /// Create a new client with suppressed notifications. Calls made with the new client will not trigger email or webhook notifications
         /// </summary>
         public BoxClient WithSuppressedNotifications() {
-            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(new Dictionary<string, string>() { { "Box-Notifications", "off" } }));
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(additionalHeaders: new Dictionary<string, string>() { { "Box-Notifications", "off" } }));
         }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace Box {
         /// </param>
         public BoxClient WithExtraHeaders(Dictionary<string, string>? extraHeaders = default) {
             extraHeaders = extraHeaders ?? new Dictionary<string, string>() {  };
-            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(extraHeaders));
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(additionalHeaders: extraHeaders));
         }
 
     }
