@@ -8,8 +8,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class ZipDownloadsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class ZipDownloadsManager : IZipDownloadsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

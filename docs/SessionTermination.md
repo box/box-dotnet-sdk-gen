@@ -1,4 +1,4 @@
-# SessionTerminationManager
+# ISessionTerminationManager
 
 
 - [Create jobs to terminate users session](#create-jobs-to-terminate-users-session)

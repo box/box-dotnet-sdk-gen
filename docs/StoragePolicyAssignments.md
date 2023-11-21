@@ -1,4 +1,4 @@
-# StoragePolicyAssignmentsManager
+# IStoragePolicyAssignmentsManager
 
 
 - [List storage policy assignments](#list-storage-policy-assignments)

@@ -1,4 +1,4 @@
-# MembershipsManager
+# IMembershipsManager
 
 
 - [List user's groups](#list-users-groups)

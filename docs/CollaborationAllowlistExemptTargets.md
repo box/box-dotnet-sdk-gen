@@ -1,4 +1,4 @@
-# CollaborationAllowlistExemptTargetsManager
+# ICollaborationAllowlistExemptTargetsManager
 
 
 - [List users exempt from collaboration domain restrictions](#list-users-exempt-from-collaboration-domain-restrictions)

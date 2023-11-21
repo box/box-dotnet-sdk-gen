@@ -1,4 +1,4 @@
-# FileVersionLegalHoldsManager
+# IFileVersionLegalHoldsManager
 
 
 - [Get file version legal hold](#get-file-version-legal-hold)

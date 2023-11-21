@@ -1,4 +1,4 @@
-# FilesManager
+# IFilesManager
 
 
 - [Get file information](#get-file-information)

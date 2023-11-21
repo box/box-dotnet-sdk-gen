@@ -1,4 +1,4 @@
-# TermsOfServicesManager
+# ITermsOfServicesManager
 
 
 - [List terms of services](#list-terms-of-services)

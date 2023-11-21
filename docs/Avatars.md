@@ -1,4 +1,4 @@
-# AvatarsManager
+# IAvatarsManager
 
 
 - [Get user avatar](#get-user-avatar)

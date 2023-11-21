@@ -1,4 +1,4 @@
-# SharedLinksFilesManager
+# ISharedLinksFilesManager
 
 
 - [Find file for shared link](#find-file-for-shared-link)

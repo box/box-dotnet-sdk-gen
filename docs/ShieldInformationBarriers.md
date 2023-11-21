@@ -1,4 +1,4 @@
-# ShieldInformationBarriersManager
+# IShieldInformationBarriersManager
 
 
 - [Get shield information barrier with specified ID](#get-shield-information-barrier-with-specified-id)

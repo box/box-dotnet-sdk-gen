@@ -1,4 +1,4 @@
-# TrashedItemsManager
+# ITrashedItemsManager
 
 
 - [List trashed items](#list-trashed-items)

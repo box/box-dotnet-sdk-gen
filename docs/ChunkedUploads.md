@@ -1,6 +1,5 @@
-# ChunkedUploadsManager
+# IChunkedUploadsManager
 
-This is a manager for chunked uploads (allowed for files at least 20MB).
 
 - [Create upload session](#create-upload-session)
 - [Create upload session for existing file](#create-upload-session-for-existing-file)

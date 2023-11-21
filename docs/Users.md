@@ -1,4 +1,4 @@
-# UsersManager
+# IUsersManager
 
 
 - [List enterprise users](#list-enterprise-users)

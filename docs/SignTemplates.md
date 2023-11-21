@@ -1,4 +1,4 @@
-# SignTemplatesManager
+# ISignTemplatesManager
 
 
 - [List Box Sign templates](#list-box-sign-templates)

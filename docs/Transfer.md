@@ -1,4 +1,4 @@
-# TransferManager
+# ITransferManager
 
 
 - [Transfer owned folders](#transfer-owned-folders)

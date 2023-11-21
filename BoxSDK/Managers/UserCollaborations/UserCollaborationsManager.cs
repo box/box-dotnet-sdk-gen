@@ -11,8 +11,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class UserCollaborationsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class UserCollaborationsManager : IUserCollaborationsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

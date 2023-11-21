@@ -11,8 +11,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class TrashedWebLinksManager {
-        public IAuth? Auth { get; set; } = default;
+    public class TrashedWebLinksManager : ITrashedWebLinksManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

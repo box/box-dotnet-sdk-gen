@@ -1,4 +1,4 @@
-# UserCollaborationsManager
+# IUserCollaborationsManager
 
 
 - [Get collaboration](#get-collaboration)

@@ -1,4 +1,4 @@
-# TrashedWebLinksManager
+# ITrashedWebLinksManager
 
 
 - [Restore web link](#restore-web-link)

@@ -1,4 +1,4 @@
-# TrashedFoldersManager
+# ITrashedFoldersManager
 
 
 - [Restore folder](#restore-folder)

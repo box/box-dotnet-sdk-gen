@@ -1,4 +1,4 @@
-# WebhooksManager
+# IWebhooksManager
 
 
 - [List all webhooks](#list-all-webhooks)

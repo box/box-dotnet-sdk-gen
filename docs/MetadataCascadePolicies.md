@@ -1,4 +1,4 @@
-# MetadataCascadePoliciesManager
+# IMetadataCascadePoliciesManager
 
 
 - [List metadata cascade policies](#list-metadata-cascade-policies)

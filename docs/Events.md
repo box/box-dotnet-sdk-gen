@@ -1,4 +1,4 @@
-# EventsManager
+# IEventsManager
 
 
 - [List user and enterprise events](#list-user-and-enterprise-events)

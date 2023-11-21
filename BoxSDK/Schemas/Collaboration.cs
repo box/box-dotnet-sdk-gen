@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The unique identifier for this collaboration.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `collaboration`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationTypeField? Type { get; set; } = default;
+        public CollaborationTypeField Type { get; set; }
 
         [JsonPropertyName("item")]
         public FileOrFolderOrWebLink? Item { get; set; } = default;
@@ -87,8 +87,9 @@ namespace Box.Schemas {
         [JsonPropertyName("acceptance_requirements_status")]
         public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; set; } = default;
 
-        public Collaboration() {
-            
+        public Collaboration(string id, CollaborationTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }

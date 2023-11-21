@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class EmailAliasesManager {
-        public IAuth? Auth { get; set; } = default;
+    public class EmailAliasesManager : IEmailAliasesManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

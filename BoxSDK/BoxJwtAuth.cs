@@ -137,7 +137,7 @@ namespace Box
     /// <summary>
     /// Class used to authenticate with Box using JWT.
     /// </summary>
-    public class BoxJwtAuth : IAuth
+    public class BoxJwtAuth : IAuthentication
     {
         ITokenStorage _tokenStorage { get; set; }
         /// <summary>

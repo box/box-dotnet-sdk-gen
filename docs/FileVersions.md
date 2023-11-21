@@ -1,4 +1,4 @@
-# FileVersionsManager
+# IFileVersionsManager
 
 
 - [List all file versions](#list-all-file-versions)

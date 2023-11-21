@@ -1,4 +1,4 @@
-# CollectionsManager
+# ICollectionsManager
 
 
 - [List all collections](#list-all-collections)

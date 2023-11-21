@@ -6,7 +6,7 @@ namespace Box
     /// <summary>
     /// Interface used for authentication with BoxAPI.
     /// </summary>
-    public interface IAuth
+    public interface IAuthentication
     {
         /// <summary>
         /// Retrieves current token. If token is no longer valid, new token is fetched using RefreshToken and then it's returned.

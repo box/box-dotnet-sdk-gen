@@ -1,4 +1,4 @@
-# RetentionPoliciesManager
+# IRetentionPoliciesManager
 
 
 - [List retention policies](#list-retention-policies)

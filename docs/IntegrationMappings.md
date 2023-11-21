@@ -1,4 +1,4 @@
-# IntegrationMappingsManager
+# IIntegrationMappingsManager
 
 
 - [List Slack integration mappings](#list-slack-integration-mappings)

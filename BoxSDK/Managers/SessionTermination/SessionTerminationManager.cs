@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class SessionTerminationManager {
-        public IAuth? Auth { get; set; } = default;
+    public class SessionTerminationManager : ISessionTerminationManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

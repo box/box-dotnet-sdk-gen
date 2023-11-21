@@ -1,4 +1,4 @@
-# WebLinksManager
+# IWebLinksManager
 
 
 - [Create web link](#create-web-link)

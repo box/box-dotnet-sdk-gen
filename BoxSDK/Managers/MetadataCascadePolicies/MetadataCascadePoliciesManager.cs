@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class MetadataCascadePoliciesManager {
-        public IAuth? Auth { get; set; } = default;
+    public class MetadataCascadePoliciesManager : IMetadataCascadePoliciesManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

@@ -2,17 +2,17 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using System;
 using DictionaryExtensions;
 using StringExtensions;
 using Fetch;
 using Serializer;
-using System;
 using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FileClassificationsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FileClassificationsManager : IFileClassificationsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

@@ -1,4 +1,4 @@
-# UploadsManager
+# IUploadsManager
 
 
 - [Upload file version](#upload-file-version)

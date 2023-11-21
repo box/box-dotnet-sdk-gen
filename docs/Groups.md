@@ -1,4 +1,4 @@
-# GroupsManager
+# IGroupsManager
 
 
 - [List groups for enterprise](#list-groups-for-enterprise)

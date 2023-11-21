@@ -1,4 +1,4 @@
-# TaskAssignmentsManager
+# ITaskAssignmentsManager
 
 
 - [List task assignments](#list-task-assignments)

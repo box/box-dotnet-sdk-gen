@@ -2,17 +2,17 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using System;
 using DictionaryExtensions;
 using StringExtensions;
 using Fetch;
 using Serializer;
-using System;
 using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FileMetadataManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FileMetadataManager : IFileMetadataManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 
@@ -114,11 +114,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Metadata> CreateFileMetadataByIdAsync(string fileId, CreateFileMetadataByIdScopeArg scope, string templateKey, CreateFileMetadataByIdRequestBodyArg requestBody, CreateFileMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<MetadataFull> CreateFileMetadataByIdAsync(string fileId, CreateFileMetadataByIdScopeArg scope, string templateKey, CreateFileMetadataByIdRequestBodyArg requestBody, CreateFileMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new CreateFileMetadataByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/", StringUtils.ToStringRepresentation(scope), "/", StringUtils.ToStringRepresentation(templateKey)), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Metadata>(response.Data);
+            return SimpleJsonSerializer.Deserialize<MetadataFull>(response.Data);
         }
 
         /// <summary>
@@ -158,11 +158,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Metadata> UpdateFileMetadataByIdAsync(string fileId, UpdateFileMetadataByIdScopeArg scope, string templateKey, IReadOnlyList<UpdateFileMetadataByIdRequestBodyArg> requestBody, UpdateFileMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<MetadataFull> UpdateFileMetadataByIdAsync(string fileId, UpdateFileMetadataByIdScopeArg scope, string templateKey, IReadOnlyList<UpdateFileMetadataByIdRequestBodyArg> requestBody, UpdateFileMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new UpdateFileMetadataByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/", StringUtils.ToStringRepresentation(scope), "/", StringUtils.ToStringRepresentation(templateKey)), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Metadata>(response.Data);
+            return SimpleJsonSerializer.Deserialize<MetadataFull>(response.Data);
         }
 
         /// <summary>

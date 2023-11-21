@@ -1,4 +1,4 @@
-# DevicePinnersManager
+# IDevicePinnersManager
 
 
 - [Get device pin](#get-device-pin)

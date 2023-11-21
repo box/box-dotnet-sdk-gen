@@ -11,8 +11,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class InvitesManager {
-        public IAuth? Auth { get; set; } = default;
+    public class InvitesManager : IInvitesManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

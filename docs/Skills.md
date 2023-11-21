@@ -1,4 +1,4 @@
-# SkillsManager
+# ISkillsManager
 
 
 - [List Box Skill cards on file](#list-box-skill-cards-on-file)

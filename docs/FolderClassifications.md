@@ -1,4 +1,4 @@
-# FolderClassificationsManager
+# IFolderClassificationsManager
 
 
 - [Get classification on folder](#get-classification-on-folder)

@@ -1,4 +1,4 @@
-# FolderWatermarksManager
+# IFolderWatermarksManager
 
 
 - [Get watermark for folder](#get-watermark-for-folder)

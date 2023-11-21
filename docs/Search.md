@@ -1,4 +1,4 @@
-# SearchManager
+# ISearchManager
 
 
 - [Query files/folders by metadata](#query-files-folders-by-metadata)

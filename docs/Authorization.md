@@ -1,4 +1,4 @@
-# AuthorizationManager
+# IAuthorizationManager
 
 
 - [Authorize user](#authorize-user)

@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FolderLocksManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FolderLocksManager : IFolderLocksManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

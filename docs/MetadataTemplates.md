@@ -1,4 +1,4 @@
-# MetadataTemplatesManager
+# IMetadataTemplatesManager
 
 
 - [Find metadata template by instance ID](#find-metadata-template-by-instance-id)
@@ -162,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id!).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id).ConfigureAwait(false)
 ```
 
 ### Arguments

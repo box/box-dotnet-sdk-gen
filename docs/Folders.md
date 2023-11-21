@@ -1,4 +1,4 @@
-# FoldersManager
+# IFoldersManager
 
 
 - [Get folder information](#get-folder-information)

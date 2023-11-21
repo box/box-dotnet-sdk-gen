@@ -23,7 +23,7 @@ namespace Box.Tests.Integration {
             Assert.IsTrue(template.Fields!.Count == 1);
             Assert.IsTrue(template.Fields![0].Key == "testName");
             Assert.IsTrue(template.Fields![0].DisplayName == "testName");
-            MetadataTemplate getMetadataTemplate = await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id!).ConfigureAwait(false);
+            MetadataTemplate getMetadataTemplate = await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id).ConfigureAwait(false);
             Assert.IsTrue(getMetadataTemplate.Id == template.Id);
             MetadataTemplate getMetadataTemplateSchema = await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(scope: GetMetadataTemplateSchemaScopeArg.Enterprise, templateKey: template.TemplateKey!).ConfigureAwait(false);
             Assert.IsTrue(getMetadataTemplateSchema.Id == template.Id);

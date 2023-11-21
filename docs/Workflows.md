@@ -1,4 +1,4 @@
-# WorkflowsManager
+# IWorkflowsManager
 
 
 - [List workflows](#list-workflows)

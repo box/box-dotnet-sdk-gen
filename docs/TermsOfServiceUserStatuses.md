@@ -1,4 +1,4 @@
-# TermsOfServiceUserStatusesManager
+# ITermsOfServiceUserStatusesManager
 
 
 - [List terms of service user statuses](#list-terms-of-service-user-statuses)

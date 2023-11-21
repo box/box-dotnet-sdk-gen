@@ -1,6 +1,7 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System;
 using Box.Schemas;
 using Box;
 

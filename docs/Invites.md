@@ -1,4 +1,4 @@
-# InvitesManager
+# IInvitesManager
 
 
 - [Create user invite](#create-user-invite)

@@ -1,4 +1,4 @@
-# ShieldInformationBarrierReportsManager
+# IShieldInformationBarrierReportsManager
 
 
 - [List shield information barrier reports](#list-shield-information-barrier-reports)

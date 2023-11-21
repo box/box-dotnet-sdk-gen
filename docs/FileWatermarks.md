@@ -1,4 +1,4 @@
-# FileWatermarksManager
+# IFileWatermarksManager
 
 
 - [Get watermark on file](#get-watermark-on-file)

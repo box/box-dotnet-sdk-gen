@@ -11,8 +11,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FileVersionsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FileVersionsManager : IFileVersionsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

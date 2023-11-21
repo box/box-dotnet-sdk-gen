@@ -1,4 +1,4 @@
-# TrashedFilesManager
+# ITrashedFilesManager
 
 
 - [Restore file](#restore-file)

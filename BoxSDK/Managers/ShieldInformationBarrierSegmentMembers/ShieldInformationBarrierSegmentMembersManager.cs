@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class ShieldInformationBarrierSegmentMembersManager {
-        public IAuth? Auth { get; set; } = default;
+    public class ShieldInformationBarrierSegmentMembersManager : IShieldInformationBarrierSegmentMembersManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

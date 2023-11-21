@@ -2,17 +2,17 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using System;
 using DictionaryExtensions;
 using StringExtensions;
 using Fetch;
 using Serializer;
-using System;
 using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FolderMetadataManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FolderMetadataManager : IFolderMetadataManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 
@@ -128,11 +128,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Metadata> CreateFolderMetadataByIdAsync(string folderId, CreateFolderMetadataByIdScopeArg scope, string templateKey, CreateFolderMetadataByIdRequestBodyArg requestBody, CreateFolderMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<MetadataFull> CreateFolderMetadataByIdAsync(string folderId, CreateFolderMetadataByIdScopeArg scope, string templateKey, CreateFolderMetadataByIdRequestBodyArg requestBody, CreateFolderMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new CreateFolderMetadataByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "/metadata/", StringUtils.ToStringRepresentation(scope), "/", StringUtils.ToStringRepresentation(templateKey)), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Metadata>(response.Data);
+            return SimpleJsonSerializer.Deserialize<MetadataFull>(response.Data);
         }
 
         /// <summary>
@@ -175,11 +175,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Metadata> UpdateFolderMetadataByIdAsync(string folderId, UpdateFolderMetadataByIdScopeArg scope, string templateKey, IReadOnlyList<UpdateFolderMetadataByIdRequestBodyArg> requestBody, UpdateFolderMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<MetadataFull> UpdateFolderMetadataByIdAsync(string folderId, UpdateFolderMetadataByIdScopeArg scope, string templateKey, IReadOnlyList<UpdateFolderMetadataByIdRequestBodyArg> requestBody, UpdateFolderMetadataByIdHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new UpdateFolderMetadataByIdHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "/metadata/", StringUtils.ToStringRepresentation(scope), "/", StringUtils.ToStringRepresentation(templateKey)), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Metadata>(response.Data);
+            return SimpleJsonSerializer.Deserialize<MetadataFull>(response.Data);
         }
 
         /// <summary>

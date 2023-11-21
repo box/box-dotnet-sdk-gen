@@ -1,4 +1,4 @@
-# StoragePoliciesManager
+# IStoragePoliciesManager
 
 
 - [List storage policies](#list-storage-policies)

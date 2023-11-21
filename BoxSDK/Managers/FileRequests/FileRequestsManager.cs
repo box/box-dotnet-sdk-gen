@@ -9,8 +9,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FileRequestsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FileRequestsManager : IFileRequestsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

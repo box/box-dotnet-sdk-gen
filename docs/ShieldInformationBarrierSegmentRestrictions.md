@@ -1,4 +1,4 @@
-# ShieldInformationBarrierSegmentRestrictionsManager
+# IShieldInformationBarrierSegmentRestrictionsManager
 
 
 - [Get shield information barrier segment restriction by ID](#get-shield-information-barrier-segment-restriction-by-id)

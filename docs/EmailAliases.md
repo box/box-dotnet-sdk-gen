@@ -1,4 +1,4 @@
-# EmailAliasesManager
+# IEmailAliasesManager
 
 
 - [List user's email aliases](#list-users-email-aliases)

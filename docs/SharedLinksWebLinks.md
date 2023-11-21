@@ -1,4 +1,4 @@
-# SharedLinksWebLinksManager
+# ISharedLinksWebLinksManager
 
 
 - [Find web link for shared link](#find-web-link-for-shared-link)

@@ -1,4 +1,4 @@
-# FolderLocksManager
+# IFolderLocksManager
 
 
 - [List folder locks](#list-folder-locks)

@@ -1,4 +1,4 @@
-# RetentionPolicyAssignmentsManager
+# IRetentionPolicyAssignmentsManager
 
 
 - [List retention policy assignments](#list-retention-policy-assignments)

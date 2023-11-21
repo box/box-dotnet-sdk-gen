@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class FileWatermarksManager {
-        public IAuth? Auth { get; set; } = default;
+    public class FileWatermarksManager : IFileWatermarksManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

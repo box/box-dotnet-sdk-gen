@@ -1,4 +1,4 @@
-# RecentItemsManager
+# IRecentItemsManager
 
 
 - [List recently accessed items](#list-recently-accessed-items)

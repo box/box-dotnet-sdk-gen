@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class ClassificationsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class ClassificationsManager : IClassificationsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 
@@ -37,22 +37,6 @@ namespace Box.Managers {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ClassificationTemplate>(response.Data);
-        }
-
-        /// <summary>
-        /// Delete all classifications by deleting the classification
-        /// metadata template.
-        /// </summary>
-        /// <param name="headers">
-        /// Headers of deleteMetadataTemplateEnterpriseSecurityClassificationSchema method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task DeleteMetadataTemplateEnterpriseSecurityClassificationSchemaAsync(DeleteMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -100,30 +84,6 @@ namespace Box.Managers {
             headers = headers ?? new UpdateClassificationHeadersArg();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#update"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<ClassificationTemplate>(response.Data);
-        }
-
-        /// <summary>
-        /// Removes a classification from the list of classifications
-        /// available to the enterprise.
-        /// 
-        /// This API can also be called by including the enterprise ID in the
-        /// URL explicitly, for example
-        /// `/metadata_templates/enterprise_12345/securityClassification-6VMVochwUWo/schema`.
-        /// </summary>
-        /// <param name="requestBody">
-        /// Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
-        /// </param>
-        /// <param name="headers">
-        /// Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task<ClassificationTemplate> UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteAsync(IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg> requestBody, UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#delete"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ClassificationTemplate>(response.Data);
         }
 

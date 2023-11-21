@@ -1,4 +1,4 @@
-# DownloadsManager
+# IDownloadsManager
 
 
 - [Download file](#download-file)

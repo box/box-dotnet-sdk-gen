@@ -11,8 +11,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class MembershipsManager {
-        public IAuth? Auth { get; set; } = default;
+    public class MembershipsManager : IMembershipsManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

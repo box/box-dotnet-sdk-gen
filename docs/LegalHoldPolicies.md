@@ -1,4 +1,4 @@
-# LegalHoldPoliciesManager
+# ILegalHoldPoliciesManager
 
 
 - [List all legal hold policies](#list-all-legal-hold-policies)

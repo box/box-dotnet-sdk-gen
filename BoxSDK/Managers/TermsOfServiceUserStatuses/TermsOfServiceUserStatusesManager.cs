@@ -10,8 +10,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class TermsOfServiceUserStatusesManager {
-        public IAuth? Auth { get; set; } = default;
+    public class TermsOfServiceUserStatusesManager : ITermsOfServiceUserStatusesManager {
+        public IAuthentication? Auth { get; set; } = default;
 
         public NetworkSession? NetworkSession { get; set; } = default;
 

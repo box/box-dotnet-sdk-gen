@@ -14,7 +14,7 @@ namespace Box.Schemas {
         public string? Type { get; set; } = default;
 
         [JsonPropertyName("item")]
-        public FileOrFolderOrWebLink? Item { get; set; } = default;
+        public FileFullOrFolderFullOrWebLink? Item { get; set; } = default;
 
         /// <summary>
         /// The most recent type of access the user performed on

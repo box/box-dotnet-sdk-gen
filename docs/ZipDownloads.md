@@ -1,4 +1,4 @@
-# ZipDownloadsManager
+# IZipDownloadsManager
 
 
 - [Create zip download](#create-zip-download)

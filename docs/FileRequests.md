@@ -1,4 +1,4 @@
-# FileRequestsManager
+# IFileRequestsManager
 
 
 - [Get file request](#get-file-request)

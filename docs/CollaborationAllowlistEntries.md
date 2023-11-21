@@ -1,4 +1,4 @@
-# CollaborationAllowlistEntriesManager
+# ICollaborationAllowlistEntriesManager
 
 
 - [List allowed collaboration domains](#list-allowed-collaboration-domains)

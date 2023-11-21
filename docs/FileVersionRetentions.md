@@ -1,4 +1,4 @@
-# FileVersionRetentionsManager
+# IFileVersionRetentionsManager
 
 
 - [List file version retentions](#list-file-version-retentions)

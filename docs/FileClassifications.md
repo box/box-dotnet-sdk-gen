@@ -1,4 +1,4 @@
-# FileClassificationsManager
+# IFileClassificationsManager
 
 
 - [Get classification on file](#get-classification-on-file)

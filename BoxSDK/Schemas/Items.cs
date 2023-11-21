@@ -49,7 +49,7 @@ namespace Box.Schemas {
         /// The items in this collection.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileMiniOrFolderMiniOrWebLink>? Entries { get; set; } = default;
+        public IReadOnlyList<FileFullOrFolderMiniOrWebLink>? Entries { get; set; } = default;
 
         public Items() {
             

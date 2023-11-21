@@ -56,7 +56,7 @@ namespace Box
     /// <summary>
     /// Class used to authenticate with Box using a CCG Auth.
     /// </summary>
-    public class BoxCcgAuth : IAuth
+    public class BoxCcgAuth : IAuthentication
     {
         ITokenStorage _tokenStorage { get; set; }
 

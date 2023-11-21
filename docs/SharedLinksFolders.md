@@ -1,4 +1,4 @@
-# SharedLinksFoldersManager
+# ISharedLinksFoldersManager
 
 
 - [Find folder for shared link](#find-folder-for-shared-link)

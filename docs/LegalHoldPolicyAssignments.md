@@ -1,4 +1,4 @@
-# LegalHoldPolicyAssignmentsManager
+# ILegalHoldPolicyAssignmentsManager
 
 
 - [List legal hold policy assignments](#list-legal-hold-policy-assignments)

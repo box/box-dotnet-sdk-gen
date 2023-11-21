@@ -1,4 +1,4 @@
-# SignRequestsManager
+# ISignRequestsManager
 
 
 - [Cancel sign request](#cancel-sign-request)

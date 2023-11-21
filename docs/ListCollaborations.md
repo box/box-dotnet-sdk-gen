@@ -1,4 +1,4 @@
-# ListCollaborationsManager
+# IListCollaborationsManager
 
 
 - [List file collaborations](#list-file-collaborations)
