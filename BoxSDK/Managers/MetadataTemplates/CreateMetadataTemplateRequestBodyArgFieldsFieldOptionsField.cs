@@ -7,7 +7,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldOptionsField {
+    public class CreateMetadataTemplateRequestBodyArgFieldsFieldOptionsField {
         /// <summary>
         /// The text value of the option. This represents both the display name of the
         /// option and the internal key used when updating templates.
@@ -15,7 +15,7 @@ namespace Box.Managers {
         [JsonPropertyName("key")]
         public string Key { get; set; }
 
-        public CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldOptionsField(string key) {
+        public CreateMetadataTemplateRequestBodyArgFieldsFieldOptionsField(string key) {
             Key = key;
         }
     }

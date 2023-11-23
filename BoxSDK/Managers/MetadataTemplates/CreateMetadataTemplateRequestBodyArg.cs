@@ -7,7 +7,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateMetadataTemplateSchemaRequestBodyArg {
+    public class CreateMetadataTemplateRequestBodyArg {
         /// <summary>
         /// The scope of the metadata template to create. Applications can
         /// only create templates for use within the authenticated user's
@@ -49,7 +49,7 @@ namespace Box.Managers {
         /// as well as a single or multi-select list.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<CreateMetadataTemplateSchemaRequestBodyArgFieldsField>? Fields { get; set; } = default;
+        public IReadOnlyList<CreateMetadataTemplateRequestBodyArgFieldsField>? Fields { get; set; } = default;
 
         /// <summary>
         /// Whether or not to copy any metadata attached to a file or folder
@@ -59,7 +59,7 @@ namespace Box.Managers {
         [JsonPropertyName("copyInstanceOnItemCopy")]
         public bool? CopyInstanceOnItemCopy { get; set; } = default;
 
-        public CreateMetadataTemplateSchemaRequestBodyArg(string scope, string displayName) {
+        public CreateMetadataTemplateRequestBodyArg(string scope, string displayName) {
             Scope = scope;
             DisplayName = displayName;
         }

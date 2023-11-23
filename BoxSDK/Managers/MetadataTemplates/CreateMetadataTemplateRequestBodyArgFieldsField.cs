@@ -7,7 +7,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class CreateMetadataTemplateSchemaRequestBodyArgFieldsField {
+    public class CreateMetadataTemplateRequestBodyArgFieldsField {
         /// <summary>
         /// The type of field. The basic fields are a `string` field for text, a
         /// `float` field for numbers, and a `date` fields to present the user with a
@@ -18,7 +18,7 @@ namespace Box.Managers {
         /// user can select more than one value.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField Type { get; set; }
+        public CreateMetadataTemplateRequestBodyArgFieldsFieldTypeField Type { get; set; }
 
         /// <summary>
         /// A unique identifier for the field. The identifier must
@@ -52,9 +52,9 @@ namespace Box.Managers {
         /// `enum` and `multiSelect` field types.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldOptionsField>? Options { get; set; } = default;
+        public IReadOnlyList<CreateMetadataTemplateRequestBodyArgFieldsFieldOptionsField>? Options { get; set; } = default;
 
-        public CreateMetadataTemplateSchemaRequestBodyArgFieldsField(CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField type, string key, string displayName) {
+        public CreateMetadataTemplateRequestBodyArgFieldsField(CreateMetadataTemplateRequestBodyArgFieldsFieldTypeField type, string key, string displayName) {
             Type = type;
             Key = key;
             DisplayName = displayName;

@@ -7,13 +7,13 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class UpdateMetadataTemplateSchemaRequestBodyArg {
+    public class UpdateMetadataTemplateRequestBodyArg {
         /// <summary>
         /// The type of change to perform on the template. Some
         /// of these are hazardous as they will change existing templates.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateMetadataTemplateSchemaRequestBodyArgOpField Op { get; set; }
+        public UpdateMetadataTemplateRequestBodyArgOpField Op { get; set; }
 
         /// <summary>
         /// The data for the operation. This will vary depending on the
@@ -64,7 +64,7 @@ namespace Box.Managers {
         [JsonPropertyName("multiSelectOptionKeys")]
         public IReadOnlyList<string>? MultiSelectOptionKeys { get; set; } = default;
 
-        public UpdateMetadataTemplateSchemaRequestBodyArg(UpdateMetadataTemplateSchemaRequestBodyArgOpField op) {
+        public UpdateMetadataTemplateRequestBodyArg(UpdateMetadataTemplateRequestBodyArgOpField op) {
             Op = op;
         }
     }

@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<DeleteMetadataTemplateSchemaScopeArg>))]
-    public enum DeleteMetadataTemplateSchemaScopeArg {
+    [JsonConverter(typeof(StringEnumConverter<DeleteMetadataTemplateScopeArg>))]
+    public enum DeleteMetadataTemplateScopeArg {
         [Description("global")]
         Global,
         [Description("enterprise")]

@@ -21,7 +21,10 @@ This operation is performed by calling function `CreateInvite`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-invites/).
 
-*Currently we don't have an example for calling `CreateInvite` in integration tests*
+<!-- sample post_invites -->
+```
+await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBodyArg(enterprise: new CreateInviteRequestBodyArgEnterpriseField(id: currentUser.Enterprise!.Id!), actionableBy: new CreateInviteRequestBodyArgActionableByField(login: email))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -51,7 +54,10 @@ This operation is performed by calling function `GetInviteById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-invites-id/).
 
-*Currently we don't have an example for calling `GetInviteById` in integration tests*
+<!-- sample get_invites_id -->
+```
+await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 

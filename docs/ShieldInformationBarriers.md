@@ -15,7 +15,10 @@ This operation is performed by calling function `GetShieldInformationBarrierById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierById` in integration tests*
+<!-- sample get_shield_information_barriers_id -->
+```
+await client.ShieldInformationBarriers.GetShieldInformationBarrierByIdAsync(shieldInformationBarrierId: barrierId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `CreateShieldInformationBarrierC
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers-change-status/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierChangeStatus` in integration tests*
+<!-- sample post_shield_information_barriers_change_status -->
+```
+await client.ShieldInformationBarriers.CreateShieldInformationBarrierChangeStatusAsync(requestBody: new CreateShieldInformationBarrierChangeStatusRequestBodyArg(id: barrierId, status: CreateShieldInformationBarrierChangeStatusRequestBodyArgStatusField.Disabled)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -72,7 +78,10 @@ This operation is performed by calling function `GetShieldInformationBarriers`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarriers` in integration tests*
+<!-- sample get_shield_information_barriers -->
+```
+await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -104,7 +113,10 @@ This operation is performed by calling function `CreateShieldInformationBarrier`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrier` in integration tests*
+<!-- sample post_shield_information_barriers -->
+```
+await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBodyArg(enterprise: new EnterpriseBase(id: enterpriseId, type: EnterpriseBaseTypeField.Enterprise))).ConfigureAwait(false)
+```
 
 ### Arguments
 

@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<UpdateMetadataTemplateSchemaRequestBodyArgOpField>))]
-    public enum UpdateMetadataTemplateSchemaRequestBodyArgOpField {
+    [JsonConverter(typeof(StringEnumConverter<UpdateMetadataTemplateRequestBodyArgOpField>))]
+    public enum UpdateMetadataTemplateRequestBodyArgOpField {
         [Description("editTemplate")]
         EditTemplate,
         [Description("addField")]

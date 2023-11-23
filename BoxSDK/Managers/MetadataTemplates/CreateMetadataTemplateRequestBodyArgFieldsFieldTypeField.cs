@@ -5,8 +5,8 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    [JsonConverter(typeof(StringEnumConverter<CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField>))]
-    public enum CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField {
+    [JsonConverter(typeof(StringEnumConverter<CreateMetadataTemplateRequestBodyArgFieldsFieldTypeField>))]
+    public enum CreateMetadataTemplateRequestBodyArgFieldsFieldTypeField {
         [Description("string")]
         String,
         [Description("float")]

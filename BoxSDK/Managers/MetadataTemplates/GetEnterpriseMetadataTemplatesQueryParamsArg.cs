@@ -7,7 +7,7 @@ using Box.Schemas;
 using Box;
 
 namespace Box.Managers {
-    public class GetMetadataTemplateGlobalQueryParamsArg {
+    public class GetEnterpriseMetadataTemplatesQueryParamsArg {
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
         /// used when paginating using marker-based pagination.
@@ -21,7 +21,7 @@ namespace Box.Managers {
         /// </summary>
         public long? Limit { get; set; } = default;
 
-        public GetMetadataTemplateGlobalQueryParamsArg() {
+        public GetEnterpriseMetadataTemplatesQueryParamsArg() {
             
         }
     }

@@ -10,13 +10,13 @@ namespace Box.Schemas {
         /// The ID of the metadata cascade policy object
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `metadata_cascade_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyTypeField Type { get; set; }
 
         /// <summary>
         /// The enterprise that owns this policy.
@@ -31,11 +31,14 @@ namespace Box.Schemas {
         public MetadataCascadePolicyParentField? Parent { get; set; } = default;
 
         /// <summary>
-        /// The scope of the of the template that is cascaded down to the folder's
-        /// children.
+        /// The scope of the metadata cascade policy can either be `global` or
+        /// `enterprise_*`. The `global` scope is used for policies that are
+        /// available to any Box enterprise. The `enterprise_*` scope represents
+        /// policies that have been created within a specific enterprise, where `*`
+        /// will be the ID of that enterprise.
         /// </summary>
         [JsonPropertyName("scope")]
-        public MetadataCascadePolicyScopeField? Scope { get; set; } = default;
+        public string? Scope { get; set; } = default;
 
         /// <summary>
         /// The key of the template that is cascaded down to the folder's
@@ -57,8 +60,9 @@ namespace Box.Schemas {
         [JsonPropertyName("templateKey")]
         public string? TemplateKey { get; set; } = default;
 
-        public MetadataCascadePolicy() {
-            
+        public MetadataCascadePolicy(string id, MetadataCascadePolicyTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }
