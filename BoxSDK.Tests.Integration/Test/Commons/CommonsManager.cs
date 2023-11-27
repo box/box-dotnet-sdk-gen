@@ -1,3 +1,4 @@
+using System.Linq;
 using Box.Schemas;
 using Box.Managers;
 using Box;
@@ -33,6 +34,15 @@ namespace Box {
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: newFileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
             return uploadedFiles.Entries![0];
+        }
+
+        public async System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId) {
+            ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false);
+            int numberOfBarriers = barriers.Entries!.Count;
+            if (numberOfBarriers == 0) {
+                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBodyArg(enterprise: new EnterpriseBase() { Id = enterpriseId, Type = EnterpriseBaseTypeField.Enterprise })).ConfigureAwait(false);
+            }
+            return barriers.Entries!.ElementAt(numberOfBarriers - 1);
         }
 
     }

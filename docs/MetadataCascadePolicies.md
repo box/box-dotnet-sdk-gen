@@ -18,7 +18,10 @@ This operation is performed by calling function `GetMetadataCascadePolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `GetMetadataCascadePolicies` in integration tests*
+<!-- sample get_metadata_cascade_policies -->
+```
+await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams: new GetMetadataCascadePoliciesQueryParamsArg(folderId: folder.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -51,7 +54,10 @@ This operation is performed by calling function `CreateMetadataCascadePolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `CreateMetadataCascadePolicy` in integration tests*
+<!-- sample post_metadata_cascade_policies -->
+```
+await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBody: new CreateMetadataCascadePolicyRequestBodyArg(folderId: folder.Id, scope: CreateMetadataCascadePolicyRequestBodyArgScopeField.Enterprise, templateKey: templateKey)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -79,7 +85,10 @@ This operation is performed by calling function `GetMetadataCascadePolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `GetMetadataCascadePolicyById` in integration tests*
+<!-- sample get_metadata_cascade_policies_id -->
+```
+await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -107,7 +116,10 @@ This operation is performed by calling function `DeleteMetadataCascadePolicyById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `DeleteMetadataCascadePolicyById` in integration tests*
+<!-- sample delete_metadata_cascade_policies_id -->
+```
+await client.MetadataCascadePolicies.DeleteMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -139,7 +151,10 @@ This operation is performed by calling function `CreateMetadataCascadePolicyAppl
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies-id-apply/).
 
-*Currently we don't have an example for calling `CreateMetadataCascadePolicyApply` in integration tests*
+<!-- sample post_metadata_cascade_policies_id_apply -->
+```
+await client.MetadataCascadePolicies.CreateMetadataCascadePolicyApplyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new CreateMetadataCascadePolicyApplyRequestBodyArg(conflictResolution: CreateMetadataCascadePolicyApplyRequestBodyArgConflictResolutionField.Overwrite)).ConfigureAwait(false)
+```
 
 ### Arguments
 

@@ -16,7 +16,10 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample get_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.GetShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -44,7 +47,10 @@ This operation is performed by calling function `UpdateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `UpdateShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample put_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.UpdateShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId, requestBody: new UpdateShieldInformationBarrierSegmentByIdRequestBodyArg(description: updatedSegmentDescription)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `DeleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `DeleteShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample delete_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.DeleteShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -104,7 +113,10 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegments` in integration tests*
+<!-- sample get_shield_information_barrier_segments -->
+```
+await client.ShieldInformationBarrierSegments.GetShieldInformationBarrierSegmentsAsync(queryParams: new GetShieldInformationBarrierSegmentsQueryParamsArg(shieldInformationBarrierId: barrierId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -132,7 +144,10 @@ This operation is performed by calling function `CreateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierSegment` in integration tests*
+<!-- sample post_shield_information_barrier_segments -->
+```
+await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBodyArg(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier), name: segmentName, description: segmentDescription)).ConfigureAwait(false)
+```
 
 ### Arguments
 

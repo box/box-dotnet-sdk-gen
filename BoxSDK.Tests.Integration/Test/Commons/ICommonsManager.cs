@@ -1,3 +1,4 @@
+using System.Linq;
 using Box.Schemas;
 using Box.Managers;
 using Box;
@@ -13,6 +14,8 @@ public interface ICommonsManager {
     public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
 
     public System.Threading.Tasks.Task<FileFull> UploadNewFileAsync();
+
+    public System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId);
 
 }
 }

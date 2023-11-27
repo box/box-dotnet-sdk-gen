@@ -1,28 +1,18 @@
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringExtensions;
 using System;
+using Box;
 using Box.Schemas;
 using Box.Managers;
-using Box;
 
 namespace Box.Tests.Integration {
     [TestClass]
     public class ShieldInformationBarriersManagerTests {
-        public async System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId) {
-            ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false);
-            int numberOfBarriers = barriers.Entries!.Count;
-            if (numberOfBarriers == 0) {
-                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBodyArg(enterprise: new EnterpriseBase() { Id = enterpriseId, Type = EnterpriseBaseTypeField.Enterprise })).ConfigureAwait(false);
-            }
-            return barriers.Entries!.ElementAt(numberOfBarriers - 1);
-        }
-
         [TestMethod]
         public async System.Threading.Tasks.Task TestShieldInformationBarriers() {
             BoxClient client = await new CommonsManager().GetDefaultClientAsUserAsync(userId: Utils.GetEnvVar(name: "USER_ID")).ConfigureAwait(false);
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
-            ShieldInformationBarrier barrier = await GetOrCreateShieldInformationBarrierAsync(client: client, enterpriseId: enterpriseId).ConfigureAwait(false);
+            ShieldInformationBarrier barrier = await new CommonsManager().GetOrCreateShieldInformationBarrierAsync(client: client, enterpriseId: enterpriseId).ConfigureAwait(false);
             Assert.IsTrue(StringUtils.ToStringRepresentation(barrier.Status!) == "draft");
             Assert.IsTrue(StringUtils.ToStringRepresentation(barrier.Type!) == "shield_information_barrier");
             Assert.IsTrue(barrier.Enterprise!.Id == enterpriseId);
