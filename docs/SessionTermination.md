@@ -16,7 +16,10 @@ This operation is performed by calling function `CreateUserTerminateSession`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users-terminate-sessions/).
 
-*Currently we don't have an example for calling `CreateUserTerminateSession` in integration tests*
+<!-- sample post_users_terminate_sessions -->
+```
+await client.SessionTermination.CreateUserTerminateSessionAsync(requestBody: new CreateUserTerminateSessionRequestBodyArg(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {user.Login!}))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `CreateGroupTerminateSession`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-groups-terminate-sessions/).
 
-*Currently we don't have an example for calling `CreateGroupTerminateSession` in integration tests*
+<!-- sample post_groups_terminate_sessions -->
+```
+await client.SessionTermination.CreateGroupTerminateSessionAsync(requestBody: new CreateGroupTerminateSessionRequestBodyArg(groupIds: Array.AsReadOnly(new [] {group.Id}))).ConfigureAwait(false)
+```
 
 ### Arguments
 

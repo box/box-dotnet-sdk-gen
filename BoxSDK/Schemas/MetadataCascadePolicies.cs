@@ -18,13 +18,13 @@ namespace Box.Schemas {
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public long? NextMarker { get; set; } = default;
+        public string? NextMarker { get; set; } = default;
 
         /// <summary>
         /// The marker for the start of the previous page of results.
         /// </summary>
         [JsonPropertyName("prev_marker")]
-        public long? PrevMarker { get; set; } = default;
+        public string? PrevMarker { get; set; } = default;
 
         /// <summary>
         /// A list of metadata cascade policies

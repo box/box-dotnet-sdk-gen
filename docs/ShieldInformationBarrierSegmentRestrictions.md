@@ -16,7 +16,10 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions_id -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `DeleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `DeleteShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample delete_shield_information_barrier_segment_restrictions_id -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.DeleteShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentRestrictions` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionsAsync(queryParams: new GetShieldInformationBarrierSegmentRestrictionsQueryParamsArg(shieldInformationBarrierSegmentId: segmentId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -105,7 +114,10 @@ This operation is performed by calling function `CreateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierSegmentRestriction` in integration tests*
+<!-- sample post_shield_information_barrier_segment_restrictions -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.CreateShieldInformationBarrierSegmentRestrictionAsync(requestBody: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyArg(restrictedSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyArgRestrictedSegmentField(id: segmentToRestrictId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyArgRestrictedSegmentFieldTypeField.ShieldInformationBarrierSegment), shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyArgShieldInformationBarrierSegmentField(id: segmentId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyArgShieldInformationBarrierSegmentFieldTypeField.ShieldInformationBarrierSegment), type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyArgTypeField.ShieldInformationBarrierSegmentRestriction)).ConfigureAwait(false)
+```
 
 ### Arguments
 
