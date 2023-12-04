@@ -14,7 +14,10 @@ This operation is performed by calling function `GetShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierReports` in integration tests*
+<!-- sample get_shield_information_barrier_reports -->
+```
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParamsArg(shieldInformationBarrierId: barrierId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `CreateShieldInformationBarrierR
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierReport` in integration tests*
+<!-- sample post_shield_information_barrier_reports -->
+```
+await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -70,7 +76,10 @@ This operation is performed by calling function `GetShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierReportById` in integration tests*
+<!-- sample get_shield_information_barrier_reports_id -->
+```
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: createdReport.Id!).ConfigureAwait(false)
+```
 
 ### Arguments
 

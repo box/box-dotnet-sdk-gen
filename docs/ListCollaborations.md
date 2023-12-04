@@ -17,7 +17,10 @@ This operation is performed by calling function `GetFileCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-collaborations/).
 
-*Currently we don't have an example for calling `GetFileCollaborations` in integration tests*
+<!-- sample get_files_id_collaborations -->
+```
+await client.ListCollaborations.GetFileCollaborationsAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -54,7 +57,10 @@ This operation is performed by calling function `GetFolderCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-collaborations/).
 
-*Currently we don't have an example for calling `GetFolderCollaborations` in integration tests*
+<!-- sample get_folders_id_collaborations -->
+```
+await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -89,7 +95,10 @@ This operation is performed by calling function `GetCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaborations/).
 
-*Currently we don't have an example for calling `GetCollaborations` in integration tests*
+<!-- sample get_collaborations -->
+```
+await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParamsArg(status: GetCollaborationsQueryParamsArgStatusField.Pending)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -124,7 +133,10 @@ This operation is performed by calling function `GetGroupCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id-collaborations/).
 
-*Currently we don't have an example for calling `GetGroupCollaborations` in integration tests*
+<!-- sample get_groups_id_collaborations -->
+```
+await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
