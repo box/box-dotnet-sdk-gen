@@ -58,11 +58,23 @@ namespace Box
         public string? UserId { get; private init; }
 
         /// <summary>
-        /// Token storage
+        /// Token storage.
         /// </summary>
         public ITokenStorage TokenStorage { get; private init; }
 
-        private JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string? userId = default, string? enterpriseId = default, ITokenStorage? tokenStorage = default)
+        /// <summary>
+        /// Creates JwtConfig based on provided parameters.
+        /// </summary>
+        /// <param name="clientId">Used for identifying the application the user is authenticating with.</param>
+        /// <param name="clientSecret">Box API secret used for making auth requests.</param>
+        /// <param name="publicKeyId">Public key ID used to create JWT assertion.</param>
+        /// <param name="privateKey">RSA private key used to create JWT assertion.</param>
+        /// <param name="privateKeyPassphrase">Passphrase used to access PrivateKey.</param>
+        /// <param name="userId">The user ID to authenticate.</param>
+        /// <param name="enterpriseId">The ID of the Box Developer Edition enterprise.</param>
+        /// <param name="tokenStorage">Token storage. Defaulted to InMemoryTokenStorage.</param>
+        /// <returns>A JwtConfig for either user or enterprise.</returns>
+        public JwtConfig(string clientId, string clientSecret, string publicKeyId, string privateKey, string privateKeyPassphrase, string? userId = default, string? enterpriseId = default, ITokenStorage? tokenStorage = default)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;

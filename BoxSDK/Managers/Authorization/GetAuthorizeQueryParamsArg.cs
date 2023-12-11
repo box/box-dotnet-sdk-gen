@@ -43,7 +43,7 @@ namespace Box.Managers {
         public string? State { get; set; } = default;
 
         /// <summary>
-        /// A comma-separated list of application scopes you'd like to
+        /// A space-separated list of application scopes you'd like to
         /// authenticate the user for. This defaults to all the scopes configured
         /// for the application in its configuration page.
         /// </summary>

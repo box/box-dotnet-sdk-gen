@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The unique identifier for a retention policy assignment.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `retention_policy_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentTypeField? Type { get; set; } = default;
+        public RetentionPolicyAssignmentTypeField Type { get; set; }
 
         [JsonPropertyName("retention_policy")]
         public RetentionPolicyMini? RetentionPolicy { get; set; } = default;
@@ -55,8 +55,9 @@ namespace Box.Schemas {
         [JsonPropertyName("start_date_field")]
         public string? StartDateField { get; set; } = default;
 
-        public RetentionPolicyAssignment() {
-            
+        public RetentionPolicyAssignment(string id, RetentionPolicyAssignmentTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }
