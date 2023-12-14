@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NullableExtensions;
 using Box;
 using Box.Schemas;
 
@@ -9,7 +10,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestRecentItems() {
             BoxClient client = await new CommonsManager().GetDefaultClientAsUserAsync(userId: Utils.GetEnvVar(name: "USER_ID")).ConfigureAwait(false);
             RecentItems recentItems = await client.RecentItems.GetRecentItemsAsync().ConfigureAwait(false);
-            Assert.IsTrue(recentItems.Entries!.Count >= 0);
+            Assert.IsTrue(NullableUtils.Unwrap(recentItems.Entries).Count >= 0);
         }
 
     }

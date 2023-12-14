@@ -9,11 +9,11 @@ namespace Box.Managers {
     public interface IEventsManager {
         public IAuthentication? Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParamsArg? queryParams = default, GetEventsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParams? queryParams = default, GetEventsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<RealtimeServers> GetEventsWithLongPollingAsync(GetEventsWithLongPollingHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<RealtimeServers> GetEventsWithLongPollingAsync(GetEventsWithLongPollingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

@@ -10,17 +10,17 @@ namespace Box.Managers {
     public interface ISharedLinksFilesManager {
         public IAuthentication? Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<FileFull> GetSharedItemsAsync(GetSharedItemsHeadersArg headers, GetSharedItemsQueryParamsArg? queryParams = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FileFull> GetSharedItemsAsync(GetSharedItemsHeaders headers, GetSharedItemsQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<FileFull> GetFileGetSharedLinkAsync(string fileId, GetFileGetSharedLinkQueryParamsArg queryParams, GetFileGetSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FileFull> GetFileGetSharedLinkAsync(string fileId, GetFileGetSharedLinkQueryParams queryParams, GetFileGetSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<FileFull> UpdateFileAddSharedLinkAsync(string fileId, UpdateFileAddSharedLinkQueryParamsArg queryParams, UpdateFileAddSharedLinkRequestBodyArg? requestBody = default, UpdateFileAddSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FileFull> UpdateFileAddSharedLinkAsync(string fileId, UpdateFileAddSharedLinkQueryParams queryParams, UpdateFileAddSharedLinkRequestBody? requestBody = default, UpdateFileAddSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<FileFull> UpdateFileUpdateSharedLinkAsync(string fileId, UpdateFileUpdateSharedLinkQueryParamsArg queryParams, UpdateFileUpdateSharedLinkRequestBodyArg? requestBody = default, UpdateFileUpdateSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FileFull> UpdateFileUpdateSharedLinkAsync(string fileId, UpdateFileUpdateSharedLinkQueryParams queryParams, UpdateFileUpdateSharedLinkRequestBody? requestBody = default, UpdateFileUpdateSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<FileFull> UpdateFileRemoveSharedLinkAsync(string fileId, UpdateFileRemoveSharedLinkQueryParamsArg queryParams, UpdateFileRemoveSharedLinkRequestBodyArg? requestBody = default, UpdateFileRemoveSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FileFull> UpdateFileRemoveSharedLinkAsync(string fileId, UpdateFileRemoveSharedLinkQueryParams queryParams, UpdateFileRemoveSharedLinkRequestBody? requestBody = default, UpdateFileRemoveSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

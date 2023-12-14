@@ -54,7 +54,7 @@ namespace Box.Schemas {
         /// will be set to the default access level specified by the enterprise admin.
         /// </summary>
         [JsonPropertyName("access")]
-        public WebLinkSharedLinkFieldAccessField? Access { get; set; } = default;
+        public WebLinkSharedLinkAccessField? Access { get; set; } = default;
 
         /// <summary>
         /// The effective access level for the shared link. This can be a more
@@ -62,7 +62,7 @@ namespace Box.Schemas {
         /// enterprise settings restrict the allowed access levels.
         /// </summary>
         [JsonPropertyName("effective_access")]
-        public WebLinkSharedLinkFieldEffectiveAccessField EffectiveAccess { get; set; }
+        public WebLinkSharedLinkEffectiveAccessField EffectiveAccess { get; set; }
 
         /// <summary>
         /// The effective permissions for this shared link.
@@ -72,7 +72,7 @@ namespace Box.Schemas {
         /// such as a folder.
         /// </summary>
         [JsonPropertyName("effective_permission")]
-        public WebLinkSharedLinkFieldEffectivePermissionField EffectivePermission { get; set; }
+        public WebLinkSharedLinkEffectivePermissionField EffectivePermission { get; set; }
 
         /// <summary>
         /// The date and time when this link will be unshared. This field can only be
@@ -93,7 +93,7 @@ namespace Box.Schemas {
         /// do not supersede permissions applied to the item itself.
         /// </summary>
         [JsonPropertyName("permissions")]
-        public WebLinkSharedLinkFieldPermissionsField? Permissions { get; set; } = default;
+        public WebLinkSharedLinkPermissionsField? Permissions { get; set; } = default;
 
         /// <summary>
         /// The number of times this item has been downloaded.
@@ -107,7 +107,7 @@ namespace Box.Schemas {
         [JsonPropertyName("preview_count")]
         public long PreviewCount { get; set; }
 
-        public WebLinkSharedLinkField(string url, WebLinkSharedLinkFieldEffectiveAccessField effectiveAccess, WebLinkSharedLinkFieldEffectivePermissionField effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
+        public WebLinkSharedLinkField(string url, WebLinkSharedLinkEffectiveAccessField effectiveAccess, WebLinkSharedLinkEffectivePermissionField effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
             Url = url;
             EffectiveAccess = effectiveAccess;
             EffectivePermission = effectivePermission;

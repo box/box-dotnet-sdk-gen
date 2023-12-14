@@ -10,9 +10,9 @@ namespace Box.Managers {
     public interface ITransferManager {
         public IAuthentication? Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<FolderFull> TransferOwnedFolderAsync(string userId, TransferOwnedFolderRequestBodyArg requestBody, TransferOwnedFolderQueryParamsArg? queryParams = default, TransferOwnedFolderHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<FolderFull> TransferOwnedFolderAsync(string userId, TransferOwnedFolderRequestBody requestBody, TransferOwnedFolderQueryParams? queryParams = default, TransferOwnedFolderHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

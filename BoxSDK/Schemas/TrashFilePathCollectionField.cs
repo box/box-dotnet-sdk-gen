@@ -17,9 +17,9 @@ namespace Box.Schemas {
         /// Array of folders for this item's path collection
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TrashFilePathCollectionFieldEntriesField> Entries { get; set; }
+        public IReadOnlyList<TrashFilePathCollectionEntriesField> Entries { get; set; }
 
-        public TrashFilePathCollectionField(long totalCount, IReadOnlyList<TrashFilePathCollectionFieldEntriesField> entries) {
+        public TrashFilePathCollectionField(long totalCount, IReadOnlyList<TrashFilePathCollectionEntriesField> entries) {
             TotalCount = totalCount;
             Entries = entries;
         }

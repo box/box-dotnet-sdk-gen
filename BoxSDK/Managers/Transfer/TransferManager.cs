@@ -14,10 +14,10 @@ namespace Box.Managers {
     public class TransferManager : ITransferManager {
         public IAuthentication? Auth { get; set; } = default;
 
-        public NetworkSession? NetworkSession { get; set; } = default;
+        public NetworkSession NetworkSession { get; set; }
 
-        public TransferManager() {
-            
+        public TransferManager(NetworkSession networkSession = default) {
+            NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>
         /// Move all of the items (files, folders and workflows) owned by a user into
@@ -70,12 +70,12 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> TransferOwnedFolderAsync(string userId, TransferOwnedFolderRequestBodyArg requestBody, TransferOwnedFolderQueryParamsArg? queryParams = default, TransferOwnedFolderHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new TransferOwnedFolderQueryParamsArg();
-            headers = headers ?? new TransferOwnedFolderHeadersArg();
+        public async System.Threading.Tasks.Task<FolderFull> TransferOwnedFolderAsync(string userId, TransferOwnedFolderRequestBody requestBody, TransferOwnedFolderQueryParams? queryParams = default, TransferOwnedFolderHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new TransferOwnedFolderQueryParams();
+            headers = headers ?? new TransferOwnedFolderHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "notify", StringUtils.ToStringRepresentation(queryParams.Notify) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/users/", StringUtils.ToStringRepresentation(userId), "/folders/0"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/users/", StringUtils.ToStringRepresentation(userId), "/folders/0"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 

@@ -11,7 +11,7 @@ namespace Box.Schemas {
         /// Type of decision made by the signer
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestSignerSignerDecisionFieldTypeField? Type { get; set; } = default;
+        public SignRequestSignerSignerDecisionTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// Date and Time that the decision was made

@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public ItemsOrderFieldDirectionField? Direction { get; set; } = default;
+        public ItemsOrderDirectionField? Direction { get; set; } = default;
 
         public ItemsOrderField() {
             

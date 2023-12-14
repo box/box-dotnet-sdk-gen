@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// `lock`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileFullLockFieldTypeField? Type { get; set; } = default;
+        public FileFullLockTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; set; } = default;
@@ -47,7 +47,7 @@ namespace Box.Schemas {
         /// the future.
         /// </summary>
         [JsonPropertyName("app_type")]
-        public FileFullLockFieldAppTypeField? AppType { get; set; } = default;
+        public FileFullLockAppTypeField? AppType { get; set; } = default;
 
         public FileFullLockField() {
             

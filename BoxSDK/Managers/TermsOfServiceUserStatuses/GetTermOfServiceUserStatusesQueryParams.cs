@@ -1,0 +1,24 @@
+using Unions;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
+using Box.Schemas;
+using Box;
+
+namespace Box.Managers {
+    public class GetTermOfServiceUserStatusesQueryParams {
+        /// <summary>
+        /// The ID of the terms of service.
+        /// </summary>
+        public string TosId { get; set; }
+
+        /// <summary>
+        /// Limits results to the given user ID.
+        /// </summary>
+        public string? UserId { get; set; } = default;
+
+        public GetTermOfServiceUserStatusesQueryParams(string tosId) {
+            TosId = tosId;
+        }
+    }
+}

@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The field that is ordered by
         /// </summary>
         [JsonPropertyName("by")]
-        public DevicePinnersOrderFieldByField? By { get; set; } = default;
+        public DevicePinnersOrderByField? By { get; set; } = default;
 
         /// <summary>
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public DevicePinnersOrderFieldDirectionField? Direction { get; set; } = default;
+        public DevicePinnersOrderDirectionField? Direction { get; set; } = default;
 
         public DevicePinnersOrderField() {
             

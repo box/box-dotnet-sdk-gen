@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// `skill`
         /// </summary>
         [JsonPropertyName("type")]
-        public SkillInvocationSkillFieldTypeField? Type { get; set; } = default;
+        public SkillInvocationSkillTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the skill

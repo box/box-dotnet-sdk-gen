@@ -14,7 +14,7 @@ namespace Box.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestTrashedFolders() {
-            FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false);
+            FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0"))).ConfigureAwait(false);
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id).ConfigureAwait(false);
             TrashFolder fromTrash = await client.TrashedFolders.GetFolderTrashAsync(folderId: folder.Id).ConfigureAwait(false);
             Assert.IsTrue(fromTrash.Id == folder.Id);

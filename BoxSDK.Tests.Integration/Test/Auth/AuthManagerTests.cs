@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using NullableExtensions;
 using Box.Managers;
 using Box.Schemas;
 using Box;
@@ -20,9 +21,9 @@ namespace Box.Tests.Integration {
             UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(currentUser.Id == userId);
             await auth.AsEnterpriseAsync(userId: enterpriseId).ConfigureAwait(false);
-            UserFull newUser = await client.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
+            UserFull newUser = await client.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
             Assert.IsTrue(newUser.Enterprise != null);
-            Assert.IsTrue(newUser.Enterprise!.Id == enterpriseId);
+            Assert.IsTrue(NullableUtils.Unwrap(newUser.Enterprise).Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }
 
@@ -45,9 +46,9 @@ namespace Box.Tests.Integration {
             UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
             Assert.IsTrue(currentUser.Id == userId);
             await auth.AsEnterpriseAsync(enterpriseId: enterpriseId).ConfigureAwait(false);
-            UserFull newUser = await client.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParamsArg() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
+            UserFull newUser = await client.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
             Assert.IsTrue(newUser.Enterprise != null);
-            Assert.IsTrue(newUser.Enterprise!.Id == enterpriseId);
+            Assert.IsTrue(NullableUtils.Unwrap(newUser.Enterprise).Id == enterpriseId);
             Assert.IsTrue(newUser.Id != userId);
         }
 

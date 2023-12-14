@@ -16,7 +16,7 @@ namespace Box.Schemas {
         /// The sort direction of the field.
         /// </summary>
         [JsonPropertyName("sort_direction")]
-        public MetadataQueryIndexFieldsFieldSortDirectionField? SortDirection { get; set; } = default;
+        public MetadataQueryIndexFieldsSortDirectionField? SortDirection { get; set; } = default;
 
         public MetadataQueryIndexFieldsField() {
             

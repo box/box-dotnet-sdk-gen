@@ -16,20 +16,20 @@ namespace Box.Schemas {
         /// The array item type.
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateFieldsFieldTypeField Type { get; set; }
+        public ClassificationTemplateFieldsTypeField Type { get; set; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public ClassificationTemplateFieldsFieldKeyField Key { get; set; }
+        public ClassificationTemplateFieldsKeyField Key { get; set; }
 
         /// <summary>
         /// `Classification`
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateFieldsFieldDisplayNameField DisplayName { get; set; }
+        public ClassificationTemplateFieldsDisplayNameField DisplayName { get; set; }
 
         /// <summary>
         /// Classifications are always visible to web and mobile users.
@@ -41,9 +41,9 @@ namespace Box.Schemas {
         /// A list of classifications available in this enterprise.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> Options { get; set; }
+        public IReadOnlyList<ClassificationTemplateFieldsOptionsField> Options { get; set; }
 
-        public ClassificationTemplateFieldsField(string id, ClassificationTemplateFieldsFieldTypeField type, ClassificationTemplateFieldsFieldKeyField key, ClassificationTemplateFieldsFieldDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsFieldOptionsField> options) {
+        public ClassificationTemplateFieldsField(string id, ClassificationTemplateFieldsTypeField type, ClassificationTemplateFieldsKeyField key, ClassificationTemplateFieldsDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsOptionsField> options) {
             Id = id;
             Type = type;
             Key = key;

@@ -23,7 +23,7 @@ namespace Box.Schemas {
         /// The type of access token returned.
         /// </summary>
         [JsonPropertyName("token_type")]
-        public FileFullExpiringEmbedLinkFieldTokenTypeField? TokenType { get; set; } = default;
+        public FileFullExpiringEmbedLinkTokenTypeField? TokenType { get; set; } = default;
 
         /// <summary>
         /// The permissions that this access token permits,

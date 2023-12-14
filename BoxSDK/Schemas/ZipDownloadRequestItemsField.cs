@@ -7,7 +7,7 @@ namespace Box.Schemas {
         /// The type of the item to add to the archive.
         /// </summary>
         [JsonPropertyName("type")]
-        public ZipDownloadRequestItemsFieldTypeField Type { get; set; }
+        public ZipDownloadRequestItemsTypeField Type { get; set; }
 
         /// <summary>
         /// The identifier of the item to add to the archive. When this item is
@@ -16,7 +16,7 @@ namespace Box.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public ZipDownloadRequestItemsField(ZipDownloadRequestItemsFieldTypeField type, string id) {
+        public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, string id) {
             Type = type;
             Id = id;
         }

@@ -14,10 +14,10 @@ namespace Box.Managers {
     public class SharedLinksFoldersManager : ISharedLinksFoldersManager {
         public IAuthentication? Auth { get; set; } = default;
 
-        public NetworkSession? NetworkSession { get; set; } = default;
+        public NetworkSession NetworkSession { get; set; }
 
-        public SharedLinksFoldersManager() {
-            
+        public SharedLinksFoldersManager(NetworkSession networkSession = default) {
+            NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>
         /// Return the folder represented by a shared link.
@@ -37,11 +37,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> GetSharedItemFoldersAsync(GetSharedItemFoldersHeadersArg headers, GetSharedItemFoldersQueryParamsArg? queryParams = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetSharedItemFoldersQueryParamsArg();
+        public async System.Threading.Tasks.Task<FolderFull> GetSharedItemFoldersAsync(GetSharedItemFoldersHeaders headers, GetSharedItemFoldersQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetSharedItemFoldersQueryParams();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) }, { "boxapi", StringUtils.ToStringRepresentation(headers.Boxapi) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/shared_items#folders"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/shared_items#folders"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 
@@ -70,11 +70,11 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> GetFolderGetSharedLinkAsync(string folderId, GetFolderGetSharedLinkQueryParamsArg queryParams, GetFolderGetSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new GetFolderGetSharedLinkHeadersArg();
+        public async System.Threading.Tasks.Task<FolderFull> GetFolderGetSharedLinkAsync(string folderId, GetFolderGetSharedLinkQueryParams queryParams, GetFolderGetSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new GetFolderGetSharedLinkHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "#get_shared_link"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "#get_shared_link"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 
@@ -106,12 +106,12 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderAddSharedLinkAsync(string folderId, UpdateFolderAddSharedLinkQueryParamsArg queryParams, UpdateFolderAddSharedLinkRequestBodyArg? requestBody = default, UpdateFolderAddSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFolderAddSharedLinkRequestBodyArg();
-            headers = headers ?? new UpdateFolderAddSharedLinkHeadersArg();
+        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderAddSharedLinkAsync(string folderId, UpdateFolderAddSharedLinkQueryParams queryParams, UpdateFolderAddSharedLinkRequestBody? requestBody = default, UpdateFolderAddSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new UpdateFolderAddSharedLinkRequestBody();
+            headers = headers ?? new UpdateFolderAddSharedLinkHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "#add_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "#add_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 
@@ -143,12 +143,12 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderUpdateSharedLinkAsync(string folderId, UpdateFolderUpdateSharedLinkQueryParamsArg queryParams, UpdateFolderUpdateSharedLinkRequestBodyArg? requestBody = default, UpdateFolderUpdateSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFolderUpdateSharedLinkRequestBodyArg();
-            headers = headers ?? new UpdateFolderUpdateSharedLinkHeadersArg();
+        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderUpdateSharedLinkAsync(string folderId, UpdateFolderUpdateSharedLinkQueryParams queryParams, UpdateFolderUpdateSharedLinkRequestBody? requestBody = default, UpdateFolderUpdateSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new UpdateFolderUpdateSharedLinkRequestBody();
+            headers = headers ?? new UpdateFolderUpdateSharedLinkHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "#update_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "#update_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 
@@ -180,12 +180,12 @@ namespace Box.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderRemoveSharedLinkAsync(string folderId, UpdateFolderRemoveSharedLinkQueryParamsArg queryParams, UpdateFolderRemoveSharedLinkRequestBodyArg? requestBody = default, UpdateFolderRemoveSharedLinkHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFolderRemoveSharedLinkRequestBodyArg();
-            headers = headers ?? new UpdateFolderRemoveSharedLinkHeadersArg();
+        public async System.Threading.Tasks.Task<FolderFull> UpdateFolderRemoveSharedLinkAsync(string folderId, UpdateFolderRemoveSharedLinkQueryParams queryParams, UpdateFolderRemoveSharedLinkRequestBody? requestBody = default, UpdateFolderRemoveSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new UpdateFolderRemoveSharedLinkRequestBody();
+            headers = headers ?? new UpdateFolderRemoveSharedLinkHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/2.0/folders/", StringUtils.ToStringRepresentation(folderId), "#remove_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "#remove_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FolderFull>(response.Data);
         }
 

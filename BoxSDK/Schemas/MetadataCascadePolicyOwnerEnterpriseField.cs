@@ -10,7 +10,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyOwnerEnterpriseFieldTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyOwnerEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The ID of the enterprise that owns the policy.

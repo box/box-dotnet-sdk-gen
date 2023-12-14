@@ -17,13 +17,13 @@ namespace Box.Schemas {
         /// The flow's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsFieldTypeField? Type { get; set; } = default;
+        public WorkflowFlowsTypeField? Type { get; set; } = default;
 
         [JsonPropertyName("trigger")]
-        public WorkflowFlowsFieldTriggerField? Trigger { get; set; } = default;
+        public WorkflowFlowsTriggerField? Trigger { get; set; } = default;
 
         [JsonPropertyName("outcomes")]
-        public IReadOnlyList<WorkflowFlowsFieldOutcomesField>? Outcomes { get; set; } = default;
+        public IReadOnlyList<WorkflowFlowsOutcomesField>? Outcomes { get; set; } = default;
 
         /// <summary>
         /// When this flow was created

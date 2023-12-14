@@ -10,7 +10,7 @@ namespace Box.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyParentFieldTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyParentTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The ID of the folder the policy is applied to.

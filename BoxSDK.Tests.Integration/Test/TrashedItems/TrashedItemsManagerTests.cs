@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NullableExtensions;
 using Box;
 using Box.Schemas;
 
@@ -15,7 +16,7 @@ namespace Box.Tests.Integration {
             FileFull file = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             await client.Files.DeleteFileByIdAsync(fileId: file.Id).ConfigureAwait(false);
             Items trashedItems = await client.TrashedItems.GetFolderTrashItemsAsync().ConfigureAwait(false);
-            Assert.IsTrue(trashedItems.Entries!.Count > 0);
+            Assert.IsTrue(NullableUtils.Unwrap(trashedItems.Entries).Count > 0);
         }
 
     }

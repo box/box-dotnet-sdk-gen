@@ -19,7 +19,7 @@ namespace Box.Tests.Integration {
             FolderFull parent = await client.Folders.GetFolderByIdAsync(folderId: "0").ConfigureAwait(false);
             string name = Utils.GetUUID();
             const string description = "Weblink description";
-            WebLink weblink = await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBodyArg(url: url, parent: new CreateWebLinkRequestBodyArgParentField(id: parent.Id)) { Name = name, Description = description }).ConfigureAwait(false);
+            WebLink weblink = await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: url, parent: new CreateWebLinkRequestBodyParentField(id: parent.Id)) { Name = name, Description = description }).ConfigureAwait(false);
             await client.WebLinks.DeleteWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(false);
             TrashWebLink fromTrash = await client.TrashedWebLinks.GetWebLinkTrashAsync(webLinkId: weblink.Id).ConfigureAwait(false);
             Assert.IsTrue(fromTrash.Id == weblink.Id);

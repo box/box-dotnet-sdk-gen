@@ -19,7 +19,7 @@ namespace Box.Schemas {
         /// The type of resource the policy is assigned to.
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentAssignedToFieldTypeField? Type { get; set; } = default;
+        public RetentionPolicyAssignmentAssignedToTypeField? Type { get; set; } = default;
 
         public RetentionPolicyAssignmentAssignedToField() {
             

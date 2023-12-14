@@ -9,15 +9,15 @@ namespace Box.Managers {
     public interface IListCollaborationsManager {
         public IAuthentication? Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<Collaborations> GetFileCollaborationsAsync(string fileId, GetFileCollaborationsQueryParamsArg? queryParams = default, GetFileCollaborationsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Collaborations> GetFileCollaborationsAsync(string fileId, GetFileCollaborationsQueryParams? queryParams = default, GetFileCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<Collaborations> GetFolderCollaborationsAsync(string folderId, GetFolderCollaborationsQueryParamsArg? queryParams = default, GetFolderCollaborationsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Collaborations> GetFolderCollaborationsAsync(string folderId, GetFolderCollaborationsQueryParams? queryParams = default, GetFolderCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<Collaborations> GetCollaborationsAsync(GetCollaborationsQueryParamsArg queryParams, GetCollaborationsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Collaborations> GetCollaborationsAsync(GetCollaborationsQueryParams queryParams, GetCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<Collaborations> GetGroupCollaborationsAsync(string groupId, GetGroupCollaborationsQueryParamsArg? queryParams = default, GetGroupCollaborationsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Collaborations> GetGroupCollaborationsAsync(string groupId, GetGroupCollaborationsQueryParams? queryParams = default, GetGroupCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

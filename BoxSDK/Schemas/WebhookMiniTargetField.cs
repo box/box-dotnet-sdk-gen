@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// The type of item to trigger a webhook
         /// </summary>
         [JsonPropertyName("type")]
-        public WebhookMiniTargetFieldTypeField? Type { get; set; } = default;
+        public WebhookMiniTargetTypeField? Type { get; set; } = default;
 
         public WebhookMiniTargetField() {
             

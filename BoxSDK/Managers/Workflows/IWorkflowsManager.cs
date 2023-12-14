@@ -10,11 +10,11 @@ namespace Box.Managers {
     public interface IWorkflowsManager {
         public IAuthentication? Auth { get; set; }
 
-        public NetworkSession? NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<Workflows> GetWorkflowsAsync(GetWorkflowsQueryParamsArg queryParams, GetWorkflowsHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<Workflows> GetWorkflowsAsync(GetWorkflowsQueryParams queryParams, GetWorkflowsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task CreateWorkflowStartAsync(string workflowId, CreateWorkflowStartRequestBodyArg requestBody, CreateWorkflowStartHeadersArg? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task CreateWorkflowStartAsync(string workflowId, CreateWorkflowStartRequestBody requestBody, CreateWorkflowStartHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

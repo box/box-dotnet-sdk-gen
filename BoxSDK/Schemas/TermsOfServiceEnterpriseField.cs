@@ -16,7 +16,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceEnterpriseFieldTypeField? Type { get; set; } = default;
+        public TermsOfServiceEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the enterprise

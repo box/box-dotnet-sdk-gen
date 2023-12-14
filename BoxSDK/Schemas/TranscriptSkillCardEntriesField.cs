@@ -19,7 +19,7 @@ namespace Box.Schemas {
         /// start time and no end time.
         /// </summary>
         [JsonPropertyName("appears")]
-        public IReadOnlyList<TranscriptSkillCardEntriesFieldAppearsField>? Appears { get; set; } = default;
+        public IReadOnlyList<TranscriptSkillCardEntriesAppearsField>? Appears { get; set; } = default;
 
         public TranscriptSkillCardEntriesField() {
             

@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public CollaborationsOrderFieldDirectionField? Direction { get; set; } = default;
+        public CollaborationsOrderDirectionField? Direction { get; set; } = default;
 
         public CollaborationsOrderField() {
             

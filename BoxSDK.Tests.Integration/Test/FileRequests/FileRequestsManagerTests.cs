@@ -15,7 +15,7 @@ namespace Box.Tests.Integration {
             FileRequest fileRequest = await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: fileRequestId).ConfigureAwait(false);
             Assert.IsTrue(fileRequest.Id == fileRequestId);
             Assert.IsTrue(StringUtils.ToStringRepresentation(fileRequest.Type) == "file_request");
-            FileRequest copiedFileRequest = await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id) { Type = FileRequestCopyRequestFolderFieldTypeField.Folder })).ConfigureAwait(false);
+            FileRequest copiedFileRequest = await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id) { Type = FileRequestCopyRequestFolderTypeField.Folder })).ConfigureAwait(false);
             Assert.IsTrue(copiedFileRequest.Id != fileRequestId);
             Assert.IsTrue(copiedFileRequest.Title == fileRequest.Title);
             Assert.IsTrue(copiedFileRequest.Description == fileRequest.Description);
