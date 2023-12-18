@@ -27,16 +27,16 @@ namespace Box.Managers {
         /// format.
         /// </summary>
         /// <param name="queryParams">
-        /// Query parameters of getAuthorize method
+        /// Query parameters of authorizeUser method
         /// </param>
         /// <param name="headers">
-        /// Headers of getAuthorize method
+        /// Headers of authorizeUser method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task GetAuthorizeAsync(GetAuthorizeQueryParams queryParams, GetAuthorizeHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new GetAuthorizeHeaders();
+        public async System.Threading.Tasks.Task AuthorizeUserAsync(AuthorizeUserQueryParams queryParams, AuthorizeUserHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new AuthorizeUserHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "response_type", StringUtils.ToStringRepresentation(queryParams.ResponseType) }, { "client_id", StringUtils.ToStringRepresentation(queryParams.ClientId) }, { "redirect_uri", StringUtils.ToStringRepresentation(queryParams.RedirectUri) }, { "state", StringUtils.ToStringRepresentation(queryParams.State) }, { "scope", StringUtils.ToStringRepresentation(queryParams.Scope) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.Oauth2Url, "/authorize"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -57,16 +57,16 @@ namespace Box.Managers {
         /// Box API calls.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createOauth2Token method
+        /// Request body of requestAccessToken method
         /// </param>
         /// <param name="headers">
-        /// Headers of createOauth2Token method
+        /// Headers of requestAccessToken method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<AccessToken> CreateOauth2TokenAsync(PostOAuth2Token requestBody, CreateOauth2TokenHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateOauth2TokenHeaders();
+        public async System.Threading.Tasks.Task<AccessToken> RequestAccessTokenAsync(PostOAuth2Token requestBody, RequestAccessTokenHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new RequestAccessTokenHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/oauth2/token"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/x-www-form-urlencoded", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<AccessToken>(response.Data);
@@ -76,16 +76,16 @@ namespace Box.Managers {
         /// Refresh an Access Token using its client ID, secret, and refresh token.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createOauth2TokenRefresh method
+        /// Request body of refreshAccessToken method
         /// </param>
         /// <param name="headers">
-        /// Headers of createOauth2TokenRefresh method
+        /// Headers of refreshAccessToken method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<AccessToken> CreateOauth2TokenRefreshAsync(PostOAuth2TokenRefreshAccessToken requestBody, CreateOauth2TokenRefreshHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateOauth2TokenRefreshHeaders();
+        public async System.Threading.Tasks.Task<AccessToken> RefreshAccessTokenAsync(PostOAuth2TokenRefreshAccessToken requestBody, RefreshAccessTokenHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new RefreshAccessTokenHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/oauth2/token#refresh"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/x-www-form-urlencoded", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<AccessToken>(response.Data);
@@ -96,16 +96,16 @@ namespace Box.Managers {
         /// that has been previously authenticated.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createOauth2Revoke method
+        /// Request body of revokeAccessToken method
         /// </param>
         /// <param name="headers">
-        /// Headers of createOauth2Revoke method
+        /// Headers of revokeAccessToken method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task CreateOauth2RevokeAsync(PostOAuth2Revoke requestBody, CreateOauth2RevokeHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateOauth2RevokeHeaders();
+        public async System.Threading.Tasks.Task RevokeAccessTokenAsync(PostOAuth2Revoke requestBody, RevokeAccessTokenHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new RevokeAccessTokenHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://api.box.com/oauth2/revoke"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/x-www-form-urlencoded", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

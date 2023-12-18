@@ -14,9 +14,9 @@ namespace Box.Managers {
 
         public System.Threading.Tasks.Task<TrashWebLinkRestored> RestoreWeblinkFromTrashAsync(string webLinkId, RestoreWeblinkFromTrashRequestBody? requestBody = default, RestoreWeblinkFromTrashQueryParams? queryParams = default, RestoreWeblinkFromTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<TrashWebLink> GetWebLinkTrashAsync(string webLinkId, GetWebLinkTrashQueryParams? queryParams = default, GetWebLinkTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<TrashWebLink> GetTrashedWebLinkByIdAsync(string webLinkId, GetTrashedWebLinkByIdQueryParams? queryParams = default, GetTrashedWebLinkByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task DeleteWebLinkTrashAsync(string webLinkId, DeleteWebLinkTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task DeleteTrashedWebLinkByIdAsync(string webLinkId, DeleteTrashedWebLinkByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

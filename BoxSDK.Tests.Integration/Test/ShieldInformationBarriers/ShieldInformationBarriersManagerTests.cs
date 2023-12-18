@@ -23,7 +23,7 @@ namespace Box.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(barrierFromApi.Id) == barrierId);
             ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(barriers.Entries).Count == 1);
-            await Assert.That.IsExceptionAsync(async() => await client.ShieldInformationBarriers.CreateShieldInformationBarrierChangeStatusAsync(requestBody: new CreateShieldInformationBarrierChangeStatusRequestBody(id: barrierId, status: CreateShieldInformationBarrierChangeStatusRequestBodyStatusField.Disabled)).ConfigureAwait(false));
+            await Assert.That.IsExceptionAsync(async() => await client.ShieldInformationBarriers.UpdateShieldInformationBarrierStatusAsync(requestBody: new UpdateShieldInformationBarrierStatusRequestBody(id: barrierId, status: UpdateShieldInformationBarrierStatusRequestBodyStatusField.Disabled)).ConfigureAwait(false));
         }
 
     }

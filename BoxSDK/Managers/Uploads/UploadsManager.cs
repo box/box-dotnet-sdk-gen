@@ -98,17 +98,17 @@ namespace Box.Managers {
         /// before you upload the entire file.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of preflightFileUpload method
+        /// Request body of preflightFileUploadCheck method
         /// </param>
         /// <param name="headers">
-        /// Headers of preflightFileUpload method
+        /// Headers of preflightFileUploadCheck method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadAsync(PreflightFileUploadRequestBody? requestBody = default, PreflightFileUploadHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new PreflightFileUploadRequestBody();
-            headers = headers ?? new PreflightFileUploadHeaders();
+        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadCheckAsync(PreflightFileUploadCheckRequestBody? requestBody = default, PreflightFileUploadCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new PreflightFileUploadCheckRequestBody();
+            headers = headers ?? new PreflightFileUploadCheckHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/content"), new FetchOptions(method: "OPTIONS", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadUrl>(response.Data);

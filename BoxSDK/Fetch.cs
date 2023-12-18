@@ -136,6 +136,11 @@ namespace Fetch
                 }
             }
 
+            if (options.ContentType != null && httpRequest.Content is StringContent)
+            {
+                httpRequest.Content!.Headers.ContentType = new MediaTypeHeaderValue(options.ContentType);
+            }
+
             foreach (var keyValuePair in SdkConsts.AnalyticsHeaders)
             {
                 httpRequest.Headers.Add(keyValuePair.Key, keyValuePair.Value);

@@ -13,7 +13,7 @@ namespace Box.Managers {
 
         public System.Threading.Tasks.Task<ShieldInformationBarrier> GetShieldInformationBarrierByIdAsync(string shieldInformationBarrierId, GetShieldInformationBarrierByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<ShieldInformationBarrier> CreateShieldInformationBarrierChangeStatusAsync(CreateShieldInformationBarrierChangeStatusRequestBody requestBody, CreateShieldInformationBarrierChangeStatusHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<ShieldInformationBarrier> UpdateShieldInformationBarrierStatusAsync(UpdateShieldInformationBarrierStatusRequestBody requestBody, UpdateShieldInformationBarrierStatusHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
         public System.Threading.Tasks.Task<ShieldInformationBarriers> GetShieldInformationBarriersAsync(GetShieldInformationBarriersQueryParams? queryParams = default, GetShieldInformationBarriersHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 

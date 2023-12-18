@@ -32,16 +32,16 @@ namespace Box.Managers {
         /// by requesting it in the `fields` query parameter.
         /// </summary>
         /// <param name="headers">
-        /// Headers of getSharedItems method
+        /// Headers of findFileForSharedLink method
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getSharedItems method
+        /// Query parameters of findFileForSharedLink method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> GetSharedItemsAsync(GetSharedItemsHeaders headers, GetSharedItemsQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetSharedItemsQueryParams();
+        public async System.Threading.Tasks.Task<FileFull> FindFileForSharedLinkAsync(FindFileForSharedLinkHeaders headers, FindFileForSharedLinkQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new FindFileForSharedLinkQueryParams();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) }, { "boxapi", StringUtils.ToStringRepresentation(headers.Boxapi) } }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/shared_items"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -62,16 +62,16 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getFileGetSharedLink method
+        /// Query parameters of getSharedLinkForFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of getFileGetSharedLink method
+        /// Headers of getSharedLinkForFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> GetFileGetSharedLinkAsync(string fileId, GetFileGetSharedLinkQueryParams queryParams, GetFileGetSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new GetFileGetSharedLinkHeaders();
+        public async System.Threading.Tasks.Task<FileFull> GetSharedLinkForFileAsync(string fileId, GetSharedLinkForFileQueryParams queryParams, GetSharedLinkForFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new GetSharedLinkForFileHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "#get_shared_link"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -92,20 +92,20 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of updateFileAddSharedLink method
+        /// Query parameters of addShareLinkToFile method
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateFileAddSharedLink method
+        /// Request body of addShareLinkToFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateFileAddSharedLink method
+        /// Headers of addShareLinkToFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> UpdateFileAddSharedLinkAsync(string fileId, UpdateFileAddSharedLinkQueryParams queryParams, UpdateFileAddSharedLinkRequestBody? requestBody = default, UpdateFileAddSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFileAddSharedLinkRequestBody();
-            headers = headers ?? new UpdateFileAddSharedLinkHeaders();
+        public async System.Threading.Tasks.Task<FileFull> AddShareLinkToFileAsync(string fileId, AddShareLinkToFileQueryParams queryParams, AddShareLinkToFileRequestBody? requestBody = default, AddShareLinkToFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new AddShareLinkToFileRequestBody();
+            headers = headers ?? new AddShareLinkToFileHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "#add_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -126,20 +126,20 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of updateFileUpdateSharedLink method
+        /// Query parameters of updateSharedLinkOnFile method
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateFileUpdateSharedLink method
+        /// Request body of updateSharedLinkOnFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateFileUpdateSharedLink method
+        /// Headers of updateSharedLinkOnFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> UpdateFileUpdateSharedLinkAsync(string fileId, UpdateFileUpdateSharedLinkQueryParams queryParams, UpdateFileUpdateSharedLinkRequestBody? requestBody = default, UpdateFileUpdateSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFileUpdateSharedLinkRequestBody();
-            headers = headers ?? new UpdateFileUpdateSharedLinkHeaders();
+        public async System.Threading.Tasks.Task<FileFull> UpdateSharedLinkOnFileAsync(string fileId, UpdateSharedLinkOnFileQueryParams queryParams, UpdateSharedLinkOnFileRequestBody? requestBody = default, UpdateSharedLinkOnFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new UpdateSharedLinkOnFileRequestBody();
+            headers = headers ?? new UpdateSharedLinkOnFileHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "#update_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -160,20 +160,20 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of updateFileRemoveSharedLink method
+        /// Query parameters of removeSharedLinkFromFile method
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateFileRemoveSharedLink method
+        /// Request body of removeSharedLinkFromFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateFileRemoveSharedLink method
+        /// Headers of removeSharedLinkFromFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> UpdateFileRemoveSharedLinkAsync(string fileId, UpdateFileRemoveSharedLinkQueryParams queryParams, UpdateFileRemoveSharedLinkRequestBody? requestBody = default, UpdateFileRemoveSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateFileRemoveSharedLinkRequestBody();
-            headers = headers ?? new UpdateFileRemoveSharedLinkHeaders();
+        public async System.Threading.Tasks.Task<FileFull> RemoveSharedLinkFromFileAsync(string fileId, RemoveSharedLinkFromFileQueryParams queryParams, RemoveSharedLinkFromFileRequestBody? requestBody = default, RemoveSharedLinkFromFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new RemoveSharedLinkFromFileRequestBody();
+            headers = headers ?? new RemoveSharedLinkFromFileHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "#remove_shared_link"), new FetchOptions(method: "PUT", parameters: queryParamsMap, headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);

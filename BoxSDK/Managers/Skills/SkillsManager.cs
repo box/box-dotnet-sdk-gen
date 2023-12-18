@@ -33,13 +33,13 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="headers">
-        /// Headers of getFileMetadataGlobalBoxSkillsCards method
+        /// Headers of getBoxSkillCardsOnFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<SkillCardsMetadata> GetFileMetadataGlobalBoxSkillsCardsAsync(string fileId, GetFileMetadataGlobalBoxSkillsCardsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new GetFileMetadataGlobalBoxSkillsCardsHeaders();
+        public async System.Threading.Tasks.Task<SkillCardsMetadata> GetBoxSkillCardsOnFileAsync(string fileId, GetBoxSkillCardsOnFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new GetBoxSkillCardsOnFileHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/global/boxSkillsCards"), new FetchOptions(method: "GET", headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SkillCardsMetadata>(response.Data);
@@ -59,16 +59,16 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of createFileMetadataGlobalBoxSkillsCard method
+        /// Request body of createBoxSkillCardsOnFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of createFileMetadataGlobalBoxSkillsCard method
+        /// Headers of createBoxSkillCardsOnFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<SkillCardsMetadata> CreateFileMetadataGlobalBoxSkillsCardAsync(string fileId, CreateFileMetadataGlobalBoxSkillsCardRequestBody requestBody, CreateFileMetadataGlobalBoxSkillsCardHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateFileMetadataGlobalBoxSkillsCardHeaders();
+        public async System.Threading.Tasks.Task<SkillCardsMetadata> CreateBoxSkillCardsOnFileAsync(string fileId, CreateBoxSkillCardsOnFileRequestBody requestBody, CreateBoxSkillCardsOnFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new CreateBoxSkillCardsOnFileHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/global/boxSkillsCards"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SkillCardsMetadata>(response.Data);
@@ -88,16 +88,16 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateFileMetadataGlobalBoxSkillsCard method
+        /// Request body of updateBoxSkillCardsOnFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateFileMetadataGlobalBoxSkillsCard method
+        /// Headers of updateBoxSkillCardsOnFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<SkillCardsMetadata> UpdateFileMetadataGlobalBoxSkillsCardAsync(string fileId, IReadOnlyList<UpdateFileMetadataGlobalBoxSkillsCardRequestBody> requestBody, UpdateFileMetadataGlobalBoxSkillsCardHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new UpdateFileMetadataGlobalBoxSkillsCardHeaders();
+        public async System.Threading.Tasks.Task<SkillCardsMetadata> UpdateBoxSkillCardsOnFileAsync(string fileId, IReadOnlyList<UpdateBoxSkillCardsOnFileRequestBody> requestBody, UpdateBoxSkillCardsOnFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new UpdateBoxSkillCardsOnFileHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/global/boxSkillsCards"), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json-patch+json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SkillCardsMetadata>(response.Data);
@@ -117,13 +117,13 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="headers">
-        /// Headers of deleteFileMetadataGlobalBoxSkillsCard method
+        /// Headers of deleteBoxSkillCardsFromFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task DeleteFileMetadataGlobalBoxSkillsCardAsync(string fileId, DeleteFileMetadataGlobalBoxSkillsCardHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteFileMetadataGlobalBoxSkillsCardHeaders();
+        public async System.Threading.Tasks.Task DeleteBoxSkillCardsFromFileAsync(string fileId, DeleteBoxSkillCardsFromFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteBoxSkillCardsFromFileHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/files/", StringUtils.ToStringRepresentation(fileId), "/metadata/global/boxSkillsCards"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }
@@ -137,16 +137,16 @@ namespace Box.Managers {
         /// Example: "33243242"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateSkillInvocationById method
+        /// Request body of updateAllSkillCardsOnFile method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateSkillInvocationById method
+        /// Headers of updateAllSkillCardsOnFile method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task UpdateSkillInvocationByIdAsync(string skillId, UpdateSkillInvocationByIdRequestBody requestBody, UpdateSkillInvocationByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new UpdateSkillInvocationByIdHeaders();
+        public async System.Threading.Tasks.Task UpdateAllSkillCardsOnFileAsync(string skillId, UpdateAllSkillCardsOnFileRequestBody requestBody, UpdateAllSkillCardsOnFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new UpdateAllSkillCardsOnFileHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/skill_invocations/", StringUtils.ToStringRepresentation(skillId)), new FetchOptions(method: "PUT", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

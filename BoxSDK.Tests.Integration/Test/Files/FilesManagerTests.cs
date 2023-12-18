@@ -49,7 +49,7 @@ namespace Box.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.Files.GetFileByIdAsync(fileId: uploadedFile.Id, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"name"}) }, headers: new GetFileByIdHeaders() { ExtraHeaders = new Dictionary<string, string>() { { "if-none-match", file.Etag } } }).ConfigureAwait(false));
             Assert.IsTrue(file.Name == newFileName);
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
-            TrashFile trashedFile = await client.TrashedFiles.GetFileTrashAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+            TrashFile trashedFile = await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
             Assert.IsTrue(file.Id == trashedFile.Id);
         }
 

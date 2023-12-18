@@ -12,15 +12,15 @@ namespace Box.Managers {
 
         public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<WebLink> GetSharedItemWebLinksAsync(GetSharedItemWebLinksHeaders headers, GetSharedItemWebLinksQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<WebLink> FindWebLinkForSharedLinkAsync(FindWebLinkForSharedLinkHeaders headers, FindWebLinkForSharedLinkQueryParams? queryParams = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<WebLink> GetWebLinkGetSharedLinkAsync(string webLinkId, GetWebLinkGetSharedLinkQueryParams queryParams, GetWebLinkGetSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<WebLink> GetSharedLinkForWebLinkAsync(string webLinkId, GetSharedLinkForWebLinkQueryParams queryParams, GetSharedLinkForWebLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<WebLink> UpdateWebLinkAddSharedLinkAsync(string webLinkId, UpdateWebLinkAddSharedLinkQueryParams queryParams, UpdateWebLinkAddSharedLinkRequestBody? requestBody = default, UpdateWebLinkAddSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<WebLink> AddShareLinkToWebLinkAsync(string webLinkId, AddShareLinkToWebLinkQueryParams queryParams, AddShareLinkToWebLinkRequestBody? requestBody = default, AddShareLinkToWebLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<WebLink> UpdateWebLinkUpdateSharedLinkAsync(string webLinkId, UpdateWebLinkUpdateSharedLinkQueryParams queryParams, UpdateWebLinkUpdateSharedLinkRequestBody? requestBody = default, UpdateWebLinkUpdateSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<WebLink> UpdateSharedLinkOnWebLinkAsync(string webLinkId, UpdateSharedLinkOnWebLinkQueryParams queryParams, UpdateSharedLinkOnWebLinkRequestBody? requestBody = default, UpdateSharedLinkOnWebLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<WebLink> UpdateWebLinkRemoveSharedLinkAsync(string webLinkId, UpdateWebLinkRemoveSharedLinkQueryParams queryParams, UpdateWebLinkRemoveSharedLinkRequestBody? requestBody = default, UpdateWebLinkRemoveSharedLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<WebLink> RemoveSharedLinkFromWebLinkAsync(string webLinkId, RemoveSharedLinkFromWebLinkQueryParams queryParams, RemoveSharedLinkFromWebLinkRequestBody? requestBody = default, RemoveSharedLinkFromWebLinkHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

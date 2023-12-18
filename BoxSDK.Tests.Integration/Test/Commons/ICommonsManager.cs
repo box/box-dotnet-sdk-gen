@@ -1,4 +1,7 @@
 using NullableExtensions;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 using Box.Schemas;
 using Box.Managers;
@@ -15,6 +18,10 @@ public interface ICommonsManager {
     public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
 
     public System.Threading.Tasks.Task<FileFull> UploadNewFileAsync();
+
+    public System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate);
+
+    public System.Threading.Tasks.Task<ClassificationTemplate> GetOrCreateClassificationTemplateAsync();
 
     public System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId);
 

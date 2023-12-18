@@ -14,9 +14,9 @@ namespace Box.Managers {
 
         public System.Threading.Tasks.Task<TrashFileRestored> RestoreFileFromTrashAsync(string fileId, RestoreFileFromTrashRequestBody? requestBody = default, RestoreFileFromTrashQueryParams? queryParams = default, RestoreFileFromTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<TrashFile> GetFileTrashAsync(string fileId, GetFileTrashQueryParams? queryParams = default, GetFileTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<TrashFile> GetTrashedFileByIdAsync(string fileId, GetTrashedFileByIdQueryParams? queryParams = default, GetTrashedFileByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task DeleteFileTrashAsync(string fileId, DeleteFileTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task DeleteTrashedFileByIdAsync(string fileId, DeleteTrashedFileByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

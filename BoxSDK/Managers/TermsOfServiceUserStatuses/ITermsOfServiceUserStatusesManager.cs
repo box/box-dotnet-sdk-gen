@@ -11,11 +11,11 @@ namespace Box.Managers {
 
         public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<TermsOfServiceUserStatuses> GetTermOfServiceUserStatusesAsync(GetTermOfServiceUserStatusesQueryParams queryParams, GetTermOfServiceUserStatusesHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<TermsOfServiceUserStatuses> GetTermsOfServiceUserStatusesAsync(GetTermsOfServiceUserStatusesQueryParams queryParams, GetTermsOfServiceUserStatusesHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<TermsOfServiceUserStatus> CreateTermOfServiceUserStatusAsync(CreateTermOfServiceUserStatusRequestBody requestBody, CreateTermOfServiceUserStatusHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<TermsOfServiceUserStatus> CreateTermsOfServiceStatusForUserAsync(CreateTermsOfServiceStatusForUserRequestBody requestBody, CreateTermsOfServiceStatusForUserHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<TermsOfServiceUserStatus> UpdateTermOfServiceUserStatusByIdAsync(string termsOfServiceUserStatusId, UpdateTermOfServiceUserStatusByIdRequestBody requestBody, UpdateTermOfServiceUserStatusByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<TermsOfServiceUserStatus> UpdateTermsOfServiceStatusForUserByIdAsync(string termsOfServiceUserStatusId, UpdateTermsOfServiceStatusForUserByIdRequestBody requestBody, UpdateTermsOfServiceStatusForUserByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

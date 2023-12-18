@@ -117,17 +117,17 @@ namespace Box.Managers {
         /// Example: "1233123"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getRetentionPolicyAssignmentFileUnderRetention method
+        /// Query parameters of getFilesUnderRetentionPolicyAssignment method
         /// </param>
         /// <param name="headers">
-        /// Headers of getRetentionPolicyAssignmentFileUnderRetention method
+        /// Headers of getFilesUnderRetentionPolicyAssignment method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FilesUnderRetention> GetRetentionPolicyAssignmentFileUnderRetentionAsync(string retentionPolicyAssignmentId, GetRetentionPolicyAssignmentFileUnderRetentionQueryParams? queryParams = default, GetRetentionPolicyAssignmentFileUnderRetentionHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetRetentionPolicyAssignmentFileUnderRetentionQueryParams();
-            headers = headers ?? new GetRetentionPolicyAssignmentFileUnderRetentionHeaders();
+        public async System.Threading.Tasks.Task<FilesUnderRetention> GetFilesUnderRetentionPolicyAssignmentAsync(string retentionPolicyAssignmentId, GetFilesUnderRetentionPolicyAssignmentQueryParams? queryParams = default, GetFilesUnderRetentionPolicyAssignmentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetFilesUnderRetentionPolicyAssignmentQueryParams();
+            headers = headers ?? new GetFilesUnderRetentionPolicyAssignmentHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/retention_policy_assignments/", StringUtils.ToStringRepresentation(retentionPolicyAssignmentId), "/files_under_retention"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -143,17 +143,17 @@ namespace Box.Managers {
         /// Example: "1233123"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getRetentionPolicyAssignmentFileVersionUnderRetention method
+        /// Query parameters of getFileVersionsUnderRetentionPolicyAssignment method
         /// </param>
         /// <param name="headers">
-        /// Headers of getRetentionPolicyAssignmentFileVersionUnderRetention method
+        /// Headers of getFileVersionsUnderRetentionPolicyAssignment method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FilesUnderRetention> GetRetentionPolicyAssignmentFileVersionUnderRetentionAsync(string retentionPolicyAssignmentId, GetRetentionPolicyAssignmentFileVersionUnderRetentionQueryParams? queryParams = default, GetRetentionPolicyAssignmentFileVersionUnderRetentionHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetRetentionPolicyAssignmentFileVersionUnderRetentionQueryParams();
-            headers = headers ?? new GetRetentionPolicyAssignmentFileVersionUnderRetentionHeaders();
+        public async System.Threading.Tasks.Task<FilesUnderRetention> GetFileVersionsUnderRetentionPolicyAssignmentAsync(string retentionPolicyAssignmentId, GetFileVersionsUnderRetentionPolicyAssignmentQueryParams? queryParams = default, GetFileVersionsUnderRetentionPolicyAssignmentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetFileVersionsUnderRetentionPolicyAssignmentQueryParams();
+            headers = headers ?? new GetFileVersionsUnderRetentionPolicyAssignmentHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/retention_policy_assignments/", StringUtils.ToStringRepresentation(retentionPolicyAssignmentId), "/file_versions_under_retention"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);

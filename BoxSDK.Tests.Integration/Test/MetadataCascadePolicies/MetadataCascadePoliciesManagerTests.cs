@@ -35,7 +35,7 @@ namespace Box.Tests.Integration {
             Assert.IsTrue(cascadePolicyId == policyFromTheApi.Id);
             MetadataCascadePolicies policies = await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams: new GetMetadataCascadePoliciesQueryParams(folderId: folder.Id)).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(policies.Entries).Count == 1);
-            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.CreateMetadataCascadePolicyApplyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new CreateMetadataCascadePolicyApplyRequestBody(conflictResolution: CreateMetadataCascadePolicyApplyRequestBodyConflictResolutionField.Overwrite)).ConfigureAwait(false));
+            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite)).ConfigureAwait(false));
             await client.MetadataCascadePolicies.DeleteMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false);
             await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false));
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id).ConfigureAwait(false);

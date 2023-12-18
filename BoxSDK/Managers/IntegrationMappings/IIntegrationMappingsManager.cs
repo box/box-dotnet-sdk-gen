@@ -11,13 +11,13 @@ namespace Box.Managers {
 
         public NetworkSession NetworkSession { get; set; }
 
-        public System.Threading.Tasks.Task<IntegrationMappings> GetIntegrationMappingSlackAsync(GetIntegrationMappingSlackQueryParams? queryParams = default, GetIntegrationMappingSlackHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<IntegrationMappings> GetSlackIntegrationMappingAsync(GetSlackIntegrationMappingQueryParams? queryParams = default, GetSlackIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<IntegrationMapping> CreateIntegrationMappingSlackAsync(IntegrationMappingSlackCreateRequest requestBody, CreateIntegrationMappingSlackHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<IntegrationMapping> CreateSlackIntegrationMappingAsync(IntegrationMappingSlackCreateRequest requestBody, CreateSlackIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<IntegrationMapping> UpdateIntegrationMappingSlackByIdAsync(string integrationMappingId, UpdateIntegrationMappingSlackByIdRequestBody? requestBody = default, UpdateIntegrationMappingSlackByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task<IntegrationMapping> UpdateSlackIntegrationMappingByIdAsync(string integrationMappingId, UpdateSlackIntegrationMappingByIdRequestBody? requestBody = default, UpdateSlackIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task DeleteIntegrationMappingSlackByIdAsync(string integrationMappingId, DeleteIntegrationMappingSlackByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task DeleteSlackIntegrationMappingByIdAsync(string integrationMappingId, DeleteSlackIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

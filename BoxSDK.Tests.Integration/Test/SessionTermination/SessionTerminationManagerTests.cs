@@ -19,7 +19,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestSessionTerminationUser() {
             BoxClient adminClient = await new CommonsManager().GetDefaultClientAsUserAsync(userId: Utils.GetEnvVar(name: "USER_ID")).ConfigureAwait(false);
             UserFull user = await adminClient.Users.GetUserMeAsync().ConfigureAwait(false);
-            SessionTerminationMessage result = await client.SessionTermination.CreateUserTerminateSessionAsync(requestBody: new CreateUserTerminateSessionRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)}))).ConfigureAwait(false);
+            SessionTerminationMessage result = await client.SessionTermination.TerminateUsersSessionsAsync(requestBody: new TerminateUsersSessionsRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)}))).ConfigureAwait(false);
             Assert.IsTrue(result.Message == "Request is successful, please check the admin events for the status of the job");
         }
 
@@ -27,7 +27,7 @@ namespace Box.Tests.Integration {
         public async System.Threading.Tasks.Task TestSessionTerminationGroup() {
             string groupName = Utils.GetUUID();
             GroupFull group = await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName)).ConfigureAwait(false);
-            SessionTerminationMessage result = await client.SessionTermination.CreateGroupTerminateSessionAsync(requestBody: new CreateGroupTerminateSessionRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id}))).ConfigureAwait(false);
+            SessionTerminationMessage result = await client.SessionTermination.TerminateGroupsSessionsAsync(requestBody: new TerminateGroupsSessionsRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id}))).ConfigureAwait(false);
             Assert.IsTrue(result.Message == "Request is successful, please check the admin events for the status of the job");
             await client.Groups.DeleteGroupByIdAsync(groupId: group.Id).ConfigureAwait(false);
         }

@@ -114,16 +114,16 @@ namespace Box.Managers {
         /// Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of createMetadataCascadePolicyApply method
+        /// Request body of applyMetadataCascadePolicy method
         /// </param>
         /// <param name="headers">
-        /// Headers of createMetadataCascadePolicyApply method
+        /// Headers of applyMetadataCascadePolicy method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task CreateMetadataCascadePolicyApplyAsync(string metadataCascadePolicyId, CreateMetadataCascadePolicyApplyRequestBody requestBody, CreateMetadataCascadePolicyApplyHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateMetadataCascadePolicyApplyHeaders();
+        public async System.Threading.Tasks.Task ApplyMetadataCascadePolicyAsync(string metadataCascadePolicyId, ApplyMetadataCascadePolicyRequestBody requestBody, ApplyMetadataCascadePolicyHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new ApplyMetadataCascadePolicyHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/metadata_cascade_policies/", StringUtils.ToStringRepresentation(metadataCascadePolicyId), "/apply"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

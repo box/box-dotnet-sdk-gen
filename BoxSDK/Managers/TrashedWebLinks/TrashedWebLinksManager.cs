@@ -59,17 +59,17 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getWebLinkTrash method
+        /// Query parameters of getTrashedWebLinkById method
         /// </param>
         /// <param name="headers">
-        /// Headers of getWebLinkTrash method
+        /// Headers of getTrashedWebLinkById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<TrashWebLink> GetWebLinkTrashAsync(string webLinkId, GetWebLinkTrashQueryParams? queryParams = default, GetWebLinkTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetWebLinkTrashQueryParams();
-            headers = headers ?? new GetWebLinkTrashHeaders();
+        public async System.Threading.Tasks.Task<TrashWebLink> GetTrashedWebLinkByIdAsync(string webLinkId, GetTrashedWebLinkByIdQueryParams? queryParams = default, GetTrashedWebLinkByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetTrashedWebLinkByIdQueryParams();
+            headers = headers ?? new GetTrashedWebLinkByIdHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/web_links/", StringUtils.ToStringRepresentation(webLinkId), "/trash"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -85,13 +85,13 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="headers">
-        /// Headers of deleteWebLinkTrash method
+        /// Headers of deleteTrashedWebLinkById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task DeleteWebLinkTrashAsync(string webLinkId, DeleteWebLinkTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteWebLinkTrashHeaders();
+        public async System.Threading.Tasks.Task DeleteTrashedWebLinkByIdAsync(string webLinkId, DeleteTrashedWebLinkByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteTrashedWebLinkByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/web_links/", StringUtils.ToStringRepresentation(webLinkId), "/trash"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

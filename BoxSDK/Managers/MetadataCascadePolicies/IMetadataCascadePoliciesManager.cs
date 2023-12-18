@@ -19,7 +19,7 @@ namespace Box.Managers {
 
         public System.Threading.Tasks.Task DeleteMetadataCascadePolicyByIdAsync(string metadataCascadePolicyId, DeleteMetadataCascadePolicyByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task CreateMetadataCascadePolicyApplyAsync(string metadataCascadePolicyId, CreateMetadataCascadePolicyApplyRequestBody requestBody, CreateMetadataCascadePolicyApplyHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
+        public System.Threading.Tasks.Task ApplyMetadataCascadePolicyAsync(string metadataCascadePolicyId, ApplyMetadataCascadePolicyRequestBody requestBody, ApplyMetadataCascadePolicyHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
     }
 }

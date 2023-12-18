@@ -96,17 +96,17 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="queryParams">
-        /// Query parameters of getFolderTrash method
+        /// Query parameters of getTrashedFolderById method
         /// </param>
         /// <param name="headers">
-        /// Headers of getFolderTrash method
+        /// Headers of getTrashedFolderById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<TrashFolder> GetFolderTrashAsync(string folderId, GetFolderTrashQueryParams? queryParams = default, GetFolderTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetFolderTrashQueryParams();
-            headers = headers ?? new GetFolderTrashHeaders();
+        public async System.Threading.Tasks.Task<TrashFolder> GetTrashedFolderByIdAsync(string folderId, GetTrashedFolderByIdQueryParams? queryParams = default, GetTrashedFolderByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetTrashedFolderByIdQueryParams();
+            headers = headers ?? new GetTrashedFolderByIdHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "/trash"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
@@ -131,13 +131,13 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="headers">
-        /// Headers of deleteFolderTrash method
+        /// Headers of deleteTrashedFolderById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task DeleteFolderTrashAsync(string folderId, DeleteFolderTrashHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteFolderTrashHeaders();
+        public async System.Threading.Tasks.Task DeleteTrashedFolderByIdAsync(string folderId, DeleteTrashedFolderByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteTrashedFolderByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/folders/", StringUtils.ToStringRepresentation(folderId), "/trash"), new FetchOptions(method: "DELETE", headers: headersMap, responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

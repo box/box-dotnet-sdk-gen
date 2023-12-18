@@ -25,16 +25,16 @@ namespace Box.Managers {
         /// Returns the status for the POST request.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createUserTerminateSession method
+        /// Request body of terminateUsersSessions method
         /// </param>
         /// <param name="headers">
-        /// Headers of createUserTerminateSession method
+        /// Headers of terminateUsersSessions method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateUserTerminateSessionAsync(CreateUserTerminateSessionRequestBody requestBody, CreateUserTerminateSessionHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateUserTerminateSessionHeaders();
+        public async System.Threading.Tasks.Task<SessionTerminationMessage> TerminateUsersSessionsAsync(TerminateUsersSessionsRequestBody requestBody, TerminateUsersSessionsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new TerminateUsersSessionsHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/users/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SessionTerminationMessage>(response.Data);
@@ -47,16 +47,16 @@ namespace Box.Managers {
         /// Returns the status for the POST request.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createGroupTerminateSession method
+        /// Request body of terminateGroupsSessions method
         /// </param>
         /// <param name="headers">
-        /// Headers of createGroupTerminateSession method
+        /// Headers of terminateGroupsSessions method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<SessionTerminationMessage> CreateGroupTerminateSessionAsync(CreateGroupTerminateSessionRequestBody requestBody, CreateGroupTerminateSessionHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateGroupTerminateSessionHeaders();
+        public async System.Threading.Tasks.Task<SessionTerminationMessage> TerminateGroupsSessionsAsync(TerminateGroupsSessionsRequestBody requestBody, TerminateGroupsSessionsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new TerminateGroupsSessionsHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/groups/terminate_sessions"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SessionTerminationMessage>(response.Data);

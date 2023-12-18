@@ -54,16 +54,16 @@ namespace Box.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of createWorkflowStart method
+        /// Request body of startWorkflow method
         /// </param>
         /// <param name="headers">
-        /// Headers of createWorkflowStart method
+        /// Headers of startWorkflow method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task CreateWorkflowStartAsync(string workflowId, CreateWorkflowStartRequestBody requestBody, CreateWorkflowStartHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateWorkflowStartHeaders();
+        public async System.Threading.Tasks.Task StartWorkflowAsync(string workflowId, StartWorkflowRequestBody requestBody, StartWorkflowHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new StartWorkflowHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/workflows/", StringUtils.ToStringRepresentation(workflowId), "/start"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: null, auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
         }

@@ -42,16 +42,16 @@ namespace Box.Managers {
         /// Change status of shield information barrier with the specified ID.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createShieldInformationBarrierChangeStatus method
+        /// Request body of updateShieldInformationBarrierStatus method
         /// </param>
         /// <param name="headers">
-        /// Headers of createShieldInformationBarrierChangeStatus method
+        /// Headers of updateShieldInformationBarrierStatus method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<ShieldInformationBarrier> CreateShieldInformationBarrierChangeStatusAsync(CreateShieldInformationBarrierChangeStatusRequestBody requestBody, CreateShieldInformationBarrierChangeStatusHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateShieldInformationBarrierChangeStatusHeaders();
+        public async System.Threading.Tasks.Task<ShieldInformationBarrier> UpdateShieldInformationBarrierStatusAsync(UpdateShieldInformationBarrierStatusRequestBody requestBody, UpdateShieldInformationBarrierStatusHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new UpdateShieldInformationBarrierStatusHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/shield_information_barriers/change_status"), new FetchOptions(method: "POST", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<ShieldInformationBarrier>(response.Data);
