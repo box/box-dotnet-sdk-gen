@@ -18,7 +18,10 @@ This operation is performed by calling function `GetSlackIntegrationMapping`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-integration-mappings-slack/).
 
-*Currently we don't have an example for calling `GetSlackIntegrationMapping` in integration tests*
+<!-- sample get_integration_mappings_slack -->
+```
+await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -50,7 +53,10 @@ This operation is performed by calling function `CreateSlackIntegrationMapping`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-integration-mappings-slack/).
 
-*Currently we don't have an example for calling `CreateSlackIntegrationMapping` in integration tests*
+<!-- sample post_integration_mappings_slack -->
+```
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(type: IntegrationMappingPartnerItemSlackTypeField.Channel, id: partnerItemId, slackOrgId: slackOrgId), boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id, type: IntegrationMappingBoxItemSlackTypeField.Folder))).ConfigureAwait(false)
+```
 
 ### Arguments
 
