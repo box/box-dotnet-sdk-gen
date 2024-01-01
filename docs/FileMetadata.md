@@ -16,7 +16,10 @@ This operation is performed by calling function `GetFileMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-*Currently we don't have an example for calling `GetFileMetadata` in integration tests*
+<!-- sample get_files_id_metadata -->
+```
+await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -48,7 +51,10 @@ This operation is performed by calling function `GetFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `GetFileMetadataById` in integration tests*
+<!-- sample get_files_id_metadata_id_id -->
+```
+await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFileMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -86,7 +92,10 @@ This operation is performed by calling function `CreateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `CreateFileMetadataById` in integration tests*
+<!-- sample post_files_id_metadata_id_id -->
+```
+await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } }).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -96,7 +105,7 @@ See the endpoint docs at
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `CreateFileMetadataByIdRequestBody`
+- requestBody `Dictionary<string, string>`
   - Request body of createFileMetadataById method
 - headers `CreateFileMetadataByIdHeaders`
   - Headers of createFileMetadataById method
@@ -128,7 +137,10 @@ This operation is performed by calling function `UpdateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `UpdateFileMetadataById` in integration tests*
+<!-- sample put_files_id_metadata_id_id -->
+```
+await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody(op: UpdateFileMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -163,7 +175,10 @@ This operation is performed by calling function `DeleteFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `DeleteFileMetadataById` in integration tests*
+<!-- sample delete_files_id_metadata_id_id -->
+```
+await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey).ConfigureAwait(false)
+```
 
 ### Arguments
 

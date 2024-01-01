@@ -20,7 +20,10 @@ This operation is performed by calling function `GetMetadataTemplatesByInstanceI
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates/).
 
-*Currently we don't have an example for calling `GetMetadataTemplatesByInstanceId` in integration tests*
+<!-- sample get_metadata_templates -->
+```
+await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 

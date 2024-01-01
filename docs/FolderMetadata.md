@@ -17,7 +17,10 @@ This operation is performed by calling function `GetFolderMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata/).
 
-*Currently we don't have an example for calling `GetFolderMetadata` in integration tests*
+<!-- sample get_folders_id_metadata -->
+```
+await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `GetFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `GetFolderMetadataById` in integration tests*
+<!-- sample get_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -91,7 +97,10 @@ This operation is performed by calling function `CreateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `CreateFolderMetadataById` in integration tests*
+<!-- sample post_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -101,7 +110,7 @@ See the endpoint docs at
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `CreateFolderMetadataByIdRequestBody`
+- requestBody `Dictionary<string, string>`
   - Request body of createFolderMetadataById method
 - headers `CreateFolderMetadataByIdHeaders`
   - Headers of createFolderMetadataById method
@@ -133,7 +142,10 @@ This operation is performed by calling function `UpdateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `UpdateFolderMetadataById` in integration tests*
+<!-- sample put_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody(op: UpdateFolderMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -168,7 +180,10 @@ This operation is performed by calling function `DeleteFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `DeleteFolderMetadataById` in integration tests*
+<!-- sample delete_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 

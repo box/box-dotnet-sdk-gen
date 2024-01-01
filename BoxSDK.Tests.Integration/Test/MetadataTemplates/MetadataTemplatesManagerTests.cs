@@ -40,5 +40,20 @@ namespace Box.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false));
         }
 
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestGetMetadataTemplateByInstance() {
+            FileFull file = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
+            string templateKey = string.Concat("key", Utils.GetUUID());
+            MetadataTemplate template = await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}) }).ConfigureAwait(false);
+            MetadataFull createdMetadataInstance = await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } }).ConfigureAwait(false);
+            MetadataTemplates metadataTemplates = await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id))).ConfigureAwait(false);
+            Assert.IsTrue(NullableUtils.Unwrap(metadataTemplates.Entries).Count == 1);
+            Assert.IsTrue(NullableUtils.Unwrap(metadataTemplates.Entries)[0].DisplayName == templateKey);
+            Assert.IsTrue(NullableUtils.Unwrap(metadataTemplates.Entries)[0].TemplateKey == templateKey);
+            await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey).ConfigureAwait(false);
+            await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false);
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id).ConfigureAwait(false);
+        }
+
     }
 }

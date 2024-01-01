@@ -3,9 +3,10 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
-    public class MetadataFull : Metadata {
+    public class MetadataFull : Metadata, IJsonOnDeserialized {
         /// <summary>
         /// Whether the user can edit this metadata instance.
         /// </summary>
@@ -40,5 +41,22 @@ namespace Box.Schemas {
         public MetadataFull() {
             
         }
+        /// <summary>
+        /// Field only for SDK usage. Use ExtraData field instead. Stores additional fields returned from the api that are not mapped to the other members of this class.
+        /// </summary>
+        [JsonExtensionData]
+        [JsonInclude]
+        public Dictionary<string, JsonElement>? _additionalProperties { get; private set; } = default;
+
+        public void OnDeserialized() {
+            if (_additionalProperties != null) {
+                ExtraData = new Dictionary<string, string>();
+                foreach (var kvp in _additionalProperties) {
+                    ExtraData.Add(kvp.Key, JsonSerializer.Deserialize<string>(kvp.Value));
+                }
+                _additionalProperties.Clear();
+            }
+        }
+
     }
 }
