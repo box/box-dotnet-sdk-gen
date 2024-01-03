@@ -41,7 +41,7 @@ namespace Box.Schemas {
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
 
-        public TermsOfService() {
+        public TermsOfService(string id, TermsOfServiceBaseTypeField type) : base(id, type) {
             
         }
     }

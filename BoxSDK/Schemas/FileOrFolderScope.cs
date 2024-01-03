@@ -3,19 +3,20 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
-    public class FileScope {
+    public class FileOrFolderScope {
         /// <summary>
-        /// The file scopes for the file access
+        /// The scopes for the resource access
         /// </summary>
         [JsonPropertyName("scope")]
-        public FileScopeScopeField? Scope { get; set; } = default;
+        public FileOrFolderScopeScopeField? Scope { get; set; } = default;
 
         [JsonPropertyName("object")]
-        public FileMini? Object { get; set; } = default;
+        public FileMiniOrFolderMini? Object { get; set; } = default;
 
-        public FileScope() {
+        public FileOrFolderScope() {
             
         }
     }

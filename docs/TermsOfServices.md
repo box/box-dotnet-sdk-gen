@@ -60,7 +60,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Task`.
+This function returns a value of type `TermsOfService`.
 
 Returns a new task object
 

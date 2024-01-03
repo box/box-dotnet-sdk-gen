@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class AccessToken {
@@ -30,7 +31,7 @@ namespace Box.Schemas {
         /// and the scopes permitted for each of those resources.
         /// </summary>
         [JsonPropertyName("restricted_to")]
-        public IReadOnlyList<FileScope>? RestrictedTo { get; set; } = default;
+        public IReadOnlyList<FileOrFolderScope>? RestrictedTo { get; set; } = default;
 
         /// <summary>
         /// The refresh token for this access token, which can be used

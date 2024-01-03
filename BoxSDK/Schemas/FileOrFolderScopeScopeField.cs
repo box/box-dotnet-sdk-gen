@@ -3,8 +3,8 @@ using Serializer;
 using System.Text.Json.Serialization;
 
 namespace Box.Schemas {
-    [JsonConverter(typeof(StringEnumConverter<FileScopeScopeField>))]
-    public enum FileScopeScopeField {
+    [JsonConverter(typeof(StringEnumConverter<FileOrFolderScopeScopeField>))]
+    public enum FileOrFolderScopeScopeField {
         [Description("annotation_edit")]
         AnnotationEdit,
         [Description("annotation_view_all")]
