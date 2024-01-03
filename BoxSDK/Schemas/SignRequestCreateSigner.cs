@@ -86,6 +86,14 @@ namespace Box.Schemas {
         [JsonPropertyName("password")]
         public string? Password { get; set; } = default;
 
+        /// <summary>
+        /// If set, signers who have the same group ID will be assigned to the same input.
+        /// A signer group is expected to have more than one signer. When a group contains fewer than two signers, 
+        /// it will be converted to a single signer and the group will be removed. 
+        /// </summary>
+        [JsonPropertyName("signer_group_id")]
+        public string? SignerGroupId { get; set; } = default;
+
         public SignRequestCreateSigner() {
             
         }
