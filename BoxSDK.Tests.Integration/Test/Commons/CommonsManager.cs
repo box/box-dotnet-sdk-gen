@@ -1,8 +1,8 @@
 using NullableExtensions;
+using System.Linq;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Linq;
 using Box.Schemas;
 using Box.Managers;
 using Box;
@@ -38,6 +38,16 @@ namespace Box {
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
             return NullableUtils.Unwrap(uploadedFiles.Entries)[0];
+        }
+
+        public async System.Threading.Tasks.Task<TermsOfService> GetOrCreateTermsOfServicesAsync() {
+            BoxClient client = new CommonsManager().GetDefaultClient();
+            TermsOfServices tos = await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false);
+            int numberOfTos = NullableUtils.Unwrap(tos.Entries).Count;
+            if (numberOfTos == 0) {
+                return await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Enabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed }).ConfigureAwait(false);
+            }
+            return NullableUtils.Unwrap(tos.Entries).ElementAt(0);
         }
 
         public async System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate) {

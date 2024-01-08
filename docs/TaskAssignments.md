@@ -16,7 +16,10 @@ This operation is performed by calling function `GetTaskAssignments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-tasks-id-assignments/).
 
-*Currently we don't have an example for calling `GetTaskAssignments` in integration tests*
+<!-- sample get_tasks_id_assignments -->
+```
+await client.TaskAssignments.GetTaskAssignmentsAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -48,7 +51,10 @@ This operation is performed by calling function `CreateTaskAssignment`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-task-assignments/).
 
-*Currently we don't have an example for calling `CreateTaskAssignment` in integration tests*
+<!-- sample post_task_assignments -->
+```
+await client.TaskAssignments.CreateTaskAssignmentAsync(requestBody: new CreateTaskAssignmentRequestBody(task: new CreateTaskAssignmentRequestBodyTaskField(type: CreateTaskAssignmentRequestBodyTaskTypeField.Task, id: NullableUtils.Unwrap(task.Id)), assignTo: new CreateTaskAssignmentRequestBodyAssignToField(id: currentUser.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -76,7 +82,10 @@ This operation is performed by calling function `GetTaskAssignmentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-task-assignments-id/).
 
-*Currently we don't have an example for calling `GetTaskAssignmentById` in integration tests*
+<!-- sample get_task_assignments_id -->
+```
+await client.TaskAssignments.GetTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -106,7 +115,10 @@ This operation is performed by calling function `UpdateTaskAssignmentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-task-assignments-id/).
 
-*Currently we don't have an example for calling `UpdateTaskAssignmentById` in integration tests*
+<!-- sample put_task_assignments_id -->
+```
+await client.TaskAssignments.UpdateTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id), requestBody: new UpdateTaskAssignmentByIdRequestBody(message: "updated message", resolutionState: UpdateTaskAssignmentByIdRequestBodyResolutionStateField.Approved)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -136,7 +148,10 @@ This operation is performed by calling function `DeleteTaskAssignmentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-task-assignments-id/).
 
-*Currently we don't have an example for calling `DeleteTaskAssignmentById` in integration tests*
+<!-- sample delete_task_assignments_id -->
+```
+await client.TaskAssignments.DeleteTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 

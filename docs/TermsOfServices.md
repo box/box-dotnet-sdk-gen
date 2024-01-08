@@ -16,7 +16,10 @@ This operation is performed by calling function `GetTermsOfService`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-services/).
 
-*Currently we don't have an example for calling `GetTermsOfService` in integration tests*
+<!-- sample get_terms_of_services -->
+```
+await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `CreateTermsOfService`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-terms-of-services/).
 
-*Currently we don't have an example for calling `CreateTermsOfService` in integration tests*
+<!-- sample post_terms_of_services -->
+```
+await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Enabled, tosType: CreateTermsOfServiceRequestBodyTosTypeField.Managed, text: "Test TOS")).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -102,7 +108,10 @@ This operation is performed by calling function `UpdateTermsOfServiceById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-terms-of-services-id/).
 
-*Currently we don't have an example for calling `UpdateTermsOfServiceById` in integration tests*
+<!-- sample put_terms_of_services_id -->
+```
+await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Disabled TOS")).ConfigureAwait(false)
+```
 
 ### Arguments
 
