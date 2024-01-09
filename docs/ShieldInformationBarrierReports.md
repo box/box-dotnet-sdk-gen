@@ -1,4 +1,4 @@
-# ShieldInformationBarrierReportsManager
+# IShieldInformationBarrierReportsManager
 
 
 - [List shield information barrier reports](#list-shield-information-barrier-reports)
@@ -14,13 +14,16 @@ This operation is performed by calling function `GetShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierReports` in integration tests*
+<!-- sample get_shield_information_barrier_reports -->
+```
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetShieldInformationBarrierReportsQueryParamsArg`
+- queryParams `GetShieldInformationBarrierReportsQueryParams`
   - Query parameters of getShieldInformationBarrierReports method
-- headers `GetShieldInformationBarrierReportsHeadersArg`
+- headers `GetShieldInformationBarrierReportsHeaders`
   - Headers of getShieldInformationBarrierReports method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -42,13 +45,16 @@ This operation is performed by calling function `CreateShieldInformationBarrierR
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierReport` in integration tests*
+<!-- sample post_shield_information_barrier_reports -->
+```
+await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier))).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - requestBody `ShieldInformationBarrierReference`
   - Request body of createShieldInformationBarrierReport method
-- headers `CreateShieldInformationBarrierReportHeadersArg`
+- headers `CreateShieldInformationBarrierReportHeaders`
   - Headers of createShieldInformationBarrierReport method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -70,13 +76,16 @@ This operation is performed by calling function `GetShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierReportById` in integration tests*
+<!-- sample get_shield_information_barrier_reports_id -->
+```
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierReportId `string`
   - The ID of the shield information barrier Report. Example: "3423"
-- headers `GetShieldInformationBarrierReportByIdHeadersArg`
+- headers `GetShieldInformationBarrierReportByIdHeaders`
   - Headers of getShieldInformationBarrierReportById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

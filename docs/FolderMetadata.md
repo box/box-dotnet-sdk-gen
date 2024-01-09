@@ -1,4 +1,4 @@
-# FolderMetadataManager
+# IFolderMetadataManager
 
 
 - [List metadata instances on folder](#list-metadata-instances-on-folder)
@@ -17,13 +17,16 @@ This operation is performed by calling function `GetFolderMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata/).
 
-*Currently we don't have an example for calling `GetFolderMetadata` in integration tests*
+<!-- sample get_folders_id_metadata -->
+```
+await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- headers `GetFolderMetadataHeadersArg`
+- headers `GetFolderMetadataHeaders`
   - Headers of getFolderMetadata method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -49,17 +52,20 @@ This operation is performed by calling function `GetFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `GetFolderMetadataById` in integration tests*
+<!-- sample get_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- scope `GetFolderMetadataByIdScopeArg`
+- scope `GetFolderMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `GetFolderMetadataByIdHeadersArg`
+- headers `GetFolderMetadataByIdHeaders`
   - Headers of getFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -91,19 +97,22 @@ This operation is performed by calling function `CreateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `CreateFolderMetadataById` in integration tests*
+<!-- sample post_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- scope `CreateFolderMetadataByIdScopeArg`
+- scope `CreateFolderMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `CreateFolderMetadataByIdRequestBodyArg`
+- requestBody `Dictionary<string, string>`
   - Request body of createFolderMetadataById method
-- headers `CreateFolderMetadataByIdHeadersArg`
+- headers `CreateFolderMetadataByIdHeaders`
   - Headers of createFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -111,7 +120,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Metadata`.
+This function returns a value of type `MetadataFull`.
 
 Returns the instance of the template that was applied to the folder,
 including the data that was applied to the template.
@@ -133,19 +142,22 @@ This operation is performed by calling function `UpdateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `UpdateFolderMetadataById` in integration tests*
+<!-- sample put_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody(op: UpdateFolderMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- scope `UpdateFolderMetadataByIdScopeArg`
+- scope `UpdateFolderMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `IReadOnlyList<UpdateFolderMetadataByIdRequestBodyArg>`
+- requestBody `IReadOnlyList<UpdateFolderMetadataByIdRequestBody>`
   - Request body of updateFolderMetadataById method
-- headers `UpdateFolderMetadataByIdHeadersArg`
+- headers `UpdateFolderMetadataByIdHeaders`
   - Headers of updateFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -153,7 +165,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Metadata`.
+This function returns a value of type `MetadataFull`.
 
 Returns the updated metadata template instance, with the
 custom template data included.
@@ -168,17 +180,20 @@ This operation is performed by calling function `DeleteFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `DeleteFolderMetadataById` in integration tests*
+<!-- sample delete_folders_id_metadata_id_id -->
+```
+await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- scope `DeleteFolderMetadataByIdScopeArg`
+- scope `DeleteFolderMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `DeleteFolderMetadataByIdHeadersArg`
+- headers `DeleteFolderMetadataByIdHeaders`
   - Headers of deleteFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

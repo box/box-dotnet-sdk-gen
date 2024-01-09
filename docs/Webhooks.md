@@ -1,4 +1,4 @@
-# WebhooksManager
+# IWebhooksManager
 
 
 - [List all webhooks](#list-all-webhooks)
@@ -28,9 +28,9 @@ await client.Webhooks.GetWebhooksAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetWebhooksQueryParamsArg`
+- queryParams `GetWebhooksQueryParams`
   - Query parameters of getWebhooks method
-- headers `GetWebhooksHeadersArg`
+- headers `GetWebhooksHeaders`
   - Headers of getWebhooks method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -54,14 +54,14 @@ See the endpoint docs at
 
 <!-- sample post_webhooks -->
 ```
-await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBodyArg(target: new CreateWebhookRequestBodyArgTargetField(id: folder.Id, type: CreateWebhookRequestBodyArgTargetFieldTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyArgTriggersField.FileUploaded}))).ConfigureAwait(false)
+await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField(id: folder.Id, type: CreateWebhookRequestBodyTargetTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded}))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateWebhookRequestBodyArg`
+- requestBody `CreateWebhookRequestBody`
   - Request body of createWebhook method
-- headers `CreateWebhookHeadersArg`
+- headers `CreateWebhookHeaders`
   - Headers of createWebhook method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -85,14 +85,14 @@ See the endpoint docs at
 
 <!-- sample get_webhooks_id -->
 ```
-await client.Webhooks.GetWebhookByIdAsync(webhookId: webhook.Id!).ConfigureAwait(false)
+await client.Webhooks.GetWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webhookId `string`
   - The ID of the webhook. Example: "3321123"
-- headers `GetWebhookByIdHeadersArg`
+- headers `GetWebhookByIdHeaders`
   - Headers of getWebhookById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -116,16 +116,16 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-await client.Webhooks.UpdateWebhookByIdAsync(webhookId: webhook.Id!, requestBody: new UpdateWebhookByIdRequestBodyArg(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
+await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webhookId `string`
   - The ID of the webhook. Example: "3321123"
-- requestBody `UpdateWebhookByIdRequestBodyArg`
+- requestBody `UpdateWebhookByIdRequestBody`
   - Request body of updateWebhookById method
-- headers `UpdateWebhookByIdHeadersArg`
+- headers `UpdateWebhookByIdHeaders`
   - Headers of updateWebhookById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -149,14 +149,14 @@ See the endpoint docs at
 
 <!-- sample delete_webhooks_id -->
 ```
-await client.Webhooks.DeleteWebhookByIdAsync(webhookId: webhook.Id!).ConfigureAwait(false)
+await client.Webhooks.DeleteWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webhookId `string`
   - The ID of the webhook. Example: "3321123"
-- headers `DeleteWebhookByIdHeadersArg`
+- headers `DeleteWebhookByIdHeaders`
   - Headers of deleteWebhookById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

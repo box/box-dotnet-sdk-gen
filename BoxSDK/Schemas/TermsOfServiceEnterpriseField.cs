@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class TermsOfServiceEnterpriseField {
@@ -16,7 +17,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceEnterpriseFieldTypeField? Type { get; set; } = default;
+        public TermsOfServiceEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the enterprise

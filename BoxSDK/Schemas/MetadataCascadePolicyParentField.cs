@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataCascadePolicyParentField {
@@ -10,7 +11,7 @@ namespace Box.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyParentFieldTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyParentTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The ID of the folder the policy is applied to.

@@ -15,6 +15,7 @@ namespace Fetch
     {
         public const string FormUrlEncoded = "application/x-www-form-urlencoded";
         public const string MultipartFormData = "multipart/form-data";
+        public const string OctetStream = "application/octet-stream";
     }
 
     /// <summary>
@@ -113,16 +114,31 @@ namespace Fetch
                 Content = BuildHttpContent(options)
             };
 
-            if (options.NetworkSession != null) {
+            if (options.NetworkSession != null)
+            {
                 foreach (var header in options.NetworkSession.AdditionalHeaders)
-                    {
-                        httpRequest.Headers.Add(header.Key, header.Value);
-                    }
+                {
+                    httpRequest.Headers.Add(header.Key, header.Value);
+                }
             }
 
             foreach (var header in options.Headers)
             {
-                httpRequest.Headers.Add(header.Key, header.Value);
+                //TODO make it more generic
+                if (header.Key == "content-range")
+                {
+                    var headValue = header.Value;
+                    httpRequest.Content!.Headers.Add(header.Key, headValue);
+                }
+                else
+                {
+                    httpRequest.Headers.Add(header.Key, header.Value);
+                }
+            }
+
+            if (options.ContentType != null && httpRequest.Content is StringContent)
+            {
+                httpRequest.Content!.Headers.ContentType = new MediaTypeHeaderValue(options.ContentType);
             }
 
             foreach (var keyValuePair in SdkConsts.AnalyticsHeaders)
@@ -200,6 +216,10 @@ namespace Fetch
             {
                 var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Data);
                 httpContent = new FormUrlEncodedContent(deserialized);
+            }
+            else if (options.ContentType == ContentTypes.OctetStream)
+            {
+                httpContent = new StreamContent(options.FileStream);
             }
             else
             {

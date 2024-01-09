@@ -1,4 +1,4 @@
-# UserCollaborationsManager
+# IUserCollaborationsManager
 
 
 - [Get collaboration](#get-collaboration)
@@ -24,9 +24,9 @@ await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: colla
 
 - collaborationId `string`
   - The ID of the collaboration Example: "1234"
-- queryParams `GetCollaborationByIdQueryParamsArg`
+- queryParams `GetCollaborationByIdQueryParams`
   - Query parameters of getCollaborationById method
-- headers `GetCollaborationByIdHeadersArg`
+- headers `GetCollaborationByIdHeaders`
   - Headers of getCollaborationById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -52,16 +52,16 @@ See the endpoint docs at
 
 <!-- sample put_collaborations_id -->
 ```
-await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBodyArg(role: UpdateCollaborationByIdRequestBodyArgRoleField.Viewer)).ConfigureAwait(false)
+await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - collaborationId `string`
   - The ID of the collaboration Example: "1234"
-- requestBody `UpdateCollaborationByIdRequestBodyArg`
+- requestBody `UpdateCollaborationByIdRequestBody`
   - Request body of updateCollaborationById method
-- headers `UpdateCollaborationByIdHeadersArg`
+- headers `UpdateCollaborationByIdHeaders`
   - Headers of updateCollaborationById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -94,7 +94,7 @@ await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: co
 
 - collaborationId `string`
   - The ID of the collaboration Example: "1234"
-- headers `DeleteCollaborationByIdHeadersArg`
+- headers `DeleteCollaborationByIdHeaders`
   - Headers of deleteCollaborationById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -132,16 +132,16 @@ See the endpoint docs at
 
 <!-- sample post_collaborations -->
 ```
-await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBodyArg(item: new CreateCollaborationRequestBodyArgItemField(type: CreateCollaborationRequestBodyArgItemFieldTypeField.Folder, id: folder.Id), accessibleBy: new CreateCollaborationRequestBodyArgAccessibleByField(type: CreateCollaborationRequestBodyArgAccessibleByFieldTypeField.User, id: user.Id), role: CreateCollaborationRequestBodyArgRoleField.Editor)).ConfigureAwait(false)
+await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField(type: CreateCollaborationRequestBodyItemTypeField.Folder, id: folder.Id), accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User, login: userLogin), role: CreateCollaborationRequestBodyRoleField.Editor)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateCollaborationRequestBodyArg`
+- requestBody `CreateCollaborationRequestBody`
   - Request body of createCollaboration method
-- queryParams `CreateCollaborationQueryParamsArg`
+- queryParams `CreateCollaborationQueryParams`
   - Query parameters of createCollaboration method
-- headers `CreateCollaborationHeadersArg`
+- headers `CreateCollaborationHeaders`
   - Headers of createCollaboration method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

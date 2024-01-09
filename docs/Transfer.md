@@ -1,4 +1,4 @@
-# TransferManager
+# ITransferManager
 
 
 - [Transfer owned folders](#transfer-owned-folders)
@@ -46,18 +46,18 @@ See the endpoint docs at
 
 <!-- sample put_users_id_folders_0 -->
 ```
-await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBodyArg(ownedBy: new TransferOwnedFolderRequestBodyArgOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParamsArg(notify: false)).ConfigureAwait(false)
+await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParams(notify: false)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- requestBody `TransferOwnedFolderRequestBodyArg`
+- requestBody `TransferOwnedFolderRequestBody`
   - Request body of transferOwnedFolder method
-- queryParams `TransferOwnedFolderQueryParamsArg`
+- queryParams `TransferOwnedFolderQueryParams`
   - Query parameters of transferOwnedFolder method
-- headers `TransferOwnedFolderHeadersArg`
+- headers `TransferOwnedFolderHeaders`
   - Headers of transferOwnedFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

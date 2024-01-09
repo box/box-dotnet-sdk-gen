@@ -1,4 +1,4 @@
-# SkillsManager
+# ISkillsManager
 
 
 - [List Box Skill cards on file](#list-box-skill-cards-on-file)
@@ -11,19 +11,19 @@
 
 List the Box Skills metadata cards that are attached to a file.
 
-This operation is performed by calling function `GetFileMetadataGlobalBoxSkillsCards`.
+This operation is performed by calling function `GetBoxSkillCardsOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-global-box-skills-cards/).
 
-*Currently we don't have an example for calling `GetFileMetadataGlobalBoxSkillsCards` in integration tests*
+*Currently we don't have an example for calling `GetBoxSkillCardsOnFile` in integration tests*
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `GetFileMetadataGlobalBoxSkillsCardsHeadersArg`
-  - Headers of getFileMetadataGlobalBoxSkillsCards method
+- headers `GetBoxSkillCardsOnFileHeaders`
+  - Headers of getBoxSkillCardsOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -42,21 +42,21 @@ all of the metadata associated to the file.
 
 Applies one or more Box Skills metadata cards to a file.
 
-This operation is performed by calling function `CreateFileMetadataGlobalBoxSkillsCard`.
+This operation is performed by calling function `CreateBoxSkillCardsOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-global-box-skills-cards/).
 
-*Currently we don't have an example for calling `CreateFileMetadataGlobalBoxSkillsCard` in integration tests*
+*Currently we don't have an example for calling `CreateBoxSkillCardsOnFile` in integration tests*
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `CreateFileMetadataGlobalBoxSkillsCardRequestBodyArg`
-  - Request body of createFileMetadataGlobalBoxSkillsCard method
-- headers `CreateFileMetadataGlobalBoxSkillsCardHeadersArg`
-  - Headers of createFileMetadataGlobalBoxSkillsCard method
+- requestBody `CreateBoxSkillCardsOnFileRequestBody`
+  - Request body of createBoxSkillCardsOnFile method
+- headers `CreateBoxSkillCardsOnFileHeaders`
+  - Headers of createBoxSkillCardsOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -73,21 +73,21 @@ including the data that was applied to the template.
 
 Updates one or more Box Skills metadata cards to a file.
 
-This operation is performed by calling function `UpdateFileMetadataGlobalBoxSkillsCard`.
+This operation is performed by calling function `UpdateBoxSkillCardsOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-global-box-skills-cards/).
 
-*Currently we don't have an example for calling `UpdateFileMetadataGlobalBoxSkillsCard` in integration tests*
+*Currently we don't have an example for calling `UpdateBoxSkillCardsOnFile` in integration tests*
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `IReadOnlyList<UpdateFileMetadataGlobalBoxSkillsCardRequestBodyArg>`
-  - Request body of updateFileMetadataGlobalBoxSkillsCard method
-- headers `UpdateFileMetadataGlobalBoxSkillsCardHeadersArg`
-  - Headers of updateFileMetadataGlobalBoxSkillsCard method
+- requestBody `IReadOnlyList<UpdateBoxSkillCardsOnFileRequestBody>`
+  - Request body of updateBoxSkillCardsOnFile method
+- headers `UpdateBoxSkillCardsOnFileHeaders`
+  - Headers of updateBoxSkillCardsOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -104,19 +104,19 @@ custom template data included.
 
 Removes any Box Skills cards metadata from a file.
 
-This operation is performed by calling function `DeleteFileMetadataGlobalBoxSkillsCard`.
+This operation is performed by calling function `DeleteBoxSkillCardsFromFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-global-box-skills-cards/).
 
-*Currently we don't have an example for calling `DeleteFileMetadataGlobalBoxSkillsCard` in integration tests*
+*Currently we don't have an example for calling `DeleteBoxSkillCardsFromFile` in integration tests*
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `DeleteFileMetadataGlobalBoxSkillsCardHeadersArg`
-  - Headers of deleteFileMetadataGlobalBoxSkillsCard method
+- headers `DeleteBoxSkillCardsFromFileHeaders`
+  - Headers of deleteBoxSkillCardsFromFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -134,21 +134,21 @@ successfully deleted.
 An alternative method that can be used to overwrite and update all Box Skill
 metadata cards on a file.
 
-This operation is performed by calling function `UpdateSkillInvocationById`.
+This operation is performed by calling function `UpdateAllSkillCardsOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-skill-invocations-id/).
 
-*Currently we don't have an example for calling `UpdateSkillInvocationById` in integration tests*
+*Currently we don't have an example for calling `UpdateAllSkillCardsOnFile` in integration tests*
 
 ### Arguments
 
 - skillId `string`
   - The ID of the skill to apply this metadata for. Example: "33243242"
-- requestBody `UpdateSkillInvocationByIdRequestBodyArg`
-  - Request body of updateSkillInvocationById method
-- headers `UpdateSkillInvocationByIdHeadersArg`
-  - Headers of updateSkillInvocationById method
+- requestBody `UpdateAllSkillCardsOnFileRequestBody`
+  - Request body of updateAllSkillCardsOnFile method
+- headers `UpdateAllSkillCardsOnFileHeaders`
+  - Headers of updateAllSkillCardsOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

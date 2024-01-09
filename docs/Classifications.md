@@ -1,11 +1,9 @@
-# ClassificationsManager
+# IClassificationsManager
 
 
 - [List all classifications](#list-all-classifications)
-- [Delete all classifications](#delete-all-classifications)
 - [Add classification](#add-classification)
 - [Update classification](#update-classification)
-- [Delete classification](#delete-classification)
 - [Add initial classifications](#add-initial-classifications)
 
 ## List all classifications
@@ -22,11 +20,14 @@ This operation is performed by calling function `GetClassificationTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema/).
 
-*Currently we don't have an example for calling `GetClassificationTemplate` in integration tests*
+<!-- sample get_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema -->
+```
+await client.Classifications.GetClassificationTemplateAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- headers `GetClassificationTemplateHeadersArg`
+- headers `GetClassificationTemplateHeaders`
   - Headers of getClassificationTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -39,34 +40,6 @@ This function returns a value of type `ClassificationTemplate`.
 Returns the `securityClassification` metadata template, which contains
 a `Box__Security__Classification__Key` field that lists all the
 classifications available to this enterprise.
-
-
-## Delete all classifications
-
-Delete all classifications by deleting the classification
-metadata template.
-
-This operation is performed by calling function `DeleteMetadataTemplateEnterpriseSecurityClassificationSchema`.
-
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema/).
-
-*Currently we don't have an example for calling `DeleteMetadataTemplateEnterpriseSecurityClassificationSchema` in integration tests*
-
-### Arguments
-
-- headers `DeleteMetadataTemplateEnterpriseSecurityClassificationSchemaHeadersArg`
-  - Headers of deleteMetadataTemplateEnterpriseSecurityClassificationSchema method
-- cancellationToken `System.Threading.CancellationToken?`
-  - Token used for request cancellation.
-
-
-### Returns
-
-This function returns a value of type `null`.
-
-Returns an empty response when the metadata
-template for classifications is successfully deleted.
 
 
 ## Add classification
@@ -83,13 +56,16 @@ This operation is performed by calling function `AddClassification`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-add/).
 
-*Currently we don't have an example for calling `AddClassification` in integration tests*
+<!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#add -->
+```
+await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID(), staticConfig: new AddClassificationRequestBodyDataStaticConfigField(classification: new AddClassificationRequestBodyDataStaticConfigClassificationField(colorId: 4, classificationDefinition: "Other description"))))})).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `IReadOnlyList<AddClassificationRequestBodyArg>`
+- requestBody `IReadOnlyList<AddClassificationRequestBody>`
   - Request body of addClassification method
-- headers `AddClassificationHeadersArg`
+- headers `AddClassificationHeaders`
   - Headers of addClassification method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -118,49 +94,17 @@ This operation is performed by calling function `UpdateClassification`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-update/).
 
-*Currently we don't have an example for calling `UpdateClassification` in integration tests*
+<!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#update -->
+```
+await client.Classifications.UpdateClassificationAsync(requestBody: Array.AsReadOnly(new [] {new UpdateClassificationRequestBody(op: UpdateClassificationRequestBodyOpField.EditEnumOption, fieldKey: UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, enumOptionKey: classification.Key, data: new UpdateClassificationRequestBodyDataField(key: updatedClassificationName, staticConfig: new UpdateClassificationRequestBodyDataStaticConfigField(classification: new UpdateClassificationRequestBodyDataStaticConfigClassificationField(colorId: 2, classificationDefinition: updatedClassificationDescription))))})).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `IReadOnlyList<UpdateClassificationRequestBodyArg>`
+- requestBody `IReadOnlyList<UpdateClassificationRequestBody>`
   - Request body of updateClassification method
-- headers `UpdateClassificationHeadersArg`
+- headers `UpdateClassificationHeaders`
   - Headers of updateClassification method
-- cancellationToken `System.Threading.CancellationToken?`
-  - Token used for request cancellation.
-
-
-### Returns
-
-This function returns a value of type `ClassificationTemplate`.
-
-Returns the updated `securityClassification` metadata template, which
-contains a `Box__Security__Classification__Key` field that lists all
-the classifications available to this enterprise.
-
-
-## Delete classification
-
-Removes a classification from the list of classifications
-available to the enterprise.
-
-This API can also be called by including the enterprise ID in the
-URL explicitly, for example
-`/metadata_templates/enterprise_12345/securityClassification-6VMVochwUWo/schema`.
-
-This operation is performed by calling function `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete`.
-
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-delete/).
-
-*Currently we don't have an example for calling `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete` in integration tests*
-
-### Arguments
-
-- requestBody `IReadOnlyList<UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteRequestBodyArg>`
-  - Request body of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
-- headers `UpdateMetadataTemplateEnterpriseSecurityClassificationSchemaDeleteHeadersArg`
-  - Headers of updateMetadataTemplateEnterpriseSecurityClassificationSchemaDelete method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -193,9 +137,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `CreateClassificationTemplateRequestBodyArg`
+- requestBody `CreateClassificationTemplateRequestBody`
   - Request body of createClassificationTemplate method
-- headers `CreateClassificationTemplateHeadersArg`
+- headers `CreateClassificationTemplateHeaders`
   - Headers of createClassificationTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

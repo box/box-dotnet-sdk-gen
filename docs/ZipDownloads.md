@@ -1,4 +1,4 @@
-# ZipDownloadsManager
+# IZipDownloadsManager
 
 
 - [Create zip download](#create-zip-download)
@@ -32,14 +32,14 @@ See the endpoint docs at
 
 <!-- sample post_zip_downloads -->
 ```
-await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - requestBody `ZipDownloadRequest`
   - Request body of createZipDownload method
-- headers `CreateZipDownloadHeadersArg`
+- headers `CreateZipDownloadHeaders`
   - Headers of createZipDownload method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -77,14 +77,14 @@ See the endpoint docs at
 
 <!-- sample get_zip_downloads_id_content -->
 ```
-await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: zipDownload.DownloadUrl!).ConfigureAwait(false)
+await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownload.DownloadUrl)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - downloadUrl `string`
   - The URL that can be used to download created `zip` archive.  Example: `https://dl.boxcloud.com/2.0/zip_downloads/29l00nfxDyHOt7RphI9zT_w==nDnZEDjY2S8iEWWCHEEiptFxwoWojjlibZjJ6geuE5xnXENDTPxzgbks_yY=/content`
-- headers `GetZipDownloadContentHeadersArg`
+- headers `GetZipDownloadContentHeaders`
   - Headers of getZipDownloadContent method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -120,14 +120,14 @@ See the endpoint docs at
 
 <!-- sample get_zip_downloads_id_status -->
 ```
-await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: zipDownload.StatusUrl!).ConfigureAwait(false)
+await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: NullableUtils.Unwrap(zipDownload.StatusUrl)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - statusUrl `string`
   - The URL that can be used to get the status of the `zip` archive being downloaded.  Example: `https://dl.boxcloud.com/2.0/zip_downloads/29l00nfxDyHOt7RphI9zT_w==nDnZEDjY2S8iEWWCHEEiptFxwoWojjlibZjJ6geuE5xnXENDTPxzgbks_yY=/status`
-- headers `GetZipDownloadStatusHeadersArg`
+- headers `GetZipDownloadStatusHeaders`
   - Headers of getZipDownloadStatus method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -151,14 +151,14 @@ See the endpoint docs at
 
 <!-- sample  -->
 ```
-await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsFieldTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsFieldTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - requestBody `ZipDownloadRequest`
   - Zip download request body
-- headers `DownloadZipHeadersArg`
+- headers `DownloadZipHeaders`
   - Headers of zip download method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

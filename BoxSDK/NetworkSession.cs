@@ -14,6 +14,11 @@ namespace Box
         public Dictionary<string, string> AdditionalHeaders { get; }
 
         /// <summary>
+        /// Custom base urls.
+        /// </summary>
+        public BaseUrls BaseUrls { get; } = new BaseUrls();
+
+        /// <summary>
         /// Number of request retries.
         /// </summary>
         public int RetryAttempts { get; }
@@ -23,11 +28,12 @@ namespace Box
         /// </summary>
         public IRetryStrategy RetryStrategy { get; }
 
-        public NetworkSession(Dictionary<string, string>? additionalHeaders = default, int retryAttempts = 5, IRetryStrategy? retryStrategy = null)
+        public NetworkSession(Dictionary<string, string>? additionalHeaders = default, int retryAttempts = 5, IRetryStrategy? retryStrategy = null, BaseUrls? baseUrls = null)
         {
             AdditionalHeaders = additionalHeaders ?? new Dictionary<string, string>();
             RetryAttempts = retryAttempts;
             RetryStrategy = retryStrategy ?? new ExponentialBackoffRetryStrategy();
+            BaseUrls = baseUrls ?? new BaseUrls();
         }
 
         /// <summary>
@@ -38,7 +44,18 @@ namespace Box
         /// Map of headers, which are appended to each API request
         /// </param>
         public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders) {
-            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.RetryAttempts, this.RetryStrategy);
+            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.RetryAttempts, this.RetryStrategy, this.BaseUrls);
+        }
+
+        /// <summary>
+        /// Generate a fresh network session by duplicating the existing configuration and network parameters,
+        /// while using custom base urls for the API calls.
+        /// </summary>
+        /// <param name="baseUrls">
+        /// Custom base urls.
+        /// </param>
+        public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls) {
+            return new NetworkSession(this.AdditionalHeaders, this.RetryAttempts, this.RetryStrategy, baseUrls);
         }
     }
 }

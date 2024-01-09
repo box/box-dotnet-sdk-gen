@@ -11,7 +11,7 @@ namespace Box.Schemas {
         /// `skill_invocation`
         /// </summary>
         [JsonPropertyName("type")]
-        public TimelineSkillCardInvocationFieldTypeField Type { get; set; }
+        public TimelineSkillCardInvocationTypeField Type { get; set; }
 
         /// <summary>
         /// A custom identifier that represent the instance of
@@ -23,7 +23,7 @@ namespace Box.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public TimelineSkillCardInvocationField(TimelineSkillCardInvocationFieldTypeField type, string id) {
+        public TimelineSkillCardInvocationField(TimelineSkillCardInvocationTypeField type, string id) {
             Type = type;
             Id = id;
         }

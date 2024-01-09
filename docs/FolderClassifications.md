@@ -1,4 +1,4 @@
-# FolderClassificationsManager
+# IFolderClassificationsManager
 
 
 - [Get classification on folder](#get-classification-on-folder)
@@ -15,19 +15,22 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `GetFolderMetadataEnterpriseSecurityClassification6VmVochwUWo`.
+This operation is performed by calling function `GetClassificationOnFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `GetFolderMetadataEnterpriseSecurityClassification6VmVochwUWo` in integration tests*
+<!-- sample get_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- headers `GetFolderMetadataEnterpriseSecurityClassification6VmVochwUWoHeadersArg`
-  - Headers of getFolderMetadataEnterpriseSecurityClassification6VmVochwUWo method
+- headers `GetClassificationOnFolderHeaders`
+  - Headers of getClassificationOnFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -51,21 +54,24 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `CreateFolderMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `AddClassificationToFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `CreateFolderMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody(boxSecurityClassificationKey: classification.Key)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `CreateFolderMetadataEnterpriseSecurityClassificationRequestBodyArg`
-  - Request body of createFolderMetadataEnterpriseSecurityClassification method
-- headers `CreateFolderMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of createFolderMetadataEnterpriseSecurityClassification method
+- requestBody `AddClassificationToFolderRequestBody`
+  - Request body of addClassificationToFolder method
+- headers `AddClassificationToFolderHeaders`
+  - Headers of addClassificationToFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -86,21 +92,24 @@ The classification can only be updated if a classification has already been
 applied to the folder before. When editing classifications, only values are
 defined for the enterprise will be accepted.
 
-This operation is performed by calling function `UpdateFolderMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `UpdateClassificationOnFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `UpdateFolderMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample put_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `IReadOnlyList<UpdateFolderMetadataEnterpriseSecurityClassificationRequestBodyArg>`
-  - Request body of updateFolderMetadataEnterpriseSecurityClassification method
-- headers `UpdateFolderMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of updateFolderMetadataEnterpriseSecurityClassification method
+- requestBody `IReadOnlyList<UpdateClassificationOnFolderRequestBody>`
+  - Request body of updateClassificationOnFolder method
+- headers `UpdateClassificationOnFolderHeaders`
+  - Headers of updateClassificationOnFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -120,19 +129,22 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `DeleteFolderMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `DeleteClassificationFromFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `DeleteFolderMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample delete_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- headers `DeleteFolderMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of deleteFolderMetadataEnterpriseSecurityClassification method
+- headers `DeleteClassificationFromFolderHeaders`
+  - Headers of deleteClassificationFromFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

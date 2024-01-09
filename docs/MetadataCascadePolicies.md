@@ -1,4 +1,4 @@
-# MetadataCascadePoliciesManager
+# IMetadataCascadePoliciesManager
 
 
 - [List metadata cascade policies](#list-metadata-cascade-policies)
@@ -18,13 +18,16 @@ This operation is performed by calling function `GetMetadataCascadePolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `GetMetadataCascadePolicies` in integration tests*
+<!-- sample get_metadata_cascade_policies -->
+```
+await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams: new GetMetadataCascadePoliciesQueryParams(folderId: folder.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetMetadataCascadePoliciesQueryParamsArg`
+- queryParams `GetMetadataCascadePoliciesQueryParams`
   - Query parameters of getMetadataCascadePolicies method
-- headers `GetMetadataCascadePoliciesHeadersArg`
+- headers `GetMetadataCascadePoliciesHeaders`
   - Headers of getMetadataCascadePolicies method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -51,13 +54,16 @@ This operation is performed by calling function `CreateMetadataCascadePolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `CreateMetadataCascadePolicy` in integration tests*
+<!-- sample post_metadata_cascade_policies -->
+```
+await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBody: new CreateMetadataCascadePolicyRequestBody(folderId: folder.Id, scope: CreateMetadataCascadePolicyRequestBodyScopeField.Enterprise, templateKey: templateKey)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateMetadataCascadePolicyRequestBodyArg`
+- requestBody `CreateMetadataCascadePolicyRequestBody`
   - Request body of createMetadataCascadePolicy method
-- headers `CreateMetadataCascadePolicyHeadersArg`
+- headers `CreateMetadataCascadePolicyHeaders`
   - Headers of createMetadataCascadePolicy method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -79,13 +85,16 @@ This operation is performed by calling function `GetMetadataCascadePolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `GetMetadataCascadePolicyById` in integration tests*
+<!-- sample get_metadata_cascade_policies_id -->
+```
+await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - metadataCascadePolicyId `string`
   - The ID of the metadata cascade policy. Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
-- headers `GetMetadataCascadePolicyByIdHeadersArg`
+- headers `GetMetadataCascadePolicyByIdHeaders`
   - Headers of getMetadataCascadePolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -107,13 +116,16 @@ This operation is performed by calling function `DeleteMetadataCascadePolicyById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `DeleteMetadataCascadePolicyById` in integration tests*
+<!-- sample delete_metadata_cascade_policies_id -->
+```
+await client.MetadataCascadePolicies.DeleteMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - metadataCascadePolicyId `string`
   - The ID of the metadata cascade policy. Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
-- headers `DeleteMetadataCascadePolicyByIdHeadersArg`
+- headers `DeleteMetadataCascadePolicyByIdHeaders`
   - Headers of deleteMetadataCascadePolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -134,21 +146,24 @@ all of its children. This can be used after creating a new cascade policy to
 enforce the metadata to be cascaded down to all existing files within that
 folder.
 
-This operation is performed by calling function `CreateMetadataCascadePolicyApply`.
+This operation is performed by calling function `ApplyMetadataCascadePolicy`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies-id-apply/).
 
-*Currently we don't have an example for calling `CreateMetadataCascadePolicyApply` in integration tests*
+<!-- sample post_metadata_cascade_policies_id_apply -->
+```
+await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - metadataCascadePolicyId `string`
   - The ID of the cascade policy to force-apply. Example: "6fd4ff89-8fc1-42cf-8b29-1890dedd26d7"
-- requestBody `CreateMetadataCascadePolicyApplyRequestBodyArg`
-  - Request body of createMetadataCascadePolicyApply method
-- headers `CreateMetadataCascadePolicyApplyHeadersArg`
-  - Headers of createMetadataCascadePolicyApply method
+- requestBody `ApplyMetadataCascadePolicyRequestBody`
+  - Request body of applyMetadataCascadePolicy method
+- headers `ApplyMetadataCascadePolicyHeaders`
+  - Headers of applyMetadataCascadePolicy method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

@@ -1,4 +1,4 @@
-# EmailAliasesManager
+# IEmailAliasesManager
 
 
 - [List user's email aliases](#list-users-email-aliases)
@@ -24,7 +24,7 @@ await client.EmailAliases.GetUserEmailAliasesAsync(userId: newUser.Id).Configure
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- headers `GetUserEmailAliasesHeadersArg`
+- headers `GetUserEmailAliasesHeaders`
   - Headers of getUserEmailAliases method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -48,16 +48,16 @@ See the endpoint docs at
 
 <!-- sample post_users_id_email_aliases -->
 ```
-await client.EmailAliases.CreateUserEmailAliasAsync(userId: newUser.Id, requestBody: new CreateUserEmailAliasRequestBodyArg(email: newAliasEmail)).ConfigureAwait(false)
+await client.EmailAliases.CreateUserEmailAliasAsync(userId: newUser.Id, requestBody: new CreateUserEmailAliasRequestBody(email: newAliasEmail)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- requestBody `CreateUserEmailAliasRequestBodyArg`
+- requestBody `CreateUserEmailAliasRequestBody`
   - Request body of createUserEmailAlias method
-- headers `CreateUserEmailAliasHeadersArg`
+- headers `CreateUserEmailAliasHeaders`
   - Headers of createUserEmailAlias method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id_email_aliases_id -->
 ```
-await client.EmailAliases.DeleteUserEmailAliasByIdAsync(userId: newUser.Id, emailAliasId: newAlias.Id!).ConfigureAwait(false)
+await client.EmailAliases.DeleteUserEmailAliasByIdAsync(userId: newUser.Id, emailAliasId: NullableUtils.Unwrap(newAlias.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ await client.EmailAliases.DeleteUserEmailAliasByIdAsync(userId: newUser.Id, emai
   - The ID of the user. Example: "12345"
 - emailAliasId `string`
   - The ID of the email alias. Example: "23432"
-- headers `DeleteUserEmailAliasByIdHeadersArg`
+- headers `DeleteUserEmailAliasByIdHeaders`
   - Headers of deleteUserEmailAliasById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

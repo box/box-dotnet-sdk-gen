@@ -1,4 +1,4 @@
-# DownloadsManager
+# IDownloadsManager
 
 
 - [Download file](#download-file)
@@ -21,9 +21,9 @@ await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id).ConfigureAwait
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- queryParams `DownloadFileQueryParamsArg`
+- queryParams `DownloadFileQueryParams`
   - Query parameters of downloadFile method
-- headers `DownloadFileHeadersArg`
+- headers `DownloadFileHeaders`
   - Headers of downloadFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

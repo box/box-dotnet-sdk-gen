@@ -1,4 +1,4 @@
-# FileWatermarksManager
+# IFileWatermarksManager
 
 
 - [Get watermark on file](#get-watermark-on-file)
@@ -23,7 +23,7 @@ await client.FileWatermarks.GetFileWatermarkAsync(fileId: file.Id).ConfigureAwai
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `GetFileWatermarkHeadersArg`
+- headers `GetFileWatermarkHeaders`
   - Headers of getFileWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -48,16 +48,16 @@ See the endpoint docs at
 
 <!-- sample put_files_id_watermark -->
 ```
-await client.FileWatermarks.UpdateFileWatermarkAsync(fileId: file.Id, requestBody: new UpdateFileWatermarkRequestBodyArg(watermark: new UpdateFileWatermarkRequestBodyArgWatermarkField(imprint: UpdateFileWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+await client.FileWatermarks.UpdateFileWatermarkAsync(fileId: file.Id, requestBody: new UpdateFileWatermarkRequestBody(watermark: new UpdateFileWatermarkRequestBodyWatermarkField(imprint: UpdateFileWatermarkRequestBodyWatermarkImprintField.Default))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `UpdateFileWatermarkRequestBodyArg`
+- requestBody `UpdateFileWatermarkRequestBody`
   - Request body of updateFileWatermark method
-- headers `UpdateFileWatermarkHeadersArg`
+- headers `UpdateFileWatermarkHeaders`
   - Headers of updateFileWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -90,7 +90,7 @@ await client.FileWatermarks.DeleteFileWatermarkAsync(fileId: file.Id).ConfigureA
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `DeleteFileWatermarkHeadersArg`
+- headers `DeleteFileWatermarkHeaders`
   - Headers of deleteFileWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

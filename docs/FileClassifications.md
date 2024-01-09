@@ -1,4 +1,4 @@
-# FileClassificationsManager
+# IFileClassificationsManager
 
 
 - [Get classification on file](#get-classification-on-file)
@@ -15,19 +15,22 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/files/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `GetFileMetadataEnterpriseSecurityClassification6VmVochwUWo`.
+This operation is performed by calling function `GetClassificationOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `GetFileMetadataEnterpriseSecurityClassification6VmVochwUWo` in integration tests*
+<!-- sample get_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FileClassifications.GetClassificationOnFileAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `GetFileMetadataEnterpriseSecurityClassification6VmVochwUWoHeadersArg`
-  - Headers of getFileMetadataEnterpriseSecurityClassification6VmVochwUWo method
+- headers `GetClassificationOnFileHeaders`
+  - Headers of getClassificationOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -51,21 +54,24 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/files/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `CreateFileMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `AddClassificationToFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `CreateFileMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample post_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FileClassifications.AddClassificationToFileAsync(fileId: file.Id, requestBody: new AddClassificationToFileRequestBody(boxSecurityClassificationKey: classification.Key)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `CreateFileMetadataEnterpriseSecurityClassificationRequestBodyArg`
-  - Request body of createFileMetadataEnterpriseSecurityClassification method
-- headers `CreateFileMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of createFileMetadataEnterpriseSecurityClassification method
+- requestBody `AddClassificationToFileRequestBody`
+  - Request body of addClassificationToFile method
+- headers `AddClassificationToFileHeaders`
+  - Headers of addClassificationToFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -86,21 +92,24 @@ The classification can only be updated if a classification has already been
 applied to the file before. When editing classifications, only values are
 defined for the enterprise will be accepted.
 
-This operation is performed by calling function `UpdateFileMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `UpdateClassificationOnFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `UpdateFileMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample put_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FileClassifications.UpdateClassificationOnFileAsync(fileId: file.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFileRequestBody(op: UpdateClassificationOnFileRequestBodyOpField.Replace, path: UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `IReadOnlyList<UpdateFileMetadataEnterpriseSecurityClassificationRequestBodyArg>`
-  - Request body of updateFileMetadataEnterpriseSecurityClassification method
-- headers `UpdateFileMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of updateFileMetadataEnterpriseSecurityClassification method
+- requestBody `IReadOnlyList<UpdateClassificationOnFileRequestBody>`
+  - Request body of updateClassificationOnFile method
+- headers `UpdateClassificationOnFileHeaders`
+  - Headers of updateClassificationOnFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -120,19 +129,22 @@ This API can also be called by including the enterprise ID in the
 URL explicitly, for example
 `/files/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
 
-This operation is performed by calling function `DeleteFileMetadataEnterpriseSecurityClassification`.
+This operation is performed by calling function `DeleteClassificationFromFile`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `DeleteFileMetadataEnterpriseSecurityClassification` in integration tests*
+<!-- sample delete_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+await client.FileClassifications.DeleteClassificationFromFileAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `DeleteFileMetadataEnterpriseSecurityClassificationHeadersArg`
-  - Headers of deleteFileMetadataEnterpriseSecurityClassification method
+- headers `DeleteClassificationFromFileHeaders`
+  - Headers of deleteClassificationFromFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

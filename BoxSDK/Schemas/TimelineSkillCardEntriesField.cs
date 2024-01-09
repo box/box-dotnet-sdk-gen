@@ -20,7 +20,7 @@ namespace Box.Schemas {
         /// timeline.
         /// </summary>
         [JsonPropertyName("appears")]
-        public IReadOnlyList<TimelineSkillCardEntriesFieldAppearsField>? Appears { get; set; } = default;
+        public IReadOnlyList<TimelineSkillCardEntriesAppearsField>? Appears { get; set; } = default;
 
         /// <summary>
         /// The image to show on a for an entry that appears

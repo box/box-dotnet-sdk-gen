@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataTemplate {
@@ -10,7 +11,7 @@ namespace Box.Schemas {
         /// The ID of the metadata template.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `metadata_template`
@@ -64,7 +65,8 @@ namespace Box.Schemas {
         [JsonPropertyName("copyInstanceOnItemCopy")]
         public bool? CopyInstanceOnItemCopy { get; set; } = default;
 
-        public MetadataTemplate(MetadataTemplateTypeField type) {
+        public MetadataTemplate(string id, MetadataTemplateTypeField type) {
+            Id = id;
             Type = type;
         }
     }

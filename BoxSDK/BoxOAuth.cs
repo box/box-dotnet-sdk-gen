@@ -75,7 +75,7 @@ namespace Box
     /// <summary>
     /// Class used to authenticate with Box using a OAuth 2.0.
     /// </summary>
-    public class BoxOAuth : IAuth
+    public class BoxOAuth : IAuthentication
     {
         ITokenStorage _tokenStorage { get; set; }
 

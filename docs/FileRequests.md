@@ -1,4 +1,4 @@
-# FileRequestsManager
+# IFileRequestsManager
 
 
 - [Get file request](#get-file-request)
@@ -24,7 +24,7 @@ await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: updatedFileRequ
 
 - fileRequestId `string`
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
-- headers `GetFileRequestByIdHeadersArg`
+- headers `GetFileRequestByIdHeaders`
   - Headers of getFileRequestById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -58,7 +58,7 @@ await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRe
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
 - requestBody `FileRequestUpdateRequest`
   - Request body of updateFileRequestById method
-- headers `UpdateFileRequestByIdHeadersArg`
+- headers `UpdateFileRequestByIdHeaders`
   - Headers of updateFileRequestById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -89,7 +89,7 @@ await client.FileRequests.DeleteFileRequestByIdAsync(fileRequestId: updatedFileR
 
 - fileRequestId `string`
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
-- headers `DeleteFileRequestByIdHeadersArg`
+- headers `DeleteFileRequestByIdHeaders`
   - Headers of deleteFileRequestById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_file_requests_id_copy -->
 ```
-await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id, type: FileRequestCopyRequestFolderFieldTypeField.Folder))).ConfigureAwait(false)
+await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id, type: FileRequestCopyRequestFolderTypeField.Folder))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -124,7 +124,7 @@ await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestI
   - The unique identifier that represent a file request.  The ID for any file request can be determined by visiting a file request builder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/filerequest/123` the `file_request_id` is `123`. Example: "123"
 - requestBody `FileRequestCopyRequest`
   - Request body of createFileRequestCopy method
-- headers `CreateFileRequestCopyHeadersArg`
+- headers `CreateFileRequestCopyHeaders`
   - Headers of createFileRequestCopy method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

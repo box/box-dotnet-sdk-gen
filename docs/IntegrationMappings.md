@@ -1,4 +1,4 @@
-# IntegrationMappingsManager
+# IIntegrationMappingsManager
 
 
 - [List Slack integration mappings](#list-slack-integration-mappings)
@@ -13,19 +13,22 @@ Lists [Slack integration mappings](https://support.box.com/hc/en-us/articles/441
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `GetIntegrationMappingSlack`.
+This operation is performed by calling function `GetSlackIntegrationMapping`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-integration-mappings-slack/).
 
-*Currently we don't have an example for calling `GetIntegrationMappingSlack` in integration tests*
+<!-- sample get_integration_mappings_slack -->
+```
+await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetIntegrationMappingSlackQueryParamsArg`
-  - Query parameters of getIntegrationMappingSlack method
-- headers `GetIntegrationMappingSlackHeadersArg`
-  - Headers of getIntegrationMappingSlack method
+- queryParams `GetSlackIntegrationMappingQueryParams`
+  - Query parameters of getSlackIntegrationMapping method
+- headers `GetSlackIntegrationMappingHeaders`
+  - Headers of getSlackIntegrationMapping method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -45,19 +48,22 @@ by mapping a Slack channel to a Box item.
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `CreateIntegrationMappingSlack`.
+This operation is performed by calling function `CreateSlackIntegrationMapping`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-integration-mappings-slack/).
 
-*Currently we don't have an example for calling `CreateIntegrationMappingSlack` in integration tests*
+<!-- sample post_integration_mappings_slack -->
+```
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(type: IntegrationMappingPartnerItemSlackTypeField.Channel, id: partnerItemId, slackOrgId: slackOrgId), boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id, type: IntegrationMappingBoxItemSlackTypeField.Folder))).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - requestBody `IntegrationMappingSlackCreateRequest`
-  - Request body of createIntegrationMappingSlack method
-- headers `CreateIntegrationMappingSlackHeadersArg`
-  - Headers of createIntegrationMappingSlack method
+  - Request body of createSlackIntegrationMapping method
+- headers `CreateSlackIntegrationMappingHeaders`
+  - Headers of createSlackIntegrationMapping method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -77,21 +83,21 @@ Supports updating the Box folder ID and options.
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `UpdateIntegrationMappingSlackById`.
+This operation is performed by calling function `UpdateSlackIntegrationMappingById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-integration-mappings-slack-id/).
 
-*Currently we don't have an example for calling `UpdateIntegrationMappingSlackById` in integration tests*
+*Currently we don't have an example for calling `UpdateSlackIntegrationMappingById` in integration tests*
 
 ### Arguments
 
 - integrationMappingId `string`
   - An ID of an integration mapping Example: "11235432"
-- requestBody `UpdateIntegrationMappingSlackByIdRequestBodyArg`
-  - Request body of updateIntegrationMappingSlackById method
-- headers `UpdateIntegrationMappingSlackByIdHeadersArg`
-  - Headers of updateIntegrationMappingSlackById method
+- requestBody `UpdateSlackIntegrationMappingByIdRequestBody`
+  - Request body of updateSlackIntegrationMappingById method
+- headers `UpdateSlackIntegrationMappingByIdHeaders`
+  - Headers of updateSlackIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -111,19 +117,19 @@ Deletes a [Slack integration mapping](https://support.box.com/hc/en-us/articles/
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `DeleteIntegrationMappingSlackById`.
+This operation is performed by calling function `DeleteSlackIntegrationMappingById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-integration-mappings-slack-id/).
 
-*Currently we don't have an example for calling `DeleteIntegrationMappingSlackById` in integration tests*
+*Currently we don't have an example for calling `DeleteSlackIntegrationMappingById` in integration tests*
 
 ### Arguments
 
 - integrationMappingId `string`
   - An ID of an integration mapping Example: "11235432"
-- headers `DeleteIntegrationMappingSlackByIdHeadersArg`
-  - Headers of deleteIntegrationMappingSlackById method
+- headers `DeleteSlackIntegrationMappingByIdHeaders`
+  - Headers of deleteSlackIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

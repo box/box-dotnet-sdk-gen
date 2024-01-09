@@ -17,8 +17,7 @@ namespace Serializer
             {
                 PropertyNameCaseInsensitive = true,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString |
-                    JsonNumberHandling.WriteAsString
+                NumberHandling = JsonNumberHandling.AllowReadingFromString
             };
         }
 

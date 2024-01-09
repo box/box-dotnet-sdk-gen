@@ -14,7 +14,7 @@ namespace Box.Schemas {
         /// value on this object.
         /// </summary>
         [JsonPropertyName("code")]
-        public StatusSkillCardStatusFieldCodeField Code { get; set; }
+        public StatusSkillCardStatusCodeField Code { get; set; }
 
         /// <summary>
         /// A custom message that can be provided with this status.
@@ -23,7 +23,7 @@ namespace Box.Schemas {
         [JsonPropertyName("message")]
         public string? Message { get; set; } = default;
 
-        public StatusSkillCardStatusField(StatusSkillCardStatusFieldCodeField code) {
+        public StatusSkillCardStatusField(StatusSkillCardStatusCodeField code) {
             Code = code;
         }
     }

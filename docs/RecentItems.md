@@ -1,4 +1,4 @@
-# RecentItemsManager
+# IRecentItemsManager
 
 
 - [List recently accessed items](#list-recently-accessed-items)
@@ -21,9 +21,9 @@ await client.RecentItems.GetRecentItemsAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetRecentItemsQueryParamsArg`
+- queryParams `GetRecentItemsQueryParams`
   - Query parameters of getRecentItems method
-- headers `GetRecentItemsHeadersArg`
+- headers `GetRecentItemsHeaders`
   - Headers of getRecentItems method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

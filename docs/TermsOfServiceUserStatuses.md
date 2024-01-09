@@ -1,4 +1,4 @@
-# TermsOfServiceUserStatusesManager
+# ITermsOfServiceUserStatusesManager
 
 
 - [List terms of service user statuses](#list-terms-of-service-user-statuses)
@@ -11,19 +11,19 @@ Retrieves an overview of users and their status for a
 terms of service, including Whether they have accepted
 the terms and when.
 
-This operation is performed by calling function `GetTermOfServiceUserStatuses`.
+This operation is performed by calling function `GetTermsOfServiceUserStatuses`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `GetTermOfServiceUserStatuses` in integration tests*
+*Currently we don't have an example for calling `GetTermsOfServiceUserStatuses` in integration tests*
 
 ### Arguments
 
-- queryParams `GetTermOfServiceUserStatusesQueryParamsArg`
-  - Query parameters of getTermOfServiceUserStatuses method
-- headers `GetTermOfServiceUserStatusesHeadersArg`
-  - Headers of getTermOfServiceUserStatuses method
+- queryParams `GetTermsOfServiceUserStatusesQueryParams`
+  - Query parameters of getTermsOfServiceUserStatuses method
+- headers `GetTermsOfServiceUserStatusesHeaders`
+  - Headers of getTermsOfServiceUserStatuses method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -39,19 +39,19 @@ Returns a list of terms of service statuses.
 
 Sets the status for a terms of service for a user.
 
-This operation is performed by calling function `CreateTermOfServiceUserStatus`.
+This operation is performed by calling function `CreateTermsOfServiceStatusForUser`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `CreateTermOfServiceUserStatus` in integration tests*
+*Currently we don't have an example for calling `CreateTermsOfServiceStatusForUser` in integration tests*
 
 ### Arguments
 
-- requestBody `CreateTermOfServiceUserStatusRequestBodyArg`
-  - Request body of createTermOfServiceUserStatus method
-- headers `CreateTermOfServiceUserStatusHeadersArg`
-  - Headers of createTermOfServiceUserStatus method
+- requestBody `CreateTermsOfServiceStatusForUserRequestBody`
+  - Request body of createTermsOfServiceStatusForUser method
+- headers `CreateTermsOfServiceStatusForUserHeaders`
+  - Headers of createTermsOfServiceStatusForUser method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -67,21 +67,21 @@ Returns a terms of service status object.
 
 Updates the status for a terms of service for a user.
 
-This operation is performed by calling function `UpdateTermOfServiceUserStatusById`.
+This operation is performed by calling function `UpdateTermsOfServiceStatusForUserById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-terms-of-service-user-statuses-id/).
 
-*Currently we don't have an example for calling `UpdateTermOfServiceUserStatusById` in integration tests*
+*Currently we don't have an example for calling `UpdateTermsOfServiceStatusForUserById` in integration tests*
 
 ### Arguments
 
 - termsOfServiceUserStatusId `string`
   - The ID of the terms of service status. Example: "324234"
-- requestBody `UpdateTermOfServiceUserStatusByIdRequestBodyArg`
-  - Request body of updateTermOfServiceUserStatusById method
-- headers `UpdateTermOfServiceUserStatusByIdHeadersArg`
-  - Headers of updateTermOfServiceUserStatusById method
+- requestBody `UpdateTermsOfServiceStatusForUserByIdRequestBody`
+  - Request body of updateTermsOfServiceStatusForUserById method
+- headers `UpdateTermsOfServiceStatusForUserByIdHeaders`
+  - Headers of updateTermsOfServiceStatusForUserById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

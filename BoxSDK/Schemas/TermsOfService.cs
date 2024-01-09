@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class TermsOfService : TermsOfServiceBase {
@@ -40,7 +41,7 @@ namespace Box.Schemas {
         [JsonPropertyName("modified_at")]
         public string? ModifiedAt { get; set; } = default;
 
-        public TermsOfService() {
+        public TermsOfService(string id, TermsOfServiceBaseTypeField type) : base(id, type) {
             
         }
     }

@@ -21,7 +21,7 @@ namespace Fetch
         /// <summary>
         /// Authentication type used for the request.
         /// </summary>
-        public IAuth? Auth { get; set; }
+        public IAuthentication? Auth { get; set; }
 
         /// <summary>
         /// Body of the http/s request.
@@ -102,7 +102,7 @@ namespace Fetch
         /// <param name="auth"></param>
         /// <param name="headers"></param>
         /// <param name="contentType"></param>
-        public FetchOptions(string? method = null, SerializedData? data = null, Stream? fileStream = null, IAuth? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
+        public FetchOptions(string? method = null, SerializedData? data = null, Stream? fileStream = null, IAuthentication? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
         {
             Method = method;
             Auth = auth;

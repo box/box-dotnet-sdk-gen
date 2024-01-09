@@ -1,4 +1,4 @@
-# CollectionsManager
+# ICollectionsManager
 
 
 - [List all collections](#list-all-collections)
@@ -16,13 +16,16 @@ This operation is performed by calling function `GetCollections`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collections/).
 
-*Currently we don't have an example for calling `GetCollections` in integration tests*
+<!-- sample get_collections -->
+```
+await client.Collections.GetCollectionsAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetCollectionsQueryParamsArg`
+- queryParams `GetCollectionsQueryParams`
   - Query parameters of getCollections method
-- headers `GetCollectionsHeadersArg`
+- headers `GetCollectionsHeaders`
   - Headers of getCollections method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -45,15 +48,18 @@ This operation is performed by calling function `GetCollectionItems`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collections-id-items/).
 
-*Currently we don't have an example for calling `GetCollectionItems` in integration tests*
+<!-- sample get_collections_id_items -->
+```
+await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - collectionId `string`
   - The ID of the collection. Example: "926489"
-- queryParams `GetCollectionItemsQueryParamsArg`
+- queryParams `GetCollectionItemsQueryParams`
   - Query parameters of getCollectionItems method
-- headers `GetCollectionItemsHeadersArg`
+- headers `GetCollectionItemsHeaders`
   - Headers of getCollectionItems method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataCascadePolicyOwnerEnterpriseField {
@@ -10,7 +11,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyOwnerEnterpriseFieldTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyOwnerEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The ID of the enterprise that owns the policy.

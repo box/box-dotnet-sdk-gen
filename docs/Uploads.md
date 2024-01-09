@@ -1,4 +1,4 @@
-# UploadsManager
+# IUploadsManager
 
 
 - [Upload file version](#upload-file-version)
@@ -24,18 +24,18 @@ See the endpoint docs at
 
 <!-- sample post_files_id_content -->
 ```
-await client.Uploads.UploadFileVersionAsync(fileId: uploadedFile.Id, requestBody: new UploadFileVersionRequestBodyArg(attributes: new UploadFileVersionRequestBodyArgAttributesField(name: newFileVersionName), file: newFileContentStream)).ConfigureAwait(false)
+await client.Uploads.UploadFileVersionAsync(fileId: uploadedFile.Id, requestBody: new UploadFileVersionRequestBody(attributes: new UploadFileVersionRequestBodyAttributesField(name: newFileVersionName), file: newFileContentStream)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `UploadFileVersionRequestBodyArg`
+- requestBody `UploadFileVersionRequestBody`
   - Request body of uploadFileVersion method
-- queryParams `UploadFileVersionQueryParamsArg`
+- queryParams `UploadFileVersionQueryParams`
   - Query parameters of uploadFileVersion method
-- headers `UploadFileVersionHeadersArg`
+- headers `UploadFileVersionHeaders`
   - Headers of uploadFileVersion method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -67,16 +67,16 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBodyArg(attributes: new UploadFileRequestBodyArgAttributesField(name: fileName, parent: new UploadFileRequestBodyArgAttributesFieldParentField(id: "0")), file: fileByteStream), queryParams: new UploadFileQueryParamsArg(), headers: new UploadFileHeadersArg(), cancellationToken: cancellationToken).ConfigureAwait(false)
+await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: fileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileByteStream), queryParams: new UploadFileQueryParams(), headers: new UploadFileHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `UploadFileRequestBodyArg`
+- requestBody `UploadFileRequestBody`
   - Request body of uploadFile method
-- queryParams `UploadFileQueryParamsArg`
+- queryParams `UploadFileQueryParams`
   - Query parameters of uploadFile method
-- headers `UploadFileHeadersArg`
+- headers `UploadFileHeaders`
   - Headers of uploadFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -94,19 +94,19 @@ Returns the new file object in a list.
 Performs a check to verify that a file will be accepted by Box
 before you upload the entire file.
 
-This operation is performed by calling function `PreflightFileUpload`.
+This operation is performed by calling function `PreflightFileUploadCheck`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/options-files-content/).
 
-*Currently we don't have an example for calling `PreflightFileUpload` in integration tests*
+*Currently we don't have an example for calling `PreflightFileUploadCheck` in integration tests*
 
 ### Arguments
 
-- requestBody `PreflightFileUploadRequestBodyArg`
-  - Request body of preflightFileUpload method
-- headers `PreflightFileUploadHeadersArg`
-  - Headers of preflightFileUpload method
+- requestBody `PreflightFileUploadCheckRequestBody`
+  - Request body of preflightFileUploadCheck method
+- headers `PreflightFileUploadCheckHeaders`
+  - Headers of preflightFileUploadCheck method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

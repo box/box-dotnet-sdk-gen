@@ -7,7 +7,7 @@ namespace Box
     /// <summary>
     /// Class used to authenticate with Box using a developer token.
     /// </summary>
-    public class BoxDeveloperTokenAuth : IAuth
+    public class BoxDeveloperTokenAuth : IAuthentication
     {
         /// <summary>
         /// Developer token.

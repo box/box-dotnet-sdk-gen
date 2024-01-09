@@ -1,4 +1,4 @@
-# FolderWatermarksManager
+# IFolderWatermarksManager
 
 
 - [Get watermark for folder](#get-watermark-for-folder)
@@ -23,7 +23,7 @@ await client.FolderWatermarks.GetFolderWatermarkAsync(folderId: folder.Id).Confi
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- headers `GetFolderWatermarkHeadersArg`
+- headers `GetFolderWatermarkHeaders`
   - Headers of getFolderWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -48,16 +48,16 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_watermark -->
 ```
-await client.FolderWatermarks.UpdateFolderWatermarkAsync(folderId: folder.Id, requestBody: new UpdateFolderWatermarkRequestBodyArg(watermark: new UpdateFolderWatermarkRequestBodyArgWatermarkField(imprint: UpdateFolderWatermarkRequestBodyArgWatermarkFieldImprintField.Default))).ConfigureAwait(false)
+await client.FolderWatermarks.UpdateFolderWatermarkAsync(folderId: folder.Id, requestBody: new UpdateFolderWatermarkRequestBody(watermark: new UpdateFolderWatermarkRequestBodyWatermarkField(imprint: UpdateFolderWatermarkRequestBodyWatermarkImprintField.Default))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderWatermarkRequestBodyArg`
+- requestBody `UpdateFolderWatermarkRequestBody`
   - Request body of updateFolderWatermark method
-- headers `UpdateFolderWatermarkHeadersArg`
+- headers `UpdateFolderWatermarkHeaders`
   - Headers of updateFolderWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -90,7 +90,7 @@ await client.FolderWatermarks.DeleteFolderWatermarkAsync(folderId: folder.Id).Co
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- headers `DeleteFolderWatermarkHeadersArg`
+- headers `DeleteFolderWatermarkHeaders`
   - Headers of deleteFolderWatermark method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

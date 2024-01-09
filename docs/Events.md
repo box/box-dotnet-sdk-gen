@@ -1,4 +1,4 @@
-# EventsManager
+# IEventsManager
 
 
 - [List user and enterprise events](#list-user-and-enterprise-events)
@@ -25,9 +25,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- queryParams `GetEventsQueryParamsArg`
+- queryParams `GetEventsQueryParams`
   - Query parameters of getEvents method
-- headers `GetEventsHeadersArg`
+- headers `GetEventsHeaders`
   - Headers of getEvents method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -91,7 +91,7 @@ See the endpoint docs at
 
 ### Arguments
 
-- headers `GetEventsWithLongPollingHeadersArg`
+- headers `GetEventsWithLongPollingHeaders`
   - Headers of getEventsWithLongPolling method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

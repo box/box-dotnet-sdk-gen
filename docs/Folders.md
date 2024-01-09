@@ -1,4 +1,4 @@
-# FoldersManager
+# IFoldersManager
 
 
 - [Get folder information](#get-folder-information)
@@ -19,7 +19,7 @@ list of returned
 [folder items](r://folder--full#param-item-collection).
 
 To fetch more items within the folder, use the
-[Get items in a folder](#get-folders-id-items) endpoint.
+[Get items in a folder](e://get-folders-id-items) endpoint.
 
 This operation is performed by calling function `GetFolderById`.
 
@@ -35,9 +35,9 @@ await client.Folders.GetFolderByIdAsync(folderId: "0").ConfigureAwait(false)
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- queryParams `GetFolderByIdQueryParamsArg`
+- queryParams `GetFolderByIdQueryParams`
   - Query parameters of getFolderById method
-- headers `GetFolderByIdHeadersArg`
+- headers `GetFolderByIdHeaders`
   - Headers of getFolderById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -53,7 +53,7 @@ If you used query parameters like
 the *folder items list* will be affected accordingly.
 
 To fetch more items within the folder, use the
-[Get items in a folder](#get-folders-id-items) endpoint.
+[Get items in a folder](e://get-folders-id-items)) endpoint.
 
 Not all available fields are returned by default. Use the
 [fields](#param-fields) query parameter to explicitly request
@@ -72,18 +72,18 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBodyArg(parent: new UpdateFolderByIdRequestBodyArgParentField(id: folderOrigin.Id), name: movedFolderName)).ConfigureAwait(false)
+await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBody(parent: new UpdateFolderByIdRequestBodyParentField(id: folderOrigin.Id), name: movedFolderName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderByIdRequestBodyArg`
+- requestBody `UpdateFolderByIdRequestBody`
   - Request body of updateFolderById method
-- queryParams `UpdateFolderByIdQueryParamsArg`
+- queryParams `UpdateFolderByIdQueryParams`
   - Query parameters of updateFolderById method
-- headers `UpdateFolderByIdHeadersArg`
+- headers `UpdateFolderByIdHeaders`
   - Headers of updateFolderById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -124,9 +124,9 @@ await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id).ConfigureAwait(
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- queryParams `DeleteFolderByIdQueryParamsArg`
+- queryParams `DeleteFolderByIdQueryParams`
   - Query parameters of deleteFolderById method
-- headers `DeleteFolderByIdHeadersArg`
+- headers `DeleteFolderByIdHeaders`
   - Headers of deleteFolderById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -162,9 +162,9 @@ await client.Folders.GetFolderItemsAsync(folderId: folderOrigin.Id).ConfigureAwa
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- queryParams `GetFolderItemsQueryParamsArg`
+- queryParams `GetFolderItemsQueryParams`
   - Query parameters of getFolderItems method
-- headers `GetFolderItemsHeadersArg`
+- headers `GetFolderItemsHeaders`
   - Headers of getFolderItems method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -188,16 +188,16 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBodyArg(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyArgParentField(id: "0"))).ConfigureAwait(false)
+await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0"))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateFolderRequestBodyArg`
+- requestBody `CreateFolderRequestBody`
   - Request body of createFolder method
-- queryParams `CreateFolderQueryParamsArg`
+- queryParams `CreateFolderQueryParams`
   - Query parameters of createFolder method
-- headers `CreateFolderHeadersArg`
+- headers `CreateFolderHeaders`
   - Headers of createFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -227,18 +227,18 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_copy -->
 ```
-await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBodyArg(parent: new CopyFolderRequestBodyArgParentField(id: "0"), name: copiedFolderName)).ConfigureAwait(false)
+await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0"), name: copiedFolderName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier of the folder to copy.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder with the ID `0` can not be copied. Example: "0"
-- requestBody `CopyFolderRequestBodyArg`
+- requestBody `CopyFolderRequestBody`
   - Request body of copyFolder method
-- queryParams `CopyFolderQueryParamsArg`
+- queryParams `CopyFolderQueryParams`
   - Query parameters of copyFolder method
-- headers `CopyFolderHeadersArg`
+- headers `CopyFolderHeaders`
   - Headers of copyFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

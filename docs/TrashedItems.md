@@ -1,4 +1,4 @@
-# TrashedItemsManager
+# ITrashedItemsManager
 
 
 - [List trashed items](#list-trashed-items)
@@ -15,19 +15,22 @@ attributes that are not returned by default.
 This endpoint defaults to use offset-based pagination, yet also supports
 marker-based pagination using the `marker` parameter.
 
-This operation is performed by calling function `GetFolderTrashItems`.
+This operation is performed by calling function `GetTrashedItems`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-trash-items/).
 
-*Currently we don't have an example for calling `GetFolderTrashItems` in integration tests*
+<!-- sample get_folders_trash_items -->
+```
+await client.TrashedItems.GetTrashedItemsAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetFolderTrashItemsQueryParamsArg`
-  - Query parameters of getFolderTrashItems method
-- headers `GetFolderTrashItemsHeadersArg`
-  - Headers of getFolderTrashItems method
+- queryParams `GetTrashedItemsQueryParams`
+  - Query parameters of getTrashedItems method
+- headers `GetTrashedItemsHeaders`
+  - Headers of getTrashedItems method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

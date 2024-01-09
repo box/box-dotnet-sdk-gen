@@ -1,4 +1,4 @@
-# ShieldInformationBarrierSegmentMembersManager
+# IShieldInformationBarrierSegmentMembersManager
 
 
 - [Get shield information barrier segment member by ID](#get-shield-information-barrier-segment-member-by-id)
@@ -16,13 +16,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentMemberById` in integration tests*
+<!-- sample get_shield_information_barrier_segment_members_id -->
+```
+await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentMemberId `string`
   - The ID of the shield information barrier segment Member. Example: "7815"
-- headers `GetShieldInformationBarrierSegmentMemberByIdHeadersArg`
+- headers `GetShieldInformationBarrierSegmentMemberByIdHeaders`
   - Headers of getShieldInformationBarrierSegmentMemberById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -45,13 +48,16 @@ This operation is performed by calling function `DeleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-members-id/).
 
-*Currently we don't have an example for calling `DeleteShieldInformationBarrierSegmentMemberById` in integration tests*
+<!-- sample delete_shield_information_barrier_segment_members_id -->
+```
+await client.ShieldInformationBarrierSegmentMembers.DeleteShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentMemberId `string`
   - The ID of the shield information barrier segment Member. Example: "7815"
-- headers `DeleteShieldInformationBarrierSegmentMemberByIdHeadersArg`
+- headers `DeleteShieldInformationBarrierSegmentMemberByIdHeaders`
   - Headers of deleteShieldInformationBarrierSegmentMemberById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -75,13 +81,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentMembers` in integration tests*
+<!-- sample get_shield_information_barrier_segment_members -->
+```
+await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMembersAsync(queryParams: new GetShieldInformationBarrierSegmentMembersQueryParams(shieldInformationBarrierSegmentId: NullableUtils.Unwrap(segment.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetShieldInformationBarrierSegmentMembersQueryParamsArg`
+- queryParams `GetShieldInformationBarrierSegmentMembersQueryParams`
   - Query parameters of getShieldInformationBarrierSegmentMembers method
-- headers `GetShieldInformationBarrierSegmentMembersHeadersArg`
+- headers `GetShieldInformationBarrierSegmentMembersHeaders`
   - Headers of getShieldInformationBarrierSegmentMembers method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -104,13 +113,16 @@ This operation is performed by calling function `CreateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-members/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierSegmentMember` in integration tests*
+<!-- sample post_shield_information_barrier_segment_members -->
+```
+await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField(id: NullableUtils.Unwrap(segment.Id), type: CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"), type: UserBaseTypeField.User))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateShieldInformationBarrierSegmentMemberRequestBodyArg`
+- requestBody `CreateShieldInformationBarrierSegmentMemberRequestBody`
   - Request body of createShieldInformationBarrierSegmentMember method
-- headers `CreateShieldInformationBarrierSegmentMemberHeadersArg`
+- headers `CreateShieldInformationBarrierSegmentMemberHeaders`
   - Headers of createShieldInformationBarrierSegmentMember method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

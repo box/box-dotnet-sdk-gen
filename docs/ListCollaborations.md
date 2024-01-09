@@ -1,4 +1,4 @@
-# ListCollaborationsManager
+# IListCollaborationsManager
 
 
 - [List file collaborations](#list-file-collaborations)
@@ -17,15 +17,18 @@ This operation is performed by calling function `GetFileCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-collaborations/).
 
-*Currently we don't have an example for calling `GetFileCollaborations` in integration tests*
+<!-- sample get_files_id_collaborations -->
+```
+await client.ListCollaborations.GetFileCollaborationsAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- queryParams `GetFileCollaborationsQueryParamsArg`
+- queryParams `GetFileCollaborationsQueryParams`
   - Query parameters of getFileCollaborations method
-- headers `GetFileCollaborationsHeadersArg`
+- headers `GetFileCollaborationsHeaders`
   - Headers of getFileCollaborations method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -54,15 +57,18 @@ This operation is performed by calling function `GetFolderCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-collaborations/).
 
-*Currently we don't have an example for calling `GetFolderCollaborations` in integration tests*
+<!-- sample get_folders_id_collaborations -->
+```
+await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`. Example: "12345"
-- queryParams `GetFolderCollaborationsQueryParamsArg`
+- queryParams `GetFolderCollaborationsQueryParams`
   - Query parameters of getFolderCollaborations method
-- headers `GetFolderCollaborationsHeadersArg`
+- headers `GetFolderCollaborationsHeaders`
   - Headers of getFolderCollaborations method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -89,13 +95,16 @@ This operation is performed by calling function `GetCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaborations/).
 
-*Currently we don't have an example for calling `GetCollaborations` in integration tests*
+<!-- sample get_collaborations -->
+```
+await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParams(status: GetCollaborationsQueryParamsStatusField.Pending)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetCollaborationsQueryParamsArg`
+- queryParams `GetCollaborationsQueryParams`
   - Query parameters of getCollaborations method
-- headers `GetCollaborationsHeadersArg`
+- headers `GetCollaborationsHeaders`
   - Headers of getCollaborations method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -124,15 +133,18 @@ This operation is performed by calling function `GetGroupCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id-collaborations/).
 
-*Currently we don't have an example for calling `GetGroupCollaborations` in integration tests*
+<!-- sample get_groups_id_collaborations -->
+```
+await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - groupId `string`
   - The ID of the group. Example: "57645"
-- queryParams `GetGroupCollaborationsQueryParamsArg`
+- queryParams `GetGroupCollaborationsQueryParams`
   - Query parameters of getGroupCollaborations method
-- headers `GetGroupCollaborationsHeadersArg`
+- headers `GetGroupCollaborationsHeaders`
   - Headers of getGroupCollaborations method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

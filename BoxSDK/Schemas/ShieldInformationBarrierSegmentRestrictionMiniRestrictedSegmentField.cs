@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField {
@@ -17,7 +18,7 @@ namespace Box.Schemas {
         /// The type of the shield information segment
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField? Type { get; set; } = default;
 
         public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField() {
             

@@ -1,4 +1,4 @@
-# FilesManager
+# IFilesManager
 
 
 - [Get file information](#get-file-information)
@@ -25,9 +25,9 @@ await client.Files.GetFileByIdAsync(fileId: file.Id).ConfigureAwait(false)
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- queryParams `GetFileByIdQueryParamsArg`
+- queryParams `GetFileByIdQueryParams`
   - Query parameters of getFileById method
-- headers `GetFileByIdHeadersArg`
+- headers `GetFileByIdHeaders`
   - Headers of getFileById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -56,18 +56,18 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-await client.Files.UpdateFileByIdAsync(fileId: fileToUpdate.Id, requestBody: new UpdateFileByIdRequestBodyArg(name: updatedName, description: "Updated description")).ConfigureAwait(false)
+await client.Files.UpdateFileByIdAsync(fileId: fileToUpdate.Id, requestBody: new UpdateFileByIdRequestBody(name: updatedName, description: "Updated description")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `UpdateFileByIdRequestBodyArg`
+- requestBody `UpdateFileByIdRequestBody`
   - Request body of updateFileById method
-- queryParams `UpdateFileByIdQueryParamsArg`
+- queryParams `UpdateFileByIdQueryParams`
   - Query parameters of updateFileById method
-- headers `UpdateFileByIdHeadersArg`
+- headers `UpdateFileByIdHeaders`
   - Headers of updateFileById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -106,7 +106,7 @@ await client.Files.DeleteFileByIdAsync(fileId: file2.Id).ConfigureAwait(false)
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `DeleteFileByIdHeadersArg`
+- headers `DeleteFileByIdHeaders`
   - Headers of deleteFileById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -131,18 +131,18 @@ See the endpoint docs at
 
 <!-- sample post_files_id_copy -->
 ```
-await client.Files.CopyFileAsync(fileId: fileOrigin.Id, requestBody: new CopyFileRequestBodyArg(parent: new CopyFileRequestBodyArgParentField(id: "0"), name: copiedFileName)).ConfigureAwait(false)
+await client.Files.CopyFileAsync(fileId: fileOrigin.Id, requestBody: new CopyFileRequestBody(parent: new CopyFileRequestBodyParentField(id: "0"), name: copiedFileName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `CopyFileRequestBodyArg`
+- requestBody `CopyFileRequestBody`
   - Request body of copyFile method
-- queryParams `CopyFileQueryParamsArg`
+- queryParams `CopyFileQueryParams`
   - Query parameters of copyFile method
-- headers `CopyFileHeadersArg`
+- headers `CopyFileHeaders`
   - Headers of copyFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -179,18 +179,18 @@ See the endpoint docs at
 
 <!-- sample get_files_id_thumbnail_id -->
 ```
-await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtensionArg.Png).ConfigureAwait(false)
+await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtension.Png).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- extension `GetFileThumbnailByIdExtensionArg`
+- extension `GetFileThumbnailByIdExtension`
   - The file format for the thumbnail Example: "png"
-- queryParams `GetFileThumbnailByIdQueryParamsArg`
+- queryParams `GetFileThumbnailByIdQueryParams`
   - Query parameters of getFileThumbnailById method
-- headers `GetFileThumbnailByIdHeadersArg`
+- headers `GetFileThumbnailByIdHeaders`
   - Headers of getFileThumbnailById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

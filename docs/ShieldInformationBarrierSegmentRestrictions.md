@@ -1,4 +1,4 @@
-# ShieldInformationBarrierSegmentRestrictionsManager
+# IShieldInformationBarrierSegmentRestrictionsManager
 
 
 - [Get shield information barrier segment restriction by ID](#get-shield-information-barrier-segment-restriction-by-id)
@@ -16,13 +16,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions_id -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentRestrictionId `string`
   - The ID of the shield information barrier segment Restriction. Example: "4563"
-- headers `GetShieldInformationBarrierSegmentRestrictionByIdHeadersArg`
+- headers `GetShieldInformationBarrierSegmentRestrictionByIdHeaders`
   - Headers of getShieldInformationBarrierSegmentRestrictionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -46,13 +49,16 @@ This operation is performed by calling function `DeleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `DeleteShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample delete_shield_information_barrier_segment_restrictions_id -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.DeleteShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentRestrictionId `string`
   - The ID of the shield information barrier segment Restriction. Example: "4563"
-- headers `DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersArg`
+- headers `DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders`
   - Headers of deleteShieldInformationBarrierSegmentRestrictionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -75,13 +81,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentRestrictions` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionsAsync(queryParams: new GetShieldInformationBarrierSegmentRestrictionsQueryParams(shieldInformationBarrierSegmentId: segmentId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetShieldInformationBarrierSegmentRestrictionsQueryParamsArg`
+- queryParams `GetShieldInformationBarrierSegmentRestrictionsQueryParams`
   - Query parameters of getShieldInformationBarrierSegmentRestrictions method
-- headers `GetShieldInformationBarrierSegmentRestrictionsHeadersArg`
+- headers `GetShieldInformationBarrierSegmentRestrictionsHeaders`
   - Headers of getShieldInformationBarrierSegmentRestrictions method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -105,13 +114,16 @@ This operation is performed by calling function `CreateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierSegmentRestriction` in integration tests*
+<!-- sample post_shield_information_barrier_segment_restrictions -->
+```
+await client.ShieldInformationBarrierSegmentRestrictions.CreateShieldInformationBarrierSegmentRestrictionAsync(requestBody: new CreateShieldInformationBarrierSegmentRestrictionRequestBody(restrictedSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField(id: segmentToRestrictId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField.ShieldInformationBarrierSegment), shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField(id: segmentId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateShieldInformationBarrierSegmentRestrictionRequestBodyArg`
+- requestBody `CreateShieldInformationBarrierSegmentRestrictionRequestBody`
   - Request body of createShieldInformationBarrierSegmentRestriction method
-- headers `CreateShieldInformationBarrierSegmentRestrictionHeadersArg`
+- headers `CreateShieldInformationBarrierSegmentRestrictionHeaders`
   - Headers of createShieldInformationBarrierSegmentRestriction method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

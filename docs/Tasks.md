@@ -1,4 +1,4 @@
-# TasksManager
+# ITasksManager
 
 
 - [List tasks on file](#list-tasks-on-file)
@@ -26,7 +26,7 @@ await client.Tasks.GetFileTasksAsync(fileId: file.Id).ConfigureAwait(false)
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `GetFileTasksHeadersArg`
+- headers `GetFileTasksHeaders`
   - Headers of getFileTasks method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -54,14 +54,14 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBodyArg(item: new CreateTaskRequestBodyArgItemField(type: CreateTaskRequestBodyArgItemFieldTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyArgActionField.Review, completionRule: CreateTaskRequestBodyArgCompletionRuleField.AllAssignees)).ConfigureAwait(false)
+await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateTaskRequestBodyArg`
+- requestBody `CreateTaskRequestBody`
   - Request body of createTask method
-- headers `CreateTaskHeadersArg`
+- headers `CreateTaskHeaders`
   - Headers of createTask method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -85,14 +85,14 @@ See the endpoint docs at
 
 <!-- sample get_tasks_id -->
 ```
-await client.Tasks.GetTaskByIdAsync(taskId: task.Id!).ConfigureAwait(false)
+await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - taskId `string`
   - The ID of the task. Example: "12345"
-- headers `GetTaskByIdHeadersArg`
+- headers `GetTaskByIdHeaders`
   - Headers of getTaskById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -117,16 +117,16 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-await client.Tasks.UpdateTaskByIdAsync(taskId: task.Id!, requestBody: new UpdateTaskByIdRequestBodyArg(message: "updated message")).ConfigureAwait(false)
+await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody(message: "updated message")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - taskId `string`
   - The ID of the task. Example: "12345"
-- requestBody `UpdateTaskByIdRequestBodyArg`
+- requestBody `UpdateTaskByIdRequestBody`
   - Request body of updateTaskById method
-- headers `UpdateTaskByIdHeadersArg`
+- headers `UpdateTaskByIdHeaders`
   - Headers of updateTaskById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -150,14 +150,14 @@ See the endpoint docs at
 
 <!-- sample delete_tasks_id -->
 ```
-await client.Tasks.DeleteTaskByIdAsync(taskId: task.Id!).ConfigureAwait(false)
+await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - taskId `string`
   - The ID of the task. Example: "12345"
-- headers `DeleteTaskByIdHeadersArg`
+- headers `DeleteTaskByIdHeaders`
   - Headers of deleteTaskById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

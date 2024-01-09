@@ -1,4 +1,4 @@
-# FileVersionRetentionsManager
+# IFileVersionRetentionsManager
 
 
 - [List file version retentions](#list-file-version-retentions)
@@ -17,9 +17,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- queryParams `GetFileVersionRetentionsQueryParamsArg`
+- queryParams `GetFileVersionRetentionsQueryParams`
   - Query parameters of getFileVersionRetentions method
-- headers `GetFileVersionRetentionsHeadersArg`
+- headers `GetFileVersionRetentionsHeaders`
   - Headers of getFileVersionRetentions method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -47,7 +47,7 @@ See the endpoint docs at
 
 - fileVersionRetentionId `string`
   - The ID of the file version retention Example: "3424234"
-- headers `GetFileVersionRetentionByIdHeadersArg`
+- headers `GetFileVersionRetentionByIdHeaders`
   - Headers of getFileVersionRetentionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

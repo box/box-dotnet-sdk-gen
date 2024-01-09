@@ -1,4 +1,4 @@
-# InvitesManager
+# IInvitesManager
 
 
 - [Create user invite](#create-user-invite)
@@ -21,15 +21,18 @@ This operation is performed by calling function `CreateInvite`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-invites/).
 
-*Currently we don't have an example for calling `CreateInvite` in integration tests*
+<!-- sample post_invites -->
+```
+await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBody(enterprise: new CreateInviteRequestBodyEnterpriseField(id: NullableUtils.Unwrap(NullableUtils.Unwrap(currentUser.Enterprise).Id)), actionableBy: new CreateInviteRequestBodyActionableByField(login: email))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateInviteRequestBodyArg`
+- requestBody `CreateInviteRequestBody`
   - Request body of createInvite method
-- queryParams `CreateInviteQueryParamsArg`
+- queryParams `CreateInviteQueryParams`
   - Query parameters of createInvite method
-- headers `CreateInviteHeadersArg`
+- headers `CreateInviteHeaders`
   - Headers of createInvite method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -51,15 +54,18 @@ This operation is performed by calling function `GetInviteById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-invites-id/).
 
-*Currently we don't have an example for calling `GetInviteById` in integration tests*
+<!-- sample get_invites_id -->
+```
+await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - inviteId `string`
   - The ID of an invite. Example: "213723"
-- queryParams `GetInviteByIdQueryParamsArg`
+- queryParams `GetInviteByIdQueryParams`
   - Query parameters of getInviteById method
-- headers `GetInviteByIdHeadersArg`
+- headers `GetInviteByIdHeaders`
   - Headers of getInviteById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

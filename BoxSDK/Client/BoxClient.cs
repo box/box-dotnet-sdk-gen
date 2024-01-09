@@ -4,218 +4,218 @@ using Box.Managers;
 using Box;
 
 namespace Box {
-    public class BoxClient {
-        public IAuth Auth { get; set; }
+    public class BoxClient : IBoxClient {
+        public IAuthentication Auth { get; set; }
 
         public NetworkSession NetworkSession { get; set; }
 
-        public AuthorizationManager Authorization { get; set; }
+        public IAuthorizationManager Authorization { get; set; }
 
-        public FilesManager Files { get; set; }
+        public IFilesManager Files { get; set; }
 
-        public TrashedFilesManager TrashedFiles { get; set; }
+        public ITrashedFilesManager TrashedFiles { get; set; }
 
-        public DownloadsManager Downloads { get; set; }
+        public IDownloadsManager Downloads { get; set; }
 
-        public UploadsManager Uploads { get; set; }
+        public IUploadsManager Uploads { get; set; }
 
-        public ChunkedUploadsManager ChunkedUploads { get; set; }
+        public IChunkedUploadsManager ChunkedUploads { get; set; }
 
-        public ListCollaborationsManager ListCollaborations { get; set; }
+        public IListCollaborationsManager ListCollaborations { get; set; }
 
-        public CommentsManager Comments { get; set; }
+        public ICommentsManager Comments { get; set; }
 
-        public TasksManager Tasks { get; set; }
+        public ITasksManager Tasks { get; set; }
 
-        public FileVersionsManager FileVersions { get; set; }
+        public IFileVersionsManager FileVersions { get; set; }
 
-        public FileMetadataManager FileMetadata { get; set; }
+        public IFileMetadataManager FileMetadata { get; set; }
 
-        public FileClassificationsManager FileClassifications { get; set; }
+        public IFileClassificationsManager FileClassifications { get; set; }
 
-        public SkillsManager Skills { get; set; }
+        public ISkillsManager Skills { get; set; }
 
-        public FileWatermarksManager FileWatermarks { get; set; }
+        public IFileWatermarksManager FileWatermarks { get; set; }
 
-        public FileRequestsManager FileRequests { get; set; }
+        public IFileRequestsManager FileRequests { get; set; }
 
-        public FoldersManager Folders { get; set; }
+        public IFoldersManager Folders { get; set; }
 
-        public TrashedFoldersManager TrashedFolders { get; set; }
+        public ITrashedFoldersManager TrashedFolders { get; set; }
 
-        public FolderMetadataManager FolderMetadata { get; set; }
+        public IFolderMetadataManager FolderMetadata { get; set; }
 
-        public FolderClassificationsManager FolderClassifications { get; set; }
+        public IFolderClassificationsManager FolderClassifications { get; set; }
 
-        public TrashedItemsManager TrashedItems { get; set; }
+        public ITrashedItemsManager TrashedItems { get; set; }
 
-        public FolderWatermarksManager FolderWatermarks { get; set; }
+        public IFolderWatermarksManager FolderWatermarks { get; set; }
 
-        public FolderLocksManager FolderLocks { get; set; }
+        public IFolderLocksManager FolderLocks { get; set; }
 
-        public MetadataTemplatesManager MetadataTemplates { get; set; }
+        public IMetadataTemplatesManager MetadataTemplates { get; set; }
 
-        public ClassificationsManager Classifications { get; set; }
+        public IClassificationsManager Classifications { get; set; }
 
-        public MetadataCascadePoliciesManager MetadataCascadePolicies { get; set; }
+        public IMetadataCascadePoliciesManager MetadataCascadePolicies { get; set; }
 
-        public SearchManager Search { get; set; }
+        public ISearchManager Search { get; set; }
 
-        public UserCollaborationsManager UserCollaborations { get; set; }
+        public IUserCollaborationsManager UserCollaborations { get; set; }
 
-        public TaskAssignmentsManager TaskAssignments { get; set; }
+        public ITaskAssignmentsManager TaskAssignments { get; set; }
 
-        public SharedLinksFilesManager SharedLinksFiles { get; set; }
+        public ISharedLinksFilesManager SharedLinksFiles { get; set; }
 
-        public SharedLinksFoldersManager SharedLinksFolders { get; set; }
+        public ISharedLinksFoldersManager SharedLinksFolders { get; set; }
 
-        public WebLinksManager WebLinks { get; set; }
+        public IWebLinksManager WebLinks { get; set; }
 
-        public TrashedWebLinksManager TrashedWebLinks { get; set; }
+        public ITrashedWebLinksManager TrashedWebLinks { get; set; }
 
-        public SharedLinksWebLinksManager SharedLinksWebLinks { get; set; }
+        public ISharedLinksWebLinksManager SharedLinksWebLinks { get; set; }
 
-        public UsersManager Users { get; set; }
+        public IUsersManager Users { get; set; }
 
-        public SessionTerminationManager SessionTermination { get; set; }
+        public ISessionTerminationManager SessionTermination { get; set; }
 
-        public AvatarsManager Avatars { get; set; }
+        public IAvatarsManager Avatars { get; set; }
 
-        public TransferManager Transfer { get; set; }
+        public ITransferManager Transfer { get; set; }
 
-        public EmailAliasesManager EmailAliases { get; set; }
+        public IEmailAliasesManager EmailAliases { get; set; }
 
-        public MembershipsManager Memberships { get; set; }
+        public IMembershipsManager Memberships { get; set; }
 
-        public InvitesManager Invites { get; set; }
+        public IInvitesManager Invites { get; set; }
 
-        public GroupsManager Groups { get; set; }
+        public IGroupsManager Groups { get; set; }
 
-        public WebhooksManager Webhooks { get; set; }
+        public IWebhooksManager Webhooks { get; set; }
 
-        public EventsManager Events { get; set; }
+        public IEventsManager Events { get; set; }
 
-        public CollectionsManager Collections { get; set; }
+        public ICollectionsManager Collections { get; set; }
 
-        public RecentItemsManager RecentItems { get; set; }
+        public IRecentItemsManager RecentItems { get; set; }
 
-        public RetentionPoliciesManager RetentionPolicies { get; set; }
+        public IRetentionPoliciesManager RetentionPolicies { get; set; }
 
-        public RetentionPolicyAssignmentsManager RetentionPolicyAssignments { get; set; }
+        public IRetentionPolicyAssignmentsManager RetentionPolicyAssignments { get; set; }
 
-        public LegalHoldPoliciesManager LegalHoldPolicies { get; set; }
+        public ILegalHoldPoliciesManager LegalHoldPolicies { get; set; }
 
-        public LegalHoldPolicyAssignmentsManager LegalHoldPolicyAssignments { get; set; }
+        public ILegalHoldPolicyAssignmentsManager LegalHoldPolicyAssignments { get; set; }
 
-        public FileVersionRetentionsManager FileVersionRetentions { get; set; }
+        public IFileVersionRetentionsManager FileVersionRetentions { get; set; }
 
-        public FileVersionLegalHoldsManager FileVersionLegalHolds { get; set; }
+        public IFileVersionLegalHoldsManager FileVersionLegalHolds { get; set; }
 
-        public ShieldInformationBarriersManager ShieldInformationBarriers { get; set; }
+        public IShieldInformationBarriersManager ShieldInformationBarriers { get; set; }
 
-        public ShieldInformationBarrierReportsManager ShieldInformationBarrierReports { get; set; }
+        public IShieldInformationBarrierReportsManager ShieldInformationBarrierReports { get; set; }
 
-        public ShieldInformationBarrierSegmentsManager ShieldInformationBarrierSegments { get; set; }
+        public IShieldInformationBarrierSegmentsManager ShieldInformationBarrierSegments { get; set; }
 
-        public ShieldInformationBarrierSegmentMembersManager ShieldInformationBarrierSegmentMembers { get; set; }
+        public IShieldInformationBarrierSegmentMembersManager ShieldInformationBarrierSegmentMembers { get; set; }
 
-        public ShieldInformationBarrierSegmentRestrictionsManager ShieldInformationBarrierSegmentRestrictions { get; set; }
+        public IShieldInformationBarrierSegmentRestrictionsManager ShieldInformationBarrierSegmentRestrictions { get; set; }
 
-        public DevicePinnersManager DevicePinners { get; set; }
+        public IDevicePinnersManager DevicePinners { get; set; }
 
-        public TermsOfServicesManager TermsOfServices { get; set; }
+        public ITermsOfServicesManager TermsOfServices { get; set; }
 
-        public TermsOfServiceUserStatusesManager TermsOfServiceUserStatuses { get; set; }
+        public ITermsOfServiceUserStatusesManager TermsOfServiceUserStatuses { get; set; }
 
-        public CollaborationAllowlistEntriesManager CollaborationAllowlistEntries { get; set; }
+        public ICollaborationAllowlistEntriesManager CollaborationAllowlistEntries { get; set; }
 
-        public CollaborationAllowlistExemptTargetsManager CollaborationAllowlistExemptTargets { get; set; }
+        public ICollaborationAllowlistExemptTargetsManager CollaborationAllowlistExemptTargets { get; set; }
 
-        public StoragePoliciesManager StoragePolicies { get; set; }
+        public IStoragePoliciesManager StoragePolicies { get; set; }
 
-        public StoragePolicyAssignmentsManager StoragePolicyAssignments { get; set; }
+        public IStoragePolicyAssignmentsManager StoragePolicyAssignments { get; set; }
 
-        public ZipDownloadsManager ZipDownloads { get; set; }
+        public IZipDownloadsManager ZipDownloads { get; set; }
 
-        public SignRequestsManager SignRequests { get; set; }
+        public ISignRequestsManager SignRequests { get; set; }
 
-        public WorkflowsManager Workflows { get; set; }
+        public IWorkflowsManager Workflows { get; set; }
 
-        public SignTemplatesManager SignTemplates { get; set; }
+        public ISignTemplatesManager SignTemplates { get; set; }
 
-        public IntegrationMappingsManager IntegrationMappings { get; set; }
+        public IIntegrationMappingsManager IntegrationMappings { get; set; }
 
-        public BoxClient(IAuth auth, NetworkSession networkSession = default) {
+        public BoxClient(IAuthentication auth, NetworkSession networkSession = default) {
             Auth = auth;
-            NetworkSession = networkSession ?? new NetworkSession();
-            Authorization = new AuthorizationManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Files = new FilesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TrashedFiles = new TrashedFilesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Downloads = new DownloadsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Uploads = new UploadsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ChunkedUploads = new ChunkedUploadsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ListCollaborations = new ListCollaborationsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Comments = new CommentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Tasks = new TasksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileVersions = new FileVersionsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileMetadata = new FileMetadataManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileClassifications = new FileClassificationsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Skills = new SkillsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileWatermarks = new FileWatermarksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileRequests = new FileRequestsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Folders = new FoldersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TrashedFolders = new TrashedFoldersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FolderMetadata = new FolderMetadataManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FolderClassifications = new FolderClassificationsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TrashedItems = new TrashedItemsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FolderWatermarks = new FolderWatermarksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FolderLocks = new FolderLocksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            MetadataTemplates = new MetadataTemplatesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Classifications = new ClassificationsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            MetadataCascadePolicies = new MetadataCascadePoliciesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Search = new SearchManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            UserCollaborations = new UserCollaborationsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TaskAssignments = new TaskAssignmentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SharedLinksFiles = new SharedLinksFilesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SharedLinksFolders = new SharedLinksFoldersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            WebLinks = new WebLinksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TrashedWebLinks = new TrashedWebLinksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SharedLinksWebLinks = new SharedLinksWebLinksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Users = new UsersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SessionTermination = new SessionTerminationManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Avatars = new AvatarsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Transfer = new TransferManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            EmailAliases = new EmailAliasesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Memberships = new MembershipsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Invites = new InvitesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Groups = new GroupsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Webhooks = new WebhooksManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Events = new EventsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Collections = new CollectionsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            RecentItems = new RecentItemsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            RetentionPolicies = new RetentionPoliciesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            RetentionPolicyAssignments = new RetentionPolicyAssignmentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            LegalHoldPolicies = new LegalHoldPoliciesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            LegalHoldPolicyAssignments = new LegalHoldPolicyAssignmentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileVersionRetentions = new FileVersionRetentionsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            FileVersionLegalHolds = new FileVersionLegalHoldsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ShieldInformationBarriers = new ShieldInformationBarriersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ShieldInformationBarrierReports = new ShieldInformationBarrierReportsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ShieldInformationBarrierSegments = new ShieldInformationBarrierSegmentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ShieldInformationBarrierSegmentMembers = new ShieldInformationBarrierSegmentMembersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ShieldInformationBarrierSegmentRestrictions = new ShieldInformationBarrierSegmentRestrictionsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            DevicePinners = new DevicePinnersManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TermsOfServices = new TermsOfServicesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            TermsOfServiceUserStatuses = new TermsOfServiceUserStatusesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            CollaborationAllowlistEntries = new CollaborationAllowlistEntriesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            CollaborationAllowlistExemptTargets = new CollaborationAllowlistExemptTargetsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            StoragePolicies = new StoragePoliciesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            StoragePolicyAssignments = new StoragePolicyAssignmentsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            ZipDownloads = new ZipDownloadsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SignRequests = new SignRequestsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            Workflows = new WorkflowsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            SignTemplates = new SignTemplatesManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
-            IntegrationMappings = new IntegrationMappingsManager() { Auth = this.Auth, NetworkSession = this.NetworkSession };
+            NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
+            Authorization = new AuthorizationManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Files = new FilesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TrashedFiles = new TrashedFilesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Downloads = new DownloadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Uploads = new UploadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ChunkedUploads = new ChunkedUploadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ListCollaborations = new ListCollaborationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Comments = new CommentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Tasks = new TasksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileVersions = new FileVersionsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileMetadata = new FileMetadataManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileClassifications = new FileClassificationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Skills = new SkillsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileWatermarks = new FileWatermarksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileRequests = new FileRequestsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Folders = new FoldersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TrashedFolders = new TrashedFoldersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FolderMetadata = new FolderMetadataManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FolderClassifications = new FolderClassificationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TrashedItems = new TrashedItemsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FolderWatermarks = new FolderWatermarksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FolderLocks = new FolderLocksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            MetadataTemplates = new MetadataTemplatesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Classifications = new ClassificationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            MetadataCascadePolicies = new MetadataCascadePoliciesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Search = new SearchManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            UserCollaborations = new UserCollaborationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TaskAssignments = new TaskAssignmentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SharedLinksFiles = new SharedLinksFilesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SharedLinksFolders = new SharedLinksFoldersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            WebLinks = new WebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TrashedWebLinks = new TrashedWebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SharedLinksWebLinks = new SharedLinksWebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Users = new UsersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SessionTermination = new SessionTerminationManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Avatars = new AvatarsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Transfer = new TransferManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            EmailAliases = new EmailAliasesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Memberships = new MembershipsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Invites = new InvitesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Groups = new GroupsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Webhooks = new WebhooksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Events = new EventsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Collections = new CollectionsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            RecentItems = new RecentItemsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            RetentionPolicies = new RetentionPoliciesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            RetentionPolicyAssignments = new RetentionPolicyAssignmentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            LegalHoldPolicies = new LegalHoldPoliciesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            LegalHoldPolicyAssignments = new LegalHoldPolicyAssignmentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileVersionRetentions = new FileVersionRetentionsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            FileVersionLegalHolds = new FileVersionLegalHoldsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldInformationBarriers = new ShieldInformationBarriersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldInformationBarrierReports = new ShieldInformationBarrierReportsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldInformationBarrierSegments = new ShieldInformationBarrierSegmentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldInformationBarrierSegmentMembers = new ShieldInformationBarrierSegmentMembersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldInformationBarrierSegmentRestrictions = new ShieldInformationBarrierSegmentRestrictionsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            DevicePinners = new DevicePinnersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TermsOfServices = new TermsOfServicesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            TermsOfServiceUserStatuses = new TermsOfServiceUserStatusesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            CollaborationAllowlistEntries = new CollaborationAllowlistEntriesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            CollaborationAllowlistExemptTargets = new CollaborationAllowlistExemptTargetsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            StoragePolicies = new StoragePoliciesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            StoragePolicyAssignments = new StoragePolicyAssignmentsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ZipDownloads = new ZipDownloadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SignRequests = new SignRequestsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Workflows = new WorkflowsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SignTemplates = new SignTemplatesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            IntegrationMappings = new IntegrationMappingsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
         /// Create a new client to impersonate user with the provided ID. All calls made with the new client will be made in context of the impersonated user, leaving the original client unmodified.
@@ -243,6 +243,16 @@ namespace Box {
         public BoxClient WithExtraHeaders(Dictionary<string, string>? extraHeaders = default) {
             extraHeaders = extraHeaders ?? new Dictionary<string, string>() {  };
             return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithAdditionalHeaders(additionalHeaders: extraHeaders));
+        }
+
+        /// <summary>
+        /// Create a new client with a custom set of base urls that will be used for every API call
+        /// </summary>
+        /// <param name="baseUrls">
+        /// Custom set of base urls that will be used for every API call
+        /// </param>
+        public BoxClient WithCustomBaseUrls(BaseUrls baseUrls) {
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithCustomBaseUrls(baseUrls: baseUrls));
         }
 
     }

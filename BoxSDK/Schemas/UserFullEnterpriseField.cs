@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public UserFullEnterpriseFieldTypeField? Type { get; set; } = default;
+        public UserFullEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the enterprise

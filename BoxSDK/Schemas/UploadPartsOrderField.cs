@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class UploadPartsOrderField {
@@ -16,7 +17,7 @@ namespace Box.Schemas {
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public UploadPartsOrderFieldDirectionField? Direction { get; set; } = default;
+        public UploadPartsOrderDirectionField? Direction { get; set; } = default;
 
         public UploadPartsOrderField() {
             

@@ -1,4 +1,4 @@
-# CollaborationAllowlistEntriesManager
+# ICollaborationAllowlistEntriesManager
 
 
 - [List allowed collaboration domains](#list-allowed-collaboration-domains)
@@ -20,9 +20,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- queryParams `GetCollaborationWhitelistEntriesQueryParamsArg`
+- queryParams `GetCollaborationWhitelistEntriesQueryParams`
   - Query parameters of getCollaborationWhitelistEntries method
-- headers `GetCollaborationWhitelistEntriesHeadersArg`
+- headers `GetCollaborationWhitelistEntriesHeaders`
   - Headers of getCollaborationWhitelistEntries method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -49,9 +49,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `CreateCollaborationWhitelistEntryRequestBodyArg`
+- requestBody `CreateCollaborationWhitelistEntryRequestBody`
   - Request body of createCollaborationWhitelistEntry method
-- headers `CreateCollaborationWhitelistEntryHeadersArg`
+- headers `CreateCollaborationWhitelistEntryHeaders`
   - Headers of createCollaborationWhitelistEntry method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -80,7 +80,7 @@ See the endpoint docs at
 
 - collaborationWhitelistEntryId `string`
   - The ID of the entry in the list. Example: "213123"
-- headers `GetCollaborationWhitelistEntryByIdHeadersArg`
+- headers `GetCollaborationWhitelistEntryByIdHeaders`
   - Headers of getCollaborationWhitelistEntryById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -109,7 +109,7 @@ See the endpoint docs at
 
 - collaborationWhitelistEntryId `string`
   - The ID of the entry in the list. Example: "213123"
-- headers `DeleteCollaborationWhitelistEntryByIdHeadersArg`
+- headers `DeleteCollaborationWhitelistEntryByIdHeaders`
   - Headers of deleteCollaborationWhitelistEntryById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

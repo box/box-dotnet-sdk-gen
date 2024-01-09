@@ -1,4 +1,4 @@
-# StoragePoliciesManager
+# IStoragePoliciesManager
 
 
 - [List storage policies](#list-storage-policies)
@@ -13,13 +13,16 @@ This operation is performed by calling function `GetStoragePolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-storage-policies/).
 
-*Currently we don't have an example for calling `GetStoragePolicies` in integration tests*
+<!-- sample get_storage_policies -->
+```
+await client.StoragePolicies.GetStoragePoliciesAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetStoragePoliciesQueryParamsArg`
+- queryParams `GetStoragePoliciesQueryParams`
   - Query parameters of getStoragePolicies method
-- headers `GetStoragePoliciesHeadersArg`
+- headers `GetStoragePoliciesHeaders`
   - Headers of getStoragePolicies method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -41,13 +44,16 @@ This operation is performed by calling function `GetStoragePolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-storage-policies-id/).
 
-*Currently we don't have an example for calling `GetStoragePolicyById` in integration tests*
+<!-- sample get_storage_policies_id -->
+```
+await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: NullableUtils.Unwrap(storagePolicy.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - storagePolicyId `string`
   - The ID of the storage policy. Example: "34342"
-- headers `GetStoragePolicyByIdHeadersArg`
+- headers `GetStoragePolicyByIdHeaders`
   - Headers of getStoragePolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

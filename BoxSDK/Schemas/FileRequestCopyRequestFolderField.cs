@@ -10,7 +10,7 @@ namespace Box.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestCopyRequestFolderFieldTypeField? Type { get; set; } = default;
+        public FileRequestCopyRequestFolderTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The ID of the folder to associate the new

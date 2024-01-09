@@ -20,7 +20,7 @@ namespace Box.Schemas {
         ///   retry would not help.
         /// </summary>
         [JsonPropertyName("state")]
-        public SkillInvocationStatusFieldStateField? State { get; set; } = default;
+        public SkillInvocationStatusStateField? State { get; set; } = default;
 
         /// <summary>
         /// Status information

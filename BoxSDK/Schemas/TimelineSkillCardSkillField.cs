@@ -11,7 +11,7 @@ namespace Box.Schemas {
         /// `service`
         /// </summary>
         [JsonPropertyName("type")]
-        public TimelineSkillCardSkillFieldTypeField Type { get; set; }
+        public TimelineSkillCardSkillTypeField Type { get; set; }
 
         /// <summary>
         /// A custom identifier that represent the service that
@@ -20,7 +20,7 @@ namespace Box.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public TimelineSkillCardSkillField(TimelineSkillCardSkillFieldTypeField type, string id) {
+        public TimelineSkillCardSkillField(TimelineSkillCardSkillTypeField type, string id) {
             Type = type;
             Id = id;
         }

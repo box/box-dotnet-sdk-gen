@@ -1,4 +1,4 @@
-# SignRequestsManager
+# ISignRequestsManager
 
 
 - [Cancel sign request](#cancel-sign-request)
@@ -18,14 +18,14 @@ See the endpoint docs at
 
 <!-- sample post_sign_requests_id_cancel -->
 ```
-await client.SignRequests.CancelSignRequestAsync(signRequestId: createdSignRequest.Id!).ConfigureAwait(false)
+await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - signRequestId `string`
   - The ID of the sign request Example: "33243242"
-- headers `CancelSignRequestHeadersArg`
+- headers `CancelSignRequestHeaders`
   - Headers of cancelSignRequest method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -53,7 +53,7 @@ See the endpoint docs at
 
 - signRequestId `string`
   - The ID of the sign request Example: "33243242"
-- headers `ResendSignRequestHeadersArg`
+- headers `ResendSignRequestHeaders`
   - Headers of resendSignRequest method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -78,14 +78,14 @@ See the endpoint docs at
 
 <!-- sample get_sign_requests_id -->
 ```
-await client.SignRequests.GetSignRequestByIdAsync(signRequestId: createdSignRequest.Id!).ConfigureAwait(false)
+await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - signRequestId `string`
   - The ID of the sign request Example: "33243242"
-- headers `GetSignRequestByIdHeadersArg`
+- headers `GetSignRequestByIdHeaders`
   - Headers of getSignRequestById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -115,9 +115,9 @@ await client.SignRequests.GetSignRequestsAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetSignRequestsQueryParamsArg`
+- queryParams `GetSignRequestsQueryParams`
   - Query parameters of getSignRequests method
-- headers `GetSignRequestsHeadersArg`
+- headers `GetSignRequestsHeaders`
   - Headers of getSignRequests method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -149,7 +149,7 @@ await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCre
 
 - requestBody `SignRequestCreateRequest`
   - Request body of createSignRequest method
-- headers `CreateSignRequestHeadersArg`
+- headers `CreateSignRequestHeaders`
   - Headers of createSignRequest method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

@@ -11,13 +11,13 @@ namespace Box.Schemas {
         /// The basics of an access token
         /// </summary>
         [JsonPropertyName("read")]
-        public SkillInvocationTokenFieldReadField? Read { get; set; } = default;
+        public SkillInvocationTokenReadField? Read { get; set; } = default;
 
         /// <summary>
         /// The basics of an access token
         /// </summary>
         [JsonPropertyName("write")]
-        public SkillInvocationTokenFieldWriteField? Write { get; set; } = default;
+        public SkillInvocationTokenWriteField? Write { get; set; } = default;
 
         public SkillInvocationTokenField() {
             

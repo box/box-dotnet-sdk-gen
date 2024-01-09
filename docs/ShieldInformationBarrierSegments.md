@@ -1,4 +1,4 @@
-# ShieldInformationBarrierSegmentsManager
+# IShieldInformationBarrierSegmentsManager
 
 
 - [Get shield information barrier segment with specified ID](#get-shield-information-barrier-segment-with-specified-id)
@@ -16,13 +16,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample get_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.GetShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentId `string`
   - The ID of the shield information barrier segment. Example: "3423"
-- headers `GetShieldInformationBarrierSegmentByIdHeadersArg`
+- headers `GetShieldInformationBarrierSegmentByIdHeaders`
   - Headers of getShieldInformationBarrierSegmentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -44,15 +47,18 @@ This operation is performed by calling function `UpdateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `UpdateShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample put_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.UpdateShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId, requestBody: new UpdateShieldInformationBarrierSegmentByIdRequestBody(description: updatedSegmentDescription)).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentId `string`
   - The ID of the shield information barrier segment. Example: "3423"
-- requestBody `UpdateShieldInformationBarrierSegmentByIdRequestBodyArg`
+- requestBody `UpdateShieldInformationBarrierSegmentByIdRequestBody`
   - Request body of updateShieldInformationBarrierSegmentById method
-- headers `UpdateShieldInformationBarrierSegmentByIdHeadersArg`
+- headers `UpdateShieldInformationBarrierSegmentByIdHeaders`
   - Headers of updateShieldInformationBarrierSegmentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -75,13 +81,16 @@ This operation is performed by calling function `DeleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `DeleteShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample delete_shield_information_barrier_segments_id -->
+```
+await client.ShieldInformationBarrierSegments.DeleteShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierSegmentId `string`
   - The ID of the shield information barrier segment. Example: "3423"
-- headers `DeleteShieldInformationBarrierSegmentByIdHeadersArg`
+- headers `DeleteShieldInformationBarrierSegmentByIdHeaders`
   - Headers of deleteShieldInformationBarrierSegmentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -104,13 +113,16 @@ This operation is performed by calling function `GetShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierSegments` in integration tests*
+<!-- sample get_shield_information_barrier_segments -->
+```
+await client.ShieldInformationBarrierSegments.GetShieldInformationBarrierSegmentsAsync(queryParams: new GetShieldInformationBarrierSegmentsQueryParams(shieldInformationBarrierId: barrierId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetShieldInformationBarrierSegmentsQueryParamsArg`
+- queryParams `GetShieldInformationBarrierSegmentsQueryParams`
   - Query parameters of getShieldInformationBarrierSegments method
-- headers `GetShieldInformationBarrierSegmentsHeadersArg`
+- headers `GetShieldInformationBarrierSegmentsHeaders`
   - Headers of getShieldInformationBarrierSegments method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -132,13 +144,16 @@ This operation is performed by calling function `CreateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierSegment` in integration tests*
+<!-- sample post_shield_information_barrier_segments -->
+```
+await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBody(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier), name: segmentName, description: segmentDescription)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateShieldInformationBarrierSegmentRequestBodyArg`
+- requestBody `CreateShieldInformationBarrierSegmentRequestBody`
   - Request body of createShieldInformationBarrierSegment method
-- headers `CreateShieldInformationBarrierSegmentHeadersArg`
+- headers `CreateShieldInformationBarrierSegmentHeaders`
   - Headers of createShieldInformationBarrierSegment method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

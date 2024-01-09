@@ -23,7 +23,7 @@ namespace Box.Schemas {
         /// The type of access token returned.
         /// </summary>
         [JsonPropertyName("token_type")]
-        public FileFullExpiringEmbedLinkFieldTokenTypeField? TokenType { get; set; } = default;
+        public FileFullExpiringEmbedLinkTokenTypeField? TokenType { get; set; } = default;
 
         /// <summary>
         /// The permissions that this access token permits,
@@ -31,7 +31,7 @@ namespace Box.Schemas {
         /// and the scopes permitted for each of those resources.
         /// </summary>
         [JsonPropertyName("restricted_to")]
-        public IReadOnlyList<FileScope>? RestrictedTo { get; set; } = default;
+        public IReadOnlyList<FileOrFolderScope>? RestrictedTo { get; set; } = default;
 
         /// <summary>
         /// The actual expiring embed URL for this file, constructed

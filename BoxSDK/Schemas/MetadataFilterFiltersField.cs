@@ -7,36 +7,36 @@ using System.Text.Json;
 
 namespace Box.Schemas {
     [JsonConverter(typeof(MetadataFilterFiltersFieldConverter))]
-    public class MetadataFilterFiltersField : OneOf<MetadataFieldFilterString, MetadataFieldFilterFloat, MetadataFieldFilterMultiSelect, MetadataFieldFilterFloatRange, MetadataFieldFilterDateRange> {
-        public MetadataFieldFilterString? MetadataFieldFilterString => _val0;
+    public class MetadataFilterFiltersField : OneOf<Dictionary<string, string>, Dictionary<string, double>, Dictionary<string, IReadOnlyList<string>>, Dictionary<string, MetadataFieldFilterFloatRangeValue>, Dictionary<string, MetadataFieldFilterDateRangeValue>> {
+        public Dictionary<string, string>? MetadataFieldFilterString => _val0;
         
-        public MetadataFieldFilterFloat? MetadataFieldFilterFloat => _val1;
+        public Dictionary<string, double>? MetadataFieldFilterFloat => _val1;
         
-        public MetadataFieldFilterMultiSelect? MetadataFieldFilterMultiSelect => _val2;
+        public Dictionary<string, IReadOnlyList<string>>? MetadataFieldFilterMultiSelect => _val2;
         
-        public MetadataFieldFilterFloatRange? MetadataFieldFilterFloatRange => _val3;
+        public Dictionary<string, MetadataFieldFilterFloatRangeValue>? MetadataFieldFilterFloatRange => _val3;
         
-        public MetadataFieldFilterDateRange? MetadataFieldFilterDateRange => _val4;
+        public Dictionary<string, MetadataFieldFilterDateRangeValue>? MetadataFieldFilterDateRange => _val4;
         
-        public MetadataFilterFiltersField(MetadataFieldFilterString value) : base(value) {}
+        public MetadataFilterFiltersField(Dictionary<string, string> value) : base(value) {}
         
-        public MetadataFilterFiltersField(MetadataFieldFilterFloat value) : base(value) {}
+        public MetadataFilterFiltersField(Dictionary<string, double> value) : base(value) {}
         
-        public MetadataFilterFiltersField(MetadataFieldFilterMultiSelect value) : base(value) {}
+        public MetadataFilterFiltersField(Dictionary<string, IReadOnlyList<string>> value) : base(value) {}
         
-        public MetadataFilterFiltersField(MetadataFieldFilterFloatRange value) : base(value) {}
+        public MetadataFilterFiltersField(Dictionary<string, MetadataFieldFilterFloatRangeValue> value) : base(value) {}
         
-        public MetadataFilterFiltersField(MetadataFieldFilterDateRange value) : base(value) {}
+        public MetadataFilterFiltersField(Dictionary<string, MetadataFieldFilterDateRangeValue> value) : base(value) {}
         
-        public static implicit operator MetadataFilterFiltersField(MetadataFieldFilterString value) => new MetadataFilterFiltersField(value);
+        public static implicit operator MetadataFilterFiltersField(Dictionary<string, string> value) => new MetadataFilterFiltersField(value);
         
-        public static implicit operator MetadataFilterFiltersField(MetadataFieldFilterFloat value) => new MetadataFilterFiltersField(value);
+        public static implicit operator MetadataFilterFiltersField(Dictionary<string, double> value) => new MetadataFilterFiltersField(value);
         
-        public static implicit operator MetadataFilterFiltersField(MetadataFieldFilterMultiSelect value) => new MetadataFilterFiltersField(value);
+        public static implicit operator MetadataFilterFiltersField(Dictionary<string, IReadOnlyList<string>> value) => new MetadataFilterFiltersField(value);
         
-        public static implicit operator MetadataFilterFiltersField(MetadataFieldFilterFloatRange value) => new MetadataFilterFiltersField(value);
+        public static implicit operator MetadataFilterFiltersField(Dictionary<string, MetadataFieldFilterFloatRangeValue> value) => new MetadataFilterFiltersField(value);
         
-        public static implicit operator MetadataFilterFiltersField(MetadataFieldFilterDateRange value) => new MetadataFilterFiltersField(value);
+        public static implicit operator MetadataFilterFiltersField(Dictionary<string, MetadataFieldFilterDateRangeValue> value) => new MetadataFilterFiltersField(value);
         
         class MetadataFilterFiltersFieldConverter : JsonConverter<MetadataFilterFiltersField> {
             public override MetadataFilterFiltersField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {

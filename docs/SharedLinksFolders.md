@@ -1,4 +1,4 @@
-# SharedLinksFoldersManager
+# ISharedLinksFoldersManager
 
 
 - [Find folder for shared link](#find-folder-for-shared-link)
@@ -17,22 +17,22 @@ which can originate within the current enterprise or within another.
 This endpoint allows an application to retrieve information about a
 shared folder when only given a shared link.
 
-This operation is performed by calling function `GetSharedItemFolders`.
+This operation is performed by calling function `FindFolderForSharedLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-folders/).
 
 <!-- sample get_shared_items#folders -->
 ```
-await userClient.SharedLinksFolders.GetSharedItemFoldersAsync(queryParams: new GetSharedItemFoldersQueryParamsArg(), headers: new GetSharedItemFoldersHeadersArg(boxapi: string.Concat("shared_link=", folderFromApi.SharedLink!.Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+await userClient.SharedLinksFolders.FindFolderForSharedLinkAsync(queryParams: new FindFolderForSharedLinkQueryParams(), headers: new FindFolderForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(folderFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- queryParams `GetSharedItemFoldersQueryParamsArg`
-  - Query parameters of getSharedItemFolders method
-- headers `GetSharedItemFoldersHeadersArg`
-  - Headers of getSharedItemFolders method
+- queryParams `FindFolderForSharedLinkQueryParams`
+  - Query parameters of findFolderForSharedLink method
+- headers `FindFolderForSharedLinkHeaders`
+  - Headers of findFolderForSharedLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -49,24 +49,24 @@ the user has access to it.
 
 Gets the information for a shared link on a folder.
 
-This operation is performed by calling function `GetFolderGetSharedLink`.
+This operation is performed by calling function `GetSharedLinkForFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-get-shared-link/).
 
 <!-- sample get_folders_id#get_shared_link -->
 ```
-await client.SharedLinksFolders.GetFolderGetSharedLinkAsync(folderId: folder.Id, queryParams: new GetFolderGetSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.GetSharedLinkForFolderAsync(folderId: folder.Id, queryParams: new GetSharedLinkForFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- queryParams `GetFolderGetSharedLinkQueryParamsArg`
-  - Query parameters of getFolderGetSharedLink method
-- headers `GetFolderGetSharedLinkHeadersArg`
-  - Headers of getFolderGetSharedLink method
+- queryParams `GetSharedLinkForFolderQueryParams`
+  - Query parameters of getSharedLinkForFolder method
+- headers `GetSharedLinkForFolderHeaders`
+  - Headers of getSharedLinkForFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -83,26 +83,26 @@ additional shared link information.
 
 Adds a shared link to a folder.
 
-This operation is performed by calling function `UpdateFolderAddSharedLink`.
+This operation is performed by calling function `AddShareLinkToFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-add-shared-link/).
 
 <!-- sample put_folders_id#add_shared_link -->
 ```
-await client.SharedLinksFolders.UpdateFolderAddSharedLinkAsync(folderId: folder.Id, requestBody: new UpdateFolderAddSharedLinkRequestBodyArg(sharedLink: new UpdateFolderAddSharedLinkRequestBodyArgSharedLinkField(access: UpdateFolderAddSharedLinkRequestBodyArgSharedLinkFieldAccessField.Open, password: "Secret123@")), queryParams: new UpdateFolderAddSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.AddShareLinkToFolderAsync(folderId: folder.Id, requestBody: new AddShareLinkToFolderRequestBody(sharedLink: new AddShareLinkToFolderRequestBodySharedLinkField(access: AddShareLinkToFolderRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderAddSharedLinkRequestBodyArg`
-  - Request body of updateFolderAddSharedLink method
-- queryParams `UpdateFolderAddSharedLinkQueryParamsArg`
-  - Query parameters of updateFolderAddSharedLink method
-- headers `UpdateFolderAddSharedLinkHeadersArg`
-  - Headers of updateFolderAddSharedLink method
+- requestBody `AddShareLinkToFolderRequestBody`
+  - Request body of addShareLinkToFolder method
+- queryParams `AddShareLinkToFolderQueryParams`
+  - Query parameters of addShareLinkToFolder method
+- headers `AddShareLinkToFolderHeaders`
+  - Headers of addShareLinkToFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -119,26 +119,26 @@ link attached.
 
 Updates a shared link on a folder.
 
-This operation is performed by calling function `UpdateFolderUpdateSharedLink`.
+This operation is performed by calling function `UpdateSharedLinkOnFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-update-shared-link/).
 
 <!-- sample put_folders_id#update_shared_link -->
 ```
-await client.SharedLinksFolders.UpdateFolderUpdateSharedLinkAsync(folderId: folder.Id, requestBody: new UpdateFolderUpdateSharedLinkRequestBodyArg(sharedLink: new UpdateFolderUpdateSharedLinkRequestBodyArgSharedLinkField(access: UpdateFolderUpdateSharedLinkRequestBodyArgSharedLinkFieldAccessField.Collaborators)), queryParams: new UpdateFolderUpdateSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.UpdateSharedLinkOnFolderAsync(folderId: folder.Id, requestBody: new UpdateSharedLinkOnFolderRequestBody(sharedLink: new UpdateSharedLinkOnFolderRequestBodySharedLinkField(access: UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderUpdateSharedLinkRequestBodyArg`
-  - Request body of updateFolderUpdateSharedLink method
-- queryParams `UpdateFolderUpdateSharedLinkQueryParamsArg`
-  - Query parameters of updateFolderUpdateSharedLink method
-- headers `UpdateFolderUpdateSharedLinkHeadersArg`
-  - Headers of updateFolderUpdateSharedLink method
+- requestBody `UpdateSharedLinkOnFolderRequestBody`
+  - Request body of updateSharedLinkOnFolder method
+- queryParams `UpdateSharedLinkOnFolderQueryParams`
+  - Query parameters of updateSharedLinkOnFolder method
+- headers `UpdateSharedLinkOnFolderHeaders`
+  - Headers of updateSharedLinkOnFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -155,23 +155,23 @@ link attached.
 
 Removes a shared link from a folder.
 
-This operation is performed by calling function `UpdateFolderRemoveSharedLink`.
+This operation is performed by calling function `RemoveSharedLinkFromFolder`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-remove-shared-link/).
 
-*Currently we don't have an example for calling `UpdateFolderRemoveSharedLink` in integration tests*
+*Currently we don't have an example for calling `RemoveSharedLinkFromFolder` in integration tests*
 
 ### Arguments
 
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
-- requestBody `UpdateFolderRemoveSharedLinkRequestBodyArg`
-  - Request body of updateFolderRemoveSharedLink method
-- queryParams `UpdateFolderRemoveSharedLinkQueryParamsArg`
-  - Query parameters of updateFolderRemoveSharedLink method
-- headers `UpdateFolderRemoveSharedLinkHeadersArg`
-  - Headers of updateFolderRemoveSharedLink method
+- requestBody `RemoveSharedLinkFromFolderRequestBody`
+  - Request body of removeSharedLinkFromFolder method
+- queryParams `RemoveSharedLinkFromFolderQueryParams`
+  - Query parameters of removeSharedLinkFromFolder method
+- headers `RemoveSharedLinkFromFolderHeaders`
+  - Headers of removeSharedLinkFromFolder method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

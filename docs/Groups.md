@@ -1,4 +1,4 @@
-# GroupsManager
+# IGroupsManager
 
 
 - [List groups for enterprise](#list-groups-for-enterprise)
@@ -24,9 +24,9 @@ await client.Groups.GetGroupsAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetGroupsQueryParamsArg`
+- queryParams `GetGroupsQueryParams`
   - Query parameters of getGroups method
-- headers `GetGroupsHeadersArg`
+- headers `GetGroupsHeaders`
   - Headers of getGroups method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -52,16 +52,16 @@ See the endpoint docs at
 
 <!-- sample post_groups -->
 ```
-await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBodyArg(name: Utils.GetUUID())).ConfigureAwait(false)
+await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateGroupRequestBodyArg`
+- requestBody `CreateGroupRequestBody`
   - Request body of createGroup method
-- queryParams `CreateGroupQueryParamsArg`
+- queryParams `CreateGroupQueryParams`
   - Query parameters of createGroup method
-- headers `CreateGroupHeadersArg`
+- headers `CreateGroupHeaders`
   - Headers of createGroup method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -94,9 +94,9 @@ await client.Groups.GetGroupByIdAsync(groupId: group.Id).ConfigureAwait(false)
 
 - groupId `string`
   - The ID of the group. Example: "57645"
-- queryParams `GetGroupByIdQueryParamsArg`
+- queryParams `GetGroupByIdQueryParams`
   - Query parameters of getGroupById method
-- headers `GetGroupByIdHeadersArg`
+- headers `GetGroupByIdHeaders`
   - Headers of getGroupById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -122,18 +122,18 @@ See the endpoint docs at
 
 <!-- sample put_groups_id -->
 ```
-await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBodyArg(name: updatedGroupName)).ConfigureAwait(false)
+await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody(name: updatedGroupName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - groupId `string`
   - The ID of the group. Example: "57645"
-- requestBody `UpdateGroupByIdRequestBodyArg`
+- requestBody `UpdateGroupByIdRequestBody`
   - Request body of updateGroupById method
-- queryParams `UpdateGroupByIdQueryParamsArg`
+- queryParams `UpdateGroupByIdQueryParams`
   - Query parameters of updateGroupById method
-- headers `UpdateGroupByIdHeadersArg`
+- headers `UpdateGroupByIdHeaders`
   - Headers of updateGroupById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -165,7 +165,7 @@ await client.Groups.DeleteGroupByIdAsync(groupId: group.Id).ConfigureAwait(false
 
 - groupId `string`
   - The ID of the group. Example: "57645"
-- headers `DeleteGroupByIdHeadersArg`
+- headers `DeleteGroupByIdHeaders`
   - Headers of deleteGroupById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

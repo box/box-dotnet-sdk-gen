@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataTemplateFieldsField {
@@ -20,7 +21,7 @@ namespace Box.Schemas {
         /// but cannot be used in the POST request.
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataTemplateFieldsFieldTypeField Type { get; set; }
+        public MetadataTemplateFieldsTypeField Type { get; set; }
 
         /// <summary>
         /// A unique identifier for the field. The identifier must
@@ -54,7 +55,7 @@ namespace Box.Schemas {
         /// with the `enum` and `multiSelect` field types.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<MetadataTemplateFieldsFieldOptionsField>? Options { get; set; } = default;
+        public IReadOnlyList<MetadataTemplateFieldsOptionsField>? Options { get; set; } = default;
 
         /// <summary>
         /// The unique ID of the metadata template field.
@@ -62,7 +63,7 @@ namespace Box.Schemas {
         [JsonPropertyName("id")]
         public string? Id { get; set; } = default;
 
-        public MetadataTemplateFieldsField(MetadataTemplateFieldsFieldTypeField type, string key, string displayName) {
+        public MetadataTemplateFieldsField(MetadataTemplateFieldsTypeField type, string key, string displayName) {
             Type = type;
             Key = key;
             DisplayName = displayName;

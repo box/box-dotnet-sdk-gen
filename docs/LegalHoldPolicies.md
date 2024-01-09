@@ -1,4 +1,4 @@
-# LegalHoldPoliciesManager
+# ILegalHoldPoliciesManager
 
 
 - [List all legal hold policies](#list-all-legal-hold-policies)
@@ -24,9 +24,9 @@ await client.LegalHoldPolicies.GetLegalHoldPoliciesAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetLegalHoldPoliciesQueryParamsArg`
+- queryParams `GetLegalHoldPoliciesQueryParams`
   - Query parameters of getLegalHoldPolicies method
-- headers `GetLegalHoldPoliciesHeadersArg`
+- headers `GetLegalHoldPoliciesHeaders`
   - Headers of getLegalHoldPolicies method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -50,14 +50,14 @@ See the endpoint docs at
 
 <!-- sample post_legal_hold_policies -->
 ```
-await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBodyArg(policyName: legalHoldPolicyName, description: legalHoldDescription, isOngoing: true)).ConfigureAwait(false)
+await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBody(policyName: legalHoldPolicyName, description: legalHoldDescription, isOngoing: true)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateLegalHoldPolicyRequestBodyArg`
+- requestBody `CreateLegalHoldPolicyRequestBody`
   - Request body of createLegalHoldPolicy method
-- headers `CreateLegalHoldPolicyHeadersArg`
+- headers `CreateLegalHoldPolicyHeaders`
   - Headers of createLegalHoldPolicy method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -88,7 +88,7 @@ await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId: le
 
 - legalHoldPolicyId `string`
   - The ID of the legal hold policy Example: "324432"
-- headers `GetLegalHoldPolicyByIdHeadersArg`
+- headers `GetLegalHoldPolicyByIdHeaders`
   - Headers of getLegalHoldPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -112,16 +112,16 @@ See the endpoint docs at
 
 <!-- sample put_legal_hold_policies_id -->
 ```
-await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId, requestBody: new UpdateLegalHoldPolicyByIdRequestBodyArg(policyName: updatedLegalHoldPolicyName)).ConfigureAwait(false)
+await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId, requestBody: new UpdateLegalHoldPolicyByIdRequestBody(policyName: updatedLegalHoldPolicyName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - legalHoldPolicyId `string`
   - The ID of the legal hold policy Example: "324432"
-- requestBody `UpdateLegalHoldPolicyByIdRequestBodyArg`
+- requestBody `UpdateLegalHoldPolicyByIdRequestBody`
   - Request body of updateLegalHoldPolicyById method
-- headers `UpdateLegalHoldPolicyByIdHeadersArg`
+- headers `UpdateLegalHoldPolicyByIdHeaders`
   - Headers of updateLegalHoldPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -155,7 +155,7 @@ await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId:
 
 - legalHoldPolicyId `string`
   - The ID of the legal hold policy Example: "324432"
-- headers `DeleteLegalHoldPolicyByIdHeadersArg`
+- headers `DeleteLegalHoldPolicyByIdHeaders`
   - Headers of deleteLegalHoldPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

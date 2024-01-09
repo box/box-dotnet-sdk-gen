@@ -11,7 +11,7 @@ namespace Box.Schemas {
         /// A list of files
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileFullRepresentationsFieldEntriesField>? Entries { get; set; } = default;
+        public IReadOnlyList<FileFullRepresentationsEntriesField>? Entries { get; set; } = default;
 
         public FileFullRepresentationsField() {
             

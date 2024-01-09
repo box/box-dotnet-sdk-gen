@@ -1,4 +1,4 @@
-# MembershipsManager
+# IMembershipsManager
 
 
 - [List user's groups](#list-users-groups)
@@ -28,9 +28,9 @@ await client.Memberships.GetUserMembershipsAsync(userId: user.Id).ConfigureAwait
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- queryParams `GetUserMembershipsQueryParamsArg`
+- queryParams `GetUserMembershipsQueryParams`
   - Query parameters of getUserMemberships method
-- headers `GetUserMembershipsHeadersArg`
+- headers `GetUserMembershipsHeaders`
   - Headers of getUserMemberships method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -64,9 +64,9 @@ await client.Memberships.GetGroupMembershipsAsync(groupId: group.Id).ConfigureAw
 
 - groupId `string`
   - The ID of the group. Example: "57645"
-- queryParams `GetGroupMembershipsQueryParamsArg`
+- queryParams `GetGroupMembershipsQueryParams`
   - Query parameters of getGroupMemberships method
-- headers `GetGroupMembershipsHeadersArg`
+- headers `GetGroupMembershipsHeaders`
   - Headers of getGroupMemberships method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -92,16 +92,16 @@ See the endpoint docs at
 
 <!-- sample post_group_memberships -->
 ```
-await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBodyArg(user: new CreateGroupMembershipRequestBodyArgUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyArgGroupField(id: group.Id))).ConfigureAwait(false)
+await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBody(user: new CreateGroupMembershipRequestBodyUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyGroupField(id: group.Id))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateGroupMembershipRequestBodyArg`
+- requestBody `CreateGroupMembershipRequestBody`
   - Request body of createGroupMembership method
-- queryParams `CreateGroupMembershipQueryParamsArg`
+- queryParams `CreateGroupMembershipQueryParams`
   - Query parameters of createGroupMembership method
-- headers `CreateGroupMembershipHeadersArg`
+- headers `CreateGroupMembershipHeaders`
   - Headers of createGroupMembership method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -127,16 +127,16 @@ See the endpoint docs at
 
 <!-- sample get_group_memberships_id -->
 ```
-await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - groupMembershipId `string`
   - The ID of the group membership. Example: "434534"
-- queryParams `GetGroupMembershipByIdQueryParamsArg`
+- queryParams `GetGroupMembershipByIdQueryParams`
   - Query parameters of getGroupMembershipById method
-- headers `GetGroupMembershipByIdHeadersArg`
+- headers `GetGroupMembershipByIdHeaders`
   - Headers of getGroupMembershipById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -162,18 +162,18 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!, requestBody: new UpdateGroupMembershipByIdRequestBodyArg(role: UpdateGroupMembershipByIdRequestBodyArgRoleField.Admin)).ConfigureAwait(false)
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody(role: UpdateGroupMembershipByIdRequestBodyRoleField.Admin)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - groupMembershipId `string`
   - The ID of the group membership. Example: "434534"
-- requestBody `UpdateGroupMembershipByIdRequestBodyArg`
+- requestBody `UpdateGroupMembershipByIdRequestBody`
   - Request body of updateGroupMembershipById method
-- queryParams `UpdateGroupMembershipByIdQueryParamsArg`
+- queryParams `UpdateGroupMembershipByIdQueryParams`
   - Query parameters of updateGroupMembershipById method
-- headers `UpdateGroupMembershipByIdHeadersArg`
+- headers `UpdateGroupMembershipByIdHeaders`
   - Headers of updateGroupMembershipById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -199,14 +199,14 @@ See the endpoint docs at
 
 <!-- sample delete_group_memberships_id -->
 ```
-await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: groupMembership.Id!).ConfigureAwait(false)
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - groupMembershipId `string`
   - The ID of the group membership. Example: "434534"
-- headers `DeleteGroupMembershipByIdHeadersArg`
+- headers `DeleteGroupMembershipByIdHeaders`
   - Headers of deleteGroupMembershipById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

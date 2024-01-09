@@ -1,4 +1,4 @@
-# MetadataTemplatesManager
+# IMetadataTemplatesManager
 
 
 - [Find metadata template by instance ID](#find-metadata-template-by-instance-id)
@@ -15,19 +15,22 @@
 Finds a metadata template by searching for the ID of an instance of the
 template.
 
-This operation is performed by calling function `GetMetadataTemplates`.
+This operation is performed by calling function `GetMetadataTemplatesByInstanceId`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates/).
 
-*Currently we don't have an example for calling `GetMetadataTemplates` in integration tests*
+<!-- sample get_metadata_templates -->
+```
+await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetMetadataTemplatesQueryParamsArg`
-  - Query parameters of getMetadataTemplates method
-- headers `GetMetadataTemplatesHeadersArg`
-  - Headers of getMetadataTemplates method
+- queryParams `GetMetadataTemplatesByInstanceIdQueryParams`
+  - Query parameters of getMetadataTemplatesByInstanceId method
+- headers `GetMetadataTemplatesByInstanceIdHeaders`
+  - Headers of getMetadataTemplatesByInstanceId method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -47,24 +50,24 @@ Retrieves a metadata template by its `scope` and `templateKey` values.
 To find the `scope` and `templateKey` for a template, list all templates for
 an enterprise or globally, or list all templates applied to a file or folder.
 
-This operation is performed by calling function `GetMetadataTemplateSchema`.
+This operation is performed by calling function `GetMetadataTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-id-id-schema/).
 
 <!-- sample get_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateSchemaAsync(scope: GetMetadataTemplateSchemaScopeArg.Enterprise, templateKey: template.TemplateKey!).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- scope `GetMetadataTemplateSchemaScopeArg`
+- scope `GetMetadataTemplateScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `GetMetadataTemplateSchemaHeadersArg`
-  - Headers of getMetadataTemplateSchema method
+- headers `GetMetadataTemplateHeaders`
+  - Headers of getMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -87,23 +90,26 @@ already exists.
 The update is applied atomically. If any errors occur during the
 application of the operations, the metadata template will not be changed.
 
-This operation is performed by calling function `UpdateMetadataTemplateSchema`.
+This operation is performed by calling function `UpdateMetadataTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `UpdateMetadataTemplateSchema` in integration tests*
+<!-- sample put_metadata_templates_id_id_schema -->
+```
+await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField, fieldKey: "newfieldname", data: new Dictionary<string, string>() { { "type", "string" }, { "displayName", "newFieldName" } })})).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- scope `UpdateMetadataTemplateSchemaScopeArg`
+- scope `UpdateMetadataTemplateScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `IReadOnlyList<UpdateMetadataTemplateSchemaRequestBodyArg>`
-  - Request body of updateMetadataTemplateSchema method
-- headers `UpdateMetadataTemplateSchemaHeadersArg`
-  - Headers of updateMetadataTemplateSchema method
+- requestBody `IReadOnlyList<UpdateMetadataTemplateRequestBody>`
+  - Request body of updateMetadataTemplate method
+- headers `UpdateMetadataTemplateHeaders`
+  - Headers of updateMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -121,24 +127,24 @@ custom template data included.
 Delete a metadata template and its instances.
 This deletion is permanent and can not be reversed.
 
-This operation is performed by calling function `DeleteMetadataTemplateSchema`.
+This operation is performed by calling function `DeleteMetadataTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-templates-id-id-schema/).
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateSchemaAsync(scope: DeleteMetadataTemplateSchemaScopeArg.Enterprise, templateKey: template.TemplateKey!).ConfigureAwait(false)
+await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- scope `DeleteMetadataTemplateSchemaScopeArg`
+- scope `DeleteMetadataTemplateScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `DeleteMetadataTemplateSchemaHeadersArg`
-  - Headers of deleteMetadataTemplateSchema method
+- headers `DeleteMetadataTemplateHeaders`
+  - Headers of deleteMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -162,14 +168,14 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id!).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - templateId `string`
   - The ID of the template Example: "f7a9891f"
-- headers `GetMetadataTemplateByIdHeadersArg`
+- headers `GetMetadataTemplateByIdHeaders`
   - Headers of getMetadataTemplateById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -187,22 +193,22 @@ Returns the metadata template that matches the ID.
 Used to retrieve all generic, global metadata templates available to all
 enterprises using Box.
 
-This operation is performed by calling function `GetMetadataTemplateGlobal`.
+This operation is performed by calling function `GetGlobalMetadataTemplates`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-global/).
 
 <!-- sample get_metadata_templates_global -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateGlobalAsync().ConfigureAwait(false)
+await client.MetadataTemplates.GetGlobalMetadataTemplatesAsync().ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- queryParams `GetMetadataTemplateGlobalQueryParamsArg`
-  - Query parameters of getMetadataTemplateGlobal method
-- headers `GetMetadataTemplateGlobalHeadersArg`
-  - Headers of getMetadataTemplateGlobal method
+- queryParams `GetGlobalMetadataTemplatesQueryParams`
+  - Query parameters of getGlobalMetadataTemplates method
+- headers `GetGlobalMetadataTemplatesHeaders`
+  - Headers of getGlobalMetadataTemplates method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -220,22 +226,22 @@ and their corresponding schema.
 Used to retrieve all metadata templates created to be used specifically within
 the user's enterprise
 
-This operation is performed by calling function `GetMetadataTemplateEnterprise`.
+This operation is performed by calling function `GetEnterpriseMetadataTemplates`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise/).
 
 <!-- sample get_metadata_templates_enterprise -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateEnterpriseAsync().ConfigureAwait(false)
+await client.MetadataTemplates.GetEnterpriseMetadataTemplatesAsync().ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- queryParams `GetMetadataTemplateEnterpriseQueryParamsArg`
-  - Query parameters of getMetadataTemplateEnterprise method
-- headers `GetMetadataTemplateEnterpriseHeadersArg`
-  - Headers of getMetadataTemplateEnterprise method
+- queryParams `GetEnterpriseMetadataTemplatesQueryParams`
+  - Query parameters of getEnterpriseMetadataTemplates method
+- headers `GetEnterpriseMetadataTemplatesHeaders`
+  - Headers of getEnterpriseMetadataTemplates method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -253,22 +259,22 @@ and their corresponding schema.
 Creates a new metadata template that can be applied to
 files and folders.
 
-This operation is performed by calling function `CreateMetadataTemplateSchema`.
+This operation is performed by calling function `CreateMetadataTemplate`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-templates-schema/).
 
 <!-- sample post_metadata_templates_schema -->
 ```
-await client.MetadataTemplates.CreateMetadataTemplateSchemaAsync(requestBody: new CreateMetadataTemplateSchemaRequestBodyArg(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateSchemaRequestBodyArgFieldsField(type: CreateMetadataTemplateSchemaRequestBodyArgFieldsFieldTypeField.String, key: "testName", displayName: "testName")}))).ConfigureAwait(false)
+await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateMetadataTemplateSchemaRequestBodyArg`
-  - Request body of createMetadataTemplateSchema method
-- headers `CreateMetadataTemplateSchemaHeadersArg`
-  - Headers of createMetadataTemplateSchema method
+- requestBody `CreateMetadataTemplateRequestBody`
+  - Request body of createMetadataTemplate method
+- headers `CreateMetadataTemplateHeaders`
+  - Headers of createMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

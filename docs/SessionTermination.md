@@ -1,4 +1,4 @@
-# SessionTerminationManager
+# ISessionTerminationManager
 
 
 - [Create jobs to terminate users session](#create-jobs-to-terminate-users-session)
@@ -11,19 +11,22 @@ and creates asynchronous jobs
 to terminate the user's sessions.
 Returns the status for the POST request.
 
-This operation is performed by calling function `CreateUserTerminateSession`.
+This operation is performed by calling function `TerminateUsersSessions`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users-terminate-sessions/).
 
-*Currently we don't have an example for calling `CreateUserTerminateSession` in integration tests*
+<!-- sample post_users_terminate_sessions -->
+```
+await client.SessionTermination.TerminateUsersSessionsAsync(requestBody: new TerminateUsersSessionsRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)}))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateUserTerminateSessionRequestBodyArg`
-  - Request body of createUserTerminateSession method
-- headers `CreateUserTerminateSessionHeadersArg`
-  - Headers of createUserTerminateSession method
+- requestBody `TerminateUsersSessionsRequestBody`
+  - Request body of terminateUsersSessions method
+- headers `TerminateUsersSessionsHeaders`
+  - Headers of terminateUsersSessions method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -42,19 +45,22 @@ and creates asynchronous jobs
 to terminate the group's sessions.
 Returns the status for the POST request.
 
-This operation is performed by calling function `CreateGroupTerminateSession`.
+This operation is performed by calling function `TerminateGroupsSessions`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-groups-terminate-sessions/).
 
-*Currently we don't have an example for calling `CreateGroupTerminateSession` in integration tests*
+<!-- sample post_groups_terminate_sessions -->
+```
+await client.SessionTermination.TerminateGroupsSessionsAsync(requestBody: new TerminateGroupsSessionsRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id}))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateGroupTerminateSessionRequestBodyArg`
-  - Request body of createGroupTerminateSession method
-- headers `CreateGroupTerminateSessionHeadersArg`
-  - Headers of createGroupTerminateSession method
+- requestBody `TerminateGroupsSessionsRequestBody`
+  - Request body of terminateGroupsSessions method
+- headers `TerminateGroupsSessionsHeaders`
+  - Headers of terminateGroupsSessions method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

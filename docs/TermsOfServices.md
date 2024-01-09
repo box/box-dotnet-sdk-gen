@@ -1,4 +1,4 @@
-# TermsOfServicesManager
+# ITermsOfServicesManager
 
 
 - [List terms of services](#list-terms-of-services)
@@ -11,19 +11,22 @@
 Returns the current terms of service text and settings
 for the enterprise.
 
-This operation is performed by calling function `GetTermOfServices`.
+This operation is performed by calling function `GetTermsOfService`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-services/).
 
-*Currently we don't have an example for calling `GetTermOfServices` in integration tests*
+<!-- sample get_terms_of_services -->
+```
+await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetTermOfServicesQueryParamsArg`
-  - Query parameters of getTermOfServices method
-- headers `GetTermOfServicesHeadersArg`
-  - Headers of getTermOfServices method
+- queryParams `GetTermsOfServiceQueryParams`
+  - Query parameters of getTermsOfService method
+- headers `GetTermsOfServiceHeaders`
+  - Headers of getTermsOfService method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -41,26 +44,29 @@ enterprise.
 Creates a terms of service for a given enterprise
 and type of user.
 
-This operation is performed by calling function `CreateTermOfService`.
+This operation is performed by calling function `CreateTermsOfService`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-terms-of-services/).
 
-*Currently we don't have an example for calling `CreateTermOfService` in integration tests*
+<!-- sample post_terms_of_services -->
+```
+await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Enabled, tosType: CreateTermsOfServiceRequestBodyTosTypeField.Managed, text: "Test TOS")).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateTermOfServiceRequestBodyArg`
-  - Request body of createTermOfService method
-- headers `CreateTermOfServiceHeadersArg`
-  - Headers of createTermOfService method
+- requestBody `CreateTermsOfServiceRequestBody`
+  - Request body of createTermsOfService method
+- headers `CreateTermsOfServiceHeaders`
+  - Headers of createTermsOfService method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
 
 ### Returns
 
-This function returns a value of type `Task`.
+This function returns a value of type `TermsOfService`.
 
 Returns a new task object
 
@@ -69,19 +75,19 @@ Returns a new task object
 
 Fetches a specific terms of service.
 
-This operation is performed by calling function `GetTermOfServiceById`.
+This operation is performed by calling function `GetTermsOfServiceById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-services-id/).
 
-*Currently we don't have an example for calling `GetTermOfServiceById` in integration tests*
+*Currently we don't have an example for calling `GetTermsOfServiceById` in integration tests*
 
 ### Arguments
 
 - termsOfServiceId `string`
   - The ID of the terms of service. Example: "324234"
-- headers `GetTermOfServiceByIdHeadersArg`
-  - Headers of getTermOfServiceById method
+- headers `GetTermsOfServiceByIdHeaders`
+  - Headers of getTermsOfServiceById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -97,21 +103,24 @@ Returns a terms of service object.
 
 Updates a specific terms of service.
 
-This operation is performed by calling function `UpdateTermOfServiceById`.
+This operation is performed by calling function `UpdateTermsOfServiceById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-terms-of-services-id/).
 
-*Currently we don't have an example for calling `UpdateTermOfServiceById` in integration tests*
+<!-- sample put_terms_of_services_id -->
+```
+await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Disabled TOS")).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - termsOfServiceId `string`
   - The ID of the terms of service. Example: "324234"
-- requestBody `UpdateTermOfServiceByIdRequestBodyArg`
-  - Request body of updateTermOfServiceById method
-- headers `UpdateTermOfServiceByIdHeadersArg`
-  - Headers of updateTermOfServiceById method
+- requestBody `UpdateTermsOfServiceByIdRequestBody`
+  - Request body of updateTermsOfServiceById method
+- headers `UpdateTermsOfServiceByIdHeaders`
+  - Headers of updateTermsOfServiceById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

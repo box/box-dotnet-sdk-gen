@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Box.Schemas {
     public class MetadataQueryIndexFieldsField {
@@ -16,7 +17,7 @@ namespace Box.Schemas {
         /// The sort direction of the field.
         /// </summary>
         [JsonPropertyName("sort_direction")]
-        public MetadataQueryIndexFieldsFieldSortDirectionField? SortDirection { get; set; } = default;
+        public MetadataQueryIndexFieldsSortDirectionField? SortDirection { get; set; } = default;
 
         public MetadataQueryIndexFieldsField() {
             

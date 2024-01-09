@@ -1,4 +1,4 @@
-# WebLinksManager
+# IWebLinksManager
 
 
 - [Create web link](#create-web-link)
@@ -17,14 +17,14 @@ See the endpoint docs at
 
 <!-- sample post_web_links -->
 ```
-await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBodyArg(url: url, parent: new CreateWebLinkRequestBodyArgParentField(id: parent.Id), name: name, description: description)).ConfigureAwait(false)
+await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: url, parent: new CreateWebLinkRequestBodyParentField(id: parent.Id), name: name, description: description)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateWebLinkRequestBodyArg`
+- requestBody `CreateWebLinkRequestBody`
   - Request body of createWebLink method
-- headers `CreateWebLinkHeadersArg`
+- headers `CreateWebLinkHeaders`
   - Headers of createWebLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -55,7 +55,7 @@ await client.WebLinks.GetWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- headers `GetWebLinkByIdHeadersArg`
+- headers `GetWebLinkByIdHeaders`
   - Headers of getWebLinkById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -83,9 +83,9 @@ See the endpoint docs at
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- requestBody `UpdateWebLinkByIdRequestBodyArg`
+- requestBody `UpdateWebLinkByIdRequestBody`
   - Request body of updateWebLinkById method
-- headers `UpdateWebLinkByIdHeadersArg`
+- headers `UpdateWebLinkByIdHeaders`
   - Headers of updateWebLinkById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -116,7 +116,7 @@ await client.WebLinks.DeleteWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwa
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- headers `DeleteWebLinkByIdHeadersArg`
+- headers `DeleteWebLinkByIdHeaders`
   - Headers of deleteWebLinkById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

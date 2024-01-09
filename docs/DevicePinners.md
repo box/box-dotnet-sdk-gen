@@ -1,4 +1,4 @@
-# DevicePinnersManager
+# IDevicePinnersManager
 
 
 - [Get device pin](#get-device-pin)
@@ -20,7 +20,7 @@ See the endpoint docs at
 
 - devicePinnerId `string`
   - The ID of the device pin Example: "2324234"
-- headers `GetDevicePinnerByIdHeadersArg`
+- headers `GetDevicePinnerByIdHeaders`
   - Headers of getDevicePinnerById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 - devicePinnerId `string`
   - The ID of the device pin Example: "2324234"
-- headers `DeleteDevicePinnerByIdHeadersArg`
+- headers `DeleteDevicePinnerByIdHeaders`
   - Headers of deleteDevicePinnerById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -79,9 +79,9 @@ See the endpoint docs at
 
 - enterpriseId `string`
   - The ID of the enterprise Example: "3442311"
-- queryParams `GetEnterpriseDevicePinnersQueryParamsArg`
+- queryParams `GetEnterpriseDevicePinnersQueryParams`
   - Query parameters of getEnterpriseDevicePinners method
-- headers `GetEnterpriseDevicePinnersHeadersArg`
+- headers `GetEnterpriseDevicePinnersHeaders`
   - Headers of getEnterpriseDevicePinners method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

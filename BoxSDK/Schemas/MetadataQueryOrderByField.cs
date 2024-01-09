@@ -22,7 +22,7 @@ namespace Box.Schemas {
         /// array.
         /// </summary>
         [JsonPropertyName("direction")]
-        public MetadataQueryOrderByFieldDirectionField? Direction { get; set; } = default;
+        public MetadataQueryOrderByDirectionField? Direction { get; set; } = default;
 
         public MetadataQueryOrderByField() {
             

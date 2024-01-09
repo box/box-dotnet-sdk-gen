@@ -1,4 +1,4 @@
-# AvatarsManager
+# IAvatarsManager
 
 
 - [Get user avatar](#get-user-avatar)
@@ -23,7 +23,7 @@ await client.Avatars.GetUserAvatarAsync(userId: user.Id).ConfigureAwait(false)
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- headers `GetUserAvatarHeadersArg`
+- headers `GetUserAvatarHeaders`
   - Headers of getUserAvatar method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -49,16 +49,16 @@ See the endpoint docs at
 
 <!-- sample post_users_id_avatar -->
 ```
-await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBodyArg(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png")).ConfigureAwait(false)
+await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBody(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- requestBody `CreateUserAvatarRequestBodyArg`
+- requestBody `CreateUserAvatarRequestBody`
   - Request body of createUserAvatar method
-- headers `CreateUserAvatarHeadersArg`
+- headers `CreateUserAvatarHeaders`
   - Headers of createUserAvatar method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -92,7 +92,7 @@ await client.Avatars.DeleteUserAvatarAsync(userId: user.Id).ConfigureAwait(false
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- headers `DeleteUserAvatarHeadersArg`
+- headers `DeleteUserAvatarHeaders`
   - Headers of deleteUserAvatar method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

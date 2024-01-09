@@ -1,4 +1,4 @@
-# LegalHoldPolicyAssignmentsManager
+# ILegalHoldPolicyAssignmentsManager
 
 
 - [List legal hold policy assignments](#list-legal-hold-policy-assignments)
@@ -21,9 +21,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- queryParams `GetLegalHoldPolicyAssignmentsQueryParamsArg`
+- queryParams `GetLegalHoldPolicyAssignmentsQueryParams`
   - Query parameters of getLegalHoldPolicyAssignments method
-- headers `GetLegalHoldPolicyAssignmentsHeadersArg`
+- headers `GetLegalHoldPolicyAssignmentsHeaders`
   - Headers of getLegalHoldPolicyAssignments method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -49,9 +49,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `CreateLegalHoldPolicyAssignmentRequestBodyArg`
+- requestBody `CreateLegalHoldPolicyAssignmentRequestBody`
   - Request body of createLegalHoldPolicyAssignment method
-- headers `CreateLegalHoldPolicyAssignmentHeadersArg`
+- headers `CreateLegalHoldPolicyAssignmentHeaders`
   - Headers of createLegalHoldPolicyAssignment method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -79,7 +79,7 @@ See the endpoint docs at
 
 - legalHoldPolicyAssignmentId `string`
   - The ID of the legal hold policy assignment Example: "753465"
-- headers `GetLegalHoldPolicyAssignmentByIdHeadersArg`
+- headers `GetLegalHoldPolicyAssignmentByIdHeaders`
   - Headers of getLegalHoldPolicyAssignmentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 - legalHoldPolicyAssignmentId `string`
   - The ID of the legal hold policy assignment Example: "753465"
-- headers `DeleteLegalHoldPolicyAssignmentByIdHeadersArg`
+- headers `DeleteLegalHoldPolicyAssignmentByIdHeaders`
   - Headers of deleteLegalHoldPolicyAssignmentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -154,9 +154,9 @@ See the endpoint docs at
 
 - legalHoldPolicyAssignmentId `string`
   - The ID of the legal hold policy assignment Example: "753465"
-- queryParams `GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsArg`
+- queryParams `GetLegalHoldPolicyAssignmentFileOnHoldQueryParams`
   - Query parameters of getLegalHoldPolicyAssignmentFileOnHold method
-- headers `GetLegalHoldPolicyAssignmentFileOnHoldHeadersArg`
+- headers `GetLegalHoldPolicyAssignmentFileOnHoldHeaders`
   - Headers of getLegalHoldPolicyAssignmentFileOnHold method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -200,9 +200,9 @@ See the endpoint docs at
 
 - legalHoldPolicyAssignmentId `string`
   - The ID of the legal hold policy assignment Example: "753465"
-- queryParams `GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParamsArg`
+- queryParams `GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParams`
   - Query parameters of getLegalHoldPolicyAssignmentFileVersionOnHold method
-- headers `GetLegalHoldPolicyAssignmentFileVersionOnHoldHeadersArg`
+- headers `GetLegalHoldPolicyAssignmentFileVersionOnHoldHeaders`
   - Headers of getLegalHoldPolicyAssignmentFileVersionOnHold method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// The type of this item
         /// </summary>
         [JsonPropertyName("type")]
-        public ZipDownloadNameConflictsFieldTypeField? Type { get; set; } = default;
+        public ZipDownloadNameConflictsTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The original name of this item

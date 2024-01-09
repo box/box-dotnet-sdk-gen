@@ -1,6 +1,5 @@
-# ChunkedUploadsManager
+# IChunkedUploadsManager
 
-This is a manager for chunked uploads (allowed for files at least 20MB).
 
 - [Create upload session](#create-upload-session)
 - [Create upload session for existing file](#create-upload-session-for-existing-file)
@@ -9,6 +8,8 @@ This is a manager for chunked uploads (allowed for files at least 20MB).
 - [Remove upload session](#remove-upload-session)
 - [List parts](#list-parts)
 - [Commit upload session](#commit-upload-session)
+- [](#)
+- [](#)
 
 ## Create upload session
 
@@ -23,9 +24,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- requestBody `CreateFileUploadSessionRequestBodyArg`
+- requestBody `CreateFileUploadSessionRequestBody`
   - Request body of createFileUploadSession method
-- headers `CreateFileUploadSessionHeadersArg`
+- headers `CreateFileUploadSessionHeaders`
   - Headers of createFileUploadSession method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -53,9 +54,9 @@ See the endpoint docs at
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `CreateFileUploadSessionForExistingFileRequestBodyArg`
+- requestBody `CreateFileUploadSessionForExistingFileRequestBody`
   - Request body of createFileUploadSessionForExistingFile method
-- headers `CreateFileUploadSessionForExistingFileHeadersArg`
+- headers `CreateFileUploadSessionForExistingFileHeaders`
   - Headers of createFileUploadSessionForExistingFile method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -83,7 +84,7 @@ See the endpoint docs at
 
 - uploadSessionId `string`
   - The ID of the upload session. Example: "D5E3F7A"
-- headers `GetFileUploadSessionByIdHeadersArg`
+- headers `GetFileUploadSessionByIdHeaders`
   - Headers of getFileUploadSessionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -113,7 +114,7 @@ See the endpoint docs at
   - The ID of the upload session. Example: "D5E3F7A"
 - requestBody `System.IO.Stream`
   - Request body of uploadFilePart method
-- headers `UploadFilePartHeadersArg`
+- headers `UploadFilePartHeaders`
   - Headers of uploadFilePart method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -143,7 +144,7 @@ See the endpoint docs at
 
 - uploadSessionId `string`
   - The ID of the upload session. Example: "D5E3F7A"
-- headers `DeleteFileUploadSessionByIdHeadersArg`
+- headers `DeleteFileUploadSessionByIdHeaders`
   - Headers of deleteFileUploadSessionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -173,9 +174,9 @@ See the endpoint docs at
 
 - uploadSessionId `string`
   - The ID of the upload session. Example: "D5E3F7A"
-- queryParams `GetFileUploadSessionPartsQueryParamsArg`
+- queryParams `GetFileUploadSessionPartsQueryParams`
   - Query parameters of getFileUploadSessionParts method
-- headers `GetFileUploadSessionPartsHeadersArg`
+- headers `GetFileUploadSessionPartsHeaders`
   - Headers of getFileUploadSessionParts method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -204,9 +205,9 @@ See the endpoint docs at
 
 - uploadSessionId `string`
   - The ID of the upload session. Example: "D5E3F7A"
-- requestBody `CreateFileUploadSessionCommitRequestBodyArg`
+- requestBody `CreateFileUploadSessionCommitRequestBody`
   - Request body of createFileUploadSessionCommit method
-- headers `CreateFileUploadSessionCommitHeadersArg`
+- headers `CreateFileUploadSessionCommitHeaders`
   - Headers of createFileUploadSessionCommit method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -221,5 +222,66 @@ Returns the file object in a list.Returns when all chunks have been uploaded but
 Inspect the upload session to get more information about the
 progress of processing the chunks, then retry committing the file
 when all chunks have processed.
+
+
+## 
+
+
+
+This operation is performed by calling function `Reducer`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference//).
+
+*Currently we don't have an example for calling `Reducer` in integration tests*
+
+### Arguments
+
+- acc `PartAccumulator`
+  - 
+- chunk `System.IO.Stream`
+  - 
+
+
+### Returns
+
+This function returns a value of type `PartAccumulator`.
+
+
+
+
+## 
+
+
+
+This operation is performed by calling function `UploadBigFile`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference//).
+
+<!-- sample  -->
+```
+await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId).ConfigureAwait(false)
+```
+
+### Arguments
+
+- file `System.IO.Stream`
+  - The stream of the file to upload.
+- fileName `string`
+  - The name of the file, which will be used for storage in Box.
+- fileSize `int`
+  - The total size of the file for the chunked upload in bytes.
+- parentFolderId `string`
+  - The ID of the folder where the file should be uploaded.
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `FileFull`.
+
+
 
 

@@ -1,4 +1,4 @@
-# RetentionPoliciesManager
+# IRetentionPoliciesManager
 
 
 - [List retention policies](#list-retention-policies)
@@ -23,9 +23,9 @@ await client.RetentionPolicies.GetRetentionPoliciesAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetRetentionPoliciesQueryParamsArg`
+- queryParams `GetRetentionPoliciesQueryParams`
   - Query parameters of getRetentionPolicies method
-- headers `GetRetentionPoliciesHeadersArg`
+- headers `GetRetentionPoliciesHeaders`
   - Headers of getRetentionPolicies method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -49,14 +49,14 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBodyArg(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyArgPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyArgDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyArgRetentionTypeField.Modifiable)).ConfigureAwait(false)
+await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateRetentionPolicyRequestBodyArg`
+- requestBody `CreateRetentionPolicyRequestBody`
   - Request body of createRetentionPolicy method
-- headers `CreateRetentionPolicyHeadersArg`
+- headers `CreateRetentionPolicyHeaders`
   - Headers of createRetentionPolicy method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -87,9 +87,9 @@ await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: re
 
 - retentionPolicyId `string`
   - The ID of the retention policy. Example: "982312"
-- queryParams `GetRetentionPolicyByIdQueryParamsArg`
+- queryParams `GetRetentionPolicyByIdQueryParams`
   - Query parameters of getRetentionPolicyById method
-- headers `GetRetentionPolicyByIdHeadersArg`
+- headers `GetRetentionPolicyByIdHeaders`
   - Headers of getRetentionPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -113,16 +113,16 @@ See the endpoint docs at
 
 <!-- sample put_retention_policies_id -->
 ```
-await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBodyArg(policyName: updatedRetentionPolicyName)).ConfigureAwait(false)
+await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody(policyName: updatedRetentionPolicyName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - retentionPolicyId `string`
   - The ID of the retention policy. Example: "982312"
-- requestBody `UpdateRetentionPolicyByIdRequestBodyArg`
+- requestBody `UpdateRetentionPolicyByIdRequestBody`
   - Request body of updateRetentionPolicyById method
-- headers `UpdateRetentionPolicyByIdHeadersArg`
+- headers `UpdateRetentionPolicyByIdHeaders`
   - Headers of updateRetentionPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -153,7 +153,7 @@ await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId:
 
 - retentionPolicyId `string`
   - The ID of the retention policy. Example: "982312"
-- headers `DeleteRetentionPolicyByIdHeadersArg`
+- headers `DeleteRetentionPolicyByIdHeaders`
   - Headers of deleteRetentionPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

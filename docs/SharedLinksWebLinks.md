@@ -1,4 +1,4 @@
-# SharedLinksWebLinksManager
+# ISharedLinksWebLinksManager
 
 
 - [Find web link for shared link](#find-web-link-for-shared-link)
@@ -17,22 +17,22 @@ which can originate within the current enterprise or within another.
 This endpoint allows an application to retrieve information about a
 shared web link when only given a shared link.
 
-This operation is performed by calling function `GetSharedItemWebLinks`.
+This operation is performed by calling function `FindWebLinkForSharedLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-web-links/).
 
 <!-- sample get_shared_items#web_links -->
 ```
-await userClient.SharedLinksWebLinks.GetSharedItemWebLinksAsync(queryParams: new GetSharedItemWebLinksQueryParamsArg(), headers: new GetSharedItemWebLinksHeadersArg(boxapi: string.Concat("shared_link=", webLinkFromApi.SharedLink!.Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- queryParams `GetSharedItemWebLinksQueryParamsArg`
-  - Query parameters of getSharedItemWebLinks method
-- headers `GetSharedItemWebLinksHeadersArg`
-  - Headers of getSharedItemWebLinks method
+- queryParams `FindWebLinkForSharedLinkQueryParams`
+  - Query parameters of findWebLinkForSharedLink method
+- headers `FindWebLinkForSharedLinkHeaders`
+  - Headers of findWebLinkForSharedLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -49,24 +49,24 @@ the user has access to it.
 
 Gets the information for a shared link on a web link.
 
-This operation is performed by calling function `GetWebLinkGetSharedLink`.
+This operation is performed by calling function `GetSharedLinkForWebLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-web-links-id-get-shared-link/).
 
 <!-- sample get_web_links_id#get_shared_link -->
 ```
-await client.SharedLinksWebLinks.GetWebLinkGetSharedLinkAsync(webLinkId: webLinkId, queryParams: new GetWebLinkGetSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- queryParams `GetWebLinkGetSharedLinkQueryParamsArg`
-  - Query parameters of getWebLinkGetSharedLink method
-- headers `GetWebLinkGetSharedLinkHeadersArg`
-  - Headers of getWebLinkGetSharedLink method
+- queryParams `GetSharedLinkForWebLinkQueryParams`
+  - Query parameters of getSharedLinkForWebLink method
+- headers `GetSharedLinkForWebLinkHeaders`
+  - Headers of getSharedLinkForWebLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -83,26 +83,26 @@ additional shared link information.
 
 Adds a shared link to a web link.
 
-This operation is performed by calling function `UpdateWebLinkAddSharedLink`.
+This operation is performed by calling function `AddShareLinkToWebLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-add-shared-link/).
 
 <!-- sample put_web_links_id#add_shared_link -->
 ```
-await client.SharedLinksWebLinks.UpdateWebLinkAddSharedLinkAsync(webLinkId: webLinkId, requestBody: new UpdateWebLinkAddSharedLinkRequestBodyArg(sharedLink: new UpdateWebLinkAddSharedLinkRequestBodyArgSharedLinkField(access: UpdateWebLinkAddSharedLinkRequestBodyArgSharedLinkFieldAccessField.Open, password: "Secret123@")), queryParams: new UpdateWebLinkAddSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody(sharedLink: new AddShareLinkToWebLinkRequestBodySharedLinkField(access: AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- requestBody `UpdateWebLinkAddSharedLinkRequestBodyArg`
-  - Request body of updateWebLinkAddSharedLink method
-- queryParams `UpdateWebLinkAddSharedLinkQueryParamsArg`
-  - Query parameters of updateWebLinkAddSharedLink method
-- headers `UpdateWebLinkAddSharedLinkHeadersArg`
-  - Headers of updateWebLinkAddSharedLink method
+- requestBody `AddShareLinkToWebLinkRequestBody`
+  - Request body of addShareLinkToWebLink method
+- queryParams `AddShareLinkToWebLinkQueryParams`
+  - Query parameters of addShareLinkToWebLink method
+- headers `AddShareLinkToWebLinkHeaders`
+  - Headers of addShareLinkToWebLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -119,26 +119,26 @@ link attached.
 
 Updates a shared link on a web link.
 
-This operation is performed by calling function `UpdateWebLinkUpdateSharedLink`.
+This operation is performed by calling function `UpdateSharedLinkOnWebLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-update-shared-link/).
 
 <!-- sample put_web_links_id#update_shared_link -->
 ```
-await client.SharedLinksWebLinks.UpdateWebLinkUpdateSharedLinkAsync(webLinkId: webLinkId, requestBody: new UpdateWebLinkUpdateSharedLinkRequestBodyArg(sharedLink: new UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkField(access: UpdateWebLinkUpdateSharedLinkRequestBodyArgSharedLinkFieldAccessField.Collaborators)), queryParams: new UpdateWebLinkUpdateSharedLinkQueryParamsArg(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody(sharedLink: new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(access: UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- requestBody `UpdateWebLinkUpdateSharedLinkRequestBodyArg`
-  - Request body of updateWebLinkUpdateSharedLink method
-- queryParams `UpdateWebLinkUpdateSharedLinkQueryParamsArg`
-  - Query parameters of updateWebLinkUpdateSharedLink method
-- headers `UpdateWebLinkUpdateSharedLinkHeadersArg`
-  - Headers of updateWebLinkUpdateSharedLink method
+- requestBody `UpdateSharedLinkOnWebLinkRequestBody`
+  - Request body of updateSharedLinkOnWebLink method
+- queryParams `UpdateSharedLinkOnWebLinkQueryParams`
+  - Query parameters of updateSharedLinkOnWebLink method
+- headers `UpdateSharedLinkOnWebLinkHeaders`
+  - Headers of updateSharedLinkOnWebLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -155,23 +155,23 @@ link attached.
 
 Removes a shared link from a web link.
 
-This operation is performed by calling function `UpdateWebLinkRemoveSharedLink`.
+This operation is performed by calling function `RemoveSharedLinkFromWebLink`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-remove-shared-link/).
 
-*Currently we don't have an example for calling `UpdateWebLinkRemoveSharedLink` in integration tests*
+*Currently we don't have an example for calling `RemoveSharedLinkFromWebLink` in integration tests*
 
 ### Arguments
 
 - webLinkId `string`
   - The ID of the web link. Example: "12345"
-- requestBody `UpdateWebLinkRemoveSharedLinkRequestBodyArg`
-  - Request body of updateWebLinkRemoveSharedLink method
-- queryParams `UpdateWebLinkRemoveSharedLinkQueryParamsArg`
-  - Query parameters of updateWebLinkRemoveSharedLink method
-- headers `UpdateWebLinkRemoveSharedLinkHeadersArg`
-  - Headers of updateWebLinkRemoveSharedLink method
+- requestBody `RemoveSharedLinkFromWebLinkRequestBody`
+  - Request body of removeSharedLinkFromWebLink method
+- queryParams `RemoveSharedLinkFromWebLinkQueryParams`
+  - Query parameters of removeSharedLinkFromWebLink method
+- headers `RemoveSharedLinkFromWebLinkHeaders`
+  - Headers of removeSharedLinkFromWebLink method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

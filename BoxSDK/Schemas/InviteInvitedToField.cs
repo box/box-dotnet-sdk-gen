@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public InviteInvitedToFieldTypeField? Type { get; set; } = default;
+        public InviteInvitedToTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the enterprise

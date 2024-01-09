@@ -1,4 +1,4 @@
-# FileVersionsManager
+# IFileVersionsManager
 
 
 - [List all file versions](#list-all-file-versions)
@@ -28,9 +28,9 @@ await client.FileVersions.GetFileVersionsAsync(fileId: file.Id).ConfigureAwait(f
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- queryParams `GetFileVersionsQueryParamsArg`
+- queryParams `GetFileVersionsQueryParams`
   - Query parameters of getFileVersions method
-- headers `GetFileVersionsHeadersArg`
+- headers `GetFileVersionsHeaders`
   - Headers of getFileVersions method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersions.Entries![0].Id).ConfigureAwait(false)
+await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -65,9 +65,9 @@ await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
   - The ID of the file version Example: "1234"
-- queryParams `GetFileVersionByIdQueryParamsArg`
+- queryParams `GetFileVersionByIdQueryParams`
   - Query parameters of getFileVersionById method
-- headers `GetFileVersionByIdHeadersArg`
+- headers `GetFileVersionByIdHeaders`
   - Headers of getFileVersionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -104,9 +104,9 @@ See the endpoint docs at
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
   - The ID of the file version Example: "1234"
-- requestBody `UpdateFileVersionByIdRequestBodyArg`
+- requestBody `UpdateFileVersionByIdRequestBody`
   - Request body of updateFileVersionById method
-- headers `UpdateFileVersionByIdHeadersArg`
+- headers `UpdateFileVersionByIdHeaders`
   - Headers of updateFileVersionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_versions_id -->
 ```
-await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersionsRestored.Entries![0].Id).ConfigureAwait(false)
+await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersionsRestored.Entries)[0].Id).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -141,7 +141,7 @@ await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersio
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
   - The ID of the file version Example: "1234"
-- headers `DeleteFileVersionByIdHeadersArg`
+- headers `DeleteFileVersionByIdHeaders`
   - Headers of deleteFileVersionById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -181,18 +181,18 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBodyArg(id: fileVersions.Entries![0].Id, type: PromoteFileVersionRequestBodyArgTypeField.FileVersion)).ConfigureAwait(false)
+await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody(id: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, type: PromoteFileVersionRequestBodyTypeField.FileVersion)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- requestBody `PromoteFileVersionRequestBodyArg`
+- requestBody `PromoteFileVersionRequestBody`
   - Request body of promoteFileVersion method
-- queryParams `PromoteFileVersionQueryParamsArg`
+- queryParams `PromoteFileVersionQueryParams`
   - Query parameters of promoteFileVersion method
-- headers `PromoteFileVersionHeadersArg`
+- headers `PromoteFileVersionHeaders`
   - Headers of promoteFileVersion method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

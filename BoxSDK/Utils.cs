@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Box
 {
@@ -114,6 +115,81 @@ namespace Box
             var cancellationTokenSource = new CancellationTokenSource();
             cancellationTokenSource.CancelAfter(delay);
             return cancellationTokenSource.Token;
+        }
+
+        /// <summary>
+        /// Converts from hex string to base64 string.
+        /// </summary>
+        /// <param name="value">hex string.</param>
+        /// <returns>base64 string.</returns>
+        public static string HexToBase64(string value) =>
+            Convert.ToBase64String(Convert.FromHexString(value));
+
+        /// <summary>
+        /// Gets length of a buffer (byte array).
+        /// </summary>
+        /// <param name="buffer">byte array.</param>
+        /// <returns>length of a byte array.</returns>
+        public static int BufferLength(byte[] buffer) => buffer.Length;
+
+        /// <summary>
+        /// Concatenates two ReadOnly lists.
+        /// </summary>
+        /// <param name="a">ReadOnly list.</param>
+        /// <param name="b">ReadOnly list.</param>
+        /// <returns>new list concatenated from a and b.</returns>
+        public static IReadOnlyList<T> ListConcat<T>(IReadOnlyList<T> a, IReadOnlyList<T> b) =>
+            a.Concat(b).ToArray();
+
+        /// <summary>
+        /// Reducer for a given iterator.
+        /// </summary>
+        /// <param name="iterator">Iterator.</param>
+        /// <param name="reducer">Reducer function.</param>
+        /// <param name="initialValue">initial value for the reducer.</param>
+        /// <returns>result of applying reducer on iterator.</returns>
+        public static async Task<U> ReduceIteratorAsync<T, U>(IEnumerable<T> iterator, Func<U, T, Task<U>> reducer, U initialValue)
+        {
+            var result = initialValue;
+            var enumerator = iterator.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                result = await reducer(result, enumerator.Current).ConfigureAwait(false);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Iterates over a stream and yields chunks of it.
+        /// </summary>
+        /// <param name="stream">Stream to iterate over</param>
+        /// <param name="chunkSize">Size of a chunk</param>
+        /// <returns>Iteartor over a stream.</returns>
+        public static IEnumerable<Stream> IterateChunks(Stream stream, long chunkSize)
+        {
+            int bufferSize = Convert.ToInt32(chunkSize);
+            var buffer = new byte[bufferSize];
+            var size = bufferSize;
+            var offset = 0;
+
+            while (true)
+            {
+                var partStream = new MemoryStream();
+
+                var bytesRead = stream.Read(buffer, offset, size);
+
+                if (bytesRead <= 0)
+                    break;
+
+                var bytesToWrite = partStream.Length + bytesRead >= chunkSize ? chunkSize - partStream.Length : bytesRead;
+
+                partStream.Write(buffer, offset, Convert.ToInt32(bytesToWrite));
+                partStream.Position = 0;
+
+                yield return partStream;
+            }
         }
     }
 }

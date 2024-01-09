@@ -1,4 +1,4 @@
-# CollaborationAllowlistExemptTargetsManager
+# ICollaborationAllowlistExemptTargetsManager
 
 
 - [List users exempt from collaboration domain restrictions](#list-users-exempt-from-collaboration-domain-restrictions)
@@ -23,9 +23,9 @@ await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExempt
 
 ### Arguments
 
-- queryParams `GetCollaborationWhitelistExemptTargetsQueryParamsArg`
+- queryParams `GetCollaborationWhitelistExemptTargetsQueryParams`
   - Query parameters of getCollaborationWhitelistExemptTargets method
-- headers `GetCollaborationWhitelistExemptTargetsHeadersArg`
+- headers `GetCollaborationWhitelistExemptTargetsHeaders`
   - Headers of getCollaborationWhitelistExemptTargets method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -50,14 +50,14 @@ See the endpoint docs at
 
 <!-- sample post_collaboration_whitelist_exempt_targets -->
 ```
-await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBodyArg(user: new CreateCollaborationWhitelistExemptTargetRequestBodyArgUserField(id: user.Id))).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBody(user: new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(id: user.Id))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateCollaborationWhitelistExemptTargetRequestBodyArg`
+- requestBody `CreateCollaborationWhitelistExemptTargetRequestBody`
   - Request body of createCollaborationWhitelistExemptTarget method
-- headers `CreateCollaborationWhitelistExemptTargetHeadersArg`
+- headers `CreateCollaborationWhitelistExemptTargetHeaders`
   - Headers of createCollaborationWhitelistExemptTarget method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -82,14 +82,14 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_exempt_targets_id -->
 ```
-await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: exemptTarget.Id!).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - collaborationWhitelistExemptTargetId `string`
   - The ID of the exemption to the list. Example: "984923"
-- headers `GetCollaborationWhitelistExemptTargetByIdHeadersArg`
+- headers `GetCollaborationWhitelistExemptTargetByIdHeaders`
   - Headers of getCollaborationWhitelistExemptTargetById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -114,14 +114,14 @@ See the endpoint docs at
 
 <!-- sample delete_collaboration_whitelist_exempt_targets_id -->
 ```
-await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: exemptTarget.Id!).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - collaborationWhitelistExemptTargetId `string`
   - The ID of the exemption to the list. Example: "984923"
-- headers `DeleteCollaborationWhitelistExemptTargetByIdHeadersArg`
+- headers `DeleteCollaborationWhitelistExemptTargetByIdHeaders`
   - Headers of deleteCollaborationWhitelistExemptTargetById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

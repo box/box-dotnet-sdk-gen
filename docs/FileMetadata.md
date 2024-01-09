@@ -1,4 +1,4 @@
-# FileMetadataManager
+# IFileMetadataManager
 
 
 - [List metadata instances on file](#list-metadata-instances-on-file)
@@ -16,13 +16,16 @@ This operation is performed by calling function `GetFileMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-*Currently we don't have an example for calling `GetFileMetadata` in integration tests*
+<!-- sample get_files_id_metadata -->
+```
+await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- headers `GetFileMetadataHeadersArg`
+- headers `GetFileMetadataHeaders`
   - Headers of getFileMetadata method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -48,17 +51,20 @@ This operation is performed by calling function `GetFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `GetFileMetadataById` in integration tests*
+<!-- sample get_files_id_metadata_id_id -->
+```
+await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFileMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- scope `GetFileMetadataByIdScopeArg`
+- scope `GetFileMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `GetFileMetadataByIdHeadersArg`
+- headers `GetFileMetadataByIdHeaders`
   - Headers of getFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -86,19 +92,22 @@ This operation is performed by calling function `CreateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `CreateFileMetadataById` in integration tests*
+<!-- sample post_files_id_metadata_id_id -->
+```
+await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } }).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- scope `CreateFileMetadataByIdScopeArg`
+- scope `CreateFileMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `CreateFileMetadataByIdRequestBodyArg`
+- requestBody `Dictionary<string, string>`
   - Request body of createFileMetadataById method
-- headers `CreateFileMetadataByIdHeadersArg`
+- headers `CreateFileMetadataByIdHeaders`
   - Headers of createFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -106,7 +115,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Metadata`.
+This function returns a value of type `MetadataFull`.
 
 Returns the instance of the template that was applied to the file,
 including the data that was applied to the template.
@@ -128,19 +137,22 @@ This operation is performed by calling function `UpdateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `UpdateFileMetadataById` in integration tests*
+<!-- sample put_files_id_metadata_id_id -->
+```
+await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody(op: UpdateFileMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- scope `UpdateFileMetadataByIdScopeArg`
+- scope `UpdateFileMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `IReadOnlyList<UpdateFileMetadataByIdRequestBodyArg>`
+- requestBody `IReadOnlyList<UpdateFileMetadataByIdRequestBody>`
   - Request body of updateFileMetadataById method
-- headers `UpdateFileMetadataByIdHeadersArg`
+- headers `UpdateFileMetadataByIdHeaders`
   - Headers of updateFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -148,7 +160,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `Metadata`.
+This function returns a value of type `MetadataFull`.
 
 Returns the updated metadata template instance, with the
 custom template data included.
@@ -163,17 +175,20 @@ This operation is performed by calling function `DeleteFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `DeleteFileMetadataById` in integration tests*
+<!-- sample delete_files_id_metadata_id_id -->
+```
+await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- scope `DeleteFileMetadataByIdScopeArg`
+- scope `DeleteFileMetadataByIdScope`
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- headers `DeleteFileMetadataByIdHeadersArg`
+- headers `DeleteFileMetadataByIdHeaders`
   - Headers of deleteFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

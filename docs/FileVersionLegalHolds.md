@@ -1,4 +1,4 @@
-# FileVersionLegalHoldsManager
+# IFileVersionLegalHoldsManager
 
 
 - [Get file version legal hold](#get-file-version-legal-hold)
@@ -20,7 +20,7 @@ See the endpoint docs at
 
 - fileVersionLegalHoldId `string`
   - The ID of the file version legal hold Example: "2348213"
-- headers `GetFileVersionLegalHoldByIdHeadersArg`
+- headers `GetFileVersionLegalHoldByIdHeaders`
   - Headers of getFileVersionLegalHoldById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -65,9 +65,9 @@ See the endpoint docs at
 
 ### Arguments
 
-- queryParams `GetFileVersionLegalHoldsQueryParamsArg`
+- queryParams `GetFileVersionLegalHoldsQueryParams`
   - Query parameters of getFileVersionLegalHolds method
-- headers `GetFileVersionLegalHoldsHeadersArg`
+- headers `GetFileVersionLegalHoldsHeaders`
   - Headers of getFileVersionLegalHolds method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

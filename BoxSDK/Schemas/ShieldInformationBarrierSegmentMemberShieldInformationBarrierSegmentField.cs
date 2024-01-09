@@ -18,7 +18,7 @@ namespace Box.Schemas {
         /// The type of the shield information barrier segment
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentFieldTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField? Type { get; set; } = default;
 
         public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField() {
             

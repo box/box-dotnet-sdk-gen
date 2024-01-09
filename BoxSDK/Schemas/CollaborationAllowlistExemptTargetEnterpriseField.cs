@@ -17,7 +17,7 @@ namespace Box.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistExemptTargetEnterpriseFieldTypeField? Type { get; set; } = default;
+        public CollaborationAllowlistExemptTargetEnterpriseTypeField? Type { get; set; } = default;
 
         /// <summary>
         /// The name of the enterprise

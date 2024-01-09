@@ -1,4 +1,4 @@
-# ShieldInformationBarriersManager
+# IShieldInformationBarriersManager
 
 
 - [Get shield information barrier with specified ID](#get-shield-information-barrier-with-specified-id)
@@ -15,13 +15,16 @@ This operation is performed by calling function `GetShieldInformationBarrierById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers-id/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarrierById` in integration tests*
+<!-- sample get_shield_information_barriers_id -->
+```
+await client.ShieldInformationBarriers.GetShieldInformationBarrierByIdAsync(shieldInformationBarrierId: barrierId).ConfigureAwait(false)
+```
 
 ### Arguments
 
 - shieldInformationBarrierId `string`
   - The ID of the shield information barrier. Example: "1910967"
-- headers `GetShieldInformationBarrierByIdHeadersArg`
+- headers `GetShieldInformationBarrierByIdHeaders`
   - Headers of getShieldInformationBarrierById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -38,19 +41,22 @@ Returns the shield information barrier object.
 
 Change status of shield information barrier with the specified ID.
 
-This operation is performed by calling function `CreateShieldInformationBarrierChangeStatus`.
+This operation is performed by calling function `UpdateShieldInformationBarrierStatus`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers-change-status/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrierChangeStatus` in integration tests*
+<!-- sample post_shield_information_barriers_change_status -->
+```
+await client.ShieldInformationBarriers.UpdateShieldInformationBarrierStatusAsync(requestBody: new UpdateShieldInformationBarrierStatusRequestBody(id: barrierId, status: UpdateShieldInformationBarrierStatusRequestBodyStatusField.Disabled)).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateShieldInformationBarrierChangeStatusRequestBodyArg`
-  - Request body of createShieldInformationBarrierChangeStatus method
-- headers `CreateShieldInformationBarrierChangeStatusHeadersArg`
-  - Headers of createShieldInformationBarrierChangeStatus method
+- requestBody `UpdateShieldInformationBarrierStatusRequestBody`
+  - Request body of updateShieldInformationBarrierStatus method
+- headers `UpdateShieldInformationBarrierStatusHeaders`
+  - Headers of updateShieldInformationBarrierStatus method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -72,13 +78,16 @@ This operation is performed by calling function `GetShieldInformationBarriers`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers/).
 
-*Currently we don't have an example for calling `GetShieldInformationBarriers` in integration tests*
+<!-- sample get_shield_information_barriers -->
+```
+await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
-- queryParams `GetShieldInformationBarriersQueryParamsArg`
+- queryParams `GetShieldInformationBarriersQueryParams`
   - Query parameters of getShieldInformationBarriers method
-- headers `GetShieldInformationBarriersHeadersArg`
+- headers `GetShieldInformationBarriersHeaders`
   - Headers of getShieldInformationBarriers method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -104,13 +113,16 @@ This operation is performed by calling function `CreateShieldInformationBarrier`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers/).
 
-*Currently we don't have an example for calling `CreateShieldInformationBarrier` in integration tests*
+<!-- sample post_shield_information_barriers -->
+```
+await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase(id: enterpriseId, type: EnterpriseBaseTypeField.Enterprise))).ConfigureAwait(false)
+```
 
 ### Arguments
 
-- requestBody `CreateShieldInformationBarrierRequestBodyArg`
+- requestBody `CreateShieldInformationBarrierRequestBody`
   - Request body of createShieldInformationBarrier method
-- headers `CreateShieldInformationBarrierHeadersArg`
+- headers `CreateShieldInformationBarrierHeaders`
   - Headers of createShieldInformationBarrier method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

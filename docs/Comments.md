@@ -1,4 +1,4 @@
-# CommentsManager
+# ICommentsManager
 
 
 - [List file comments](#list-file-comments)
@@ -25,9 +25,9 @@ await client.Comments.GetFileCommentsAsync(fileId: fileId).ConfigureAwait(false)
 
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
-- queryParams `GetFileCommentsQueryParamsArg`
+- queryParams `GetFileCommentsQueryParams`
   - Query parameters of getFileComments method
-- headers `GetFileCommentsHeadersArg`
+- headers `GetFileCommentsHeaders`
   - Headers of getFileComments method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -53,16 +53,16 @@ See the endpoint docs at
 
 <!-- sample get_comments_id -->
 ```
-await client.Comments.GetCommentByIdAsync(commentId: newComment.Id!).ConfigureAwait(false)
+await client.Comments.GetCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - commentId `string`
   - The ID of the comment. Example: "12345"
-- queryParams `GetCommentByIdQueryParamsArg`
+- queryParams `GetCommentByIdQueryParams`
   - Query parameters of getCommentById method
-- headers `GetCommentByIdHeadersArg`
+- headers `GetCommentByIdHeaders`
   - Headers of getCommentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -86,18 +86,18 @@ See the endpoint docs at
 
 <!-- sample put_comments_id -->
 ```
-await client.Comments.UpdateCommentByIdAsync(commentId: newReplyComment.Id!, requestBody: new UpdateCommentByIdRequestBodyArg(message: newMessage)).ConfigureAwait(false)
+await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody(message: newMessage)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - commentId `string`
   - The ID of the comment. Example: "12345"
-- requestBody `UpdateCommentByIdRequestBodyArg`
+- requestBody `UpdateCommentByIdRequestBody`
   - Request body of updateCommentById method
-- queryParams `UpdateCommentByIdQueryParamsArg`
+- queryParams `UpdateCommentByIdQueryParams`
   - Query parameters of updateCommentById method
-- headers `UpdateCommentByIdHeadersArg`
+- headers `UpdateCommentByIdHeaders`
   - Headers of updateCommentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -121,14 +121,14 @@ See the endpoint docs at
 
 <!-- sample delete_comments_id -->
 ```
-await client.Comments.DeleteCommentByIdAsync(commentId: newComment.Id!).ConfigureAwait(false)
+await client.Comments.DeleteCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - commentId `string`
   - The ID of the comment. Example: "12345"
-- headers `DeleteCommentByIdHeadersArg`
+- headers `DeleteCommentByIdHeaders`
   - Headers of deleteCommentById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -153,16 +153,16 @@ See the endpoint docs at
 
 <!-- sample post_comments -->
 ```
-await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBodyArg(message: message, item: new CreateCommentRequestBodyArgItemField(id: newComment.Id!, type: CreateCommentRequestBodyArgItemFieldTypeField.Comment))).ConfigureAwait(false)
+await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: NullableUtils.Unwrap(newComment.Id), type: CreateCommentRequestBodyItemTypeField.Comment))).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateCommentRequestBodyArg`
+- requestBody `CreateCommentRequestBody`
   - Request body of createComment method
-- queryParams `CreateCommentQueryParamsArg`
+- queryParams `CreateCommentQueryParams`
   - Query parameters of createComment method
-- headers `CreateCommentHeadersArg`
+- headers `CreateCommentHeaders`
   - Headers of createComment method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.

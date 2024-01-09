@@ -23,7 +23,7 @@ namespace Box.Schemas {
         /// address.
         /// </summary>
         [JsonPropertyName("access")]
-        public FolderFolderUploadEmailFieldAccessField? Access { get; set; } = default;
+        public FolderFolderUploadEmailAccessField? Access { get; set; } = default;
 
         /// <summary>
         /// The optional upload email address for this folder.

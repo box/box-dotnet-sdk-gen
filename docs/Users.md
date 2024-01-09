@@ -1,4 +1,4 @@
-# UsersManager
+# IUsersManager
 
 
 - [List enterprise users](#list-enterprise-users)
@@ -29,9 +29,9 @@ await client.Users.GetUsersAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetUsersQueryParamsArg`
+- queryParams `GetUsersQueryParams`
   - Query parameters of getUsers method
-- headers `GetUsersHeadersArg`
+- headers `GetUsersHeaders`
   - Headers of getUsers method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -57,16 +57,16 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBodyArg(name: userName, login: userLogin, isPlatformAccessOnly: true)).ConfigureAwait(false)
+await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName, login: userLogin, isPlatformAccessOnly: true)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
-- requestBody `CreateUserRequestBodyArg`
+- requestBody `CreateUserRequestBody`
   - Request body of createUser method
-- queryParams `CreateUserQueryParamsArg`
+- queryParams `CreateUserQueryParams`
   - Query parameters of createUser method
-- headers `CreateUserHeadersArg`
+- headers `CreateUserHeaders`
   - Headers of createUser method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -104,9 +104,9 @@ await client.Users.GetUserMeAsync().ConfigureAwait(false)
 
 ### Arguments
 
-- queryParams `GetUserMeQueryParamsArg`
+- queryParams `GetUserMeQueryParams`
   - Query parameters of getUserMe method
-- headers `GetUserMeHeadersArg`
+- headers `GetUserMeHeaders`
   - Headers of getUserMe method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -147,9 +147,9 @@ await client.Users.GetUserByIdAsync(userId: user.Id).ConfigureAwait(false)
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- queryParams `GetUserByIdQueryParamsArg`
+- queryParams `GetUserByIdQueryParams`
   - Query parameters of getUserById method
-- headers `GetUserByIdHeadersArg`
+- headers `GetUserByIdHeaders`
   - Headers of getUserById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -180,18 +180,18 @@ See the endpoint docs at
 
 <!-- sample put_users_id -->
 ```
-await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBodyArg(name: updatedUserName)).ConfigureAwait(false)
+await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody(name: updatedUserName)).ConfigureAwait(false)
 ```
 
 ### Arguments
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- requestBody `UpdateUserByIdRequestBodyArg`
+- requestBody `UpdateUserByIdRequestBody`
   - Request body of updateUserById method
-- queryParams `UpdateUserByIdQueryParamsArg`
+- queryParams `UpdateUserByIdQueryParams`
   - Query parameters of updateUserById method
-- headers `UpdateUserByIdHeadersArg`
+- headers `UpdateUserByIdHeaders`
   - Headers of updateUserById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
@@ -225,9 +225,9 @@ await client.Users.DeleteUserByIdAsync(userId: user.Id).ConfigureAwait(false)
 
 - userId `string`
   - The ID of the user. Example: "12345"
-- queryParams `DeleteUserByIdQueryParamsArg`
+- queryParams `DeleteUserByIdQueryParams`
   - Query parameters of deleteUserById method
-- headers `DeleteUserByIdHeadersArg`
+- headers `DeleteUserByIdHeaders`
   - Headers of deleteUserById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
