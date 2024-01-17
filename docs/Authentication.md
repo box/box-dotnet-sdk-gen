@@ -32,7 +32,7 @@ object with the `token` set to the developer token and construct the client with
 <!-- sample x_auth init_with_dev_token -->
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var auth = new BoxDeveloperTokenAuth(token: "DEVELOPER_TOKEN_GOES_HERE");
 var client = new BoxClient(auth: auth));
@@ -54,7 +54,7 @@ and secret with enterprise or user ID, which allows you to work using service or
 You can use `BoxCCGAuth` to initialize a client object the same way as for other authentication types:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", userId: "YOUR_USER_ID");
 var auth = new BoxCcgAuth(config: config);
@@ -75,7 +75,7 @@ are not accessible in any other account by default, and vice versa.
 To obtain service account you will have to provide enterprise ID with client id and secret:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", enterpriseId: "YOUR_ENTERPRISE_ID");
 var auth = new BoxCcgAuth(config: config);
@@ -94,7 +94,7 @@ select `Generate user access tokens`. Do not forget to re-authorize application 
 To obtain user account you will have to provide user ID with client id and secret.
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", userId: "YOUR_USER_ID");
 var auth = new BoxCcgAuth(config: config);
@@ -135,7 +135,7 @@ browser or web view) in order to obtain an auth code.
 <!-- sample get_authorize -->
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET");
 var auth = new BoxOAuth(config: config);
@@ -166,7 +166,7 @@ To use in-memory token storage, you don't need to do anything more than
 create an Auth class using AuthConfig, for example, for BoxOAuth:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET");
 var auth = new BoxOAuth(config: config);
@@ -178,7 +178,7 @@ You can also provide a custom token storage class. All you need to do is create 
 and implements all of its abstract methods. Then, pass an instance of your class to the AuthConfig constructor.
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", tokenStorage: new MyCustomTokenStorage());
 var auth = new BoxOAuth(config: config)
