@@ -11,16 +11,17 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this storage policy
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `storage_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public StoragePolicyMiniTypeField? Type { get; set; } = default;
+        public StoragePolicyMiniTypeField Type { get; set; }
 
-        public StoragePolicyMini() {
-            
+        public StoragePolicyMini(string id, StoragePolicyMiniTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }

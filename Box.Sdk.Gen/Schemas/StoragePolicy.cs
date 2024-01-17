@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("name")]
         public string? Name { get; set; } = default;
 
-        public StoragePolicy() {
+        public StoragePolicy(string id, StoragePolicyMiniTypeField type) : base(id, type) {
             
         }
     }
