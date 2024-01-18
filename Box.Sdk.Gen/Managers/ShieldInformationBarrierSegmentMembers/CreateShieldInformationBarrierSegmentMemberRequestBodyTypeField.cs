@@ -1,0 +1,13 @@
+using System.ComponentModel;
+using Serializer;
+using System.Text.Json.Serialization;
+using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen;
+
+namespace Box.Sdk.Gen.Managers {
+    [JsonConverter(typeof(StringEnumConverter<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>))]
+    public enum CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField {
+        [Description("shield_information_barrier_segment_member")]
+        ShieldInformationBarrierSegmentMember
+    }
+}

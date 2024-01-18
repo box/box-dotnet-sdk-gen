@@ -52,7 +52,7 @@ Using `BoxClient` object you can access managers, which allow you to perform som
 The example below demonstrates how to authenticate with Developer Token and print names of all items inside a root folder.
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var auth = new BoxDeveloperTokenAuth(token: "DEVELOPER_TOKEN_GOES_HERE");
 var client = new BoxClient(auth: auth);

@@ -150,9 +150,9 @@ The Developer Token remains a straightforward method for authentication:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2.Auth;
-using Box.V2.Config;
-using Box.V2;
+using Box.Sdk.Gen.V2.Auth;
+using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.Gen.V2;
 
 var config = new BoxConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET").Build();
 var session = new OAuthSession("YOUR_DEVELOPER_TOKEN", "N/A", 3600, "bearer");
@@ -164,7 +164,7 @@ var client = new BoxClient(config, session);
 The new SDK offers a more streamlined approach:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var auth = new BoxDeveloperTokenAuth(token: "DEVELOPER_TOKEN_GOES_HERE");
 var client = new BoxClient(auth: auth);
@@ -179,9 +179,9 @@ JSON Web Tokens (JWT) offer a secure method of authentication. Here's how the pr
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2;
-using Box.V2.Config;
-using Box.V2.JWTAuth;
+using Box.Sdk.Gen.V2;
+using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.Gen.V2.JWTAuth;
 
 using var file = File.Open("/path/to/config.json", FileMode.Open, FileAccess.Read, FileShare.None);
 var config = BoxConfigBuilder.CreateFromJsonFile(file).Build();
@@ -195,7 +195,7 @@ BoxClient client = boxJWT.AdminClient(adminToken);
 The new SDK provides a more organized approach:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 using var file = File.Open("/path/to/config.json", FileMode.Open, FileAccess.Read, FileShare.None);
 var jwtConfig = JwtConfig.FromConfigFile(file);
@@ -210,9 +210,9 @@ For those who prefer manual configurations, both SDKs offer flexibility:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2;
-using Box.V2.Config;
-using Box.V2.JWTAuth;
+using Box.Sdk.Gen.V2;
+using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.Gen.V2.JWTAuth;
 
 var boxConfig = new BoxConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "YOUR_ENTERPRISE_ID", "YOUR_PRIVATE_KEY", "YOUR_PRIVATE_KEY_PASSPHRASE", "YOUR_KEY_ID").Build();
 var boxJWT = new BoxJWTAuth(boxConfig);
@@ -225,7 +225,7 @@ BoxClient adminClient = boxJWT.AdminClient(adminToken);
 The new SDK introduces a more structured approach:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var jwtConfig = new JwtConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", enterpriseId: "YOUR_ENTERPRISE_ID",
   privateKey: "YOUR_PRIVATE_KEY", privateKeyPassphrase: "YOUR_PRIVATE_KEY_PASSPHRASE", publicKeyId: "YOUR_KEY_ID");
@@ -240,9 +240,9 @@ Authenticating as a user has been made even more straightforward:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2;
-using Box.V2.Config;
-using Box.V2.JWTAuth;
+using Box.Sdk.Gen.V2;
+using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.Gen.V2.JWTAuth;
 
 var userToken = await boxJWT.UserTokenAsync("USER_ID");
 var userClient = boxJWT.UserClient(userToken, "YOUR_USER_ID");
@@ -253,7 +253,7 @@ var userClient = boxJWT.UserClient(userToken, "YOUR_USER_ID");
 The new SDK makes this method more organised:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 await auth.AsUserAsync("USER_ID");
 var userClient = new BoxClient(auth: auth);
@@ -268,8 +268,8 @@ The Client Credentials Grant method is a popular choice for many developers. Let
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2.CCGAuth;
-using Box.V2.Config;
+using Box.Sdk.Gen.V2.CCGAuth;
+using Box.Sdk.Gen.V2.Config;
 
 var boxConfig = new BoxConfigBuilder(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET")
                 .SetEnterpriseId("YOUR_ENTERPRISE_ID")
@@ -284,7 +284,7 @@ var adminClient = boxCCG.AdminClient(adminToken: adminToken);
 The new SDK offers a more organized structure:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var ccgConfig = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", enterpriseId: "YOUR_ENTERPRISE_ID");
 var auth = new BoxCcgAuth(config: ccgConfig);
@@ -296,8 +296,8 @@ var client = new BoxClient(auth: auth);
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2.CCGAuth;
-using Box.V2.Config;
+using Box.Sdk.Gen.V2.CCGAuth;
+using Box.Sdk.Gen.V2.Config;
 
 var boxConfig = new BoxConfigBuilder(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET")
                 .Build();
@@ -311,7 +311,7 @@ var userClient = boxCCG.UserClient(userToken: userToken, userId: "YOUR_USER_ID")
 The new SDK streamlines the process:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var ccgConfig = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", userId: "YOUR_USER_ID");
 var auth = new BoxCcgAuth(config: ccgConfig);
@@ -325,7 +325,7 @@ Transitioning between account types is now more intuitive:
 **Modern (`Box DotNet SDK`):**
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 await auth.AsEnterpriseAsync("ENTERPRISE_ID");
 ```
@@ -339,8 +339,8 @@ OAuth 2.0 remains a robust authentication method. Let's explore the improvements
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2;
-using Box.V2.Config;
+using Box.Sdk.Gen.V2;
+using Box.Sdk.Gen.V2.Config;
 
 var config = new BoxConfigBuilder("CLIENT_ID", "CLIENT_SECRET", new System.Uri("YOUR_REDIRECT_URL")).Build();
 var client = new BoxClient(config);
@@ -354,7 +354,7 @@ var authorizeUrl = "https://account.box.com/api/oauth2/authorize?client_id=[CLIE
 The new SDK provides more flexibility:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET");
 var auth = new BoxOAuth(config: config);
@@ -368,7 +368,7 @@ var authorizeUrl = auth.GetAuthorizeUrl(new GetAuthorizeUrlOptions() { RedirectU
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.V2;
+using Box.Sdk.Gen.V2;
 
 var session = await client.Auth.AuthenticateAsync("[CODE]");
 var client = new BoxClient(config, session);
@@ -379,7 +379,7 @@ var client = new BoxClient(config, session);
 The new SDK simplifies the process:
 
 ```c#
-using Box;
+using Box.Sdk.Gen;
 
 await auth.GetTokensAuthorizationCodeGrantAsync("code");
 ```
@@ -416,8 +416,8 @@ client.Auth.SessionAuthenticated += delegate (object o, SessionAuthenticatedEven
 The new SDK allows developers to define custom classes for token storage:
 
 ```c#
-using Box;
-using Box.Schemas;
+using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
 using Task = System.Threading.Tasks.Task;
 
 class CustomTokenStorage : ITokenStorage

@@ -1,0 +1,28 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NullableExtensions;
+using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Managers;
+
+namespace Box.Sdk.Gen.Tests.Integration {
+    [TestClass]
+    public class DownloadsManagerTests {
+        public BoxClient client { get; }
+
+        public DownloadsManagerTests() {
+            client = new CommonsManager().GetDefaultClient();
+        }
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestDownloadFile() {
+            string newFileName = Utils.GetUUID();
+            byte[] fileBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
+            System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(buffer: fileBuffer);
+            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
+            FileFull uploadedFile = NullableUtils.Unwrap(uploadedFiles.Entries)[0];
+            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: downloadedFileContent).ConfigureAwait(false), buffer2: fileBuffer));
+            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+        }
+
+    }
+}
