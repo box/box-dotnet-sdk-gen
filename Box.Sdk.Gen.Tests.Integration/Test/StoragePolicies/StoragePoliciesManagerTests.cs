@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             StoragePolicies storagePolicies = await client.StoragePolicies.GetStoragePoliciesAsync().ConfigureAwait(false);
             StoragePolicy storagePolicy = NullableUtils.Unwrap(storagePolicies.Entries)[0];
             Assert.IsTrue(StringUtils.ToStringRepresentation(storagePolicy.Type) == "storage_policy");
-            StoragePolicy getStoragePolicy = await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: NullableUtils.Unwrap(storagePolicy.Id)).ConfigureAwait(false);
+            StoragePolicy getStoragePolicy = await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: storagePolicy.Id).ConfigureAwait(false);
             Assert.IsTrue(getStoragePolicy.Id == storagePolicy.Id);
         }
 

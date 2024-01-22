@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample get_storage_policies_id -->
 ```
-await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: NullableUtils.Unwrap(storagePolicy.Id)).ConfigureAwait(false)
+await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: storagePolicy.Id).ConfigureAwait(false)
 ```
 
 ### Arguments
