@@ -49,7 +49,10 @@ This operation is performed by calling function `CreateRetentionPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-retention-policy-assignments/).
 
-*Currently we don't have an example for calling `CreateRetentionPolicyAssignment` in integration tests*
+<!-- sample post_retention_policy_assignments -->
+```
+await client.RetentionPolicyAssignments.CreateRetentionPolicyAssignmentAsync(requestBody: new CreateRetentionPolicyAssignmentRequestBody(policyId: retentionPolicy.Id, assignTo: new CreateRetentionPolicyAssignmentRequestBodyAssignToField(id: folder.Id, type: CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.Folder))).ConfigureAwait(false)
+```
 
 ### Arguments
 

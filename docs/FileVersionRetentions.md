@@ -13,7 +13,10 @@ This operation is performed by calling function `GetFileVersionRetentions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-retentions/).
 
-*Currently we don't have an example for calling `GetFileVersionRetentions` in integration tests*
+<!-- sample get_file_version_retentions -->
+```
+await client.FileVersionRetentions.GetFileVersionRetentionsAsync().ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -41,7 +44,10 @@ This operation is performed by calling function `GetFileVersionRetentionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-retentions-id/).
 
-*Currently we don't have an example for calling `GetFileVersionRetentionById` in integration tests*
+<!-- sample get_file_version_retentions_id -->
+```
+await client.FileVersionRetentions.GetFileVersionRetentionByIdAsync(fileVersionRetentionId: NullableUtils.Unwrap(fileVersionRetention.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
