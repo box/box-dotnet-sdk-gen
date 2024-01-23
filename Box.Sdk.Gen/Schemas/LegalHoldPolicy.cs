@@ -44,14 +44,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the legal hold policy object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the legal hold policy object was modified.
         /// Does not update when assignments are added or removed.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         /// <summary>
         /// When the policy release request was sent. (Because
@@ -61,21 +61,21 @@ namespace Box.Sdk.Gen.Schemas {
         /// If `null`, the policy was not deleted.
         /// </summary>
         [JsonPropertyName("deleted_at")]
-        public string? DeletedAt { get; set; } = default;
+        public System.DateTimeOffset? DeletedAt { get; set; } = default;
 
         /// <summary>
         /// User-specified, optional date filter applies to
         /// Custodian assignments only
         /// </summary>
         [JsonPropertyName("filter_started_at")]
-        public string? FilterStartedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterStartedAt { get; set; } = default;
 
         /// <summary>
         /// User-specified, optional date filter applies to
         /// Custodian assignments only
         /// </summary>
         [JsonPropertyName("filter_ended_at")]
-        public string? FilterEndedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterEndedAt { get; set; } = default;
 
         /// <summary>
         /// Optional notes about why the policy was created.

@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the folder lock object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The operations that have been locked. Currently the `move`

@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: "2035-01-01T00:00:00Z", action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees)).ConfigureAwait(false)
+await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: date, action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees)).ConfigureAwait(false)
 ```
 
 ### Arguments

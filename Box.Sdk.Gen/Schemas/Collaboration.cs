@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// date is set.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         /// <summary>
         /// If set to `true`, collaborators have access to
@@ -67,7 +67,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `accepted` or `rejected`.
         /// </summary>
         [JsonPropertyName("acknowledged_at")]
-        public string? AcknowledgedAt { get; set; } = default;
+        public System.DateTimeOffset? AcknowledgedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserCollaborations? CreatedBy { get; set; } = default;
@@ -76,13 +76,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the collaboration object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the collaboration object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("acceptance_requirements_status")]
         public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; set; } = default;

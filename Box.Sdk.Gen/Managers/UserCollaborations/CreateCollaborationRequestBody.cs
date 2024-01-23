@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Managers {
         /// field will be result in an error.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         public CreateCollaborationRequestBody(CreateCollaborationRequestBodyItemField item, CreateCollaborationRequestBodyAccessibleByField accessibleBy, CreateCollaborationRequestBodyRoleField role) {
             Item = item;

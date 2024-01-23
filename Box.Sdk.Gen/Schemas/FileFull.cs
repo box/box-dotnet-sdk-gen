@@ -83,7 +83,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file will automatically be deleted
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         [JsonPropertyName("representations")]
         public FileFullRepresentationsField? Representations { get; set; } = default;
@@ -98,7 +98,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The retention expiration timestamp for the given file
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public string? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; set; } = default;
 
         /// <summary>
         /// A list of the types of roles that user can be invited at

@@ -26,13 +26,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time this lock was created at.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The time this lock is to expire at, which might be in the past.
         /// </summary>
         [JsonPropertyName("expired_at")]
-        public string? ExpiredAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiredAt { get; set; } = default;
 
         /// <summary>
         /// Whether or not the file can be downloaded while locked.

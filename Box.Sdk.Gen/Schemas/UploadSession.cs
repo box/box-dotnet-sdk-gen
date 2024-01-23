@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The date and time when this session expires.
         /// </summary>
         [JsonPropertyName("session_expires_at")]
-        public string? SessionExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? SessionExpiresAt { get; set; } = default;
 
         /// <summary>
         /// The  size in bytes that must be used for all parts of of the

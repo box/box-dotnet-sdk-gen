@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             ZipDownload zipDownload = await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)})) { DownloadFileName = "zip" }).ConfigureAwait(false);
             Assert.IsTrue(zipDownload.DownloadUrl != "");
             Assert.IsTrue(zipDownload.StatusUrl != "");
-            Assert.IsTrue(zipDownload.ExpiresAt != "");
+            Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(zipDownload.ExpiresAt)) != "");
             System.IO.Stream zipStream = await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownload.DownloadUrl)).ConfigureAwait(false);
             Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: zipStream).ConfigureAwait(false), buffer2: Utils.GenerateByteBuffer(size: 10)) == false);
             ZipDownloadStatus zipDownloadStatus = await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: NullableUtils.Unwrap(zipDownload.StatusUrl)).ConfigureAwait(false);

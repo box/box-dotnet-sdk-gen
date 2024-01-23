@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time this invocation was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// Action that triggered the invocation

@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// shield information barrier report object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserBase? CreatedBy { get; set; } = default;
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// shield information barrier report was updated.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; } = default;
+        public System.DateTimeOffset? UpdatedAt { get; set; } = default;
 
         public ShieldInformationBarrierReport() {
             

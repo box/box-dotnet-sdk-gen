@@ -58,13 +58,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the integration mapping object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the integration mapping object was last modified
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         public IntegrationMapping(IntegrationMappingTypeField type, IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem) {
             Type = type;

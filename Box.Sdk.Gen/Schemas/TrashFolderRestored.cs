@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The date and time when the folder was last updated. This value may
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("description")]
         public string? Description { get; set; } = default;
@@ -98,13 +98,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// created.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public string? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
 
         /// <summary>
         /// The date and time at which this folder was last updated.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public string? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
 
         [JsonPropertyName("owned_by")]
         public UserMini? OwnedBy { get; set; } = default;

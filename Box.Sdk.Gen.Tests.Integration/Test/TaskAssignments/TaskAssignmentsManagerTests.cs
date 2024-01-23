@@ -17,7 +17,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteTaskAssignment() {
             FileFull file = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
-            Task task = await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = "2035-01-01T00:00:00Z", Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees }).ConfigureAwait(false);
+            System.DateTimeOffset date = Utils.DateTimeFromString(dateTime: "2035-01-01T00:00:00Z");
+            Task task = await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = date, Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees }).ConfigureAwait(false);
             Assert.IsTrue(task.Message == "test message");
             Assert.IsTrue(NullableUtils.Unwrap(task.Item).Id == file.Id);
             UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);

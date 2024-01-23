@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Date prefill value
         /// </summary>
         [JsonPropertyName("date_value")]
-        public string? DateValue { get; set; } = default;
+        public System.DateOnly? DateValue { get; set; } = default;
 
         public SignRequestPrefillTag() {
             

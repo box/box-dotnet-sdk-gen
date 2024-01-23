@@ -206,7 +206,7 @@ namespace Box.Sdk.Gen.Managers {
                 throw new Exception("Assertion failed");
             }
             acc.FileHash.UpdateHash(data: chunkBuffer);
-            return new PartAccumulator(lastIndex: bytesEnd, parts: Utils.ListConcat(a: parts, b: Array.AsReadOnly(new [] {part})), fileSize: acc.FileSize, uploadSessionId: acc.UploadSessionId, fileHash: acc.FileHash);
+            return new PartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadSessionId: acc.UploadSessionId, fileHash: acc.FileHash);
         }
 
         /// <summary>

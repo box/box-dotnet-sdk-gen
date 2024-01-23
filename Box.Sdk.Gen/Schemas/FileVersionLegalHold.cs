@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// deleted.
         /// </summary>
         [JsonPropertyName("deleted_at")]
-        public string? DeletedAt { get; set; } = default;
+        public System.DateTimeOffset? DeletedAt { get; set; } = default;
 
         public FileVersionLegalHold() {
             

@@ -23,13 +23,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the file version object was last updated
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("modified_by")]
         public UserMini? ModifiedBy { get; set; } = default;
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version object was trashed.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; set; } = default;
 
         [JsonPropertyName("trashed_by")]
         public UserMini? TrashedBy { get; set; } = default;
@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version was restored from the trash.
         /// </summary>
         [JsonPropertyName("restored_at")]
-        public string? RestoredAt { get; set; } = default;
+        public System.DateTimeOffset? RestoredAt { get; set; } = default;
 
         [JsonPropertyName("restored_by")]
         public UserMini? RestoredBy { get; set; } = default;
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version object will be permanently deleted.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; set; } = default;
 
         [JsonPropertyName("uploader_display_name")]
         public string? UploaderDisplayName { get; set; } = default;

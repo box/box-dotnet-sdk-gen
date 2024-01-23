@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// download.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         /// <summary>
         /// A list of conflicts that occurred when trying to create the archive. This

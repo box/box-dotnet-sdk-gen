@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the webhook event was triggered.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("trigger")]
         public WebhookInvocationTriggerField? Trigger { get; set; } = default;
