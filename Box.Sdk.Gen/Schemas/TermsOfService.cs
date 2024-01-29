@@ -33,13 +33,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the legal item was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the legal item was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         public TermsOfService(string id, TermsOfServiceBaseTypeField type) : base(id, type) {
             

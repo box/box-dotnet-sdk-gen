@@ -54,7 +54,7 @@ namespace Box.Sdk.Gen.Managers {
         /// current date and time.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public string? UnsharedAt { get; set; } = default;
+        public System.DateTimeOffset? UnsharedAt { get; set; } = default;
 
         [JsonPropertyName("permissions")]
         public UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField? Permissions { get; set; } = default;

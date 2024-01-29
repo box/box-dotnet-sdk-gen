@@ -17,13 +17,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the event object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the event object was recorded in database
         /// </summary>
         [JsonPropertyName("recorded_at")]
-        public string? RecordedAt { get; set; } = default;
+        public System.DateTimeOffset? RecordedAt { get; set; } = default;
 
         /// <summary>
         /// The ID of the event object. You can use this to detect duplicate events

@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the webhook was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The URL that is notified by this webhook

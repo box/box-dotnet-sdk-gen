@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// provided.
         /// </summary>
         [JsonPropertyName("due_at")]
-        public string? DueAt { get; set; } = default;
+        public System.DateTimeOffset? DueAt { get; set; } = default;
 
         /// <summary>
         /// Defines which assignees need to complete this task before the task

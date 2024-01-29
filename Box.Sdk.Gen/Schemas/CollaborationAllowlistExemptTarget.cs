@@ -29,13 +29,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time the entry was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The time the entry was modified
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         public CollaborationAllowlistExemptTarget() {
             

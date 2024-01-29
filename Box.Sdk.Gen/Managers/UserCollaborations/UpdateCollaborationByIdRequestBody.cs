@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Managers {
         /// invited collaborator** setting was enabled.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         /// <summary>
         /// Determines if the invited users can see the entire parent path to

@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the user object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the user object was last modified
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         /// <summary>
         /// The language of the user, formatted in modified version of the

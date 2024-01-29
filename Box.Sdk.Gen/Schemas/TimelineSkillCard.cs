@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The optional date and time this card was created at.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// `skill_card`

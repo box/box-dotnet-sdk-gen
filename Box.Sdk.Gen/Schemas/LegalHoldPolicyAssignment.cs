@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// created
         /// </summary>
         [JsonPropertyName("assigned_at")]
-        public string? AssignedAt { get; set; } = default;
+        public System.DateTimeOffset? AssignedAt { get; set; } = default;
 
         /// <summary>
         /// When the assignment release request was sent.
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// was not deleted.
         /// </summary>
         [JsonPropertyName("deleted_at")]
-        public string? DeletedAt { get; set; } = default;
+        public System.DateTimeOffset? DeletedAt { get; set; } = default;
 
         public LegalHoldPolicyAssignment() {
             

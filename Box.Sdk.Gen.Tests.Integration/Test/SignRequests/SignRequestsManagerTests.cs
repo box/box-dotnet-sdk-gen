@@ -21,10 +21,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string signerEmail = string.Concat(Utils.GetUUID(), "@box.com");
             FileFull fileToSign = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             FolderFull destinationFolder = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
-            SignRequest createdSignRequest = await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signerEmail }}), parentFolder: new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder)) { SourceFiles = Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)}) }).ConfigureAwait(false);
+            SignRequest createdSignRequest = await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signerEmail }}), parentFolder: new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder)) { PrefillTags = Array.AsReadOnly(new [] {new SignRequestPrefillTag() { DateValue = Utils.DateFromString(date: "2035-01-01"), DocumentTagId = "0" }}), SourceFiles = Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)}) }).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].Email == signerEmail);
             Assert.IsTrue(createdSignRequest.ParentFolder.Id == destinationFolder.Id);
+            Assert.IsTrue(Utils.DateToString(date: NullableUtils.Unwrap(createdSignRequest.PrefillTags[0].DateValue)) == "2035-01-01");
             SignRequest newSignRequest = await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(newSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.Signers)[1].Email == signerEmail);

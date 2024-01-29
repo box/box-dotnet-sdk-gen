@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Managers {
         /// date cannot be shortened once set on a file.
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public string? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; set; } = default;
 
         /// <summary>
         /// Defines who can download a file.

@@ -41,13 +41,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the invite was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the invite was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         public Invite(string id, InviteTypeField type) {
             Id = id;

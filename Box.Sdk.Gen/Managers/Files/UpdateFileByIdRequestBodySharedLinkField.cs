@@ -52,7 +52,7 @@ namespace Box.Sdk.Gen.Managers {
         /// users with paid accounts.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public string? UnsharedAt { get; set; } = default;
+        public System.DateTimeOffset? UnsharedAt { get; set; } = default;
 
         [JsonPropertyName("permissions")]
         public UpdateFileByIdRequestBodySharedLinkPermissionsField? Permissions { get; set; } = default;
