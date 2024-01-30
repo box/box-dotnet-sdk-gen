@@ -72,13 +72,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The date and time when the file was created on Box.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; set; }
+        public System.DateTimeOffset CreatedAt { get; set; }
 
         /// <summary>
         /// The date and time when the file was last updated on Box.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; set; }
+        public System.DateTimeOffset ModifiedAt { get; set; }
 
         /// <summary>
         /// The time at which this file was put in the
@@ -99,14 +99,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// created, which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public string? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
 
         /// <summary>
         /// The date and time at which this file was last updated,
         /// which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public string? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; set; } = default;
@@ -138,7 +138,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFileRestoredItemStatusField ItemStatus { get; set; }
 
-        public TrashFileRestored(string id, TrashFileRestoredTypeField type, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, string createdAt, string modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileRestoredItemStatusField itemStatus) {
+        public TrashFileRestored(string id, TrashFileRestoredTypeField type, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileRestoredItemStatusField itemStatus) {
             Id = id;
             Type = type;
             SequenceId = sequenceId;

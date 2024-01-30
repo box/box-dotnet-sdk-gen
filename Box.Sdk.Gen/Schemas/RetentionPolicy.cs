@@ -60,13 +60,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the retention policy object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When the retention policy object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         /// <summary>
         /// Determines if the owner of items under the policy

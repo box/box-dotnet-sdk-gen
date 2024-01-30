@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Segment Restriction object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserBase? CreatedBy { get; set; } = default;
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Restriction was updated.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; } = default;
+        public System.DateTimeOffset? UpdatedAt { get; set; } = default;
 
         [JsonPropertyName("updated_by")]
         public UserBase? UpdatedBy { get; set; } = default;

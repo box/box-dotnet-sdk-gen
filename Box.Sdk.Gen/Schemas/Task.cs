@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the task is due
         /// </summary>
         [JsonPropertyName("due_at")]
-        public string? DueAt { get; set; } = default;
+        public System.DateTimeOffset? DueAt { get; set; } = default;
 
         /// <summary>
         /// The type of task the task assignee will be prompted to
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the task object was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// Defines which assignees need to complete this task before the task

@@ -27,13 +27,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time this comment was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The time this comment was last modified
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         [JsonPropertyName("item")]
         public CommentItemField? Item { get; set; } = default;

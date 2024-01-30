@@ -38,20 +38,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// completed. This will be `null` if the task is not completed yet.
         /// </summary>
         [JsonPropertyName("completed_at")]
-        public string? CompletedAt { get; set; } = default;
+        public System.DateTimeOffset? CompletedAt { get; set; } = default;
 
         /// <summary>
         /// The date at which this task was assigned to the user.
         /// </summary>
         [JsonPropertyName("assigned_at")]
-        public string? AssignedAt { get; set; } = default;
+        public System.DateTimeOffset? AssignedAt { get; set; } = default;
 
         /// <summary>
         /// The date at which the assigned user was reminded of this task
         /// assignment.
         /// </summary>
         [JsonPropertyName("reminded_at")]
-        public string? RemindedAt { get; set; } = default;
+        public System.DateTimeOffset? RemindedAt { get; set; } = default;
 
         /// <summary>
         /// The current state of the assignment. The available states depend on

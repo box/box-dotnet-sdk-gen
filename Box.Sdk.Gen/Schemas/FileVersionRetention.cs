@@ -30,14 +30,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// created
         /// </summary>
         [JsonPropertyName("applied_at")]
-        public string? AppliedAt { get; set; } = default;
+        public System.DateTimeOffset? AppliedAt { get; set; } = default;
 
         /// <summary>
         /// When the retention expires on this file
         /// version retention
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public string? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; set; } = default;
 
         [JsonPropertyName("winning_retention_policy")]
         public RetentionPolicyMini? WinningRetentionPolicy { get; set; } = default;

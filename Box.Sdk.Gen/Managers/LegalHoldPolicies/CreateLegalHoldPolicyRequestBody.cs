@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Required if `is_ongoing` is set to `false`.
         /// </summary>
         [JsonPropertyName("filter_started_at")]
-        public string? FilterStartedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterStartedAt { get; set; } = default;
 
         /// <summary>
         /// The filter end date.
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Required if `is_ongoing` is set to `false`.
         /// </summary>
         [JsonPropertyName("filter_ended_at")]
-        public string? FilterEndedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterEndedAt { get; set; } = default;
 
         /// <summary>
         /// Whether new assignments under this policy should

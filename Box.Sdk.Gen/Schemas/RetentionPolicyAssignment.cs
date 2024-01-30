@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// created.
         /// </summary>
         [JsonPropertyName("assigned_at")]
-        public string? AssignedAt { get; set; } = default;
+        public System.DateTimeOffset? AssignedAt { get; set; } = default;
 
         /// <summary>
         /// The date the retention policy assignment begins.

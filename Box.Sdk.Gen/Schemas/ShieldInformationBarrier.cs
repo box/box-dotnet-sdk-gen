@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// shield information barrier object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// The user who created this shield information barrier.
@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// ISO date time string when this shield information barrier was updated.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; } = default;
+        public System.DateTimeOffset? UpdatedAt { get; set; } = default;
 
         /// <summary>
         /// The user that updated this shield information barrier.
@@ -60,7 +60,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// ISO date time string when this shield information barrier was enabled.
         /// </summary>
         [JsonPropertyName("enabled_at")]
-        public string? EnabledAt { get; set; } = default;
+        public System.DateTimeOffset? EnabledAt { get; set; } = default;
 
         [JsonPropertyName("enabled_by")]
         public UserBase? EnabledBy { get; set; } = default;

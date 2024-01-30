@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If not set, the upload time will be used.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public string? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
 
         /// <summary>
         /// Defines the time the file was last modified at.
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If not set, the upload time will be used.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public string? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
 
         public UploadFileRequestBodyAttributesField(string name, UploadFileRequestBodyAttributesParentField parent) {
             Name = name;

@@ -58,14 +58,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// When this file was created on Box’s servers.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When this file was last updated on the Box
         /// servers.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         /// <summary>
         /// The time at which this bookmark was put in the

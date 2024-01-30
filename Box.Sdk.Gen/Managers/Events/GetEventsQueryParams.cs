@@ -63,14 +63,14 @@ namespace Box.Sdk.Gen.Managers {
         /// when requesting the events with a `stream_type` of `admin_logs`. For any
         /// other `stream_type` this value will be ignored.
         /// </summary>
-        public string? CreatedAfter { get; set; } = default;
+        public System.DateTimeOffset? CreatedAfter { get; set; } = default;
 
         /// <summary>
         /// The upper bound date and time to return events for. This can only be used
         /// when requesting the events with a `stream_type` of `admin_logs`. For any
         /// other `stream_type` this value will be ignored.
         /// </summary>
-        public string? CreatedBefore { get; set; } = default;
+        public System.DateTimeOffset? CreatedBefore { get; set; } = default;
 
         public GetEventsQueryParams() {
             

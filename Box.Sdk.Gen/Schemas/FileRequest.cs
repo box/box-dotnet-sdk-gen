@@ -88,7 +88,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `inactive`.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         [JsonPropertyName("folder")]
         public FolderMini Folder { get; set; }
@@ -117,7 +117,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The date and time when the file request was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; set; }
+        public System.DateTimeOffset CreatedAt { get; set; }
 
         [JsonPropertyName("updated_by")]
         public UserMini? UpdatedBy { get; set; } = default;
@@ -126,9 +126,9 @@ namespace Box.Sdk.Gen.Schemas {
         /// The date and time when the file request was last updated.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; set; }
+        public System.DateTimeOffset UpdatedAt { get; set; }
 
-        public FileRequest(string id, FileRequestTypeField type, FolderMini folder, string createdAt, string updatedAt) {
+        public FileRequest(string id, FileRequestTypeField type, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt) {
             Id = id;
             Type = type;
             Folder = folder;

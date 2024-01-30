@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Date and Time that the decision was made
         /// </summary>
         [JsonPropertyName("finalized_at")]
-        public string? FinalizedAt { get; set; } = default;
+        public System.DateTimeOffset? FinalizedAt { get; set; } = default;
 
         /// <summary>
         /// Additional info about the decision, such as the decline reason from the signer

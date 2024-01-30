@@ -72,40 +72,40 @@ namespace Box.Sdk.Gen.Schemas {
         /// The date and time when the file was created on Box.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; set; }
+        public System.DateTimeOffset CreatedAt { get; set; }
 
         /// <summary>
         /// The date and time when the file was last updated on Box.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string ModifiedAt { get; set; }
+        public System.DateTimeOffset ModifiedAt { get; set; }
 
         /// <summary>
         /// The time at which this file was put in the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; set; } = default;
 
         /// <summary>
         /// The time at which this file is expected to be purged
         /// from the trash.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; set; } = default;
 
         /// <summary>
         /// The date and time at which this file was originally
         /// created, which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public string? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
 
         /// <summary>
         /// The date and time at which this file was last updated,
         /// which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public string? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; set; } = default;
@@ -137,7 +137,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFileItemStatusField ItemStatus { get; set; }
 
-        public TrashFile(string id, TrashFileTypeField type, string sequenceId, string sha1, string description, long size, TrashFilePathCollectionField pathCollection, string createdAt, string modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus) {
+        public TrashFile(string id, TrashFileTypeField type, string sequenceId, string sha1, string description, long size, TrashFilePathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus) {
             Id = id;
             Type = type;
             SequenceId = sequenceId;

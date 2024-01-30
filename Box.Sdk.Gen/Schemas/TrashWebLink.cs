@@ -58,26 +58,26 @@ namespace Box.Sdk.Gen.Schemas {
         /// When this file was created on Box’s servers.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         /// <summary>
         /// When this file was last updated on the Box
         /// servers.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public string? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
         /// <summary>
         /// When this file was last moved to the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; set; } = default;
 
         /// <summary>
         /// When this file will be permanently deleted.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; set; } = default;
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; set; } = default;

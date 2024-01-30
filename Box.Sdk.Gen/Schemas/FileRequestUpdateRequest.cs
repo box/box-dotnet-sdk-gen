@@ -71,7 +71,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
 
         public FileRequestUpdateRequest() {
             

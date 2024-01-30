@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Box.Sdk.Gen
 {
@@ -191,5 +192,33 @@ namespace Box.Sdk.Gen
                 yield return partStream;
             }
         }
+
+        /// <summary>
+        /// Converts string in ISO 8601 format to DateTimeOffset.
+        /// </summary>
+        /// <param name="dateTime">Input string (ISO 8601)</param>
+        /// <returns>DateTimeOffset</returns>
+        public static DateTimeOffset DateTimeFromString(string dateTime) => DateTimeOffset.Parse(dateTime);
+
+        /// <summary>
+        /// Converts DateTimeOffset to string in ISO 8601 format.
+        /// </summary>
+        /// <param name="dateTime">Input DateTimeOffset</param>
+        /// <returns>String (ISO 8601)</returns>
+        public static string DateTimeToString(DateTimeOffset dateTime) => string.Concat(dateTime.ToString("s", CultureInfo.InvariantCulture), "Z");
+
+        /// <summary>
+        /// Converts string in ISO 8601 format to DateOnly.
+        /// </summary>
+        /// <param name="date">Input string (ISO 8601)</param>
+        /// <returns>DateOnly</returns>
+        public static DateOnly DateFromString(string date) => DateOnly.Parse(date);
+
+        /// <summary>
+        /// Converts DateOnly to string in ISO 8601 format.
+        /// </summary>
+        /// <param name="date">Input DateOnly</param>
+        /// <returns>String (ISO 8601)</returns>
+        public static string DateToString(DateOnly date) => date.ToString("O", CultureInfo.InvariantCulture);
     }
 }

@@ -17,8 +17,9 @@ namespace Serializer
             {
                 PropertyNameCaseInsensitive = true,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString
+                NumberHandling = JsonNumberHandling.AllowReadingFromString,
             };
+            _options.Converters.Add(new DateOnlyJsonConverter());
         }
 
         public static SerializedData Serialize(object obj) => new SerializedData(obj);
@@ -30,6 +31,21 @@ namespace Serializer
         }
 
         public static string SdToJson(SerializedData obj) => JsonSerializer.Serialize(obj.Data, _options);
+    }
+
+    //Remove when migrated to .NET 7
+    internal sealed class DateOnlyJsonConverter : JsonConverter<DateOnly>
+    {
+        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            return DateOnly.FromDateTime(reader.GetDateTime());
+        }
+
+        public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
+        {
+            var isoDate = value.ToString("O");
+            writer.WriteStringValue(isoDate);
+        }
     }
 
     class StringEnumConverter<T> : JsonConverter<T>

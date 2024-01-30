@@ -79,7 +79,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// set by users with paid accounts.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public string? UnsharedAt { get; set; } = default;
+        public System.DateTimeOffset? UnsharedAt { get; set; } = default;
 
         /// <summary>
         /// Defines if the shared link requires a password to access the item.

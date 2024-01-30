@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time of the most recent interaction.
         /// </summary>
         [JsonPropertyName("interacted_at")]
-        public string? InteractedAt { get; set; } = default;
+        public System.DateTimeOffset? InteractedAt { get; set; } = default;
 
         /// <summary>
         /// If the item was accessed through a shared link it will appear here,

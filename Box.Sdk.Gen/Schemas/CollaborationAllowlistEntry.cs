@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time the entry was created at
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; set; } = default;
 
         public CollaborationAllowlistEntry() {
             

@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Uses `days_valid` to calculate the date and time, in GMT, the sign request will expire if unsigned.
         /// </summary>
         [JsonPropertyName("auto_expire_at")]
-        public string? AutoExpireAt { get; set; } = default;
+        public System.DateTimeOffset? AutoExpireAt { get; set; } = default;
 
         public SignRequest(FolderMini parentFolder) : base(parentFolder) {
             
