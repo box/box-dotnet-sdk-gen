@@ -41,9 +41,9 @@ namespace Box.Sdk.Gen.Schemas {
         public long? Order { get; set; } = default;
 
         /// <summary>
-        /// If set, signers who have the same group ID will be assigned to the same input.
-        /// A signer group is expected to have more than one signer. When a group contains fewer than two signers, 
-        /// it will be converted to a single signer and the group will be removed. 
+        /// If provided, this value points signers that are assigned the same inputs and belongs to same signer group.
+        /// A signer group is not a Box Group. It is an entity that belongs to the template itself and can only be used
+        /// within Sign Requests created from it.
         /// </summary>
         [JsonPropertyName("signer_group_id")]
         public string? SignerGroupId { get; set; } = default;

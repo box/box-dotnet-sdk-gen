@@ -1,8 +1,11 @@
 using Box.Sdk.Gen.Schemas;
 using Fetch;
 using Microsoft.IdentityModel.Tokens;
-using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Asn1.Pkcs;
+using Org.BouncyCastle.Crypto.Asymmetric;
 using Org.BouncyCastle.OpenSsl;
+using Org.BouncyCastle.Operators;
+using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Security;
 using Serializer;
 using System;
@@ -215,33 +218,44 @@ namespace Box.Sdk.Gen
         {
             using (var keyReader = new StringReader(Config.PrivateKey))
             {
-                var reader = new PemReader(keyReader, new PasswordFinder(Config.PrivateKeyPassphrase));
-                var privateCrtKeyParams = reader.ReadObject() as RsaPrivateCrtKeyParameters;
+                var reader = new OpenSslPemReader(keyReader);
+                var privateCrtKeyParams = reader.ReadObject();
 
                 if (privateCrtKeyParams == null)
                 {
                     throw new ArgumentException("Invalid private JWT key!");
                 }
 
-                var rsaParams = DotNetUtilities.ToRSAParameters(privateCrtKeyParams);
+                if (privateCrtKeyParams is Pkcs8EncryptedPrivateKeyInfo)
+                {
+                    var pkcs8 = (Pkcs8EncryptedPrivateKeyInfo)privateCrtKeyParams;
+                    PrivateKeyInfo privateKeyInfo = pkcs8.DecryptPrivateKeyInfo(
+                new PkixPbeDecryptorProviderBuilder().Build(Config.PrivateKeyPassphrase.ToCharArray()));
+                    var bcKey = AsymmetricKeyFactory.CreatePrivateKey(privateKeyInfo.GetEncoded());
 
-                var rsaKey = new RsaSecurityKey(rsaParams);
-                rsaKey.KeyId = Config.JwtKeyId;
+                    if (bcKey is AsymmetricRsaPrivateKey)
+                    {
+                        var bcRsaKey = (AsymmetricRsaPrivateKey)bcKey;
+                        RSAParameters rsaParams = new RSAParameters
+                        {
+                            Modulus = bcRsaKey.Modulus.ToByteArrayUnsigned(),
+                            P = bcRsaKey.P.ToByteArrayUnsigned(),
+                            Q = bcRsaKey.Q.ToByteArrayUnsigned(),
+                            DP = bcRsaKey.DP.ToByteArrayUnsigned(),
+                            DQ = bcRsaKey.DQ.ToByteArrayUnsigned(),
+                            InverseQ = bcRsaKey.QInv.ToByteArrayUnsigned(),
+                            D = bcRsaKey.PrivateExponent.ToByteArrayUnsigned(),
+                            Exponent = bcRsaKey.PublicExponent.ToByteArrayUnsigned()
+                        };
 
-                return new SigningCredentials(rsaKey, SecurityAlgorithms.RsaSha256);
+                        var rsaKey = new RsaSecurityKey(rsaParams);
+
+                        return new SigningCredentials(rsaKey, SecurityAlgorithms.RsaSha256);
+                    }
+                }
+
+                throw new ArgumentException("Provided JWT Key format is not supported");
             }
-        }
-
-        class PasswordFinder : IPasswordFinder
-        {
-            private readonly string _password;
-
-            public PasswordFinder(string password)
-            {
-                _password = password;
-            }
-
-            public char[] GetPassword() => _password.ToCharArray();
         }
 
         public async Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null)

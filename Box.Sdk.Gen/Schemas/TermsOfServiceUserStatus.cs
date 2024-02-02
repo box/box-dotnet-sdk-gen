@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this terms of service user status
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string Id { get; set; }
 
         /// <summary>
         /// `terms_of_service_user_status`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceUserStatusTypeField? Type { get; set; } = default;
+        public TermsOfServiceUserStatusTypeField Type { get; set; }
 
         [JsonPropertyName("tos")]
         public TermsOfServiceBase? Tos { get; set; } = default;
@@ -43,8 +43,9 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public TermsOfServiceUserStatus() {
-            
+        public TermsOfServiceUserStatus(string id, TermsOfServiceUserStatusTypeField type) {
+            Id = id;
+            Type = type;
         }
     }
 }
