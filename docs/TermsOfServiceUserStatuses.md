@@ -16,7 +16,10 @@ This operation is performed by calling function `GetTermsOfServiceUserStatuses`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `GetTermsOfServiceUserStatuses` in integration tests*
+<!-- sample get_terms_of_service_user_statuses -->
+```
+await client.TermsOfServiceUserStatuses.GetTermsOfServiceUserStatusesAsync(queryParams: new GetTermsOfServiceUserStatusesQueryParams(tosId: tos.Id, userId: user.Id)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -44,7 +47,10 @@ This operation is performed by calling function `CreateTermsOfServiceStatusForUs
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `CreateTermsOfServiceStatusForUser` in integration tests*
+<!-- sample post_terms_of_service_user_statuses -->
+```
+await client.TermsOfServiceUserStatuses.CreateTermsOfServiceStatusForUserAsync(requestBody: new CreateTermsOfServiceStatusForUserRequestBody(tos: new CreateTermsOfServiceStatusForUserRequestBodyTosField(type: CreateTermsOfServiceStatusForUserRequestBodyTosTypeField.TermsOfService, id: tos.Id), user: new CreateTermsOfServiceStatusForUserRequestBodyUserField(type: CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User, id: user.Id), isAccepted: false)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -72,7 +78,10 @@ This operation is performed by calling function `UpdateTermsOfServiceStatusForUs
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-terms-of-service-user-statuses-id/).
 
-*Currently we don't have an example for calling `UpdateTermsOfServiceStatusForUserById` in integration tests*
+<!-- sample put_terms_of_service_user_statuses_id -->
+```
+await client.TermsOfServiceUserStatuses.UpdateTermsOfServiceStatusForUserByIdAsync(termsOfServiceUserStatusId: createdTosUserStatus.Id, requestBody: new UpdateTermsOfServiceStatusForUserByIdRequestBody(isAccepted: true)).ConfigureAwait(false)
+```
 
 ### Arguments
 
