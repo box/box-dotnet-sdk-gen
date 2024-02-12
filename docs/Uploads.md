@@ -67,7 +67,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: fileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileByteStream), queryParams: new UploadFileQueryParams(), headers: new UploadFileHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false)
+await adminClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: workflowFolderId)), file: Utils.GenerateByteStream(size: 1024 * 1024))).ConfigureAwait(false)
 ```
 
 ### Arguments
