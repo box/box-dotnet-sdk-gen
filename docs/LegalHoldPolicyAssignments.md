@@ -17,7 +17,10 @@ This operation is performed by calling function `GetLegalHoldPolicyAssignments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments/).
 
-*Currently we don't have an example for calling `GetLegalHoldPolicyAssignments` in integration tests*
+<!-- sample get_legal_hold_policy_assignments -->
+```
+await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentsAsync(queryParams: new GetLegalHoldPolicyAssignmentsQueryParams(policyId: legalHoldPolicyId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `CreateLegalHoldPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-legal-hold-policy-assignments/).
 
-*Currently we don't have an example for calling `CreateLegalHoldPolicyAssignment` in integration tests*
+<!-- sample post_legal_hold_policy_assignments -->
+```
+await client.LegalHoldPolicyAssignments.CreateLegalHoldPolicyAssignmentAsync(requestBody: new CreateLegalHoldPolicyAssignmentRequestBody(policyId: legalHoldPolicyId, assignTo: new CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(type: CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField.File, id: fileId))).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `GetLegalHoldPolicyAssignmentByI
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id/).
 
-*Currently we don't have an example for calling `GetLegalHoldPolicyAssignmentById` in integration tests*
+<!-- sample get_legal_hold_policy_assignments_id -->
+```
+await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -104,7 +113,10 @@ This operation is performed by calling function `DeleteLegalHoldPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-legal-hold-policy-assignments-id/).
 
-*Currently we don't have an example for calling `DeleteLegalHoldPolicyAssignmentById` in integration tests*
+<!-- sample delete_legal_hold_policy_assignments_id -->
+```
+await client.LegalHoldPolicyAssignments.DeleteLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId).ConfigureAwait(false)
+```
 
 ### Arguments
 
