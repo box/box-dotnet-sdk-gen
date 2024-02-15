@@ -1,0 +1,32 @@
+using System.Text.Json.Serialization;
+using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen;
+using Box.Sdk.Gen.Managers;
+
+namespace Box.Sdk.Gen {
+    public class JwtConfigAppSettings {
+        /// <summary>
+        /// App client ID
+        /// </summary>
+        [JsonPropertyName("clientID")]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// App client secret
+        /// </summary>
+        [JsonPropertyName("clientSecret")]
+        public string ClientSecret { get; set; }
+
+        /// <summary>
+        /// App auth settings
+        /// </summary>
+        [JsonPropertyName("appAuth")]
+        public JwtConfigAppSettingsAppAuth AppAuth { get; set; }
+
+        public JwtConfigAppSettings(string clientId, string clientSecret, JwtConfigAppSettingsAppAuth appAuth) {
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            AppAuth = appAuth;
+        }
+    }
+}

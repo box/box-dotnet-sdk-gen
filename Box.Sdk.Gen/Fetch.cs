@@ -74,7 +74,7 @@ namespace Fetch
                 {
                     if (options.Auth != null)
                     {
-                        await options.Auth.RefreshTokenAsync().ConfigureAwait(false);
+                        await options.Auth.RefreshTokenAsync(networkSession).ConfigureAwait(false);
                     }
                 }
                 else if (statusCode == 429 || statusCode >= 500)

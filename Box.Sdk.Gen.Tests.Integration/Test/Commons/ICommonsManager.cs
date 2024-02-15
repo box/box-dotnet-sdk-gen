@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen {
 public interface ICommonsManager {
     public BoxJwtAuth GetJwtAuth();
 
-    public System.Threading.Tasks.Task<BoxClient> GetDefaultClientAsUserAsync(string userId);
+    public BoxClient GetDefaultClientAsUser(string userId);
 
     public BoxClient GetDefaultClient();
 

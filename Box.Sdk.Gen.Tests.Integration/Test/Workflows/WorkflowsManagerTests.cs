@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestWorkflows() {
-            BoxClient adminClient = await new CommonsManager().GetDefaultClientAsUserAsync(userId: Utils.GetEnvVar(name: "USER_ID")).ConfigureAwait(false);
+            BoxClient adminClient = new CommonsManager().GetDefaultClientAsUser(userId: Utils.GetEnvVar(name: "USER_ID"));
             string workflowFolderId = Utils.GetEnvVar(name: "WORKFLOW_FOLDER_ID");
             Files uploadedFiles = await adminClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: workflowFolderId)), file: Utils.GenerateByteStream(size: 1024 * 1024))).ConfigureAwait(false);
             FileFull file = NullableUtils.Unwrap(uploadedFiles.Entries)[0];

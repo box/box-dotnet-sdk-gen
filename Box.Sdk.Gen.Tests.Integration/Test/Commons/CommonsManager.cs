@@ -16,10 +16,10 @@ namespace Box.Sdk.Gen {
             return auth;
         }
 
-        public async System.Threading.Tasks.Task<BoxClient> GetDefaultClientAsUserAsync(string userId) {
+        public BoxClient GetDefaultClientAsUser(string userId) {
             BoxJwtAuth auth = GetJwtAuth();
-            await auth.AsUserAsync(userId: userId).ConfigureAwait(false);
-            return new BoxClient(auth: auth);
+            BoxJwtAuth authUser = auth.AsUser(userId: userId);
+            return new BoxClient(auth: authUser);
         }
 
         public BoxClient GetDefaultClient() {

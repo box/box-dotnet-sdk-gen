@@ -220,5 +220,24 @@ namespace Box.Sdk.Gen
         /// <param name="date">Input DateOnly</param>
         /// <returns>String (ISO 8601)</returns>
         public static string DateToString(DateOnly date) => date.ToString("O", CultureInfo.InvariantCulture);
+
+        /// <summary>
+        /// Indicates if SDK is running in the browser.
+        /// </summary>
+        /// <returns>False</returns>
+        public static bool IsBrowser() => false;
+
+        /// <summary>
+        /// Returns current Epoch time (Unix time) in seconds.
+        /// </summary>
+        /// <returns>Epoch time in seconds</returns>
+        public static int GetEpochTimeInSeconds() => (int)DateTimeOffset.Now.ToUnixTimeSeconds();
+
+        /// <summary>
+        /// Reads all text in a file.
+        /// </summary>
+        /// <param name="filepath">Path to the file</param>
+        /// <returns>Text from the file</returns>
+        public static string ReadTextFromFile(string filepath) => System.IO.File.ReadAllText(filepath);
     }
 }
