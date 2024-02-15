@@ -12,10 +12,31 @@
   
 
   <ItemGroup>
-    <PackageReference Include="BouncyCastle.Cryptography" Version="2.2.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.29.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+    
+
+  <ItemGroup>
+    <Reference Include="bc-fips-1.0.2">
+        <HintPath>libs\bc-fips-1.0.2.dll</HintPath>
+    </Reference>
+    <Reference Include="bcpkix-fips-1.0.2">
+        <HintPath>libs\bcpkix-fips-1.0.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+    
+
+  <ItemGroup>
+    <_PackageFiles Include="$(OutputPath)\bc-fips-1.0.2.dll">
+        <BuildAction>None</BuildAction>
+        <PackagePath>lib\net6.0</PackagePath>
+    </_PackageFiles>
+    <_PackageFiles Include="$(OutputPath)\bcpkix-fips-1.0.2.dll">
+        <BuildAction>None</BuildAction>
+        <PackagePath>lib\net6.0</PackagePath>
+    </_PackageFiles>
   </ItemGroup>
 
 </Project>

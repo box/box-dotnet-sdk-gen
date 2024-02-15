@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestInvites() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
-            BoxClient client = await new CommonsManager().GetDefaultClientAsUserAsync(userId: userId).ConfigureAwait(false);
+            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: userId);
             UserFull currentUser = await client.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) }).ConfigureAwait(false);
             string email = Utils.GetEnvVar(name: "BOX_EXTERNAL_USER_EMAIL");
             Invite invitation = await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBody(enterprise: new CreateInviteRequestBodyEnterpriseField(id: NullableUtils.Unwrap(NullableUtils.Unwrap(currentUser.Enterprise).Id)), actionableBy: new CreateInviteRequestBodyActionableByField() { Login = email })).ConfigureAwait(false);

@@ -197,13 +197,13 @@ namespace Box.Sdk.Gen.Managers {
             UploadPart part = NullableUtils.Unwrap(uploadedPart.Part);
             string partSha1 = Utils.HexToBase64(value: NullableUtils.Unwrap(part.Sha1));
             if (!(partSha1 == sha1)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             if (!(part.Size == chunkSize)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             if (!(part.Offset == bytesStart)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             acc.FileHash.UpdateHash(data: chunkBuffer);
             return new PartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadSessionId: acc.UploadSessionId, fileHash: acc.FileHash);
@@ -233,10 +233,10 @@ namespace Box.Sdk.Gen.Managers {
             long partSize = NullableUtils.Unwrap(uploadSession.PartSize);
             int totalParts = NullableUtils.Unwrap(uploadSession.TotalParts);
             if (!(partSize * totalParts >= fileSize)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             if (!(uploadSession.NumPartsProcessed == 0)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             Hash fileHash = new Hash(algorithm: HashName.Sha1);
             IEnumerable<System.IO.Stream> chunksIterator = Utils.IterateChunks(stream: file, chunkSize: partSize);
@@ -244,11 +244,11 @@ namespace Box.Sdk.Gen.Managers {
             IReadOnlyList<UploadPart> parts = results.Parts;
             UploadParts processedSessionParts = await this.GetFileUploadSessionPartsAsync(uploadSessionId: uploadSessionId, queryParams: new GetFileUploadSessionPartsQueryParams(), headers: new GetFileUploadSessionPartsHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
             if (!(NullableUtils.Unwrap(processedSessionParts.TotalCount) == totalParts)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             UploadSession processedSession = await this.GetFileUploadSessionByIdAsync(uploadSessionId: uploadSessionId, headers: new GetFileUploadSessionByIdHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
             if (!(processedSession.NumPartsProcessed == totalParts)) {
-                throw new Exception("Assertion failed");
+                throw new Exception(message: "Assertion failed");
             }
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64").ConfigureAwait(false);
             string digest = string.Concat("sha=", sha1);

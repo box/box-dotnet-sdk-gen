@@ -17,7 +17,10 @@ This operation is performed by calling function `GetWorkflows`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-workflows/).
 
-*Currently we don't have an example for calling `GetWorkflows` in integration tests*
+<!-- sample get_workflows -->
+```
+await adminClient.Workflows.GetWorkflowsAsync(queryParams: new GetWorkflowsQueryParams(folderId: workflowFolderId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -48,7 +51,10 @@ This operation is performed by calling function `StartWorkflow`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-workflows-id-start/).
 
-*Currently we don't have an example for calling `StartWorkflow` in integration tests*
+<!-- sample post_workflows_id_start -->
+```
+await adminClient.Workflows.StartWorkflowAsync(workflowId: NullableUtils.Unwrap(workflowToRun.Id), requestBody: new StartWorkflowRequestBody(type: StartWorkflowRequestBodyTypeField.WorkflowParameters, flow: new StartWorkflowRequestBodyFlowField(type: "flow", id: NullableUtils.Unwrap(NullableUtils.Unwrap(workflowToRun.Flows)[0].Id)), files: Array.AsReadOnly(new [] {new StartWorkflowRequestBodyFilesField(type: StartWorkflowRequestBodyFilesTypeField.File, id: workflowFileId)}), folder: new StartWorkflowRequestBodyFolderField(type: StartWorkflowRequestBodyFolderTypeField.Folder, id: workflowFolderId))).ConfigureAwait(false)
+```
 
 ### Arguments
 

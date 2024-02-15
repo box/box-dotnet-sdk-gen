@@ -1,5 +1,6 @@
 using NullableExtensions;
 using System.Linq;
+using StringExtensions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -15,10 +16,10 @@ namespace Box.Sdk.Gen {
             return auth;
         }
 
-        public async System.Threading.Tasks.Task<BoxClient> GetDefaultClientAsUserAsync(string userId) {
+        public BoxClient GetDefaultClientAsUser(string userId) {
             BoxJwtAuth auth = GetJwtAuth();
-            await auth.AsUserAsync(userId: userId).ConfigureAwait(false);
-            return new BoxClient(auth: auth);
+            BoxJwtAuth authUser = auth.AsUser(userId: userId);
+            return new BoxClient(auth: authUser);
         }
 
         public BoxClient GetDefaultClient() {
@@ -44,10 +45,19 @@ namespace Box.Sdk.Gen {
             BoxClient client = new CommonsManager().GetDefaultClient();
             TermsOfServices tos = await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false);
             int numberOfTos = NullableUtils.Unwrap(tos.Entries).Count;
-            if (numberOfTos == 0) {
-                return await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Enabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed }).ConfigureAwait(false);
+            if (numberOfTos >= 1) {
+                TermsOfService firstTos = NullableUtils.Unwrap(tos.Entries).ElementAt(0);
+                if (StringUtils.ToStringRepresentation(firstTos.TosType) == "managed") {
+                    return firstTos;
+                }
             }
-            return NullableUtils.Unwrap(tos.Entries).ElementAt(0);
+            if (numberOfTos >= 2) {
+                TermsOfService secondTos = NullableUtils.Unwrap(tos.Entries).ElementAt(1);
+                if (StringUtils.ToStringRepresentation(secondTos.TosType) == "managed") {
+                    return secondTos;
+                }
+            }
+            return await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed }).ConfigureAwait(false);
         }
 
         public async System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate) {

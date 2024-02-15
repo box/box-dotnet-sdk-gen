@@ -31,10 +31,11 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; } = new Dictionary<string, string?>() {  };
+        public Dictionary<string, string?> ExtraHeaders { get; set; }
 
-        public FindFolderForSharedLinkHeaders(string boxapi) {
+        public FindFolderForSharedLinkHeaders(string boxapi, Dictionary<string, string?> extraHeaders = default) {
             Boxapi = boxapi;
+            ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };
         }
     }
 }
