@@ -43,26 +43,6 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Retrieves the metadata query indices for a given scope and template key.
-        /// </summary>
-        /// <param name="queryParams">
-        /// Query parameters of getMetadataQueryIndices method
-        /// </param>
-        /// <param name="headers">
-        /// Headers of getMetadataQueryIndices method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task<MetadataQueryIndices> GetMetadataQueryIndicesAsync(GetMetadataQueryIndicesQueryParams queryParams, GetMetadataQueryIndicesHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new GetMetadataQueryIndicesHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "scope", StringUtils.ToStringRepresentation(queryParams.Scope) }, { "template_key", StringUtils.ToStringRepresentation(queryParams.TemplateKey) } });
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/metadata_query_indices"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<MetadataQueryIndices>(response.Data);
-        }
-
-        /// <summary>
         /// Searches for files, folders, web links, and shared files across the
         /// users content or across the entire enterprise.
         /// </summary>

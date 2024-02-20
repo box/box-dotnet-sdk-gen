@@ -25,7 +25,10 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("signers")]
         public IReadOnlyList<SignRequestCreateSigner> Signers { get; set; }
 
-        public SignRequestCreateRequest(FolderMini parentFolder, IReadOnlyList<SignRequestCreateSigner> signers) : base(parentFolder) {
+        [JsonPropertyName("parent_folder")]
+        public FolderMini? ParentFolder { get; set; } = default;
+
+        public SignRequestCreateRequest(IReadOnlyList<SignRequestCreateSigner> signers) {
             Signers = signers;
         }
     }

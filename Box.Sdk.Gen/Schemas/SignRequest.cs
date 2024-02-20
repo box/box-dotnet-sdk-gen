@@ -68,7 +68,10 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("auto_expire_at")]
         public System.DateTimeOffset? AutoExpireAt { get; set; } = default;
 
-        public SignRequest(FolderMini parentFolder) : base(parentFolder) {
+        [JsonPropertyName("parent_folder")]
+        public FolderMini? ParentFolder { get; set; } = default;
+
+        public SignRequest() {
             
         }
     }
