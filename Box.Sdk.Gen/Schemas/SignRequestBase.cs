@@ -49,9 +49,6 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("are_reminders_enabled")]
         public bool? AreRemindersEnabled { get; set; } = default;
 
-        [JsonPropertyName("parent_folder")]
-        public FolderMini ParentFolder { get; set; }
-
         /// <summary>
         /// Name of the sign request.
         /// </summary>
@@ -88,8 +85,8 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("template_id")]
         public string? TemplateId { get; set; } = default;
 
-        public SignRequestBase(FolderMini parentFolder) {
-            ParentFolder = parentFolder;
+        public SignRequestBase() {
+            
         }
     }
 }
