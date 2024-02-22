@@ -1,6 +1,6 @@
 using System.IO;
 using Serializer;
-using Json;
+using Serialization.Json;
 
 namespace Fetch
 {
