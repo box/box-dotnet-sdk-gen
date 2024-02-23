@@ -25,6 +25,12 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("page_index")]
         public long PageIndex { get; set; }
 
+        /// <summary>
+        /// Whether this input was defined as read-only(immutable by signers) or not
+        /// </summary>
+        [JsonPropertyName("read_only")]
+        public bool? ReadOnly { get; set; } = default;
+
         public SignRequestSignerInput(long pageIndex) {
             PageIndex = pageIndex;
         }

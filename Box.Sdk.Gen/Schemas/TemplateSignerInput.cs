@@ -67,6 +67,12 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("label")]
         public string? Label { get; set; } = default;
 
+        /// <summary>
+        /// Whether this input was defined as read-only(immutable by signers) or not
+        /// </summary>
+        [JsonPropertyName("read_only")]
+        public bool? ReadOnly { get; set; } = default;
+
         public TemplateSignerInput(long pageIndex) {
             PageIndex = pageIndex;
         }
