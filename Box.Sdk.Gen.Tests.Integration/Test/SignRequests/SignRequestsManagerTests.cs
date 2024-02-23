@@ -24,12 +24,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
             SignRequest createdSignRequest = await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signerEmail }})) { ParentFolder = new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder), PrefillTags = Array.AsReadOnly(new [] {new SignRequestPrefillTag() { DateValue = Utils.DateFromString(date: "2035-01-01"), DocumentTagId = "0" }}), SourceFiles = Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)}) }).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].Email == signerEmail);
-            Assert.IsTrue(createdSignRequest.ParentFolder.Id == destinationFolder.Id);
+            Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.ParentFolder).Id == destinationFolder.Id);
             Assert.IsTrue(Utils.DateToString(date: NullableUtils.Unwrap(createdSignRequest.PrefillTags[0].DateValue)) == "2035-01-01");
             SignRequest newSignRequest = await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(newSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.Signers)[1].Email == signerEmail);
-            Assert.IsTrue(newSignRequest.ParentFolder.Id == destinationFolder.Id);
+            Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.ParentFolder).Id == destinationFolder.Id);
             SignRequest cancelledSignRequest = await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false);
             Assert.IsTrue(StringUtils.ToStringRepresentation(cancelledSignRequest.Status) == "cancelled");
             SignRequests signRequests = await client.SignRequests.GetSignRequestsAsync().ConfigureAwait(false);

@@ -1,6 +1,6 @@
 using Serializer;
 
-namespace Json
+namespace Serialization.Json
 {
 
     public class SerializedData
