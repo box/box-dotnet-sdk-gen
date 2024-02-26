@@ -14,7 +14,10 @@ This operation is performed by calling function `GetFileVersionLegalHoldById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-legal-holds-id/).
 
-*Currently we don't have an example for calling `GetFileVersionLegalHoldById` in integration tests*
+<!-- sample get_file_version_legal_holds_id -->
+```
+await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionLegalHoldId: fileVersionLegalHoldId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -61,7 +64,10 @@ This operation is performed by calling function `GetFileVersionLegalHolds`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-legal-holds/).
 
-*Currently we don't have an example for calling `GetFileVersionLegalHolds` in integration tests*
+<!-- sample get_file_version_legal_holds -->
+```
+await client.FileVersionLegalHolds.GetFileVersionLegalHoldsAsync(queryParams: new GetFileVersionLegalHoldsQueryParams(policyId: policyId)).ConfigureAwait(false)
+```
 
 ### Arguments
 
