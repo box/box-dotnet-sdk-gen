@@ -148,8 +148,8 @@ namespace Fetch
 
             if (options.Auth != null)
             {
-                var token = await options.Auth.RetrieveTokenAsync().ConfigureAwait(false);
-                httpRequest.Headers.Add("Authorization", $"Bearer {token.AccessTokenField}");
+                var authHeaderValue = await options.Auth.RetrieveAuthorizationHeaderAsync(options.NetworkSession).ConfigureAwait(false);
+                httpRequest.Headers.Add("Authorization", authHeaderValue);
             }
 
             return httpRequest;

@@ -81,6 +81,11 @@ namespace Box.Sdk.Gen {
             return token;
         }
 
+        public async System.Threading.Tasks.Task<string> RetrieveAuthorizationHeaderAsync(NetworkSession? networkSession = null) {
+            AccessToken token = await this.RetrieveTokenAsync(networkSession: networkSession).ConfigureAwait(false);
+            return string.Concat("Bearer ", token.AccessTokenField);
+        }
+
         /// <summary>
         /// Revoke an active Access Token, effectively logging a user out that has been previously authenticated.
         /// </summary>
@@ -94,7 +99,6 @@ namespace Box.Sdk.Gen {
             }
             AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
             await authManager.RevokeAccessTokenAsync(requestBody: new PostOAuth2Revoke() { ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret, Token = token.AccessTokenField }).ConfigureAwait(false);
-            await this.TokenStorage.ClearAsync().ConfigureAwait(false);
         }
 
         /// <summary>

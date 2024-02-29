@@ -30,5 +30,10 @@ namespace Box.Sdk.Gen {
             throw new BoxSdkError(message: "Developer token has expired. Please provide a new one.");
         }
 
+        public async System.Threading.Tasks.Task<string> RetrieveAuthorizationHeaderAsync(NetworkSession? networkSession = null) {
+            AccessToken token = await this.RetrieveTokenAsync(networkSession: networkSession).ConfigureAwait(false);
+            return string.Concat("Bearer ", token.AccessTokenField);
+        }
+
     }
 }
