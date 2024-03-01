@@ -18,7 +18,10 @@ This operation is performed by calling function `GetRetentionPolicyAssignments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policies-id-assignments/).
 
-*Currently we don't have an example for calling `GetRetentionPolicyAssignments` in integration tests*
+<!-- sample get_retention_policies_id_assignments -->
+```
+await client.RetentionPolicyAssignments.GetRetentionPolicyAssignmentsAsync(retentionPolicyId: retentionPolicy.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -51,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policy_assignments -->
 ```
-await client.RetentionPolicyAssignments.CreateRetentionPolicyAssignmentAsync(requestBody: new CreateRetentionPolicyAssignmentRequestBody(policyId: retentionPolicy.Id, assignTo: new CreateRetentionPolicyAssignmentRequestBodyAssignToField(id: folder.Id, type: CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.Folder))).ConfigureAwait(false)
+await client.RetentionPolicyAssignments.CreateRetentionPolicyAssignmentAsync(requestBody: new CreateRetentionPolicyAssignmentRequestBody(policyId: retentionPolicy.Id, assignTo: new CreateRetentionPolicyAssignmentRequestBodyAssignToField(type: CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.Folder, id: folder.Id))).ConfigureAwait(false)
 ```
 
 ### Arguments
@@ -80,7 +83,10 @@ This operation is performed by calling function `GetRetentionPolicyAssignmentByI
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policy-assignments-id/).
 
-*Currently we don't have an example for calling `GetRetentionPolicyAssignmentById` in integration tests*
+<!-- sample get_retention_policy_assignments_id -->
+```
+await client.RetentionPolicyAssignments.GetRetentionPolicyAssignmentByIdAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -111,7 +117,10 @@ This operation is performed by calling function `DeleteRetentionPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-retention-policy-assignments-id/).
 
-*Currently we don't have an example for calling `DeleteRetentionPolicyAssignmentById` in integration tests*
+<!-- sample delete_retention_policy_assignments_id -->
+```
+await client.RetentionPolicyAssignments.DeleteRetentionPolicyAssignmentByIdAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -140,7 +149,10 @@ This operation is performed by calling function `GetFilesUnderRetentionPolicyAss
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policy-assignments-id-files-under-retention/).
 
-*Currently we don't have an example for calling `GetFilesUnderRetentionPolicyAssignment` in integration tests*
+<!-- sample get_retention_policy_assignments_id_files_under_retention -->
+```
+await client.RetentionPolicyAssignments.GetFilesUnderRetentionPolicyAssignmentAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id).ConfigureAwait(false)
+```
 
 ### Arguments
 
