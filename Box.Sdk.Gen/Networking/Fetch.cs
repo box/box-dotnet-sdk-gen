@@ -1,4 +1,5 @@
 using Box.Sdk.Gen;
+using Errors;
 using Microsoft.Extensions.DependencyInjection;
 using Serializer;
 using System;
@@ -31,7 +32,7 @@ namespace Fetch
             var httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
             if (httpClientFactory == null)
             {
-                throw new ArgumentException("Unable to create HttpClient. Cannot get an IHttpClientFactory instance from a ServiceProvider.");
+                throw new BoxSdkException("Unable to create HttpClient. Cannot get an IHttpClientFactory instance from a ServiceProvider.");
             }
             _clientFactory = httpClientFactory;
         }
@@ -67,7 +68,7 @@ namespace Fetch
 
                 if (attempt >= networkSession.RetryAttempts)
                 {
-                    throw await BuildApiException(response, statusCode, cancellationToken, "Max retry attempts excedeed.").ConfigureAwait(false);
+                    throw await BuildApiException(request, response, options, statusCode, cancellationToken, "Max retry attempts excedeed.").ConfigureAwait(false);
                 }
 
                 if (statusCode == 401)
@@ -87,7 +88,7 @@ namespace Fetch
                 }
                 else
                 {
-                    throw await BuildApiException(response, statusCode, cancellationToken).ConfigureAwait(false);
+                    throw await BuildApiException(request, response, options, statusCode, cancellationToken).ConfigureAwait(false);
                 }
 
                 response?.Dispose();
@@ -96,13 +97,43 @@ namespace Fetch
 
         }
 
-        private static async Task<Exception> BuildApiException(HttpResponseMessage? response, int statusCode, System.Threading.CancellationToken cancellationToken, string? message = null)
+        private static async Task<Exception> BuildApiException(HttpRequestMessage request, HttpResponseMessage? response, FetchOptions options,
+            int statusCode, System.Threading.CancellationToken cancellationToken, string? message = null)
         {
-            var responseContent = response != null ? await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) : "empty";
+            if (message != null)
+            {
+                return new BoxSdkException(message, DateTimeOffset.UtcNow);
+            }
+
+            string responseContent;
+            Dictionary<string, string> responseHeaders;
+
+            if (response != null)
+            {
+                responseContent = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                responseHeaders = response.Headers.Where(x => x.Value.Any()).ToDictionary(x => x.Key, x => x.Value.First());
+            }
+            else
+            {
+                responseContent = "empty";
+                responseHeaders = new Dictionary<string, string>();
+            }
+
             response?.Dispose();
-            return message != null ?
-                new ApiException(statusCode, responseContent, ApiException.BuildApiExceptionMessage(statusCode, responseContent, message)) :
-                new ApiException(statusCode, responseContent);
+
+            var requestHeaders = request.Headers
+                .Where(x => x.Value.Any())
+                .ToDictionary(x => x.Key, x => x.Value.First());
+
+            var requestInfo = new RequestInfo(request.Method.ToString(), request.RequestUri?.ToString(), options.Parameters, requestHeaders);
+
+            var responseAsSerializedData = JsonUtils.JsonToSerializedData(responseContent);
+            var errorDetails = SimpleJsonSerializer.Deserialize<BoxApiExceptionDetails>(responseAsSerializedData);
+
+            var responseInfo = new ResponseInfo(statusCode, responseHeaders, responseAsSerializedData, responseContent, errorDetails.Code, errorDetails.ContextInfo,
+                errorDetails.RequestId, errorDetails.HelpUrl);
+
+            return new BoxApiException(responseContent, DateTimeOffset.UtcNow, requestInfo, responseInfo);
         }
 
         private static async Task<HttpRequestMessage> BuildHttpRequest(string resource, FetchOptions options)
@@ -177,7 +208,7 @@ namespace Fetch
 
                 if (options.MultipartData == null)
                 {
-                    throw new ArgumentException("Could not upload file. MultipartData on FetchOptions is null");
+                    throw new BoxSdkException("Could not upload file. MultipartData on FetchOptions is null");
                 }
 
                 foreach (var part in options.MultipartData)
@@ -186,7 +217,7 @@ namespace Fetch
                         new StreamContent(part.FileStream) :
                         part.Data != null ?
                             new StringContent(JsonUtils.SdToJson(part.Data)) :
-                            throw new ArgumentException($"HttpContent for MultipartData {part} not found");
+                            throw new BoxSdkException($"HttpContent for MultipartData {part} not found");
 
                     // for avatar upload
                     if (part.ContentType != null && part.FileName != null)
