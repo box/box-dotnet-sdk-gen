@@ -119,7 +119,7 @@ namespace Box.Sdk.Gen {
         public async System.Threading.Tasks.Task<AccessToken> DownscopeTokenAsync(IReadOnlyList<string> scopes, string? resource = null, string? sharedLink = null, NetworkSession? networkSession = null) {
             AccessToken? token = await this.TokenStorage.GetAsync().ConfigureAwait(false);
             if (token == null) {
-                throw new BoxSdkError(message: "No access token is available. Make an API call to retrieve a token before calling this method.");
+                throw new BoxSdkException(message: "No access token is available. Make an API call to retrieve a token before calling this method.");
             }
             AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
             AccessToken downscopedToken = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.UrnIetfParamsOauthGrantTypeTokenExchange) { SubjectToken = token.AccessTokenField, SubjectTokenType = PostOAuth2TokenSubjectTokenTypeField.UrnIetfParamsOauthTokenTypeAccessToken, Resource = resource, Scope = string.Join(" ", scopes), BoxSharedLink = sharedLink }).ConfigureAwait(false);

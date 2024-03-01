@@ -61,7 +61,7 @@ namespace Box.Sdk.Gen {
         public async System.Threading.Tasks.Task<AccessToken> RetrieveTokenAsync(NetworkSession? networkSession = null) {
             AccessToken? token = await this.TokenStorage.GetAsync().ConfigureAwait(false);
             if (token == null) {
-                throw new BoxSdkError(message: "Access and refresh tokens not available. Authenticate before making any API call first.");
+                throw new BoxSdkException(message: "Access and refresh tokens not available. Authenticate before making any API call first.");
             }
             return token;
         }
@@ -119,7 +119,7 @@ namespace Box.Sdk.Gen {
         public async System.Threading.Tasks.Task<AccessToken> DownscopeTokenAsync(IReadOnlyList<string> scopes, string? resource = null, string? sharedLink = null, NetworkSession? networkSession = null) {
             AccessToken? token = await this.TokenStorage.GetAsync().ConfigureAwait(false);
             if (token == null || token.AccessTokenField == null) {
-                throw new BoxSdkError(message: "No access token is available.");
+                throw new BoxSdkException(message: "No access token is available.");
             }
             AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
             AccessToken downscopedToken = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.UrnIetfParamsOauthGrantTypeTokenExchange) { SubjectToken = token.AccessTokenField, SubjectTokenType = PostOAuth2TokenSubjectTokenTypeField.UrnIetfParamsOauthTokenTypeAccessToken, Scope = string.Join(" ", scopes), Resource = resource, BoxSharedLink = sharedLink }).ConfigureAwait(false);

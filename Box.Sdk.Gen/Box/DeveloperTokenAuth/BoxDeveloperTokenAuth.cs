@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen {
         /// An object to keep network session state
         /// </param>
         public async System.Threading.Tasks.Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null) {
-            throw new BoxSdkError(message: "Developer token has expired. Please provide a new one.");
+            throw new BoxSdkException(message: "Developer token has expired. Please provide a new one.");
         }
 
         public async System.Threading.Tasks.Task<string> RetrieveAuthorizationHeaderAsync(NetworkSession? networkSession = null) {
