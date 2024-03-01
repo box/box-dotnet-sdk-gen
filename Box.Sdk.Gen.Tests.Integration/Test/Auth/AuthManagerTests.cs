@@ -134,13 +134,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestOauthAuthRevoke() {
             OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"));
             BoxOAuth auth = new BoxOAuth(config: config);
+            BoxClient client = new BoxClient(auth: auth);
             AccessToken token = await GetAccessTokenAsync().ConfigureAwait(false);
             await auth.TokenStorage.StoreAsync(token: token).ConfigureAwait(false);
-            AccessToken? tokenBeforeRevoke = await auth.TokenStorage.GetAsync().ConfigureAwait(false);
+            await client.Users.GetUserMeAsync().ConfigureAwait(false);
             await auth.RevokeTokenAsync().ConfigureAwait(false);
-            AccessToken? tokenAfterRevoke = await auth.TokenStorage.GetAsync().ConfigureAwait(false);
-            Assert.IsTrue(tokenBeforeRevoke != null);
-            Assert.IsTrue(tokenAfterRevoke == null);
+            await Assert.That.IsExceptionAsync(async() => await client.Users.GetUserMeAsync().ConfigureAwait(false));
         }
 
         [TestMethod]

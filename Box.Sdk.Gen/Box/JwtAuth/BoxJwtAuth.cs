@@ -74,6 +74,11 @@ namespace Box.Sdk.Gen {
             return oldToken;
         }
 
+        public async System.Threading.Tasks.Task<string> RetrieveAuthorizationHeaderAsync(NetworkSession? networkSession = null) {
+            AccessToken token = await this.RetrieveTokenAsync(networkSession: networkSession).ConfigureAwait(false);
+            return string.Concat("Bearer ", token.AccessTokenField);
+        }
+
         /// <summary>
         /// Create a new BoxJWTAuth instance that uses the provided user ID as the subject of the JWT assertion.
         /// May be one of this application's created App User. Depending on the configured User Access Level, may also be any other App User or Managed User in the enterprise.
