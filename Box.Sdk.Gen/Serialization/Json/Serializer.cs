@@ -59,7 +59,7 @@ namespace Serializer
                 var attribute = Attribute.GetCustomAttribute(field,
                 typeof(DescriptionAttribute)) as DescriptionAttribute;
 
-                if (attribute?.Description == document.RootElement.ToString())
+                if (attribute?.Description.ToLower() == document.RootElement.ToString().ToLower())
                 {
                     return (T)field.GetValue(null);
                 }
