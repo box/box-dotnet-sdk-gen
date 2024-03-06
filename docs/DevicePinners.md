@@ -14,7 +14,10 @@ This operation is performed by calling function `GetDevicePinnerById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-device-pinners-id/).
 
-*Currently we don't have an example for calling `GetDevicePinnerById` in integration tests*
+<!-- sample get_device_pinners_id -->
+```
+await client.DevicePinners.GetDevicePinnerByIdAsync(devicePinnerId: devicePinnerId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `DeleteDevicePinnerById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-device-pinners-id/).
 
-*Currently we don't have an example for calling `DeleteDevicePinnerById` in integration tests*
+<!-- sample delete_device_pinners_id -->
+```
+await client.DevicePinners.DeleteDevicePinnerByIdAsync(devicePinnerId: devicePinnerId).ConfigureAwait(false)
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `GetEnterpriseDevicePinners`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-enterprises-id-device-pinners/).
 
-*Currently we don't have an example for calling `GetEnterpriseDevicePinners` in integration tests*
+<!-- sample get_enterprises_id_device_pinners -->
+```
+await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId, queryParams: new GetEnterpriseDevicePinnersQueryParams(direction: GetEnterpriseDevicePinnersQueryParamsDirectionField.Desc)).ConfigureAwait(false)
+```
 
 ### Arguments
 
