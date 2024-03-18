@@ -1,0 +1,13 @@
+using System.ComponentModel;
+using Serializer;
+using System.Text.Json.Serialization;
+
+namespace Box.Sdk.Gen.Schemas {
+    [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableVariableValueField>))]
+    public enum CompletionRuleVariableVariableValueField {
+        [Description("all_assignees")]
+        AllAssignees,
+        [Description("any_assignees")]
+        AnyAssignees
+    }
+}

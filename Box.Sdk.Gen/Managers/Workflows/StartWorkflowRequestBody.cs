@@ -34,10 +34,10 @@ namespace Box.Sdk.Gen.Managers {
         public StartWorkflowRequestBodyFolderField Folder { get; set; }
 
         /// <summary>
-        /// A list of outcomes required to be configured at start time.
+        /// A configurable outcome the workflow should complete.
         /// </summary>
         [JsonPropertyName("outcomes")]
-        public IReadOnlyList<StartWorkflowRequestBodyOutcomesField>? Outcomes { get; set; } = default;
+        public IReadOnlyList<Outcome>? Outcomes { get; set; } = default;
 
         public StartWorkflowRequestBody(StartWorkflowRequestBodyFlowField flow, IReadOnlyList<StartWorkflowRequestBodyFilesField> files, StartWorkflowRequestBodyFolderField folder) {
             Flow = flow;
