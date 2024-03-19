@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_sign_requests_id_cancel -->
 ```
-await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false)
+await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
 ```
 
 ### Arguments
@@ -78,7 +78,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_requests_id -->
 ```
-await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id)).ConfigureAwait(false)
+await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_requests -->
 ```
-await client.SignRequests.GetSignRequestsAsync().ConfigureAwait(false)
+await client.SignRequests.GetSignRequestsAsync();
 ```
 
 ### Arguments
@@ -142,7 +142,7 @@ See the endpoint docs at
 
 <!-- sample post_sign_requests -->
 ```
-await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner(email: signer1Email, signerGroupId: "user"),new SignRequestCreateSigner(email: signer2Email, signerGroupId: "user")}), parentFolder: new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)}))).ConfigureAwait(false)
+await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner(email: signer1Email, signerGroupId: "user"),new SignRequestCreateSigner(email: signer2Email, signerGroupId: "user")}), parentFolder: new FolderMini(id: destinationFolder.Id, type: FolderBaseTypeField.Folder), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id, type: FileBaseTypeField.File)})));
 ```
 
 ### Arguments

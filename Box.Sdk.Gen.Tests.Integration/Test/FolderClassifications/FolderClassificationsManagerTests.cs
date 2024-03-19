@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             IReadOnlyList<ClassificationTemplateFieldsOptionsField> classifications = classificationTemplate.Fields[0].Options;
             int currentNumberOfClassifications = classifications.Count;
             if (currentNumberOfClassifications == 1) {
-                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 4, ClassificationDefinition = "Other description" } } })})).ConfigureAwait(false);
+                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 4, ClassificationDefinition = "Other description" } } })}));
                 return classificationTemplateWithNewClassification.Fields[0].Options[1];
             }
             return classifications.ElementAt(1);
@@ -27,20 +27,20 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestFolderClassifications() {
-            ClassificationTemplate classificationTemplate = await new CommonsManager().GetOrCreateClassificationTemplateAsync().ConfigureAwait(false);
-            ClassificationTemplateFieldsOptionsField classification = await new CommonsManager().GetOrCreateClassificationAsync(classificationTemplate: classificationTemplate).ConfigureAwait(false);
-            FolderFull folder = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
-            await Assert.That.IsExceptionAsync(async() => await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id).ConfigureAwait(false));
-            Classification createdFolderClassification = await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody() { BoxSecurityClassificationKey = classification.Key }).ConfigureAwait(false);
+            ClassificationTemplate classificationTemplate = await new CommonsManager().GetOrCreateClassificationTemplateAsync();
+            ClassificationTemplateFieldsOptionsField classification = await new CommonsManager().GetOrCreateClassificationAsync(classificationTemplate: classificationTemplate);
+            FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
+            await Assert.That.IsExceptionAsync(async() => await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id));
+            Classification createdFolderClassification = await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody() { BoxSecurityClassificationKey = classification.Key });
             Assert.IsTrue(createdFolderClassification.BoxSecurityClassificationKey == classification.Key);
-            Classification folderClassification = await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id).ConfigureAwait(false);
+            Classification folderClassification = await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id);
             Assert.IsTrue(folderClassification.BoxSecurityClassificationKey == classification.Key);
-            ClassificationTemplateFieldsOptionsField secondClassification = await GetOrCreateSecondClassificationAsync(classificationTemplate: classificationTemplate).ConfigureAwait(false);
-            Classification updatedFolderClassification = await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)})).ConfigureAwait(false);
+            ClassificationTemplateFieldsOptionsField secondClassification = await GetOrCreateSecondClassificationAsync(classificationTemplate: classificationTemplate);
+            Classification updatedFolderClassification = await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)}));
             Assert.IsTrue(updatedFolderClassification.BoxSecurityClassificationKey == secondClassification.Key);
-            await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id).ConfigureAwait(false);
-            await Assert.That.IsExceptionAsync(async() => await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id).ConfigureAwait(false));
-            await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id).ConfigureAwait(false);
+            await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id);
+            await Assert.That.IsExceptionAsync(async() => await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id));
+            await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
     }

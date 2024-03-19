@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_tasks -->
 ```
-await client.Tasks.GetFileTasksAsync(fileId: file.Id).ConfigureAwait(false)
+await client.Tasks.GetFileTasksAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: date, action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees)).ConfigureAwait(false)
+await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: date, action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees));
 ```
 
 ### Arguments
@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample get_tasks_id -->
 ```
-await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
+await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody(message: "updated message")).ConfigureAwait(false)
+await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody(message: "updated message"));
 ```
 
 ### Arguments
@@ -150,7 +150,7 @@ See the endpoint docs at
 
 <!-- sample delete_tasks_id -->
 ```
-await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
+await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```
 
 ### Arguments

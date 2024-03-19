@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_groups -->
 ```
-await client.Groups.GetGroupsAsync().ConfigureAwait(false)
+await client.Groups.GetGroupsAsync();
 ```
 
 ### Arguments
@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_groups -->
 ```
-await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName)).ConfigureAwait(false)
+await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName));
 ```
 
 ### Arguments
@@ -87,7 +87,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id -->
 ```
-await client.Groups.GetGroupByIdAsync(groupId: group.Id).ConfigureAwait(false)
+await client.Groups.GetGroupByIdAsync(groupId: group.Id);
 ```
 
 ### Arguments
@@ -122,7 +122,7 @@ See the endpoint docs at
 
 <!-- sample put_groups_id -->
 ```
-await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody(name: updatedGroupName)).ConfigureAwait(false)
+await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody(name: updatedGroupName));
 ```
 
 ### Arguments
@@ -158,7 +158,7 @@ See the endpoint docs at
 
 <!-- sample delete_groups_id -->
 ```
-await client.Groups.DeleteGroupByIdAsync(groupId: group.Id).ConfigureAwait(false)
+await client.Groups.DeleteGroupByIdAsync(groupId: group.Id);
 ```
 
 ### Arguments

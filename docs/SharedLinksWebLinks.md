@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample get_shared_items#web_links -->
 ```
-await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword")));
 ```
 
 ### Arguments
@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_web_links_id#get_shared_link -->
 ```
-await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#add_shared_link -->
 ```
-await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody(sharedLink: new AddShareLinkToWebLinkRequestBodySharedLinkField(access: AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody(sharedLink: new AddShareLinkToWebLinkRequestBodySharedLinkField(access: AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#update_shared_link -->
 ```
-await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody(sharedLink: new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(access: UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody(sharedLink: new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(access: UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments

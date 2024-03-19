@@ -17,11 +17,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string newFileName = Utils.GetUUID();
             byte[] fileBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
             System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(buffer: fileBuffer);
-            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
+            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream));
             FileFull uploadedFile = NullableUtils.Unwrap(uploadedFiles.Entries)[0];
-            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
-            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: downloadedFileContent).ConfigureAwait(false), buffer2: fileBuffer));
-            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: downloadedFileContent), buffer2: fileBuffer));
+            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
     }

@@ -23,7 +23,7 @@ See the endpoint docs at
 
 <!-- sample get_webhooks -->
 ```
-await client.Webhooks.GetWebhooksAsync().ConfigureAwait(false)
+await client.Webhooks.GetWebhooksAsync();
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_webhooks -->
 ```
-await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField(id: folder.Id, type: CreateWebhookRequestBodyTargetTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded}))).ConfigureAwait(false)
+await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField(id: folder.Id, type: CreateWebhookRequestBodyTargetTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded})));
 ```
 
 ### Arguments
@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample get_webhooks_id -->
 ```
-await client.Webhooks.GetWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id)).ConfigureAwait(false)
+await client.Webhooks.GetWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id));
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody(address: "https://example.com/updated-webhook")).ConfigureAwait(false)
+await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody(address: "https://example.com/updated-webhook"));
 ```
 
 ### Arguments
@@ -149,7 +149,7 @@ See the endpoint docs at
 
 <!-- sample delete_webhooks_id -->
 ```
-await client.Webhooks.DeleteWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id)).ConfigureAwait(false)
+await client.Webhooks.DeleteWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id));
 ```
 
 ### Arguments

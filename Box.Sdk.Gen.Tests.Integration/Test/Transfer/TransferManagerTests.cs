@@ -15,12 +15,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestTransferUserContent() {
             string newUserName = Utils.GetUUID();
-            UserFull newUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: newUserName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
-            UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
-            FolderFull transferedFolder = await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParams() { Notify = false }).ConfigureAwait(false);
+            UserFull newUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: newUserName) { IsPlatformAccessOnly = true });
+            UserFull currentUser = await client.Users.GetUserMeAsync();
+            FolderFull transferedFolder = await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParams() { Notify = false });
             Assert.IsTrue(NullableUtils.Unwrap(transferedFolder.OwnedBy).Id == currentUser.Id);
-            await client.Folders.DeleteFolderByIdAsync(folderId: transferedFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true }).ConfigureAwait(false);
-            await client.Users.DeleteUserByIdAsync(userId: newUser.Id, queryParams: new DeleteUserByIdQueryParams() { Notify = false, Force = true }).ConfigureAwait(false);
+            await client.Folders.DeleteFolderByIdAsync(folderId: transferedFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });
+            await client.Users.DeleteUserByIdAsync(userId: newUser.Id, queryParams: new DeleteUserByIdQueryParams() { Notify = false, Force = true });
         }
 
     }

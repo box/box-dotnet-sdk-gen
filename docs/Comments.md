@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_comments -->
 ```
-await client.Comments.GetFileCommentsAsync(fileId: fileId).ConfigureAwait(false)
+await client.Comments.GetFileCommentsAsync(fileId: fileId);
 ```
 
 ### Arguments
@@ -53,7 +53,7 @@ See the endpoint docs at
 
 <!-- sample get_comments_id -->
 ```
-await client.Comments.GetCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id)).ConfigureAwait(false)
+await client.Comments.GetCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id));
 ```
 
 ### Arguments
@@ -86,7 +86,7 @@ See the endpoint docs at
 
 <!-- sample put_comments_id -->
 ```
-await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody(message: newMessage)).ConfigureAwait(false)
+await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody(message: newMessage));
 ```
 
 ### Arguments
@@ -121,7 +121,7 @@ See the endpoint docs at
 
 <!-- sample delete_comments_id -->
 ```
-await client.Comments.DeleteCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id)).ConfigureAwait(false)
+await client.Comments.DeleteCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id));
 ```
 
 ### Arguments
@@ -153,7 +153,7 @@ See the endpoint docs at
 
 <!-- sample post_comments -->
 ```
-await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: NullableUtils.Unwrap(newComment.Id), type: CreateCommentRequestBodyItemTypeField.Comment))).ConfigureAwait(false)
+await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: NullableUtils.Unwrap(newComment.Id), type: CreateCommentRequestBodyItemTypeField.Comment)));
 ```
 
 ### Arguments

@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_templates -->
 ```
-await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParams(limit: 2)).ConfigureAwait(false)
+await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParams(limit: 2));
 ```
 
 ### Arguments
@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_templates_id -->
 ```
-await client.SignTemplates.GetSignTemplateByIdAsync(templateId: NullableUtils.Unwrap(NullableUtils.Unwrap(signTemplates.Entries)[0].Id)).ConfigureAwait(false)
+await client.SignTemplates.GetSignTemplateByIdAsync(templateId: NullableUtils.Unwrap(NullableUtils.Unwrap(signTemplates.Entries)[0].Id));
 ```
 
 ### Arguments

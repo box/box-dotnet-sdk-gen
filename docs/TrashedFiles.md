@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id -->
 ```
-await client.TrashedFiles.RestoreFileFromTrashAsync(fileId: file.Id).ConfigureAwait(false)
+await client.TrashedFiles.RestoreFileFromTrashAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -64,7 +64,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_trash -->
 ```
-await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: file.Id).ConfigureAwait(false)
+await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -100,7 +100,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_trash -->
 ```
-await client.TrashedFiles.DeleteTrashedFileByIdAsync(fileId: file.Id).ConfigureAwait(false)
+await client.TrashedFiles.DeleteTrashedFileByIdAsync(fileId: file.Id);
 ```
 
 ### Arguments

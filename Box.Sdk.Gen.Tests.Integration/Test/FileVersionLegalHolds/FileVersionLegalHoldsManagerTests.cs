@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task GetFileVersionLegalHolds() {
             const string policyId = "1234567890";
-            FileVersionLegalHolds fileVersionLegalHolds = await client.FileVersionLegalHolds.GetFileVersionLegalHoldsAsync(queryParams: new GetFileVersionLegalHoldsQueryParams(policyId: policyId)).ConfigureAwait(false);
+            FileVersionLegalHolds fileVersionLegalHolds = await client.FileVersionLegalHolds.GetFileVersionLegalHoldsAsync(queryParams: new GetFileVersionLegalHoldsQueryParams(policyId: policyId));
             int fileVersionLegalHoldsCount = NullableUtils.Unwrap(fileVersionLegalHolds.Entries).Count;
             Assert.IsTrue(fileVersionLegalHoldsCount >= 0);
         }
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task GetFileVersionLegalHoldById() {
             const string fileVersionLegalHoldId = "987654321";
-            await Assert.That.IsExceptionAsync(async() => await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionLegalHoldId: fileVersionLegalHoldId).ConfigureAwait(false));
+            await Assert.That.IsExceptionAsync(async() => await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionLegalHoldId: fileVersionLegalHoldId));
         }
 
     }

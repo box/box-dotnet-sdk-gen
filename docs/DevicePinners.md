@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_device_pinners_id -->
 ```
-await client.DevicePinners.GetDevicePinnerByIdAsync(devicePinnerId: devicePinnerId).ConfigureAwait(false)
+await client.DevicePinners.GetDevicePinnerByIdAsync(devicePinnerId: devicePinnerId);
 ```
 
 ### Arguments
@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample delete_device_pinners_id -->
 ```
-await client.DevicePinners.DeleteDevicePinnerByIdAsync(devicePinnerId: devicePinnerId).ConfigureAwait(false)
+await client.DevicePinners.DeleteDevicePinnerByIdAsync(devicePinnerId: devicePinnerId);
 ```
 
 ### Arguments
@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample get_enterprises_id_device_pinners -->
 ```
-await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId, queryParams: new GetEnterpriseDevicePinnersQueryParams(direction: GetEnterpriseDevicePinnersQueryParamsDirectionField.Desc)).ConfigureAwait(false)
+await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId, queryParams: new GetEnterpriseDevicePinnersQueryParams(direction: GetEnterpriseDevicePinnersQueryParamsDirectionField.Desc));
 ```
 
 ### Arguments

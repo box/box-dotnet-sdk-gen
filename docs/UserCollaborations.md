@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_collaborations_id -->
 ```
-await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId).ConfigureAwait(false)
+await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId);
 ```
 
 ### Arguments
@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample put_collaborations_id -->
 ```
-await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer)).ConfigureAwait(false)
+await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer));
 ```
 
 ### Arguments
@@ -87,7 +87,7 @@ See the endpoint docs at
 
 <!-- sample delete_collaborations_id -->
 ```
-await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: collaborationId).ConfigureAwait(false)
+await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: collaborationId);
 ```
 
 ### Arguments
@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample post_collaborations -->
 ```
-await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField(type: CreateCollaborationRequestBodyItemTypeField.Folder, id: folder.Id), accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User, login: userLogin), role: CreateCollaborationRequestBodyRoleField.Editor)).ConfigureAwait(false)
+await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField(type: CreateCollaborationRequestBodyItemTypeField.Folder, id: folder.Id), accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User, login: userLogin), role: CreateCollaborationRequestBodyRoleField.Editor));
 ```
 
 ### Arguments

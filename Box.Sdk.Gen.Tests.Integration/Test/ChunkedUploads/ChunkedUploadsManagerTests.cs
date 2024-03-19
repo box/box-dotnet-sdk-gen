@@ -17,11 +17,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(size: fileSize);
             string fileName = Utils.GetUUID();
             const string parentFolderId = "0";
-            File uploadedFile = await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId).ConfigureAwait(false);
+            File uploadedFile = await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId);
             Assert.IsTrue(uploadedFile.Name == fileName);
             Assert.IsTrue(uploadedFile.Size == fileSize);
             Assert.IsTrue(NullableUtils.Unwrap(uploadedFile.Parent).Id == parentFolderId);
-            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id).ConfigureAwait(false);
+            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
     }

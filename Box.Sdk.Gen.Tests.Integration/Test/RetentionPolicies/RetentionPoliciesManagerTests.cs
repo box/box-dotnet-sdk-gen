@@ -16,17 +16,17 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteRetentionPolicy() {
             string retentionPolicyName = Utils.GetUUID();
             const string retentionDescription = "test description";
-            RetentionPolicy retentionPolicy = await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention) { AreOwnersNotified = true, CanOwnerExtendRetention = true, Description = retentionDescription, RetentionLength = "1", RetentionType = CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable }).ConfigureAwait(false);
+            RetentionPolicy retentionPolicy = await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention) { AreOwnersNotified = true, CanOwnerExtendRetention = true, Description = retentionDescription, RetentionLength = "1", RetentionType = CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable });
             Assert.IsTrue(retentionPolicy.PolicyName == retentionPolicyName);
             Assert.IsTrue(retentionPolicy.Description == retentionDescription);
-            RetentionPolicy retentionPolicyById = await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id).ConfigureAwait(false);
+            RetentionPolicy retentionPolicyById = await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
             Assert.IsTrue(retentionPolicyById.Id == retentionPolicy.Id);
-            RetentionPolicies retentionPolicies = await client.RetentionPolicies.GetRetentionPoliciesAsync().ConfigureAwait(false);
+            RetentionPolicies retentionPolicies = await client.RetentionPolicies.GetRetentionPoliciesAsync();
             Assert.IsTrue(NullableUtils.Unwrap(retentionPolicies.Entries).Count > 0);
             string updatedRetentionPolicyName = Utils.GetUUID();
-            RetentionPolicy updatedRetentionPolicy = await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody() { PolicyName = updatedRetentionPolicyName }).ConfigureAwait(false);
+            RetentionPolicy updatedRetentionPolicy = await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody() { PolicyName = updatedRetentionPolicyName });
             Assert.IsTrue(updatedRetentionPolicy.PolicyName == updatedRetentionPolicyName);
-            await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id).ConfigureAwait(false);
+            await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
         }
 
     }

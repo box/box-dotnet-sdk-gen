@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_folder_locks -->
 ```
-await client.FolderLocks.GetFolderLocksAsync(queryParams: new GetFolderLocksQueryParams(folderId: folder.Id)).ConfigureAwait(false)
+await client.FolderLocks.GetFolderLocksAsync(queryParams: new GetFolderLocksQueryParams(folderId: folder.Id));
 ```
 
 ### Arguments
@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_folder_locks -->
 ```
-await client.FolderLocks.CreateFolderLockAsync(requestBody: new CreateFolderLockRequestBody(folder: new CreateFolderLockRequestBodyFolderField(id: folder.Id, type: "folder"), lockedOperations: new CreateFolderLockRequestBodyLockedOperationsField(move: true, delete: true))).ConfigureAwait(false)
+await client.FolderLocks.CreateFolderLockAsync(requestBody: new CreateFolderLockRequestBody(folder: new CreateFolderLockRequestBodyFolderField(id: folder.Id, type: "folder"), lockedOperations: new CreateFolderLockRequestBodyLockedOperationsField(move: true, delete: true)));
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample delete_folder_locks_id -->
 ```
-await client.FolderLocks.DeleteFolderLockByIdAsync(folderLockId: NullableUtils.Unwrap(folderLock.Id)).ConfigureAwait(false)
+await client.FolderLocks.DeleteFolderLockByIdAsync(folderLockId: NullableUtils.Unwrap(folderLock.Id));
 ```
 
 ### Arguments

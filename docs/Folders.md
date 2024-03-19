@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync(folderId: "0").ConfigureAwait(false)
+await client.Folders.GetFolderByIdAsync(folderId: "0");
 ```
 
 ### Arguments
@@ -72,7 +72,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBody(parent: new UpdateFolderByIdRequestBodyParentField(id: folderOrigin.Id), name: movedFolderName)).ConfigureAwait(false)
+await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBody(parent: new UpdateFolderByIdRequestBodyParentField(id: folderOrigin.Id), name: movedFolderName));
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id).ConfigureAwait(false)
+await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id);
 ```
 
 ### Arguments
@@ -155,7 +155,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_items -->
 ```
-await client.Folders.GetFolderItemsAsync(folderId: folderOrigin.Id).ConfigureAwait(false)
+await client.Folders.GetFolderItemsAsync(folderId: folderOrigin.Id);
 ```
 
 ### Arguments
@@ -188,7 +188,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0"))).ConfigureAwait(false)
+await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
 ```
 
 ### Arguments
@@ -227,7 +227,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_copy -->
 ```
-await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0"), name: copiedFolderName)).ConfigureAwait(false)
+await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0"), name: copiedFolderName));
 ```
 
 ### Arguments

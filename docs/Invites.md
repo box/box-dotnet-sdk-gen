@@ -23,7 +23,7 @@ See the endpoint docs at
 
 <!-- sample post_invites -->
 ```
-await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBody(enterprise: new CreateInviteRequestBodyEnterpriseField(id: NullableUtils.Unwrap(NullableUtils.Unwrap(currentUser.Enterprise).Id)), actionableBy: new CreateInviteRequestBodyActionableByField(login: email))).ConfigureAwait(false)
+await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBody(enterprise: new CreateInviteRequestBodyEnterpriseField(id: NullableUtils.Unwrap(NullableUtils.Unwrap(currentUser.Enterprise).Id)), actionableBy: new CreateInviteRequestBodyActionableByField(login: email)));
 ```
 
 ### Arguments
@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_invites_id -->
 ```
-await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id).ConfigureAwait(false)
+await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id);
 ```
 
 ### Arguments

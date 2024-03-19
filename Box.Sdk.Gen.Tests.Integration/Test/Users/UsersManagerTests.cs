@@ -15,13 +15,13 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetUsers() {
-            Users users = await client.Users.GetUsersAsync().ConfigureAwait(false);
+            Users users = await client.Users.GetUsersAsync();
             Assert.IsTrue(NullableUtils.Unwrap(users.TotalCount) >= 0);
         }
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetUserMe() {
-            UserFull currentUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull currentUser = await client.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(currentUser.Type) == "user");
         }
 
@@ -29,14 +29,14 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteUser() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
-            UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { Login = userLogin, IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { Login = userLogin, IsPlatformAccessOnly = true });
             Assert.IsTrue(user.Name == userName);
-            UserFull userById = await client.Users.GetUserByIdAsync(userId: user.Id).ConfigureAwait(false);
+            UserFull userById = await client.Users.GetUserByIdAsync(userId: user.Id);
             Assert.IsTrue(userById.Id == user.Id);
             string updatedUserName = Utils.GetUUID();
-            UserFull updatedUser = await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { Name = updatedUserName }).ConfigureAwait(false);
+            UserFull updatedUser = await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { Name = updatedUserName });
             Assert.IsTrue(updatedUser.Name == updatedUserName);
-            await client.Users.DeleteUserByIdAsync(userId: user.Id).ConfigureAwait(false);
+            await client.Users.DeleteUserByIdAsync(userId: user.Id);
         }
 
     }

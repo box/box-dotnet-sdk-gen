@@ -261,7 +261,7 @@ See the endpoint docs at
 
 <!-- sample  -->
 ```
-await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId).ConfigureAwait(false)
+await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId);
 ```
 
 ### Arguments

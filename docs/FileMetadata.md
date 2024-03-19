@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_metadata -->
 ```
-await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id).ConfigureAwait(false)
+await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -53,7 +53,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFileMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFileMetadataByIdScope.Global, templateKey: "properties");
 ```
 
 ### Arguments
@@ -94,7 +94,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } }).ConfigureAwait(false)
+await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } });
 ```
 
 ### Arguments
@@ -139,7 +139,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody(op: UpdateFileMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody(op: UpdateFileMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)}));
 ```
 
 ### Arguments
@@ -177,7 +177,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey).ConfigureAwait(false)
+await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey);
 ```
 
 ### Arguments

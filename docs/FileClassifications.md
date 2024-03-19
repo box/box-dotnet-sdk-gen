@@ -22,7 +22,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FileClassifications.GetClassificationOnFileAsync(fileId: file.Id).ConfigureAwait(false)
+await client.FileClassifications.GetClassificationOnFileAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -61,7 +61,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FileClassifications.AddClassificationToFileAsync(fileId: file.Id, requestBody: new AddClassificationToFileRequestBody(boxSecurityClassificationKey: classification.Key)).ConfigureAwait(false)
+await client.FileClassifications.AddClassificationToFileAsync(fileId: file.Id, requestBody: new AddClassificationToFileRequestBody(boxSecurityClassificationKey: classification.Key));
 ```
 
 ### Arguments
@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FileClassifications.UpdateClassificationOnFileAsync(fileId: file.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFileRequestBody(op: UpdateClassificationOnFileRequestBodyOpField.Replace, path: UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)})).ConfigureAwait(false)
+await client.FileClassifications.UpdateClassificationOnFileAsync(fileId: file.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFileRequestBody(op: UpdateClassificationOnFileRequestBodyOpField.Replace, path: UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)}));
 ```
 
 ### Arguments
@@ -136,7 +136,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FileClassifications.DeleteClassificationFromFileAsync(fileId: file.Id).ConfigureAwait(false)
+await client.FileClassifications.DeleteClassificationFromFileAsync(fileId: file.Id);
 ```
 
 ### Arguments

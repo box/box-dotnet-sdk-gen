@@ -27,7 +27,7 @@ See the endpoint docs at
 
 <!-- sample get_shared_items -->
 ```
-await userClient.SharedLinksFiles.FindFileForSharedLinkAsync(queryParams: new FindFileForSharedLinkQueryParams(), headers: new FindFileForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(fileFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+await userClient.SharedLinksFiles.FindFileForSharedLinkAsync(queryParams: new FindFileForSharedLinkQueryParams(), headers: new FindFileForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(fileFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword")));
 ```
 
 ### Arguments
@@ -59,7 +59,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id#get_shared_link -->
 ```
-await client.SharedLinksFiles.GetSharedLinkForFileAsync(fileId: fileId, queryParams: new GetSharedLinkForFileQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFiles.GetSharedLinkForFileAsync(fileId: fileId, queryParams: new GetSharedLinkForFileQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -93,7 +93,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#add_shared_link -->
 ```
-await client.SharedLinksFiles.AddShareLinkToFileAsync(fileId: fileId, requestBody: new AddShareLinkToFileRequestBody(sharedLink: new AddShareLinkToFileRequestBodySharedLinkField(access: AddShareLinkToFileRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFileQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFiles.AddShareLinkToFileAsync(fileId: fileId, requestBody: new AddShareLinkToFileRequestBody(sharedLink: new AddShareLinkToFileRequestBodySharedLinkField(access: AddShareLinkToFileRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFileQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -129,7 +129,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#update_shared_link -->
 ```
-await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody(sharedLink: new UpdateSharedLinkOnFileRequestBodySharedLinkField(access: UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody(sharedLink: new UpdateSharedLinkOnFileRequestBodySharedLinkField(access: UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments

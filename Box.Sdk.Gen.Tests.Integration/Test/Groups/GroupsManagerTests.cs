@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetGroups() {
-            Groups groups = await client.Groups.GetGroupsAsync().ConfigureAwait(false);
+            Groups groups = await client.Groups.GetGroupsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(groups.TotalCount) >= 0);
         }
 
@@ -25,16 +25,16 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestCreateGetDeleteGroup() {
             string groupName = Utils.GetUUID();
             const string groupDescription = "Group description";
-            GroupFull group = await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName) { Description = groupDescription }).ConfigureAwait(false);
+            GroupFull group = await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName) { Description = groupDescription });
             Assert.IsTrue(group.Name == groupName);
-            GroupFull groupById = await client.Groups.GetGroupByIdAsync(groupId: group.Id, queryParams: new GetGroupByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) }).ConfigureAwait(false);
+            GroupFull groupById = await client.Groups.GetGroupByIdAsync(groupId: group.Id, queryParams: new GetGroupByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) });
             Assert.IsTrue(groupById.Id == group.Id);
             Assert.IsTrue(groupById.Description == groupDescription);
             string updatedGroupName = Utils.GetUUID();
-            GroupFull updatedGroup = await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody() { Name = updatedGroupName }).ConfigureAwait(false);
+            GroupFull updatedGroup = await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody() { Name = updatedGroupName });
             Assert.IsTrue(updatedGroup.Name == updatedGroupName);
-            await client.Groups.DeleteGroupByIdAsync(groupId: group.Id).ConfigureAwait(false);
-            await Assert.That.IsExceptionAsync(async() => await client.Groups.GetGroupByIdAsync(groupId: group.Id).ConfigureAwait(false));
+            await client.Groups.DeleteGroupByIdAsync(groupId: group.Id);
+            await Assert.That.IsExceptionAsync(async() => await client.Groups.GetGroupByIdAsync(groupId: group.Id));
         }
 
     }

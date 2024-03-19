@@ -22,7 +22,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id).ConfigureAwait(false)
+await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id);
 ```
 
 ### Arguments
@@ -61,7 +61,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody(boxSecurityClassificationKey: classification.Key)).ConfigureAwait(false)
+await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody(boxSecurityClassificationKey: classification.Key));
 ```
 
 ### Arguments
@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)})).ConfigureAwait(false)
+await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)}));
 ```
 
 ### Arguments
@@ -136,7 +136,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id).ConfigureAwait(false)
+await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id);
 ```
 
 ### Arguments

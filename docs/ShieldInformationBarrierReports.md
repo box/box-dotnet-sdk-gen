@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_reports -->
 ```
-await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId)).ConfigureAwait(false)
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId));
 ```
 
 ### Arguments
@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_reports -->
 ```
-await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier))).ConfigureAwait(false)
+await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier)));
 ```
 
 ### Arguments
@@ -78,7 +78,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_reports_id -->
 ```
-await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id)).ConfigureAwait(false)
+await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id));
 ```
 
 ### Arguments

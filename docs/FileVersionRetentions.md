@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample get_file_version_retentions -->
 ```
-await client.FileVersionRetentions.GetFileVersionRetentionsAsync().ConfigureAwait(false)
+await client.FileVersionRetentions.GetFileVersionRetentionsAsync();
 ```
 
 ### Arguments
@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample get_file_version_retentions_id -->
 ```
-await client.FileVersionRetentions.GetFileVersionRetentionByIdAsync(fileVersionRetentionId: NullableUtils.Unwrap(fileVersionRetention.Id)).ConfigureAwait(false)
+await client.FileVersionRetentions.GetFileVersionRetentionByIdAsync(fileVersionRetentionId: NullableUtils.Unwrap(fileVersionRetention.Id));
 ```
 
 ### Arguments

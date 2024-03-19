@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_tasks_id_assignments -->
 ```
-await client.TaskAssignments.GetTaskAssignmentsAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false)
+await client.TaskAssignments.GetTaskAssignmentsAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```
 
 ### Arguments
@@ -53,7 +53,7 @@ See the endpoint docs at
 
 <!-- sample post_task_assignments -->
 ```
-await client.TaskAssignments.CreateTaskAssignmentAsync(requestBody: new CreateTaskAssignmentRequestBody(task: new CreateTaskAssignmentRequestBodyTaskField(type: CreateTaskAssignmentRequestBodyTaskTypeField.Task, id: NullableUtils.Unwrap(task.Id)), assignTo: new CreateTaskAssignmentRequestBodyAssignToField(id: currentUser.Id))).ConfigureAwait(false)
+await client.TaskAssignments.CreateTaskAssignmentAsync(requestBody: new CreateTaskAssignmentRequestBody(task: new CreateTaskAssignmentRequestBodyTaskField(type: CreateTaskAssignmentRequestBodyTaskTypeField.Task, id: NullableUtils.Unwrap(task.Id)), assignTo: new CreateTaskAssignmentRequestBodyAssignToField(id: currentUser.Id)));
 ```
 
 ### Arguments
@@ -84,7 +84,7 @@ See the endpoint docs at
 
 <!-- sample get_task_assignments_id -->
 ```
-await client.TaskAssignments.GetTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id)).ConfigureAwait(false)
+await client.TaskAssignments.GetTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id));
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample put_task_assignments_id -->
 ```
-await client.TaskAssignments.UpdateTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id), requestBody: new UpdateTaskAssignmentByIdRequestBody(message: "updated message", resolutionState: UpdateTaskAssignmentByIdRequestBodyResolutionStateField.Approved)).ConfigureAwait(false)
+await client.TaskAssignments.UpdateTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id), requestBody: new UpdateTaskAssignmentByIdRequestBody(message: "updated message", resolutionState: UpdateTaskAssignmentByIdRequestBodyResolutionStateField.Approved));
 ```
 
 ### Arguments
@@ -150,7 +150,7 @@ See the endpoint docs at
 
 <!-- sample delete_task_assignments_id -->
 ```
-await client.TaskAssignments.DeleteTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id)).ConfigureAwait(false)
+await client.TaskAssignments.DeleteTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id));
 ```
 
 ### Arguments
