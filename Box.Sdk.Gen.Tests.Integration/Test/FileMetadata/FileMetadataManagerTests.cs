@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task TestFileMetadata() {
+        public async System.Threading.Tasks.Task TestGlobalFileMetadata() {
             FileFull file = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
             Metadatas fileMetadata = await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(fileMetadata.Entries).Count == 0);

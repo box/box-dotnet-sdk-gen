@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task TestFolderMetadata() {
+        public async System.Threading.Tasks.Task TestGlobalFolderMetadata() {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
             Metadatas folderMetadata = await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id).ConfigureAwait(false);
             Assert.IsTrue(NullableUtils.Unwrap(folderMetadata.Entries).Count == 0);
