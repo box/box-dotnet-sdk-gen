@@ -205,7 +205,11 @@ namespace Box.Sdk.Gen
         /// </summary>
         /// <param name="dateTime">Input DateTimeOffset</param>
         /// <returns>String (ISO 8601)</returns>
-        public static string DateTimeToString(DateTimeOffset dateTime) => string.Concat(dateTime.ToString("s", CultureInfo.InvariantCulture), "Z");
+        public static string DateTimeToString(DateTimeOffset dateTime)
+        {
+            var dateTimeAsString = dateTime.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            return dateTime.Offset == TimeSpan.Zero ? dateTimeAsString[..^6] + "Z" : dateTimeAsString;
+        }
 
         /// <summary>
         /// Converts string in ISO 8601 format to DateOnly.
