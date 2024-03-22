@@ -17,32 +17,32 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestWithAsUserHeader() {
             string userName = Utils.GetUUID();
-            UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
             BoxClient asUserClient = client.WithAsUserHeader(userId: createdUser.Id);
-            UserFull adminUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull adminUser = await client.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(adminUser.Name) != userName);
-            UserFull appUser = await asUserClient.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull appUser = await asUserClient.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(appUser.Name) == userName);
-            await client.Users.DeleteUserByIdAsync(userId: createdUser.Id).ConfigureAwait(false);
+            await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
         }
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestWithSuppressedNotifications() {
             BoxClient newClient = client.WithSuppressedNotifications();
-            UserFull user = await newClient.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull user = await newClient.Users.GetUserMeAsync();
             Assert.IsTrue(user.Id != "");
         }
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestWithExtraHeaders() {
             string userName = Utils.GetUUID();
-            UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true }).ConfigureAwait(false);
+            UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
             BoxClient asUserClient = client.WithExtraHeaders(extraHeaders: new Dictionary<string, string>() { { "As-User", createdUser.Id } });
-            UserFull adminUser = await client.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull adminUser = await client.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(adminUser.Name) != userName);
-            UserFull appUser = await asUserClient.Users.GetUserMeAsync().ConfigureAwait(false);
+            UserFull appUser = await asUserClient.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(appUser.Name) == userName);
-            await client.Users.DeleteUserByIdAsync(userId: createdUser.Id).ConfigureAwait(false);
+            await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
         }
 
     }

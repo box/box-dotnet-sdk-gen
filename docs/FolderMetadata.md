@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_metadata -->
 ```
-await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id).ConfigureAwait(false)
+await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id);
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties");
 ```
 
 ### Arguments
@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data).ConfigureAwait(false)
+await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data);
 ```
 
 ### Arguments
@@ -144,7 +144,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody(op: UpdateFolderMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)})).ConfigureAwait(false)
+await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody(op: UpdateFolderMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)}));
 ```
 
 ### Arguments
@@ -182,7 +182,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties").ConfigureAwait(false)
+await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties");
 ```
 
 ### Arguments

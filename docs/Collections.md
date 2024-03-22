@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_collections -->
 ```
-await client.Collections.GetCollectionsAsync().ConfigureAwait(false)
+await client.Collections.GetCollectionsAsync();
 ```
 
 ### Arguments
@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample get_collections_id_items -->
 ```
-await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id)).ConfigureAwait(false)
+await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
 ```
 
 ### Arguments

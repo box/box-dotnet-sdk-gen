@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_segment_members_id -->
 ```
-await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id)).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id));
 ```
 
 ### Arguments
@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample delete_shield_information_barrier_segment_members_id -->
 ```
-await client.ShieldInformationBarrierSegmentMembers.DeleteShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id)).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentMembers.DeleteShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id));
 ```
 
 ### Arguments
@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_segment_members -->
 ```
-await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMembersAsync(queryParams: new GetShieldInformationBarrierSegmentMembersQueryParams(shieldInformationBarrierSegmentId: NullableUtils.Unwrap(segment.Id))).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMembersAsync(queryParams: new GetShieldInformationBarrierSegmentMembersQueryParams(shieldInformationBarrierSegmentId: NullableUtils.Unwrap(segment.Id)));
 ```
 
 ### Arguments
@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segment_members -->
 ```
-await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField(id: NullableUtils.Unwrap(segment.Id), type: CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"), type: UserBaseTypeField.User))).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField(id: NullableUtils.Unwrap(segment.Id), type: CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"), type: UserBaseTypeField.User)));
 ```
 
 ### Arguments

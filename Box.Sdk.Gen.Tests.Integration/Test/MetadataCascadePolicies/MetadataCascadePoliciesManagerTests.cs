@@ -19,10 +19,10 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestMetadataCascadePolicies() {
             string templateKey = string.Concat("key", Utils.GetUUID());
-            await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}) }).ConfigureAwait(false);
-            FolderFull folder = await new CommonsManager().CreateNewFolderAsync().ConfigureAwait(false);
+            await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}) });
+            FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
-            MetadataCascadePolicy cascadePolicy = await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBody: new CreateMetadataCascadePolicyRequestBody(folderId: folder.Id, scope: CreateMetadataCascadePolicyRequestBodyScopeField.Enterprise, templateKey: templateKey)).ConfigureAwait(false);
+            MetadataCascadePolicy cascadePolicy = await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBody: new CreateMetadataCascadePolicyRequestBody(folderId: folder.Id, scope: CreateMetadataCascadePolicyRequestBodyScopeField.Enterprise, templateKey: templateKey));
             Assert.IsTrue(StringUtils.ToStringRepresentation(cascadePolicy.Type) == "metadata_cascade_policy");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(cascadePolicy.OwnerEnterprise).Type)) == "enterprise");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(cascadePolicy.OwnerEnterprise).Id)) == enterpriseId);
@@ -31,17 +31,17 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(cascadePolicy.Scope)) == string.Concat("enterprise_", enterpriseId));
             Assert.IsTrue(NullableUtils.Unwrap(cascadePolicy.TemplateKey) == templateKey);
             string cascadePolicyId = cascadePolicy.Id;
-            MetadataCascadePolicy policyFromTheApi = await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false);
+            MetadataCascadePolicy policyFromTheApi = await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId);
             Assert.IsTrue(cascadePolicyId == policyFromTheApi.Id);
-            MetadataCascadePolicies policies = await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams: new GetMetadataCascadePoliciesQueryParams(folderId: folder.Id)).ConfigureAwait(false);
+            MetadataCascadePolicies policies = await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams: new GetMetadataCascadePoliciesQueryParams(folderId: folder.Id));
             Assert.IsTrue(NullableUtils.Unwrap(policies.Entries).Count == 1);
-            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite)).ConfigureAwait(false));
+            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite)));
             Dictionary<string, string> data = new Dictionary<string, string>() { { "testName", "xyz" } };
-            await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data).ConfigureAwait(false);
-            await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite)).ConfigureAwait(false);
-            await client.MetadataCascadePolicies.DeleteMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false);
-            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId).ConfigureAwait(false));
-            await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id).ConfigureAwait(false);
+            await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: data);
+            await client.MetadataCascadePolicies.ApplyMetadataCascadePolicyAsync(metadataCascadePolicyId: cascadePolicyId, requestBody: new ApplyMetadataCascadePolicyRequestBody(conflictResolution: ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.Overwrite));
+            await client.MetadataCascadePolicies.DeleteMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId);
+            await Assert.That.IsExceptionAsync(async() => await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataCascadePolicyId: cascadePolicyId));
+            await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
     }

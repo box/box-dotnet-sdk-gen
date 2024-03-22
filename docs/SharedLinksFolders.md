@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample get_shared_items#folders -->
 ```
-await userClient.SharedLinksFolders.FindFolderForSharedLinkAsync(queryParams: new FindFolderForSharedLinkQueryParams(), headers: new FindFolderForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(folderFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))).ConfigureAwait(false)
+await userClient.SharedLinksFolders.FindFolderForSharedLinkAsync(queryParams: new FindFolderForSharedLinkQueryParams(), headers: new FindFolderForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(folderFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword")));
 ```
 
 ### Arguments
@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id#get_shared_link -->
 ```
-await client.SharedLinksFolders.GetSharedLinkForFolderAsync(folderId: folder.Id, queryParams: new GetSharedLinkForFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.GetSharedLinkForFolderAsync(folderId: folder.Id, queryParams: new GetSharedLinkForFolderQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id#add_shared_link -->
 ```
-await client.SharedLinksFolders.AddShareLinkToFolderAsync(folderId: folder.Id, requestBody: new AddShareLinkToFolderRequestBody(sharedLink: new AddShareLinkToFolderRequestBodySharedLinkField(access: AddShareLinkToFolderRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.AddShareLinkToFolderAsync(folderId: folder.Id, requestBody: new AddShareLinkToFolderRequestBody(sharedLink: new AddShareLinkToFolderRequestBodySharedLinkField(access: AddShareLinkToFolderRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFolderQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id#update_shared_link -->
 ```
-await client.SharedLinksFolders.UpdateSharedLinkOnFolderAsync(folderId: folder.Id, requestBody: new UpdateSharedLinkOnFolderRequestBody(sharedLink: new UpdateSharedLinkOnFolderRequestBodySharedLinkField(access: UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFolderQueryParams(fields: "shared_link")).ConfigureAwait(false)
+await client.SharedLinksFolders.UpdateSharedLinkOnFolderAsync(folderId: folder.Id, requestBody: new UpdateSharedLinkOnFolderRequestBody(sharedLink: new UpdateSharedLinkOnFolderRequestBodySharedLinkField(access: UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFolderQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments

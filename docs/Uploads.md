@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_content -->
 ```
-await client.Uploads.UploadFileVersionAsync(fileId: uploadedFile.Id, requestBody: new UploadFileVersionRequestBody(attributes: new UploadFileVersionRequestBodyAttributesField(name: newFileVersionName), file: newFileContentStream)).ConfigureAwait(false)
+await client.Uploads.UploadFileVersionAsync(fileId: uploadedFile.Id, requestBody: new UploadFileVersionRequestBody(attributes: new UploadFileVersionRequestBodyAttributesField(name: newFileVersionName), file: newFileContentStream));
 ```
 
 ### Arguments
@@ -67,7 +67,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-await adminClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: workflowFolderId)), file: Utils.GenerateByteStream(size: 1024 * 1024))).ConfigureAwait(false)
+await adminClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: workflowFolderId)), file: Utils.GenerateByteStream(size: 1024 * 1024)));
 ```
 
 ### Arguments

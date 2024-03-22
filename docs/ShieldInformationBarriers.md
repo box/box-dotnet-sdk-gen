@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barriers_id -->
 ```
-await client.ShieldInformationBarriers.GetShieldInformationBarrierByIdAsync(shieldInformationBarrierId: barrierId).ConfigureAwait(false)
+await client.ShieldInformationBarriers.GetShieldInformationBarrierByIdAsync(shieldInformationBarrierId: barrierId);
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barriers_change_status -->
 ```
-await client.ShieldInformationBarriers.UpdateShieldInformationBarrierStatusAsync(requestBody: new UpdateShieldInformationBarrierStatusRequestBody(id: barrierId, status: UpdateShieldInformationBarrierStatusRequestBodyStatusField.Disabled)).ConfigureAwait(false)
+await client.ShieldInformationBarriers.UpdateShieldInformationBarrierStatusAsync(requestBody: new UpdateShieldInformationBarrierStatusRequestBody(id: barrierId, status: UpdateShieldInformationBarrierStatusRequestBodyStatusField.Disabled));
 ```
 
 ### Arguments
@@ -80,7 +80,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barriers -->
 ```
-await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false)
+await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync();
 ```
 
 ### Arguments
@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barriers -->
 ```
-await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase(id: enterpriseId, type: EnterpriseBaseTypeField.Enterprise))).ConfigureAwait(false)
+await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase(id: enterpriseId, type: EnterpriseBaseTypeField.Enterprise)));
 ```
 
 ### Arguments

@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_terms_of_services -->
 ```
-await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false)
+await client.TermsOfServices.GetTermsOfServiceAsync();
 ```
 
 ### Arguments
@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample post_terms_of_services -->
 ```
-await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, tosType: CreateTermsOfServiceRequestBodyTosTypeField.Managed, text: "Test TOS")).ConfigureAwait(false)
+await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, tosType: CreateTermsOfServiceRequestBodyTosTypeField.Managed, text: "Test TOS"));
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 <!-- sample put_terms_of_services_id -->
 ```
-await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Disabled TOS")).ConfigureAwait(false)
+await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Disabled TOS"));
 ```
 
 ### Arguments

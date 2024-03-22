@@ -14,21 +14,21 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteTask() {
-            Files files = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 10))).ConfigureAwait(false);
+            Files files = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 10)));
             FileFull file = NullableUtils.Unwrap(files.Entries)[0];
             System.DateTimeOffset date = Utils.DateTimeFromString(dateTime: "2035-01-01T00:00:00Z");
-            Task task = await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = date, Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees }).ConfigureAwait(false);
+            Task task = await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = date, Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees });
             Assert.IsTrue(task.Message == "test message");
             Assert.IsTrue(NullableUtils.Unwrap(task.Item).Id == file.Id);
             Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(task.DueAt)) == "2035-01-01T00:00:00Z");
-            Task taskById = await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false);
+            Task taskById = await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
             Assert.IsTrue(taskById.Id == task.Id);
-            Tasks taskOnFile = await client.Tasks.GetFileTasksAsync(fileId: file.Id).ConfigureAwait(false);
+            Tasks taskOnFile = await client.Tasks.GetFileTasksAsync(fileId: file.Id);
             Assert.IsTrue(taskOnFile.TotalCount == 1);
-            Task updatedTask = await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody() { Message = "updated message" }).ConfigureAwait(false);
+            Task updatedTask = await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody() { Message = "updated message" });
             Assert.IsTrue(updatedTask.Message == "updated message");
-            await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id)).ConfigureAwait(false);
-            await client.Files.DeleteFileByIdAsync(fileId: file.Id).ConfigureAwait(false);
+            await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
     }

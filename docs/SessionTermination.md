@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_users_terminate_sessions -->
 ```
-await client.SessionTermination.TerminateUsersSessionsAsync(requestBody: new TerminateUsersSessionsRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)}))).ConfigureAwait(false)
+await client.SessionTermination.TerminateUsersSessionsAsync(requestBody: new TerminateUsersSessionsRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar(name: "USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)})));
 ```
 
 ### Arguments
@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_groups_terminate_sessions -->
 ```
-await client.SessionTermination.TerminateGroupsSessionsAsync(requestBody: new TerminateGroupsSessionsRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id}))).ConfigureAwait(false)
+await client.SessionTermination.TerminateGroupsSessionsAsync(requestBody: new TerminateGroupsSessionsRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id})));
 ```
 
 ### Arguments

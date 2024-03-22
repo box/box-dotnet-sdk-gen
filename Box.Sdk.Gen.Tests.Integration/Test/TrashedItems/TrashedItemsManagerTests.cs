@@ -13,9 +13,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestListTrashedItems() {
-            FileFull file = await new CommonsManager().UploadNewFileAsync().ConfigureAwait(false);
-            await client.Files.DeleteFileByIdAsync(fileId: file.Id).ConfigureAwait(false);
-            Items trashedItems = await client.TrashedItems.GetTrashedItemsAsync().ConfigureAwait(false);
+            FileFull file = await new CommonsManager().UploadNewFileAsync();
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id);
+            Items trashedItems = await client.TrashedItems.GetTrashedItemsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(trashedItems.Entries).Count > 0);
         }
 

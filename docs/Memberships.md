@@ -21,7 +21,7 @@ See the endpoint docs at
 
 <!-- sample get_users_id_memberships -->
 ```
-await client.Memberships.GetUserMembershipsAsync(userId: user.Id).ConfigureAwait(false)
+await client.Memberships.GetUserMembershipsAsync(userId: user.Id);
 ```
 
 ### Arguments
@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id_memberships -->
 ```
-await client.Memberships.GetGroupMembershipsAsync(groupId: group.Id).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipsAsync(groupId: group.Id);
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ See the endpoint docs at
 
 <!-- sample post_group_memberships -->
 ```
-await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBody(user: new CreateGroupMembershipRequestBodyUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyGroupField(id: group.Id))).ConfigureAwait(false)
+await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBody(user: new CreateGroupMembershipRequestBodyUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyGroupField(id: group.Id)));
 ```
 
 ### Arguments
@@ -127,7 +127,7 @@ See the endpoint docs at
 
 <!-- sample get_group_memberships_id -->
 ```
-await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id)).ConfigureAwait(false)
+await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
 ```
 
 ### Arguments
@@ -162,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody(role: UpdateGroupMembershipByIdRequestBodyRoleField.Admin)).ConfigureAwait(false)
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody(role: UpdateGroupMembershipByIdRequestBodyRoleField.Admin));
 ```
 
 ### Arguments
@@ -199,7 +199,7 @@ See the endpoint docs at
 
 <!-- sample delete_group_memberships_id -->
 ```
-await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id)).ConfigureAwait(false)
+await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
 ```
 
 ### Arguments

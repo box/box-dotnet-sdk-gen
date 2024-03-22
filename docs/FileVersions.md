@@ -21,7 +21,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions -->
 ```
-await client.FileVersions.GetFileVersionsAsync(fileId: file.Id).ConfigureAwait(false)
+await client.FileVersions.GetFileVersionsAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id).ConfigureAwait(false)
+await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
 ```
 
 ### Arguments
@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_versions_id -->
 ```
-await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersionsRestored.Entries)[0].Id).ConfigureAwait(false)
+await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersionsRestored.Entries)[0].Id);
 ```
 
 ### Arguments
@@ -181,7 +181,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody(id: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, type: PromoteFileVersionRequestBodyTypeField.FileVersion)).ConfigureAwait(false)
+await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody(id: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, type: PromoteFileVersionRequestBodyTypeField.FileVersion));
 ```
 
 ### Arguments

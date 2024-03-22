@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample post_web_links_id -->
 ```
-await client.TrashedWebLinks.RestoreWeblinkFromTrashAsync(webLinkId: weblink.Id).ConfigureAwait(false)
+await client.TrashedWebLinks.RestoreWeblinkFromTrashAsync(webLinkId: weblink.Id);
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample get_web_links_id_trash -->
 ```
-await client.TrashedWebLinks.GetTrashedWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(false)
+await client.TrashedWebLinks.GetTrashedWebLinkByIdAsync(webLinkId: weblink.Id);
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample delete_web_links_id_trash -->
 ```
-await client.TrashedWebLinks.DeleteTrashedWebLinkByIdAsync(webLinkId: weblink.Id).ConfigureAwait(false)
+await client.TrashedWebLinks.DeleteTrashedWebLinkByIdAsync(webLinkId: weblink.Id);
 ```
 
 ### Arguments

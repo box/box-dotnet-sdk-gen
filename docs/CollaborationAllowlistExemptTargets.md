@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_exempt_targets -->
 ```
-await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync().ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync();
 ```
 
 ### Arguments
@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample post_collaboration_whitelist_exempt_targets -->
 ```
-await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBody(user: new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(id: user.Id))).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBody(user: new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(id: user.Id)));
 ```
 
 ### Arguments
@@ -82,7 +82,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_exempt_targets_id -->
 ```
-await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id)).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id));
 ```
 
 ### Arguments
@@ -114,7 +114,7 @@ See the endpoint docs at
 
 <!-- sample delete_collaboration_whitelist_exempt_targets_id -->
 ```
-await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id)).ConfigureAwait(false)
+await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id));
 ```
 
 ### Arguments

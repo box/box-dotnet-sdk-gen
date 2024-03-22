@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_segment_restrictions_id -->
 ```
-await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId);
 ```
 
 ### Arguments
@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample delete_shield_information_barrier_segment_restrictions_id -->
 ```
-await client.ShieldInformationBarrierSegmentRestrictions.DeleteShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentRestrictions.DeleteShieldInformationBarrierSegmentRestrictionByIdAsync(shieldInformationBarrierSegmentRestrictionId: segmentRestrictionId);
 ```
 
 ### Arguments
@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample get_shield_information_barrier_segment_restrictions -->
 ```
-await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionsAsync(queryParams: new GetShieldInformationBarrierSegmentRestrictionsQueryParams(shieldInformationBarrierSegmentId: segmentId)).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentRestrictions.GetShieldInformationBarrierSegmentRestrictionsAsync(queryParams: new GetShieldInformationBarrierSegmentRestrictionsQueryParams(shieldInformationBarrierSegmentId: segmentId));
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segment_restrictions -->
 ```
-await client.ShieldInformationBarrierSegmentRestrictions.CreateShieldInformationBarrierSegmentRestrictionAsync(requestBody: new CreateShieldInformationBarrierSegmentRestrictionRequestBody(restrictedSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField(id: segmentToRestrictId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField.ShieldInformationBarrierSegment), shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField(id: segmentId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction)).ConfigureAwait(false)
+await client.ShieldInformationBarrierSegmentRestrictions.CreateShieldInformationBarrierSegmentRestrictionAsync(requestBody: new CreateShieldInformationBarrierSegmentRestrictionRequestBody(restrictedSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField(id: segmentToRestrictId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField.ShieldInformationBarrierSegment), shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField(id: segmentId, type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), type: CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction));
 ```
 
 ### Arguments

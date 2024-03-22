@@ -22,7 +22,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_trash_items -->
 ```
-await client.TrashedItems.GetTrashedItemsAsync().ConfigureAwait(false)
+await client.TrashedItems.GetTrashedItemsAsync();
 ```
 
 ### Arguments

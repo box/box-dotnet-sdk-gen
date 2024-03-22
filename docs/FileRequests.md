@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_file_requests_id -->
 ```
-await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id).ConfigureAwait(false)
+await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id);
 ```
 
 ### Arguments
@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample put_file_requests_id -->
 ```
-await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRequest.Id, requestBody: new FileRequestUpdateRequest(title: "updated title", description: "updated description")).ConfigureAwait(false)
+await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRequest.Id, requestBody: new FileRequestUpdateRequest(title: "updated title", description: "updated description"));
 ```
 
 ### Arguments
@@ -82,7 +82,7 @@ See the endpoint docs at
 
 <!-- sample delete_file_requests_id -->
 ```
-await client.FileRequests.DeleteFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id).ConfigureAwait(false)
+await client.FileRequests.DeleteFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id);
 ```
 
 ### Arguments
@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_file_requests_id_copy -->
 ```
-await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id, type: FileRequestCopyRequestFolderTypeField.Folder))).ConfigureAwait(false)
+await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id, type: FileRequestCopyRequestFolderTypeField.Folder)));
 ```
 
 ### Arguments

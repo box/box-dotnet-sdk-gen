@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_collaborations -->
 ```
-await client.ListCollaborations.GetFileCollaborationsAsync(fileId: file.Id).ConfigureAwait(false)
+await client.ListCollaborations.GetFileCollaborationsAsync(fileId: file.Id);
 ```
 
 ### Arguments
@@ -59,7 +59,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id_collaborations -->
 ```
-await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id).ConfigureAwait(false)
+await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id);
 ```
 
 ### Arguments
@@ -97,7 +97,7 @@ See the endpoint docs at
 
 <!-- sample get_collaborations -->
 ```
-await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParams(status: GetCollaborationsQueryParamsStatusField.Pending)).ConfigureAwait(false)
+await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParams(status: GetCollaborationsQueryParamsStatusField.Pending));
 ```
 
 ### Arguments
@@ -135,7 +135,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id_collaborations -->
 ```
-await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id).ConfigureAwait(false)
+await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id);
 ```
 
 ### Arguments

@@ -22,7 +22,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates -->
 ```
-await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id))).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id)));
 ```
 
 ### Arguments
@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
 ```
 
 ### Arguments
@@ -97,7 +97,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField, fieldKey: "newfieldname", data: new Dictionary<string, string>() { { "type", "string" }, { "displayName", "newFieldName" } })})).ConfigureAwait(false)
+await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField, fieldKey: "newfieldname", data: new Dictionary<string, string>() { { "type", "string" }, { "displayName", "newFieldName" } })}));
 ```
 
 ### Arguments
@@ -134,7 +134,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey)).ConfigureAwait(false)
+await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
 ```
 
 ### Arguments
@@ -168,7 +168,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_id -->
 ```
-await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id).ConfigureAwait(false)
+await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id);
 ```
 
 ### Arguments
@@ -200,7 +200,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_global -->
 ```
-await client.MetadataTemplates.GetGlobalMetadataTemplatesAsync().ConfigureAwait(false)
+await client.MetadataTemplates.GetGlobalMetadataTemplatesAsync();
 ```
 
 ### Arguments
@@ -233,7 +233,7 @@ See the endpoint docs at
 
 <!-- sample get_metadata_templates_enterprise -->
 ```
-await client.MetadataTemplates.GetEnterpriseMetadataTemplatesAsync().ConfigureAwait(false)
+await client.MetadataTemplates.GetEnterpriseMetadataTemplatesAsync();
 ```
 
 ### Arguments
@@ -266,7 +266,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_templates_schema -->
 ```
-await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}))).ConfigureAwait(false)
+await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey, templateKey: templateKey, fields: Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")})));
 ```
 
 ### Arguments

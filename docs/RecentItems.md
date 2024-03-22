@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_recent_items -->
 ```
-await client.RecentItems.GetRecentItemsAsync().ConfigureAwait(false)
+await client.RecentItems.GetRecentItemsAsync();
 ```
 
 ### Arguments

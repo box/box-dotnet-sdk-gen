@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_retention_policies -->
 ```
-await client.RetentionPolicies.GetRetentionPoliciesAsync().ConfigureAwait(false)
+await client.RetentionPolicies.GetRetentionPoliciesAsync();
 ```
 
 ### Arguments
@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable)).ConfigureAwait(false)
+await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable));
 ```
 
 ### Arguments
@@ -80,7 +80,7 @@ See the endpoint docs at
 
 <!-- sample get_retention_policies_id -->
 ```
-await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id).ConfigureAwait(false)
+await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
 ```
 
 ### Arguments
@@ -113,7 +113,7 @@ See the endpoint docs at
 
 <!-- sample put_retention_policies_id -->
 ```
-await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody(policyName: updatedRetentionPolicyName)).ConfigureAwait(false)
+await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody(policyName: updatedRetentionPolicyName));
 ```
 
 ### Arguments
@@ -146,7 +146,7 @@ See the endpoint docs at
 
 <!-- sample delete_retention_policies_id -->
 ```
-await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id).ConfigureAwait(false)
+await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
 ```
 
 ### Arguments

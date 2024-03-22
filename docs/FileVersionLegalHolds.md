@@ -16,7 +16,7 @@ See the endpoint docs at
 
 <!-- sample get_file_version_legal_holds_id -->
 ```
-await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionLegalHoldId: fileVersionLegalHoldId).ConfigureAwait(false)
+await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionLegalHoldId: fileVersionLegalHoldId);
 ```
 
 ### Arguments
@@ -66,7 +66,7 @@ See the endpoint docs at
 
 <!-- sample get_file_version_legal_holds -->
 ```
-await client.FileVersionLegalHolds.GetFileVersionLegalHoldsAsync(queryParams: new GetFileVersionLegalHoldsQueryParams(policyId: policyId)).ConfigureAwait(false)
+await client.FileVersionLegalHolds.GetFileVersionLegalHoldsAsync(queryParams: new GetFileVersionLegalHoldsQueryParams(policyId: policyId));
 ```
 
 ### Arguments

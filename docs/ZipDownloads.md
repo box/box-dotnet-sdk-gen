@@ -32,7 +32,7 @@ See the endpoint docs at
 
 <!-- sample post_zip_downloads -->
 ```
-await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip"));
 ```
 
 ### Arguments
@@ -77,7 +77,7 @@ See the endpoint docs at
 
 <!-- sample get_zip_downloads_id_content -->
 ```
-await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownload.DownloadUrl)).ConfigureAwait(false)
+await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownload.DownloadUrl));
 ```
 
 ### Arguments
@@ -120,7 +120,7 @@ See the endpoint docs at
 
 <!-- sample get_zip_downloads_id_status -->
 ```
-await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: NullableUtils.Unwrap(zipDownload.StatusUrl)).ConfigureAwait(false)
+await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: NullableUtils.Unwrap(zipDownload.StatusUrl));
 ```
 
 ### Arguments
@@ -151,7 +151,7 @@ See the endpoint docs at
 
 <!-- sample  -->
 ```
-await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip")).ConfigureAwait(false)
+await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip"));
 ```
 
 ### Arguments

@@ -20,7 +20,7 @@ See the endpoint docs at
 
 <!-- sample get_integration_mappings_slack -->
 ```
-await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync().ConfigureAwait(false)
+await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync();
 ```
 
 ### Arguments
@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(type: IntegrationMappingPartnerItemSlackTypeField.Channel, id: partnerItemId, slackOrgId: slackOrgId), boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id, type: IntegrationMappingBoxItemSlackTypeField.Folder))).ConfigureAwait(false)
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(type: IntegrationMappingPartnerItemSlackTypeField.Channel, id: partnerItemId, slackOrgId: slackOrgId), boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id, type: IntegrationMappingBoxItemSlackTypeField.Folder)));
 ```
 
 ### Arguments

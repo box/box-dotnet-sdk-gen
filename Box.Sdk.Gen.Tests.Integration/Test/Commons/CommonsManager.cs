@@ -30,20 +30,20 @@ namespace Box.Sdk.Gen {
         public async System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync() {
             BoxClient client = new CommonsManager().GetDefaultClient();
             string newFolderName = Utils.GetUUID();
-            return await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: newFolderName, parent: new CreateFolderRequestBodyParentField(id: "0"))).ConfigureAwait(false);
+            return await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: newFolderName, parent: new CreateFolderRequestBodyParentField(id: "0")));
         }
 
         public async System.Threading.Tasks.Task<FileFull> UploadNewFileAsync() {
             BoxClient client = new CommonsManager().GetDefaultClient();
             string newFileName = string.Concat(Utils.GetUUID(), ".pdf");
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
-            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream)).ConfigureAwait(false);
+            Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream));
             return NullableUtils.Unwrap(uploadedFiles.Entries)[0];
         }
 
         public async System.Threading.Tasks.Task<TermsOfService> GetOrCreateTermsOfServicesAsync() {
             BoxClient client = new CommonsManager().GetDefaultClient();
-            TermsOfServices tos = await client.TermsOfServices.GetTermsOfServiceAsync().ConfigureAwait(false);
+            TermsOfServices tos = await client.TermsOfServices.GetTermsOfServiceAsync();
             int numberOfTos = NullableUtils.Unwrap(tos.Entries).Count;
             if (numberOfTos >= 1) {
                 TermsOfService firstTos = NullableUtils.Unwrap(tos.Entries).ElementAt(0);
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen {
                     return secondTos;
                 }
             }
-            return await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed }).ConfigureAwait(false);
+            return await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed });
         }
 
         public async System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate) {
@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen {
             IReadOnlyList<ClassificationTemplateFieldsOptionsField> classifications = classificationTemplate.Fields[0].Options;
             int currentNumberOfClassifications = classifications.Count;
             if (currentNumberOfClassifications == 0) {
-                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 3, ClassificationDefinition = "Some description" } } })})).ConfigureAwait(false);
+                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 3, ClassificationDefinition = "Some description" } } })}));
                 return classificationTemplateWithNewClassification.Fields[0].Options[0];
             }
             return classifications.ElementAt(0);
@@ -74,17 +74,17 @@ namespace Box.Sdk.Gen {
         public async System.Threading.Tasks.Task<ClassificationTemplate> GetOrCreateClassificationTemplateAsync() {
             BoxClient client = new CommonsManager().GetDefaultClient();
             try {
-                return await client.Classifications.GetClassificationTemplateAsync().ConfigureAwait(false);
+                return await client.Classifications.GetClassificationTemplateAsync();
             } catch {
                 return await client.Classifications.CreateClassificationTemplateAsync(requestBody: new CreateClassificationTemplateRequestBody(scope: CreateClassificationTemplateRequestBodyScopeField.Enterprise, displayName: CreateClassificationTemplateRequestBodyDisplayNameField.Classification, templateKey: CreateClassificationTemplateRequestBodyTemplateKeyField.SecurityClassification6VmVochwUWo, fields: Array.AsReadOnly(new [] {new CreateClassificationTemplateRequestBodyFieldsField(type: CreateClassificationTemplateRequestBodyFieldsTypeField.Enum, key: CreateClassificationTemplateRequestBodyFieldsKeyField.BoxSecurityClassificationKey, displayName: CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification, options: Enumerable.Empty<CreateClassificationTemplateRequestBodyFieldsOptionsField>().ToList())}))).ConfigureAwait(false);
             }
         }
 
         public async System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId) {
-            ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync().ConfigureAwait(false);
+            ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync();
             int numberOfBarriers = NullableUtils.Unwrap(barriers.Entries).Count;
             if (numberOfBarriers == 0) {
-                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId, Type = EnterpriseBaseTypeField.Enterprise })).ConfigureAwait(false);
+                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId, Type = EnterpriseBaseTypeField.Enterprise }));
             }
             return NullableUtils.Unwrap(barriers.Entries).ElementAt(numberOfBarriers - 1);
         }

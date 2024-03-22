@@ -12,21 +12,21 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task ShieldInformationBarrierReports() {
             BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: Utils.GetEnvVar(name: "USER_ID"));
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
-            ShieldInformationBarrier barrier = await new CommonsManager().GetOrCreateShieldInformationBarrierAsync(client: client, enterpriseId: enterpriseId).ConfigureAwait(false);
+            ShieldInformationBarrier barrier = await new CommonsManager().GetOrCreateShieldInformationBarrierAsync(client: client, enterpriseId: enterpriseId);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(barrier.Status)) == "draft");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(barrier.Type)) == "shield_information_barrier");
             Assert.IsTrue(NullableUtils.Unwrap(barrier.Enterprise).Id == enterpriseId);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(barrier.Enterprise).Type) == "enterprise");
             string barrierId = NullableUtils.Unwrap(barrier.Id);
-            ShieldInformationBarrierReports existingReports = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId)).ConfigureAwait(false);
+            ShieldInformationBarrierReports existingReports = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId));
             if (NullableUtils.Unwrap(existingReports.Entries).Count > 0) {
                 return;
             }
-            ShieldInformationBarrierReport createdReport = await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference() { ShieldInformationBarrier = new ShieldInformationBarrierBase() { Id = barrierId, Type = ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier } }).ConfigureAwait(false);
+            ShieldInformationBarrierReport createdReport = await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference() { ShieldInformationBarrier = new ShieldInformationBarrierBase() { Id = barrierId, Type = ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier } });
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdReport.ShieldInformationBarrier).ShieldInformationBarrier).Id == barrierId);
-            ShieldInformationBarrierReport retrievedReport = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id)).ConfigureAwait(false);
+            ShieldInformationBarrierReport retrievedReport = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id));
             Assert.IsTrue(retrievedReport.Id == createdReport.Id);
-            ShieldInformationBarrierReports retrievedReports = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId)).ConfigureAwait(false);
+            ShieldInformationBarrierReports retrievedReports = await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId));
             Assert.IsTrue(NullableUtils.Unwrap(retrievedReports.Entries).Count > 0);
         }
 
