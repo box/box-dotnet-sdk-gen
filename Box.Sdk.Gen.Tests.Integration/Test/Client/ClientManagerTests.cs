@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringExtensions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
@@ -43,6 +44,13 @@ namespace Box.Sdk.Gen.Tests.Integration {
             UserFull appUser = await asUserClient.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(appUser.Name) == userName);
             await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
+        }
+
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestWithCustomBaseUrls() {
+            BaseUrls newBaseUrls = new BaseUrls(baseUrl: "https://box.com/", uploadUrl: "https://box.com/", oauth2Url: "https://box.com/");
+            BoxClient customBaseClient = client.WithCustomBaseUrls(baseUrls: newBaseUrls);
+            await Assert.That.IsExceptionAsync(async() => await customBaseClient.Users.GetUserMeAsync());
         }
 
     }
