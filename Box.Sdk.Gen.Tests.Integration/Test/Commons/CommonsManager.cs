@@ -16,9 +16,9 @@ namespace Box.Sdk.Gen {
             return auth;
         }
 
-        public BoxClient GetDefaultClientAsUser(string userId) {
+        public BoxClient GetDefaultClientWithUserSubject(string userId) {
             BoxJwtAuth auth = GetJwtAuth();
-            BoxJwtAuth authUser = auth.AsUser(userId: userId);
+            BoxJwtAuth authUser = auth.WithUserSubject(userId: userId);
             return new BoxClient(auth: authUser);
         }
 

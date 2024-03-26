@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetTermsOfServiceUserStatuses() {
             string adminUserId = Utils.GetEnvVar(name: "USER_ID");
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: adminUserId);
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: adminUserId);
             TermsOfService tos = await new CommonsManager().GetOrCreateTermsOfServicesAsync();
             UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: Utils.GetUUID()) { Login = string.Concat(Utils.GetUUID(), "@boxdemo.com"), IsPlatformAccessOnly = true });
             TermsOfServiceUserStatus createdTosUserStatus = await client.TermsOfServiceUserStatuses.CreateTermsOfServiceStatusForUserAsync(requestBody: new CreateTermsOfServiceStatusForUserRequestBody(tos: new CreateTermsOfServiceStatusForUserRequestBodyTosField(type: CreateTermsOfServiceStatusForUserRequestBodyTosTypeField.TermsOfService, id: tos.Id), user: new CreateTermsOfServiceStatusForUserRequestBodyUserField(type: CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User, id: user.Id), isAccepted: false));

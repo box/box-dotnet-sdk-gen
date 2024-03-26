@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetStoragePolicies() {
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: userId);
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
             StoragePolicies storagePolicies = await client.StoragePolicies.GetStoragePoliciesAsync();
             StoragePolicy storagePolicy = NullableUtils.Unwrap(storagePolicies.Entries)[0];
             Assert.IsTrue(StringUtils.ToStringRepresentation(storagePolicy.Type) == "storage_policy");

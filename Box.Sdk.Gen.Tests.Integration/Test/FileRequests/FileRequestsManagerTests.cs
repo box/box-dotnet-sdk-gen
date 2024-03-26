@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestGetCopyUpdateDeleteFileRequest() {
             string fileRequestId = Utils.GetEnvVar(name: "BOX_FILE_REQUEST_ID");
             string userId = Utils.GetEnvVar(name: "USER_ID");
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: userId);
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
             FileRequest fileRequest = await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: fileRequestId);
             Assert.IsTrue(fileRequest.Id == fileRequestId);
             Assert.IsTrue(StringUtils.ToStringRepresentation(fileRequest.Type) == "file_request");

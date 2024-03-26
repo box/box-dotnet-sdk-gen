@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetStoragePolicyAssignments() {
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: adminUserId);
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: adminUserId);
             string userName = Utils.GetUUID();
             UserFull newUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
             StoragePolicies storagePolicies = await client.StoragePolicies.GetStoragePoliciesAsync();

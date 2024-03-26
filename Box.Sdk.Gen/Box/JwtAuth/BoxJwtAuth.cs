@@ -91,7 +91,7 @@ namespace Box.Sdk.Gen {
         /// <param name="tokenStorage">
         /// Object responsible for storing token in newly created BoxJWTAuth. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public BoxJwtAuth AsUser(string userId, ITokenStorage? tokenStorage = default) {
+        public BoxJwtAuth WithUserSubject(string userId, ITokenStorage? tokenStorage = default) {
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
             JwtConfig newConfig = new JwtConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, jwtKeyId: this.Config.JwtKeyId, privateKey: this.Config.PrivateKey, privateKeyPassphrase: this.Config.PrivateKeyPassphrase, tokenStorage: tokenStorage) { EnterpriseId = null, UserId = userId };
             BoxJwtAuth newAuth = new BoxJwtAuth(config: newConfig);
@@ -107,7 +107,7 @@ namespace Box.Sdk.Gen {
         /// <param name="tokenStorage">
         /// Object responsible for storing token in newly created BoxJWTAuth. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public BoxJwtAuth AsEnterprise(string userId, ITokenStorage? tokenStorage = default) {
+        public BoxJwtAuth WithEnterpriseSubject(string userId, ITokenStorage? tokenStorage = default) {
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
             JwtConfig newConfig = new JwtConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, jwtKeyId: this.Config.JwtKeyId, privateKey: this.Config.PrivateKey, privateKeyPassphrase: this.Config.PrivateKeyPassphrase, tokenStorage: tokenStorage) { EnterpriseId = userId, UserId = null };
             BoxJwtAuth newAuth = new BoxJwtAuth(config: newConfig);
