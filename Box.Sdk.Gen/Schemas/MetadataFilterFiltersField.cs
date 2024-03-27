@@ -41,10 +41,60 @@ namespace Box.Sdk.Gen.Schemas {
         class MetadataFilterFiltersFieldConverter : JsonConverter<MetadataFilterFiltersField> {
             public override MetadataFilterFiltersField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, string>>(document);
+                    return result;
+                } catch {
+                    
+                }
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, double>>(document);
+                    return result;
+                } catch {
+                    
+                }
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, IReadOnlyList<string>>>(document);
+                    return result;
+                } catch {
+                    
+                }
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, MetadataFieldFilterFloatRangeValue>>(document);
+                    return result;
+                } catch {
+                    
+                }
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, MetadataFieldFilterDateRangeValue>>(document);
+                    return result;
+                } catch {
+                    
+                }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
             public override void Write(Utf8JsonWriter writer, MetadataFilterFiltersField? value, JsonSerializerOptions options) {
+                if (value?.MetadataFieldFilterString != null) {
+                    JsonSerializer.Serialize(writer, value.MetadataFieldFilterString, options);
+                    return;
+                }
+                if (value?.MetadataFieldFilterFloat != null) {
+                    JsonSerializer.Serialize(writer, value.MetadataFieldFilterFloat, options);
+                    return;
+                }
+                if (value?.MetadataFieldFilterMultiSelect != null) {
+                    JsonSerializer.Serialize(writer, value.MetadataFieldFilterMultiSelect, options);
+                    return;
+                }
+                if (value?.MetadataFieldFilterFloatRange != null) {
+                    JsonSerializer.Serialize(writer, value.MetadataFieldFilterFloatRange, options);
+                    return;
+                }
+                if (value?.MetadataFieldFilterDateRange != null) {
+                    JsonSerializer.Serialize(writer, value.MetadataFieldFilterDateRange, options);
+                    return;
+                }
             }
 
         }

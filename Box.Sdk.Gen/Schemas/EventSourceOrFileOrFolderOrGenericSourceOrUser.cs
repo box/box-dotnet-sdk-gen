@@ -41,10 +41,56 @@ namespace Box.Sdk.Gen.Schemas {
         class EventSourceOrFileOrFolderOrGenericSourceOrUserConverter : JsonConverter<EventSourceOrFileOrFolderOrGenericSourceOrUser> {
             public override EventSourceOrFileOrFolderOrGenericSourceOrUser Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
+                var discriminant0Present = document.RootElement.TryGetProperty("item_type", out var discriminant0);
+                if (discriminant0Present) {
+                    switch (discriminant0.ToString()){
+                        case "file":
+                            return JsonSerializer.Deserialize<EventSource>(document) ?? throw new Exception($"Could not deserialize {document} to EventSource");
+                        case "folder":
+                            return JsonSerializer.Deserialize<EventSource>(document) ?? throw new Exception($"Could not deserialize {document} to EventSource");
+                    }
+                }
+                var discriminant1Present = document.RootElement.TryGetProperty("type", out var discriminant1);
+                if (discriminant1Present) {
+                    switch (discriminant1.ToString()){
+                        case "file":
+                            return JsonSerializer.Deserialize<File>(document) ?? throw new Exception($"Could not deserialize {document} to File");
+                        case "folder":
+                            return JsonSerializer.Deserialize<Folder>(document) ?? throw new Exception($"Could not deserialize {document} to Folder");
+                        case "user":
+                            return JsonSerializer.Deserialize<User>(document) ?? throw new Exception($"Could not deserialize {document} to User");
+                    }
+                }
+                try {
+                    var result = JsonSerializer.Deserialize<Dictionary<string, string>>(document);
+                    return result;
+                } catch {
+                    
+                }
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
             public override void Write(Utf8JsonWriter writer, EventSourceOrFileOrFolderOrGenericSourceOrUser? value, JsonSerializerOptions options) {
+                if (value?.EventSource != null) {
+                    JsonSerializer.Serialize(writer, value.EventSource, options);
+                    return;
+                }
+                if (value?.File != null) {
+                    JsonSerializer.Serialize(writer, value.File, options);
+                    return;
+                }
+                if (value?.Folder != null) {
+                    JsonSerializer.Serialize(writer, value.Folder, options);
+                    return;
+                }
+                if (value?.GenericSource != null) {
+                    JsonSerializer.Serialize(writer, value.GenericSource, options);
+                    return;
+                }
+                if (value?.User != null) {
+                    JsonSerializer.Serialize(writer, value.User, options);
+                    return;
+                }
             }
 
         }
