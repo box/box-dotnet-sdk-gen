@@ -17,11 +17,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
-            BoxJwtAuth userAuth = auth.AsUser(userId: userId);
+            BoxJwtAuth userAuth = auth.WithUserSubject(userId: userId);
             BoxClient userClient = new BoxClient(auth: userAuth);
             UserFull currentUser = await userClient.Users.GetUserMeAsync();
             Assert.IsTrue(currentUser.Id == userId);
-            BoxJwtAuth enterpriseAuth = auth.AsEnterprise(userId: enterpriseId);
+            BoxJwtAuth enterpriseAuth = auth.WithEnterpriseSubject(userId: enterpriseId);
             BoxClient enterpriseClient = new BoxClient(auth: enterpriseAuth);
             UserFull newUser = await enterpriseClient.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) });
             Assert.IsTrue(newUser.Enterprise != null);
@@ -71,11 +71,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { EnterpriseId = enterpriseId, UserId = userId };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
-            BoxCcgAuth userAuth = auth.AsUser(userId: userId);
+            BoxCcgAuth userAuth = auth.WithUserSubject(userId: userId);
             BoxClient userClient = new BoxClient(auth: userAuth);
             UserFull currentUser = await userClient.Users.GetUserMeAsync();
             Assert.IsTrue(currentUser.Id == userId);
-            BoxCcgAuth enterpriseAuth = auth.AsEnterprise(enterpriseId: enterpriseId);
+            BoxCcgAuth enterpriseAuth = auth.WithEnterpriseSubject(enterpriseId: enterpriseId);
             BoxClient enterpriseClient = new BoxClient(auth: enterpriseAuth);
             UserFull newUser = await enterpriseClient.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) });
             Assert.IsTrue(newUser.Enterprise != null);
@@ -115,9 +115,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { EnterpriseId = enterpriseId, UserId = userId };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
-            auth.AsUser(userId: userId);
-            AccessToken token = await auth.RetrieveTokenAsync();
-            return token;
+            BoxCcgAuth authUser = auth.WithUserSubject(userId: userId);
+            return await authUser.RetrieveTokenAsync();
         }
 
         [TestMethod]

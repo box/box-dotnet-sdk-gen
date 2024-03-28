@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
     public class RecentItemsManagerTests {
         [TestMethod]
         public async System.Threading.Tasks.Task TestRecentItems() {
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: Utils.GetEnvVar(name: "USER_ID"));
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             RecentItems recentItems = await client.RecentItems.GetRecentItemsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(recentItems.Entries).Count >= 0);
         }

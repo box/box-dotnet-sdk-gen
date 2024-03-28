@@ -80,7 +80,7 @@ namespace Box.Sdk.Gen {
         /// <param name="tokenStorage">
         /// Object responsible for storing token in newly created BoxCCGAuth. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public BoxCcgAuth AsUser(string userId, ITokenStorage? tokenStorage = default) {
+        public BoxCcgAuth WithUserSubject(string userId, ITokenStorage? tokenStorage = default) {
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
             CcgConfig newConfig = new CcgConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, tokenStorage: tokenStorage) { EnterpriseId = this.Config.EnterpriseId, UserId = userId };
             return new BoxCcgAuth(config: newConfig);
@@ -95,7 +95,7 @@ namespace Box.Sdk.Gen {
         /// <param name="tokenStorage">
         /// Object responsible for storing token in newly created BoxCCGAuth. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public BoxCcgAuth AsEnterprise(string enterpriseId, ITokenStorage? tokenStorage = default) {
+        public BoxCcgAuth WithEnterpriseSubject(string enterpriseId, ITokenStorage? tokenStorage = default) {
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
             CcgConfig newConfig = new CcgConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, tokenStorage: tokenStorage) { EnterpriseId = enterpriseId, UserId = null };
             return new BoxCcgAuth(config: newConfig);

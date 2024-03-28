@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
     public class ShieldInformationBarrierSegmentMembersManagerTests {
         [TestMethod]
         public async System.Threading.Tasks.Task TestShieldInformationBarrierSegmentMembers() {
-            BoxClient client = new CommonsManager().GetDefaultClientAsUser(userId: Utils.GetEnvVar(name: "USER_ID"));
+            BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             ShieldInformationBarrier barrier = await new CommonsManager().GetOrCreateShieldInformationBarrierAsync(client: client, enterpriseId: enterpriseId);
             string barrierId = NullableUtils.Unwrap(barrier.Id);

@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             WebLink webLinkFromApi = await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link"));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(webLinkFromApi.SharedLink).Access) == "open");
             string userId = Utils.GetEnvVar(name: "USER_ID");
-            BoxClient userClient = new CommonsManager().GetDefaultClientAsUser(userId: userId);
+            BoxClient userClient = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
             WebLink webLinkFromSharedLinkPassword = await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=Secret123@")));
             Assert.IsTrue(webLinkId == webLinkFromSharedLinkPassword.Id);
             await Assert.That.IsExceptionAsync(async() => await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))));

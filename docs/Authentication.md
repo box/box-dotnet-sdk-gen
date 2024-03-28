@@ -106,13 +106,13 @@ var client = new BoxClient(auth: auth);
 In order to switch between being authenticated as Service Account and a User you can call:
 
 ```c#
-await auth.AsEnterpriseAsync(enterpriseId: "YOUR_ENTERPRISE_ID");
+await auth.WithEnterpriseSubjectAsync(enterpriseId: "YOUR_ENTERPRISE_ID");
 ```
 
 to authenticate as enterprise or
 
 ```c#
-await auth.AsUserAsync(userId: "YOUR_USER_ID");
+await auth.WithUserSubjectAsync(userId: "YOUR_USER_ID");
 ```
 
 to authenticate as User with provided ID. The new token will be automatically fetched with a next API call.
