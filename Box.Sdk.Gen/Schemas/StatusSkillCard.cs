@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("invocation")]
         public StatusSkillCardInvocationField Invocation { get; set; }
 
-        public StatusSkillCard(StatusSkillCardTypeField type, StatusSkillCardSkillCardTypeField skillCardType, StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation) {
+        public StatusSkillCard(StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation, StatusSkillCardTypeField type = StatusSkillCardTypeField.SkillCard, StatusSkillCardSkillCardTypeField skillCardType = StatusSkillCardSkillCardTypeField.Status) {
             Type = type;
             SkillCardType = skillCardType;
             Status = status;

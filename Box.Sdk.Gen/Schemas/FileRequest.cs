@@ -128,7 +128,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("updated_at")]
         public System.DateTimeOffset UpdatedAt { get; set; }
 
-        public FileRequest(string id, FileRequestTypeField type, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt) {
+        public FileRequest(string id, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt, FileRequestTypeField type = FileRequestTypeField.FileRequest) {
             Id = id;
             Type = type;
             Folder = folder;

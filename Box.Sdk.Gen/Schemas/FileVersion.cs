@@ -61,7 +61,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("uploader_display_name")]
         public string? UploaderDisplayName { get; set; } = default;
 
-        public FileVersion(string id, FileVersionBaseTypeField type) : base(id, type) {
+        public FileVersion(string id, FileVersionBaseTypeField type = FileVersionBaseTypeField.FileVersion) : base(id, type) {
             
         }
     }

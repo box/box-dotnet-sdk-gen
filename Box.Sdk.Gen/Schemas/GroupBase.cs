@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public GroupBaseTypeField Type { get; set; }
 
-        public GroupBase(string id, GroupBaseTypeField type) {
+        public GroupBase(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) {
             Id = id;
             Type = type;
         }

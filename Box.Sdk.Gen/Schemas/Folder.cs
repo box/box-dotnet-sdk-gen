@@ -95,7 +95,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_collection")]
         public Items? ItemCollection { get; set; } = default;
 
-        public Folder(string id, FolderBaseTypeField type) : base(id, type) {
+        public Folder(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             
         }
     }

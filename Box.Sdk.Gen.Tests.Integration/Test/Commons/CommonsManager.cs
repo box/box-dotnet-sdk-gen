@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen {
             IReadOnlyList<ClassificationTemplateFieldsOptionsField> classifications = classificationTemplate.Fields[0].Options;
             int currentNumberOfClassifications = classifications.Count;
             if (currentNumberOfClassifications == 0) {
-                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 3, ClassificationDefinition = "Some description" } } })}));
+                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 3, ClassificationDefinition = "Some description" } } })}));
                 return classificationTemplateWithNewClassification.Fields[0].Options[0];
             }
             return classifications.ElementAt(0);
@@ -76,7 +76,7 @@ namespace Box.Sdk.Gen {
             try {
                 return await client.Classifications.GetClassificationTemplateAsync();
             } catch {
-                return await client.Classifications.CreateClassificationTemplateAsync(requestBody: new CreateClassificationTemplateRequestBody(scope: CreateClassificationTemplateRequestBodyScopeField.Enterprise, displayName: CreateClassificationTemplateRequestBodyDisplayNameField.Classification, templateKey: CreateClassificationTemplateRequestBodyTemplateKeyField.SecurityClassification6VmVochwUWo, fields: Array.AsReadOnly(new [] {new CreateClassificationTemplateRequestBodyFieldsField(type: CreateClassificationTemplateRequestBodyFieldsTypeField.Enum, key: CreateClassificationTemplateRequestBodyFieldsKeyField.BoxSecurityClassificationKey, displayName: CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification, options: Enumerable.Empty<CreateClassificationTemplateRequestBodyFieldsOptionsField>().ToList())}))).ConfigureAwait(false);
+                return await client.Classifications.CreateClassificationTemplateAsync(requestBody: new CreateClassificationTemplateRequestBody(fields: Array.AsReadOnly(new [] {new CreateClassificationTemplateRequestBodyFieldsField(options: Enumerable.Empty<CreateClassificationTemplateRequestBodyFieldsOptionsField>().ToList())}))).ConfigureAwait(false);
             }
         }
 
@@ -84,7 +84,7 @@ namespace Box.Sdk.Gen {
             ShieldInformationBarriers barriers = await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync();
             int numberOfBarriers = NullableUtils.Unwrap(barriers.Entries).Count;
             if (numberOfBarriers == 0) {
-                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId, Type = EnterpriseBaseTypeField.Enterprise }));
+                return await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId }));
             }
             return NullableUtils.Unwrap(barriers.Entries).ElementAt(numberOfBarriers - 1);
         }

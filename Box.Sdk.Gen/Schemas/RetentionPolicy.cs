@@ -96,7 +96,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("assignment_counts")]
         public RetentionPolicyAssignmentCountsField? AssignmentCounts { get; set; } = default;
 
-        public RetentionPolicy(string id, RetentionPolicyBaseTypeField type) : base(id, type) {
+        public RetentionPolicy(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
             
         }
     }

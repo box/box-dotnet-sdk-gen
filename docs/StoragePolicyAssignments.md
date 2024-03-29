@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample post_storage_policy_assignments -->
 ```
-await client.StoragePolicyAssignments.CreateStoragePolicyAssignmentAsync(requestBody: new CreateStoragePolicyAssignmentRequestBody(storagePolicy: new CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(id: policyId, type: CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField.StoragePolicy), assignedTo: new CreateStoragePolicyAssignmentRequestBodyAssignedToField(id: userId, type: CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.User)));
+await client.StoragePolicyAssignments.CreateStoragePolicyAssignmentAsync(requestBody: new CreateStoragePolicyAssignmentRequestBody(storagePolicy: new CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(id: policyId), assignedTo: new CreateStoragePolicyAssignmentRequestBodyAssignedToField(id: userId, type: CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.User)));
 ```
 
 ### Arguments
@@ -112,7 +112,7 @@ See the endpoint docs at
 
 <!-- sample put_storage_policy_assignments_id -->
 ```
-await client.StoragePolicyAssignments.UpdateStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id, requestBody: new UpdateStoragePolicyAssignmentByIdRequestBody(storagePolicy: new UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(id: storagePolicy2.Id, type: UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField.StoragePolicy)));
+await client.StoragePolicyAssignments.UpdateStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id, requestBody: new UpdateStoragePolicyAssignmentByIdRequestBody(storagePolicy: new UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(id: storagePolicy2.Id)));
 ```
 
 ### Arguments

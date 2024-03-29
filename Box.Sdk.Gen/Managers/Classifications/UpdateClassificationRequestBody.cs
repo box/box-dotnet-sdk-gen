@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("data")]
         public UpdateClassificationRequestBodyDataField Data { get; set; }
 
-        public UpdateClassificationRequestBody(UpdateClassificationRequestBodyOpField op, UpdateClassificationRequestBodyFieldKeyField fieldKey, string enumOptionKey, UpdateClassificationRequestBodyDataField data) {
+        public UpdateClassificationRequestBody(string enumOptionKey, UpdateClassificationRequestBodyDataField data, UpdateClassificationRequestBodyOpField op = UpdateClassificationRequestBodyOpField.EditEnumOption, UpdateClassificationRequestBodyFieldKeyField fieldKey = UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey) {
             Op = op;
             FieldKey = fieldKey;
             EnumOptionKey = enumOptionKey;

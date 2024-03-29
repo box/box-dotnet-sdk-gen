@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public Group(string id, GroupBaseTypeField type) : base(id, type) {
+        public Group(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             
         }
     }

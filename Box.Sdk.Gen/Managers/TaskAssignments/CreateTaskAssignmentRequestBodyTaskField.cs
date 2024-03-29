@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("type")]
         public CreateTaskAssignmentRequestBodyTaskTypeField Type { get; set; }
 
-        public CreateTaskAssignmentRequestBodyTaskField(string id, CreateTaskAssignmentRequestBodyTaskTypeField type) {
+        public CreateTaskAssignmentRequestBodyTaskField(string id, CreateTaskAssignmentRequestBodyTaskTypeField type = CreateTaskAssignmentRequestBodyTaskTypeField.Task) {
             Id = id;
             Type = type;
         }

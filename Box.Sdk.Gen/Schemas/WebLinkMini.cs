@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("name")]
         public string? Name { get; set; } = default;
 
-        public WebLinkMini(string id, WebLinkBaseTypeField type) : base(id, type) {
+        public WebLinkMini(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) : base(id, type) {
             
         }
     }

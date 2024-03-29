@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("disposition_action")]
         public RetentionPolicyMiniDispositionActionField? DispositionAction { get; set; } = default;
 
-        public RetentionPolicyMini(string id, RetentionPolicyBaseTypeField type) : base(id, type) {
+        public RetentionPolicyMini(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
             
         }
     }

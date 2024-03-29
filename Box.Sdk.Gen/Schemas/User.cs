@@ -89,7 +89,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("notification_email")]
         public UserNotificationEmailField? NotificationEmail { get; set; } = default;
 
-        public User(string id, UserBaseTypeField type) : base(id, type) {
+        public User(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             
         }
     }

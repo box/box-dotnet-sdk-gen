@@ -138,7 +138,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFileRestoredItemStatusField ItemStatus { get; set; }
 
-        public TrashFileRestored(string id, TrashFileRestoredTypeField type, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileRestoredItemStatusField itemStatus) {
+        public TrashFileRestored(string id, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileRestoredItemStatusField itemStatus, TrashFileRestoredTypeField type = TrashFileRestoredTypeField.File) {
             Id = id;
             Type = type;
             SequenceId = sequenceId;

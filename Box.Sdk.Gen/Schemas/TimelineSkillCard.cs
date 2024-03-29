@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<TimelineSkillCardEntriesField> Entries { get; set; }
 
-        public TimelineSkillCard(TimelineSkillCardTypeField type, TimelineSkillCardSkillCardTypeField skillCardType, TimelineSkillCardSkillField skill, TimelineSkillCardInvocationField invocation, IReadOnlyList<TimelineSkillCardEntriesField> entries) {
+        public TimelineSkillCard(TimelineSkillCardSkillField skill, TimelineSkillCardInvocationField invocation, IReadOnlyList<TimelineSkillCardEntriesField> entries, TimelineSkillCardTypeField type = TimelineSkillCardTypeField.SkillCard, TimelineSkillCardSkillCardTypeField skillCardType = TimelineSkillCardSkillCardTypeField.Timeline) {
             Type = type;
             SkillCardType = skillCardType;
             Skill = skill;

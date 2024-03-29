@@ -84,7 +84,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("external_app_user_id")]
         public string? ExternalAppUserId { get; set; } = default;
 
-        public UserFull(string id, UserBaseTypeField type) : base(id, type) {
+        public UserFull(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             
         }
     }

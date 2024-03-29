@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("slack_org_id")]
         public string? SlackOrgId { get; set; } = default;
 
-        public IntegrationMappingPartnerItemSlack(IntegrationMappingPartnerItemSlackTypeField type, string id) {
+        public IntegrationMappingPartnerItemSlack(string id, IntegrationMappingPartnerItemSlackTypeField type = IntegrationMappingPartnerItemSlackTypeField.Channel) {
             Type = type;
             Id = id;
         }

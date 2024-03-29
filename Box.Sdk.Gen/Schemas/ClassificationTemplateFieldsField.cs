@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("options")]
         public IReadOnlyList<ClassificationTemplateFieldsOptionsField> Options { get; set; }
 
-        public ClassificationTemplateFieldsField(string id, ClassificationTemplateFieldsTypeField type, ClassificationTemplateFieldsKeyField key, ClassificationTemplateFieldsDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsOptionsField> options) {
+        public ClassificationTemplateFieldsField(string id, IReadOnlyList<ClassificationTemplateFieldsOptionsField> options, ClassificationTemplateFieldsTypeField type = ClassificationTemplateFieldsTypeField.Enum, ClassificationTemplateFieldsKeyField key = ClassificationTemplateFieldsKeyField.BoxSecurityClassificationKey, ClassificationTemplateFieldsDisplayNameField displayName = ClassificationTemplateFieldsDisplayNameField.Classification) {
             Id = id;
             Type = type;
             Key = key;

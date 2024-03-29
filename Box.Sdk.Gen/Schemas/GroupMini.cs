@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("group_type")]
         public GroupMiniGroupTypeField? GroupType { get; set; } = default;
 
-        public GroupMini(string id, GroupBaseTypeField type) : base(id, type) {
+        public GroupMini(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             
         }
     }

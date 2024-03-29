@@ -42,17 +42,16 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public string? UserId { get; set; } = default;
 
-        public JwtAlgorithm? Algorithm { get; set; }
+        public JwtAlgorithm? Algorithm { get; set; } = JwtAlgorithm.Rs256;
 
         public ITokenStorage TokenStorage { get; set; }
 
-        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, JwtAlgorithm? algorithm = default, ITokenStorage tokenStorage = default) {
+        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage tokenStorage = default) {
             ClientId = clientId;
             ClientSecret = clientSecret;
             JwtKeyId = jwtKeyId;
             PrivateKey = privateKey;
             PrivateKeyPassphrase = privateKeyPassphrase;
-            Algorithm = algorithm ?? JwtAlgorithm.Rs256;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();
         }
         /// <summary>

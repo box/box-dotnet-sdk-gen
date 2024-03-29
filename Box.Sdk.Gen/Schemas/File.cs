@@ -87,7 +87,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public FileItemStatusField? ItemStatus { get; set; } = default;
 
-        public File(string id, FileBaseTypeField type) : base(id, type) {
+        public File(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
     }

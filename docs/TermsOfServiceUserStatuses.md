@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_terms_of_service_user_statuses -->
 ```
-await client.TermsOfServiceUserStatuses.CreateTermsOfServiceStatusForUserAsync(requestBody: new CreateTermsOfServiceStatusForUserRequestBody(tos: new CreateTermsOfServiceStatusForUserRequestBodyTosField(type: CreateTermsOfServiceStatusForUserRequestBodyTosTypeField.TermsOfService, id: tos.Id), user: new CreateTermsOfServiceStatusForUserRequestBodyUserField(type: CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User, id: user.Id), isAccepted: false));
+await client.TermsOfServiceUserStatuses.CreateTermsOfServiceStatusForUserAsync(requestBody: new CreateTermsOfServiceStatusForUserRequestBody(tos: new CreateTermsOfServiceStatusForUserRequestBodyTosField(id: tos.Id), user: new CreateTermsOfServiceStatusForUserRequestBodyUserField(id: user.Id), isAccepted: false));
 ```
 
 ### Arguments

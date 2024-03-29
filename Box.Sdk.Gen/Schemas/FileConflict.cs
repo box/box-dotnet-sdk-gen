@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileConflict : FileMini {
-        public FileConflict(string id, FileBaseTypeField type) : base(id, type) {
+        public FileConflict(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
     }

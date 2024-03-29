@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("assigned_to")]
         public StoragePolicyAssignmentAssignedToField? AssignedTo { get; set; } = default;
 
-        public StoragePolicyAssignment(string id, StoragePolicyAssignmentTypeField type) {
+        public StoragePolicyAssignment(string id, StoragePolicyAssignmentTypeField type = StoragePolicyAssignmentTypeField.StoragePolicyAssignment) {
             Id = id;
             Type = type;
         }

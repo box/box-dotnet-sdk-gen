@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("value")]
         public string Value { get; set; }
 
-        public UpdateClassificationOnFolderRequestBody(UpdateClassificationOnFolderRequestBodyOpField op, UpdateClassificationOnFolderRequestBodyPathField path, string value) {
+        public UpdateClassificationOnFolderRequestBody(string value, UpdateClassificationOnFolderRequestBodyOpField op = UpdateClassificationOnFolderRequestBodyOpField.Replace, UpdateClassificationOnFolderRequestBodyPathField path = UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey) {
             Op = op;
             Path = path;
             Value = value;

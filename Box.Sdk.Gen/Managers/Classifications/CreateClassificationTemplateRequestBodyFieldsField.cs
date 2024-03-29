@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("options")]
         public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> Options { get; set; }
 
-        public CreateClassificationTemplateRequestBodyFieldsField(CreateClassificationTemplateRequestBodyFieldsTypeField type, CreateClassificationTemplateRequestBodyFieldsKeyField key, CreateClassificationTemplateRequestBodyFieldsDisplayNameField displayName, IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> options) {
+        public CreateClassificationTemplateRequestBodyFieldsField(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> options, CreateClassificationTemplateRequestBodyFieldsTypeField type = CreateClassificationTemplateRequestBodyFieldsTypeField.Enum, CreateClassificationTemplateRequestBodyFieldsKeyField key = CreateClassificationTemplateRequestBodyFieldsKeyField.BoxSecurityClassificationKey, CreateClassificationTemplateRequestBodyFieldsDisplayNameField displayName = CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification) {
             Type = type;
             Key = key;
             DisplayName = displayName;

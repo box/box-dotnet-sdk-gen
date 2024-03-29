@@ -53,7 +53,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("fields")]
         public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> Fields { get; set; }
 
-        public CreateClassificationTemplateRequestBody(CreateClassificationTemplateRequestBodyScopeField scope, CreateClassificationTemplateRequestBodyTemplateKeyField templateKey, CreateClassificationTemplateRequestBodyDisplayNameField displayName, IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> fields) {
+        public CreateClassificationTemplateRequestBody(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> fields, CreateClassificationTemplateRequestBodyScopeField scope = CreateClassificationTemplateRequestBodyScopeField.Enterprise, CreateClassificationTemplateRequestBodyTemplateKeyField templateKey = CreateClassificationTemplateRequestBodyTemplateKeyField.SecurityClassification6VmVochwUWo, CreateClassificationTemplateRequestBodyDisplayNameField displayName = CreateClassificationTemplateRequestBodyDisplayNameField.Classification) {
             Scope = scope;
             TemplateKey = templateKey;
             DisplayName = displayName;

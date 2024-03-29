@@ -58,7 +58,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#add -->
 ```
-await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID(), staticConfig: new AddClassificationRequestBodyDataStaticConfigField(classification: new AddClassificationRequestBodyDataStaticConfigClassificationField(colorId: 4, classificationDefinition: "Other description"))))}));
+await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID(), staticConfig: new AddClassificationRequestBodyDataStaticConfigField(classification: new AddClassificationRequestBodyDataStaticConfigClassificationField(colorId: 4, classificationDefinition: "Other description"))))}));
 ```
 
 ### Arguments
@@ -96,7 +96,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#update -->
 ```
-await client.Classifications.UpdateClassificationAsync(requestBody: Array.AsReadOnly(new [] {new UpdateClassificationRequestBody(op: UpdateClassificationRequestBodyOpField.EditEnumOption, fieldKey: UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, enumOptionKey: classification.Key, data: new UpdateClassificationRequestBodyDataField(key: updatedClassificationName, staticConfig: new UpdateClassificationRequestBodyDataStaticConfigField(classification: new UpdateClassificationRequestBodyDataStaticConfigClassificationField(colorId: 2, classificationDefinition: updatedClassificationDescription))))}));
+await client.Classifications.UpdateClassificationAsync(requestBody: Array.AsReadOnly(new [] {new UpdateClassificationRequestBody(enumOptionKey: classification.Key, data: new UpdateClassificationRequestBodyDataField(key: updatedClassificationName, staticConfig: new UpdateClassificationRequestBodyDataStaticConfigField(classification: new UpdateClassificationRequestBodyDataStaticConfigClassificationField(colorId: 2, classificationDefinition: updatedClassificationDescription))))}));
 ```
 
 ### Arguments
