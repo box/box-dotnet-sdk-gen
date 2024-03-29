@@ -8,8 +8,7 @@
 - [Remove upload session](#remove-upload-session)
 - [List parts](#list-parts)
 - [Commit upload session](#commit-upload-session)
-- [](#)
-- [](#)
+- [Upload big file](#upload-big-file)
 
 ## Create upload session
 
@@ -224,42 +223,14 @@ progress of processing the chunks, then retry committing the file
 when all chunks have processed.
 
 
-## 
+## Upload big file
 
-
-
-This operation is performed by calling function `Reducer`.
-
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference//).
-
-*Currently we don't have an example for calling `Reducer` in integration tests*
-
-### Arguments
-
-- acc `PartAccumulator`
-  - 
-- chunk `System.IO.Stream`
-  - 
-
-
-### Returns
-
-This function returns a value of type `PartAccumulator`.
-
-
-
-
-## 
-
-
+Starts the process of chunk uploading a big file. Should return a File object representing uploaded file.
 
 This operation is performed by calling function `UploadBigFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference//).
 
-<!-- sample  -->
+
 ```
 await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: fileName, fileSize: fileSize, parentFolderId: parentFolderId);
 ```
