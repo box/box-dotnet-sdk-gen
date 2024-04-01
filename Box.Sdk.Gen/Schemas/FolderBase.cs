@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public FolderBaseTypeField Type { get; set; }
 
-        public FolderBase(string id, FolderBaseTypeField type) {
+        public FolderBase(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) {
             Id = id;
             Type = type;
         }

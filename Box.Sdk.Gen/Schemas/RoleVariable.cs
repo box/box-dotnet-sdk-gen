@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("variable_value")]
         public RoleVariableVariableValueField VariableValue { get; set; }
 
-        public RoleVariable(RoleVariableTypeField type, RoleVariableVariableTypeField variableType, RoleVariableVariableValueField variableValue) {
+        public RoleVariable(RoleVariableVariableValueField variableValue, RoleVariableTypeField type = RoleVariableTypeField.Variable, RoleVariableVariableTypeField variableType = RoleVariableVariableTypeField.CollaboratorRole) {
             Type = type;
             VariableType = variableType;
             VariableValue = variableValue;

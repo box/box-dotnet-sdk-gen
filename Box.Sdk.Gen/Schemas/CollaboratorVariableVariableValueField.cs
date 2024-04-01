@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public CollaboratorVariableVariableValueField(CollaboratorVariableVariableValueTypeField type, string id) {
+        public CollaboratorVariableVariableValueField(string id, CollaboratorVariableVariableValueTypeField type = CollaboratorVariableVariableValueTypeField.User) {
             Type = type;
             Id = id;
         }

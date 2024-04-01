@@ -137,7 +137,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public TrashFolderItemStatusField ItemStatus { get; set; }
 
-        public TrashFolder(string id, TrashFolderTypeField type, string name, string description, long size, TrashFolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, TrashFolderItemStatusField itemStatus) {
+        public TrashFolder(string id, string name, string description, long size, TrashFolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, TrashFolderItemStatusField itemStatus, TrashFolderTypeField type = TrashFolderTypeField.Folder) {
             Id = id;
             Type = type;
             Name = name;

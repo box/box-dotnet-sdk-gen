@@ -83,7 +83,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("release_notes")]
         public string? ReleaseNotes { get; set; } = default;
 
-        public LegalHoldPolicy(string id, LegalHoldPolicyMiniTypeField type) : base(id, type) {
+        public LegalHoldPolicy(string id, LegalHoldPolicyMiniTypeField type = LegalHoldPolicyMiniTypeField.LegalHoldPolicy) : base(id, type) {
             
         }
     }

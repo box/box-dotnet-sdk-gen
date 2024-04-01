@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             IReadOnlyList<ClassificationTemplateFieldsOptionsField> classifications = classificationTemplate.Fields[0].Options;
             int currentNumberOfClassifications = classifications.Count;
             if (currentNumberOfClassifications == 1) {
-                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(op: AddClassificationRequestBodyOpField.AddEnumOption, fieldKey: AddClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey, data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 4, ClassificationDefinition = "Other description" } } })}));
+                ClassificationTemplate classificationTemplateWithNewClassification = await client.Classifications.AddClassificationAsync(requestBody: Array.AsReadOnly(new [] {new AddClassificationRequestBody(data: new AddClassificationRequestBodyDataField(key: Utils.GetUUID()) { StaticConfig = new AddClassificationRequestBodyDataStaticConfigField() { Classification = new AddClassificationRequestBodyDataStaticConfigClassificationField() { ColorId = 4, ClassificationDefinition = "Other description" } } })}));
                 return classificationTemplateWithNewClassification.Fields[0].Options[1];
             }
             return classifications.ElementAt(1);
@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Classification fileClassification = await client.FileClassifications.GetClassificationOnFileAsync(fileId: file.Id);
             Assert.IsTrue(fileClassification.BoxSecurityClassificationKey == classification.Key);
             ClassificationTemplateFieldsOptionsField secondClassification = await GetOrCreateSecondClassificationAsync(classificationTemplate: classificationTemplate);
-            Classification updatedFileClassification = await client.FileClassifications.UpdateClassificationOnFileAsync(fileId: file.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFileRequestBody(op: UpdateClassificationOnFileRequestBodyOpField.Replace, path: UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)}));
+            Classification updatedFileClassification = await client.FileClassifications.UpdateClassificationOnFileAsync(fileId: file.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFileRequestBody(value: secondClassification.Key)}));
             Assert.IsTrue(updatedFileClassification.BoxSecurityClassificationKey == secondClassification.Key);
             await client.FileClassifications.DeleteClassificationFromFileAsync(fileId: file.Id);
             await Assert.That.IsExceptionAsync(async() => await client.FileClassifications.GetClassificationOnFileAsync(fileId: file.Id));

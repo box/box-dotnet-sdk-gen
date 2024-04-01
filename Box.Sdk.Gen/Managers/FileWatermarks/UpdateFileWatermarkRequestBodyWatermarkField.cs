@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("imprint")]
         public UpdateFileWatermarkRequestBodyWatermarkImprintField Imprint { get; set; }
 
-        public UpdateFileWatermarkRequestBodyWatermarkField(UpdateFileWatermarkRequestBodyWatermarkImprintField imprint) {
+        public UpdateFileWatermarkRequestBodyWatermarkField(UpdateFileWatermarkRequestBodyWatermarkImprintField imprint = UpdateFileWatermarkRequestBodyWatermarkImprintField.Default) {
             Imprint = imprint;
         }
     }

@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("copyInstanceOnItemCopy")]
         public bool? CopyInstanceOnItemCopy { get; set; } = default;
 
-        public MetadataTemplate(string id, MetadataTemplateTypeField type) {
+        public MetadataTemplate(string id, MetadataTemplateTypeField type = MetadataTemplateTypeField.MetadataTemplate) {
             Id = id;
             Type = type;
         }

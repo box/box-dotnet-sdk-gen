@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public TermsOfServiceUserStatus(string id, TermsOfServiceUserStatusTypeField type) {
+        public TermsOfServiceUserStatus(string id, TermsOfServiceUserStatusTypeField type = TermsOfServiceUserStatusTypeField.TermsOfServiceUserStatus) {
             Id = id;
             Type = type;
         }

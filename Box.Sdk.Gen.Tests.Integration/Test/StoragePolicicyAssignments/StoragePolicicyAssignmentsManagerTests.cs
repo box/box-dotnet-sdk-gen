@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
                     return NullableUtils.Unwrap(storagePolicyAssignments.Entries)[0];
                 }
             }
-            StoragePolicyAssignment storagePolicyAssignment = await client.StoragePolicyAssignments.CreateStoragePolicyAssignmentAsync(requestBody: new CreateStoragePolicyAssignmentRequestBody(storagePolicy: new CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(id: policyId, type: CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField.StoragePolicy), assignedTo: new CreateStoragePolicyAssignmentRequestBodyAssignedToField(id: userId, type: CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.User)));
+            StoragePolicyAssignment storagePolicyAssignment = await client.StoragePolicyAssignments.CreateStoragePolicyAssignmentAsync(requestBody: new CreateStoragePolicyAssignmentRequestBody(storagePolicy: new CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(id: policyId), assignedTo: new CreateStoragePolicyAssignmentRequestBodyAssignedToField(id: userId, type: CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.User)));
             return storagePolicyAssignment;
         }
 
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(storagePolicyAssignment.AssignedTo).Id == newUser.Id);
             StoragePolicyAssignment getStoragePolicyAssignment = await client.StoragePolicyAssignments.GetStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id);
             Assert.IsTrue(getStoragePolicyAssignment.Id == storagePolicyAssignment.Id);
-            StoragePolicyAssignment updatedStoragePolicyAssignment = await client.StoragePolicyAssignments.UpdateStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id, requestBody: new UpdateStoragePolicyAssignmentByIdRequestBody(storagePolicy: new UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(id: storagePolicy2.Id, type: UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField.StoragePolicy)));
+            StoragePolicyAssignment updatedStoragePolicyAssignment = await client.StoragePolicyAssignments.UpdateStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id, requestBody: new UpdateStoragePolicyAssignmentByIdRequestBody(storagePolicy: new UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(id: storagePolicy2.Id)));
             Assert.IsTrue(NullableUtils.Unwrap(updatedStoragePolicyAssignment.StoragePolicy).Id == storagePolicy2.Id);
             await client.StoragePolicyAssignments.DeleteStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id);
             await client.Users.DeleteUserByIdAsync(userId: newUser.Id);

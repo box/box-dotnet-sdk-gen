@@ -80,7 +80,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("classification")]
         public FolderFullClassificationField? Classification { get; set; } = default;
 
-        public FolderFull(string id, FolderBaseTypeField type) : base(id, type) {
+        public FolderFull(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             
         }
     }

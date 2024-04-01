@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public IntegrationMapping(IntegrationMappingTypeField type, IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem) {
+        public IntegrationMapping(IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem, IntegrationMappingTypeField type = IntegrationMappingTypeField.IntegrationMapping) {
             Type = type;
             PartnerItem = partnerItem;
             BoxItem = boxItem;

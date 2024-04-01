@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("variable_value")]
         public CompletionRuleVariableVariableValueField VariableValue { get; set; }
 
-        public CompletionRuleVariable(CompletionRuleVariableTypeField type, CompletionRuleVariableVariableTypeField variableType, CompletionRuleVariableVariableValueField variableValue) {
+        public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue, CompletionRuleVariableTypeField type = CompletionRuleVariableTypeField.Variable, CompletionRuleVariableVariableTypeField variableType = CompletionRuleVariableVariableTypeField.TaskCompletionRule) {
             Type = type;
             VariableType = variableType;
             VariableValue = variableValue;

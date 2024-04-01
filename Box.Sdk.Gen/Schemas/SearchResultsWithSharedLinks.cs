@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<SearchResultWithSharedLink>? Entries { get; set; } = default;
 
-        public SearchResultsWithSharedLinks(SearchResultsWithSharedLinksTypeField type) {
+        public SearchResultsWithSharedLinks(SearchResultsWithSharedLinksTypeField type = SearchResultsWithSharedLinksTypeField.SearchResultsWithSharedLinks) {
             Type = type;
         }
     }

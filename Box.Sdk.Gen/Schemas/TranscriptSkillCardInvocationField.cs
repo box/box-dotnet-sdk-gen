@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public TranscriptSkillCardInvocationField(TranscriptSkillCardInvocationTypeField type, string id) {
+        public TranscriptSkillCardInvocationField(string id, TranscriptSkillCardInvocationTypeField type = TranscriptSkillCardInvocationTypeField.SkillInvocation) {
             Type = type;
             Id = id;
         }

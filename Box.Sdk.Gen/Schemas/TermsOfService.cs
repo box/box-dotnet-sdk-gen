@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public TermsOfService(string id, TermsOfServiceBaseTypeField type) : base(id, type) {
+        public TermsOfService(string id, TermsOfServiceBaseTypeField type = TermsOfServiceBaseTypeField.TermsOfService) : base(id, type) {
             
         }
     }

@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("entries")]
         public IReadOnlyList<KeywordSkillCardEntriesField> Entries { get; set; }
 
-        public KeywordSkillCard(KeywordSkillCardTypeField type, KeywordSkillCardSkillCardTypeField skillCardType, KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries) {
+        public KeywordSkillCard(KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries, KeywordSkillCardTypeField type = KeywordSkillCardTypeField.SkillCard, KeywordSkillCardSkillCardTypeField skillCardType = KeywordSkillCardSkillCardTypeField.Keyword) {
             Type = type;
             SkillCardType = skillCardType;
             Skill = skill;

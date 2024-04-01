@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public FileVersionBaseTypeField Type { get; set; }
 
-        public FileVersionBase(string id, FileVersionBaseTypeField type) {
+        public FileVersionBase(string id, FileVersionBaseTypeField type = FileVersionBaseTypeField.FileVersion) {
             Id = id;
             Type = type;
         }

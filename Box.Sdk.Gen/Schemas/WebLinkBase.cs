@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("etag")]
         public string? Etag { get; set; } = default;
 
-        public WebLinkBase(string id, WebLinkBaseTypeField type) {
+        public WebLinkBase(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) {
             Id = id;
             Type = type;
         }

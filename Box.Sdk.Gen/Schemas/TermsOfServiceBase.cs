@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public TermsOfServiceBaseTypeField Type { get; set; }
 
-        public TermsOfServiceBase(string id, TermsOfServiceBaseTypeField type) {
+        public TermsOfServiceBase(string id, TermsOfServiceBaseTypeField type = TermsOfServiceBaseTypeField.TermsOfService) {
             Id = id;
             Type = type;
         }

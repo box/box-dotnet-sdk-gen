@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public IntegrationMappingBoxItemSlack(IntegrationMappingBoxItemSlackTypeField type, string id) {
+        public IntegrationMappingBoxItemSlack(string id, IntegrationMappingBoxItemSlackTypeField type = IntegrationMappingBoxItemSlackTypeField.Folder) {
             Type = type;
             Id = id;
         }

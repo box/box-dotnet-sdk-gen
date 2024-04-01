@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public StoragePolicyMiniTypeField Type { get; set; }
 
-        public StoragePolicyMini(string id, StoragePolicyMiniTypeField type) {
+        public StoragePolicyMini(string id, StoragePolicyMiniTypeField type = StoragePolicyMiniTypeField.StoragePolicy) {
             Id = id;
             Type = type;
         }

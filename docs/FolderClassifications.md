@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(op: UpdateClassificationOnFolderRequestBodyOpField.Replace, path: UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey, value: secondClassification.Key)}));
+await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(value: secondClassification.Key)}));
 ```
 
 ### Arguments

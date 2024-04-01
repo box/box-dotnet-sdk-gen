@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("file_version")]
         public FileVersionMini? FileVersion { get; set; } = default;
 
-        public FileMini(string id, FileBaseTypeField type) : base(id, type) {
+        public FileMini(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
     }

@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("variable_value")]
         public IReadOnlyList<CollaboratorVariableVariableValueField> VariableValue { get; set; }
 
-        public CollaboratorVariable(CollaboratorVariableTypeField type, CollaboratorVariableVariableTypeField variableType, IReadOnlyList<CollaboratorVariableVariableValueField> variableValue) {
+        public CollaboratorVariable(IReadOnlyList<CollaboratorVariableVariableValueField> variableValue, CollaboratorVariableTypeField type = CollaboratorVariableTypeField.Variable, CollaboratorVariableVariableTypeField variableType = CollaboratorVariableVariableTypeField.UserList) {
             Type = type;
             VariableType = variableType;
             VariableValue = variableValue;

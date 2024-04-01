@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("name")]
         public string? Name { get; set; } = default;
 
-        public FolderMini(string id, FolderBaseTypeField type) : base(id, type) {
+        public FolderMini(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             
         }
     }

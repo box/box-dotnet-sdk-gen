@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public RetentionPolicyBaseTypeField Type { get; set; }
 
-        public RetentionPolicyBase(string id, RetentionPolicyBaseTypeField type) {
+        public RetentionPolicyBase(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) {
             Id = id;
             Type = type;
         }

@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("type")]
         public LegalHoldPolicyMiniTypeField Type { get; set; }
 
-        public LegalHoldPolicyMini(string id, LegalHoldPolicyMiniTypeField type) {
+        public LegalHoldPolicyMini(string id, LegalHoldPolicyMiniTypeField type = LegalHoldPolicyMiniTypeField.LegalHoldPolicy) {
             Id = id;
             Type = type;
         }

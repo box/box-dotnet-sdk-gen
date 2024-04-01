@@ -61,7 +61,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("templateKey")]
         public string? TemplateKey { get; set; } = default;
 
-        public MetadataCascadePolicy(string id, MetadataCascadePolicyTypeField type) {
+        public MetadataCascadePolicy(string id, MetadataCascadePolicyTypeField type = MetadataCascadePolicyTypeField.MetadataCascadePolicy) {
             Id = id;
             Type = type;
         }

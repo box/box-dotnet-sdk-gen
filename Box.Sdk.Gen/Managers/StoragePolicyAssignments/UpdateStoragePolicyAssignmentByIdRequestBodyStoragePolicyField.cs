@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField type, string id) {
+        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(string id, UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField type = UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField.StoragePolicy) {
             Type = type;
             Id = id;
         }

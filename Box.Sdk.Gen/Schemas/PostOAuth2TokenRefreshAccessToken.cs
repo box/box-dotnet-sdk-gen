@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("refresh_token")]
         public string RefreshToken { get; set; }
 
-        public PostOAuth2TokenRefreshAccessToken(PostOAuth2TokenRefreshAccessTokenGrantTypeField grantType, string clientId, string clientSecret, string refreshToken) {
+        public PostOAuth2TokenRefreshAccessToken(string clientId, string clientSecret, string refreshToken, PostOAuth2TokenRefreshAccessTokenGrantTypeField grantType = PostOAuth2TokenRefreshAccessTokenGrantTypeField.RefreshToken) {
             GrantType = grantType;
             ClientId = clientId;
             ClientSecret = clientSecret;

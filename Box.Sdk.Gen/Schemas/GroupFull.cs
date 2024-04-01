@@ -68,7 +68,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("permissions")]
         public GroupFullPermissionsField? Permissions { get; set; } = default;
 
-        public GroupFull(string id, GroupBaseTypeField type) : base(id, type) {
+        public GroupFull(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             
         }
     }

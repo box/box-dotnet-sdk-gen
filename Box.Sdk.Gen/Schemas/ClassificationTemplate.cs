@@ -61,7 +61,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("fields")]
         public IReadOnlyList<ClassificationTemplateFieldsField> Fields { get; set; }
 
-        public ClassificationTemplate(string id, ClassificationTemplateTypeField type, string scope, ClassificationTemplateTemplateKeyField templateKey, ClassificationTemplateDisplayNameField displayName, IReadOnlyList<ClassificationTemplateFieldsField> fields) {
+        public ClassificationTemplate(string id, string scope, IReadOnlyList<ClassificationTemplateFieldsField> fields, ClassificationTemplateTypeField type = ClassificationTemplateTypeField.MetadataTemplate, ClassificationTemplateTemplateKeyField templateKey = ClassificationTemplateTemplateKeyField.SecurityClassification6VmVochwUWo, ClassificationTemplateDisplayNameField displayName = ClassificationTemplateDisplayNameField.Classification) {
             Id = id;
             Type = type;
             Scope = scope;

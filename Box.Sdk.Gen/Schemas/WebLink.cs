@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("item_status")]
         public WebLinkItemStatusField? ItemStatus { get; set; } = default;
 
-        public WebLink(string id, WebLinkBaseTypeField type) : base(id, type) {
+        public WebLink(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) : base(id, type) {
             
         }
     }

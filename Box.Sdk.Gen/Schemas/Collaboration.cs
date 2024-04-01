@@ -87,7 +87,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("acceptance_requirements_status")]
         public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; set; } = default;
 
-        public Collaboration(string id, CollaborationTypeField type) {
+        public Collaboration(string id, CollaborationTypeField type = CollaborationTypeField.Collaboration) {
             Id = id;
             Type = type;
         }

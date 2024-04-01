@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("start_date_field")]
         public string? StartDateField { get; set; } = default;
 
-        public RetentionPolicyAssignment(string id, RetentionPolicyAssignmentTypeField type) {
+        public RetentionPolicyAssignment(string id, RetentionPolicyAssignmentTypeField type = RetentionPolicyAssignmentTypeField.RetentionPolicyAssignment) {
             Id = id;
             Type = type;
         }

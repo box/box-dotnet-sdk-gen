@@ -107,7 +107,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("shared_link_permission_options")]
         public IReadOnlyList<FileFullSharedLinkPermissionOptionsField>? SharedLinkPermissionOptions { get; set; } = default;
 
-        public FileFull(string id, FileBaseTypeField type) : base(id, type) {
+        public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
     }

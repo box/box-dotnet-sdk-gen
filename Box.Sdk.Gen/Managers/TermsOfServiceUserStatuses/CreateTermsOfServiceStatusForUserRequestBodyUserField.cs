@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        public CreateTermsOfServiceStatusForUserRequestBodyUserField(CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type, string id) {
+        public CreateTermsOfServiceStatusForUserRequestBodyUserField(string id, CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type = CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User) {
             Type = type;
             Id = id;
         }

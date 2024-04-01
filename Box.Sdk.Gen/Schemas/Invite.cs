@@ -49,7 +49,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; set; } = default;
 
-        public Invite(string id, InviteTypeField type) {
+        public Invite(string id, InviteTypeField type = InviteTypeField.Invite) {
             Id = id;
             Type = type;
         }
