@@ -2,6 +2,7 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Serializer;
+using NullableExtensions;
 using Errors;
 using System;
 using Box.Sdk.Gen.Schemas;
@@ -22,7 +23,7 @@ namespace Box.Sdk.Gen {
 
         public BoxOAuth(OAuthConfig config) {
             Config = config;
-            TokenStorage = this.Config.TokenStorage == null ? new InMemoryTokenStorage() : this.Config.TokenStorage;
+            TokenStorage = this.Config.TokenStorage;
         }
         /// <summary>
         /// Get the authorization URL for the app user.
@@ -46,9 +47,9 @@ namespace Box.Sdk.Gen {
         /// An object to keep network session state
         /// </param>
         public async System.Threading.Tasks.Task<AccessToken> GetTokensAuthorizationCodeGrantAsync(string authorizationCode, NetworkSession? networkSession = null) {
-            AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
-            AccessToken token = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.AuthorizationCode) { Code = authorizationCode, ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret }).ConfigureAwait(false);
-            await this.TokenStorage.StoreAsync(token).ConfigureAwait(false);
+            AuthorizationManager authManager = new AuthorizationManager(networkSession: networkSession != null ? NullableUtils.Unwrap(networkSession) : new NetworkSession());
+            AccessToken token = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.AuthorizationCode) { ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret, Code = authorizationCode }).ConfigureAwait(false);
+            await this.TokenStorage.StoreAsync(token: token).ConfigureAwait(false);
             return token;
         }
 
@@ -63,7 +64,7 @@ namespace Box.Sdk.Gen {
             if (token == null) {
                 throw new BoxSdkException(message: "Access and refresh tokens not available. Authenticate before making any API call first.");
             }
-            return token;
+            return NullableUtils.Unwrap(token);
         }
 
         /// <summary>
@@ -74,10 +75,10 @@ namespace Box.Sdk.Gen {
         /// </param>
         public async System.Threading.Tasks.Task<AccessToken> RefreshTokenAsync(NetworkSession? networkSession = null) {
             AccessToken? oldToken = await this.TokenStorage.GetAsync().ConfigureAwait(false);
-            string? tokenUsedForRefresh = oldToken != null ? oldToken.RefreshToken : null;
-            AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
+            string? tokenUsedForRefresh = oldToken != null ? NullableUtils.Unwrap(oldToken).RefreshToken : null;
+            AuthorizationManager authManager = new AuthorizationManager(networkSession: networkSession != null ? NullableUtils.Unwrap(networkSession) : new NetworkSession());
             AccessToken token = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.RefreshToken) { ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret, RefreshToken = tokenUsedForRefresh }).ConfigureAwait(false);
-            await this.TokenStorage.StoreAsync(token).ConfigureAwait(false);
+            await this.TokenStorage.StoreAsync(token: token).ConfigureAwait(false);
             return token;
         }
 
@@ -97,8 +98,8 @@ namespace Box.Sdk.Gen {
             if (token == null) {
                 return;
             }
-            AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
-            await authManager.RevokeAccessTokenAsync(requestBody: new PostOAuth2Revoke() { ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret, Token = token.AccessTokenField }).ConfigureAwait(false);
+            AuthorizationManager authManager = new AuthorizationManager(networkSession: networkSession != null ? NullableUtils.Unwrap(networkSession) : new NetworkSession());
+            await authManager.RevokeAccessTokenAsync(requestBody: new PostOAuth2Revoke() { ClientId = this.Config.ClientId, ClientSecret = this.Config.ClientSecret, Token = NullableUtils.Unwrap(token).AccessTokenField }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -118,11 +119,11 @@ namespace Box.Sdk.Gen {
         /// </param>
         public async System.Threading.Tasks.Task<AccessToken> DownscopeTokenAsync(IReadOnlyList<string> scopes, string? resource = null, string? sharedLink = null, NetworkSession? networkSession = null) {
             AccessToken? token = await this.TokenStorage.GetAsync().ConfigureAwait(false);
-            if (token == null || token.AccessTokenField == null) {
+            if (token == null || NullableUtils.Unwrap(token).AccessTokenField == null) {
                 throw new BoxSdkException(message: "No access token is available.");
             }
-            AuthorizationManager authManager = networkSession != null ? new AuthorizationManager(networkSession: networkSession) : new AuthorizationManager();
-            AccessToken downscopedToken = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.UrnIetfParamsOauthGrantTypeTokenExchange) { SubjectToken = token.AccessTokenField, SubjectTokenType = PostOAuth2TokenSubjectTokenTypeField.UrnIetfParamsOauthTokenTypeAccessToken, Scope = string.Join(" ", scopes), Resource = resource, BoxSharedLink = sharedLink }).ConfigureAwait(false);
+            AuthorizationManager authManager = new AuthorizationManager(networkSession: networkSession != null ? NullableUtils.Unwrap(networkSession) : new NetworkSession());
+            AccessToken downscopedToken = await authManager.RequestAccessTokenAsync(requestBody: new PostOAuth2Token(grantType: PostOAuth2TokenGrantTypeField.UrnIetfParamsOauthGrantTypeTokenExchange) { SubjectToken = NullableUtils.Unwrap(token).AccessTokenField, SubjectTokenType = PostOAuth2TokenSubjectTokenTypeField.UrnIetfParamsOauthTokenTypeAccessToken, Scope = string.Join(" ", scopes), Resource = resource, BoxSharedLink = sharedLink }).ConfigureAwait(false);
             return downscopedToken;
         }
 

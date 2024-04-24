@@ -11,6 +11,14 @@ namespace Box.Sdk.Gen
         private AccessToken? _token;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="InMemoryTokenStorage"/> class.
+        /// </summary>
+        public InMemoryTokenStorage(AccessToken? token = null)
+        {
+            this._token = token;
+        }
+
+        /// <summary>
         /// Stores access token.
         /// </summary>
         public System.Threading.Tasks.Task StoreAsync(AccessToken token)
