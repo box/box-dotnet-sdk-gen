@@ -10,6 +10,8 @@
     - [Obtaining User token](#obtaining-user-token)
     - [Switching between Service Account and User](#switching-between-service-account-and-user)
   - [OAuth 2.0 Auth](#oauth-20-auth)
+- [Revoke token](#revoke-token)
+- [Downscope token](#downscope-token)
 - [Token storage](#token-storage)
   - [In-memory token storage](#in-memory-token-storage)
   - [Custom storage](#custom-storage)
@@ -51,7 +53,7 @@ The guide with all required steps can be found here: [Setup with Client Credenti
 Client Credentials Grant Auth method allows you to obtain an access token by having client credentials
 and secret with enterprise or user ID, which allows you to work using service or user account.
 
-You can use `BoxCCGAuth` to initialize a client object the same way as for other authentication types:
+You can use `BoxCcgAuth` to initialize a client object the same way as for other authentication types:
 
 ```c#
 using Box.Sdk.Gen;
@@ -154,6 +156,53 @@ You need to provide the auth code to the SDK to obtain an access token, then you
 
 ```c#
 await auth.GetTokensAuthorizationCodeGrantAsync("code");
+```
+
+# Revoke token
+
+Access tokens for a client can be revoked when needed. This call invalidates old token.
+For BoxCcgAuth and BoxJwtAuth you can still reuse the `auth` object to retrieve a new token.
+If you make any new call after revoking the token, a new token will be automatically retrieved.
+For BoxOAuth it would be necessary to manually go through the authentication process again.
+For BoxDeveloperTokenAuth, it is necessary to provide a DeveloperTokenConfig during initialization,
+containing the client ID and client secret.
+
+To revoke current client's tokens in the storage use the following code:
+
+<!-- sample post_oauth2_revoke -->
+
+```c#
+await auth.RevokeTokenAsync();
+```
+
+# Downscope token
+
+You can exchange a client's access token for one with a lower scope, in order
+to restrict the permissions for a child client or to pass to a less secure
+location (e.g. a browser-based app).
+
+A downscoped token does not include a refresh token.
+In such a scenario, to obtain a new downscoped token, refresh the original token
+and utilize the newly acquired token to obtain the downscoped token.
+
+More information about downscoping tokens can be found [here](https://developer.box.com/guides/authentication/tokens/downscope/).
+If you want to learn more about available scopes please go [here](https://developer.box.com/guides/api-calls/permissions-and-errors/scopes/#scopes-for-downscoping).
+
+For example to get a new token with only `item_preview` scope, restricted to a single file, suitable for the
+[Content Preview UI Element](https://developer.box.com/en/guides/embed/ui-elements/preview/) you can use the following code.
+You can also initialize `BoxDeveloperTokenAuth` with the retrieved access token and use it to create a new Client.
+
+<!-- sample post_oauth2_token downscope_token -->
+
+```c#
+using Box.Sdk.Gen;
+
+resourcePath = 'https://api.box.com/2.0/files/123456789'
+AccessToken downscopedToken = await auth.DownscopeTokenAsync(
+  scopes: Array.AsReadOnly(new [] {"item_rename","item_preview"}), resource: resourcePath
+);
+
+BoxClient downscopedClient = new BoxClient(auth: new BoxDeveloperTokenAuth(token: downscopedToken.AccessTokenField));
 ```
 
 # Token storage
