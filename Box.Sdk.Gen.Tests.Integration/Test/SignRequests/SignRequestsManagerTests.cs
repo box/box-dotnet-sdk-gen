@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].Email == signerEmail);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.ParentFolder).Id == destinationFolder.Id);
-            Assert.IsTrue(Utils.DateToString(date: NullableUtils.Unwrap(createdSignRequest.PrefillTags[0].DateValue)) == "2035-01-01");
+            Assert.IsTrue(Utils.DateToString(date: NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.PrefillTags)[0].DateValue)) == "2035-01-01");
             SignRequest newSignRequest = await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
             Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(newSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.Signers)[1].Email == signerEmail);
