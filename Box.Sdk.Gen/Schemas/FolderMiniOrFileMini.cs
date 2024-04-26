@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Sdk.Gen.Schemas {
-    [JsonConverter(typeof(FileMiniOrFolderMiniConverter))]
-    public class FileMiniOrFolderMini : OneOf<FileMini, FolderMini> {
+    [JsonConverter(typeof(FolderMiniOrFileMiniConverter))]
+    public class FolderMiniOrFileMini : OneOf<FileMini, FolderMini> {
         public FileMini? FileMini => _val0;
         
         public FolderMini? FolderMini => _val1;
         
-        public FileMiniOrFolderMini(FileMini value) : base(value) {}
+        public FolderMiniOrFileMini(FileMini value) : base(value) {}
         
-        public FileMiniOrFolderMini(FolderMini value) : base(value) {}
+        public FolderMiniOrFileMini(FolderMini value) : base(value) {}
         
-        public static implicit operator FileMiniOrFolderMini(FileMini value) => new FileMiniOrFolderMini(value);
+        public static implicit operator FolderMiniOrFileMini(FileMini value) => new FolderMiniOrFileMini(value);
         
-        public static implicit operator FileMiniOrFolderMini(FolderMini value) => new FileMiniOrFolderMini(value);
+        public static implicit operator FolderMiniOrFileMini(FolderMini value) => new FolderMiniOrFileMini(value);
         
-        class FileMiniOrFolderMiniConverter : JsonConverter<FileMiniOrFolderMini> {
-            public override FileMiniOrFolderMini Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        class FolderMiniOrFileMiniConverter : JsonConverter<FolderMiniOrFileMini> {
+            public override FolderMiniOrFileMini Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
                 var discriminant0Present = document.RootElement.TryGetProperty("type", out var discriminant0);
                 if (discriminant0Present) {
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Schemas {
                 throw new Exception($"Discriminant not found in json payload {document.RootElement} while try to converting to type {typeToConvert}");
             }
 
-            public override void Write(Utf8JsonWriter writer, FileMiniOrFolderMini? value, JsonSerializerOptions options) {
+            public override void Write(Utf8JsonWriter writer, FolderMiniOrFileMini? value, JsonSerializerOptions options) {
                 if (value?.FileMini != null) {
                     JsonSerializer.Serialize(writer, value.FileMini, options);
                     return;

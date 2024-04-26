@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileOrFolderScopeScopeField? Scope { get; set; } = default;
 
         [JsonPropertyName("object")]
-        public FileMiniOrFolderMini? Object { get; set; } = default;
+        public FolderMiniOrFileMini? Object { get; set; } = default;
 
         public FileOrFolderScope() {
             

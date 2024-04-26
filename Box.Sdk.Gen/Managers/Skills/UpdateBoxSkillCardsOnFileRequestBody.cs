@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? Path { get; set; } = default;
 
         [JsonPropertyName("value")]
-        public KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard? Value { get; set; } = default;
+        public KeywordSkillCardOrTimelineSkillCardOrTranscriptSkillCardOrStatusSkillCard? Value { get; set; } = default;
 
         public UpdateBoxSkillCardsOnFileRequestBody() {
             

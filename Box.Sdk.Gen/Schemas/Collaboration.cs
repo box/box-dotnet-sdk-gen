@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileOrFolderOrWebLink? Item { get; set; } = default;
 
         [JsonPropertyName("accessible_by")]
-        public GroupMiniOrUserCollaborations? AccessibleBy { get; set; } = default;
+        public UserCollaborationsOrGroupMini? AccessibleBy { get; set; } = default;
 
         /// <summary>
         /// The email address used to invite an unregistered collaborator, if
