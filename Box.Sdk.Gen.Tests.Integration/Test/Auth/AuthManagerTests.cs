@@ -120,6 +120,35 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
 
         [TestMethod]
+        public async System.Threading.Tasks.Task TestDeveloperTokenAuthRevoke() {
+            DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
+            AccessToken token = await GetAccessTokenAsync();
+            BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth(token: token.AccessTokenField, config: developerTokenConfig);
+            await auth.RetrieveTokenAsync();
+            AccessToken? tokenFromStorageBeforeRevoke = await auth.TokenStorage.GetAsync();
+            await auth.RevokeTokenAsync();
+            AccessToken? tokenFromStorageAfterRevoke = await auth.TokenStorage.GetAsync();
+            Assert.IsTrue(tokenFromStorageBeforeRevoke != null);
+            Assert.IsTrue(tokenFromStorageAfterRevoke == null);
+        }
+
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestDeveloperTokenAuthDownscope() {
+            DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
+            AccessToken token = await GetAccessTokenAsync();
+            BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth(token: token.AccessTokenField, config: developerTokenConfig);
+            BoxClient parentClient = new BoxClient(auth: auth);
+            FolderFull folder = await parentClient.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
+            string resourcePath = string.Concat("https://api.box.com/2.0/folders/", folder.Id);
+            AccessToken downscopedToken = await auth.DownscopeTokenAsync(scopes: Array.AsReadOnly(new [] {"item_rename","item_preview"}), resource: resourcePath);
+            Assert.IsTrue(downscopedToken.AccessTokenField != null);
+            BoxClient downscopedClient = new BoxClient(auth: new BoxDeveloperTokenAuth(token: downscopedToken.AccessTokenField));
+            await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Name = Utils.GetUUID() });
+            await Assert.That.IsExceptionAsync(async() => await downscopedClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id));
+            await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
+        }
+
+        [TestMethod]
         public async System.Threading.Tasks.Task TestDeveloperTokenAuth() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             AccessToken token = await GetAccessTokenAsync();
