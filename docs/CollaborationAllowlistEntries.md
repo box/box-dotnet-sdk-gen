@@ -16,7 +16,10 @@ This operation is performed by calling function `GetCollaborationWhitelistEntrie
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-entries/).
 
-*Currently we don't have an example for calling `GetCollaborationWhitelistEntries` in integration tests*
+<!-- sample get_collaboration_whitelist_entries -->
+```
+await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntriesAsync();
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `CreateCollaborationWhitelistEnt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-collaboration-whitelist-entries/).
 
-*Currently we don't have an example for calling `CreateCollaborationWhitelistEntry` in integration tests*
+<!-- sample post_collaboration_whitelist_entries -->
+```
+await client.CollaborationAllowlistEntries.CreateCollaborationWhitelistEntryAsync(requestBody: new CreateCollaborationWhitelistEntryRequestBody(direction: CreateCollaborationWhitelistEntryRequestBodyDirectionField.Inbound, domain: domain));
+```
 
 ### Arguments
 
@@ -74,7 +80,10 @@ This operation is performed by calling function `GetCollaborationWhitelistEntryB
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-entries-id/).
 
-*Currently we don't have an example for calling `GetCollaborationWhitelistEntryById` in integration tests*
+<!-- sample get_collaboration_whitelist_entries_id -->
+```
+await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
+```
 
 ### Arguments
 
@@ -103,7 +112,10 @@ This operation is performed by calling function `DeleteCollaborationWhitelistEnt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-collaboration-whitelist-entries-id/).
 
-*Currently we don't have an example for calling `DeleteCollaborationWhitelistEntryById` in integration tests*
+<!-- sample delete_collaboration_whitelist_entries_id -->
+```
+await client.CollaborationAllowlistEntries.DeleteCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
+```
 
 ### Arguments
 

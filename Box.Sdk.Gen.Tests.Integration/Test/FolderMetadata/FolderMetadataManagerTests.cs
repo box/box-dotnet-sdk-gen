@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             MetadataFull receivedMetadata = await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties");
             Assert.IsTrue(NullableUtils.Unwrap(receivedMetadata.ExtraData)["abc"] == "xyz");
             const string newValue = "bar";
-            MetadataFull updatedMetadata = await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody() { Op = UpdateFolderMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
+            await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody() { Op = UpdateFolderMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
             MetadataFull receivedUpdatedMetadata = await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties");
             Assert.IsTrue(NullableUtils.Unwrap(receivedUpdatedMetadata.ExtraData)["abc"] == newValue);
             await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties");
