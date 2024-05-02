@@ -143,5 +143,7 @@ namespace Box.Sdk.Gen {
 
         public IIntegrationMappingsManager IntegrationMappings { get; set; }
 
+        public IAiManager Ai { get; set; }
+
     }
 }
