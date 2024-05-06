@@ -145,6 +145,8 @@ namespace Box.Sdk.Gen {
 
         public IIntegrationMappingsManager IntegrationMappings { get; set; }
 
+        public IAiManager Ai { get; set; }
+
         public BoxClient(IAuthentication auth, NetworkSession networkSession = default) {
             Auth = auth;
             NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
@@ -216,6 +218,7 @@ namespace Box.Sdk.Gen {
             Workflows = new WorkflowsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             SignTemplates = new SignTemplatesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             IntegrationMappings = new IntegrationMappingsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Ai = new AiManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
         /// Create a new client to impersonate user with the provided ID. All calls made with the new client will be made in context of the impersonated user, leaving the original client unmodified.
