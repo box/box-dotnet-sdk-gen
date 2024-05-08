@@ -113,6 +113,8 @@ namespace Box.Sdk.Gen.Schemas {
         ItemCreate,
         [Description("ITEM_DOWNLOAD")]
         ItemDownload,
+        [Description("ITEM_EMAIL_SEND")]
+        ItemEmailSend,
         [Description("ITEM_MAKE_CURRENT_VERSION")]
         ItemMakeCurrentVersion,
         [Description("ITEM_MODIFY")]
@@ -193,6 +195,8 @@ namespace Box.Sdk.Gen.Schemas {
         RetentionPolicyAssignmentAdd,
         [Description("SHARE")]
         Share,
+        [Description("SHARED_LINK_SEND")]
+        SharedLinkSend,
         [Description("SHARE_EXPIRATION")]
         ShareExpiration,
         [Description("SHIELD_ALERT")]

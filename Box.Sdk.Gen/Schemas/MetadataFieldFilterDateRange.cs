@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class MetadataFieldFilterFloatRangeValue {
+    public class MetadataFieldFilterDateRange {
         /// <summary>
         /// Specifies the (inclusive) upper bound for the metadata field
         /// value. The value of a field must be lower than (`lt`) or
@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("lt")]
-        public double? Lt { get; set; } = default;
+        public System.DateTimeOffset? Lt { get; set; } = default;
 
         /// <summary>
         /// Specifies the (inclusive) lower bound for the metadata field
@@ -23,9 +23,9 @@ namespace Box.Sdk.Gen.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("gt")]
-        public double? Gt { get; set; } = default;
+        public System.DateTimeOffset? Gt { get; set; } = default;
 
-        public MetadataFieldFilterFloatRangeValue() {
+        public MetadataFieldFilterDateRange() {
             
         }
     }
