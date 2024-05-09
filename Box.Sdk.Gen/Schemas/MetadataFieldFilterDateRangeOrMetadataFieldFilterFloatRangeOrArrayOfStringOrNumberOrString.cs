@@ -6,13 +6,12 @@ using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Box.Sdk.Gen.Schemas {
-    [JsonConverter(typeof(MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrStringConverter))]
     public class MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString : OneOf<MetadataFieldFilterDateRange, MetadataFieldFilterFloatRange, IReadOnlyList<string>, double, string> {
         public MetadataFieldFilterDateRange? MetadataFieldFilterDateRange => _val0;
         
         public MetadataFieldFilterFloatRange? MetadataFieldFilterFloatRange => _val1;
         
-        public IReadOnlyList<string>? IReadOnlyList<string> => _val2;
+        public IReadOnlyList<string>? IReadOnlyListVal => _val2;
         
         public double? DoubleVal => _val3;
         
@@ -31,8 +30,6 @@ namespace Box.Sdk.Gen.Schemas {
         public static implicit operator MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(MetadataFieldFilterDateRange value) => new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(value);
         
         public static implicit operator MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(MetadataFieldFilterFloatRange value) => new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(value);
-        
-        public static implicit operator MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(IReadOnlyList<string> value) => new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(value);
         
         public static implicit operator MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(double value) => new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(value);
         

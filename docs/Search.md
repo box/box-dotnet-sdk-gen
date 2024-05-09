@@ -47,10 +47,7 @@ This operation is performed by calling function `SearchForContent`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-search/).
 
-<!-- sample get_search -->
-```
-await client.Search.SearchForContentAsync(queryParams: new SearchForContentQueryParams(ancestorFolderIds: Array.AsReadOnly(new [] {"0"}), mdfilters: Array.AsReadOnly(new [] {new MetadataFilter(filters: new Dictionary<string, string>() { { "stringField", "stringValue" } }, scope: MetadataFilterScopeField.Enterprise, templateKey: templateKey)})));
-```
+*Currently we don't have an example for calling `SearchForContent` in integration tests*
 
 ### Arguments
 
