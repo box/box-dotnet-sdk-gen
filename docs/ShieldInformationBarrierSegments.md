@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample delete_shield_information_barrier_segments_id -->
 ```
-await client.ShieldInformationBarrierSegments.DeleteShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId);
+await client.ShieldInformationBarrierSegments.DeleteShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: NullableUtils.Unwrap(segment.Id));
 ```
 
 ### Arguments
@@ -146,7 +146,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segments -->
 ```
-await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBody(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier), name: segmentName, description: segmentDescription));
+await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBody(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier), name: segmentName));
 ```
 
 ### Arguments

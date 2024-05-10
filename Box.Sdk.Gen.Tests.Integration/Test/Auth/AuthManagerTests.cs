@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using NullableExtensions;
 using Unions;
-using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Tests.Integration {

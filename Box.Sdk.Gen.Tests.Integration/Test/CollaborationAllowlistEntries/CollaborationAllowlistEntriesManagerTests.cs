@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task CollaborationAllowlistEntries() {
+        public async System.Threading.Tasks.Task TestCollaborationAllowlistEntries() {
             CollaborationAllowlistEntries allowlist = await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntriesAsync();
             Assert.IsTrue(NullableUtils.Unwrap(allowlist.Entries).Count >= 0);
             const string domain = "example.com";
