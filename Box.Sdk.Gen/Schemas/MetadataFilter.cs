@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         public MetadataFilterScopeField? Scope { get; set; } = default;
 
         /// <summary>
-        /// The key of the template to filter search results by.
+        /// The key of the template used to filter search results.
         /// 
         /// In many cases the template key is automatically derived
         /// of its display name, for example `Contract Template` would
@@ -36,8 +36,14 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("templateKey")]
         public string? TemplateKey { get; set; } = default;
 
+        /// <summary>
+        /// Specifies which fields on the template to filter the search
+        /// results by. When more than one field is specified, the query
+        /// performs a logical `AND` to ensure that the instance of the
+        /// template matches each of the fields specified.
+        /// </summary>
         [JsonPropertyName("filters")]
-        public MetadataFilterFiltersField? Filters { get; set; } = default;
+        public Dictionary<string, MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>? Filters { get; set; } = default;
 
         public MetadataFilter() {
             

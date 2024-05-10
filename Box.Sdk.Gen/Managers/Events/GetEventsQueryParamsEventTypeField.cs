@@ -99,6 +99,8 @@ namespace Box.Sdk.Gen.Managers {
         GroupRemoveItem,
         [Description("GROUP_REMOVE_USER")]
         GroupRemoveUser,
+        [Description("ITEM_EMAIL_SEND")]
+        ItemEmailSend,
         [Description("ITEM_MODIFY")]
         ItemModify,
         [Description("ITEM_OPEN")]
@@ -153,6 +155,8 @@ namespace Box.Sdk.Gen.Managers {
         RetentionPolicyAssignmentAdd,
         [Description("SHARE")]
         Share,
+        [Description("SHARED_LINK_SEND")]
+        SharedLinkSend,
         [Description("SHARE_EXPIRATION")]
         ShareExpiration,
         [Description("SHIELD_ALERT")]

@@ -201,14 +201,9 @@ namespace Box.Sdk.Gen.Managers {
         public SearchForContentQueryParamsTrashContentField? TrashContent { get; set; } = default;
 
         /// <summary>
-        /// Limits the search results to any items for which the metadata matches
-        /// the provided filter.
-        /// 
-        /// This parameter contains a list of 1 metadata template to filter
-        /// the search results by. This list can currently only
-        /// contain one entry, though this might be expanded in the future.
-        /// 
-        /// This parameter is required unless the `query` parameter is provided.
+        /// Limits the search results to any items for which the metadata matches the provided filter.
+        /// This parameter is a list that specifies exactly **one** metadata template used to filter the search results. 
+        /// It is required unless the `query` parameter is provided.
         /// </summary>
         public IReadOnlyList<MetadataFilter>? Mdfilters { get; set; } = default;
 
