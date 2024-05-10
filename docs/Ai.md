@@ -13,7 +13,10 @@ This operation is performed by calling function `CreateAiAsk`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-ask/).
 
-*Currently we don't have an example for calling `CreateAiAsk` in integration tests*
+<!-- sample post_ai_ask -->
+```
+await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File, content: "Earth goes around the sun"),new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File, content: "Sun rises in the East in the morning")})));
+```
 
 ### Arguments
 
@@ -41,7 +44,10 @@ This operation is performed by calling function `CreateAiTextGen`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-text-gen/).
 
-*Currently we don't have an example for calling `CreateAiTextGen` in integration tests*
+<!-- sample post_ai_text_gen -->
+```
+await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField(id: fileToAsk.Id, type: AiTextGenItemsTypeField.File, content: "The Earth goes around the sun. Sun rises in the East in the morning.")}), dialogueHistory: Array.AsReadOnly(new [] {new AiTextGenDialogueHistoryField(prompt: "What does the earth go around?", answer: "The sun", createdAt: Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z")),new AiTextGenDialogueHistoryField(prompt: "On Earth, where does the sun rise?", answer: "East", createdAt: Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z"))})));
+```
 
 ### Arguments
 
