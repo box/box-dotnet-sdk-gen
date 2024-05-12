@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync(folderId: "0");
+await client.Folders.GetFolderByIdAsync(folderId: newFolder.Id);
 ```
 
 ### Arguments
@@ -72,7 +72,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-await client.Folders.UpdateFolderByIdAsync(folderId: copiedFolder.Id, requestBody: new UpdateFolderByIdRequestBody(parent: new UpdateFolderByIdRequestBodyParentField(id: folderOrigin.Id), name: movedFolderName));
+await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody(name: Utils.GetUUID()));
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id);
+await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
 ```
 
 ### Arguments
@@ -188,7 +188,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
+await parentClient.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
 ```
 
 ### Arguments

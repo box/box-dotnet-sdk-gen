@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task Comments() {
+        public async System.Threading.Tasks.Task TestComments() {
             const int fileSize = 256;
             string fileName = Utils.GetUUID();
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(size: fileSize);

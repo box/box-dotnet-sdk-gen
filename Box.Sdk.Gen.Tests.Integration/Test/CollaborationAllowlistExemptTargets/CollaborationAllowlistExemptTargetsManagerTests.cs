@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task CollaborationAllowlistExemptTargets() {
+        public async System.Threading.Tasks.Task TestCollaborationAllowlistExemptTargets() {
             CollaborationAllowlistExemptTargets exemptTargets = await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(exemptTargets.Entries).Count >= 0);
             UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: Utils.GetUUID()) { Login = string.Concat(Utils.GetUUID(), "@boxdemo.com"), IsPlatformAccessOnly = true });

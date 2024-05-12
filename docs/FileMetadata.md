@@ -94,7 +94,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } });
+await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: new Dictionary<string, string>() { { "abc", "xyz" } });
 ```
 
 ### Arguments
@@ -177,7 +177,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey);
+await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Global, templateKey: "properties");
 ```
 
 ### Arguments
