@@ -22,7 +22,5 @@ namespace Box.Sdk.Gen.Managers {
 
         public System.Threading.Tasks.Task<FileVersionLegalHolds> GetLegalHoldPolicyAssignmentFileOnHoldAsync(string legalHoldPolicyAssignmentId, GetLegalHoldPolicyAssignmentFileOnHoldQueryParams? queryParams = default, GetLegalHoldPolicyAssignmentFileOnHoldHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 
-        public System.Threading.Tasks.Task<FileVersionLegalHolds> GetLegalHoldPolicyAssignmentFileVersionOnHoldAsync(string legalHoldPolicyAssignmentId, GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParams? queryParams = default, GetLegalHoldPolicyAssignmentFileVersionOnHoldHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
-
     }
 }

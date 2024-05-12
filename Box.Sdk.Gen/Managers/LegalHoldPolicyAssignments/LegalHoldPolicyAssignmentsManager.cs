@@ -140,45 +140,5 @@ namespace Box.Sdk.Gen.Managers {
             return SimpleJsonSerializer.Deserialize<FileVersionLegalHolds>(response.Data);
         }
 
-        /// <summary>
-        /// Get a list of previous file versions for a legal hold
-        /// assignment.
-        /// 
-        /// In some cases you may only need the latest file versions instead. In these
-        /// cases, use the `GET  /legal_hold_policy_assignments/:id/files_on_hold` API
-        /// instead to return any current (latest) versions of a file for this legal hold
-        /// policy assignment.
-        /// 
-        /// Due to ongoing re-architecture efforts this API might not return all files
-        /// held for this policy ID. Instead, this API will only return past file versions
-        /// held in the newly developed architecture. The `GET /file_version_legal_holds`
-        /// API can be used to fetch current and past versions of files held within the
-        /// legacy architecture.
-        /// 
-        /// The `GET /legal_hold_policy_assignments?policy_id={id}` API can be used to
-        /// find a list of policy assignments for a given policy ID.
-        /// </summary>
-        /// <param name="legalHoldPolicyAssignmentId">
-        /// The ID of the legal hold policy assignment
-        /// Example: "753465"
-        /// </param>
-        /// <param name="queryParams">
-        /// Query parameters of getLegalHoldPolicyAssignmentFileVersionOnHold method
-        /// </param>
-        /// <param name="headers">
-        /// Headers of getLegalHoldPolicyAssignmentFileVersionOnHold method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task<FileVersionLegalHolds> GetLegalHoldPolicyAssignmentFileVersionOnHoldAsync(string legalHoldPolicyAssignmentId, GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParams? queryParams = default, GetLegalHoldPolicyAssignmentFileVersionOnHoldHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetLegalHoldPolicyAssignmentFileVersionOnHoldQueryParams();
-            headers = headers ?? new GetLegalHoldPolicyAssignmentFileVersionOnHoldHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/legal_hold_policy_assignments/", StringUtils.ToStringRepresentation(legalHoldPolicyAssignmentId), "/file_versions_on_hold"), new FetchOptions(method: "GET", parameters: queryParamsMap, headers: headersMap, responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<FileVersionLegalHolds>(response.Data);
-        }
-
     }
 }
