@@ -134,7 +134,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
+await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: templateKey);
 ```
 
 ### Arguments

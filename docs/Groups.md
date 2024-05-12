@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_groups -->
 ```
-await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName));
+await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName, description: groupDescription));
 ```
 
 ### Arguments

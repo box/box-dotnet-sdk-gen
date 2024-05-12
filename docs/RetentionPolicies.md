@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: retentionPolicyName, policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, areOwnersNotified: true, canOwnerExtendRetention: true, description: retentionDescription, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable));
+await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: Utils.GetUUID(), policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", description: description, canOwnerExtendRetention: false, retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable));
 ```
 
 ### Arguments

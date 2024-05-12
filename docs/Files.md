@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-await client.Files.UpdateFileByIdAsync(fileId: fileToUpdate.Id, requestBody: new UpdateFileByIdRequestBody(name: updatedName, description: "Updated description"));
+await downscopedClient.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody(name: Utils.GetUUID()));
 ```
 
 ### Arguments
@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-await client.Files.DeleteFileByIdAsync(fileId: file2.Id);
+await parentClient.Files.DeleteFileByIdAsync(fileId: file.Id);
 ```
 
 ### Arguments
