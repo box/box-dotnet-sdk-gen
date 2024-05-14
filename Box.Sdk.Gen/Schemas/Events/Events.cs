@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// of events.
         /// </summary>
         [JsonPropertyName("next_stream_position")]
-        public string? NextStreamPosition { get; set; } = default;
+        public EventsNextStreamPositionField? NextStreamPosition { get; set; } = default;
 
         /// <summary>
         /// A list of events

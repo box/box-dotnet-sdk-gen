@@ -8,7 +8,9 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class File : FileMini {
         /// <summary>
-        /// The optional description of this file
+        /// The optional description of this file.
+        /// If the description exceeds 255 characters, the first 255 characters
+        /// are set as a file description and the rest of it is ignored.
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; } = default;
