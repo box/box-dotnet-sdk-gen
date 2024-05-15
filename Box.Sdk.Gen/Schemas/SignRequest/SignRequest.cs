@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<FileBase>? SourceFiles { get; set; } = default;
 
         /// <summary>
-        /// Array of signers for the sign request
+        /// Array of signers for the signature request.
         /// </summary>
         [JsonPropertyName("signers")]
         public IReadOnlyList<SignRequestSigner>? Signers { get; set; } = default;
@@ -32,15 +32,16 @@ namespace Box.Sdk.Gen.Schemas {
         public string? SignatureColor { get; set; } = default;
 
         /// <summary>
-        /// Sign request ID
+        /// Box Sign request ID.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; } = default;
 
         /// <summary>
         /// This URL is returned if `is_document_preparation_needed` is
-        /// set to `true` in the request. It is used to prepare the sign request
-        /// via UI. The sign request is not sent until preparation is complete.
+        /// set to `true` for Box Sign request. It is used to prepare a signature request
+        /// using the UI. The signature request is not sent until the preparation
+        /// phase is complete.
         /// </summary>
         [JsonPropertyName("prepare_url")]
         public string? PrepareUrl { get; set; } = default;
@@ -49,7 +50,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileMini? SigningLog { get; set; } = default;
 
         /// <summary>
-        /// Describes the status of the sign request
+        /// Describes the status of the signature request.
         /// </summary>
         [JsonPropertyName("status")]
         public SignRequestStatusField? Status { get; set; } = default;

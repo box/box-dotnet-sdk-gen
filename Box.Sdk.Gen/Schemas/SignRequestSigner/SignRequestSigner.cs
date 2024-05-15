@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? HasViewedDocument { get; set; } = default;
 
         /// <summary>
-        /// Final decision made by the signer
+        /// Final decision made by the signer.
         /// </summary>
         [JsonPropertyName("signer_decision")]
         public SignRequestSignerSignerDecisionField? SignerDecision { get; set; } = default;
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// It will be returned in the response
         /// only if the `embed_url_external_user_id`
         /// parameter was passed in the
-        /// `create sign request` call.
+        /// `create Box Sign request` call.
         /// </summary>
         [JsonPropertyName("iframeable_embed_url")]
         public string? IframeableEmbedUrl { get; set; } = default;

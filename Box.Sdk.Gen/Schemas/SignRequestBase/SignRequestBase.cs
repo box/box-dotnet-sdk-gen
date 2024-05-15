@@ -8,13 +8,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequestBase {
         /// <summary>
-        /// Indicates if the sender should receive a `prepare_url` in the response to complete document preparation via UI.
+        /// Indicates if the sender should receive a `prepare_url` in the response to complete document preparation using the UI.
         /// </summary>
         [JsonPropertyName("is_document_preparation_needed")]
         public bool? IsDocumentPreparationNeeded { get; set; } = default;
 
         /// <summary>
-        /// When specified, signature request will be redirected to this url when a document is signed.
+        /// When specified, the signature request will be redirected to this url when a document is signed.
         /// </summary>
         [JsonPropertyName("redirect_url")]
         public string? RedirectUrl { get; set; } = default;
@@ -50,13 +50,13 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? AreRemindersEnabled { get; set; } = default;
 
         /// <summary>
-        /// Name of the sign request.
+        /// Name of the signature request.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; } = default;
 
         /// <summary>
-        /// When a document contains sign related tags in the content, you can prefill them using this `prefill_tags` by referencing the 'id' of the tag as the `external_id` field of the prefill tag.
+        /// When a document contains sign-related tags in the content, you can prefill them using this `prefill_tags` by referencing the 'id' of the tag as the `external_id` field of the prefill tag.
         /// </summary>
         [JsonPropertyName("prefill_tags")]
         public IReadOnlyList<SignRequestPrefillTag>? PrefillTags { get; set; } = default;

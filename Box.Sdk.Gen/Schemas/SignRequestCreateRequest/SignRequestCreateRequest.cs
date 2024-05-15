@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Schemas {
         public SignRequestCreateRequestSignatureColorField? SignatureColor { get; set; } = default;
 
         /// <summary>
-        /// Array of signers for the sign request. 35 is the max number of signers permitted.
+        /// Array of signers for the signature request. 35 is the max number of signers permitted.
         /// </summary>
         [JsonPropertyName("signers")]
         public IReadOnlyList<SignRequestCreateSigner> Signers { get; set; }
