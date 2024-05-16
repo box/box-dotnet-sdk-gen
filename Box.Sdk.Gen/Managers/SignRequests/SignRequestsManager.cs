@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Cancels a sign request.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the sign request
+        /// The ID of the signature request
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">
@@ -38,10 +38,10 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Resends a sign request email to all outstanding signers.
+        /// Resends a signature request email to all outstanding signers.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the sign request
+        /// The ID of the signature request
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">
@@ -60,7 +60,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Gets a sign request by ID.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the sign request
+        /// The ID of the signature request
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">
@@ -77,8 +77,8 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Gets sign requests created by a user. If the `sign_files` and/or
-        /// `parent_folder` are deleted, the sign request will not return in the list.
+        /// Gets signature requests created by a user. If the `sign_files` and/or
+        /// `parent_folder` are deleted, the signature request will not return in the list.
         /// </summary>
         /// <param name="queryParams">
         /// Query parameters of getSignRequests method
@@ -99,8 +99,8 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Creates a sign request. This involves preparing a document for signing and
-        /// sending the sign request to signers.
+        /// Creates a signature request. This involves preparing a document for signing and
+        /// sending the signature request to signers.
         /// </summary>
         /// <param name="requestBody">
         /// Request body of createSignRequest method

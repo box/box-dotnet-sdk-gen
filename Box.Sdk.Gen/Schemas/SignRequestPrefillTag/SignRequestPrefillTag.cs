@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequestPrefillTag {
         /// <summary>
-        /// This references the ID of a specific tag contained in a file of the sign request.
+        /// This references the ID of a specific tag contained in a file of the signature request.
         /// </summary>
         [JsonPropertyName("document_tag_id")]
         public string? DocumentTagId { get; set; } = default;

@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? NextMarker { get; set; } = default;
 
         /// <summary>
-        /// A list of sign requests
+        /// A list of Box Sign requests.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<SignRequest>? Entries { get; set; } = default;
