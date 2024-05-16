@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Email { get; set; } = default;
 
         /// <summary>
-        /// Defines the role of the signer in the sign request. A `signer`
+        /// Defines the role of the signer in the signature request. A `signer`
         /// must sign the document and an `approver` must approve the document. A
         /// `final_copy_reader` only receives the final signed document and signing
         /// log.
