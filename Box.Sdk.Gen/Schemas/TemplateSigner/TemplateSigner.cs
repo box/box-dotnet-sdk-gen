@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// If provided, this value points signers that are assigned the same inputs and belongs to same signer group.
         /// A signer group is not a Box Group. It is an entity that belongs to the template itself and can only be used
-        /// within Sign Requests created from it.
+        /// within Box Sign requests created from it.
         /// </summary>
         [JsonPropertyName("signer_group_id")]
         public string? SignerGroupId { get; set; } = default;
