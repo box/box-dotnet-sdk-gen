@@ -94,6 +94,12 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("signer_group_id")]
         public string? SignerGroupId { get; set; } = default;
 
+        /// <summary>
+        /// If true, no emails about the sign request will be sent
+        /// </summary>
+        [JsonPropertyName("suppress_notifications")]
+        public bool? SuppressNotifications { get; set; } = default;
+
         public SignRequestCreateSigner() {
             
         }
