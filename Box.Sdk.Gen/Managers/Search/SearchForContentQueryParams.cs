@@ -203,7 +203,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Limits the search results to any items for which the metadata matches the provided filter.
         /// This parameter is a list that specifies exactly **one** metadata template used to filter the search results. 
-        /// It  unless the `query` parameter is provided.
+        /// It is required unless the `query` parameter is provided.
         /// </summary>
         public IReadOnlyList<MetadataFilter>? Mdfilters { get; set; } = default;
 
