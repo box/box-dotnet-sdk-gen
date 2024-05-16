@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time in minutes for which this server is available
         /// </summary>
         [JsonPropertyName("ttl")]
-        public long? Ttl { get; set; } = default;
+        public string? Ttl { get; set; } = default;
 
         /// <summary>
         /// The maximum number of retries this server will
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// getting a [new list of server](#options-events).
         /// </summary>
         [JsonPropertyName("max_retries")]
-        public long? MaxRetries { get; set; } = default;
+        public string? MaxRetries { get; set; } = default;
 
         /// <summary>
         /// The maximum number of seconds without a response
