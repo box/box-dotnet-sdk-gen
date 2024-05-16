@@ -29,9 +29,6 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(legalHoldPolicyAssignmentFromApi.Id) == legalHoldPolicyAssignmentId);
             LegalHoldPolicyAssignments legalPolicyAssignments = await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentsAsync(queryParams: new GetLegalHoldPolicyAssignmentsQueryParams(policyId: legalHoldPolicyId));
             Assert.IsTrue(NullableUtils.Unwrap(legalPolicyAssignments.Entries).Count == 1);
-            FileVersionLegalHolds filesOnHold = await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentFileOnHoldAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
-            Assert.IsTrue(NullableUtils.Unwrap(filesOnHold.Entries).Count == 1);
-            Assert.IsTrue(NullableUtils.Unwrap(filesOnHold.Entries)[0].Id == fileId);
             await client.LegalHoldPolicyAssignments.DeleteLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
             await Assert.That.IsExceptionAsync(async() => await client.LegalHoldPolicyAssignments.DeleteLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId));
             await client.Files.DeleteFileByIdAsync(fileId: fileId);

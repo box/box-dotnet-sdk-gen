@@ -159,10 +159,7 @@ This operation is performed by calling function `GetLegalHoldPolicyAssignmentFil
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id-files-on-hold/).
 
-<!-- sample get_legal_hold_policy_assignments_id_files_on_hold -->
-```
-await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentFileOnHoldAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
-```
+*Currently we don't have an example for calling `GetLegalHoldPolicyAssignmentFileOnHold` in integration tests*
 
 ### Arguments
 
