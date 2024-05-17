@@ -74,8 +74,8 @@ Calling the `client.WithCustomBaseUrls()` method creates a new client, leaving t
 
 ```python
 var newClient = client.WithCustomBaseUrls(new BaseUrls(
-  baseUrl: "https://api.box2.com/2.0",
-  uploadUrl: "https://upload.box.com/api/2.0",
+  baseUrl: "https://api.box2.com",
+  uploadUrl: "https://upload.box.com/api",
   oauth2Url: "https://account.box.com/api/oauth2"
 ));
 ```
