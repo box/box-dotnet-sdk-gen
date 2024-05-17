@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         public GetFolderCollaborationsQueryParams() {
             

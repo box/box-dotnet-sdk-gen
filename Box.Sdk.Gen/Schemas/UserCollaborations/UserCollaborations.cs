@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The display name of this user. If the collaboration status is `pending`, an empty string is returned.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The primary email address of this user. If the collaboration status is `pending`, an empty string is returned.
         /// </summary>
         [JsonPropertyName("login")]
-        public string? Login { get; set; } = default;
+        public string? Login { get; init; }
 
         public UserCollaborations(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             

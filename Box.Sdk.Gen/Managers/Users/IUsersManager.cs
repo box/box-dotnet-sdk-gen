@@ -8,9 +8,9 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public interface IUsersManager {
-        public IAuthentication? Auth { get; set; }
+        public IAuthentication? Auth { get; init; }
 
-        public NetworkSession NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; }
 
         public System.Threading.Tasks.Task<Users> GetUsersAsync(GetUsersQueryParams? queryParams = default, GetUsersHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 

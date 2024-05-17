@@ -13,32 +13,32 @@ namespace Box.Sdk.Gen.Schemas {
         /// the representation.
         /// </summary>
         [JsonPropertyName("content")]
-        public FileFullRepresentationsEntriesContentField? Content { get; set; } = default;
+        public FileFullRepresentationsEntriesContentField? Content { get; init; }
 
         /// <summary>
         /// An object containing the URL that can be used to fetch more info
         /// on this representation.
         /// </summary>
         [JsonPropertyName("info")]
-        public FileFullRepresentationsEntriesInfoField? Info { get; set; } = default;
+        public FileFullRepresentationsEntriesInfoField? Info { get; init; }
 
         /// <summary>
         /// An object containing the size and type of this presentation.
         /// </summary>
         [JsonPropertyName("properties")]
-        public FileFullRepresentationsEntriesPropertiesField? Properties { get; set; } = default;
+        public FileFullRepresentationsEntriesPropertiesField? Properties { get; init; }
 
         /// <summary>
         /// Indicates the file type of the returned representation.
         /// </summary>
         [JsonPropertyName("representation")]
-        public string? Representation { get; set; } = default;
+        public string? Representation { get; init; }
 
         /// <summary>
         /// An object containing the status of this representation.
         /// </summary>
         [JsonPropertyName("status")]
-        public FileFullRepresentationsEntriesStatusField? Status { get; set; } = default;
+        public FileFullRepresentationsEntriesStatusField? Status { get; init; }
 
         public FileFullRepresentationsEntriesField() {
             

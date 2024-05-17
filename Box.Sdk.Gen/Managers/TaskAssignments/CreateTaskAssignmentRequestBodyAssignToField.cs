@@ -15,14 +15,14 @@ namespace Box.Sdk.Gen.Managers {
         /// address use the `login` parameter.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The email address of the user to assign to the task.
         /// To specify a user by their user ID please use the `id` parameter.
         /// </summary>
         [JsonPropertyName("login")]
-        public string? Login { get; set; } = default;
+        public string? Login { get; init; }
 
         public CreateTaskAssignmentRequestBodyAssignToField() {
             

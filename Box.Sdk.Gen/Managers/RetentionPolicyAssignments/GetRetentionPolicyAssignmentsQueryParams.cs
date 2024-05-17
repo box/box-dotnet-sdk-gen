@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The type of the retention policy assignment to retrieve.
         /// </summary>
-        public GetRetentionPolicyAssignmentsQueryParamsTypeField? Type { get; set; } = default;
+        public GetRetentionPolicyAssignmentsQueryParamsTypeField? Type { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the
@@ -24,18 +24,18 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
         /// used when paginating using marker-based pagination.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetRetentionPolicyAssignmentsQueryParams() {
             

@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The basics of an access token
         /// </summary>
         [JsonPropertyName("read")]
-        public SkillInvocationTokenReadField? Read { get; set; } = default;
+        public SkillInvocationTokenReadField? Read { get; init; }
 
         /// <summary>
         /// The basics of an access token
         /// </summary>
         [JsonPropertyName("write")]
-        public SkillInvocationTokenWriteField? Write { get; set; } = default;
+        public SkillInvocationTokenWriteField? Write { get; init; }
 
         public SkillInvocationTokenField() {
             

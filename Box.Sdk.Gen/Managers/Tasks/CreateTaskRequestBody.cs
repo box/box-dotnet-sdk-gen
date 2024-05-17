@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The file to attach the task to.
         /// </summary>
         [JsonPropertyName("item")]
-        public CreateTaskRequestBodyItemField Item { get; set; }
+        public CreateTaskRequestBodyItemField Item { get; }
 
         /// <summary>
         /// The action the task assignee will be prompted to do. Must be
@@ -21,20 +21,20 @@ namespace Box.Sdk.Gen.Managers {
         /// * `complete` defines a general task which can be completed
         /// </summary>
         [JsonPropertyName("action")]
-        public CreateTaskRequestBodyActionField? Action { get; set; } = default;
+        public CreateTaskRequestBodyActionField? Action { get; init; }
 
         /// <summary>
         /// An optional message to include with the task.
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         /// <summary>
         /// Defines when the task is due. Defaults to `null` if not
         /// provided.
         /// </summary>
         [JsonPropertyName("due_at")]
-        public System.DateTimeOffset? DueAt { get; set; } = default;
+        public System.DateTimeOffset? DueAt { get; init; }
 
         /// <summary>
         /// Defines which assignees need to complete this task before the task
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Managers {
         /// approve the the task in order for it to be considered completed.
         /// </summary>
         [JsonPropertyName("completion_rule")]
-        public CreateTaskRequestBodyCompletionRuleField? CompletionRule { get; set; } = default;
+        public CreateTaskRequestBodyCompletionRuleField? CompletionRule { get; init; }
 
         public CreateTaskRequestBody(CreateTaskRequestBodyItemField item) {
             Item = item;

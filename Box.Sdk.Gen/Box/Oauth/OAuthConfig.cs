@@ -4,11 +4,11 @@ using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {
     public class OAuthConfig {
-        public string ClientId { get; set; }
+        public string ClientId { get; }
 
-        public string ClientSecret { get; set; }
+        public string ClientSecret { get; }
 
-        public ITokenStorage TokenStorage { get; set; }
+        public ITokenStorage TokenStorage { get; }
 
         public OAuthConfig(string clientId, string clientSecret, ITokenStorage tokenStorage = default) {
             ClientId = clientId;

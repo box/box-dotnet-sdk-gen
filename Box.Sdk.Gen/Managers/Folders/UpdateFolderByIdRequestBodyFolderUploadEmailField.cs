@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Managers {
         /// address.
         /// </summary>
         [JsonPropertyName("access")]
-        public UpdateFolderByIdRequestBodyFolderUploadEmailAccessField? Access { get; set; } = default;
+        public UpdateFolderByIdRequestBodyFolderUploadEmailAccessField? Access { get; init; }
 
         public UpdateFolderByIdRequestBodyFolderUploadEmailField() {
             

@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// between API calls, and therefore it's important to use this URL as-is.
         /// </summary>
         [JsonPropertyName("download_url")]
-        public string? DownloadUrl { get; set; } = default;
+        public string? DownloadUrl { get; init; }
 
         /// <summary>
         /// The URL that can be used to get the status of the `zip` archive being
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// between API calls, and therefore it's important to use this URL as-is.
         /// </summary>
         [JsonPropertyName("status_url")]
-        public string? StatusUrl { get; set; } = default;
+        public string? StatusUrl { get; init; }
 
         /// <summary>
         /// The time and date when this archive will expire. After this time the
@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// download.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         /// <summary>
         /// A list of conflicts that occurred when trying to create the archive. This
@@ -58,7 +58,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// will always be a multiple of 2.
         /// </summary>
         [JsonPropertyName("name_conflicts")]
-        public IReadOnlyList<IReadOnlyList<ZipDownloadNameConflictsField>>? NameConflicts { get; set; } = default;
+        public IReadOnlyList<IReadOnlyList<ZipDownloadNameConflictsField>>? NameConflicts { get; init; }
 
         public ZipDownload() {
             

@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen
     /// <summary>
     /// Class for various jwt utilities functions used in SDK.
     /// </summary>
-    public static class JwtUtils
+    static class JwtUtils
     {
         /// <summary>
         /// Create jwt assertion.
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen
         /// <param name="key">Jwt key</param>
         /// <param name="options">Jwt sign options</param>
         /// <returns>Jwt assertion</returns>
-        public static string CreateJwtAssertion(Dictionary<string, object> claims, JwtKey key, JwtSignOptions options)
+        internal static string CreateJwtAssertion(Dictionary<string, object> claims, JwtKey key, JwtSignOptions options)
         {
             var jwtClaims = claims.Select(x => new Claim(x.Key, x.Value?.ToString())).ToList();
 
@@ -101,15 +101,15 @@ namespace Box.Sdk.Gen
         }
     }
 
-    public enum JwtAlgorithm
+    enum JwtAlgorithm
     {
         Rs256
     }
 
-    public class JwtKey
+    class JwtKey
     {
-        public string Key { get; set; }
-        public string Passphrase { get; set; }
+        internal string Key { get; }
+        internal string Passphrase { get; }
 
         public JwtKey(string key, string passphrase)
         {
@@ -118,14 +118,14 @@ namespace Box.Sdk.Gen
         }
     }
 
-    public class JwtSignOptions
+    class JwtSignOptions
     {
-        public JwtAlgorithm Algorithm { get; set; }
-        public string Audience { get; set; }
-        public string Subject { get; set; }
-        public string Issuer { get; set; }
-        public string Jwtid { get; set; }
-        public string Keyid { get; set; }
+        internal JwtAlgorithm Algorithm { get; }
+        internal string Audience { get; }
+        internal string Subject { get; }
+        internal string Issuer { get; }
+        internal string Jwtid { get; }
+        internal string Keyid { get; }
 
         public JwtSignOptions(JwtAlgorithm algorithm, string audience, string subject, string issuer, string jwtid, string keyid)
         {

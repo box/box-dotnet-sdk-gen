@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// of these are hazardous as they will change existing templates.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateFileMetadataByIdRequestBodyOpField? Op { get; set; } = default;
+        public UpdateFileMetadataByIdRequestBodyOpField? Op { get; init; }
 
         /// <summary>
         /// The location in the metadata JSON object
@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Managers {
         /// characters and must be escaped in the key.
         /// </summary>
         [JsonPropertyName("path")]
-        public string? Path { get; set; } = default;
+        public string? Path { get; init; }
 
         /// <summary>
         /// The value to be set or tested.
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Managers {
         /// the specified value.
         /// </summary>
         [JsonPropertyName("value")]
-        public string? Value { get; set; } = default;
+        public string? Value { get; init; }
 
         /// <summary>
         /// The location in the metadata JSON object to move or copy a value
@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Managers {
         /// format of a [JSON-Pointer](https://tools.ietf.org/html/rfc6901).
         /// </summary>
         [JsonPropertyName("from")]
-        public string? From { get; set; } = default;
+        public string? From { get; init; }
 
         public UpdateFileMetadataByIdRequestBody() {
             

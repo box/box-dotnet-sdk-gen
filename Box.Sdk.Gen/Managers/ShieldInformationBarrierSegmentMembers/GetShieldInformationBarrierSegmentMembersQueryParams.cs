@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The ID of the shield information barrier segment.
         /// </summary>
-        public string ShieldInformationBarrierSegmentId { get; set; }
+        public string ShieldInformationBarrierSegmentId { get; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -18,12 +18,12 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetShieldInformationBarrierSegmentMembersQueryParams(string shieldInformationBarrierSegmentId) {
             ShieldInformationBarrierSegmentId = shieldInformationBarrierSegmentId;

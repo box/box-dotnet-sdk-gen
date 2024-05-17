@@ -12,20 +12,20 @@ namespace Box.Sdk.Gen.Managers {
         /// The item that will trigger the webhook
         /// </summary>
         [JsonPropertyName("target")]
-        public UpdateWebhookByIdRequestBodyTargetField? Target { get; set; } = default;
+        public UpdateWebhookByIdRequestBodyTargetField? Target { get; init; }
 
         /// <summary>
         /// The URL that is notified by this webhook
         /// </summary>
         [JsonPropertyName("address")]
-        public string? Address { get; set; } = default;
+        public string? Address { get; init; }
 
         /// <summary>
         /// An array of event names that this webhook is
         /// to be triggered for
         /// </summary>
         [JsonPropertyName("triggers")]
-        public IReadOnlyList<UpdateWebhookByIdRequestBodyTriggersField>? Triggers { get; set; } = default;
+        public IReadOnlyList<UpdateWebhookByIdRequestBodyTriggersField>? Triggers { get; init; }
 
         public UpdateWebhookByIdRequestBody() {
             

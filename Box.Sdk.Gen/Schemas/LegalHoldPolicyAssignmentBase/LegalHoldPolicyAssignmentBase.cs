@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this legal hold assignment
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `legal_hold_policy_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public LegalHoldPolicyAssignmentBaseTypeField? Type { get; set; } = default;
+        public LegalHoldPolicyAssignmentBaseTypeField? Type { get; init; }
 
         public LegalHoldPolicyAssignmentBase() {
             

@@ -18,19 +18,19 @@ namespace Box.Sdk.Gen.Managers {
         /// characters.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// An optional ID of the specific file version to copy.
         /// </summary>
         [JsonPropertyName("version")]
-        public string? Version { get; set; } = default;
+        public string? Version { get; init; }
 
         /// <summary>
         /// The destination folder to copy the file to.
         /// </summary>
         [JsonPropertyName("parent")]
-        public CopyFileRequestBodyParentField Parent { get; set; }
+        public CopyFileRequestBodyParentField Parent { get; }
 
         public CopyFileRequestBody(CopyFileRequestBodyParentField parent) {
             Parent = parent;

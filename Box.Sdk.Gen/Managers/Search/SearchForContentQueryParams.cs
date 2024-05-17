@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This field is required unless the `mdfilters` parameter is defined.
         /// </summary>
-        public string? Query { get; set; } = default;
+        public string? Query { get; init; }
 
         /// <summary>
         /// Limits the search results to either the files that the user has
@@ -58,14 +58,14 @@ namespace Box.Sdk.Gen.Managers {
         /// will allow that use to query for content across the entire
         /// enterprise and not only the content that they have access to.
         /// </summary>
-        public SearchForContentQueryParamsScopeField? Scope { get; set; } = default;
+        public SearchForContentQueryParamsScopeField? Scope { get; init; }
 
         /// <summary>
         /// Limits the search results to any files that match any of the provided
         /// file extensions. This list is a comma-separated list of file extensions
         /// without the dots.
         /// </summary>
-        public IReadOnlyList<string>? FileExtensions { get; set; } = default;
+        public IReadOnlyList<string>? FileExtensions { get; init; }
 
         /// <summary>
         /// Limits the search results to any items created within
@@ -80,7 +80,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If the end date is omitted (`2014-05-15T13:35:01-07:00,`) the
         /// current date will be used as the end date instead.
         /// </summary>
-        public IReadOnlyList<string>? CreatedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? CreatedAtRange { get; init; }
 
         /// <summary>
         /// Limits the search results to any items updated within
@@ -95,7 +95,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If the end date is omitted (`2014-05-15T13:35:01-07:00,`) the
         /// current date will be used as the end date instead.
         /// </summary>
-        public IReadOnlyList<string>? UpdatedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? UpdatedAtRange { get; init; }
 
         /// <summary>
         /// Limits the search results to any items with a size within
@@ -106,7 +106,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// The upper and lower bound can be omitted to create open ranges.
         /// </summary>
-        public IReadOnlyList<long>? SizeRange { get; set; } = default;
+        public IReadOnlyList<long>? SizeRange { get; init; }
 
         /// <summary>
         /// Limits the search results to any items that are owned
@@ -122,7 +122,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `enterprise_content` scope parameter which can be requested with our
         /// support team.
         /// </summary>
-        public IReadOnlyList<string>? OwnerUserIds { get; set; } = default;
+        public IReadOnlyList<string>? OwnerUserIds { get; init; }
 
         /// <summary>
         /// Limits the search results to any items that have been updated
@@ -136,7 +136,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This feature only searches back to the last 10 versions of an item.
         /// </summary>
-        public IReadOnlyList<string>? RecentUpdaterUserIds { get; set; } = default;
+        public IReadOnlyList<string>? RecentUpdaterUserIds { get; init; }
 
         /// <summary>
         /// Limits the search results to items within the given
@@ -155,7 +155,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `enterprise_content` scope parameter which can be requested with our
         /// support team.
         /// </summary>
-        public IReadOnlyList<string>? AncestorFolderIds { get; set; } = default;
+        public IReadOnlyList<string>? AncestorFolderIds { get; init; }
 
         /// <summary>
         /// Limits the search results to any items that match the search query
@@ -173,7 +173,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `tags` - Any tags that are applied to an item, as defined by its
         ///    `tags` field.
         /// </summary>
-        public IReadOnlyList<SearchForContentQueryParamsContentTypesField>? ContentTypes { get; set; } = default;
+        public IReadOnlyList<SearchForContentQueryParamsContentTypesField>? ContentTypes { get; init; }
 
         /// <summary>
         /// Limits the search results to any items of this type. This
@@ -185,7 +185,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `web_link` - Limits the search results to web links, also known
         ///    as bookmarks
         /// </summary>
-        public SearchForContentQueryParamsTypeField? Type { get; set; } = default;
+        public SearchForContentQueryParamsTypeField? Type { get; init; }
 
         /// <summary>
         /// Determines if the search should look in the trash for items.
@@ -198,14 +198,14 @@ namespace Box.Sdk.Gen.Managers {
         ///   the trash
         /// * `all_items` - Searches for both trashed and non-trashed items.
         /// </summary>
-        public SearchForContentQueryParamsTrashContentField? TrashContent { get; set; } = default;
+        public SearchForContentQueryParamsTrashContentField? TrashContent { get; init; }
 
         /// <summary>
         /// Limits the search results to any items for which the metadata matches the provided filter.
         /// This parameter is a list that specifies exactly **one** metadata template used to filter the search results. 
         /// It is required unless the `query` parameter is provided.
         /// </summary>
-        public IReadOnlyList<MetadataFilter>? Mdfilters { get; set; } = default;
+        public IReadOnlyList<MetadataFilter>? Mdfilters { get; init; }
 
         /// <summary>
         /// Defines the order in which search results are returned. This API
@@ -218,7 +218,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `modified_at` returns the results ordered in descending order by date
         /// at which the item was last modified.
         /// </summary>
-        public SearchForContentQueryParamsSortField? Sort { get; set; } = default;
+        public SearchForContentQueryParamsSortField? Sort { get; init; }
 
         /// <summary>
         /// Defines the direction in which search results are ordered. This API
@@ -228,13 +228,13 @@ namespace Box.Sdk.Gen.Managers {
         /// When results are sorted by `relevance` the ordering is locked to returning
         /// items in descending order of relevance, and this parameter is ignored.
         /// </summary>
-        public SearchForContentQueryParamsDirectionField? Direction { get; set; } = default;
+        public SearchForContentQueryParamsDirectionField? Direction { get; init; }
 
         /// <summary>
         /// Defines the maximum number of items to return as part of a page of
         /// results.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Defines whether the search results should include any items
@@ -245,7 +245,7 @@ namespace Box.Sdk.Gen.Managers {
         /// a list of [Search Results with
         /// Shared Links](r://search_results_with_shared_links)
         /// </summary>
-        public bool? IncludeRecentSharedLinks { get; set; } = default;
+        public bool? IncludeRecentSharedLinks { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the
@@ -258,7 +258,7 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -267,7 +267,7 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// Limits the search results to items that were deleted by the given
@@ -285,7 +285,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// Data available from 2023-02-01 onwards.
         /// </summary>
-        public IReadOnlyList<string>? DeletedUserIds { get; set; } = default;
+        public IReadOnlyList<string>? DeletedUserIds { get; init; }
 
         /// <summary>
         /// Limits the search results to any items deleted within a given
@@ -306,7 +306,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// Data available from 2023-02-01 onwards.
         /// </summary>
-        public IReadOnlyList<string>? DeletedAtRange { get; set; } = default;
+        public IReadOnlyList<string>? DeletedAtRange { get; init; }
 
         public SearchForContentQueryParams() {
             

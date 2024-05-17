@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The total number of bytes of the file to be uploaded
         /// </summary>
         [JsonPropertyName("file_size")]
-        public long FileSize { get; set; }
+        public long FileSize { get; }
 
         /// <summary>
         /// The optional new name of new file
         /// </summary>
         [JsonPropertyName("file_name")]
-        public string? FileName { get; set; } = default;
+        public string? FileName { get; init; }
 
         public CreateFileUploadSessionForExistingFileRequestBody(long fileSize) {
             FileSize = fileSize;

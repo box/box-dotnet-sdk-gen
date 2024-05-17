@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The folder to associate the new file request to.
         /// </summary>
         [JsonPropertyName("folder")]
-        public FileRequestCopyRequestFolderField Folder { get; set; }
+        public FileRequestCopyRequestFolderField Folder { get; }
 
         public FileRequestCopyRequest(FileRequestCopyRequestFolderField folder) {
             Folder = folder;

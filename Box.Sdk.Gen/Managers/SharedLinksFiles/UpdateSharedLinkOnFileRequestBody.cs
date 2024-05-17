@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The settings for the shared link to update.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public UpdateSharedLinkOnFileRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public UpdateSharedLinkOnFileRequestBodySharedLinkField? SharedLink { get; init; }
 
         public UpdateSharedLinkOnFileRequestBody() {
             

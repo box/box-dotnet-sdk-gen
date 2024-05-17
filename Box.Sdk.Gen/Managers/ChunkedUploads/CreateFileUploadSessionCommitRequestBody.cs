@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The list details for the uploaded parts
         /// </summary>
         [JsonPropertyName("parts")]
-        public IReadOnlyList<UploadPart> Parts { get; set; }
+        public IReadOnlyList<UploadPart> Parts { get; }
 
         public CreateFileUploadSessionCommitRequestBody(IReadOnlyList<UploadPart> parts) {
             Parts = parts;

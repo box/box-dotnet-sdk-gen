@@ -7,19 +7,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The answer provided by the LLM.
         /// </summary>
         [JsonPropertyName("answer")]
-        public string Answer { get; set; }
+        public string Answer { get; }
 
         /// <summary>
         /// The ISO date formatted timestamp of when the answer to the prompt was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset CreatedAt { get; set; }
+        public System.DateTimeOffset CreatedAt { get; }
 
         /// <summary>
         /// The reason the response finishes.
         /// </summary>
         [JsonPropertyName("completion_reason")]
-        public string? CompletionReason { get; set; } = default;
+        public string? CompletionReason { get; init; }
 
         public AiResponse(string answer, System.DateTimeOffset createdAt) {
             Answer = answer;

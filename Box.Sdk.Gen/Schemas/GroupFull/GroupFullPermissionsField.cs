@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Specifies if the user can invite the group to collaborate on any items.
         /// </summary>
         [JsonPropertyName("can_invite_as_collaborator")]
-        public bool? CanInviteAsCollaborator { get; set; } = default;
+        public bool? CanInviteAsCollaborator { get; init; }
 
         public GroupFullPermissionsField() {
             

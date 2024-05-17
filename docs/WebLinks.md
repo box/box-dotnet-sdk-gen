@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample post_web_links -->
 ```
-await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: "https://www.box.com", parent: new CreateWebLinkRequestBodyParentField(id: parent.Id), name: Utils.GetUUID(), description: "Weblink description"));
+await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: "https://www.box.com", parent: new CreateWebLinkRequestBodyParentField(id: parent.Id)) { Name = Utils.GetUUID(), Description = "Weblink description" });
 ```
 
 ### Arguments
@@ -79,7 +79,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id -->
 ```
-await client.WebLinks.UpdateWebLinkByIdAsync(webLinkId: weblink.Id, requestBody: new UpdateWebLinkByIdRequestBody(name: updatedName, sharedLink: new UpdateWebLinkByIdRequestBodySharedLinkField(access: UpdateWebLinkByIdRequestBodySharedLinkAccessField.Open, password: password)));
+await client.WebLinks.UpdateWebLinkByIdAsync(webLinkId: weblink.Id, requestBody: new UpdateWebLinkByIdRequestBody() { Name = updatedName, SharedLink = new UpdateWebLinkByIdRequestBodySharedLinkField() { Access = UpdateWebLinkByIdRequestBodySharedLinkAccessField.Open, Password = password } });
 ```
 
 ### Arguments

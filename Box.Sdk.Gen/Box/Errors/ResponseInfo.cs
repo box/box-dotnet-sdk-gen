@@ -6,21 +6,21 @@ namespace Errors
 {
     public class ResponseInfo
     {
-        public int StatusCode { get; set; }
+        public int StatusCode { get; }
 
-        public IReadOnlyDictionary<string, string> Headers { get; set; }
+        public IReadOnlyDictionary<string, string> Headers { get; }
 
-        public SerializedData? Body { get; set; } = default;
+        public SerializedData? Body { get; }
 
-        public string? RawBody { get; set; } = default;
+        public string? RawBody { get; }
 
-        public string? Code { get; set; } = default;
+        public string? Code { get; }
 
-        public Dictionary<string, object>? ContextInfo { get; set; } = default;
+        public Dictionary<string, object>? ContextInfo { get; }
 
-        public string? RequestId { get; set; } = default;
+        public string? RequestId { get; }
 
-        public string? HelpUrl { get; set; } = default;
+        public string? HelpUrl { get; }
 
         public ResponseInfo(int statusCode, IReadOnlyDictionary<string, string> headers, SerializedData body, string rawBody,
             string? code, Dictionary<string, object>? contextInfo, string? requestId, string? helpUrl)
@@ -39,16 +39,16 @@ namespace Errors
     internal class BoxApiExceptionDetails
     {
         [JsonPropertyName("code")]
-        public string? Code { get; set; }
+        public string? Code { get; init; }
 
         [JsonPropertyName("context_info")]
-        public Dictionary<string, object>? ContextInfo { get; set; }
+        public Dictionary<string, object>? ContextInfo { get; init; }
 
         [JsonPropertyName("request_id")]
-        public string? RequestId { get; set; }
+        public string? RequestId { get; init; }
 
         [JsonPropertyName("help_url")]
-        public string? HelpUrl { get; set; }
+        public string? HelpUrl { get; init; }
 
         public BoxApiExceptionDetails() { }
     }

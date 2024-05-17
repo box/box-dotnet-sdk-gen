@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         /// which lists all available classification keys.
         /// </summary>
         [JsonPropertyName("Box__Security__Classification__Key")]
-        public string? BoxSecurityClassificationKey { get; set; } = default;
+        public string? BoxSecurityClassificationKey { get; init; }
 
         public AddClassificationToFolderRequestBody() {
             

@@ -162,7 +162,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody(role: UpdateGroupMembershipByIdRequestBodyRoleField.Admin));
+await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody() { Role = UpdateGroupMembershipByIdRequestBodyRoleField.Admin });
 ```
 
 ### Arguments

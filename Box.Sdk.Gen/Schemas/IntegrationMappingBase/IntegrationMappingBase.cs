@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// with `integration_type`)
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// Identifies the Box partner app,
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// (part of the composite key together with `id`)
         /// </summary>
         [JsonPropertyName("integration_type")]
-        public IntegrationMappingBaseIntegrationTypeField? IntegrationType { get; set; } = default;
+        public IntegrationMappingBaseIntegrationTypeField? IntegrationType { get; init; }
 
         public IntegrationMappingBase() {
             

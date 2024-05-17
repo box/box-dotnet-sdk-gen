@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyParentTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyParentTypeField? Type { get; init; }
 
         /// <summary>
         /// The ID of the folder the policy is applied to.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public MetadataCascadePolicyParentField() {
             

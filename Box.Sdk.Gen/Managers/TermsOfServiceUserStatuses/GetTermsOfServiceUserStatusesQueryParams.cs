@@ -10,12 +10,12 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The ID of the terms of service.
         /// </summary>
-        public string TosId { get; set; }
+        public string TosId { get; }
 
         /// <summary>
         /// Limits results to the given user ID.
         /// </summary>
-        public string? UserId { get; set; } = default;
+        public string? UserId { get; init; }
 
         public GetTermsOfServiceUserStatusesQueryParams(string tosId) {
             TosId = tosId;

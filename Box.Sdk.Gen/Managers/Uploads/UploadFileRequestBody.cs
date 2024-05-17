@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// </Message>
         /// </summary>
-        public UploadFileRequestBodyAttributesField Attributes { get; set; }
+        public UploadFileRequestBodyAttributesField Attributes { get; }
 
         /// <summary>
         /// The content of the file to upload to Box.
@@ -36,11 +36,11 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// </Message>
         /// </summary>
-        public System.IO.Stream File { get; set; }
+        public System.IO.Stream File { get; }
 
-        public string? FileFileName { get; set; } = default;
+        public string? FileFileName { get; init; }
 
-        public string? FileContentType { get; set; } = default;
+        public string? FileContentType { get; init; }
 
         public UploadFileRequestBody(UploadFileRequestBodyAttributesField attributes, System.IO.Stream file) {
             Attributes = attributes;

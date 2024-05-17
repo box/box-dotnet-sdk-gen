@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The file version ID
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type to promote
         /// </summary>
         [JsonPropertyName("type")]
-        public PromoteFileVersionRequestBodyTypeField? Type { get; set; } = default;
+        public PromoteFileVersionRequestBodyTypeField? Type { get; init; }
 
         public PromoteFileVersionRequestBody() {
             

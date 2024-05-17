@@ -10,13 +10,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Set to null or omit when type is set to enterprise.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of resource the policy is assigned to.
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentAssignedToTypeField? Type { get; set; } = default;
+        public RetentionPolicyAssignmentAssignedToTypeField? Type { get; init; }
 
         public RetentionPolicyAssignmentAssignedToField() {
             

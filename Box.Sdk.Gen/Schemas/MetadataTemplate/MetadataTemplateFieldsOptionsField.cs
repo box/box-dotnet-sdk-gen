@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// option and the internal key used when updating templates.
         /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; set; }
+        public string Key { get; }
 
         /// <summary>
         /// The internal unique identifier of the the option.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public MetadataTemplateFieldsOptionsField(string key) {
             Key = key;

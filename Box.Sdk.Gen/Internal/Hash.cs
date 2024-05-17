@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 namespace Box.Sdk.Gen
 {
     [JsonConverter(typeof(StringEnumConverter<HashName>))]
-    public enum HashName
+    internal enum HashName
     {
         [Description("sha1")]
         Sha1
     }
 
-    public class Hash
+    class Hash
     {
-        public HashAlgorithm HashAlgorithm { get; }
-        public HashName Algorithm { get; }
-        public byte[]? Data { get; private set; }
+        internal HashAlgorithm HashAlgorithm { get; }
+        internal HashName Algorithm { get; }
+        internal byte[]? Data { get; private set; }
 
-        public Hash(HashName algorithm)
+        internal Hash(HashName algorithm)
         {
             switch (algorithm)
             {
@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen
             }
         }
 
-        public async Task<string> DigestHashAsync(string encoding)
+        internal async Task<string> DigestHashAsync(string encoding)
         {
             if (Data == null)
             {
@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen
             }
         }
 
-        public void UpdateHash(byte[] data)
+        internal void UpdateHash(byte[] data)
         {
             Data = Data == null ? data : Data.Concat(data).ToArray();
         }

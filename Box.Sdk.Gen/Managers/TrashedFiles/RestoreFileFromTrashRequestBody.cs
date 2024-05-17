@@ -12,10 +12,10 @@ namespace Box.Sdk.Gen.Managers {
         /// An optional new name for the file.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         [JsonPropertyName("parent")]
-        public RestoreFileFromTrashRequestBodyParentField? Parent { get; set; } = default;
+        public RestoreFileFromTrashRequestBodyParentField? Parent { get; init; }
 
         public RestoreFileFromTrashRequestBody() {
             

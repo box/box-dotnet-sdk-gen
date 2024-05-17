@@ -13,71 +13,71 @@ namespace Box.Sdk.Gen.Schemas {
         /// are set as a file description and the rest of it is ignored.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The file size in bytes. Be careful parsing this integer as it can
         /// get very large and cause an integer overflow.
         /// </summary>
         [JsonPropertyName("size")]
-        public long? Size { get; set; } = default;
+        public long? Size { get; init; }
 
         [JsonPropertyName("path_collection")]
-        public FilePathCollectionField? PathCollection { get; set; } = default;
+        public FilePathCollectionField? PathCollection { get; init; }
 
         /// <summary>
         /// The date and time when the file was created on Box.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The date and time when the file was last updated on Box.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         /// <summary>
         /// The time at which this file was put in the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; init; }
 
         /// <summary>
         /// The time at which this file is expected to be purged
         /// from the trash.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this file was originally
         /// created, which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this file was last updated,
         /// which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         [JsonPropertyName("modified_by")]
-        public UserMini? ModifiedBy { get; set; } = default;
+        public UserMini? ModifiedBy { get; init; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini? OwnedBy { get; set; } = default;
+        public UserMini? OwnedBy { get; init; }
 
         [JsonPropertyName("shared_link")]
-        public FileSharedLinkField? SharedLink { get; set; } = default;
+        public FileSharedLinkField? SharedLink { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; set; } = default;
+        public FolderMini? Parent { get; init; }
 
         /// <summary>
         /// Defines if this item has been deleted or not.
@@ -87,7 +87,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public FileItemStatusField? ItemStatus { get; set; } = default;
+        public FileItemStatusField? ItemStatus { get; init; }
 
         public File(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             

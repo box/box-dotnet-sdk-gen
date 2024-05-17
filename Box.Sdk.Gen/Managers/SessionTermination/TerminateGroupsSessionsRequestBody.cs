@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// A list of group IDs
         /// </summary>
         [JsonPropertyName("group_ids")]
-        public IReadOnlyList<string> GroupIds { get; set; }
+        public IReadOnlyList<string> GroupIds { get; }
 
         public TerminateGroupsSessionsRequestBody(IReadOnlyList<string> groupIds) {
             GroupIds = groupIds;

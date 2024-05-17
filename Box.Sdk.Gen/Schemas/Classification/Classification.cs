@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The name of the classification applied to the item.
         /// </summary>
         [JsonPropertyName("Box__Security__Classification__Key")]
-        public string? BoxSecurityClassificationKey { get; set; } = default;
+        public string? BoxSecurityClassificationKey { get; init; }
 
         /// <summary>
         /// The identifier of the item that this metadata instance
@@ -15,13 +15,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// of the parent in the form `{type}_{id}`.
         /// </summary>
         [JsonPropertyName("$parent")]
-        public string? Parent { get; set; } = default;
+        public string? Parent { get; init; }
 
         /// <summary>
         /// `securityClassification-6VMVochwUWo`
         /// </summary>
         [JsonPropertyName("$template")]
-        public ClassificationTemplateField? Template { get; set; } = default;
+        public ClassificationTemplateField? Template { get; init; }
 
         /// <summary>
         /// The scope of the enterprise that this classification has been
@@ -30,21 +30,21 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will be in the format `enterprise_{enterprise_id}`.
         /// </summary>
         [JsonPropertyName("$scope")]
-        public string? Scope { get; set; } = default;
+        public string? Scope { get; init; }
 
         /// <summary>
         /// The version of the metadata instance. This version starts at 0 and
         /// increases every time a classification is updated.
         /// </summary>
         [JsonPropertyName("$version")]
-        public long? Version { get; set; } = default;
+        public long? Version { get; init; }
 
         /// <summary>
         /// The unique ID of this classification instance. This will be include
         /// the name of the classification template and a unique ID.
         /// </summary>
         [JsonPropertyName("$type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         /// <summary>
         /// The version of the metadata template. This version starts at 0 and
@@ -52,13 +52,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// use.
         /// </summary>
         [JsonPropertyName("$typeVersion")]
-        public double? TypeVersion { get; set; } = default;
+        public double? TypeVersion { get; init; }
 
         /// <summary>
         /// Whether an end user can change the classification.
         /// </summary>
         [JsonPropertyName("$canEdit")]
-        public bool? CanEdit { get; set; } = default;
+        public bool? CanEdit { get; init; }
 
         public Classification() {
             

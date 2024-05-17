@@ -11,22 +11,22 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The minimum height of the thumbnail
         /// </summary>
-        public long? MinHeight { get; set; } = default;
+        public long? MinHeight { get; init; }
 
         /// <summary>
         /// The minimum width of the thumbnail
         /// </summary>
-        public long? MinWidth { get; set; } = default;
+        public long? MinWidth { get; init; }
 
         /// <summary>
         /// The maximum height of the thumbnail
         /// </summary>
-        public long? MaxHeight { get; set; } = default;
+        public long? MaxHeight { get; init; }
 
         /// <summary>
         /// The maximum width of the thumbnail
         /// </summary>
-        public long? MaxWidth { get; set; } = default;
+        public long? MaxWidth { get; init; }
 
         public GetFileThumbnailByIdQueryParams() {
             

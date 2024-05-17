@@ -20,12 +20,12 @@ namespace Box.Sdk.Gen.Managers {
         /// This header can be used on the file or folder shared, as well as on any files
         /// or folders nested within the item.
         /// </summary>
-        public string? Boxapi { get; set; } = default;
+        public string? Boxapi { get; init; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public GetFolderItemsHeaders(Dictionary<string, string?> extraHeaders = default) {
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };

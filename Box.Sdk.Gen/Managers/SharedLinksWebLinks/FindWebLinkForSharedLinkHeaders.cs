@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Managers {
         /// with a `304 Not Modified` if the item has not
         /// changed since.
         /// </summary>
-        public string? IfNoneMatch { get; set; } = default;
+        public string? IfNoneMatch { get; init; }
 
         /// <summary>
         /// A header containing the shared link and optional password for the
@@ -26,12 +26,12 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// `shared_link=[link]&shared_link_password=[password]`
         /// </summary>
-        public string Boxapi { get; set; }
+        public string Boxapi { get; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public FindWebLinkForSharedLinkHeaders(string boxapi, Dictionary<string, string?> extraHeaders = default) {
             Boxapi = boxapi;

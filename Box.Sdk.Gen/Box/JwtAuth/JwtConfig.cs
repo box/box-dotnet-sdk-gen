@@ -10,41 +10,41 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// App client ID
         /// </summary>
-        public string ClientId { get; set; }
+        public string ClientId { get; }
 
         /// <summary>
         /// App client secret
         /// </summary>
-        public string ClientSecret { get; set; }
+        public string ClientSecret { get; }
 
         /// <summary>
         /// Public key ID
         /// </summary>
-        public string JwtKeyId { get; set; }
+        public string JwtKeyId { get; }
 
         /// <summary>
         /// Private key
         /// </summary>
-        public string PrivateKey { get; set; }
+        public string PrivateKey { get; }
 
         /// <summary>
         /// Passphrase
         /// </summary>
-        public string PrivateKeyPassphrase { get; set; }
+        public string PrivateKeyPassphrase { get; }
 
         /// <summary>
         /// Enterprise ID
         /// </summary>
-        public string? EnterpriseId { get; set; } = default;
+        public string? EnterpriseId { get; init; }
 
         /// <summary>
         /// User ID
         /// </summary>
-        public string? UserId { get; set; } = default;
+        public string? UserId { get; init; }
 
-        public JwtAlgorithm? Algorithm { get; set; } = JwtAlgorithm.Rs256;
+        internal JwtAlgorithm? Algorithm { get; init; } = JwtAlgorithm.Rs256;
 
-        public ITokenStorage TokenStorage { get; set; }
+        public ITokenStorage TokenStorage { get; }
 
         public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage tokenStorage = default) {
             ClientId = clientId;

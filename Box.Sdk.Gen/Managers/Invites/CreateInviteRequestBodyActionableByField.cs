@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The login of the invited user
         /// </summary>
         [JsonPropertyName("login")]
-        public string? Login { get; set; } = default;
+        public string? Login { get; init; }
 
         public CreateInviteRequestBodyActionableByField() {
             

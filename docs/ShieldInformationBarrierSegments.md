@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample put_shield_information_barrier_segments_id -->
 ```
-await client.ShieldInformationBarrierSegments.UpdateShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId, requestBody: new UpdateShieldInformationBarrierSegmentByIdRequestBody(description: updatedSegmentDescription));
+await client.ShieldInformationBarrierSegments.UpdateShieldInformationBarrierSegmentByIdAsync(shieldInformationBarrierSegmentId: segmentId, requestBody: new UpdateShieldInformationBarrierSegmentByIdRequestBody() { Description = updatedSegmentDescription });
 ```
 
 ### Arguments
@@ -146,7 +146,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segments -->
 ```
-await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBody(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier), name: segmentName));
+await client.ShieldInformationBarrierSegments.CreateShieldInformationBarrierSegmentAsync(requestBody: new CreateShieldInformationBarrierSegmentRequestBody(shieldInformationBarrier: new ShieldInformationBarrierBase() { Id = barrierId, Type = ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier }, name: segmentName));
 ```
 
 ### Arguments

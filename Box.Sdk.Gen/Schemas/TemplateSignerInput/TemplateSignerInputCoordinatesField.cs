@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Relative x coordinate to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("x")]
-        public double? X { get; set; } = default;
+        public double? X { get; init; }
 
         /// <summary>
         /// Relative y coordinate to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("y")]
-        public double? Y { get; set; } = default;
+        public double? Y { get; init; }
 
         public TemplateSignerInputCoordinatesField() {
             

@@ -9,19 +9,19 @@ namespace Box.Sdk.Gen {
         /// App client ID
         /// </summary>
         [JsonPropertyName("clientID")]
-        public string ClientId { get; set; }
+        public string ClientId { get; }
 
         /// <summary>
         /// App client secret
         /// </summary>
         [JsonPropertyName("clientSecret")]
-        public string ClientSecret { get; set; }
+        public string ClientSecret { get; }
 
         /// <summary>
         /// App auth settings
         /// </summary>
         [JsonPropertyName("appAuth")]
-        public JwtConfigAppSettingsAppAuth AppAuth { get; set; }
+        public JwtConfigAppSettingsAppAuth AppAuth { get; }
 
         public JwtConfigAppSettings(string clientId, string clientSecret, JwtConfigAppSettingsAppAuth appAuth) {
             ClientId = clientId;

@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// is supported.
         /// </summary>
         [JsonPropertyName("type")]
-        public string Type { get; set; }
+        public string Type { get; }
 
         /// <summary>
         /// The ID of the folder.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CreateFolderLockRequestBodyFolderField(string type, string id) {
             Type = type;

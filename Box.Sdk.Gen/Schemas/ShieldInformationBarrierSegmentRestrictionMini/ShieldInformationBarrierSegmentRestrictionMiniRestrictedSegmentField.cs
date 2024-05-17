@@ -9,13 +9,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// restricted shield information barrier segment.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of the shield information segment
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField? Type { get; init; }
 
         public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField() {
             

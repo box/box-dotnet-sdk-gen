@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_groups -->
 ```
-await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName, description: groupDescription));
+await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName) { Description = groupDescription });
 ```
 
 ### Arguments
@@ -122,7 +122,7 @@ See the endpoint docs at
 
 <!-- sample put_groups_id -->
 ```
-await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody(name: updatedGroupName));
+await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody() { Name = updatedGroupName });
 ```
 
 ### Arguments

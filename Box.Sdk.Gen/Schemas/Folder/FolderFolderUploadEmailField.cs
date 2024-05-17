@@ -23,13 +23,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// address.
         /// </summary>
         [JsonPropertyName("access")]
-        public FolderFolderUploadEmailAccessField? Access { get; set; } = default;
+        public FolderFolderUploadEmailAccessField? Access { get; init; }
 
         /// <summary>
         /// The optional upload email address for this folder.
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; set; } = default;
+        public string? Email { get; init; }
 
         public FolderFolderUploadEmailField() {
             

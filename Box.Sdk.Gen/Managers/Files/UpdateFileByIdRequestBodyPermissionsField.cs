@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// external users with `viewer` or `editor` a roles.
         /// </summary>
         [JsonPropertyName("can_download")]
-        public UpdateFileByIdRequestBodyPermissionsCanDownloadField? CanDownload { get; set; } = default;
+        public UpdateFileByIdRequestBodyPermissionsCanDownloadField? CanDownload { get; init; }
 
         public UpdateFileByIdRequestBodyPermissionsField() {
             

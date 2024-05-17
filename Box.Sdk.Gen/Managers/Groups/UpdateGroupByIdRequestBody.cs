@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// Keeps track of which external source this group is
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Managers {
         /// This is desirable for one-way syncing of groups.
         /// </summary>
         [JsonPropertyName("provenance")]
-        public string? Provenance { get; set; } = default;
+        public string? Provenance { get; init; }
 
         /// <summary>
         /// An arbitrary identifier that can be used by
@@ -42,13 +42,13 @@ namespace Box.Sdk.Gen.Managers {
         /// either Box or external systems.
         /// </summary>
         [JsonPropertyName("external_sync_identifier")]
-        public string? ExternalSyncIdentifier { get; set; } = default;
+        public string? ExternalSyncIdentifier { get; init; }
 
         /// <summary>
         /// A human readable description of the group.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// Specifies who can invite the group to collaborate
@@ -64,7 +64,7 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise can invite the group.
         /// </summary>
         [JsonPropertyName("invitability_level")]
-        public UpdateGroupByIdRequestBodyInvitabilityLevelField? InvitabilityLevel { get; set; } = default;
+        public UpdateGroupByIdRequestBodyInvitabilityLevelField? InvitabilityLevel { get; init; }
 
         /// <summary>
         /// Specifies who can see the members of the group.
@@ -76,7 +76,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   enterprise
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
-        public UpdateGroupByIdRequestBodyMemberViewabilityLevelField? MemberViewabilityLevel { get; set; } = default;
+        public UpdateGroupByIdRequestBodyMemberViewabilityLevelField? MemberViewabilityLevel { get; init; }
 
         public UpdateGroupByIdRequestBody() {
             

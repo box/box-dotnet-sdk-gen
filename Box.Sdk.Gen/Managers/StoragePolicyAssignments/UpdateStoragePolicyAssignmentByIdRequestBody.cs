@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise
         /// </summary>
         [JsonPropertyName("storage_policy")]
-        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField StoragePolicy { get; set; }
+        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField StoragePolicy { get; }
 
         public UpdateStoragePolicyAssignmentByIdRequestBody(UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField storagePolicy) {
             StoragePolicy = storagePolicy;

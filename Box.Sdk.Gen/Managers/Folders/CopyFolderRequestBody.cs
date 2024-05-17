@@ -20,13 +20,13 @@ namespace Box.Sdk.Gen.Managers {
         /// not allowed either.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The destination folder to copy the folder to.
         /// </summary>
         [JsonPropertyName("parent")]
-        public CopyFolderRequestBodyParentField Parent { get; set; }
+        public CopyFolderRequestBodyParentField Parent { get; }
 
         public CopyFolderRequestBody(CopyFolderRequestBodyParentField parent) {
             Parent = parent;

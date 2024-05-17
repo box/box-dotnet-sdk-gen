@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `replace`
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateBoxSkillCardsOnFileRequestBodyOpField? Op { get; set; } = default;
+        public UpdateBoxSkillCardsOnFileRequestBodyOpField? Op { get; init; }
 
         /// <summary>
         /// The JSON Path that represents the card to replace. In most cases
@@ -20,10 +20,10 @@ namespace Box.Sdk.Gen.Managers {
         /// zero-indexed position of the card in the list of cards.
         /// </summary>
         [JsonPropertyName("path")]
-        public string? Path { get; set; } = default;
+        public string? Path { get; init; }
 
         [JsonPropertyName("value")]
-        public KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard? Value { get; set; } = default;
+        public KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard? Value { get; init; }
 
         public UpdateBoxSkillCardsOnFileRequestBody() {
             

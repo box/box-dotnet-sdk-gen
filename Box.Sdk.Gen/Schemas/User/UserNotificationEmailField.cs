@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The email address to send the notifications to.
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; set; } = default;
+        public string? Email { get; init; }
 
         /// <summary>
         /// Specifies if this email address has been confirmed.
         /// </summary>
         [JsonPropertyName("is_confirmed")]
-        public bool? IsConfirmed { get; set; } = default;
+        public bool? IsConfirmed { get; init; }
 
         public UserNotificationEmailField() {
             

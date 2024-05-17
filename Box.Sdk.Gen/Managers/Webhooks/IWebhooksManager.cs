@@ -8,9 +8,9 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public interface IWebhooksManager {
-        public IAuthentication? Auth { get; set; }
+        public IAuthentication? Auth { get; init; }
 
-        public NetworkSession NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; }
 
         public System.Threading.Tasks.Task<Webhooks> GetWebhooksAsync(GetWebhooksQueryParams? queryParams = default, GetWebhooksHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null);
 

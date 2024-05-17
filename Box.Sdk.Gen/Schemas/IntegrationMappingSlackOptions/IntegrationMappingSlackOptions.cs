@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// through creating collaborations or shared links.
         /// </summary>
         [JsonPropertyName("is_access_management_disabled")]
-        public bool? IsAccessManagementDisabled { get; set; } = default;
+        public bool? IsAccessManagementDisabled { get; init; }
 
         public IntegrationMappingSlackOptions() {
             

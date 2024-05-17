@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of object.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateTermsOfServiceStatusForUserRequestBodyUserTypeField Type { get; set; }
+        public CreateTermsOfServiceStatusForUserRequestBodyUserTypeField Type { get; }
 
         /// <summary>
         /// The ID of user
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CreateTermsOfServiceStatusForUserRequestBodyUserField(string id, CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type = CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User) {
             Type = type;

@@ -13,17 +13,17 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The target type to return assignments for
         /// </summary>
-        public GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField ResolvedForType { get; set; }
+        public GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField ResolvedForType { get; }
 
         /// <summary>
         /// The ID of the user or enterprise to return assignments for
         /// </summary>
-        public string ResolvedForId { get; set; }
+        public string ResolvedForId { get; }
 
         public GetStoragePolicyAssignmentsQueryParams(GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField resolvedForType, string resolvedForId) {
             ResolvedForType = resolvedForType;

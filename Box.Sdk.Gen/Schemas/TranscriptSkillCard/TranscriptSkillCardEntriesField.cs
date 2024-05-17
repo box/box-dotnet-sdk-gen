@@ -11,14 +11,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// to the entry on the timeline.
         /// </summary>
         [JsonPropertyName("text")]
-        public string? Text { get; set; } = default;
+        public string? Text { get; init; }
 
         /// <summary>
         /// Defines when a transcribed bit of text appears. This only includes a
         /// start time and no end time.
         /// </summary>
         [JsonPropertyName("appears")]
-        public IReadOnlyList<TranscriptSkillCardEntriesAppearsField>? Appears { get; set; } = default;
+        public IReadOnlyList<TranscriptSkillCardEntriesAppearsField>? Appears { get; init; }
 
         public TranscriptSkillCardEntriesField() {
             

@@ -10,39 +10,39 @@ namespace Box.Sdk.Gen.Schemas {
         /// The ID of the classification template.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `metadata_template`
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateTypeField Type { get; set; }
+        public ClassificationTemplateTypeField Type { get; }
 
         /// <summary>
         /// The scope of the classification template. This is in the format
         /// `enterprise_{id}` where the `id` is the enterprise ID.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string Scope { get; set; }
+        public string Scope { get; }
 
         /// <summary>
         /// `securityClassification-6VMVochwUWo`
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public ClassificationTemplateTemplateKeyField TemplateKey { get; set; }
+        public ClassificationTemplateTemplateKeyField TemplateKey { get; }
 
         /// <summary>
         /// The name of this template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateDisplayNameField DisplayName { get; set; }
+        public ClassificationTemplateDisplayNameField DisplayName { get; }
 
         /// <summary>
         /// Determines if the
         /// template is always available in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// Determines if 
@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
-        public bool? CopyInstanceOnItemCopy { get; set; } = default;
+        public bool? CopyInstanceOnItemCopy { get; init; }
 
         /// <summary>
         /// A list of fields for this classification template. This includes
@@ -59,7 +59,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the different classifications available in this enterprise.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<ClassificationTemplateFieldsField> Fields { get; set; }
+        public IReadOnlyList<ClassificationTemplateFieldsField> Fields { get; }
 
         public ClassificationTemplate(string id, string scope, IReadOnlyList<ClassificationTemplateFieldsField> fields, ClassificationTemplateTypeField type = ClassificationTemplateTypeField.MetadataTemplate, ClassificationTemplateTemplateKeyField templateKey = ClassificationTemplateTemplateKeyField.SecurityClassification6VmVochwUWo, ClassificationTemplateDisplayNameField displayName = ClassificationTemplateDisplayNameField.Classification) {
             Id = id;

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// will be renamed when the new version is uploaded.
         /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Defines the time the file was last modified at.
@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If not set, the upload time will be used.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; init; }
 
         public UploadFileVersionRequestBodyAttributesField(string name) {
             Name = name;

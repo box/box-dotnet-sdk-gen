@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segment_members -->
 ```
-await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField(id: NullableUtils.Unwrap(segment.Id), type: CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment), user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"))));
+await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField() { Id = NullableUtils.Unwrap(segment.Id), Type = CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment }, user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"))));
 ```
 
 ### Arguments

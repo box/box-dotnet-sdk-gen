@@ -11,22 +11,22 @@ namespace Box.Sdk.Gen.Schemas {
         /// Set to `true` if the signer views the document
         /// </summary>
         [JsonPropertyName("has_viewed_document")]
-        public bool? HasViewedDocument { get; set; } = default;
+        public bool? HasViewedDocument { get; init; }
 
         /// <summary>
         /// Final decision made by the signer.
         /// </summary>
         [JsonPropertyName("signer_decision")]
-        public SignRequestSignerSignerDecisionField? SignerDecision { get; set; } = default;
+        public SignRequestSignerSignerDecisionField? SignerDecision { get; init; }
 
         [JsonPropertyName("inputs")]
-        public IReadOnlyList<SignRequestSignerInput>? Inputs { get; set; } = default;
+        public IReadOnlyList<SignRequestSignerInput>? Inputs { get; init; }
 
         /// <summary>
         /// URL to direct a signer to for signing
         /// </summary>
         [JsonPropertyName("embed_url")]
-        public string? EmbedUrl { get; set; } = default;
+        public string? EmbedUrl { get; init; }
 
         /// <summary>
         /// This URL is specifically designed for
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `create Box Sign request` call.
         /// </summary>
         [JsonPropertyName("iframeable_embed_url")]
-        public string? IframeableEmbedUrl { get; set; } = default;
+        public string? IframeableEmbedUrl { get; init; }
 
         public SignRequestSigner() {
             

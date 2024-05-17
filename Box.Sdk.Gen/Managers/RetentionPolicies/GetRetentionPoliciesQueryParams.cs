@@ -12,17 +12,17 @@ namespace Box.Sdk.Gen.Managers {
         /// Filters results by a case sensitive prefix of the name of
         /// retention policies.
         /// </summary>
-        public string? PolicyName { get; set; } = default;
+        public string? PolicyName { get; init; }
 
         /// <summary>
         /// Filters results by the type of retention policy.
         /// </summary>
-        public GetRetentionPoliciesQueryParamsPolicyTypeField? PolicyType { get; set; } = default;
+        public GetRetentionPoliciesQueryParamsPolicyTypeField? PolicyType { get; init; }
 
         /// <summary>
         /// Filters results by the ID of the user who created policy.
         /// </summary>
-        public string? CreatedByUserId { get; set; } = default;
+        public string? CreatedByUserId { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the
@@ -35,18 +35,18 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
         /// used when paginating using marker-based pagination.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         public GetRetentionPoliciesQueryParams() {
             

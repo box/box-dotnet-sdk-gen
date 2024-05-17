@@ -12,19 +12,19 @@ namespace Box.Sdk.Gen.Managers {
         /// The item to attach the comment to.
         /// </summary>
         [JsonPropertyName("item")]
-        public CreateCollaborationRequestBodyItemField Item { get; set; }
+        public CreateCollaborationRequestBodyItemField Item { get; }
 
         /// <summary>
         /// The user or group to give access to the item.
         /// </summary>
         [JsonPropertyName("accessible_by")]
-        public CreateCollaborationRequestBodyAccessibleByField AccessibleBy { get; set; }
+        public CreateCollaborationRequestBodyAccessibleByField AccessibleBy { get; }
 
         /// <summary>
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public CreateCollaborationRequestBodyRoleField Role { get; set; }
+        public CreateCollaborationRequestBodyRoleField Role { get; }
 
         /// <summary>
         /// If set to `true`, collaborators have access to
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// shared item.
         /// </summary>
         [JsonPropertyName("is_access_only")]
-        public bool? IsAccessOnly { get; set; } = default;
+        public bool? IsAccessOnly { get; init; }
 
         /// <summary>
         /// Determines if the invited users can see the entire parent path to
@@ -52,7 +52,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `can_view_path` can only be used for folder collaborations.
         /// </summary>
         [JsonPropertyName("can_view_path")]
-        public bool? CanViewPath { get; set; } = default;
+        public bool? CanViewPath { get; init; }
 
         /// <summary>
         /// Set the expiration date for the collaboration. At this date, the
@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Managers {
         /// field will be result in an error.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         public CreateCollaborationRequestBody(CreateCollaborationRequestBodyItemField item, CreateCollaborationRequestBodyAccessibleByField accessibleBy, CreateCollaborationRequestBodyRoleField role) {
             Item = item;

@@ -139,7 +139,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody(op: UpdateFileMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)}));
+await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody() { Op = UpdateFileMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
 ```
 
 ### Arguments

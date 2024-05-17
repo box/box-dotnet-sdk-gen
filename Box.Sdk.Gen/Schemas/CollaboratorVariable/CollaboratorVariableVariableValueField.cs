@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The object type.
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaboratorVariableVariableValueTypeField Type { get; set; }
+        public CollaboratorVariableVariableValueTypeField Type { get; }
 
         /// <summary>
         /// User's ID.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CollaboratorVariableVariableValueField(string id, CollaboratorVariableVariableValueTypeField type = CollaboratorVariableVariableValueTypeField.User) {
             Type = type;

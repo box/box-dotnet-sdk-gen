@@ -8,32 +8,32 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this webhook invocation
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `webhook_event`
         /// </summary>
         [JsonPropertyName("type")]
-        public WebhookInvocationTypeField? Type { get; set; } = default;
+        public WebhookInvocationTypeField? Type { get; init; }
 
         [JsonPropertyName("webhook")]
-        public Webhook? Webhook { get; set; } = default;
+        public Webhook? Webhook { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         /// <summary>
         /// A timestamp identifying the time that
         /// the webhook event was triggered.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         [JsonPropertyName("trigger")]
-        public WebhookInvocationTriggerField? Trigger { get; set; } = default;
+        public WebhookInvocationTriggerField? Trigger { get; init; }
 
         [JsonPropertyName("source")]
-        public FileOrFolder? Source { get; set; } = default;
+        public FileOrFolder? Source { get; init; }
 
         public WebhookInvocation() {
             

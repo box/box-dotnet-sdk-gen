@@ -13,14 +13,14 @@ namespace Box.Sdk.Gen.Managers {
         /// template applied to it.
         /// </summary>
         [JsonPropertyName("folder_id")]
-        public string FolderId { get; set; }
+        public string FolderId { get; }
 
         /// <summary>
         /// The scope of the targeted metadata template. This template will
         /// need to already have an instance applied to the targeted folder.
         /// </summary>
         [JsonPropertyName("scope")]
-        public CreateMetadataCascadePolicyRequestBodyScopeField Scope { get; set; }
+        public CreateMetadataCascadePolicyRequestBodyScopeField Scope { get; }
 
         /// <summary>
         /// The key of the targeted metadata template. This template will
@@ -40,7 +40,7 @@ namespace Box.Sdk.Gen.Managers {
         /// [folder]: e://get-folders-id-metadata
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public string TemplateKey { get; set; }
+        public string TemplateKey { get; }
 
         public CreateMetadataCascadePolicyRequestBody(string folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, string templateKey) {
             FolderId = folderId;

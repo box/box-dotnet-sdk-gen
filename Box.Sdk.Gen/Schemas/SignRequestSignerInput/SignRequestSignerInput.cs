@@ -8,25 +8,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of input
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestSignerInputTypeField? Type { get; set; } = default;
+        public SignRequestSignerInputTypeField? Type { get; init; }
 
         /// <summary>
         /// Content type of input
         /// </summary>
         [JsonPropertyName("content_type")]
-        public SignRequestSignerInputContentTypeField? ContentType { get; set; } = default;
+        public SignRequestSignerInputContentTypeField? ContentType { get; init; }
 
         /// <summary>
         /// Index of page that the input is on
         /// </summary>
         [JsonPropertyName("page_index")]
-        public long PageIndex { get; set; }
+        public long PageIndex { get; }
 
         /// <summary>
         /// Whether this input was defined as read-only(immutable by signers) or not
         /// </summary>
         [JsonPropertyName("read_only")]
-        public bool? ReadOnly { get; set; } = default;
+        public bool? ReadOnly { get; init; }
 
         public SignRequestSignerInput(long pageIndex) {
             PageIndex = pageIndex;

@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The name of the classification
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// An explanation of the meaning of this classification.
         /// </summary>
         [JsonPropertyName("definition")]
-        public string? Definition { get; set; } = default;
+        public string? Definition { get; init; }
 
         /// <summary>
         /// The color that is used to display the
@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// or co-admin who created the classification in the Box web app.
         /// </summary>
         [JsonPropertyName("color")]
-        public string? Color { get; set; } = default;
+        public string? Color { get; init; }
 
         public FolderFullClassificationField() {
             

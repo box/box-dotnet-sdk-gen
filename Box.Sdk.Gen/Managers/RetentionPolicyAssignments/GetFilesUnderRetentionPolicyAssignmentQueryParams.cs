@@ -14,12 +14,12 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetFilesUnderRetentionPolicyAssignmentQueryParams() {
             

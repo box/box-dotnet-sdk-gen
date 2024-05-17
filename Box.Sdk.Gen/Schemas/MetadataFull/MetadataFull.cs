@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Whether the user can edit this metadata instance.
         /// </summary>
         [JsonPropertyName("$canEdit")]
-        public bool? CanEdit { get; set; } = default;
+        public bool? CanEdit { get; init; }
 
         /// <summary>
         /// A UUID to identify the metadata instance.
         /// </summary>
         [JsonPropertyName("$id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// A unique identifier for the "type" of this instance. This is an
@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// application.
         /// </summary>
         [JsonPropertyName("$type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         /// <summary>
         /// The last-known version of the template of the object. This is an
@@ -33,10 +33,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// application.
         /// </summary>
         [JsonPropertyName("$typeVersion")]
-        public long? TypeVersion { get; set; } = default;
+        public long? TypeVersion { get; init; }
 
         [JsonPropertyName("extraData")]
-        public Dictionary<string, string>? ExtraData { get; set; } = default;
+        public Dictionary<string, string>? ExtraData { get; set; }
 
         public MetadataFull() {
             

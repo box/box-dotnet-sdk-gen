@@ -20,17 +20,17 @@ namespace Box.Sdk.Gen.Managers {
         /// The root folder of a Box account is
         /// always represented by the ID `0`.
         /// </summary>
-        public string FolderId { get; set; }
+        public string FolderId { get; }
 
         /// <summary>
         /// Type of trigger to search for.
         /// </summary>
-        public string? TriggerType { get; set; } = default;
+        public string? TriggerType { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         public GetWorkflowsQueryParams(string folderId) {
             FolderId = folderId;

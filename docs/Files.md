@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-await downscopedClient.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody(name: Utils.GetUUID()));
+await downscopedClient.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Name = Utils.GetUUID() });
 ```
 
 ### Arguments
@@ -131,7 +131,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_copy -->
 ```
-await client.Files.CopyFileAsync(fileId: fileOrigin.Id, requestBody: new CopyFileRequestBody(parent: new CopyFileRequestBodyParentField(id: "0"), name: copiedFileName));
+await client.Files.CopyFileAsync(fileId: fileOrigin.Id, requestBody: new CopyFileRequestBody(parent: new CopyFileRequestBodyParentField(id: "0")) { Name = copiedFileName });
 ```
 
 ### Arguments

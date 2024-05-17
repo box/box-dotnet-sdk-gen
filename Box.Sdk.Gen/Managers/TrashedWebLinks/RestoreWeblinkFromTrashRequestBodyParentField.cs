@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of parent item
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public RestoreWeblinkFromTrashRequestBodyParentField() {
             

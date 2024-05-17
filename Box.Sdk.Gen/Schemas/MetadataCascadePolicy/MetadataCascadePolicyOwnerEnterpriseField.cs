@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyOwnerEnterpriseTypeField? Type { get; set; } = default;
+        public MetadataCascadePolicyOwnerEnterpriseTypeField? Type { get; init; }
 
         /// <summary>
         /// The ID of the enterprise that owns the policy.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public MetadataCascadePolicyOwnerEnterpriseField() {
             

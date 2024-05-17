@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName, isPlatformAccessOnly: true));
+await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
 ```
 
 ### Arguments
@@ -180,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id -->
 ```
-await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody(name: updatedUserName));
+await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { Name = updatedUserName });
 ```
 
 ### Arguments

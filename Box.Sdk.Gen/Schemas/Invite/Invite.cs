@@ -8,43 +8,43 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this invite
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `invite`
         /// </summary>
         [JsonPropertyName("type")]
-        public InviteTypeField Type { get; set; }
+        public InviteTypeField Type { get; }
 
         /// <summary>
         /// A representation of a Box enterprise
         /// </summary>
         [JsonPropertyName("invited_to")]
-        public InviteInvitedToField? InvitedTo { get; set; } = default;
+        public InviteInvitedToField? InvitedTo { get; init; }
 
         [JsonPropertyName("actionable_by")]
-        public UserMini? ActionableBy { get; set; } = default;
+        public UserMini? ActionableBy { get; init; }
 
         [JsonPropertyName("invited_by")]
-        public UserMini? InvitedBy { get; set; } = default;
+        public UserMini? InvitedBy { get; init; }
 
         /// <summary>
         /// The status of the invite
         /// </summary>
         [JsonPropertyName("status")]
-        public string? Status { get; set; } = default;
+        public string? Status { get; init; }
 
         /// <summary>
         /// When the invite was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// When the invite was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         public Invite(string id, InviteTypeField type = InviteTypeField.Invite) {
             Id = id;

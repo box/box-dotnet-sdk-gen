@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId, slackOrgId: slackOrgId), boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
 ```
 
 ### Arguments

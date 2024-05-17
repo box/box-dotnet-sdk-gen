@@ -11,20 +11,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// The number of events returned in this response.
         /// </summary>
         [JsonPropertyName("chunk_size")]
-        public long? ChunkSize { get; set; } = default;
+        public long? ChunkSize { get; init; }
 
         /// <summary>
         /// The stream position of the start of the next page (chunk)
         /// of events.
         /// </summary>
         [JsonPropertyName("next_stream_position")]
-        public EventsNextStreamPositionField? NextStreamPosition { get; set; } = default;
+        public EventsNextStreamPositionField? NextStreamPosition { get; init; }
 
         /// <summary>
         /// A list of events
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<Event>? Entries { get; set; } = default;
+        public IReadOnlyList<Event>? Entries { get; init; }
 
         public Events() {
             

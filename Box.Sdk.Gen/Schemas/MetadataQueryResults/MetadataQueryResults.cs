@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// metadata, use the `fields` attribute in the query.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileOrFolder>? Entries { get; set; } = default;
+        public IReadOnlyList<FileOrFolder>? Entries { get; init; }
 
         /// <summary>
         /// The limit that was used for this search. This will be the same as the
@@ -24,13 +24,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; set; } = default;
+        public string? NextMarker { get; init; }
 
         public MetadataQueryResults() {
             

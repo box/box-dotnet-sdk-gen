@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// Whether moving the folder should be locked.
         /// </summary>
         [JsonPropertyName("move")]
-        public bool Move { get; set; }
+        public bool Move { get; }
 
         /// <summary>
         /// Whether deleting the folder should be locked.
         /// </summary>
         [JsonPropertyName("delete")]
-        public bool Delete { get; set; }
+        public bool Delete { get; }
 
         public CreateFolderLockRequestBodyLockedOperationsField(bool move, bool delete) {
             Move = move;

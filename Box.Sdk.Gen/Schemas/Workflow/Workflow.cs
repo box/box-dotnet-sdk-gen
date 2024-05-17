@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of flows assigned to a workflow.
         /// </summary>
         [JsonPropertyName("flows")]
-        public IReadOnlyList<WorkflowFlowsField>? Flows { get; set; } = default;
+        public IReadOnlyList<WorkflowFlowsField>? Flows { get; init; }
 
         public Workflow() {
             

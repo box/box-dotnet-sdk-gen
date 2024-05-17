@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Explicitly request the `shared_link` fields
         /// to be returned for this item.
         /// </summary>
-        public string Fields { get; set; }
+        public string Fields { get; }
 
         public RemoveSharedLinkFromFolderQueryParams(string fields) {
             Fields = fields;

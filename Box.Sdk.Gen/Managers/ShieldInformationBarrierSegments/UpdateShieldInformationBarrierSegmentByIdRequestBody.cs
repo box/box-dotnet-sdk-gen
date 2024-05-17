@@ -11,14 +11,14 @@ namespace Box.Sdk.Gen.Managers {
         /// The updated name for the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The updated description for
         /// the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         public UpdateShieldInformationBarrierSegmentByIdRequestBody() {
             

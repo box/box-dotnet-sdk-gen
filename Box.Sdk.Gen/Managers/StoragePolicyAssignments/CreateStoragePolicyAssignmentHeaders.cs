@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public CreateStoragePolicyAssignmentHeaders(Dictionary<string, string?> extraHeaders = default) {
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };

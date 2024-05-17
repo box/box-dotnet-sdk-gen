@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the legal hold policy to get the file version legal
         /// holds for.
         /// </summary>
-        public string PolicyId { get; set; }
+        public string PolicyId { get; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -18,12 +18,12 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetFileVersionLegalHoldsQueryParams(string policyId) {
             PolicyId = policyId;

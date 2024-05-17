@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField(type: CreateTaskRequestBodyItemTypeField.File, id: file.Id), message: "test message", dueAt: date, action: CreateTaskRequestBodyActionField.Review, completionRule: CreateTaskRequestBodyCompletionRuleField.AllAssignees));
+await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = date, Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees });
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody(message: "updated message"));
+await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody() { Message = "updated message" });
 ```
 
 ### Arguments

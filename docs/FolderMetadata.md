@@ -144,7 +144,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody(op: UpdateFolderMetadataByIdRequestBodyOpField.Replace, path: "/abc", value: newValue)}));
+await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody() { Op = UpdateFolderMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
 ```
 
 ### Arguments

@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// [1]: https://tools.ietf.org/html/rfc3230
         /// </summary>
-        public string Digest { get; set; }
+        public string Digest { get; }
 
         /// <summary>
         /// The byte range of the chunk.
@@ -38,12 +38,12 @@ namespace Box.Sdk.Gen.Managers {
         ///   must be a multiple of the part size.
         /// * The higher bound must be a multiple of the part size - 1.
         /// </summary>
-        public string ContentRange { get; set; }
+        public string ContentRange { get; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public UploadFilePartHeaders(string digest, string contentRange, Dictionary<string, string?> extraHeaders = default) {
             Digest = digest;

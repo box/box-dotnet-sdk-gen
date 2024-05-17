@@ -7,14 +7,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// Shield information barrier segment restriction
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionBaseTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierSegmentRestrictionBaseTypeField? Type { get; init; }
 
         /// <summary>
         /// The unique identifier for the
         /// shield information barrier segment restriction.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public ShieldInformationBarrierSegmentRestrictionBase() {
             

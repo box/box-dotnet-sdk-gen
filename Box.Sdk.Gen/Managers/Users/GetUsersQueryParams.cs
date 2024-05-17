@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Managers {
         /// to completely match the in order to find the user, and
         /// it will only return one user at a time.
         /// </summary>
-        public string? FilterTerm { get; set; } = default;
+        public string? FilterTerm { get; init; }
 
         /// <summary>
         /// Limits the results to the kind of user specified.
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `external` returns all external users for whom the
         ///   `login` matches the `filter_term` exactly.
         /// </summary>
-        public GetUsersQueryParamsUserTypeField? UserType { get; set; } = default;
+        public GetUsersQueryParamsUserTypeField? UserType { get; init; }
 
         /// <summary>
         /// Limits the results to app users with the given
@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Managers {
         /// then be used in this endpoint to find any users that
         /// match that `external_app_user_id` value.
         /// </summary>
-        public string? ExternalAppUserId { get; set; } = default;
+        public string? ExternalAppUserId { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -65,12 +65,12 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Specifies whether to use marker-based pagination instead of
@@ -81,7 +81,7 @@ namespace Box.Sdk.Gen.Managers {
         /// that can be passed as a parameter to this endpoint to get the next
         /// page of the response.
         /// </summary>
-        public bool? Usemarker { get; set; } = default;
+        public bool? Usemarker { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -89,7 +89,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         public GetUsersQueryParams() {
             

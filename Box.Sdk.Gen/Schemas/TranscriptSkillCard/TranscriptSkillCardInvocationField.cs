@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_invocation`
         /// </summary>
         [JsonPropertyName("type")]
-        public TranscriptSkillCardInvocationTypeField Type { get; set; }
+        public TranscriptSkillCardInvocationTypeField Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the instance of
@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the node that was used to apply the metadata.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public TranscriptSkillCardInvocationField(string id, TranscriptSkillCardInvocationTypeField type = TranscriptSkillCardInvocationTypeField.SkillInvocation) {
             Type = type;

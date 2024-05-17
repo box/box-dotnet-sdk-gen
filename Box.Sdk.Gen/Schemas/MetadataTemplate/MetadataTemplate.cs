@@ -10,13 +10,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The ID of the metadata template.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `metadata_template`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataTemplateTypeField Type { get; set; }
+        public MetadataTemplateTypeField Type { get; }
 
         /// <summary>
         /// The scope of the metadata template can either be `global` or
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// will be the ID of that enterprise.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string? Scope { get; set; } = default;
+        public string? Scope { get; init; }
 
         /// <summary>
         /// A unique identifier for the template. This identifier is unique across
@@ -34,21 +34,21 @@ namespace Box.Sdk.Gen.Schemas {
         /// applied, yet is not necessarily unique across different enterprises.
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public string? TemplateKey { get; set; } = default;
+        public string? TemplateKey { get; init; }
 
         /// <summary>
         /// The display name of the template. This can be seen in the Box web app
         /// and mobile apps.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public string? DisplayName { get; set; } = default;
+        public string? DisplayName { get; init; }
 
         /// <summary>
         /// Defines if this template is visible in the Box web app UI, or if
         /// it is purely intended for usage through the API.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// An ordered list of template fields which are part of the template. Each
@@ -56,13 +56,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// single or multi-select list.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<MetadataTemplateFieldsField>? Fields { get; set; } = default;
+        public IReadOnlyList<MetadataTemplateFieldsField>? Fields { get; init; }
 
         /// <summary>
         /// Whether or not to include the metadata when a file or folder is copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
-        public bool? CopyInstanceOnItemCopy { get; set; } = default;
+        public bool? CopyInstanceOnItemCopy { get; init; }
 
         public MetadataTemplate(string id, MetadataTemplateTypeField type = MetadataTemplateTypeField.MetadataTemplate) {
             Id = id;

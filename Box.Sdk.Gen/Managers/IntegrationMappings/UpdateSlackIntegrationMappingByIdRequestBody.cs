@@ -8,10 +8,10 @@ using Box.Sdk.Gen;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateSlackIntegrationMappingByIdRequestBody {
         [JsonPropertyName("box_item")]
-        public IntegrationMappingBoxItemSlack? BoxItem { get; set; } = default;
+        public IntegrationMappingBoxItemSlack? BoxItem { get; init; }
 
         [JsonPropertyName("options")]
-        public IntegrationMappingSlackOptions? Options { get; set; } = default;
+        public IntegrationMappingSlackOptions? Options { get; init; }
 
         public UpdateSlackIntegrationMappingByIdRequestBody() {
             

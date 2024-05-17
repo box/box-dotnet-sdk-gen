@@ -8,14 +8,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// The metadata attribute key id.
         /// </summary>
         [JsonPropertyName("field")]
-        public string? Field { get; set; } = default;
+        public string? Field { get; init; }
 
         /// <summary>
         /// The metadata attribute field id. For value, only
         /// enum and multiselect types are supported.
         /// </summary>
         [JsonPropertyName("value")]
-        public string? Value { get; set; } = default;
+        public string? Value { get; init; }
 
         public RetentionPolicyAssignmentFilterFieldsField() {
             

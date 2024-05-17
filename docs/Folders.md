@@ -72,7 +72,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody(name: Utils.GetUUID()));
+await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Name = Utils.GetUUID() });
 ```
 
 ### Arguments
@@ -227,7 +227,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_copy -->
 ```
-await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0"), name: copiedFolderName));
+await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0")) { Name = copiedFolderName });
 ```
 
 ### Arguments

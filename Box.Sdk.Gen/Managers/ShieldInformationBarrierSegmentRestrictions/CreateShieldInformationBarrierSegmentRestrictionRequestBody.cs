@@ -12,24 +12,24 @@ namespace Box.Sdk.Gen.Managers {
         /// restriction for this member.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField Type { get; set; }
+        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField Type { get; }
 
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; init; }
 
         /// <summary>
         /// The `type` and `id` of the requested
         /// shield information barrier segment.
         /// </summary>
         [JsonPropertyName("shield_information_barrier_segment")]
-        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; set; }
+        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; }
 
         /// <summary>
         /// The `type` and `id` of the restricted
         /// shield information barrier segment.
         /// </summary>
         [JsonPropertyName("restricted_segment")]
-        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField RestrictedSegment { get; set; }
+        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField RestrictedSegment { get; }
 
         public CreateShieldInformationBarrierSegmentRestrictionRequestBody(CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField shieldInformationBarrierSegment, CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField restrictedSegment, CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField type = CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction) {
             Type = type;

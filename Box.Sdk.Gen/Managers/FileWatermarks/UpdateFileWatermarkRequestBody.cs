@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The watermark to imprint on the file
         /// </summary>
         [JsonPropertyName("watermark")]
-        public UpdateFileWatermarkRequestBodyWatermarkField Watermark { get; set; }
+        public UpdateFileWatermarkRequestBodyWatermarkField Watermark { get; }
 
         public UpdateFileWatermarkRequestBody(UpdateFileWatermarkRequestBodyWatermarkField watermark) {
             Watermark = watermark;

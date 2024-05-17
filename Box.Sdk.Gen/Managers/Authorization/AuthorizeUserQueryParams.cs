@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The type of response we'd like to receive.
         /// </summary>
-        public AuthorizeUserQueryParamsResponseTypeField ResponseType { get; set; }
+        public AuthorizeUserQueryParamsResponseTypeField ResponseType { get; }
 
         /// <summary>
         /// The Client ID of the application that is requesting to authenticate
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// of the configuration page, find the item labelled `client_id`. The
         /// text of that item is your application's Client ID.
         /// </summary>
-        public string ClientId { get; set; }
+        public string ClientId { get; }
 
         /// <summary>
         /// The URI to which Box redirects the browser after the user has granted
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// for the application in the developer console. A missing parameter causes
         /// a `redirect_uri_missing` error after the user grants application access.
         /// </summary>
-        public string? RedirectUri { get; set; } = default;
+        public string? RedirectUri { get; init; }
 
         /// <summary>
         /// A custom string of your choice. Box will pass the same string to
@@ -40,14 +40,14 @@ namespace Box.Sdk.Gen.Managers {
         /// can be used to identify a user on redirect, as well as protect
         /// against hijacked sessions and other exploits.
         /// </summary>
-        public string? State { get; set; } = default;
+        public string? State { get; init; }
 
         /// <summary>
         /// A space-separated list of application scopes you'd like to
         /// authenticate the user for. This defaults to all the scopes configured
         /// for the application in its configuration page.
         /// </summary>
-        public string? Scope { get; set; } = default;
+        public string? Scope { get; init; }
 
         public AuthorizeUserQueryParams(AuthorizeUserQueryParamsResponseTypeField responseType, string clientId) {
             ResponseType = responseType;

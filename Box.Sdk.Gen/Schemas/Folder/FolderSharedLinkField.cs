@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// has been set for this shared link.
         /// </summary>
         [JsonPropertyName("url")]
-        public string Url { get; set; }
+        public string Url { get; }
 
         /// <summary>
         /// A URL that can be used to download the file. This URL can be used in
@@ -27,20 +27,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// This property will be `null` for folders.
         /// </summary>
         [JsonPropertyName("download_url")]
-        public string? DownloadUrl { get; set; } = default;
+        public string? DownloadUrl { get; init; }
 
         /// <summary>
         /// The "Custom URL" that can also be used to preview the item on Box.  Custom
         /// URLs can only be created or modified in the Box Web application.
         /// </summary>
         [JsonPropertyName("vanity_url")]
-        public string? VanityUrl { get; set; } = default;
+        public string? VanityUrl { get; init; }
 
         /// <summary>
         /// The custom name of a shared link, as used in the `vanity_url` field.
         /// </summary>
         [JsonPropertyName("vanity_name")]
-        public string? VanityName { get; set; } = default;
+        public string? VanityName { get; init; }
 
         /// <summary>
         /// The access level for this shared link.
@@ -54,7 +54,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// will be set to the default access level specified by the enterprise admin.
         /// </summary>
         [JsonPropertyName("access")]
-        public FolderSharedLinkAccessField? Access { get; set; } = default;
+        public FolderSharedLinkAccessField? Access { get; init; }
 
         /// <summary>
         /// The effective access level for the shared link. This can be a more
@@ -62,7 +62,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// enterprise settings restrict the allowed access levels.
         /// </summary>
         [JsonPropertyName("effective_access")]
-        public FolderSharedLinkEffectiveAccessField EffectiveAccess { get; set; }
+        public FolderSharedLinkEffectiveAccessField EffectiveAccess { get; }
 
         /// <summary>
         /// The effective permissions for this shared link.
@@ -72,20 +72,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// such as a folder.
         /// </summary>
         [JsonPropertyName("effective_permission")]
-        public FolderSharedLinkEffectivePermissionField EffectivePermission { get; set; }
+        public FolderSharedLinkEffectivePermissionField EffectivePermission { get; }
 
         /// <summary>
         /// The date and time when this link will be unshared. This field can only be
         /// set by users with paid accounts.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public System.DateTimeOffset? UnsharedAt { get; set; } = default;
+        public System.DateTimeOffset? UnsharedAt { get; init; }
 
         /// <summary>
         /// Defines if the shared link requires a password to access the item.
         /// </summary>
         [JsonPropertyName("is_password_enabled")]
-        public bool IsPasswordEnabled { get; set; }
+        public bool IsPasswordEnabled { get; }
 
         /// <summary>
         /// Defines if this link allows a user to preview, edit, and download an item.
@@ -93,19 +93,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// do not supersede permissions applied to the item itself.
         /// </summary>
         [JsonPropertyName("permissions")]
-        public FolderSharedLinkPermissionsField? Permissions { get; set; } = default;
+        public FolderSharedLinkPermissionsField? Permissions { get; init; }
 
         /// <summary>
         /// The number of times this item has been downloaded.
         /// </summary>
         [JsonPropertyName("download_count")]
-        public long DownloadCount { get; set; }
+        public long DownloadCount { get; }
 
         /// <summary>
         /// The number of times this item has been previewed.
         /// </summary>
         [JsonPropertyName("preview_count")]
-        public long PreviewCount { get; set; }
+        public long PreviewCount { get; }
 
         public FolderSharedLinkField(string url, FolderSharedLinkEffectiveAccessField effectiveAccess, FolderSharedLinkEffectivePermissionField effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
             Url = url;

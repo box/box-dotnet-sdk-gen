@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#add_shared_link -->
 ```
-await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody(sharedLink: new AddShareLinkToWebLinkRequestBodySharedLinkField(access: AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link"));
+await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody() { SharedLink = new AddShareLinkToWebLinkRequestBodySharedLinkField() { Access = AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, Password = "Secret123@" } }, queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#update_shared_link -->
 ```
-await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody(sharedLink: new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(access: UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link"));
+await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody() { SharedLink = new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField() { Access = UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments

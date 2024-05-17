@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Limits results to policies for which the names start with
         /// this search term. This is a case-insensitive prefix.
         /// </summary>
-        public string? PolicyName { get; set; } = default;
+        public string? PolicyName { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the
@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -33,12 +33,12 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetLegalHoldPoliciesQueryParams() {
             

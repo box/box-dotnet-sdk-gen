@@ -11,19 +11,19 @@ namespace Box.Sdk.Gen.Managers {
         /// The terms of service to set the status for.
         /// </summary>
         [JsonPropertyName("tos")]
-        public CreateTermsOfServiceStatusForUserRequestBodyTosField Tos { get; set; }
+        public CreateTermsOfServiceStatusForUserRequestBodyTosField Tos { get; }
 
         /// <summary>
         /// The user to set the status for.
         /// </summary>
         [JsonPropertyName("user")]
-        public CreateTermsOfServiceStatusForUserRequestBodyUserField User { get; set; }
+        public CreateTermsOfServiceStatusForUserRequestBodyUserField User { get; }
 
         /// <summary>
         /// Whether the user has accepted the terms.
         /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool IsAccepted { get; set; }
+        public bool IsAccepted { get; }
 
         public CreateTermsOfServiceStatusForUserRequestBody(CreateTermsOfServiceStatusForUserRequestBodyTosField tos, CreateTermsOfServiceStatusForUserRequestBodyUserField user, bool isAccepted) {
             Tos = tos;

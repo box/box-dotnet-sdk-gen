@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The version number of this file version
         /// </summary>
         [JsonPropertyName("version_number")]
-        public string? VersionNumber { get; set; } = default;
+        public string? VersionNumber { get; init; }
 
         public FileVersionFull(string id, FileVersionBaseTypeField type = FileVersionBaseTypeField.FileVersion) : base(id, type) {
             

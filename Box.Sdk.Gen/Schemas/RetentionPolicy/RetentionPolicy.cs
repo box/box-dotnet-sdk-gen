@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The additional text description of the retention policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The type of the retention policy. A retention
@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// to retain the content is still unknown.
         /// </summary>
         [JsonPropertyName("policy_type")]
-        public RetentionPolicyPolicyTypeField? PolicyType { get; set; } = default;
+        public RetentionPolicyPolicyTypeField? PolicyType { get; init; }
 
         /// <summary>
         /// Specifies the retention type:
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         ///  compliance with regulatory retention policies.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public RetentionPolicyRetentionTypeField? RetentionType { get; set; } = default;
+        public RetentionPolicyRetentionTypeField? RetentionType { get; init; }
 
         /// <summary>
         /// The status of the retention policy. The status of
@@ -51,22 +51,22 @@ namespace Box.Sdk.Gen.Schemas {
         /// active again.
         /// </summary>
         [JsonPropertyName("status")]
-        public RetentionPolicyStatusField? Status { get; set; } = default;
+        public RetentionPolicyStatusField? Status { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         /// <summary>
         /// When the retention policy object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// When the retention policy object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         /// <summary>
         /// Determines if the owner of items under the policy
@@ -74,7 +74,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// retention duration is about to end.
         /// </summary>
         [JsonPropertyName("can_owner_extend_retention")]
-        public bool? CanOwnerExtendRetention { get; set; } = default;
+        public bool? CanOwnerExtendRetention { get; init; }
 
         /// <summary>
         /// Determines if owners and co-owners of items
@@ -82,19 +82,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("are_owners_notified")]
-        public bool? AreOwnersNotified { get; set; } = default;
+        public bool? AreOwnersNotified { get; init; }
 
         /// <summary>
         /// A list of users notified when the retention policy duration is about to end.
         /// </summary>
         [JsonPropertyName("custom_notification_recipients")]
-        public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; set; } = default;
+        public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; init; }
 
         /// <summary>
         /// Counts the retention policy assignments for each item type.
         /// </summary>
         [JsonPropertyName("assignment_counts")]
-        public RetentionPolicyAssignmentCountsField? AssignmentCounts { get; set; } = default;
+        public RetentionPolicyAssignmentCountsField? AssignmentCounts { get; init; }
 
         public RetentionPolicy(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
             

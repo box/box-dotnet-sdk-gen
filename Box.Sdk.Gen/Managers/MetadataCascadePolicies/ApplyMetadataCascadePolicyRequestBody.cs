@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   any existing values.
         /// </summary>
         [JsonPropertyName("conflict_resolution")]
-        public ApplyMetadataCascadePolicyRequestBodyConflictResolutionField ConflictResolution { get; set; }
+        public ApplyMetadataCascadePolicyRequestBodyConflictResolutionField ConflictResolution { get; }
 
         public ApplyMetadataCascadePolicyRequestBody(ApplyMetadataCascadePolicyRequestBodyConflictResolutionField conflictResolution) {
             ConflictResolution = conflictResolution;

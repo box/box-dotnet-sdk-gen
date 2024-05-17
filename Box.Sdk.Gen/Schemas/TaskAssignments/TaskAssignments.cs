@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The total number of items in this collection.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; set; } = default;
+        public long? TotalCount { get; init; }
 
         /// <summary>
         /// A list of task assignments
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TaskAssignment>? Entries { get; set; } = default;
+        public IReadOnlyList<TaskAssignment>? Entries { get; init; }
 
         public TaskAssignments() {
             

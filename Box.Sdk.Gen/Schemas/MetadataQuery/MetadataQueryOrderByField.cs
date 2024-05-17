@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// metadata template being searched for.
         /// </summary>
         [JsonPropertyName("field_key")]
-        public string? FieldKey { get; set; } = default;
+        public string? FieldKey { get; init; }
 
         /// <summary>
         /// The direction to order by, either ascending or descending.
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// array.
         /// </summary>
         [JsonPropertyName("direction")]
-        public MetadataQueryOrderByDirectionField? Direction { get; set; } = default;
+        public MetadataQueryOrderByDirectionField? Direction { get; init; }
 
         public MetadataQueryOrderByField() {
             

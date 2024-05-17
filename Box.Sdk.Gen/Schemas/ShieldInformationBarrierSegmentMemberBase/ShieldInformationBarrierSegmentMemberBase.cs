@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// shield information barrier segment member
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of the shield information barrier segment member
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentMemberBaseTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierSegmentMemberBaseTypeField? Type { get; init; }
 
         public ShieldInformationBarrierSegmentMemberBase() {
             

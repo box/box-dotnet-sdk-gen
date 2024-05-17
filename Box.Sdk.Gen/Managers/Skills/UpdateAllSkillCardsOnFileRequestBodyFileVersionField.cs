@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// `file_version`
         /// </summary>
         [JsonPropertyName("type")]
-        public UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField? Type { get; set; } = default;
+        public UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField? Type { get; init; }
 
         /// <summary>
         /// The ID of the file version
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public UpdateAllSkillCardsOnFileRequestBodyFileVersionField() {
             

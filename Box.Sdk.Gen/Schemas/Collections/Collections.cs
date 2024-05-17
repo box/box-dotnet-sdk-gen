@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// For marker-based paginated APIs, this field will be omitted.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; set; } = default;
+        public long? TotalCount { get; init; }
 
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed. The maximum value varies by API.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The 0-based offset of the first entry in this set. This will be the same
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// For marker-based paginated APIs, this field will be omitted.
         /// </summary>
         [JsonPropertyName("offset")]
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// The order by which items are returned.
@@ -43,13 +43,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// For marker-based paginated APIs, this field will be omitted.
         /// </summary>
         [JsonPropertyName("order")]
-        public IReadOnlyList<CollectionsOrderField>? Order { get; set; } = default;
+        public IReadOnlyList<CollectionsOrderField>? Order { get; init; }
 
         /// <summary>
         /// A list of collections
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<Collection>? Entries { get; set; } = default;
+        public IReadOnlyList<Collection>? Entries { get; init; }
 
         public Collections() {
             

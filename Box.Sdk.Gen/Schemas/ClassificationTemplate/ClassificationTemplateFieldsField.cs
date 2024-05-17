@@ -10,38 +10,38 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique ID of the field.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The array item type.
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateFieldsTypeField Type { get; set; }
+        public ClassificationTemplateFieldsTypeField Type { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public ClassificationTemplateFieldsKeyField Key { get; set; }
+        public ClassificationTemplateFieldsKeyField Key { get; }
 
         /// <summary>
         /// `Classification`
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateFieldsDisplayNameField DisplayName { get; set; }
+        public ClassificationTemplateFieldsDisplayNameField DisplayName { get; }
 
         /// <summary>
         /// Classifications are always visible to web and mobile users.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// A list of classifications available in this enterprise.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<ClassificationTemplateFieldsOptionsField> Options { get; set; }
+        public IReadOnlyList<ClassificationTemplateFieldsOptionsField> Options { get; }
 
         public ClassificationTemplateFieldsField(string id, IReadOnlyList<ClassificationTemplateFieldsOptionsField> options, ClassificationTemplateFieldsTypeField type = ClassificationTemplateFieldsTypeField.Enum, ClassificationTemplateFieldsKeyField key = ClassificationTemplateFieldsKeyField.BoxSecurityClassificationKey, ClassificationTemplateFieldsDisplayNameField displayName = ClassificationTemplateFieldsDisplayNameField.Classification) {
             Id = id;

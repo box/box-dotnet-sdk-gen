@@ -7,14 +7,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// `service`
         /// </summary>
         [JsonPropertyName("type")]
-        public KeywordSkillCardSkillTypeField Type { get; set; }
+        public KeywordSkillCardSkillTypeField Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the service that
         /// applied this metadata.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public KeywordSkillCardSkillField(string id, KeywordSkillCardSkillTypeField type = KeywordSkillCardSkillTypeField.Service) {
             Type = type;

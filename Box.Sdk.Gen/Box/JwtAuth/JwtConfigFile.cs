@@ -10,19 +10,19 @@ namespace Box.Sdk.Gen {
         /// Enterprise ID
         /// </summary>
         [JsonPropertyName("enterpriseID")]
-        public string? EnterpriseId { get; set; } = default;
+        public string? EnterpriseId { get; init; }
 
         /// <summary>
         /// User ID
         /// </summary>
         [JsonPropertyName("userID")]
-        public string? UserId { get; set; } = default;
+        public string? UserId { get; init; }
 
         /// <summary>
         /// App settings
         /// </summary>
         [JsonPropertyName("boxAppSettings")]
-        public JwtConfigAppSettings BoxAppSettings { get; set; }
+        public JwtConfigAppSettings BoxAppSettings { get; }
 
         public JwtConfigFile(JwtConfigAppSettings boxAppSettings) {
             BoxAppSettings = boxAppSettings;

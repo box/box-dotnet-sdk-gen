@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The total number of files in the archive.
         /// </summary>
         [JsonPropertyName("total_file_count")]
-        public long? TotalFileCount { get; set; } = default;
+        public long? TotalFileCount { get; init; }
 
         /// <summary>
         /// The number of files that have already been downloaded.
         /// </summary>
         [JsonPropertyName("downloaded_file_count")]
-        public long? DownloadedFileCount { get; set; } = default;
+        public long? DownloadedFileCount { get; init; }
 
         /// <summary>
         /// The number of files that have been skipped as they could not be
@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// archive being downloaded.
         /// </summary>
         [JsonPropertyName("skipped_file_count")]
-        public long? SkippedFileCount { get; set; } = default;
+        public long? SkippedFileCount { get; init; }
 
         /// <summary>
         /// The number of folders that have been skipped as they could not be
@@ -31,13 +31,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// archive being downloaded.
         /// </summary>
         [JsonPropertyName("skipped_folder_count")]
-        public long? SkippedFolderCount { get; set; } = default;
+        public long? SkippedFolderCount { get; init; }
 
         /// <summary>
         /// The state of the archive being downloaded.
         /// </summary>
         [JsonPropertyName("state")]
-        public ZipDownloadStatusStateField? State { get; set; } = default;
+        public ZipDownloadStatusStateField? State { get; init; }
 
         public ZipDownloadStatus() {
             

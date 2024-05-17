@@ -11,31 +11,31 @@ namespace Box.Sdk.Gen.Schemas {
         /// object type
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestTypeField? Type { get; set; } = default;
+        public SignRequestTypeField? Type { get; init; }
 
         /// <summary>
         /// List of files to create a signing document from. This is currently limited to ten files. Only the ID and type fields are required for each file.
         /// </summary>
         [JsonPropertyName("source_files")]
-        public IReadOnlyList<FileBase>? SourceFiles { get; set; } = default;
+        public IReadOnlyList<FileBase>? SourceFiles { get; init; }
 
         /// <summary>
         /// Array of signers for the signature request.
         /// </summary>
         [JsonPropertyName("signers")]
-        public IReadOnlyList<SignRequestSigner>? Signers { get; set; } = default;
+        public IReadOnlyList<SignRequestSigner>? Signers { get; init; }
 
         /// <summary>
         /// Force a specific color for the signature (blue, black, or red).
         /// </summary>
         [JsonPropertyName("signature_color")]
-        public string? SignatureColor { get; set; } = default;
+        public string? SignatureColor { get; init; }
 
         /// <summary>
         /// Box Sign request ID.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// This URL is returned if `is_document_preparation_needed` is
@@ -44,16 +44,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// phase is complete.
         /// </summary>
         [JsonPropertyName("prepare_url")]
-        public string? PrepareUrl { get; set; } = default;
+        public string? PrepareUrl { get; init; }
 
         [JsonPropertyName("signing_log")]
-        public FileMini? SigningLog { get; set; } = default;
+        public FileMini? SigningLog { get; init; }
 
         /// <summary>
         /// Describes the status of the signature request.
         /// </summary>
         [JsonPropertyName("status")]
-        public SignRequestStatusField? Status { get; set; } = default;
+        public SignRequestStatusField? Status { get; init; }
 
         /// <summary>
         /// List of files that will be signed, which are copies of the original
@@ -61,16 +61,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// and can be downloaded at any point in the signing process.
         /// </summary>
         [JsonPropertyName("sign_files")]
-        public SignRequestSignFilesField? SignFiles { get; set; } = default;
+        public SignRequestSignFilesField? SignFiles { get; init; }
 
         /// <summary>
         /// Uses `days_valid` to calculate the date and time, in GMT, the sign request will expire if unsigned.
         /// </summary>
         [JsonPropertyName("auto_expire_at")]
-        public System.DateTimeOffset? AutoExpireAt { get; set; } = default;
+        public System.DateTimeOffset? AutoExpireAt { get; init; }
 
         [JsonPropertyName("parent_folder")]
-        public FolderMini? ParentFolder { get; set; } = default;
+        public FolderMini? ParentFolder { get; init; }
 
         public SignRequest() {
             

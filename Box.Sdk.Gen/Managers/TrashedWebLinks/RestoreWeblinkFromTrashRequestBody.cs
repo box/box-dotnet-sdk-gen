@@ -12,10 +12,10 @@ namespace Box.Sdk.Gen.Managers {
         /// An optional new name for the web link.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         [JsonPropertyName("parent")]
-        public RestoreWeblinkFromTrashRequestBodyParentField? Parent { get; set; } = default;
+        public RestoreWeblinkFromTrashRequestBodyParentField? Parent { get; init; }
 
         public RestoreWeblinkFromTrashRequestBody() {
             

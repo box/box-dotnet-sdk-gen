@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// An optional message by the assignee that can be added to the task.
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         /// <summary>
         /// The state of the task assigned to the user.
@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `incomplete`, `approved`, or `rejected`.
         /// </summary>
         [JsonPropertyName("resolution_state")]
-        public UpdateTaskAssignmentByIdRequestBodyResolutionStateField? ResolutionState { get; set; } = default;
+        public UpdateTaskAssignmentByIdRequestBodyResolutionStateField? ResolutionState { get; init; }
 
         public UpdateTaskAssignmentByIdRequestBody() {
             

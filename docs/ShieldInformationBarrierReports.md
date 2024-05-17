@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_reports -->
 ```
-await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference(shieldInformationBarrier: new ShieldInformationBarrierBase(id: barrierId, type: ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier)));
+await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference() { ShieldInformationBarrier = new ShieldInformationBarrierBase() { Id = barrierId, Type = ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier } });
 ```
 
 ### Arguments

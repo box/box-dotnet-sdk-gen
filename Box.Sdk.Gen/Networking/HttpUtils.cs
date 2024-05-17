@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Fetch 
 {
-    internal static class HttpUtils
+    static class HttpUtils
     {
         internal static Uri BuildUri(string resource, IReadOnlyDictionary<string, string>? parameters)
         {

@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("item_type")]
-        public EventSourceItemTypeField ItemType { get; set; }
+        public EventSourceItemTypeField ItemType { get; }
 
         /// <summary>
         /// The unique identifier that represents the
@@ -18,14 +18,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("item_id")]
-        public string ItemId { get; set; }
+        public string ItemId { get; }
 
         /// <summary>
         /// The name of the item.
         /// 
         /// </summary>
         [JsonPropertyName("item_name")]
-        public string ItemName { get; set; }
+        public string ItemName { get; }
 
         /// <summary>
         /// The object containing classification information for the item that
@@ -33,13 +33,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// have a classification set.
         /// </summary>
         [JsonPropertyName("classification")]
-        public EventSourceClassificationField? Classification { get; set; } = default;
+        public EventSourceClassificationField? Classification { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; set; } = default;
+        public FolderMini? Parent { get; init; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini? OwnedBy { get; set; } = default;
+        public UserMini? OwnedBy { get; init; }
 
         public EventSource(EventSourceItemTypeField itemType, string itemId, string itemName) {
             ItemType = itemType;

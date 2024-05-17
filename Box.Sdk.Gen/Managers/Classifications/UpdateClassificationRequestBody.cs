@@ -13,26 +13,26 @@ namespace Box.Sdk.Gen.Managers {
         /// object.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateClassificationRequestBodyOpField Op { get; set; }
+        public UpdateClassificationRequestBodyOpField Op { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("fieldKey")]
-        public UpdateClassificationRequestBodyFieldKeyField FieldKey { get; set; }
+        public UpdateClassificationRequestBodyFieldKeyField FieldKey { get; }
 
         /// <summary>
         /// The original label of the classification to change.
         /// </summary>
         [JsonPropertyName("enumOptionKey")]
-        public string EnumOptionKey { get; set; }
+        public string EnumOptionKey { get; }
 
         /// <summary>
         /// The details of the updated classification.
         /// </summary>
         [JsonPropertyName("data")]
-        public UpdateClassificationRequestBodyDataField Data { get; set; }
+        public UpdateClassificationRequestBodyDataField Data { get; }
 
         public UpdateClassificationRequestBody(string enumOptionKey, UpdateClassificationRequestBodyDataField data, UpdateClassificationRequestBodyOpField op = UpdateClassificationRequestBodyOpField.EditEnumOption, UpdateClassificationRequestBodyFieldKeyField fieldKey = UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey) {
             Op = op;

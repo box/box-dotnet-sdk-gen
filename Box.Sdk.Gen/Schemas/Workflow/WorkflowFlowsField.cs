@@ -11,28 +11,28 @@ namespace Box.Sdk.Gen.Schemas {
         /// The identifier of the flow
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The flow's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTypeField? Type { get; set; } = default;
+        public WorkflowFlowsTypeField? Type { get; init; }
 
         [JsonPropertyName("trigger")]
-        public WorkflowFlowsTriggerField? Trigger { get; set; } = default;
+        public WorkflowFlowsTriggerField? Trigger { get; init; }
 
         [JsonPropertyName("outcomes")]
-        public IReadOnlyList<WorkflowFlowsOutcomesField>? Outcomes { get; set; } = default;
+        public IReadOnlyList<WorkflowFlowsOutcomesField>? Outcomes { get; init; }
 
         /// <summary>
         /// When this flow was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserBase? CreatedBy { get; set; } = default;
+        public UserBase? CreatedBy { get; init; }
 
         public WorkflowFlowsField() {
             

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the enterprise
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CreateInviteRequestBodyEnterpriseField(string id) {
             Id = id;

@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Whether this terms of service is active.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateTermsOfServiceByIdRequestBodyStatusField Status { get; set; }
+        public UpdateTermsOfServiceByIdRequestBodyStatusField Status { get; }
 
         /// <summary>
         /// The terms of service text to display to users.
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The text can be set to empty if the `status` is set to `disabled`.
         /// </summary>
         [JsonPropertyName("text")]
-        public string Text { get; set; }
+        public string Text { get; }
 
         public UpdateTermsOfServiceByIdRequestBody(UpdateTermsOfServiceByIdRequestBodyStatusField status, string text) {
             Status = status;

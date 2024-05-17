@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_users_id_avatar -->
 ```
-await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBody(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="), picContentType: "image/png", picFileName: "avatar.png"));
+await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBody(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg==")) { PicContentType = "image/png", PicFileName = "avatar.png" });
 ```
 
 ### Arguments

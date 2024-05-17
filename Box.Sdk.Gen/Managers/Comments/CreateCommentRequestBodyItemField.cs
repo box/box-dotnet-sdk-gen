@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the item
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The type of the item that this comment will be placed on.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateCommentRequestBodyItemTypeField Type { get; set; }
+        public CreateCommentRequestBodyItemTypeField Type { get; }
 
         public CreateCommentRequestBodyItemField(string id, CreateCommentRequestBodyItemTypeField type) {
             Id = id;

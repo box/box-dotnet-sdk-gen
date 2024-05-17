@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileFullMetadataField : IJsonOnDeserialized {
         [JsonPropertyName("extraData")]
-        public Dictionary<string, Dictionary<string, Metadata>>? ExtraData { get; set; } = default;
+        public Dictionary<string, Dictionary<string, Metadata>>? ExtraData { get; set; }
 
         public FileFullMetadataField() {
             

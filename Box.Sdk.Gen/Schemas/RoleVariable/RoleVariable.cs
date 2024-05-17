@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public RoleVariableTypeField Type { get; set; }
+        public RoleVariableTypeField Type { get; }
 
         /// <summary>
         /// The variable type used
@@ -16,10 +16,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
-        public RoleVariableVariableTypeField VariableType { get; set; }
+        public RoleVariableVariableTypeField VariableType { get; }
 
         [JsonPropertyName("variable_value")]
-        public RoleVariableVariableValueField VariableValue { get; set; }
+        public RoleVariableVariableValueField VariableValue { get; }
 
         public RoleVariable(RoleVariableVariableValueField variableValue, RoleVariableTypeField type = RoleVariableTypeField.Variable, RoleVariableVariableTypeField variableType = RoleVariableVariableTypeField.CollaboratorRole) {
             Type = type;

@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// to this endpoint.
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         public FileFullRepresentationsEntriesInfoField() {
             

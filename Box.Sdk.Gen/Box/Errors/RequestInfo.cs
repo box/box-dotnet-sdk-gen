@@ -5,15 +5,15 @@ namespace Errors
 {
     public class RequestInfo
     {
-        public string Method { get; set; }
+        public string Method { get; }
 
-        public string Url { get; set; }
+        public string Url { get; }
 
-        public IReadOnlyDictionary<string, string> QueryParams { get; set; }
+        public IReadOnlyDictionary<string, string> QueryParams { get; }
 
-        public IReadOnlyDictionary<string, string> Headers { get; set; }
+        public IReadOnlyDictionary<string, string> Headers { get; }
 
-        public string? Body { get; set; } = default;
+        public string? Body { get; init; }
 
         public RequestInfo(string method, string? url, IReadOnlyDictionary<string, string>? queryParams, IReadOnlyDictionary<string, string> headers)
         {

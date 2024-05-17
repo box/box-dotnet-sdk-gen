@@ -8,37 +8,37 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this terms of service user status
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `terms_of_service_user_status`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceUserStatusTypeField Type { get; set; }
+        public TermsOfServiceUserStatusTypeField Type { get; }
 
         [JsonPropertyName("tos")]
-        public TermsOfServiceBase? Tos { get; set; } = default;
+        public TermsOfServiceBase? Tos { get; init; }
 
         [JsonPropertyName("user")]
-        public UserMini? User { get; set; } = default;
+        public UserMini? User { get; init; }
 
         /// <summary>
         /// If the user has accepted the terms of services
         /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool? IsAccepted { get; set; } = default;
+        public bool? IsAccepted { get; init; }
 
         /// <summary>
         /// When the legal item was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// When the legal item was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         public TermsOfServiceUserStatus(string id, TermsOfServiceUserStatusTypeField type = TermsOfServiceUserStatusTypeField.TermsOfServiceUserStatus) {
             Id = id;

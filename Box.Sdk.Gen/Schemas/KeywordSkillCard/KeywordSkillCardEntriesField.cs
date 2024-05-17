@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The text of the keyword.
         /// </summary>
         [JsonPropertyName("text")]
-        public string? Text { get; set; } = default;
+        public string? Text { get; init; }
 
         public KeywordSkillCardEntriesField() {
             

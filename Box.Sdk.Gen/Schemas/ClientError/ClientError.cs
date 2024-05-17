@@ -7,25 +7,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// error
         /// </summary>
         [JsonPropertyName("type")]
-        public ClientErrorTypeField? Type { get; set; } = default;
+        public ClientErrorTypeField? Type { get; init; }
 
         /// <summary>
         /// The HTTP status of the response.
         /// </summary>
         [JsonPropertyName("status")]
-        public int? Status { get; set; } = default;
+        public int? Status { get; init; }
 
         /// <summary>
         /// A Box-specific error code
         /// </summary>
         [JsonPropertyName("code")]
-        public ClientErrorCodeField? Code { get; set; } = default;
+        public ClientErrorCodeField? Code { get; init; }
 
         /// <summary>
         /// A short message describing the error.
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         /// <summary>
         /// A free-form object that contains additional context
@@ -33,20 +33,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// a per-endpoint basis. `message` is only one example.
         /// </summary>
         [JsonPropertyName("context_info")]
-        public ClientErrorContextInfoField? ContextInfo { get; set; } = default;
+        public ClientErrorContextInfoField? ContextInfo { get; init; }
 
         /// <summary>
         /// A URL that links to more information about why this error occurred.
         /// </summary>
         [JsonPropertyName("help_url")]
-        public string? HelpUrl { get; set; } = default;
+        public string? HelpUrl { get; init; }
 
         /// <summary>
         /// A unique identifier for this response, which can be used
         /// when contacting Box support.
         /// </summary>
         [JsonPropertyName("request_id")]
-        public string? RequestId { get; set; } = default;
+        public string? RequestId { get; init; }
 
         public ClientError() {
             

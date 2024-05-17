@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `0` for the user's root folder.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public UploadFileRequestBodyAttributesParentField(string id) {
             Id = id;

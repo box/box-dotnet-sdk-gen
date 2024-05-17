@@ -7,19 +7,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this session
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `upload_session`
         /// </summary>
         [JsonPropertyName("type")]
-        public UploadSessionTypeField? Type { get; set; } = default;
+        public UploadSessionTypeField? Type { get; init; }
 
         /// <summary>
         /// The date and time when this session expires.
         /// </summary>
         [JsonPropertyName("session_expires_at")]
-        public System.DateTimeOffset? SessionExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? SessionExpiresAt { get; init; }
 
         /// <summary>
         /// The  size in bytes that must be used for all parts of of the
@@ -28,14 +28,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// Only the last part is allowed to be of a smaller size.
         /// </summary>
         [JsonPropertyName("part_size")]
-        public long? PartSize { get; set; } = default;
+        public long? PartSize { get; init; }
 
         /// <summary>
         /// The total number of parts expected in this upload session,
         /// as determined by the file size and part size.
         /// </summary>
         [JsonPropertyName("total_parts")]
-        public int? TotalParts { get; set; } = default;
+        public int? TotalParts { get; init; }
 
         /// <summary>
         /// The number of parts that have been uploaded and processed
@@ -45,10 +45,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// provide insight if all parts have been uploaded correctly.
         /// </summary>
         [JsonPropertyName("num_parts_processed")]
-        public int? NumPartsProcessed { get; set; } = default;
+        public int? NumPartsProcessed { get; init; }
 
         [JsonPropertyName("session_endpoints")]
-        public UploadSessionSessionEndpointsField? SessionEndpoints { get; set; } = default;
+        public UploadSessionSessionEndpointsField? SessionEndpoints { get; init; }
 
         public UploadSession() {
             

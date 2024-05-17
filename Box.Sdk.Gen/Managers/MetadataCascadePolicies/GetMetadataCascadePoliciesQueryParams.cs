@@ -11,14 +11,14 @@ namespace Box.Sdk.Gen.Managers {
         /// Specifies which folder to return policies for. This can not be used on the
         /// root folder with ID `0`.
         /// </summary>
-        public string FolderId { get; set; }
+        public string FolderId { get; }
 
         /// <summary>
         /// The ID of the enterprise ID for which to find metadata
         /// cascade policies. If not specified, it defaults to the
         /// current enterprise.
         /// </summary>
-        public string? OwnerEnterpriseId { get; set; } = default;
+        public string? OwnerEnterpriseId { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         public GetMetadataCascadePoliciesQueryParams(string folderId) {
             FolderId = folderId;

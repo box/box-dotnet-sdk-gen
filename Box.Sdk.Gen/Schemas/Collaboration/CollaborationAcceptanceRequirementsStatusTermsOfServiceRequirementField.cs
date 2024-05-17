@@ -9,10 +9,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// field is `null` when there is no terms of service required.
         /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool? IsAccepted { get; set; } = default;
+        public bool? IsAccepted { get; init; }
 
         [JsonPropertyName("terms_of_service")]
-        public TermsOfServiceBase? TermsOfService { get; set; } = default;
+        public TermsOfServiceBase? TermsOfService { get; init; }
 
         public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField() {
             

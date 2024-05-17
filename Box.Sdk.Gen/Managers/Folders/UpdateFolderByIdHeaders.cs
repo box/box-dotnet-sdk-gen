@@ -17,12 +17,12 @@ namespace Box.Sdk.Gen.Managers {
         /// with a `412 Precondition Failed` if it
         /// has changed since.
         /// </summary>
-        public string? IfMatch { get; set; } = default;
+        public string? IfMatch { get; init; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public UpdateFolderByIdHeaders(Dictionary<string, string?> extraHeaders = default) {
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };

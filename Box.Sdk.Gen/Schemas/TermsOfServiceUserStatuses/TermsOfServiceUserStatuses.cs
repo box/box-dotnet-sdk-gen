@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The total number of objects.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; set; } = default;
+        public long? TotalCount { get; init; }
 
         /// <summary>
         /// A list of terms of service user statuses
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TermsOfServiceUserStatus>? Entries { get; set; } = default;
+        public IReadOnlyList<TermsOfServiceUserStatus>? Entries { get; init; }
 
         public TermsOfServiceUserStatuses() {
             

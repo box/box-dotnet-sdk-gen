@@ -7,37 +7,37 @@ namespace Box.Sdk.Gen.Schemas {
         /// The URL to upload parts to
         /// </summary>
         [JsonPropertyName("upload_part")]
-        public string? UploadPart { get; set; } = default;
+        public string? UploadPart { get; init; }
 
         /// <summary>
         /// The URL used to commit the file
         /// </summary>
         [JsonPropertyName("commit")]
-        public string? Commit { get; set; } = default;
+        public string? Commit { get; init; }
 
         /// <summary>
         /// The URL for used to abort the session.
         /// </summary>
         [JsonPropertyName("abort")]
-        public string? Abort { get; set; } = default;
+        public string? Abort { get; init; }
 
         /// <summary>
         /// The URL users to list all parts.
         /// </summary>
         [JsonPropertyName("list_parts")]
-        public string? ListParts { get; set; } = default;
+        public string? ListParts { get; init; }
 
         /// <summary>
         /// The URL used to get the status of the upload.
         /// </summary>
         [JsonPropertyName("status")]
-        public string? Status { get; set; } = default;
+        public string? Status { get; init; }
 
         /// <summary>
         /// The URL used to get the upload log from.
         /// </summary>
         [JsonPropertyName("log_event")]
-        public string? LogEvent { get; set; } = default;
+        public string? LogEvent { get; init; }
 
         public UploadSessionSessionEndpointsField() {
             

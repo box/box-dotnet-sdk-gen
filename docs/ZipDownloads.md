@@ -32,7 +32,7 @@ See the endpoint docs at
 
 <!-- sample post_zip_downloads -->
 ```
-await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip"));
+await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)})) { DownloadFileName = "zip" });
 ```
 
 ### Arguments
@@ -149,7 +149,7 @@ This operation is performed by calling function `DownloadZip`.
 
 
 ```
-await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)}), downloadFileName: "zip"));
+await client.ZipDownloads.DownloadZipAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)})) { DownloadFileName = "zip" });
 ```
 
 ### Arguments

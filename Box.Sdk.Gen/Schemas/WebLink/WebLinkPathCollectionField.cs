@@ -10,13 +10,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The number of folders in this list.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long TotalCount { get; set; }
+        public long TotalCount { get; }
 
         /// <summary>
         /// The parent folders for this item
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FolderMini> Entries { get; set; }
+        public IReadOnlyList<FolderMini> Entries { get; }
 
         public WebLinkPathCollectionField(long totalCount, IReadOnlyList<FolderMini> entries) {
             TotalCount = totalCount;

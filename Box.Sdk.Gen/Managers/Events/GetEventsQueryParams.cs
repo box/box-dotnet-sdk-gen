@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   events will not be returned in chronological order and may
         ///   contain duplicates.
         /// </summary>
-        public GetEventsQueryParamsStreamTypeField? StreamType { get; set; } = default;
+        public GetEventsQueryParamsStreamTypeField? StreamType { get; init; }
 
         /// <summary>
         /// The location in the event stream to start receiving events from.
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Managers {
         /// the latest stream position for initialization.
         /// * `0` or `null` will return all events.
         /// </summary>
-        public string? StreamPosition { get; set; } = default;
+        public string? StreamPosition { get; init; }
 
         /// <summary>
         /// Limits the number of events returned
@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Managers {
         /// retrieved events are returned rather than delaying for an unknown amount
         /// of time to see if there are any more results.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// A comma-separated list of events to filter by. This can only be used when
@@ -56,21 +56,21 @@ namespace Box.Sdk.Gen.Managers {
         /// `adming_logs_streaming`. For any other `stream_type` this value will be
         /// ignored.
         /// </summary>
-        public IReadOnlyList<GetEventsQueryParamsEventTypeField>? EventType { get; set; } = default;
+        public IReadOnlyList<GetEventsQueryParamsEventTypeField>? EventType { get; init; }
 
         /// <summary>
         /// The lower bound date and time to return events for. This can only be used
         /// when requesting the events with a `stream_type` of `admin_logs`. For any
         /// other `stream_type` this value will be ignored.
         /// </summary>
-        public System.DateTimeOffset? CreatedAfter { get; set; } = default;
+        public System.DateTimeOffset? CreatedAfter { get; init; }
 
         /// <summary>
         /// The upper bound date and time to return events for. This can only be used
         /// when requesting the events with a `stream_type` of `admin_logs`. For any
         /// other `stream_type` this value will be ignored.
         /// </summary>
-        public System.DateTimeOffset? CreatedBefore { get; set; } = default;
+        public System.DateTimeOffset? CreatedBefore { get; init; }
 
         public GetEventsQueryParams() {
             

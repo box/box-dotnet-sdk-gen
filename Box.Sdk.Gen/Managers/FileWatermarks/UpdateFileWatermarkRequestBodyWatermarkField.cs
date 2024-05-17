@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Currently only supports one option.
         /// </summary>
         [JsonPropertyName("imprint")]
-        public UpdateFileWatermarkRequestBodyWatermarkImprintField Imprint { get; set; }
+        public UpdateFileWatermarkRequestBodyWatermarkImprintField Imprint { get; }
 
         public UpdateFileWatermarkRequestBodyWatermarkField(UpdateFileWatermarkRequestBodyWatermarkImprintField imprint = UpdateFileWatermarkRequestBodyWatermarkImprintField.Default) {
             Imprint = imprint;

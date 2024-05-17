@@ -61,7 +61,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FileClassifications.AddClassificationToFileAsync(fileId: file.Id, requestBody: new AddClassificationToFileRequestBody(boxSecurityClassificationKey: classification.Key));
+await client.FileClassifications.AddClassificationToFileAsync(fileId: file.Id, requestBody: new AddClassificationToFileRequestBody() { BoxSecurityClassificationKey = classification.Key });
 ```
 
 ### Arguments

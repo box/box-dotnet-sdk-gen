@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the task
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The type of the item to assign.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateTaskAssignmentRequestBodyTaskTypeField Type { get; set; }
+        public CreateTaskAssignmentRequestBodyTaskTypeField Type { get; }
 
         public CreateTaskAssignmentRequestBodyTaskField(string id, CreateTaskAssignmentRequestBodyTaskTypeField type = CreateTaskAssignmentRequestBodyTaskTypeField.Task) {
             Id = id;

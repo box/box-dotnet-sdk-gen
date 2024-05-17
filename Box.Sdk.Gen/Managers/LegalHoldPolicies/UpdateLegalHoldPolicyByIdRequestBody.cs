@@ -12,19 +12,19 @@ namespace Box.Sdk.Gen.Managers {
         /// The name of the policy.
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string? PolicyName { get; set; } = default;
+        public string? PolicyName { get; init; }
 
         /// <summary>
         /// A description for the policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// Notes around why the policy was released.
         /// </summary>
         [JsonPropertyName("release_notes")]
-        public string? ReleaseNotes { get; set; } = default;
+        public string? ReleaseNotes { get; init; }
 
         public UpdateLegalHoldPolicyByIdRequestBody() {
             

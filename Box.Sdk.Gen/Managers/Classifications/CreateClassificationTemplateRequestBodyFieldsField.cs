@@ -13,20 +13,20 @@ namespace Box.Sdk.Gen.Managers {
         /// that is always enum.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateClassificationTemplateRequestBodyFieldsTypeField Type { get; set; }
+        public CreateClassificationTemplateRequestBodyFieldsTypeField Type { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public CreateClassificationTemplateRequestBodyFieldsKeyField Key { get; set; }
+        public CreateClassificationTemplateRequestBodyFieldsKeyField Key { get; }
 
         /// <summary>
         /// A display name for the classification.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public CreateClassificationTemplateRequestBodyFieldsDisplayNameField DisplayName { get; set; }
+        public CreateClassificationTemplateRequestBodyFieldsDisplayNameField DisplayName { get; }
 
         /// <summary>
         /// Determines if the classification
@@ -36,14 +36,14 @@ namespace Box.Sdk.Gen.Managers {
         /// devices.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// The actual list of classifications that are present on
         /// this template.
         /// </summary>
         [JsonPropertyName("options")]
-        public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> Options { get; set; }
+        public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> Options { get; }
 
         public CreateClassificationTemplateRequestBodyFieldsField(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> options, CreateClassificationTemplateRequestBodyFieldsTypeField type = CreateClassificationTemplateRequestBodyFieldsTypeField.Enum, CreateClassificationTemplateRequestBodyFieldsKeyField key = CreateClassificationTemplateRequestBodyFieldsKeyField.BoxSecurityClassificationKey, CreateClassificationTemplateRequestBodyFieldsDisplayNameField displayName = CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification) {
             Type = type;

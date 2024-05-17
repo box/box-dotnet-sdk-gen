@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         /// not be created by applications.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string Scope { get; set; }
+        public string Scope { get; }
 
         /// <summary>
         /// A unique identifier for the template. This identifier needs to be
@@ -28,20 +28,20 @@ namespace Box.Sdk.Gen.Managers {
         /// based on the value of the `displayName`.
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public string? TemplateKey { get; set; } = default;
+        public string? TemplateKey { get; init; }
 
         /// <summary>
         /// The display name of the template.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public string DisplayName { get; set; }
+        public string DisplayName { get; }
 
         /// <summary>
         /// Defines if this template is visible in the Box web app UI, or if
         /// it is purely intended for usage through the API.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// An ordered list of template fields which are part of the template.
@@ -49,7 +49,7 @@ namespace Box.Sdk.Gen.Managers {
         /// as well as a single or multi-select list.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<CreateMetadataTemplateRequestBodyFieldsField>? Fields { get; set; } = default;
+        public IReadOnlyList<CreateMetadataTemplateRequestBodyFieldsField>? Fields { get; init; }
 
         /// <summary>
         /// Whether or not to copy any metadata attached to a file or folder
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Managers {
         /// file or folder when it is copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
-        public bool? CopyInstanceOnItemCopy { get; set; } = default;
+        public bool? CopyInstanceOnItemCopy { get; init; }
 
         public CreateMetadataTemplateRequestBody(string scope, string displayName) {
             Scope = scope;

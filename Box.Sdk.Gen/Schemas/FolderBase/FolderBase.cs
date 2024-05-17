@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the `folder_id` is `123`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The HTTP `etag` of this folder. This can be used within some API
@@ -21,13 +21,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform changes on the folder if (no) changes have happened.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         /// <summary>
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public FolderBaseTypeField Type { get; set; }
+        public FolderBaseTypeField Type { get; }
 
         public FolderBase(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) {
             Id = id;

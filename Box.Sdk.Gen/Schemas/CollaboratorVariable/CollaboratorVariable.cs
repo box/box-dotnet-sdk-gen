@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaboratorVariableTypeField Type { get; set; }
+        public CollaboratorVariableTypeField Type { get; }
 
         /// <summary>
         /// Variable type 
@@ -21,13 +21,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
-        public CollaboratorVariableVariableTypeField VariableType { get; set; }
+        public CollaboratorVariableVariableTypeField VariableType { get; }
 
         /// <summary>
         /// A list of user IDs.
         /// </summary>
         [JsonPropertyName("variable_value")]
-        public IReadOnlyList<CollaboratorVariableVariableValueField> VariableValue { get; set; }
+        public IReadOnlyList<CollaboratorVariableVariableValueField> VariableValue { get; }
 
         public CollaboratorVariable(IReadOnlyList<CollaboratorVariableVariableValueField> variableValue, CollaboratorVariableTypeField type = CollaboratorVariableTypeField.Variable, CollaboratorVariableVariableTypeField variableType = CollaboratorVariableVariableTypeField.UserList) {
             Type = type;

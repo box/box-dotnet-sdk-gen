@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The name for the retention policy
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string? PolicyName { get; set; } = default;
+        public string? PolicyName { get; init; }
 
         /// <summary>
         /// The additional text description of the retention policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The disposition action of the retention policy.
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Managers {
         /// You can use "null" if you don't want to change `disposition_action`.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public string? DispositionAction { get; set; } = default;
+        public string? DispositionAction { get; init; }
 
         /// <summary>
         /// Specifies the retention type:
@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Managers {
         /// not the other way around.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public string? RetentionType { get; set; } = default;
+        public string? RetentionType { get; init; }
 
         /// <summary>
         /// The length of the retention policy. This value
@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `indefinite`.
         /// </summary>
         [JsonPropertyName("retention_length")]
-        public string? RetentionLength { get; set; } = default;
+        public string? RetentionLength { get; init; }
 
         /// <summary>
         /// Used to retire a retention policy.
@@ -75,7 +75,7 @@ namespace Box.Sdk.Gen.Managers {
         /// or set it to `null`.
         /// </summary>
         [JsonPropertyName("status")]
-        public string? Status { get; set; } = default;
+        public string? Status { get; init; }
 
         /// <summary>
         /// Determines if the owner of items under the policy
@@ -83,7 +83,7 @@ namespace Box.Sdk.Gen.Managers {
         /// duration is about to end.
         /// </summary>
         [JsonPropertyName("can_owner_extend_retention")]
-        public bool? CanOwnerExtendRetention { get; set; } = default;
+        public bool? CanOwnerExtendRetention { get; init; }
 
         /// <summary>
         /// Determines if owners and co-owners of items
@@ -91,13 +91,13 @@ namespace Box.Sdk.Gen.Managers {
         /// the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("are_owners_notified")]
-        public bool? AreOwnersNotified { get; set; } = default;
+        public bool? AreOwnersNotified { get; init; }
 
         /// <summary>
         /// A list of users notified when the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("custom_notification_recipients")]
-        public IReadOnlyList<UserBase>? CustomNotificationRecipients { get; set; } = default;
+        public IReadOnlyList<UserBase>? CustomNotificationRecipients { get; init; }
 
         public UpdateRetentionPolicyByIdRequestBody() {
             

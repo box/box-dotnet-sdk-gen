@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the item to trigger a webhook
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of item to trigger a webhook
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateWebhookRequestBodyTargetTypeField? Type { get; set; } = default;
+        public CreateWebhookRequestBodyTargetTypeField? Type { get; init; }
 
         public CreateWebhookRequestBodyTargetField() {
             

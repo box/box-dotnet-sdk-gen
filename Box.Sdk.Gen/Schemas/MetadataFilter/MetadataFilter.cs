@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// that are available to all enterprises using Box.
         /// </summary>
         [JsonPropertyName("scope")]
-        public MetadataFilterScopeField? Scope { get; set; } = default;
+        public MetadataFilterScopeField? Scope { get; init; }
 
         /// <summary>
         /// The key of the template used to filter search results.
@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// [folder]: e://get-folders-id-metadata
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public string? TemplateKey { get; set; } = default;
+        public string? TemplateKey { get; init; }
 
         /// <summary>
         /// Specifies which fields on the template to filter the search
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// template matches each of the fields specified.
         /// </summary>
         [JsonPropertyName("filters")]
-        public Dictionary<string, MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>? Filters { get; set; } = default;
+        public Dictionary<string, MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>? Filters { get; init; }
 
         public MetadataFilter() {
             

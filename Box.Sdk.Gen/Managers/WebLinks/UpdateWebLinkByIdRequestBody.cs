@@ -12,28 +12,28 @@ namespace Box.Sdk.Gen.Managers {
         /// `"http://"` or `"https://"`.
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         [JsonPropertyName("parent")]
-        public UpdateWebLinkByIdRequestBodyParentField? Parent { get; set; } = default;
+        public UpdateWebLinkByIdRequestBodyParentField? Parent { get; init; }
 
         /// <summary>
         /// A new name for the web link. Defaults to the URL if not set.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// A new description of the web link.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The settings for the shared link to update.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public UpdateWebLinkByIdRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public UpdateWebLinkByIdRequestBodySharedLinkField? SharedLink { get; init; }
 
         public UpdateWebLinkByIdRequestBody() {
             

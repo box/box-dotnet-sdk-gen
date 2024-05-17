@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The name of the file
         /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// The parent folder to upload the file to
         /// </summary>
         [JsonPropertyName("parent")]
-        public UploadFileRequestBodyAttributesParentField Parent { get; set; }
+        public UploadFileRequestBodyAttributesParentField Parent { get; }
 
         /// <summary>
         /// Defines the time the file was originally created at.
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If not set, the upload time will be used.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; init; }
 
         /// <summary>
         /// Defines the time the file was last modified at.
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// If not set, the upload time will be used.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; init; }
 
         public UploadFileRequestBodyAttributesField(string name, UploadFileRequestBodyAttributesParentField parent) {
             Name = name;

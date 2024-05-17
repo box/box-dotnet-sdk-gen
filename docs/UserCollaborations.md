@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample post_collaborations -->
 ```
-await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField(type: CreateCollaborationRequestBodyItemTypeField.File, id: file.Id), accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User, id: Utils.GetEnvVar(name: "USER_ID")), role: CreateCollaborationRequestBodyRoleField.Editor));
+await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.File, Id = file.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User) { Id = Utils.GetEnvVar(name: "USER_ID") }, role: CreateCollaborationRequestBodyRoleField.Editor));
 ```
 
 ### Arguments

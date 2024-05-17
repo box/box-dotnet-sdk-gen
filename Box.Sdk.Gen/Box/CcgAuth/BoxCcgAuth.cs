@@ -13,22 +13,22 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// Configuration object of Client Credentials Grant auth.
         /// </summary>
-        public CcgConfig Config { get; set; }
+        internal CcgConfig Config { get; }
 
         /// <summary>
         /// An object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </summary>
-        public ITokenStorage TokenStorage { get; set; }
+        internal ITokenStorage TokenStorage { get; }
 
         /// <summary>
         /// The ID of the user or enterprise to authenticate as. If not provided, defaults to the enterprise ID if set, otherwise defaults to the user ID.
         /// </summary>
-        public string? SubjectId { get; set; }
+        internal string? SubjectId { get; }
 
         /// <summary>
         /// The type of the subject ID provided. Must be either 'user' or 'enterprise'.
         /// </summary>
-        public PostOAuth2TokenBoxSubjectTypeField? SubjectType { get; set; }
+        internal PostOAuth2TokenBoxSubjectTypeField? SubjectType { get; }
 
         public BoxCcgAuth(CcgConfig config) {
             Config = config;

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of parent folder
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CopyFolderRequestBodyParentField(string id) {
             Id = id;

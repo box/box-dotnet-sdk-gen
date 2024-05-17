@@ -9,35 +9,35 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FolderFull : Folder {
         [JsonPropertyName("sync_state")]
-        public FolderFullSyncStateField? SyncState { get; set; } = default;
+        public FolderFullSyncStateField? SyncState { get; init; }
 
         /// <summary>
         /// Specifies if this folder has any other collaborators.
         /// </summary>
         [JsonPropertyName("has_collaborations")]
-        public bool? HasCollaborations { get; set; } = default;
+        public bool? HasCollaborations { get; init; }
 
         [JsonPropertyName("permissions")]
-        public FolderFullPermissionsField? Permissions { get; set; } = default;
+        public FolderFullPermissionsField? Permissions { get; init; }
 
         [JsonPropertyName("tags")]
-        public IReadOnlyList<string>? Tags { get; set; } = default;
+        public IReadOnlyList<string>? Tags { get; init; }
 
         [JsonPropertyName("can_non_owners_invite")]
-        public bool? CanNonOwnersInvite { get; set; } = default;
+        public bool? CanNonOwnersInvite { get; init; }
 
         /// <summary>
         /// Specifies if this folder is owned by a user outside of the
         /// authenticated enterprise.
         /// </summary>
         [JsonPropertyName("is_externally_owned")]
-        public bool? IsExternallyOwned { get; set; } = default;
+        public bool? IsExternallyOwned { get; init; }
 
         [JsonPropertyName("metadata")]
-        public FolderFullMetadataField? Metadata { get; set; } = default;
+        public FolderFullMetadataField? Metadata { get; init; }
 
         [JsonPropertyName("is_collaboration_restricted_to_enterprise")]
-        public bool? IsCollaborationRestrictedToEnterprise { get; set; } = default;
+        public bool? IsCollaborationRestrictedToEnterprise { get; init; }
 
         /// <summary>
         /// A list of access levels that are available
@@ -47,17 +47,17 @@ namespace Box.Sdk.Gen.Schemas {
         /// be an empty list as sharing is not allowed at that level.
         /// </summary>
         [JsonPropertyName("allowed_shared_link_access_levels")]
-        public IReadOnlyList<FolderFullAllowedSharedLinkAccessLevelsField>? AllowedSharedLinkAccessLevels { get; set; } = default;
+        public IReadOnlyList<FolderFullAllowedSharedLinkAccessLevelsField>? AllowedSharedLinkAccessLevels { get; init; }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
         /// when sharing this folder.
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
-        public IReadOnlyList<FolderFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; set; } = default;
+        public IReadOnlyList<FolderFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; init; }
 
         [JsonPropertyName("watermark_info")]
-        public FolderFullWatermarkInfoField? WatermarkInfo { get; set; } = default;
+        public FolderFullWatermarkInfoField? WatermarkInfo { get; init; }
 
         /// <summary>
         /// Specifies if the folder can be accessed
@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// to a parent folder.
         /// </summary>
         [JsonPropertyName("is_accessible_via_shared_link")]
-        public bool? IsAccessibleViaSharedLink { get; set; } = default;
+        public bool? IsAccessibleViaSharedLink { get; init; }
 
         /// <summary>
         /// Specifies if collaborators who are not owners
@@ -76,10 +76,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// collaborators.
         /// </summary>
         [JsonPropertyName("can_non_owners_view_collaborators")]
-        public bool? CanNonOwnersViewCollaborators { get; set; } = default;
+        public bool? CanNonOwnersViewCollaborators { get; init; }
 
         [JsonPropertyName("classification")]
-        public FolderFullClassificationField? Classification { get; set; } = default;
+        public FolderFullClassificationField? Classification { get; init; }
 
         public FolderFull(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             

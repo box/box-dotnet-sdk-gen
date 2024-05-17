@@ -8,14 +8,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestCopyRequestFolderTypeField? Type { get; set; } = default;
+        public FileRequestCopyRequestFolderTypeField? Type { get; init; }
 
         /// <summary>
         /// The ID of the folder to associate the new
         /// file request to.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public FileRequestCopyRequestFolderField(string id) {
             Id = id;

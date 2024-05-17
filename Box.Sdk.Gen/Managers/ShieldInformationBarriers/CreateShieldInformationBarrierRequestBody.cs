@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The `type` and `id` of enterprise this barrier is under.
         /// </summary>
         [JsonPropertyName("enterprise")]
-        public EnterpriseBase Enterprise { get; set; }
+        public EnterpriseBase Enterprise { get; }
 
         public CreateShieldInformationBarrierRequestBody(EnterpriseBase enterprise) {
             Enterprise = enterprise;

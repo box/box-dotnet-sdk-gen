@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This is desirable for one-way syncing of groups.
         /// </summary>
         [JsonPropertyName("provenance")]
-        public string? Provenance { get; set; } = default;
+        public string? Provenance { get; init; }
 
         /// <summary>
         /// An arbitrary identifier that can be used by
@@ -25,13 +25,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// either Box or external systems.
         /// </summary>
         [JsonPropertyName("external_sync_identifier")]
-        public string? ExternalSyncIdentifier { get; set; } = default;
+        public string? ExternalSyncIdentifier { get; init; }
 
         /// <summary>
         /// Human readable description of the group.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// Specifies who can invite the group to collaborate
@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// enterprise can invite the group.
         /// </summary>
         [JsonPropertyName("invitability_level")]
-        public GroupFullInvitabilityLevelField? InvitabilityLevel { get; set; } = default;
+        public GroupFullInvitabilityLevelField? InvitabilityLevel { get; init; }
 
         /// <summary>
         /// Specifies who can view the members of the group
@@ -60,10 +60,10 @@ namespace Box.Sdk.Gen.Schemas {
         ///   enterprise
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
-        public GroupFullMemberViewabilityLevelField? MemberViewabilityLevel { get; set; } = default;
+        public GroupFullMemberViewabilityLevelField? MemberViewabilityLevel { get; init; }
 
         [JsonPropertyName("permissions")]
-        public GroupFullPermissionsField? Permissions { get; set; } = default;
+        public GroupFullPermissionsField? Permissions { get; init; }
 
         public GroupFull(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             

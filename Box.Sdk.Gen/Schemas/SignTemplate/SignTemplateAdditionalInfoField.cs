@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Non editable fields.
         /// </summary>
         [JsonPropertyName("non_editable")]
-        public IReadOnlyList<SignTemplateAdditionalInfoNonEditableField>? NonEditable { get; set; } = default;
+        public IReadOnlyList<SignTemplateAdditionalInfoNonEditableField>? NonEditable { get; init; }
 
         /// <summary>
         /// Required fields.
         /// </summary>
         [JsonPropertyName("required")]
-        public SignTemplateAdditionalInfoRequiredField? Required { get; set; } = default;
+        public SignTemplateAdditionalInfoRequiredField? Required { get; init; }
 
         public SignTemplateAdditionalInfoField() {
             
