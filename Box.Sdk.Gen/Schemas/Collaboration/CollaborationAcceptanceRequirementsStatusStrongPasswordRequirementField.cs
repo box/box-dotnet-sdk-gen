@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// a strong password to collaborate on the content.
         /// </summary>
         [JsonPropertyName("enterprise_has_strong_password_required_for_external_users")]
-        public bool? EnterpriseHasStrongPasswordRequiredForExternalUsers { get; set; } = default;
+        public bool? EnterpriseHasStrongPasswordRequiredForExternalUsers { get; init; }
 
         /// <summary>
         /// Whether or not the user has a strong password set for their
@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// required.
         /// </summary>
         [JsonPropertyName("user_has_strong_password")]
-        public bool? UserHasStrongPassword { get; set; } = default;
+        public bool? UserHasStrongPassword { get; init; }
 
         public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField() {
             

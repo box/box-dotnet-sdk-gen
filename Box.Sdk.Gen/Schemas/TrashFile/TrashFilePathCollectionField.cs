@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The number of folders in this list.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long TotalCount { get; set; }
+        public long TotalCount { get; }
 
         /// <summary>
         /// Array of folders for this item's path collection
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TrashFilePathCollectionEntriesField> Entries { get; set; }
+        public IReadOnlyList<TrashFilePathCollectionEntriesField> Entries { get; }
 
         public TrashFilePathCollectionField(long totalCount, IReadOnlyList<TrashFilePathCollectionEntriesField> entries) {
             TotalCount = totalCount;

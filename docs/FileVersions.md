@@ -181,7 +181,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody(id: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, type: PromoteFileVersionRequestBodyTypeField.FileVersion));
+await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody() { Id = NullableUtils.Unwrap(fileVersions.Entries)[0].Id, Type = PromoteFileVersionRequestBodyTypeField.FileVersion });
 ```
 
 ### Arguments

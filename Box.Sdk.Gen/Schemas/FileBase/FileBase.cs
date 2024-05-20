@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the `file_id` is `123`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The HTTP `etag` of this file. This can be used within some API
@@ -21,13 +21,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform changes on the file if (no) changes have happened.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         /// <summary>
         /// `file`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileBaseTypeField Type { get; set; }
+        public FileBaseTypeField Type { get; }
 
         public FileBase(string id, FileBaseTypeField type = FileBaseTypeField.File) {
             Id = id;

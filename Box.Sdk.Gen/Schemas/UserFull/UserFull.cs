@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The user’s enterprise role
         /// </summary>
         [JsonPropertyName("role")]
-        public UserFullRoleField? Role { get; set; } = default;
+        public UserFullRoleField? Role { get; init; }
 
         /// <summary>
         /// Tracking codes allow an admin to generate reports from the
@@ -20,61 +20,61 @@ namespace Box.Sdk.Gen.Schemas {
         /// before it can be used.
         /// </summary>
         [JsonPropertyName("tracking_codes")]
-        public IReadOnlyList<TrackingCode>? TrackingCodes { get; set; } = default;
+        public IReadOnlyList<TrackingCode>? TrackingCodes { get; init; }
 
         /// <summary>
         /// Whether the user can see other enterprise users in their contact list
         /// </summary>
         [JsonPropertyName("can_see_managed_users")]
-        public bool? CanSeeManagedUsers { get; set; } = default;
+        public bool? CanSeeManagedUsers { get; init; }
 
         /// <summary>
         /// Whether the user can use Box Sync
         /// </summary>
         [JsonPropertyName("is_sync_enabled")]
-        public bool? IsSyncEnabled { get; set; } = default;
+        public bool? IsSyncEnabled { get; init; }
 
         /// <summary>
         /// Whether the user is allowed to collaborate with users outside their
         /// enterprise
         /// </summary>
         [JsonPropertyName("is_external_collab_restricted")]
-        public bool? IsExternalCollabRestricted { get; set; } = default;
+        public bool? IsExternalCollabRestricted { get; init; }
 
         /// <summary>
         /// Whether to exempt the user from Enterprise device limits
         /// </summary>
         [JsonPropertyName("is_exempt_from_device_limits")]
-        public bool? IsExemptFromDeviceLimits { get; set; } = default;
+        public bool? IsExemptFromDeviceLimits { get; init; }
 
         /// <summary>
         /// Whether the user must use two-factor authentication
         /// </summary>
         [JsonPropertyName("is_exempt_from_login_verification")]
-        public bool? IsExemptFromLoginVerification { get; set; } = default;
+        public bool? IsExemptFromLoginVerification { get; init; }
 
         [JsonPropertyName("enterprise")]
-        public UserFullEnterpriseField? Enterprise { get; set; } = default;
+        public UserFullEnterpriseField? Enterprise { get; init; }
 
         /// <summary>
         /// Tags for all files and folders owned by the user. Values returned
         /// will only contain tags that were set by the requester.
         /// </summary>
         [JsonPropertyName("my_tags")]
-        public IReadOnlyList<string>? MyTags { get; set; } = default;
+        public IReadOnlyList<string>? MyTags { get; init; }
 
         /// <summary>
         /// The root (protocol, subdomain, domain) of any links that need to be
         /// generated for the user
         /// </summary>
         [JsonPropertyName("hostname")]
-        public string? Hostname { get; set; } = default;
+        public string? Hostname { get; init; }
 
         /// <summary>
         /// Whether the user is an App User
         /// </summary>
         [JsonPropertyName("is_platform_access_only")]
-        public bool? IsPlatformAccessOnly { get; set; } = default;
+        public bool? IsPlatformAccessOnly { get; init; }
 
         /// <summary>
         /// An external identifier for an app user, which can be used to look up
@@ -82,7 +82,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// providers to Box users.
         /// </summary>
         [JsonPropertyName("external_app_user_id")]
-        public string? ExternalAppUserId { get; set; } = default;
+        public string? ExternalAppUserId { get; init; }
 
         public UserFull(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             

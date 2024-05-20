@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// of the person who was detected in a video.
         /// </summary>
         [JsonPropertyName("text")]
-        public string? Text { get; set; } = default;
+        public string? Text { get; init; }
 
         /// <summary>
         /// Defines a list of timestamps for when this item should appear on the
         /// timeline.
         /// </summary>
         [JsonPropertyName("appears")]
-        public IReadOnlyList<TimelineSkillCardEntriesAppearsField>? Appears { get; set; } = default;
+        public IReadOnlyList<TimelineSkillCardEntriesAppearsField>? Appears { get; init; }
 
         /// <summary>
         /// The image to show on a for an entry that appears
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// appears during the duration of this entry.
         /// </summary>
         [JsonPropertyName("image_url")]
-        public string? ImageUrl { get; set; } = default;
+        public string? ImageUrl { get; init; }
 
         public TimelineSkillCardEntriesField() {
             

@@ -3,7 +3,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using NullableExtensions;
-using Unions;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen;
@@ -49,12 +48,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestJwtAuthRevoke() {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
-            await auth.RetrieveTokenAsync();
-            AccessToken? tokenFromStorageBeforeRevoke = await auth.TokenStorage.GetAsync();
-            await auth.RevokeTokenAsync();
-            AccessToken? tokenFromStorageAfterRevoke = await auth.TokenStorage.GetAsync();
+            AccessToken tokenFromStorageBeforeRevoke = await auth.RetrieveTokenAsync();
             Assert.IsTrue(tokenFromStorageBeforeRevoke != null);
-            Assert.IsTrue(tokenFromStorageAfterRevoke == null);
+            await auth.RevokeTokenAsync();
+            AccessToken tokenFromStorageAfterRevoke = await auth.RetrieveTokenAsync();
+            Assert.IsTrue(tokenFromStorageBeforeRevoke.AccessTokenField != tokenFromStorageAfterRevoke.AccessTokenField);
         }
 
         [TestMethod]
@@ -102,12 +100,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestCcgAuthRevoke() {
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { UserId = Utils.GetEnvVar(name: "USER_ID") };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
-            await auth.RetrieveTokenAsync();
-            AccessToken? tokenFromStorageBeforeRevoke = await auth.TokenStorage.GetAsync();
-            await auth.RevokeTokenAsync();
-            AccessToken? tokenFromStorageAfterRevoke = await auth.TokenStorage.GetAsync();
+            AccessToken tokenFromStorageBeforeRevoke = await auth.RetrieveTokenAsync();
             Assert.IsTrue(tokenFromStorageBeforeRevoke != null);
-            Assert.IsTrue(tokenFromStorageAfterRevoke == null);
+            await auth.RevokeTokenAsync();
+            AccessToken tokenFromStorageAfterRevoke = await auth.RetrieveTokenAsync();
+            Assert.IsTrue(tokenFromStorageBeforeRevoke.AccessTokenField != tokenFromStorageAfterRevoke.AccessTokenField);
         }
 
         public async System.Threading.Tasks.Task<AccessToken> GetAccessTokenAsync() {
@@ -124,12 +121,10 @@ namespace Box.Sdk.Gen.Tests.Integration {
             DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
             AccessToken token = await GetAccessTokenAsync();
             BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth(token: token.AccessTokenField, config: developerTokenConfig);
-            await auth.RetrieveTokenAsync();
-            AccessToken? tokenFromStorageBeforeRevoke = await auth.TokenStorage.GetAsync();
-            await auth.RevokeTokenAsync();
-            AccessToken? tokenFromStorageAfterRevoke = await auth.TokenStorage.GetAsync();
+            AccessToken tokenFromStorageBeforeRevoke = await auth.RetrieveTokenAsync();
             Assert.IsTrue(tokenFromStorageBeforeRevoke != null);
-            Assert.IsTrue(tokenFromStorageAfterRevoke == null);
+            await auth.RevokeTokenAsync();
+            await Assert.That.IsExceptionAsync(async() => await auth.RetrieveTokenAsync());
         }
 
         [TestMethod]
@@ -160,11 +155,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestOauthAuthRevoke() {
-            OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"));
+            AccessToken token = await GetAccessTokenAsync();
+            InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage(token: token);
+            OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"), tokenStorage: tokenStorage);
             BoxOAuth auth = new BoxOAuth(config: config);
             BoxClient client = new BoxClient(auth: auth);
-            AccessToken token = await GetAccessTokenAsync();
-            await auth.TokenStorage.StoreAsync(token: token);
             await client.Users.GetUserMeAsync();
             await auth.RevokeTokenAsync();
             await Assert.That.IsExceptionAsync(async() => await client.Users.GetUserMeAsync());
@@ -172,10 +167,10 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestOauthAuthDownscope() {
-            OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"));
-            BoxOAuth auth = new BoxOAuth(config: config);
             AccessToken token = await GetAccessTokenAsync();
-            await auth.TokenStorage.StoreAsync(token: token);
+            InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage(token: token);
+            OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"), tokenStorage: tokenStorage);
+            BoxOAuth auth = new BoxOAuth(config: config);
             BoxClient parentClient = new BoxClient(auth: auth);
             Files uploadedFiles = await parentClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 1024 * 1024)));
             FileFull file = NullableUtils.Unwrap(uploadedFiles.Entries)[0];

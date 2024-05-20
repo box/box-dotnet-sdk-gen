@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of folder locks
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FolderLock>? Entries { get; set; } = default;
+        public IReadOnlyList<FolderLock>? Entries { get; init; }
 
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
@@ -19,13 +19,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed. The maximum value varies by API.
         /// </summary>
         [JsonPropertyName("limit")]
-        public string? Limit { get; set; } = default;
+        public string? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; set; } = default;
+        public string? NextMarker { get; init; }
 
         public FolderLocks() {
             

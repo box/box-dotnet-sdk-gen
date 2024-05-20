@@ -15,19 +15,19 @@ namespace Box.Sdk.Gen.Managers {
         /// * `complete` defines a general task which can be completed
         /// </summary>
         [JsonPropertyName("action")]
-        public UpdateTaskByIdRequestBodyActionField? Action { get; set; } = default;
+        public UpdateTaskByIdRequestBodyActionField? Action { get; init; }
 
         /// <summary>
         /// The message included with the task.
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         /// <summary>
         /// When the task is due at.
         /// </summary>
         [JsonPropertyName("due_at")]
-        public System.DateTimeOffset? DueAt { get; set; } = default;
+        public System.DateTimeOffset? DueAt { get; init; }
 
         /// <summary>
         /// Defines which assignees need to complete this task before the task
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Managers {
         /// approve the the task in order for it to be considered completed.
         /// </summary>
         [JsonPropertyName("completion_rule")]
-        public UpdateTaskByIdRequestBodyCompletionRuleField? CompletionRule { get; set; } = default;
+        public UpdateTaskByIdRequestBodyCompletionRuleField? CompletionRule { get; init; }
 
         public UpdateTaskByIdRequestBody() {
             

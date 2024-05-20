@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The user who the folder will be transferred to
         /// </summary>
         [JsonPropertyName("owned_by")]
-        public TransferOwnedFolderRequestBodyOwnedByField OwnedBy { get; set; }
+        public TransferOwnedFolderRequestBodyOwnedByField OwnedBy { get; }
 
         public TransferOwnedFolderRequestBody(TransferOwnedFolderRequestBodyOwnedByField ownedBy) {
             OwnedBy = ownedBy;

@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Whether the user has accepted the terms.
         /// </summary>
         [JsonPropertyName("is_accepted")]
-        public bool IsAccepted { get; set; }
+        public bool IsAccepted { get; }
 
         public UpdateTermsOfServiceStatusForUserByIdRequestBody(bool isAccepted) {
             IsAccepted = isAccepted;

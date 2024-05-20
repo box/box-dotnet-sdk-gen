@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Managers {
         /// as the scope and key of the template to retrieve, for example
         /// `?fields=metadata.enterprise_12345.contractTemplate`.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         public GetFileByIdQueryParams() {
             

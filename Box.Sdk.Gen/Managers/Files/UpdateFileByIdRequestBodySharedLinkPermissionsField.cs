@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `open` or `company`.
         /// </summary>
         [JsonPropertyName("can_download")]
-        public bool? CanDownload { get; set; } = default;
+        public bool? CanDownload { get; init; }
 
         public UpdateFileByIdRequestBodySharedLinkPermissionsField() {
             

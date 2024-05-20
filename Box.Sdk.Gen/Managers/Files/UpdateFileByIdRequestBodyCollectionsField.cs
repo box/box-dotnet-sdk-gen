@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The unique identifier for this object
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type for this object
         /// </summary>
         [JsonPropertyName("type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         public UpdateFileByIdRequestBodyCollectionsField() {
             

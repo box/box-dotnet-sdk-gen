@@ -10,14 +10,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// value on this object.
         /// </summary>
         [JsonPropertyName("code")]
-        public StatusSkillCardStatusCodeField Code { get; set; }
+        public StatusSkillCardStatusCodeField Code { get; }
 
         /// <summary>
         /// A custom message that can be provided with this status.
         /// This will be shown in the web app to the end user.
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         public StatusSkillCardStatusField(StatusSkillCardStatusCodeField code) {
             Code = code;

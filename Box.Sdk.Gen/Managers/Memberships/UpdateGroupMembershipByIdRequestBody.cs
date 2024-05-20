@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The role of the user in the group.
         /// </summary>
         [JsonPropertyName("role")]
-        public UpdateGroupMembershipByIdRequestBodyRoleField? Role { get; set; } = default;
+        public UpdateGroupMembershipByIdRequestBodyRoleField? Role { get; init; }
 
         /// <summary>
         /// Custom configuration for the permissions an admin
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Managers {
         /// them accordingly, omitted permissions will be enabled by default.
         /// </summary>
         [JsonPropertyName("configurable_permissions")]
-        public Dictionary<string, bool>? ConfigurablePermissions { get; set; } = default;
+        public Dictionary<string, bool>? ConfigurablePermissions { get; init; }
 
         public UpdateGroupMembershipByIdRequestBody() {
             

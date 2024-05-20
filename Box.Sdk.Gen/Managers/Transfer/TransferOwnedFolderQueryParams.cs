@@ -19,13 +19,13 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// Determines if users should receive email notification
         /// for the action performed.
         /// </summary>
-        public bool? Notify { get; set; } = default;
+        public bool? Notify { get; init; }
 
         public TransferOwnedFolderQueryParams() {
             

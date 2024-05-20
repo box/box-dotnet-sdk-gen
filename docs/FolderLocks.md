@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_folder_locks -->
 ```
-await client.FolderLocks.CreateFolderLockAsync(requestBody: new CreateFolderLockRequestBody(folder: new CreateFolderLockRequestBodyFolderField(id: folder.Id, type: "folder"), lockedOperations: new CreateFolderLockRequestBodyLockedOperationsField(move: true, delete: true)));
+await client.FolderLocks.CreateFolderLockAsync(requestBody: new CreateFolderLockRequestBody(folder: new CreateFolderLockRequestBodyFolderField(id: folder.Id, type: "folder")) { LockedOperations = new CreateFolderLockRequestBodyLockedOperationsField(move: true, delete: true) });
 ```
 
 ### Arguments

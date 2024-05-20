@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the shield information barrier.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// The desired status for the shield information barrier.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateShieldInformationBarrierStatusRequestBodyStatusField Status { get; set; }
+        public UpdateShieldInformationBarrierStatusRequestBodyStatusField Status { get; }
 
         public UpdateShieldInformationBarrierStatusRequestBody(string id, UpdateShieldInformationBarrierStatusRequestBodyStatusField status) {
             Id = id;

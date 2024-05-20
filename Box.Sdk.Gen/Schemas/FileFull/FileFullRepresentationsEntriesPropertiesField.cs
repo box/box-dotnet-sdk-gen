@@ -12,21 +12,21 @@ namespace Box.Sdk.Gen.Schemas {
         /// The width by height size of this representation in pixels.
         /// </summary>
         [JsonPropertyName("dimensions")]
-        public string? Dimensions { get; set; } = default;
+        public string? Dimensions { get; init; }
 
         /// <summary>
         /// Indicates if the representation is build up out of multiple
         /// pages.
         /// </summary>
         [JsonPropertyName("paged")]
-        public bool? Paged { get; set; } = default;
+        public bool? Paged { get; init; }
 
         /// <summary>
         /// Indicates if the representation can be used as a thumbnail of
         /// the file.
         /// </summary>
         [JsonPropertyName("thumb")]
-        public bool? Thumb { get; set; } = default;
+        public bool? Thumb { get; init; }
 
         public FileFullRepresentationsEntriesPropertiesField() {
             

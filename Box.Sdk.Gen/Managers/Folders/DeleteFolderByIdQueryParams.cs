@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Delete a folder that is not empty by recursively deleting the
         /// folder and all of its content.
         /// </summary>
-        public bool? Recursive { get; set; } = default;
+        public bool? Recursive { get; init; }
 
         public DeleteFolderByIdQueryParams() {
             

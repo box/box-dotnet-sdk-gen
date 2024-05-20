@@ -11,25 +11,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// Name of the company
         /// </summary>
         [JsonPropertyName("company_name")]
-        public string? CompanyName { get; set; } = default;
+        public string? CompanyName { get; init; }
 
         /// <summary>
         /// Custom branding logo URI in the form of a base64 image.
         /// </summary>
         [JsonPropertyName("logo_uri")]
-        public string? LogoUri { get; set; } = default;
+        public string? LogoUri { get; init; }
 
         /// <summary>
         /// Custom branding color in hex.
         /// </summary>
         [JsonPropertyName("branding_color")]
-        public string? BrandingColor { get; set; } = default;
+        public string? BrandingColor { get; init; }
 
         /// <summary>
         /// Content of the email footer.
         /// </summary>
         [JsonPropertyName("email_footer_text")]
-        public string? EmailFooterText { get; set; } = default;
+        public string? EmailFooterText { get; init; }
 
         public SignTemplateCustomBrandingField() {
             

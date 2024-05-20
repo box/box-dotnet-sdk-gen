@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// option and the internal key used when updating templates.
         /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; set; }
+        public string Key { get; }
 
         public CreateMetadataTemplateRequestBodyFieldsOptionsField(string key) {
             Key = key;

@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of retention policy assignments
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RetentionPolicyAssignment>? Entries { get; set; } = default;
+        public IReadOnlyList<RetentionPolicyAssignment>? Entries { get; init; }
 
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
@@ -19,13 +19,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed. The maximum value varies by API.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; set; } = default;
+        public string? NextMarker { get; init; }
 
         public RetentionPolicyAssignments() {
             

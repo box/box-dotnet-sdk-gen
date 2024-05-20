@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for the termination job status
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         public SessionTerminationMessage() {
             

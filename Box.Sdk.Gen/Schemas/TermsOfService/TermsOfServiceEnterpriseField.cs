@@ -8,19 +8,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this enterprise.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceEnterpriseTypeField? Type { get; set; } = default;
+        public TermsOfServiceEnterpriseTypeField? Type { get; init; }
 
         /// <summary>
         /// The name of the enterprise
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         public TermsOfServiceEnterpriseField() {
             

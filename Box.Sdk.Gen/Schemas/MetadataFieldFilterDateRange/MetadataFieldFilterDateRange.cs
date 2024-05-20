@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("lt")]
-        public System.DateTimeOffset? Lt { get; set; } = default;
+        public System.DateTimeOffset? Lt { get; init; }
 
         /// <summary>
         /// Specifies the (inclusive) lower bound for the metadata field
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// template.
         /// </summary>
         [JsonPropertyName("gt")]
-        public System.DateTimeOffset? Gt { get; set; } = default;
+        public System.DateTimeOffset? Gt { get; init; }
 
         public MetadataFieldFilterDateRange() {
             

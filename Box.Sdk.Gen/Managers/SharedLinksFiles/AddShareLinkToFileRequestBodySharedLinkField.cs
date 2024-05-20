@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Managers {
         /// accounts.
         /// </summary>
         [JsonPropertyName("access")]
-        public AddShareLinkToFileRequestBodySharedLinkAccessField? Access { get; set; } = default;
+        public AddShareLinkToFileRequestBodySharedLinkAccessField? Access { get; init; }
 
         /// <summary>
         /// The password required to access the shared link. Set the
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// A password can only be set when `access` is set to `open`.
         /// </summary>
         [JsonPropertyName("password")]
-        public string? Password { get; set; } = default;
+        public string? Password { get; init; }
 
         /// <summary>
         /// Defines a custom vanity name to use in the shared link URL,
@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Managers {
         /// links.
         /// </summary>
         [JsonPropertyName("vanity_name")]
-        public string? VanityName { get; set; } = default;
+        public string? VanityName { get; init; }
 
         /// <summary>
         /// The timestamp at which this shared link will
@@ -54,10 +54,10 @@ namespace Box.Sdk.Gen.Managers {
         /// current date and time.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public System.DateTimeOffset? UnsharedAt { get; set; } = default;
+        public System.DateTimeOffset? UnsharedAt { get; init; }
 
         [JsonPropertyName("permissions")]
-        public AddShareLinkToFileRequestBodySharedLinkPermissionsField? Permissions { get; set; } = default;
+        public AddShareLinkToFileRequestBodySharedLinkPermissionsField? Permissions { get; init; }
 
         public AddShareLinkToFileRequestBodySharedLinkField() {
             

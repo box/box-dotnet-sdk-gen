@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// these fields.
         /// </summary>
         [JsonPropertyName("classification")]
-        public ClassificationTemplateFieldsOptionsStaticConfigClassificationField? Classification { get; set; } = default;
+        public ClassificationTemplateFieldsOptionsStaticConfigClassificationField? Classification { get; init; }
 
         public ClassificationTemplateFieldsOptionsStaticConfigField() {
             

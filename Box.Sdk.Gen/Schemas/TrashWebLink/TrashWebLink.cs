@@ -11,82 +11,82 @@ namespace Box.Sdk.Gen.Schemas {
         /// `web_link`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashWebLinkTypeField? Type { get; set; } = default;
+        public TrashWebLinkTypeField? Type { get; init; }
 
         /// <summary>
         /// The unique identifier for this web link
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         [JsonPropertyName("sequence_id")]
-        public string? SequenceId { get; set; } = default;
+        public string? SequenceId { get; init; }
 
         /// <summary>
         /// The entity tag of this web link. Used with `If-Match`
         /// headers.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         /// <summary>
         /// The name of the web link
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The URL this web link points to
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; set; } = default;
+        public FolderMini? Parent { get; init; }
 
         /// <summary>
         /// The description accompanying the web link. This is
         /// visible within the Box web application.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         [JsonPropertyName("path_collection")]
-        public TrashWebLinkPathCollectionField? PathCollection { get; set; } = default;
+        public TrashWebLinkPathCollectionField? PathCollection { get; init; }
 
         /// <summary>
         /// When this file was created on Box’s servers.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// When this file was last updated on the Box
         /// servers.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         /// <summary>
         /// When this file was last moved to the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; init; }
 
         /// <summary>
         /// When this file will be permanently deleted.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         [JsonPropertyName("modified_by")]
-        public UserMini? ModifiedBy { get; set; } = default;
+        public UserMini? ModifiedBy { get; init; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini? OwnedBy { get; set; } = default;
+        public UserMini? OwnedBy { get; init; }
 
         /// <summary>
         /// The shared link for this bookmark. This will
@@ -94,7 +94,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// be active.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public string? SharedLink { get; set; } = default;
+        public string? SharedLink { get; init; }
 
         /// <summary>
         /// Whether this item is deleted or not. Values include `active`,
@@ -102,7 +102,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the file has been permanently deleted
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashWebLinkItemStatusField? ItemStatus { get; set; } = default;
+        public TrashWebLinkItemStatusField? ItemStatus { get; init; }
 
         public TrashWebLink() {
             

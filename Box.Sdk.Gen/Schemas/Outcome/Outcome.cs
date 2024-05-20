@@ -8,22 +8,22 @@ namespace Box.Sdk.Gen.Schemas {
         /// ID of a specific outcome
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         [JsonPropertyName("collaborators")]
-        public CollaboratorVariable? Collaborators { get; set; } = default;
+        public CollaboratorVariable? Collaborators { get; init; }
 
         [JsonPropertyName("completion_rule")]
-        public CompletionRuleVariable? CompletionRule { get; set; } = default;
+        public CompletionRuleVariable? CompletionRule { get; init; }
 
         [JsonPropertyName("file_collaborator_role")]
-        public RoleVariable? FileCollaboratorRole { get; set; } = default;
+        public RoleVariable? FileCollaboratorRole { get; init; }
 
         [JsonPropertyName("task_collaborators")]
-        public CollaboratorVariable? TaskCollaborators { get; set; } = default;
+        public CollaboratorVariable? TaskCollaborators { get; init; }
 
         [JsonPropertyName("role")]
-        public RoleVariable? Role { get; set; } = default;
+        public RoleVariable? Role { get; init; }
 
         public Outcome(string id) {
             Id = id;

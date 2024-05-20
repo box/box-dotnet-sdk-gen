@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The number of email aliases.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; set; } = default;
+        public long? TotalCount { get; init; }
 
         /// <summary>
         /// A list of email aliases
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<EmailAlias>? Entries { get; set; } = default;
+        public IReadOnlyList<EmailAlias>? Entries { get; init; }
 
         public EmailAliases() {
             

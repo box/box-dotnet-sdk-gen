@@ -13,19 +13,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed. The maximum value varies by API.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; set; } = default;
+        public string? NextMarker { get; init; }
 
         /// <summary>
         /// A list of Box Sign requests.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<SignRequest>? Entries { get; set; } = default;
+        public IReadOnlyList<SignRequest>? Entries { get; init; }
 
         public SignRequests() {
             

@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// requesting shield information barrier segment.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of the shield barrier segment for this member.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField? Type { get; set; } = default;
+        public CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField? Type { get; init; }
 
         public CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField() {
             

@@ -17,18 +17,18 @@ namespace Box.Sdk.Gen.Managers {
         /// with a `412 Precondition Failed` if it
         /// has changed since.
         /// </summary>
-        public string? IfMatch { get; set; } = default;
+        public string? IfMatch { get; init; }
 
         /// <summary>
         /// An optional header containing the SHA1 hash of the file to
         /// ensure that the file was not corrupted in transit.
         /// </summary>
-        public string? ContentMd5 { get; set; } = default;
+        public string? ContentMd5 { get; init; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public UploadFileVersionHeaders(Dictionary<string, string?> extraHeaders = default) {
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };

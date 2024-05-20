@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The type to assign.
         /// </summary>
         [JsonPropertyName("type")]
-        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField Type { get; set; }
+        public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField Type { get; }
 
         /// <summary>
         /// The ID of the storage policy to assign.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(string id, UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField type = UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField.StoragePolicy) {
             Type = type;

@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this terms of service.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `terms_of_service`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceBaseTypeField Type { get; set; }
+        public TermsOfServiceBaseTypeField Type { get; }
 
         public TermsOfServiceBase(string id, TermsOfServiceBaseTypeField type = TermsOfServiceBaseTypeField.TermsOfService) {
             Id = id;

@@ -9,31 +9,31 @@ namespace Box.Sdk.Gen.Schemas {
         /// comment
         /// </summary>
         [JsonPropertyName("is_reply_comment")]
-        public bool? IsReplyComment { get; set; } = default;
+        public bool? IsReplyComment { get; init; }
 
         /// <summary>
         /// The text of the comment, as provided by the user
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         /// <summary>
         /// The time this comment was created
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The time this comment was last modified
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         [JsonPropertyName("item")]
-        public CommentItemField? Item { get; set; } = default;
+        public CommentItemField? Item { get; init; }
 
         public Comment() {
             

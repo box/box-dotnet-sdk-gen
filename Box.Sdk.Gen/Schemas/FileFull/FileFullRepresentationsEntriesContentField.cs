@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Schemas {
         ///   extension of the representation.
         /// </summary>
         [JsonPropertyName("url_template")]
-        public string? UrlTemplate { get; set; } = default;
+        public string? UrlTemplate { get; init; }
 
         public FileFullRepresentationsEntriesContentField() {
             

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `total_count`.
         /// </summary>
         [JsonPropertyName("total_count")]
-        public long? TotalCount { get; set; } = default;
+        public long? TotalCount { get; init; }
 
         /// <summary>
         /// The limit that was used for this search. This will be the same as the
@@ -21,20 +21,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The 0-based offset of the first entry in this set. This will be the same
         /// as the `offset` query parameter used.
         /// </summary>
         [JsonPropertyName("offset")]
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// Specifies the response as search result items with shared links
         /// </summary>
         [JsonPropertyName("type")]
-        public SearchResultsWithSharedLinksTypeField Type { get; set; }
+        public SearchResultsWithSharedLinksTypeField Type { get; }
 
         /// <summary>
         /// The search results for the query provided, including the
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// which the item has been shared with the user.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<SearchResultWithSharedLink>? Entries { get; set; } = default;
+        public IReadOnlyList<SearchResultWithSharedLink>? Entries { get; init; }
 
         public SearchResultsWithSharedLinks(SearchResultsWithSharedLinksTypeField type = SearchResultsWithSharedLinksTypeField.SearchResultsWithSharedLinks) {
             Type = type;

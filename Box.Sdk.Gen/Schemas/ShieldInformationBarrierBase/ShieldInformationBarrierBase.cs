@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for the shield information barrier
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The type of the shield information barrier
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierBaseTypeField? Type { get; set; } = default;
+        public ShieldInformationBarrierBaseTypeField? Type { get; init; }
 
         public ShieldInformationBarrierBase() {
             

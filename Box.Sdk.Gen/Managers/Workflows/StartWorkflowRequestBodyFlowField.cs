@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the flow object
         /// </summary>
         [JsonPropertyName("type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         /// <summary>
         /// The id of the flow
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public StartWorkflowRequestBodyFlowField() {
             

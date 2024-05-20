@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Represents an object with user avatar URLs.
         /// </summary>
         [JsonPropertyName("pic_urls")]
-        public UserAvatarPicUrlsField? PicUrls { get; set; } = default;
+        public UserAvatarPicUrlsField? PicUrls { get; init; }
 
         public UserAvatar() {
             

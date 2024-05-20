@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// rename the file.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The description for a file. This can be seen in the right-hand sidebar panel
@@ -22,13 +22,13 @@ namespace Box.Sdk.Gen.Managers {
         /// in the description.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         [JsonPropertyName("parent")]
-        public UpdateFileByIdRequestBodyParentField? Parent { get; set; } = default;
+        public UpdateFileByIdRequestBodyParentField? Parent { get; init; }
 
         [JsonPropertyName("shared_link")]
-        public UpdateFileByIdRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public UpdateFileByIdRequestBodySharedLinkField? SharedLink { get; init; }
 
         /// <summary>
         /// Defines a lock on an item. This prevents the item from being
@@ -38,20 +38,20 @@ namespace Box.Sdk.Gen.Managers {
         /// Set this to `null` to remove the lock.
         /// </summary>
         [JsonPropertyName("lock")]
-        public UpdateFileByIdRequestBodyLockField? Lock { get; set; } = default;
+        public UpdateFileByIdRequestBodyLockField? Lock { get; init; }
 
         /// <summary>
         /// The retention expiration timestamp for the given file. This
         /// date cannot be shortened once set on a file.
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public System.DateTimeOffset? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; init; }
 
         /// <summary>
         /// Defines who can download a file.
         /// </summary>
         [JsonPropertyName("permissions")]
-        public UpdateFileByIdRequestBodyPermissionsField? Permissions { get; set; } = default;
+        public UpdateFileByIdRequestBodyPermissionsField? Permissions { get; init; }
 
         /// <summary>
         /// An array of collections to make this file
@@ -67,7 +67,7 @@ namespace Box.Sdk.Gen.Managers {
         /// [1]: e://get-collections
         /// </summary>
         [JsonPropertyName("collections")]
-        public IReadOnlyList<UpdateFileByIdRequestBodyCollectionsField>? Collections { get; set; } = default;
+        public IReadOnlyList<UpdateFileByIdRequestBodyCollectionsField>? Collections { get; init; }
 
         /// <summary>
         /// The tags for this item. These tags are shown in
@@ -80,7 +80,7 @@ namespace Box.Sdk.Gen.Managers {
         /// unique tags per enterprise.
         /// </summary>
         [JsonPropertyName("tags")]
-        public IReadOnlyList<string>? Tags { get; set; } = default;
+        public IReadOnlyList<string>? Tags { get; init; }
 
         public UpdateFileByIdRequestBody() {
             

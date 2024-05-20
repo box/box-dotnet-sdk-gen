@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The ID of an instance of the metadata template to find.
         /// </summary>
-        public string MetadataInstanceId { get; set; }
+        public string MetadataInstanceId { get; }
 
         public GetMetadataTemplatesByInstanceIdQueryParams(string metadataInstanceId) {
             MetadataInstanceId = metadataInstanceId;

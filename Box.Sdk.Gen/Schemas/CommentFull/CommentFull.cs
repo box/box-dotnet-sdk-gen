@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// their display name.
         /// </summary>
         [JsonPropertyName("tagged_message")]
-        public string? TaggedMessage { get; set; } = default;
+        public string? TaggedMessage { get; init; }
 
         public CommentFull() {
             

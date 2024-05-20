@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// collaborate on the content.
         /// </summary>
         [JsonPropertyName("enterprise_has_two_factor_auth_enabled")]
-        public bool? EnterpriseHasTwoFactorAuthEnabled { get; set; } = default;
+        public bool? EnterpriseHasTwoFactorAuthEnabled { get; init; }
 
         /// <summary>
         /// Whether or not the user has two-factor authentication
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// authentication is not required.
         /// </summary>
         [JsonPropertyName("user_has_two_factor_authentication_enabled")]
-        public bool? UserHasTwoFactorAuthenticationEnabled { get; set; } = default;
+        public bool? UserHasTwoFactorAuthenticationEnabled { get; init; }
 
         public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField() {
             

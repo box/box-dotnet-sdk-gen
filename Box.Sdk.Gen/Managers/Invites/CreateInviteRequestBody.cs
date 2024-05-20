@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The enterprise to invite the user to
         /// </summary>
         [JsonPropertyName("enterprise")]
-        public CreateInviteRequestBodyEnterpriseField Enterprise { get; set; }
+        public CreateInviteRequestBodyEnterpriseField Enterprise { get; }
 
         /// <summary>
         /// The user to invite
         /// </summary>
         [JsonPropertyName("actionable_by")]
-        public CreateInviteRequestBodyActionableByField ActionableBy { get; set; }
+        public CreateInviteRequestBodyActionableByField ActionableBy { get; }
 
         public CreateInviteRequestBody(CreateInviteRequestBodyEnterpriseField enterprise, CreateInviteRequestBodyActionableByField actionableBy) {
             Enterprise = enterprise;

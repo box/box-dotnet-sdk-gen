@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The field to order by
         /// </summary>
         [JsonPropertyName("by")]
-        public string? By { get; set; } = default;
+        public string? By { get; init; }
 
         /// <summary>
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public CommentsOrderDirectionField? Direction { get; set; } = default;
+        public CommentsOrderDirectionField? Direction { get; init; }
 
         public CommentsOrderField() {
             

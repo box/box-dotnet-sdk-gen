@@ -17,25 +17,25 @@ namespace Box.Sdk.Gen.Schemas {
         ///   retry would not help.
         /// </summary>
         [JsonPropertyName("state")]
-        public SkillInvocationStatusStateField? State { get; set; } = default;
+        public SkillInvocationStatusStateField? State { get; init; }
 
         /// <summary>
         /// Status information
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         /// <summary>
         /// Error code information, if error occurred.
         /// </summary>
         [JsonPropertyName("error_code")]
-        public string? ErrorCode { get; set; } = default;
+        public string? ErrorCode { get; init; }
 
         /// <summary>
         /// Additional status information.
         /// </summary>
         [JsonPropertyName("additional_info")]
-        public string? AdditionalInfo { get; set; } = default;
+        public string? AdditionalInfo { get; init; }
 
         public SkillInvocationStatusField() {
             

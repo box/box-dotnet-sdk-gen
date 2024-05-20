@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the error returned.
         /// </summary>
         [JsonPropertyName("error")]
-        public string? Error { get; set; } = default;
+        public string? Error { get; init; }
 
         /// <summary>
         /// The type of the error returned.
         /// </summary>
         [JsonPropertyName("error_description")]
-        public string? ErrorDescription { get; set; } = default;
+        public string? ErrorDescription { get; init; }
 
         public OAuth2Error() {
             

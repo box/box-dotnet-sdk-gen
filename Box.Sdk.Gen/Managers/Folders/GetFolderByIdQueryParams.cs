@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Managers {
         /// as the scope and key of the template to retrieve, for example
         /// `?fields=metadata.enterprise_12345.contractTemplate`.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// Defines the **second** attribute by which items
@@ -56,13 +56,13 @@ namespace Box.Sdk.Gen.Managers {
         ///   and files listed
         ///   before web links.
         /// </summary>
-        public GetFolderByIdQueryParamsSortField? Sort { get; set; } = default;
+        public GetFolderByIdQueryParamsSortField? Sort { get; init; }
 
         /// <summary>
         /// The direction to sort results in. This can be either in alphabetical ascending
         /// (`ASC`) or descending (`DESC`) order.
         /// </summary>
-        public GetFolderByIdQueryParamsDirectionField? Direction { get; set; } = default;
+        public GetFolderByIdQueryParamsDirectionField? Direction { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -71,12 +71,12 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public GetFolderByIdQueryParams() {
             

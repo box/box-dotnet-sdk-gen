@@ -13,37 +13,37 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Mapped item type, for which the mapping should be returned
         /// </summary>
-        public GetSlackIntegrationMappingQueryParamsPartnerItemTypeField? PartnerItemType { get; set; } = default;
+        public GetSlackIntegrationMappingQueryParamsPartnerItemTypeField? PartnerItemType { get; init; }
 
         /// <summary>
         /// ID of the mapped item, for which the mapping should be returned
         /// </summary>
-        public string? PartnerItemId { get; set; } = default;
+        public string? PartnerItemId { get; init; }
 
         /// <summary>
         /// Box item ID, for which the mappings should be returned
         /// </summary>
-        public string? BoxItemId { get; set; } = default;
+        public string? BoxItemId { get; init; }
 
         /// <summary>
         /// Box item type, for which the mappings should be returned
         /// </summary>
-        public GetSlackIntegrationMappingQueryParamsBoxItemTypeField? BoxItemType { get; set; } = default;
+        public GetSlackIntegrationMappingQueryParamsBoxItemTypeField? BoxItemType { get; init; }
 
         /// <summary>
         /// Whether the mapping has been manually created
         /// </summary>
-        public bool? IsManuallyCreated { get; set; } = default;
+        public bool? IsManuallyCreated { get; init; }
 
         public GetSlackIntegrationMappingQueryParams() {
             

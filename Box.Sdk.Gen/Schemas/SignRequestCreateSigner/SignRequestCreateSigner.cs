@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The email address of the signer is required when making signature requests, except when using templates that are configured to include emails.
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; set; } = default;
+        public string? Email { get; init; }
 
         /// <summary>
         /// Defines the role of the signer in the signature request. A `signer`
@@ -17,27 +17,27 @@ namespace Box.Sdk.Gen.Schemas {
         /// log.
         /// </summary>
         [JsonPropertyName("role")]
-        public SignRequestCreateSignerRoleField? Role { get; set; } = default;
+        public SignRequestCreateSignerRoleField? Role { get; init; }
 
         /// <summary>
         /// Used in combination with an embed URL for a sender. After the
         /// sender signs, they are redirected to the next `in_person` signer.
         /// </summary>
         [JsonPropertyName("is_in_person")]
-        public bool? IsInPerson { get; set; } = default;
+        public bool? IsInPerson { get; init; }
 
         /// <summary>
         /// Order of the signer
         /// </summary>
         [JsonPropertyName("order")]
-        public long? Order { get; set; } = default;
+        public long? Order { get; init; }
 
         /// <summary>
         /// User ID for the signer in an external application responsible
         /// for authentication when accessing the embed URL.
         /// </summary>
         [JsonPropertyName("embed_url_external_user_id")]
-        public string? EmbedUrlExternalUserId { get; set; } = default;
+        public string? EmbedUrlExternalUserId { get; init; }
 
         /// <summary>
         /// The URL that a signer will be redirected
@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// this URL will be used for decline actions as well.
         /// </summary>
         [JsonPropertyName("redirect_url")]
-        public string? RedirectUrl { get; set; } = default;
+        public string? RedirectUrl { get; init; }
 
         /// <summary>
         /// The URL that a signer will be redirect
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// declined redirect URL settings for a specific signer.
         /// </summary>
         [JsonPropertyName("declined_redirect_url")]
-        public string? DeclinedRedirectUrl { get; set; } = default;
+        public string? DeclinedRedirectUrl { get; init; }
 
         /// <summary>
         /// If set to true, signer will need to login to a Box account
@@ -66,21 +66,21 @@ namespace Box.Sdk.Gen.Schemas {
         /// a free Box account.
         /// </summary>
         [JsonPropertyName("login_required")]
-        public bool? LoginRequired { get; set; } = default;
+        public bool? LoginRequired { get; init; }
 
         /// <summary>
         /// If set, this phone number is be used to verify the signer
         /// via two factor authentication before they are able to sign the document.
         /// </summary>
         [JsonPropertyName("verification_phone_number")]
-        public string? VerificationPhoneNumber { get; set; } = default;
+        public string? VerificationPhoneNumber { get; init; }
 
         /// <summary>
         /// If set, the signer is required to enter the password before they are able
         /// to sign a document. This field is write only.
         /// </summary>
         [JsonPropertyName("password")]
-        public string? Password { get; set; } = default;
+        public string? Password { get; init; }
 
         /// <summary>
         /// If set, signers who have the same value will be assigned to the same input and to the same signer group.
@@ -92,13 +92,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// instead for signers in the same signer group.
         /// </summary>
         [JsonPropertyName("signer_group_id")]
-        public string? SignerGroupId { get; set; } = default;
+        public string? SignerGroupId { get; init; }
 
         /// <summary>
         /// If true, no emails about the sign request will be sent
         /// </summary>
         [JsonPropertyName("suppress_notifications")]
-        public bool? SuppressNotifications { get; set; } = default;
+        public bool? SuppressNotifications { get; init; }
 
         public SignRequestCreateSigner() {
             

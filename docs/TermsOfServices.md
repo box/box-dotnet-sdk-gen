@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample post_terms_of_services -->
 ```
-await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, tosType: CreateTermsOfServiceRequestBodyTosTypeField.Managed, text: "Test TOS"));
+await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed });
 ```
 
 ### Arguments

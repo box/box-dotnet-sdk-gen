@@ -11,19 +11,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The trigger's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerTypeField? Type { get; set; } = default;
+        public WorkflowFlowsTriggerTypeField? Type { get; init; }
 
         /// <summary>
         /// The type of trigger selected for this flow
         /// </summary>
         [JsonPropertyName("trigger_type")]
-        public WorkflowFlowsTriggerTriggerTypeField? TriggerType { get; set; } = default;
+        public WorkflowFlowsTriggerTriggerTypeField? TriggerType { get; init; }
 
         /// <summary>
         /// List of trigger scopes
         /// </summary>
         [JsonPropertyName("scope")]
-        public IReadOnlyList<WorkflowFlowsTriggerScopeField>? Scope { get; set; } = default;
+        public IReadOnlyList<WorkflowFlowsTriggerScopeField>? Scope { get; init; }
 
         public WorkflowFlowsTriggerField() {
             

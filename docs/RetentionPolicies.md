@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: Utils.GetUUID(), policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention, retentionLength: "1", description: description, canOwnerExtendRetention: false, retentionType: CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable));
+await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: Utils.GetUUID(), policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention) { RetentionLength = "1", Description = description, CanOwnerExtendRetention = false, RetentionType = CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable });
 ```
 
 ### Arguments
@@ -113,7 +113,7 @@ See the endpoint docs at
 
 <!-- sample put_retention_policies_id -->
 ```
-await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody(policyName: updatedRetentionPolicyName));
+await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody() { PolicyName = updatedRetentionPolicyName });
 ```
 
 ### Arguments

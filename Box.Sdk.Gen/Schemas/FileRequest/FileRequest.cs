@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this file request.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `file_request`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestTypeField Type { get; set; }
+        public FileRequestTypeField Type { get; }
 
         /// <summary>
         /// The title of file request. This is shown
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("title")]
-        public string? Title { get; set; } = default;
+        public string? Title { get; init; }
 
         /// <summary>
         /// The optional description of this file request. This is
@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The status of the file request. This defaults
@@ -49,7 +49,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("status")]
-        public FileRequestStatusField? Status { get; set; } = default;
+        public FileRequestStatusField? Status { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide
@@ -62,7 +62,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("is_email_required")]
-        public bool? IsEmailRequired { get; set; } = default;
+        public bool? IsEmailRequired { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide
@@ -75,7 +75,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("is_description_required")]
-        public bool? IsDescriptionRequired { get; set; } = default;
+        public bool? IsDescriptionRequired { get; init; }
 
         /// <summary>
         /// The date after which a file request will no longer accept new
@@ -85,17 +85,17 @@ namespace Box.Sdk.Gen.Schemas {
         /// `inactive`.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         [JsonPropertyName("folder")]
-        public FolderMini Folder { get; set; }
+        public FolderMini Folder { get; }
 
         /// <summary>
         /// The generated URL for this file request. This URL can be shared
         /// with users to let them upload files to the associated folder.
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         /// <summary>
         /// The HTTP `etag` of this file. This can be used in combination with
@@ -105,25 +105,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// header.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         /// <summary>
         /// The date and time when the file request was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset CreatedAt { get; set; }
+        public System.DateTimeOffset CreatedAt { get; }
 
         [JsonPropertyName("updated_by")]
-        public UserMini? UpdatedBy { get; set; } = default;
+        public UserMini? UpdatedBy { get; init; }
 
         /// <summary>
         /// The date and time when the file request was last updated.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public System.DateTimeOffset UpdatedAt { get; set; }
+        public System.DateTimeOffset UpdatedAt { get; }
 
         public FileRequest(string id, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt, FileRequestTypeField type = FileRequestTypeField.FileRequest) {
             Id = id;

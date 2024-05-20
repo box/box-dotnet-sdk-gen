@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequestSignFilesField {
         [JsonPropertyName("files")]
-        public IReadOnlyList<FileMini>? Files { get; set; } = default;
+        public IReadOnlyList<FileMini>? Files { get; init; }
 
         /// <summary>
         /// Indicates whether the `sign_files` documents are processing
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// (and this value is true) before downloading the PDFs.
         /// </summary>
         [JsonPropertyName("is_ready_for_download")]
-        public bool? IsReadyForDownload { get; set; } = default;
+        public bool? IsReadyForDownload { get; init; }
 
         public SignRequestSignFilesField() {
             

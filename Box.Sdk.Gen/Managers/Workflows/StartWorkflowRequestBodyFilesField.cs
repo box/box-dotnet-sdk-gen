@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the file object
         /// </summary>
         [JsonPropertyName("type")]
-        public StartWorkflowRequestBodyFilesTypeField? Type { get; set; } = default;
+        public StartWorkflowRequestBodyFilesTypeField? Type { get; init; }
 
         /// <summary>
         /// The id of the file
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public StartWorkflowRequestBodyFilesField() {
             

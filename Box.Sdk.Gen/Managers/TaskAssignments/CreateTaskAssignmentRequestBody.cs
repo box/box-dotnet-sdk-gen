@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The task to assign to a user.
         /// </summary>
         [JsonPropertyName("task")]
-        public CreateTaskAssignmentRequestBodyTaskField Task { get; set; }
+        public CreateTaskAssignmentRequestBodyTaskField Task { get; }
 
         /// <summary>
         /// The user to assign the task to.
         /// </summary>
         [JsonPropertyName("assign_to")]
-        public CreateTaskAssignmentRequestBodyAssignToField AssignTo { get; set; }
+        public CreateTaskAssignmentRequestBodyAssignToField AssignTo { get; }
 
         public CreateTaskAssignmentRequestBody(CreateTaskAssignmentRequestBodyTaskField task, CreateTaskAssignmentRequestBodyAssignToField assignTo) {
             Task = task;

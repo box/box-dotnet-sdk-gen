@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public UpdateCollaborationByIdRequestBodyRoleField Role { get; set; }
+        public UpdateCollaborationByIdRequestBodyRoleField Role { get; }
 
         /// <summary>
         /// <!--alex ignore reject-->
@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Managers {
         /// effectively accepting, or rejecting the invite.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateCollaborationByIdRequestBodyStatusField? Status { get; set; } = default;
+        public UpdateCollaborationByIdRequestBodyStatusField? Status { get; init; }
 
         /// <summary>
         /// Update the expiration date for the collaboration. At this date,
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Managers {
         /// invited collaborator** setting was enabled.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         /// <summary>
         /// Determines if the invited users can see the entire parent path to
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `can_view_path` can only be used for folder collaborations.
         /// </summary>
         [JsonPropertyName("can_view_path")]
-        public bool? CanViewPath { get; set; } = default;
+        public bool? CanViewPath { get; init; }
 
         public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
             Role = role;

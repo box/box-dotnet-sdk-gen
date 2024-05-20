@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// transferred to
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public TransferOwnedFolderRequestBodyOwnedByField(string id) {
             Id = id;

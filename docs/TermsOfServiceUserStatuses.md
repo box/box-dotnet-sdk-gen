@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_terms_of_service_user_statuses -->
 ```
-await client.TermsOfServiceUserStatuses.GetTermsOfServiceUserStatusesAsync(queryParams: new GetTermsOfServiceUserStatusesQueryParams(tosId: tos.Id, userId: user.Id));
+await client.TermsOfServiceUserStatuses.GetTermsOfServiceUserStatusesAsync(queryParams: new GetTermsOfServiceUserStatusesQueryParams(tosId: tos.Id) { UserId = user.Id });
 ```
 
 ### Arguments

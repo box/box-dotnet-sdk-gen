@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier that represents a file version.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `retention_policy_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentBaseTypeField Type { get; set; }
+        public RetentionPolicyAssignmentBaseTypeField Type { get; }
 
         public RetentionPolicyAssignmentBase(string id, RetentionPolicyAssignmentBaseTypeField type = RetentionPolicyAssignmentBaseTypeField.RetentionPolicyAssignment) {
             Id = id;

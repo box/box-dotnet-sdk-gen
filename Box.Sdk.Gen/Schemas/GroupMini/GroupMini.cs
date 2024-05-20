@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The name of the group
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The type of the group.
         /// </summary>
         [JsonPropertyName("group_type")]
-        public GroupMiniGroupTypeField? GroupType { get; set; } = default;
+        public GroupMiniGroupTypeField? GroupType { get; init; }
 
         public GroupMini(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             

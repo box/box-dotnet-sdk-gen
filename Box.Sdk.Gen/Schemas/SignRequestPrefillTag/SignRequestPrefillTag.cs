@@ -7,25 +7,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// This references the ID of a specific tag contained in a file of the signature request.
         /// </summary>
         [JsonPropertyName("document_tag_id")]
-        public string? DocumentTagId { get; set; } = default;
+        public string? DocumentTagId { get; init; }
 
         /// <summary>
         /// Text prefill value
         /// </summary>
         [JsonPropertyName("text_value")]
-        public string? TextValue { get; set; } = default;
+        public string? TextValue { get; init; }
 
         /// <summary>
         /// Checkbox prefill value
         /// </summary>
         [JsonPropertyName("checkbox_value")]
-        public bool? CheckboxValue { get; set; } = default;
+        public bool? CheckboxValue { get; init; }
 
         /// <summary>
         /// Date prefill value
         /// </summary>
         [JsonPropertyName("date_value")]
-        public System.DateOnly? DateValue { get; set; } = default;
+        public System.DateOnly? DateValue { get; init; }
 
         public SignRequestPrefillTag() {
             

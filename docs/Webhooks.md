@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample post_webhooks -->
 ```
-await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField(id: folder.Id, type: CreateWebhookRequestBodyTargetTypeField.Folder), address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded})));
+await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField() { Id = folder.Id, Type = CreateWebhookRequestBodyTargetTypeField.Folder }, address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded})));
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody(address: "https://example.com/updated-webhook"));
+await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody() { Address = "https://example.com/updated-webhook" });
 ```
 
 ### Arguments

@@ -8,39 +8,39 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this collaboration.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `collaboration`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationTypeField Type { get; set; }
+        public CollaborationTypeField Type { get; }
 
         [JsonPropertyName("item")]
-        public FileOrFolderOrWebLink? Item { get; set; } = default;
+        public FileOrFolderOrWebLink? Item { get; init; }
 
         [JsonPropertyName("accessible_by")]
-        public GroupMiniOrUserCollaborations? AccessibleBy { get; set; } = default;
+        public GroupMiniOrUserCollaborations? AccessibleBy { get; init; }
 
         /// <summary>
         /// The email address used to invite an unregistered collaborator, if
         /// they are not a registered user.
         /// </summary>
         [JsonPropertyName("invite_email")]
-        public string? InviteEmail { get; set; } = default;
+        public string? InviteEmail { get; init; }
 
         /// <summary>
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public CollaborationRoleField? Role { get; set; } = default;
+        public CollaborationRoleField? Role { get; init; }
 
         /// <summary>
         /// When the collaboration will expire, or `null` if no expiration
         /// date is set.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         /// <summary>
         /// If set to `true`, collaborators have access to
@@ -50,39 +50,39 @@ namespace Box.Sdk.Gen.Schemas {
         /// shared item.
         /// </summary>
         [JsonPropertyName("is_access_only")]
-        public bool? IsAccessOnly { get; set; } = default;
+        public bool? IsAccessOnly { get; init; }
 
         /// <summary>
         /// The status of the collaboration invitation. If the status
         /// is `pending`, `login` and `name` return an empty string.
         /// </summary>
         [JsonPropertyName("status")]
-        public CollaborationStatusField? Status { get; set; } = default;
+        public CollaborationStatusField? Status { get; init; }
 
         /// <summary>
         /// When the `status` of the collaboration object changed to
         /// `accepted` or `rejected`.
         /// </summary>
         [JsonPropertyName("acknowledged_at")]
-        public System.DateTimeOffset? AcknowledgedAt { get; set; } = default;
+        public System.DateTimeOffset? AcknowledgedAt { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserCollaborations? CreatedBy { get; set; } = default;
+        public UserCollaborations? CreatedBy { get; init; }
 
         /// <summary>
         /// When the collaboration object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// When the collaboration object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         [JsonPropertyName("acceptance_requirements_status")]
-        public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; set; } = default;
+        public CollaborationAcceptanceRequirementsStatusField? AcceptanceRequirementsStatus { get; init; }
 
         public Collaboration(string id, CollaborationTypeField type = CollaborationTypeField.Collaboration) {
             Id = id;

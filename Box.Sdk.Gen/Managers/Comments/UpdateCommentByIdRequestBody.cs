@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The text of the comment to update
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get; set; } = default;
+        public string? Message { get; init; }
 
         public UpdateCommentByIdRequestBody() {
             

@@ -142,7 +142,7 @@ See the endpoint docs at
 
 <!-- sample post_sign_requests -->
 ```
-await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner(email: signer1Email, signerGroupId: "user"),new SignRequestCreateSigner(email: signer2Email, signerGroupId: "user")}), parentFolder: new FolderMini(id: destinationFolder.Id), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id)})));
+await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signer1Email, SignerGroupId = "user" },new SignRequestCreateSigner() { Email = signer2Email, SignerGroupId = "user" }}), parentFolder: new FolderMini(id: destinationFolder.Id), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id)})));
 ```
 
 ### Arguments

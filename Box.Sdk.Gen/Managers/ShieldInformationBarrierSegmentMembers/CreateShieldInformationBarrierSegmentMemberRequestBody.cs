@@ -11,23 +11,23 @@ namespace Box.Sdk.Gen.Managers {
         /// -| A type of the shield barrier segment member.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField? Type { get; set; } = default;
+        public CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField? Type { get; init; }
 
         [JsonPropertyName("shield_information_barrier")]
-        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; set; } = default;
+        public ShieldInformationBarrierBase? ShieldInformationBarrier { get; init; }
 
         /// <summary>
         /// The `type` and `id` of the
         /// requested shield information barrier segment.
         /// </summary>
         [JsonPropertyName("shield_information_barrier_segment")]
-        public CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; set; }
+        public CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField ShieldInformationBarrierSegment { get; }
 
         /// <summary>
         /// User to which restriction will be applied.
         /// </summary>
         [JsonPropertyName("user")]
-        public UserBase User { get; set; }
+        public UserBase User { get; }
 
         public CreateShieldInformationBarrierSegmentMemberRequestBody(CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField shieldInformationBarrierSegment, UserBase user) {
             ShieldInformationBarrierSegment = shieldInformationBarrierSegment;

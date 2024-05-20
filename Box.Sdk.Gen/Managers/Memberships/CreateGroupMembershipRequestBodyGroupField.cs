@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the group to add the user to
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public CreateGroupMembershipRequestBodyGroupField(string id) {
             Id = id;

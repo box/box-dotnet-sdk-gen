@@ -61,7 +61,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody(boxSecurityClassificationKey: classification.Key));
+await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody() { BoxSecurityClassificationKey = classification.Key });
 ```
 
 ### Arguments

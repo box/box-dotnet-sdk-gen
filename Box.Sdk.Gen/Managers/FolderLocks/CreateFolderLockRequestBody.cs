@@ -13,13 +13,13 @@ namespace Box.Sdk.Gen.Managers {
         /// included and both set to `true`.
         /// </summary>
         [JsonPropertyName("locked_operations")]
-        public CreateFolderLockRequestBodyLockedOperationsField? LockedOperations { get; set; } = default;
+        public CreateFolderLockRequestBodyLockedOperationsField? LockedOperations { get; init; }
 
         /// <summary>
         /// The folder to apply the lock to.
         /// </summary>
         [JsonPropertyName("folder")]
-        public CreateFolderLockRequestBodyFolderField Folder { get; set; }
+        public CreateFolderLockRequestBodyFolderField Folder { get; }
 
         public CreateFolderLockRequestBody(CreateFolderLockRequestBodyFolderField folder) {
             Folder = folder;

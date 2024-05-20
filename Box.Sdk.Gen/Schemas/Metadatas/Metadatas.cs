@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of metadata instances, as applied to this file or folder.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<Metadata>? Entries { get; set; } = default;
+        public IReadOnlyList<Metadata>? Entries { get; init; }
 
         /// <summary>
         /// The limit that was used for this page of results.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         public Metadatas() {
             

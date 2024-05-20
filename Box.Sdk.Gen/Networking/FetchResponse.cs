@@ -7,20 +7,20 @@ namespace Fetch
     /// <summary>
     /// Result of a Fetch call.
     /// </summary>
-    public class FetchResponse
+    class FetchResponse
     {
         /// <summary>
         /// Status code of a response.
         /// </summary>
-        public int Status { get; set; }
+        internal int Status { get; init; }
 
         /// <summary>
         /// Response text representation.
         /// </summary>
-        public SerializedData? Data { get; set; } = null;
+        internal SerializedData? Data { get; init; }
 
         //TODO implement usage 
-        public Stream Content { get; set; } = new MemoryStream();
+        internal Stream Content { get; init; } = new MemoryStream();
     }
 
 }

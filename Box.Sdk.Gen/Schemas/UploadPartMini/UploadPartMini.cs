@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique ID of the chunk.
         /// </summary>
         [JsonPropertyName("part_id")]
-        public string? PartId { get; set; } = default;
+        public string? PartId { get; init; }
 
         /// <summary>
         /// The offset of the chunk within the file
@@ -15,13 +15,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// of the chunk within the file.
         /// </summary>
         [JsonPropertyName("offset")]
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// The size of the chunk in bytes.
         /// </summary>
         [JsonPropertyName("size")]
-        public long? Size { get; set; } = default;
+        public long? Size { get; init; }
 
         public UploadPartMini() {
             

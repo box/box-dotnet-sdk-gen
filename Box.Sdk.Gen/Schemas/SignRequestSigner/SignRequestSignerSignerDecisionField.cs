@@ -8,19 +8,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of decision made by the signer.
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestSignerSignerDecisionTypeField? Type { get; set; } = default;
+        public SignRequestSignerSignerDecisionTypeField? Type { get; init; }
 
         /// <summary>
         /// Date and Time that the decision was made.
         /// </summary>
         [JsonPropertyName("finalized_at")]
-        public System.DateTimeOffset? FinalizedAt { get; set; } = default;
+        public System.DateTimeOffset? FinalizedAt { get; init; }
 
         /// <summary>
         /// Additional info about the decision, such as the decline reason from the signer.
         /// </summary>
         [JsonPropertyName("additional_info")]
-        public string? AdditionalInfo { get; set; } = default;
+        public string? AdditionalInfo { get; init; }
 
         public SignRequestSignerSignerDecisionField() {
             

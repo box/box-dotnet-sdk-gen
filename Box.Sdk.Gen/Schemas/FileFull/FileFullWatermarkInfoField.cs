@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Specifies if this item has a watermark applied.
         /// </summary>
         [JsonPropertyName("is_watermarked")]
-        public bool? IsWatermarked { get; set; } = default;
+        public bool? IsWatermarked { get; init; }
 
         public FileFullWatermarkInfoField() {
             

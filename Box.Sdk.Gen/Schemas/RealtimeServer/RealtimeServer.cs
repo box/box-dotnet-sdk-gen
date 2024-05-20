@@ -7,19 +7,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// `realtime_server`
         /// </summary>
         [JsonPropertyName("type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         /// <summary>
         /// The URL for the server.
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         /// <summary>
         /// The time in minutes for which this server is available
         /// </summary>
         [JsonPropertyName("ttl")]
-        public string? Ttl { get; set; } = default;
+        public string? Ttl { get; init; }
 
         /// <summary>
         /// The maximum number of retries this server will
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// getting a [new list of server](#options-events).
         /// </summary>
         [JsonPropertyName("max_retries")]
-        public string? MaxRetries { get; set; } = default;
+        public string? MaxRetries { get; init; }
 
         /// <summary>
         /// The maximum number of seconds without a response
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// through.
         /// </summary>
         [JsonPropertyName("retry_timeout")]
-        public long? RetryTimeout { get; set; } = default;
+        public long? RetryTimeout { get; init; }
 
         public RealtimeServer() {
             

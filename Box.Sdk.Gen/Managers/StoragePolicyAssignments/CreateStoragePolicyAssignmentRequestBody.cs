@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise
         /// </summary>
         [JsonPropertyName("storage_policy")]
-        public CreateStoragePolicyAssignmentRequestBodyStoragePolicyField StoragePolicy { get; set; }
+        public CreateStoragePolicyAssignmentRequestBodyStoragePolicyField StoragePolicy { get; }
 
         /// <summary>
         /// The user or enterprise to assign the storage
         /// policy to.
         /// </summary>
         [JsonPropertyName("assigned_to")]
-        public CreateStoragePolicyAssignmentRequestBodyAssignedToField AssignedTo { get; set; }
+        public CreateStoragePolicyAssignmentRequestBodyAssignedToField AssignedTo { get; }
 
         public CreateStoragePolicyAssignmentRequestBody(CreateStoragePolicyAssignmentRequestBodyStoragePolicyField storagePolicy, CreateStoragePolicyAssignmentRequestBodyAssignedToField assignedTo) {
             StoragePolicy = storagePolicy;

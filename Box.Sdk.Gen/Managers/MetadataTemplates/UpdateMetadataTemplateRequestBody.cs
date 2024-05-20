@@ -13,56 +13,56 @@ namespace Box.Sdk.Gen.Managers {
         /// of these are hazardous as they will change existing templates.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateMetadataTemplateRequestBodyOpField Op { get; set; }
+        public UpdateMetadataTemplateRequestBodyOpField Op { get; }
 
         /// <summary>
         /// The data for the operation. This will vary depending on the
         /// operation being performed.
         /// </summary>
         [JsonPropertyName("data")]
-        public Dictionary<string, string>? Data { get; set; } = default;
+        public Dictionary<string, string>? Data { get; init; }
 
         /// <summary>
         /// For operations that affect a single field this defines the key of
         /// the field that is affected.
         /// </summary>
         [JsonPropertyName("fieldKey")]
-        public string? FieldKey { get; set; } = default;
+        public string? FieldKey { get; init; }
 
         /// <summary>
         /// For operations that affect multiple fields this defines the keys
         /// of the fields that are affected.
         /// </summary>
         [JsonPropertyName("fieldKeys")]
-        public IReadOnlyList<string>? FieldKeys { get; set; } = default;
+        public IReadOnlyList<string>? FieldKeys { get; init; }
 
         /// <summary>
         /// For operations that affect a single `enum` option this defines
         /// the key of the option that is affected.
         /// </summary>
         [JsonPropertyName("enumOptionKey")]
-        public string? EnumOptionKey { get; set; } = default;
+        public string? EnumOptionKey { get; init; }
 
         /// <summary>
         /// For operations that affect multiple `enum` options this defines
         /// the keys of the options that are affected.
         /// </summary>
         [JsonPropertyName("enumOptionKeys")]
-        public IReadOnlyList<string>? EnumOptionKeys { get; set; } = default;
+        public IReadOnlyList<string>? EnumOptionKeys { get; init; }
 
         /// <summary>
         /// For operations that affect a single multi select option this
         /// defines the key of the option that is affected.
         /// </summary>
         [JsonPropertyName("multiSelectOptionKey")]
-        public string? MultiSelectOptionKey { get; set; } = default;
+        public string? MultiSelectOptionKey { get; init; }
 
         /// <summary>
         /// For operations that affect multiple multi select options this
         /// defines the keys of the options that are affected.
         /// </summary>
         [JsonPropertyName("multiSelectOptionKeys")]
-        public IReadOnlyList<string>? MultiSelectOptionKeys { get; set; } = default;
+        public IReadOnlyList<string>? MultiSelectOptionKeys { get; init; }
 
         public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
             Op = op;

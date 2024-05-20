@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Required signer fields.
         /// </summary>
         [JsonPropertyName("signers")]
-        public IReadOnlyList<IReadOnlyList<SignTemplateAdditionalInfoRequiredSignersField>>? Signers { get; set; } = default;
+        public IReadOnlyList<IReadOnlyList<SignTemplateAdditionalInfoRequiredSignersField>>? Signers { get; init; }
 
         public SignTemplateAdditionalInfoRequiredField() {
             

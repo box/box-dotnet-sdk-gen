@@ -10,50 +10,50 @@ namespace Box.Sdk.Gen.Schemas {
         /// The optional date and time this card was created at.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// `skill_card`
         /// </summary>
         [JsonPropertyName("type")]
-        public TimelineSkillCardTypeField Type { get; set; }
+        public TimelineSkillCardTypeField Type { get; }
 
         /// <summary>
         /// `timeline`
         /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public TimelineSkillCardSkillCardTypeField SkillCardType { get; set; }
+        public TimelineSkillCardSkillCardTypeField SkillCardType { get; }
 
         /// <summary>
         /// The title of the card.
         /// </summary>
         [JsonPropertyName("skill_card_title")]
-        public TimelineSkillCardSkillCardTitleField? SkillCardTitle { get; set; } = default;
+        public TimelineSkillCardSkillCardTitleField? SkillCardTitle { get; init; }
 
         /// <summary>
         /// The service that applied this metadata.
         /// </summary>
         [JsonPropertyName("skill")]
-        public TimelineSkillCardSkillField Skill { get; set; }
+        public TimelineSkillCardSkillField Skill { get; }
 
         /// <summary>
         /// The invocation of this service, used to track
         /// which instance of a service applied the metadata.
         /// </summary>
         [JsonPropertyName("invocation")]
-        public TimelineSkillCardInvocationField Invocation { get; set; }
+        public TimelineSkillCardInvocationField Invocation { get; }
 
         /// <summary>
         /// An total duration in seconds of the timeline.
         /// </summary>
         [JsonPropertyName("duration")]
-        public long? Duration { get; set; } = default;
+        public long? Duration { get; init; }
 
         /// <summary>
         /// A list of entries on the timeline.
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<TimelineSkillCardEntriesField> Entries { get; set; }
+        public IReadOnlyList<TimelineSkillCardEntriesField> Entries { get; }
 
         public TimelineSkillCard(TimelineSkillCardSkillField skill, TimelineSkillCardInvocationField invocation, IReadOnlyList<TimelineSkillCardEntriesField> entries, TimelineSkillCardTypeField type = TimelineSkillCardTypeField.SkillCard, TimelineSkillCardSkillCardTypeField skillCardType = TimelineSkillCardSkillCardTypeField.Timeline) {
             Type = type;

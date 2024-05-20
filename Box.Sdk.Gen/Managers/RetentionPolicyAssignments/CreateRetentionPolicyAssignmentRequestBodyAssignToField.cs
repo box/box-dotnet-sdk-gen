@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of item to assign the policy to.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField Type { get; set; }
+        public CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField Type { get; }
 
         /// <summary>
         /// The ID of item to assign the policy to.
@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `enterprise`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public CreateRetentionPolicyAssignmentRequestBodyAssignToField(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
             Type = type;

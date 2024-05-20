@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public CompletionRuleVariableTypeField Type { get; set; }
+        public CompletionRuleVariableTypeField Type { get; }
 
         /// <summary>
         /// Variable type
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
-        public CompletionRuleVariableVariableTypeField VariableType { get; set; }
+        public CompletionRuleVariableVariableTypeField VariableType { get; }
 
         /// <summary>
         /// Variable
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_value")]
-        public CompletionRuleVariableVariableValueField VariableValue { get; set; }
+        public CompletionRuleVariableVariableValueField VariableValue { get; }
 
         public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue, CompletionRuleVariableTypeField type = CompletionRuleVariableTypeField.Variable, CompletionRuleVariableVariableTypeField variableType = CompletionRuleVariableVariableTypeField.TaskCompletionRule) {
             Type = type;

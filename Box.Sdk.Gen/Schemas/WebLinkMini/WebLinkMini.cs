@@ -8,16 +8,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// The URL this web link points to
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; } = default;
+        public string? Url { get; init; }
 
         [JsonPropertyName("sequence_id")]
-        public string? SequenceId { get; set; } = default;
+        public string? SequenceId { get; init; }
 
         /// <summary>
         /// The name of the web link
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         public WebLinkMini(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) : base(id, type) {
             

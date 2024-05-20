@@ -13,25 +13,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed. The maximum value varies by API.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; set; } = default;
+        public string? NextMarker { get; init; }
 
         /// <summary>
         /// The marker for the start of the previous page of results.
         /// </summary>
         [JsonPropertyName("prev_marker")]
-        public string? PrevMarker { get; set; } = default;
+        public string? PrevMarker { get; init; }
 
         /// <summary>
         /// A list of recent items
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RecentItem>? Entries { get; set; } = default;
+        public IReadOnlyList<RecentItem>? Entries { get; init; }
 
         public RecentItems() {
             

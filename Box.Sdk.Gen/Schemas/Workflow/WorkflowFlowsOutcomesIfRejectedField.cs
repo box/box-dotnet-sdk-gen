@@ -11,22 +11,22 @@ namespace Box.Sdk.Gen.Schemas {
         /// The identifier of the outcome
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The outcomes resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsOutcomesIfRejectedTypeField? Type { get; set; } = default;
+        public WorkflowFlowsOutcomesIfRejectedTypeField? Type { get; init; }
 
         /// <summary>
         /// The name of the outcome
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         [JsonPropertyName("action_type")]
-        public WorkflowFlowsOutcomesIfRejectedActionTypeField? ActionType { get; set; } = default;
+        public WorkflowFlowsOutcomesIfRejectedActionTypeField? ActionType { get; init; }
 
         public WorkflowFlowsOutcomesIfRejectedField() {
             

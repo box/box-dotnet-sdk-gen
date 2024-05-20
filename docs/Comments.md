@@ -86,7 +86,7 @@ See the endpoint docs at
 
 <!-- sample put_comments_id -->
 ```
-await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody(message: newMessage));
+await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody() { Message = newMessage });
 ```
 
 ### Arguments

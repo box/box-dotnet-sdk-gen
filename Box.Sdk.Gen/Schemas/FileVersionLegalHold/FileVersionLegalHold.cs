@@ -11,32 +11,32 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this file version legal hold
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `file_version_legal_hold`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileVersionLegalHoldTypeField? Type { get; set; } = default;
+        public FileVersionLegalHoldTypeField? Type { get; init; }
 
         [JsonPropertyName("file_version")]
-        public FileVersionMini? FileVersion { get; set; } = default;
+        public FileVersionMini? FileVersion { get; init; }
 
         [JsonPropertyName("file")]
-        public FileMini? File { get; set; } = default;
+        public FileMini? File { get; init; }
 
         /// <summary>
         /// List of assignments contributing to this Hold.
         /// </summary>
         [JsonPropertyName("legal_hold_policy_assignments")]
-        public IReadOnlyList<LegalHoldPolicyAssignment>? LegalHoldPolicyAssignments { get; set; } = default;
+        public IReadOnlyList<LegalHoldPolicyAssignment>? LegalHoldPolicyAssignments { get; init; }
 
         /// <summary>
         /// Time that this File-Version-Legal-Hold was
         /// deleted.
         /// </summary>
         [JsonPropertyName("deleted_at")]
-        public System.DateTimeOffset? DeletedAt { get; set; } = default;
+        public System.DateTimeOffset? DeletedAt { get; init; }
 
         public FileVersionLegalHold() {
             

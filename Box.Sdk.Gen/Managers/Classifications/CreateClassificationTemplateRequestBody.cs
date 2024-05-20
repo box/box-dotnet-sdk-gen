@@ -14,20 +14,20 @@ namespace Box.Sdk.Gen.Managers {
         /// ID of the enterprise.
         /// </summary>
         [JsonPropertyName("scope")]
-        public CreateClassificationTemplateRequestBodyScopeField Scope { get; set; }
+        public CreateClassificationTemplateRequestBodyScopeField Scope { get; }
 
         /// <summary>
         /// Defines the list of metadata templates.
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public CreateClassificationTemplateRequestBodyTemplateKeyField TemplateKey { get; set; }
+        public CreateClassificationTemplateRequestBodyTemplateKeyField TemplateKey { get; }
 
         /// <summary>
         /// The name of the
         /// template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public CreateClassificationTemplateRequestBodyDisplayNameField DisplayName { get; set; }
+        public CreateClassificationTemplateRequestBodyDisplayNameField DisplayName { get; }
 
         /// <summary>
         /// Determines if the classification template is
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Managers {
         /// devices.
         /// </summary>
         [JsonPropertyName("hidden")]
-        public bool? Hidden { get; set; } = default;
+        public bool? Hidden { get; init; }
 
         /// <summary>
         /// Determines if classifications are
@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Managers {
         /// copied.
         /// </summary>
         [JsonPropertyName("copyInstanceOnItemCopy")]
-        public bool? CopyInstanceOnItemCopy { get; set; } = default;
+        public bool? CopyInstanceOnItemCopy { get; init; }
 
         /// <summary>
         /// The classification template requires exactly
@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Managers {
         /// all the valid classification values.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> Fields { get; set; }
+        public IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> Fields { get; }
 
         public CreateClassificationTemplateRequestBody(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> fields, CreateClassificationTemplateRequestBodyScopeField scope = CreateClassificationTemplateRequestBodyScopeField.Enterprise, CreateClassificationTemplateRequestBodyTemplateKeyField templateKey = CreateClassificationTemplateRequestBodyTemplateKeyField.SecurityClassification6VmVochwUWo, CreateClassificationTemplateRequestBodyDisplayNameField displayName = CreateClassificationTemplateRequestBodyDisplayNameField.Classification) {
             Scope = scope;

@@ -10,19 +10,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The prompt provided by the client to be answered by the LLM.
         /// </summary>
         [JsonPropertyName("prompt")]
-        public string Prompt { get; set; }
+        public string Prompt { get; }
 
         /// <summary>
         /// The items to be processed by the LLM, often files.
         /// </summary>
         [JsonPropertyName("items")]
-        public IReadOnlyList<AiTextGenItemsField> Items { get; set; }
+        public IReadOnlyList<AiTextGenItemsField> Items { get; }
 
         /// <summary>
         /// The history of prompts and answers previously passed to the LLM. This provides additional context to the LLM in generating the response.
         /// </summary>
         [JsonPropertyName("dialogue_history")]
-        public IReadOnlyList<AiTextGenDialogueHistoryField>? DialogueHistory { get; set; } = default;
+        public IReadOnlyList<AiTextGenDialogueHistoryField>? DialogueHistory { get; init; }
 
         public AiTextGen(string prompt, IReadOnlyList<AiTextGenItemsField> items) {
             Prompt = prompt;

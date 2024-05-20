@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Whether moving the folder is restricted.
         /// </summary>
         [JsonPropertyName("move")]
-        public bool Move { get; set; }
+        public bool Move { get; }
 
         /// <summary>
         /// Whether deleting the folder is restricted.
         /// </summary>
         [JsonPropertyName("delete")]
-        public bool Delete { get; set; }
+        public bool Delete { get; }
 
         public FolderLockLockedOperationsField(bool move, bool delete) {
             Move = move;

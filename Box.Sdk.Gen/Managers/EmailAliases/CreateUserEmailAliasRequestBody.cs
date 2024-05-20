@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   ) for steps to add a new domain.
         /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; set; }
+        public string Email { get; }
 
         public CreateUserEmailAliasRequestBody(string email) {
             Email = email;

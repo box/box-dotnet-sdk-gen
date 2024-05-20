@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         /// parameter instead.
         /// </summary>
         [JsonPropertyName("message")]
-        public string Message { get; set; }
+        public string Message { get; }
 
         /// <summary>
         /// The text of the comment, including `@[user_id:name]`
@@ -31,13 +31,13 @@ namespace Box.Sdk.Gen.Managers {
         /// instead.
         /// </summary>
         [JsonPropertyName("tagged_message")]
-        public string? TaggedMessage { get; set; } = default;
+        public string? TaggedMessage { get; init; }
 
         /// <summary>
         /// The item to attach the comment to.
         /// </summary>
         [JsonPropertyName("item")]
-        public CreateCommentRequestBodyItemField Item { get; set; }
+        public CreateCommentRequestBodyItemField Item { get; }
 
         public CreateCommentRequestBody(string message, CreateCommentRequestBodyItemField item) {
             Message = message;

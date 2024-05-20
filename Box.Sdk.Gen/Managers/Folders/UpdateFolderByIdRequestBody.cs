@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The optional new name for this folder.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The optional description of this folder
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// Specifies whether a folder should be synced to a
@@ -26,27 +26,27 @@ namespace Box.Sdk.Gen.Managers {
         /// (discontinued) and is not used by Box Drive.
         /// </summary>
         [JsonPropertyName("sync_state")]
-        public UpdateFolderByIdRequestBodySyncStateField? SyncState { get; set; } = default;
+        public UpdateFolderByIdRequestBodySyncStateField? SyncState { get; init; }
 
         /// <summary>
         /// Specifies if users who are not the owner
         /// of the folder can invite new collaborators to the folder.
         /// </summary>
         [JsonPropertyName("can_non_owners_invite")]
-        public bool? CanNonOwnersInvite { get; set; } = default;
+        public bool? CanNonOwnersInvite { get; init; }
 
         /// <summary>
         /// The parent folder for this folder. Use this to move
         /// the folder or to restore it out of the trash.
         /// </summary>
         [JsonPropertyName("parent")]
-        public UpdateFolderByIdRequestBodyParentField? Parent { get; set; } = default;
+        public UpdateFolderByIdRequestBodyParentField? Parent { get; init; }
 
         [JsonPropertyName("shared_link")]
-        public UpdateFolderByIdRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public UpdateFolderByIdRequestBodySharedLinkField? SharedLink { get; init; }
 
         [JsonPropertyName("folder_upload_email")]
-        public UpdateFolderByIdRequestBodyFolderUploadEmailField? FolderUploadEmail { get; set; } = default;
+        public UpdateFolderByIdRequestBodyFolderUploadEmailField? FolderUploadEmail { get; init; }
 
         /// <summary>
         /// The tags for this item. These tags are shown in
@@ -59,7 +59,7 @@ namespace Box.Sdk.Gen.Managers {
         /// unique tags per enterprise.
         /// </summary>
         [JsonPropertyName("tags")]
-        public IReadOnlyList<string>? Tags { get; set; } = default;
+        public IReadOnlyList<string>? Tags { get; init; }
 
         /// <summary>
         /// Specifies if new invites to this folder are restricted to users
@@ -67,7 +67,7 @@ namespace Box.Sdk.Gen.Managers {
         /// collaborations.
         /// </summary>
         [JsonPropertyName("is_collaboration_restricted_to_enterprise")]
-        public bool? IsCollaborationRestrictedToEnterprise { get; set; } = default;
+        public bool? IsCollaborationRestrictedToEnterprise { get; init; }
 
         /// <summary>
         /// An array of collections to make this folder
@@ -83,7 +83,7 @@ namespace Box.Sdk.Gen.Managers {
         /// [1]: e://get-collections
         /// </summary>
         [JsonPropertyName("collections")]
-        public IReadOnlyList<UpdateFolderByIdRequestBodyCollectionsField>? Collections { get; set; } = default;
+        public IReadOnlyList<UpdateFolderByIdRequestBodyCollectionsField>? Collections { get; init; }
 
         /// <summary>
         /// Restricts collaborators who are not the owner of
@@ -98,7 +98,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `false` if it has not already been set.
         /// </summary>
         [JsonPropertyName("can_non_owners_view_collaborators")]
-        public bool? CanNonOwnersViewCollaborators { get; set; } = default;
+        public bool? CanNonOwnersViewCollaborators { get; init; }
 
         public UpdateFolderByIdRequestBody() {
             

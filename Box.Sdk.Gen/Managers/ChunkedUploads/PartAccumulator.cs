@@ -5,16 +5,16 @@ using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
-    public class PartAccumulator {
-        public int LastIndex { get; set; }
+    internal class PartAccumulator {
+        internal int LastIndex { get; }
 
-        public IReadOnlyList<UploadPart> Parts { get; set; }
+        internal IReadOnlyList<UploadPart> Parts { get; }
 
-        public int FileSize { get; set; }
+        internal int FileSize { get; }
 
-        public string UploadSessionId { get; set; }
+        internal string UploadSessionId { get; }
 
-        public Hash FileHash { get; set; }
+        internal Hash FileHash { get; }
 
         public PartAccumulator(int lastIndex, IReadOnlyList<UploadPart> parts, int fileSize, string uploadSessionId, Hash fileHash) {
             LastIndex = lastIndex;

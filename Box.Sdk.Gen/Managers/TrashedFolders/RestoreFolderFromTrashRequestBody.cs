@@ -12,10 +12,10 @@ namespace Box.Sdk.Gen.Managers {
         /// An optional new name for the folder.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         [JsonPropertyName("parent")]
-        public RestoreFolderFromTrashRequestBodyParentField? Parent { get; set; } = default;
+        public RestoreFolderFromTrashRequestBodyParentField? Parent { get; init; }
 
         public RestoreFolderFromTrashRequestBody() {
             

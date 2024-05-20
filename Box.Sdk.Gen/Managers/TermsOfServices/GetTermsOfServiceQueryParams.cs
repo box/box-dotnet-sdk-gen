@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Limits the results to the terms of service of the given type.
         /// </summary>
-        public GetTermsOfServiceQueryParamsTosTypeField? TosType { get; set; } = default;
+        public GetTermsOfServiceQueryParamsTosTypeField? TosType { get; init; }
 
         public GetTermsOfServiceQueryParams() {
             

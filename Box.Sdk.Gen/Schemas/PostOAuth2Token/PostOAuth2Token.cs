@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// grant or another access token for the purpose of downscoping a token.
         /// </summary>
         [JsonPropertyName("grant_type")]
-        public PostOAuth2TokenGrantTypeField GrantType { get; set; }
+        public PostOAuth2TokenGrantTypeField GrantType { get; }
 
         /// <summary>
         /// The Client ID of the application requesting an access token.
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `urn:ietf:params:oauth:grant-type:jwt-bearer` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("client_id")]
-        public string? ClientId { get; set; } = default;
+        public string? ClientId { get; init; }
 
         /// <summary>
         /// The client secret of the application requesting an access token.
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `urn:ietf:params:oauth:grant-type:jwt-bearer` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("client_secret")]
-        public string? ClientSecret { get; set; } = default;
+        public string? ClientSecret { get; init; }
 
         /// <summary>
         /// The client-side authorization code passed to your application by
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Used in combination with `authorization_code` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("code")]
-        public string? Code { get; set; } = default;
+        public string? Code { get; init; }
 
         /// <summary>
         /// A refresh token used to get a new access token with.
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Used in combination with `refresh_token` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("refresh_token")]
-        public string? RefreshToken { get; set; } = default;
+        public string? RefreshToken { get; init; }
 
         /// <summary>
         /// A JWT assertion for which to request a new access token.
@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("assertion")]
-        public string? Assertion { get; set; } = default;
+        public string? Assertion { get; init; }
 
         /// <summary>
         /// The token to exchange for a downscoped token. This can be a regular
@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("subject_token")]
-        public string? SubjectToken { get; set; } = default;
+        public string? SubjectToken { get; init; }
 
         /// <summary>
         /// The type of `subject_token` passed in.
@@ -74,7 +74,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("subject_token_type")]
-        public PostOAuth2TokenSubjectTokenTypeField? SubjectTokenType { get; set; } = default;
+        public PostOAuth2TokenSubjectTokenTypeField? SubjectTokenType { get; init; }
 
         /// <summary>
         /// The token used to create an annotator token.
@@ -84,7 +84,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("actor_token")]
-        public string? ActorToken { get; set; } = default;
+        public string? ActorToken { get; init; }
 
         /// <summary>
         /// The type of `actor_token` passed in.
@@ -93,7 +93,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("actor_token_type")]
-        public PostOAuth2TokenActorTokenTypeField? ActorTokenType { get; set; } = default;
+        public PostOAuth2TokenActorTokenTypeField? ActorTokenType { get; init; }
 
         /// <summary>
         /// The space-delimited list of scopes that you want apply to the
@@ -103,19 +103,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// the call will error with **401 Unauthorized**.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string? Scope { get; set; } = default;
+        public string? Scope { get; init; }
 
         /// <summary>
         /// Full URL for the file that the token should be generated for.
         /// </summary>
         [JsonPropertyName("resource")]
-        public string? Resource { get; set; } = default;
+        public string? Resource { get; init; }
 
         /// <summary>
         /// Used in combination with `client_credentials` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("box_subject_type")]
-        public PostOAuth2TokenBoxSubjectTypeField? BoxSubjectType { get; set; } = default;
+        public PostOAuth2TokenBoxSubjectTypeField? BoxSubjectType { get; init; }
 
         /// <summary>
         /// Used in combination with `client_credentials` as the `grant_type`.
@@ -123,14 +123,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// `enterprise` use enterprise ID.
         /// </summary>
         [JsonPropertyName("box_subject_id")]
-        public string? BoxSubjectId { get; set; } = default;
+        public string? BoxSubjectId { get; init; }
 
         /// <summary>
         /// Full URL of the shared link on the file or folder
         /// that the token should be generated for.
         /// </summary>
         [JsonPropertyName("box_shared_link")]
-        public string? BoxSharedLink { get; set; } = default;
+        public string? BoxSharedLink { get; init; }
 
         public PostOAuth2Token(PostOAuth2TokenGrantTypeField grantType) {
             GrantType = grantType;

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// within the enterprise.
         /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Keeps track of which external source this group is
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Managers {
         /// This is desirable for one-way syncing of groups.
         /// </summary>
         [JsonPropertyName("provenance")]
-        public string? Provenance { get; set; } = default;
+        public string? Provenance { get; init; }
 
         /// <summary>
         /// An arbitrary identifier that can be used by
@@ -42,13 +42,13 @@ namespace Box.Sdk.Gen.Managers {
         /// either Box or external systems.
         /// </summary>
         [JsonPropertyName("external_sync_identifier")]
-        public string? ExternalSyncIdentifier { get; set; } = default;
+        public string? ExternalSyncIdentifier { get; init; }
 
         /// <summary>
         /// A human readable description of the group.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// Specifies who can invite the group to collaborate
@@ -64,7 +64,7 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise can invite the group.
         /// </summary>
         [JsonPropertyName("invitability_level")]
-        public CreateGroupRequestBodyInvitabilityLevelField? InvitabilityLevel { get; set; } = default;
+        public CreateGroupRequestBodyInvitabilityLevelField? InvitabilityLevel { get; init; }
 
         /// <summary>
         /// Specifies who can see the members of the group.
@@ -76,7 +76,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   enterprise
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
-        public CreateGroupRequestBodyMemberViewabilityLevelField? MemberViewabilityLevel { get; set; } = default;
+        public CreateGroupRequestBodyMemberViewabilityLevelField? MemberViewabilityLevel { get; init; }
 
         public CreateGroupRequestBody(string name) {
             Name = name;

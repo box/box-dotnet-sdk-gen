@@ -8,34 +8,34 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this lock
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `lock`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileFullLockTypeField? Type { get; set; } = default;
+        public FileFullLockTypeField? Type { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         /// <summary>
         /// The time this lock was created at.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The time this lock is to expire at, which might be in the past.
         /// </summary>
         [JsonPropertyName("expired_at")]
-        public System.DateTimeOffset? ExpiredAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiredAt { get; init; }
 
         /// <summary>
         /// Whether or not the file can be downloaded while locked.
         /// </summary>
         [JsonPropertyName("is_download_prevented")]
-        public bool? IsDownloadPrevented { get; set; } = default;
+        public bool? IsDownloadPrevented { get; init; }
 
         /// <summary>
         /// If the lock is managed by an application rather than a user, this
@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the future.
         /// </summary>
         [JsonPropertyName("app_type")]
-        public FileFullLockAppTypeField? AppType { get; set; } = default;
+        public FileFullLockAppTypeField? AppType { get; init; }
 
         public FileFullLockField() {
             

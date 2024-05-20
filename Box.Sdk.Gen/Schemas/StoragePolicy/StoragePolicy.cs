@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A descriptive name of the region
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         public StoragePolicy(string id, StoragePolicyMiniTypeField type = StoragePolicyMiniTypeField.StoragePolicy) : base(id, type) {
             

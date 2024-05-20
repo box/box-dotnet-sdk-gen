@@ -53,7 +53,7 @@ See the endpoint docs at
 
 <!-- sample post_workflows_id_start -->
 ```
-await adminClient.Workflows.StartWorkflowAsync(workflowId: NullableUtils.Unwrap(workflowToRun.Id), requestBody: new StartWorkflowRequestBody(type: StartWorkflowRequestBodyTypeField.WorkflowParameters, flow: new StartWorkflowRequestBodyFlowField(type: "flow", id: NullableUtils.Unwrap(NullableUtils.Unwrap(workflowToRun.Flows)[0].Id)), files: Array.AsReadOnly(new [] {new StartWorkflowRequestBodyFilesField(type: StartWorkflowRequestBodyFilesTypeField.File, id: workflowFileId)}), folder: new StartWorkflowRequestBodyFolderField(type: StartWorkflowRequestBodyFolderTypeField.Folder, id: workflowFolderId)));
+await adminClient.Workflows.StartWorkflowAsync(workflowId: NullableUtils.Unwrap(workflowToRun.Id), requestBody: new StartWorkflowRequestBody(flow: new StartWorkflowRequestBodyFlowField() { Type = "flow", Id = NullableUtils.Unwrap(NullableUtils.Unwrap(workflowToRun.Flows)[0].Id) }, files: Array.AsReadOnly(new [] {new StartWorkflowRequestBodyFilesField() { Type = StartWorkflowRequestBodyFilesTypeField.File, Id = workflowFileId }}), folder: new StartWorkflowRequestBodyFolderField() { Type = StartWorkflowRequestBodyFolderTypeField.Folder, Id = workflowFolderId }) { Type = StartWorkflowRequestBodyTypeField.WorkflowParameters });
 ```
 
 ### Arguments

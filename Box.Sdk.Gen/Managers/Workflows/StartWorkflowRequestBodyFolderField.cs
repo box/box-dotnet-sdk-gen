@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the folder object
         /// </summary>
         [JsonPropertyName("type")]
-        public StartWorkflowRequestBodyFolderTypeField? Type { get; set; } = default;
+        public StartWorkflowRequestBodyFolderTypeField? Type { get; init; }
 
         /// <summary>
         /// The id of the folder
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public StartWorkflowRequestBodyFolderField() {
             

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The email address to send the notifications to.
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; set; } = default;
+        public string? Email { get; init; }
 
         public UpdateUserByIdRequestBodyNotificationEmailField() {
             

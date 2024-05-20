@@ -7,14 +7,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// `service`
         /// </summary>
         [JsonPropertyName("type")]
-        public StatusSkillCardSkillTypeField Type { get; set; }
+        public StatusSkillCardSkillTypeField Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the service that
         /// applied this metadata.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         public StatusSkillCardSkillField(string id, StatusSkillCardSkillTypeField type = StatusSkillCardSkillTypeField.Service) {
             Type = type;

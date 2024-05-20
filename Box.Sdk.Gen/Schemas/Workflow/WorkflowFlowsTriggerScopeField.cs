@@ -8,19 +8,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// The trigger scope's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerScopeTypeField? Type { get; set; } = default;
+        public WorkflowFlowsTriggerScopeTypeField? Type { get; init; }
 
         /// <summary>
         /// Indicates the path of the condition value to check
         /// </summary>
         [JsonPropertyName("ref")]
-        public string? Ref { get; set; } = default;
+        public string? Ref { get; init; }
 
         /// <summary>
         /// The object the `ref` points to
         /// </summary>
         [JsonPropertyName("object")]
-        public WorkflowFlowsTriggerScopeObjectField? Object { get; set; } = default;
+        public WorkflowFlowsTriggerScopeObjectField? Object { get; init; }
 
         public WorkflowFlowsTriggerScopeField() {
             

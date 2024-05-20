@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         /// links.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public AddShareLinkToFolderRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public AddShareLinkToFolderRequestBodySharedLinkField? SharedLink { get; init; }
 
         public AddShareLinkToFolderRequestBody() {
             

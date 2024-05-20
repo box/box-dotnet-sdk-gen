@@ -20,16 +20,16 @@ namespace Box.Sdk.Gen.Managers {
         /// not allowed either.
         /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// The parent folder to create the new folder within.
         /// </summary>
         [JsonPropertyName("parent")]
-        public CreateFolderRequestBodyParentField Parent { get; set; }
+        public CreateFolderRequestBodyParentField Parent { get; }
 
         [JsonPropertyName("folder_upload_email")]
-        public CreateFolderRequestBodyFolderUploadEmailField? FolderUploadEmail { get; set; } = default;
+        public CreateFolderRequestBodyFolderUploadEmailField? FolderUploadEmail { get; init; }
 
         /// <summary>
         /// Specifies whether a folder should be synced to a
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Managers {
         /// (discontinued) and is not used by Box Drive.
         /// </summary>
         [JsonPropertyName("sync_state")]
-        public CreateFolderRequestBodySyncStateField? SyncState { get; set; } = default;
+        public CreateFolderRequestBodySyncStateField? SyncState { get; init; }
 
         public CreateFolderRequestBody(string name, CreateFolderRequestBodyParentField parent) {
             Name = name;

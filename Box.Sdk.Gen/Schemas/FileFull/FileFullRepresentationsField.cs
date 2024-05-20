@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of files
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<FileFullRepresentationsEntriesField>? Entries { get; set; } = default;
+        public IReadOnlyList<FileFullRepresentationsEntriesField>? Entries { get; init; }
 
         public FileFullRepresentationsField() {
             

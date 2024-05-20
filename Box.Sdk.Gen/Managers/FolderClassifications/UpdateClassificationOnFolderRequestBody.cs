@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Managers {
         /// `replace`
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateClassificationOnFolderRequestBodyOpField Op { get; set; }
+        public UpdateClassificationOnFolderRequestBodyOpField Op { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("path")]
-        public UpdateClassificationOnFolderRequestBodyPathField Path { get; set; }
+        public UpdateClassificationOnFolderRequestBodyPathField Path { get; }
 
         /// <summary>
         /// The name of the classification to apply to this folder.
@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen.Managers {
         /// which lists all available classification keys.
         /// </summary>
         [JsonPropertyName("value")]
-        public string Value { get; set; }
+        public string Value { get; }
 
         public UpdateClassificationOnFolderRequestBody(string value, UpdateClassificationOnFolderRequestBodyOpField op = UpdateClassificationOnFolderRequestBodyOpField.Replace, UpdateClassificationOnFolderRequestBodyPathField path = UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey) {
             Op = op;

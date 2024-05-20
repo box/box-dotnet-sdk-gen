@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The user to exempt.
         /// </summary>
         [JsonPropertyName("user")]
-        public CreateCollaborationWhitelistExemptTargetRequestBodyUserField User { get; set; }
+        public CreateCollaborationWhitelistExemptTargetRequestBodyUserField User { get; }
 
         public CreateCollaborationWhitelistExemptTargetRequestBody(CreateCollaborationWhitelistExemptTargetRequestBodyUserField user) {
             User = user;

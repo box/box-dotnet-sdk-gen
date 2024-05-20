@@ -7,7 +7,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Folder ID for locating this report
         /// </summary>
         [JsonPropertyName("folder_id")]
-        public string? FolderId { get; set; } = default;
+        public string? FolderId { get; init; }
 
         public ShieldInformationBarrierReportDetailsDetailsField() {
             

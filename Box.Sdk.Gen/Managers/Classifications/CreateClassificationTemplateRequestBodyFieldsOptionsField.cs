@@ -13,13 +13,13 @@ namespace Box.Sdk.Gen.Managers {
         /// will be show in the Box UI.
         /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; set; }
+        public string Key { get; }
 
         /// <summary>
         /// Additional information about the classification.
         /// </summary>
         [JsonPropertyName("staticConfig")]
-        public CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField? StaticConfig { get; set; } = default;
+        public CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField? StaticConfig { get; init; }
 
         public CreateClassificationTemplateRequestBodyFieldsOptionsField(string key) {
             Key = key;

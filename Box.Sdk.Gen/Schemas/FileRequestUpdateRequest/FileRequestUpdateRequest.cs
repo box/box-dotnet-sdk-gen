@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("title")]
-        public string? Title { get; set; } = default;
+        public string? Title { get; init; }
 
         /// <summary>
         /// An optional new description for the file request. This can be
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// An optional new status of the file request.
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("status")]
-        public FileRequestUpdateRequestStatusField? Status { get; set; } = default;
+        public FileRequestUpdateRequestStatusField? Status { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide
@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("is_email_required")]
-        public bool? IsEmailRequired { get; set; } = default;
+        public bool? IsEmailRequired { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("is_description_required")]
-        public bool? IsDescriptionRequired { get; set; } = default;
+        public bool? IsDescriptionRequired { get; init; }
 
         /// <summary>
         /// The date after which a file request will no longer accept new
@@ -68,7 +68,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         public FileRequestUpdateRequest() {
             

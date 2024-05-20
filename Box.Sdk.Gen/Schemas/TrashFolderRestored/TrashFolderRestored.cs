@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the `folder_id` is `123`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The HTTP `etag` of this folder. This can be used within some API
@@ -25,22 +25,22 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform changes on the folder if (no) changes have happened.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         /// <summary>
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFolderRestoredTypeField? Type { get; set; } = default;
+        public TrashFolderRestoredTypeField? Type { get; init; }
 
         [JsonPropertyName("sequence_id")]
-        public string? SequenceId { get; set; } = default;
+        public string? SequenceId { get; init; }
 
         /// <summary>
         /// The name of the folder.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The date and time when the folder was created. This value may
@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The date and time when the folder was last updated. This value may
@@ -56,10 +56,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The folder size in bytes.
@@ -68,46 +68,46 @@ namespace Box.Sdk.Gen.Schemas {
         /// value can get very large.
         /// </summary>
         [JsonPropertyName("size")]
-        public long? Size { get; set; } = default;
+        public long? Size { get; init; }
 
         [JsonPropertyName("path_collection")]
-        public TrashFolderRestoredPathCollectionField? PathCollection { get; set; } = default;
+        public TrashFolderRestoredPathCollectionField? PathCollection { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         [JsonPropertyName("modified_by")]
-        public UserMini? ModifiedBy { get; set; } = default;
+        public UserMini? ModifiedBy { get; init; }
 
         /// <summary>
         /// The time at which this folder was put in the
         /// trash - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; set; } = default;
+        public string? TrashedAt { get; init; }
 
         /// <summary>
         /// The time at which this folder is expected to be purged
         /// from the trash  - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; set; } = default;
+        public string? PurgedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this folder was originally
         /// created.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this folder was last updated.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; init; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini? OwnedBy { get; set; } = default;
+        public UserMini? OwnedBy { get; init; }
 
         /// <summary>
         /// The shared link for this file. This will
@@ -115,7 +115,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// link does become active again.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public string? SharedLink { get; set; } = default;
+        public string? SharedLink { get; init; }
 
         /// <summary>
         /// The folder upload email for this folder. This will
@@ -123,10 +123,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// email does become active again.
         /// </summary>
         [JsonPropertyName("folder_upload_email")]
-        public string? FolderUploadEmail { get; set; } = default;
+        public string? FolderUploadEmail { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; set; } = default;
+        public FolderMini? Parent { get; init; }
 
         /// <summary>
         /// Defines if this item has been deleted or not.
@@ -136,7 +136,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFolderRestoredItemStatusField? ItemStatus { get; set; } = default;
+        public TrashFolderRestoredItemStatusField? ItemStatus { get; init; }
 
         public TrashFolderRestored() {
             

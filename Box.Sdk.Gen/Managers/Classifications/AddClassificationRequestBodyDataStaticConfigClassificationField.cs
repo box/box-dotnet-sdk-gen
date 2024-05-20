@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// A longer description of the classification.
         /// </summary>
         [JsonPropertyName("classificationDefinition")]
-        public string? ClassificationDefinition { get; set; } = default;
+        public string? ClassificationDefinition { get; init; }
 
         /// <summary>
         /// An internal Box identifier used to assign a color to
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `7`: Gray
         /// </summary>
         [JsonPropertyName("colorID")]
-        public long? ColorId { get; set; } = default;
+        public long? ColorId { get; init; }
 
         public AddClassificationRequestBodyDataStaticConfigClassificationField() {
             

@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// set to `open` or `company`, not `collaborators`.
         /// </summary>
         [JsonPropertyName("can_download")]
-        public bool CanDownload { get; set; }
+        public bool CanDownload { get; }
 
         /// <summary>
         /// Defines if the shared link allows for the item to be previewed.
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// applies to any items in the folder.
         /// </summary>
         [JsonPropertyName("can_preview")]
-        public bool CanPreview { get; set; }
+        public bool CanPreview { get; }
 
         /// <summary>
         /// Defines if the shared link allows for the item to be edited.
@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the item has a type of `file`.
         /// </summary>
         [JsonPropertyName("can_edit")]
-        public bool CanEdit { get; set; }
+        public bool CanEdit { get; }
 
         public WebLinkSharedLinkPermissionsField(bool canDownload, bool canPreview, bool canEdit) {
             CanDownload = canDownload;

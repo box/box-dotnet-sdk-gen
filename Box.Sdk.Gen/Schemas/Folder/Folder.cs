@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The date and time when the folder was last updated. This value may
@@ -21,10 +21,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The folder size in bytes.
@@ -33,48 +33,48 @@ namespace Box.Sdk.Gen.Schemas {
         /// value can get very large.
         /// </summary>
         [JsonPropertyName("size")]
-        public long? Size { get; set; } = default;
+        public long? Size { get; init; }
 
         [JsonPropertyName("path_collection")]
-        public FolderPathCollectionField? PathCollection { get; set; } = default;
+        public FolderPathCollectionField? PathCollection { get; init; }
 
         [JsonPropertyName("created_by")]
-        public UserMini? CreatedBy { get; set; } = default;
+        public UserMini? CreatedBy { get; init; }
 
         [JsonPropertyName("modified_by")]
-        public UserMini? ModifiedBy { get; set; } = default;
+        public UserMini? ModifiedBy { get; init; }
 
         /// <summary>
         /// The time at which this folder was put in the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; set; } = default;
+        public System.DateTimeOffset? TrashedAt { get; init; }
 
         /// <summary>
         /// The time at which this folder is expected to be purged
         /// from the trash.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; set; } = default;
+        public System.DateTimeOffset? PurgedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this folder was originally
         /// created.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentCreatedAt { get; init; }
 
         /// <summary>
         /// The date and time at which this folder was last updated.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ContentModifiedAt { get; init; }
 
         [JsonPropertyName("owned_by")]
-        public UserMini? OwnedBy { get; set; } = default;
+        public UserMini? OwnedBy { get; init; }
 
         [JsonPropertyName("shared_link")]
-        public FolderSharedLinkField? SharedLink { get; set; } = default;
+        public FolderSharedLinkField? SharedLink { get; init; }
 
         /// <summary>
         /// The `folder_upload_email` parameter is not `null` if one of the following options is **true**:
@@ -86,10 +86,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// If the conditions are not met, the parameter will have the following value: `folder_upload_email: null`
         /// </summary>
         [JsonPropertyName("folder_upload_email")]
-        public FolderFolderUploadEmailField? FolderUploadEmail { get; set; } = default;
+        public FolderFolderUploadEmailField? FolderUploadEmail { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; set; } = default;
+        public FolderMini? Parent { get; init; }
 
         /// <summary>
         /// Defines if this item has been deleted or not.
@@ -99,10 +99,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public FolderItemStatusField? ItemStatus { get; set; } = default;
+        public FolderItemStatusField? ItemStatus { get; init; }
 
         [JsonPropertyName("item_collection")]
-        public Items? ItemCollection { get; set; } = default;
+        public Items? ItemCollection { get; init; }
 
         public Folder(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             

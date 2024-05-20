@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The name given to the retention policy.
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string? PolicyName { get; set; } = default;
+        public string? PolicyName { get; init; }
 
         /// <summary>
         /// The length of the retention policy. This value
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `indefinite`.
         /// </summary>
         [JsonPropertyName("retention_length")]
-        public string? RetentionLength { get; set; } = default;
+        public string? RetentionLength { get; init; }
 
         /// <summary>
         /// The disposition action of the retention policy.
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// once the retention policy has expired.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public RetentionPolicyMiniDispositionActionField? DispositionAction { get; set; } = default;
+        public RetentionPolicyMiniDispositionActionField? DispositionAction { get; init; }
 
         public RetentionPolicyMini(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
             

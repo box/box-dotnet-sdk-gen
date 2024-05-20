@@ -12,9 +12,9 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UploadsManager : IUploadsManager {
-        public IAuthentication? Auth { get; set; } = default;
+        public IAuthentication? Auth { get; init; }
 
-        public NetworkSession NetworkSession { get; set; }
+        public NetworkSession NetworkSession { get; }
 
         public UploadsManager(NetworkSession networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Managers {
             headers = headers ?? new UploadFileVersionHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", data: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/content"), new FetchOptions(networkSession: this.NetworkSession) { Method = "POST", Parameters = queryParamsMap, Headers = headersMap, MultipartData = Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes") { Data = SimpleJsonSerializer.Serialize(requestBody.Attributes) },new MultipartItem(partName: "file") { FileStream = requestBody.File, FileName = requestBody.FileFileName, ContentType = requestBody.FileContentType }}), ContentType = "multipart/form-data", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
         }
 
@@ -89,7 +89,7 @@ namespace Box.Sdk.Gen.Managers {
             headers = headers ?? new UploadFileHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/content"), new FetchOptions(method: "POST", parameters: queryParamsMap, headers: headersMap, multipartData: Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes", data: SimpleJsonSerializer.Serialize(requestBody.Attributes)),new MultipartItem(partName: "file", fileStream: requestBody.File, fileName: requestBody.FileFileName, contentType: requestBody.FileContentType)}), contentType: "multipart/form-data", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/content"), new FetchOptions(networkSession: this.NetworkSession) { Method = "POST", Parameters = queryParamsMap, Headers = headersMap, MultipartData = Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes") { Data = SimpleJsonSerializer.Serialize(requestBody.Attributes) },new MultipartItem(partName: "file") { FileStream = requestBody.File, FileName = requestBody.FileFileName, ContentType = requestBody.FileContentType }}), ContentType = "multipart/form-data", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
         }
 
@@ -110,7 +110,7 @@ namespace Box.Sdk.Gen.Managers {
             requestBody = requestBody ?? new PreflightFileUploadCheckRequestBody();
             headers = headers ?? new PreflightFileUploadCheckHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/content"), new FetchOptions(method: "OPTIONS", headers: headersMap, data: SimpleJsonSerializer.Serialize(requestBody), contentType: "application/json", responseFormat: "json", auth: this.Auth, networkSession: this.NetworkSession, cancellationToken: cancellationToken)).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/content"), new FetchOptions(networkSession: this.NetworkSession) { Method = "OPTIONS", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadUrl>(response.Data);
         }
 

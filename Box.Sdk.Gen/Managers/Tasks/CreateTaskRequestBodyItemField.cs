@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the file
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `file`
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateTaskRequestBodyItemTypeField? Type { get; set; } = default;
+        public CreateTaskRequestBodyItemTypeField? Type { get; init; }
 
         public CreateTaskRequestBodyItemField() {
             

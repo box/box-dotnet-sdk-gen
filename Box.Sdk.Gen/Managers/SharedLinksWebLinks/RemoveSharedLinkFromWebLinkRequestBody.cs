@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// is removed from the web link.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public RemoveSharedLinkFromWebLinkRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public RemoveSharedLinkFromWebLinkRequestBodySharedLinkField? SharedLink { get; init; }
 
         public RemoveSharedLinkFromWebLinkRequestBody() {
             

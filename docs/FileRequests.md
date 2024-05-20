@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample put_file_requests_id -->
 ```
-await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRequest.Id, requestBody: new FileRequestUpdateRequest(title: "updated title", description: "updated description"));
+await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRequest.Id, requestBody: new FileRequestUpdateRequest() { Title = "updated title", Description = "updated description" });
 ```
 
 ### Arguments
@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_file_requests_id_copy -->
 ```
-await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id, type: FileRequestCopyRequestFolderTypeField.Folder)));
+await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id) { Type = FileRequestCopyRequestFolderTypeField.Folder }));
 ```
 
 ### Arguments

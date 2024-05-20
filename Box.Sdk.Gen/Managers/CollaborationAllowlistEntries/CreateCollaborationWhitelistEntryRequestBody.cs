@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The domain to add to the list of allowed domains.
         /// </summary>
         [JsonPropertyName("domain")]
-        public string Domain { get; set; }
+        public string Domain { get; }
 
         /// <summary>
         /// The direction in which to allow collaborations.
         /// </summary>
         [JsonPropertyName("direction")]
-        public CreateCollaborationWhitelistEntryRequestBodyDirectionField Direction { get; set; }
+        public CreateCollaborationWhitelistEntryRequestBodyDirectionField Direction { get; }
 
         public CreateCollaborationWhitelistEntryRequestBody(string domain, CreateCollaborationWhitelistEntryRequestBodyDirectionField direction) {
             Domain = domain;

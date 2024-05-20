@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// [1]: https://tools.ietf.org/html/rfc3230
         /// </summary>
-        public string Digest { get; set; }
+        public string Digest { get; }
 
         /// <summary>
         /// Ensures this item hasn't recently changed before
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Managers {
         /// with a `412 Precondition Failed` if it
         /// has changed since.
         /// </summary>
-        public string? IfMatch { get; set; } = default;
+        public string? IfMatch { get; init; }
 
         /// <summary>
         /// Ensures an item is only returned if it has changed.
@@ -38,12 +38,12 @@ namespace Box.Sdk.Gen.Managers {
         /// with a `304 Not Modified` if the item has not
         /// changed since.
         /// </summary>
-        public string? IfNoneMatch { get; set; } = default;
+        public string? IfNoneMatch { get; init; }
 
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; set; }
+        public Dictionary<string, string?> ExtraHeaders { get; init; }
 
         public CreateFileUploadSessionCommitHeaders(string digest, Dictionary<string, string?> extraHeaders = default) {
             Digest = digest;

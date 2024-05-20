@@ -115,7 +115,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barriers -->
 ```
-await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase(id: enterpriseId)));
+await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId }));
 ```
 
 ### Arguments

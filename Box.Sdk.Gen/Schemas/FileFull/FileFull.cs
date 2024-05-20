@@ -12,42 +12,42 @@ namespace Box.Sdk.Gen.Schemas {
         /// The version number of this file
         /// </summary>
         [JsonPropertyName("version_number")]
-        public string? VersionNumber { get; set; } = default;
+        public string? VersionNumber { get; init; }
 
         /// <summary>
         /// The number of comments on this file
         /// </summary>
         [JsonPropertyName("comment_count")]
-        public long? CommentCount { get; set; } = default;
+        public long? CommentCount { get; init; }
 
         [JsonPropertyName("permissions")]
-        public FileFullPermissionsField? Permissions { get; set; } = default;
+        public FileFullPermissionsField? Permissions { get; init; }
 
         [JsonPropertyName("tags")]
-        public IReadOnlyList<string>? Tags { get; set; } = default;
+        public IReadOnlyList<string>? Tags { get; init; }
 
         [JsonPropertyName("lock")]
-        public FileFullLockField? Lock { get; set; } = default;
+        public FileFullLockField? Lock { get; init; }
 
         /// <summary>
         /// Indicates the (optional) file extension for this file. By default,
         /// this is set to an empty string.
         /// </summary>
         [JsonPropertyName("extension")]
-        public string? Extension { get; set; } = default;
+        public string? Extension { get; init; }
 
         /// <summary>
         /// Indicates if the file is a package. Packages are commonly used
         /// by Mac Applications and can include iWork files.
         /// </summary>
         [JsonPropertyName("is_package")]
-        public bool? IsPackage { get; set; } = default;
+        public bool? IsPackage { get; init; }
 
         [JsonPropertyName("expiring_embed_link")]
-        public FileFullExpiringEmbedLinkField? ExpiringEmbedLink { get; set; } = default;
+        public FileFullExpiringEmbedLinkField? ExpiringEmbedLink { get; init; }
 
         [JsonPropertyName("watermark_info")]
-        public FileFullWatermarkInfoField? WatermarkInfo { get; set; } = default;
+        public FileFullWatermarkInfoField? WatermarkInfo { get; init; }
 
         /// <summary>
         /// Specifies if the file can be accessed
@@ -55,58 +55,58 @@ namespace Box.Sdk.Gen.Schemas {
         /// to a parent folder.
         /// </summary>
         [JsonPropertyName("is_accessible_via_shared_link")]
-        public bool? IsAccessibleViaSharedLink { get; set; } = default;
+        public bool? IsAccessibleViaSharedLink { get; init; }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
         /// when sharing this file.
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
-        public IReadOnlyList<FileFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; set; } = default;
+        public IReadOnlyList<FileFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; init; }
 
         /// <summary>
         /// Specifies if this file is owned by a user outside of the
         /// authenticated enterprise.
         /// </summary>
         [JsonPropertyName("is_externally_owned")]
-        public bool? IsExternallyOwned { get; set; } = default;
+        public bool? IsExternallyOwned { get; init; }
 
         /// <summary>
         /// Specifies if this file has any other collaborators.
         /// </summary>
         [JsonPropertyName("has_collaborations")]
-        public bool? HasCollaborations { get; set; } = default;
+        public bool? HasCollaborations { get; init; }
 
         [JsonPropertyName("metadata")]
-        public FileFullMetadataField? Metadata { get; set; } = default;
+        public FileFullMetadataField? Metadata { get; init; }
 
         /// <summary>
         /// When the file will automatically be deleted
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         [JsonPropertyName("representations")]
-        public FileFullRepresentationsField? Representations { get; set; } = default;
+        public FileFullRepresentationsField? Representations { get; init; }
 
         [JsonPropertyName("classification")]
-        public FileFullClassificationField? Classification { get; set; } = default;
+        public FileFullClassificationField? Classification { get; init; }
 
         [JsonPropertyName("uploader_display_name")]
-        public string? UploaderDisplayName { get; set; } = default;
+        public string? UploaderDisplayName { get; init; }
 
         /// <summary>
         /// The retention expiration timestamp for the given file
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public System.DateTimeOffset? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; init; }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
         /// when sharing this file.
         /// </summary>
         [JsonPropertyName("shared_link_permission_options")]
-        public IReadOnlyList<FileFullSharedLinkPermissionOptionsField>? SharedLinkPermissionOptions { get; set; } = default;
+        public IReadOnlyList<FileFullSharedLinkPermissionOptionsField>? SharedLinkPermissionOptions { get; init; }
 
         public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             

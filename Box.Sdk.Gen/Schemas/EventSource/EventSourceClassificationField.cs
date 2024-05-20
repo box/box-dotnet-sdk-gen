@@ -8,7 +8,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The classification's name
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         public EventSourceClassificationField() {
             

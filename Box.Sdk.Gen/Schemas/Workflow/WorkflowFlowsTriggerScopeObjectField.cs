@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the object
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerScopeObjectTypeField? Type { get; set; } = default;
+        public WorkflowFlowsTriggerScopeObjectTypeField? Type { get; init; }
 
         /// <summary>
         /// The id of the object
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public WorkflowFlowsTriggerScopeObjectField() {
             

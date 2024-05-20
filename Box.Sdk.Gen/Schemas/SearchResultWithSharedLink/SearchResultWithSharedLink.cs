@@ -11,16 +11,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// items this value will return `null`.
         /// </summary>
         [JsonPropertyName("accessible_via_shared_link")]
-        public string? AccessibleViaSharedLink { get; set; } = default;
+        public string? AccessibleViaSharedLink { get; init; }
 
         [JsonPropertyName("item")]
-        public FileFullOrFolderFullOrWebLink? Item { get; set; } = default;
+        public FileFullOrFolderFullOrWebLink? Item { get; init; }
 
         /// <summary>
         /// The result type. The value is always `search_result`.
         /// </summary>
         [JsonPropertyName("type")]
-        public string? Type { get; set; } = default;
+        public string? Type { get; init; }
 
         public SearchResultWithSharedLink() {
             

@@ -12,16 +12,16 @@ namespace Box.Sdk.Gen.Managers {
         /// The name for the file
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The size of the file in bytes
         /// </summary>
         [JsonPropertyName("size")]
-        public int? Size { get; set; } = default;
+        public int? Size { get; init; }
 
         [JsonPropertyName("parent")]
-        public PreflightFileUploadCheckRequestBodyParentField? Parent { get; set; } = default;
+        public PreflightFileUploadCheckRequestBodyParentField? Parent { get; init; }
 
         public PreflightFileUploadCheckRequestBody() {
             

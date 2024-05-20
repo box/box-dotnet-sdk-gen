@@ -14,15 +14,15 @@ namespace Fetch
 {
     static class ContentTypes
     {
-        public const string FormUrlEncoded = "application/x-www-form-urlencoded";
-        public const string MultipartFormData = "multipart/form-data";
-        public const string OctetStream = "application/octet-stream";
+        internal const string FormUrlEncoded = "application/x-www-form-urlencoded";
+        internal const string MultipartFormData = "multipart/form-data";
+        internal const string OctetStream = "application/octet-stream";
     }
 
     /// <summary>
     /// Static HttpClient.
     /// </summary>
-    public static class HttpClientAdapter
+    static class HttpClientAdapter
     {
         static IHttpClientFactory _clientFactory;
 
@@ -43,7 +43,7 @@ namespace Fetch
         /// <param name="resource">Target url of a request.</param>
         /// <param name="options">Request options of a request.</param>
         /// <returns>A http/s Response as a FetchResponse.</returns>
-        public static async Task<FetchResponse> FetchAsync(string resource, FetchOptions options)
+        internal static async Task<FetchResponse> FetchAsync(string resource, FetchOptions options)
         {
             var client = _clientFactory.CreateClient();
 

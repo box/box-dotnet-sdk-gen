@@ -8,31 +8,31 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFilePathCollectionEntriesTypeField? Type { get; set; } = default;
+        public TrashFilePathCollectionEntriesTypeField? Type { get; init; }
 
         /// <summary>
         /// The unique identifier that represent a folder.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// This field is null for the Trash folder
         /// </summary>
         [JsonPropertyName("sequence_id")]
-        public string? SequenceId { get; set; } = default;
+        public string? SequenceId { get; init; }
 
         /// <summary>
         /// This field is null for the Trash folder
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; set; } = default;
+        public string? Etag { get; init; }
 
         /// <summary>
         /// The name of the Trash folder.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         public TrashFilePathCollectionEntriesField() {
             

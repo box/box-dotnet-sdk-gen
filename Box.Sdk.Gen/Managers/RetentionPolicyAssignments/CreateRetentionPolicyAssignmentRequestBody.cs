@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The ID of the retention policy to assign
         /// </summary>
         [JsonPropertyName("policy_id")]
-        public string PolicyId { get; set; }
+        public string PolicyId { get; }
 
         /// <summary>
         /// The item to assign the policy to
         /// </summary>
         [JsonPropertyName("assign_to")]
-        public CreateRetentionPolicyAssignmentRequestBodyAssignToField AssignTo { get; set; }
+        public CreateRetentionPolicyAssignmentRequestBodyAssignToField AssignTo { get; }
 
         /// <summary>
         /// If the `assign_to` type is `metadata_template`,
@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Currently only one object of `field` and `value` is supported.
         /// </summary>
         [JsonPropertyName("filter_fields")]
-        public IReadOnlyList<CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField>? FilterFields { get; set; } = default;
+        public IReadOnlyList<CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField>? FilterFields { get; init; }
 
         /// <summary>
         /// The date the retention policy assignment begins.
@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Managers {
         /// this field can be a date field's metadata attribute key id.
         /// </summary>
         [JsonPropertyName("start_date_field")]
-        public string? StartDateField { get; set; } = default;
+        public string? StartDateField { get; init; }
 
         public CreateRetentionPolicyAssignmentRequestBody(string policyId, CreateRetentionPolicyAssignmentRequestBodyAssignToField assignTo) {
             PolicyId = policyId;

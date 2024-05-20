@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// the date and restore the file.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; set; } = default;
+        public string? TrashedAt { get; init; }
 
         public UpdateFileVersionByIdRequestBody() {
             

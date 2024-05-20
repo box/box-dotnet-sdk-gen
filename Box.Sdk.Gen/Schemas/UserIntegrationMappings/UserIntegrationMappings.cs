@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The display name of this user
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; } = default;
+        public string? Name { get; init; }
 
         /// <summary>
         /// The primary email address of this user
         /// </summary>
         [JsonPropertyName("login")]
-        public string? Login { get; set; } = default;
+        public string? Login { get; init; }
 
         public UserIntegrationMappings(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             

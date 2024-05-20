@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `open` or `company`.
         /// </summary>
         [JsonPropertyName("can_download")]
-        public bool? CanDownload { get; set; } = default;
+        public bool? CanDownload { get; init; }
 
         /// <summary>
         /// If the shared link allows for previewing of files.
@@ -22,14 +22,14 @@ namespace Box.Sdk.Gen.Managers {
         /// this also applies to any items in the folder.
         /// </summary>
         [JsonPropertyName("can_preview")]
-        public bool? CanPreview { get; set; } = default;
+        public bool? CanPreview { get; init; }
 
         /// <summary>
         /// This value can only be `false` for items
         /// with a `type` of `folder`.
         /// </summary>
         [JsonPropertyName("can_edit")]
-        public bool? CanEdit { get; set; } = default;
+        public bool? CanEdit { get; init; }
 
         public AddShareLinkToFolderRequestBodySharedLinkPermissionsField() {
             

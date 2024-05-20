@@ -13,13 +13,13 @@ namespace Box.Sdk.Gen.Managers {
         /// granted access to
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateCollaborationRequestBodyItemTypeField? Type { get; set; } = default;
+        public CreateCollaborationRequestBodyItemTypeField? Type { get; init; }
 
         /// <summary>
         /// The ID of the item that will be granted access to
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         public CreateCollaborationRequestBodyItemField() {
             

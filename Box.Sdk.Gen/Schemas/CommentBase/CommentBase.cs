@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this comment.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `comment`
         /// </summary>
         [JsonPropertyName("type")]
-        public CommentBaseTypeField? Type { get; set; } = default;
+        public CommentBaseTypeField? Type { get; init; }
 
         public CommentBase() {
             

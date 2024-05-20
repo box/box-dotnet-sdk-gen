@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Schemas {
         ///   trigger this generation.
         /// </summary>
         [JsonPropertyName("state")]
-        public FileFullRepresentationsEntriesStatusStateField? State { get; set; } = default;
+        public FileFullRepresentationsEntriesStatusStateField? State { get; init; }
 
         public FileFullRepresentationsEntriesStatusField() {
             

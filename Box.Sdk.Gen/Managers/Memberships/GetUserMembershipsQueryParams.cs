@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         public GetUserMembershipsQueryParams() {
             

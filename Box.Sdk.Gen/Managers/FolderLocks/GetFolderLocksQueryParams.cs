@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The root folder of a Box account is
         /// always represented by the ID `0`.
         /// </summary>
-        public string FolderId { get; set; }
+        public string FolderId { get; }
 
         public GetFolderLocksQueryParams(string folderId) {
             FolderId = folderId;

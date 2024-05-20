@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Defines the status of this invocation. Set this to `success` when setting Skill cards.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateAllSkillCardsOnFileRequestBodyStatusField Status { get; set; }
+        public UpdateAllSkillCardsOnFileRequestBodyStatusField Status { get; }
 
         /// <summary>
         /// The metadata to set for this skill. This is a list of
@@ -20,19 +20,19 @@ namespace Box.Sdk.Gen.Managers {
         /// skill cards on the file.
         /// </summary>
         [JsonPropertyName("metadata")]
-        public UpdateAllSkillCardsOnFileRequestBodyMetadataField Metadata { get; set; }
+        public UpdateAllSkillCardsOnFileRequestBodyMetadataField Metadata { get; }
 
         /// <summary>
         /// The file to assign the cards to.
         /// </summary>
         [JsonPropertyName("file")]
-        public UpdateAllSkillCardsOnFileRequestBodyFileField File { get; set; }
+        public UpdateAllSkillCardsOnFileRequestBodyFileField File { get; }
 
         /// <summary>
         /// The optional file version to assign the cards to.
         /// </summary>
         [JsonPropertyName("file_version")]
-        public UpdateAllSkillCardsOnFileRequestBodyFileVersionField? FileVersion { get; set; } = default;
+        public UpdateAllSkillCardsOnFileRequestBodyFileVersionField? FileVersion { get; init; }
 
         /// <summary>
         /// A descriptor that defines what items are affected by this call.
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Managers {
         /// state, and leave it out in most other situations.
         /// </summary>
         [JsonPropertyName("usage")]
-        public UpdateAllSkillCardsOnFileRequestBodyUsageField? Usage { get; set; } = default;
+        public UpdateAllSkillCardsOnFileRequestBodyUsageField? Usage { get; init; }
 
         public UpdateAllSkillCardsOnFileRequestBody(UpdateAllSkillCardsOnFileRequestBodyStatusField status, UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata, UpdateAllSkillCardsOnFileRequestBodyFileField file) {
             Status = status;

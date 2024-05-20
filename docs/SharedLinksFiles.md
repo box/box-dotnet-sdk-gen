@@ -93,7 +93,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#add_shared_link -->
 ```
-await client.SharedLinksFiles.AddShareLinkToFileAsync(fileId: fileId, requestBody: new AddShareLinkToFileRequestBody(sharedLink: new AddShareLinkToFileRequestBodySharedLinkField(access: AddShareLinkToFileRequestBodySharedLinkAccessField.Open, password: "Secret123@")), queryParams: new AddShareLinkToFileQueryParams(fields: "shared_link"));
+await client.SharedLinksFiles.AddShareLinkToFileAsync(fileId: fileId, requestBody: new AddShareLinkToFileRequestBody() { SharedLink = new AddShareLinkToFileRequestBodySharedLinkField() { Access = AddShareLinkToFileRequestBodySharedLinkAccessField.Open, Password = "Secret123@" } }, queryParams: new AddShareLinkToFileQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments
@@ -129,7 +129,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#update_shared_link -->
 ```
-await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody(sharedLink: new UpdateSharedLinkOnFileRequestBodySharedLinkField(access: UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators)), queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link"));
+await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody() { SharedLink = new UpdateSharedLinkOnFileRequestBodySharedLinkField() { Access = UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link"));
 ```
 
 ### Arguments

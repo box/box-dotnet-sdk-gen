@@ -8,36 +8,36 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this file version retention.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `file_version_retention`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileVersionRetentionTypeField? Type { get; set; } = default;
+        public FileVersionRetentionTypeField? Type { get; init; }
 
         [JsonPropertyName("file_version")]
-        public FileVersionMini? FileVersion { get; set; } = default;
+        public FileVersionMini? FileVersion { get; init; }
 
         [JsonPropertyName("file")]
-        public FileMini? File { get; set; } = default;
+        public FileMini? File { get; init; }
 
         /// <summary>
         /// When this file version retention object was
         /// created
         /// </summary>
         [JsonPropertyName("applied_at")]
-        public System.DateTimeOffset? AppliedAt { get; set; } = default;
+        public System.DateTimeOffset? AppliedAt { get; init; }
 
         /// <summary>
         /// When the retention expires on this file
         /// version retention
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public System.DateTimeOffset? DispositionAt { get; set; } = default;
+        public System.DateTimeOffset? DispositionAt { get; init; }
 
         [JsonPropertyName("winning_retention_policy")]
-        public RetentionPolicyMini? WinningRetentionPolicy { get; set; } = default;
+        public RetentionPolicyMini? WinningRetentionPolicy { get; init; }
 
         public FileVersionRetention() {
             

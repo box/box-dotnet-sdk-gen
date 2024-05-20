@@ -7,41 +7,37 @@ namespace Box.Sdk.Gen
     /// <summary>
     /// Multipart item used in Fetch, usually for stream requests.
     /// </summary>
-    public class MultipartItem
+    class MultipartItem
     {
         /// <summary>
         /// Name of the multipart item.
         /// </summary>
-        public string PartName { get; set; }
+        internal string PartName { get; }
 
         /// <summary>
         /// Name of the multipart item.
         /// </summary>
 
-        public SerializedData? Data { get; set; }
+        internal SerializedData? Data { get; init; }
 
         /// <summary>
         /// A stream containing the contents of a file.
         /// </summary>
-        public Stream? FileStream { get; set; }
+        internal Stream? FileStream { get; init; }
 
         /// <summary>
         /// Name of the file.
         /// </summary>
-        public string? FileName { get; set; }
+        internal string? FileName { get; init; }
 
         /// <summary>
         /// Content type of the multipart item.
         /// </summary>
-        public string? ContentType { get; set; }
+        internal string? ContentType { get; init; }
 
-        public MultipartItem(string partName, Stream? fileStream = null, SerializedData? data = null, string? fileName = null, string? contentType = null)
+        public MultipartItem(string partName)
         {
             PartName = partName;
-            Data = data;
-            FileStream = fileStream;
-            FileName = fileName;
-            ContentType = contentType;
         }
     }
 }

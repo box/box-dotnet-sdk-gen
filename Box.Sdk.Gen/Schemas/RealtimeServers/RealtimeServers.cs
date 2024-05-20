@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The number of items in this response.
         /// </summary>
         [JsonPropertyName("chunk_size")]
-        public long? ChunkSize { get; set; } = default;
+        public long? ChunkSize { get; init; }
 
         /// <summary>
         /// A list of real-time servers
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<RealtimeServer>? Entries { get; set; } = default;
+        public IReadOnlyList<RealtimeServer>? Entries { get; init; }
 
         public RealtimeServers() {
             

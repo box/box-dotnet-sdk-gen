@@ -11,11 +11,11 @@ namespace Box.Sdk.Gen.Managers {
         /// Accepted file extensions are `.jpg` or `.png`.
         /// The maximum file size is 1MB.
         /// </summary>
-        public System.IO.Stream Pic { get; set; }
+        public System.IO.Stream Pic { get; }
 
-        public string? PicFileName { get; set; } = default;
+        public string? PicFileName { get; init; }
 
-        public string? PicContentType { get; set; } = default;
+        public string? PicContentType { get; init; }
 
         public CreateUserAvatarRequestBody(System.IO.Stream pic) {
             Pic = pic;

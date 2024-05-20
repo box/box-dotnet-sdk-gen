@@ -11,37 +11,37 @@ namespace Fetch
     /// <summary>
     /// Holds parameters used for http/s request.
     /// </summary>
-    public class FetchOptions
+    class FetchOptions
     {
         /// <summary>
         /// Http/s Method as string.
         /// </summary>
-        public string? Method { get; set; }
+        internal string? Method { get; init; }
 
         /// <summary>
         /// Authentication type used for the request.
         /// </summary>
-        public IAuthentication? Auth { get; set; }
+        internal IAuthentication? Auth { get; init; }
 
         /// <summary>
         /// Body of the http/s request.
         /// </summary>
-        public SerializedData? Data { get; set; }
+        internal SerializedData? Data { get; init; }
 
         /// <summary>
         /// A stream containing the contents of a file.
         /// </summary>
-        public Stream? FileStream { get; set; }
+        internal Stream? FileStream { get; init; }
 
         /// <summary>
         /// Headers of the http/s request.
         /// </summary>
-        public IReadOnlyDictionary<string, string> Headers { get; set; }
+        internal IReadOnlyDictionary<string, string> Headers { get; init; } = new ReadOnlyDictionary<string, string>(new Dictionary<string, string>());
 
         /// <summary>
         /// Content type header of the http/s request.
         /// </summary>
-        public string? ContentType { get; set; }
+        internal string? ContentType { get; init; }
 
         /// <summary>
         /// HttpMethod string mapping to the .NET HttpMethod class.
@@ -59,27 +59,27 @@ namespace Fetch
         /// Network session for the request.
         /// </summary>
         //TODO implement usage.
-        public NetworkSession? NetworkSession { get; set; }
+        internal NetworkSession NetworkSession { get; }
 
         /// <summary>
         /// Query parameters.
         /// </summary>
-        public IReadOnlyDictionary<string, string>? Parameters { get; set; }
+        internal IReadOnlyDictionary<string, string>? Parameters { get; init; }
 
         /// <summary>
         /// List of multipart items for the request.
         /// </summary>
-        public IReadOnlyCollection<MultipartItem>? MultipartData { get; set; }
+        internal IReadOnlyCollection<MultipartItem>? MultipartData { get; init; }
 
         /// <summary>
         /// Format of the response e.g. "binary" in case of stream response.
         /// </summary>
-        public string? ResponseFormat { get; set; }
+        internal string? ResponseFormat { get; init; }
 
         /// <summary>
         /// Token used for request cancellation.
         /// </summary>
-        public System.Threading.CancellationToken? CancellationToken { get; set; }
+        internal System.Threading.CancellationToken? CancellationToken { get; init; }
 
 
         private static Dictionary<string, HttpMethod> httpMethodsMap = new Dictionary<string, HttpMethod>() {
@@ -96,25 +96,9 @@ namespace Fetch
         /// <summary>
         /// Creates FetchOptions from the parameters.
         /// </summary>
-        /// <param name="method"></param>
-        /// <param name="data"></param>
-        /// <param name="fileStream"></param>
-        /// <param name="auth"></param>
-        /// <param name="headers"></param>
-        /// <param name="contentType"></param>
-        public FetchOptions(string? method = null, SerializedData? data = null, Stream? fileStream = null, IAuthentication? auth = null, IReadOnlyDictionary<string, string>? headers = null, string? contentType = null, NetworkSession? networkSession = null, IReadOnlyDictionary<string, string>? parameters = null, IReadOnlyCollection<MultipartItem>? multipartData = null, string? responseFormat = null, System.Threading.CancellationToken? cancellationToken = null)
+        internal FetchOptions(NetworkSession networkSession)
         {
-            Method = method;
-            Auth = auth;
-            Data = data;
-            FileStream = fileStream;
-            Headers = headers ?? new ReadOnlyDictionary<string, string>(new Dictionary<string, string>());
-            ContentType = contentType;
             NetworkSession = networkSession;
-            Parameters = parameters;
-            MultipartData = multipartData;
-            ResponseFormat = responseFormat;
-            CancellationToken = cancellationToken;
         }
     }
 }

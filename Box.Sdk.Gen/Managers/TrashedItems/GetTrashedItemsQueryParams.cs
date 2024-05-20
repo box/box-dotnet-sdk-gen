@@ -18,12 +18,12 @@ namespace Box.Sdk.Gen.Managers {
         /// fields for the mini representation are returned, additional
         /// to the fields requested.
         /// </summary>
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         /// <summary>
         /// The maximum number of items to return per page.
         /// </summary>
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// exceeding 10000 will be rejected
         /// with a 400 response.
         /// </summary>
-        public long? Offset { get; set; } = default;
+        public long? Offset { get; init; }
 
         /// <summary>
         /// Specifies whether to use marker-based pagination instead of
@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Managers {
         /// that can be passed as a parameter to this endpoint to get the next
         /// page of the response.
         /// </summary>
-        public bool? Usemarker { get; set; } = default;
+        public bool? Usemarker { get; init; }
 
         /// <summary>
         /// Defines the position marker at which to begin returning results. This is
@@ -51,13 +51,13 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This requires `usemarker` to be set to `true`.
         /// </summary>
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// The direction to sort results in. This can be either in alphabetical ascending
         /// (`ASC`) or descending (`DESC`) order.
         /// </summary>
-        public GetTrashedItemsQueryParamsDirectionField? Direction { get; set; } = default;
+        public GetTrashedItemsQueryParamsDirectionField? Direction { get; init; }
 
         /// <summary>
         /// Defines the **second** attribute by which items
@@ -69,7 +69,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This parameter is not supported when using marker-based pagination.
         /// </summary>
-        public GetTrashedItemsQueryParamsSortField? Sort { get; set; } = default;
+        public GetTrashedItemsQueryParamsSortField? Sort { get; init; }
 
         public GetTrashedItemsQueryParams() {
             

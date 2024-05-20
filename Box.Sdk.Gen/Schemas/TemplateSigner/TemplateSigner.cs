@@ -8,13 +8,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class TemplateSigner {
         [JsonPropertyName("inputs")]
-        public IReadOnlyList<TemplateSignerInput>? Inputs { get; set; } = default;
+        public IReadOnlyList<TemplateSignerInput>? Inputs { get; init; }
 
         /// <summary>
         /// Email address of the signer
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; set; } = default;
+        public string? Email { get; init; }
 
         /// <summary>
         /// Defines the role of the signer in the signature request. A role of
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// receives the final signed document and signing log.
         /// </summary>
         [JsonPropertyName("role")]
-        public TemplateSignerRoleField? Role { get; set; } = default;
+        public TemplateSignerRoleField? Role { get; init; }
 
         /// <summary>
         /// Used in combination with an embed URL for a sender.
@@ -32,13 +32,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// redirected to the next `in_person` signer.
         /// </summary>
         [JsonPropertyName("is_in_person")]
-        public bool? IsInPerson { get; set; } = default;
+        public bool? IsInPerson { get; init; }
 
         /// <summary>
         /// Order of the signer
         /// </summary>
         [JsonPropertyName("order")]
-        public long? Order { get; set; } = default;
+        public long? Order { get; init; }
 
         /// <summary>
         /// If provided, this value points signers that are assigned the same inputs and belongs to same signer group.
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// within Box Sign requests created from it.
         /// </summary>
         [JsonPropertyName("signer_group_id")]
-        public string? SignerGroupId { get; set; } = default;
+        public string? SignerGroupId { get; init; }
 
         public TemplateSigner() {
             

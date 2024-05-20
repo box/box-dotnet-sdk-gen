@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// the file.
         /// </summary>
         [JsonPropertyName("upload_url")]
-        public string? UploadUrlField { get; set; } = default;
+        public string? UploadUrlField { get; init; }
 
         /// <summary>
         /// An optional access token to use to upload the file
         /// </summary>
         [JsonPropertyName("upload_token")]
-        public string? UploadToken { get; set; } = default;
+        public string? UploadToken { get; init; }
 
         public UploadUrl() {
             

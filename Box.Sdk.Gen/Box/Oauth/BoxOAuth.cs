@@ -14,12 +14,12 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// Configuration object of OAuth.
         /// </summary>
-        public OAuthConfig Config { get; set; }
+        internal OAuthConfig Config { get; }
 
         /// <summary>
         /// An object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </summary>
-        public ITokenStorage TokenStorage { get; set; }
+        internal ITokenStorage TokenStorage { get; }
 
         public BoxOAuth(OAuthConfig config) {
             Config = config;

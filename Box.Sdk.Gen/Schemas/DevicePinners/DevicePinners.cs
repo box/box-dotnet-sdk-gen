@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of device pins
         /// </summary>
         [JsonPropertyName("entries")]
-        public IReadOnlyList<DevicePinner>? Entries { get; set; } = default;
+        public IReadOnlyList<DevicePinner>? Entries { get; init; }
 
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
@@ -19,19 +19,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// allowed.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public long? NextMarker { get; set; } = default;
+        public long? NextMarker { get; init; }
 
         /// <summary>
         /// The order by which items are returned.
         /// </summary>
         [JsonPropertyName("order")]
-        public IReadOnlyList<DevicePinnersOrderField>? Order { get; set; } = default;
+        public IReadOnlyList<DevicePinnersOrderField>? Order { get; init; }
 
         public DevicePinners() {
             

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Additional details for the classification.
         /// </summary>
         [JsonPropertyName("classification")]
-        public UpdateClassificationRequestBodyDataStaticConfigClassificationField? Classification { get; set; } = default;
+        public UpdateClassificationRequestBodyDataStaticConfigClassificationField? Classification { get; init; }
 
         public UpdateClassificationRequestBodyDataStaticConfigField() {
             

@@ -12,19 +12,19 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of this object.
         /// </summary>
         [JsonPropertyName("access")]
-        public UpdateFileByIdRequestBodyLockAccessField? Access { get; set; } = default;
+        public UpdateFileByIdRequestBodyLockAccessField? Access { get; init; }
 
         /// <summary>
         /// Defines the time at which the lock expires.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; set; } = default;
+        public System.DateTimeOffset? ExpiresAt { get; init; }
 
         /// <summary>
         /// Defines if the file can be downloaded while it is locked.
         /// </summary>
         [JsonPropertyName("is_download_prevented")]
-        public bool? IsDownloadPrevented { get; set; } = default;
+        public bool? IsDownloadPrevented { get; init; }
 
         public UpdateFileByIdRequestBodyLockField() {
             

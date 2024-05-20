@@ -10,17 +10,17 @@ using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {
     public class BoxDeveloperTokenAuth : IAuthentication {
-        public string Token { get; set; }
+        internal string Token { get; }
 
         /// <summary>
         /// Configuration object of DeveloperTokenAuth.
         /// </summary>
-        public DeveloperTokenConfig Config { get; set; }
+        internal DeveloperTokenConfig Config { get; }
 
         /// <summary>
         /// An object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </summary>
-        public ITokenStorage TokenStorage { get; set; }
+        internal ITokenStorage TokenStorage { get; }
 
         public BoxDeveloperTokenAuth(string token, DeveloperTokenConfig config = default) {
             Token = token;

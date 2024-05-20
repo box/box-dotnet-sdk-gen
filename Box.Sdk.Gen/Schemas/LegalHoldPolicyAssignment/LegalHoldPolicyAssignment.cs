@@ -5,20 +5,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class LegalHoldPolicyAssignment : LegalHoldPolicyAssignmentBase {
         [JsonPropertyName("legal_hold_policy")]
-        public LegalHoldPolicyMini? LegalHoldPolicy { get; set; } = default;
+        public LegalHoldPolicyMini? LegalHoldPolicy { get; init; }
 
         [JsonPropertyName("assigned_to")]
-        public FileOrFolderOrWebLink? AssignedTo { get; set; } = default;
+        public FileOrFolderOrWebLink? AssignedTo { get; init; }
 
         [JsonPropertyName("assigned_by")]
-        public UserMini? AssignedBy { get; set; } = default;
+        public UserMini? AssignedBy { get; init; }
 
         /// <summary>
         /// When the legal hold policy assignment object was
         /// created
         /// </summary>
         [JsonPropertyName("assigned_at")]
-        public System.DateTimeOffset? AssignedAt { get; set; } = default;
+        public System.DateTimeOffset? AssignedAt { get; init; }
 
         /// <summary>
         /// When the assignment release request was sent.
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// was not deleted.
         /// </summary>
         [JsonPropertyName("deleted_at")]
-        public System.DateTimeOffset? DeletedAt { get; set; } = default;
+        public System.DateTimeOffset? DeletedAt { get; init; }
 
         public LegalHoldPolicyAssignment() {
             

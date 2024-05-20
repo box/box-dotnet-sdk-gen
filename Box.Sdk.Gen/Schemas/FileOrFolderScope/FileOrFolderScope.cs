@@ -8,10 +8,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// The scopes for the resource access
         /// </summary>
         [JsonPropertyName("scope")]
-        public FileOrFolderScopeScopeField? Scope { get; set; } = default;
+        public FileOrFolderScopeScopeField? Scope { get; init; }
 
         [JsonPropertyName("object")]
-        public FileMiniOrFolderMini? Object { get; set; } = default;
+        public FileMiniOrFolderMini? Object { get; init; }
 
         public FileOrFolderScope() {
             

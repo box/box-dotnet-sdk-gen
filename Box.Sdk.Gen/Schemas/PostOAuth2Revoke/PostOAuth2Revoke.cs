@@ -8,20 +8,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// access token.
         /// </summary>
         [JsonPropertyName("client_id")]
-        public string? ClientId { get; set; } = default;
+        public string? ClientId { get; init; }
 
         /// <summary>
         /// The client secret of the application requesting to revoke
         /// an access token.
         /// </summary>
         [JsonPropertyName("client_secret")]
-        public string? ClientSecret { get; set; } = default;
+        public string? ClientSecret { get; init; }
 
         /// <summary>
         /// The access token to revoke.
         /// </summary>
         [JsonPropertyName("token")]
-        public string? Token { get; set; } = default;
+        public string? Token { get; init; }
 
         public PostOAuth2Revoke() {
             

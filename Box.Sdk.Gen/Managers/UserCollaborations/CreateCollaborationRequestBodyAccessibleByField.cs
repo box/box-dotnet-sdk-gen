@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of collaborator to invite.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateCollaborationRequestBodyAccessibleByTypeField Type { get; set; }
+        public CreateCollaborationRequestBodyAccessibleByTypeField Type { get; }
 
         /// <summary>
         /// The ID of the user or group.
@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Managers {
         /// address.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// The email address of the user to grant access to the item.
@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Alternatively, use `id` to specify a user by user ID.
         /// </summary>
         [JsonPropertyName("login")]
-        public string? Login { get; set; } = default;
+        public string? Login { get; init; }
 
         public CreateCollaborationRequestBodyAccessibleByField(CreateCollaborationRequestBodyAccessibleByTypeField type) {
             Type = type;

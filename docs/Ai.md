@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File, content: "Earth goes around the sun"),new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File, content: "Sun rises in the East in the morning")})));
+await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File) { Content = "Earth goes around the sun" },new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File) { Content = "Sun rises in the East in the morning" }})));
 ```
 
 ### Arguments
@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_text_gen -->
 ```
-await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField(id: fileToAsk.Id, type: AiTextGenItemsTypeField.File, content: "The Earth goes around the sun. Sun rises in the East in the morning.")}), dialogueHistory: Array.AsReadOnly(new [] {new AiTextGenDialogueHistoryField(prompt: "What does the earth go around?", answer: "The sun", createdAt: Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z")),new AiTextGenDialogueHistoryField(prompt: "On Earth, where does the sun rise?", answer: "East", createdAt: Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z"))})));
+await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField() { Id = fileToAsk.Id, Type = AiTextGenItemsTypeField.File, Content = "The Earth goes around the sun. Sun rises in the East in the morning." }})) { DialogueHistory = Array.AsReadOnly(new [] {new AiTextGenDialogueHistoryField() { Prompt = "What does the earth go around?", Answer = "The sun", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") },new AiTextGenDialogueHistoryField() { Prompt = "On Earth, where does the sun rise?", Answer = "East", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") }}) });
 ```
 
 ### Arguments

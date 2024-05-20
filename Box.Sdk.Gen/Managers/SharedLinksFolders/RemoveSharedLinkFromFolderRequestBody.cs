@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         /// is removed from the folder.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public RemoveSharedLinkFromFolderRequestBodySharedLinkField? SharedLink { get; set; } = default;
+        public RemoveSharedLinkFromFolderRequestBodySharedLinkField? SharedLink { get; init; }
 
         public RemoveSharedLinkFromFolderRequestBody() {
             

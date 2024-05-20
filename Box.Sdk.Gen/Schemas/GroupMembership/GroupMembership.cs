@@ -8,37 +8,37 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this group membership
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `group_membership`
         /// </summary>
         [JsonPropertyName("type")]
-        public GroupMembershipTypeField? Type { get; set; } = default;
+        public GroupMembershipTypeField? Type { get; init; }
 
         [JsonPropertyName("user")]
-        public UserMini? User { get; set; } = default;
+        public UserMini? User { get; init; }
 
         [JsonPropertyName("group")]
-        public GroupMini? Group { get; set; } = default;
+        public GroupMini? Group { get; init; }
 
         /// <summary>
         /// The role of the user in the group.
         /// </summary>
         [JsonPropertyName("role")]
-        public GroupMembershipRoleField? Role { get; set; } = default;
+        public GroupMembershipRoleField? Role { get; init; }
 
         /// <summary>
         /// The time this membership was created.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; set; } = default;
+        public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
         /// The time this membership was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; set; } = default;
+        public System.DateTimeOffset? ModifiedAt { get; init; }
 
         public GroupMembership() {
             

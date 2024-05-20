@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Relative width to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("width")]
-        public double? Width { get; set; } = default;
+        public double? Width { get; init; }
 
         /// <summary>
         /// Relative height to the page the input is on, ranging from 0 to 1.
         /// </summary>
         [JsonPropertyName("height")]
-        public double? Height { get; set; } = default;
+        public double? Height { get; init; }
 
         public TemplateSignerInputDimensionsField() {
             

@@ -7,9 +7,9 @@ using System.Text.Json;
 
 namespace StringExtensions
 {
-    public static class StringUtils
+    static class StringUtils
     {
-        public static string? ToStringRepresentation<T>(T? obj)
+        internal static string? ToStringRepresentation<T>(T? obj)
         {
             var isList = (obj is IList || obj is IEnumerable) && obj.GetType().IsGenericType;
             if (obj != null && isList)

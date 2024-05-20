@@ -11,14 +11,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// be folders or files.
         /// </summary>
         [JsonPropertyName("items")]
-        public IReadOnlyList<ZipDownloadRequestItemsField> Items { get; set; }
+        public IReadOnlyList<ZipDownloadRequestItemsField> Items { get; }
 
         /// <summary>
         /// The optional name of the `zip` archive. This name will be appended by the
         /// `.zip` file extension, for example `January Financials.zip`.
         /// </summary>
         [JsonPropertyName("download_file_name")]
-        public string? DownloadFileName { get; set; } = default;
+        public string? DownloadFileName { get; init; }
 
         public ZipDownloadRequest(IReadOnlyList<ZipDownloadRequestItemsField> items) {
             Items = items;

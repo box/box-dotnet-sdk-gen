@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The name for the retention policy
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string PolicyName { get; set; }
+        public string PolicyName { get; }
 
         /// <summary>
         /// The additional text description of the retention policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The type of the retention policy. A retention
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Managers {
         /// to retain the content is still unknown.
         /// </summary>
         [JsonPropertyName("policy_type")]
-        public CreateRetentionPolicyRequestBodyPolicyTypeField PolicyType { get; set; }
+        public CreateRetentionPolicyRequestBodyPolicyTypeField PolicyType { get; }
 
         /// <summary>
         /// The disposition action of the retention policy.
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Managers {
         /// by users once the retention policy has expired.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public CreateRetentionPolicyRequestBodyDispositionActionField DispositionAction { get; set; }
+        public CreateRetentionPolicyRequestBodyDispositionActionField DispositionAction { get; }
 
         /// <summary>
         /// The length of the retention policy. This value
@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `indefinite`.
         /// </summary>
         [JsonPropertyName("retention_length")]
-        public string? RetentionLength { get; set; } = default;
+        public string? RetentionLength { get; init; }
 
         /// <summary>
         /// Specifies the retention type:
@@ -70,28 +70,28 @@ namespace Box.Sdk.Gen.Managers {
         /// compliance with regulatory retention policies.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public CreateRetentionPolicyRequestBodyRetentionTypeField? RetentionType { get; set; } = default;
+        public CreateRetentionPolicyRequestBodyRetentionTypeField? RetentionType { get; init; }
 
         /// <summary>
         /// Whether the owner of a file will be allowed to
         /// extend the retention.
         /// </summary>
         [JsonPropertyName("can_owner_extend_retention")]
-        public bool? CanOwnerExtendRetention { get; set; } = default;
+        public bool? CanOwnerExtendRetention { get; init; }
 
         /// <summary>
         /// Whether owner and co-owners of a file are notified
         /// when the policy nears expiration.
         /// </summary>
         [JsonPropertyName("are_owners_notified")]
-        public bool? AreOwnersNotified { get; set; } = default;
+        public bool? AreOwnersNotified { get; init; }
 
         /// <summary>
         /// A list of users notified when
         /// the retention policy duration is about to end.
         /// </summary>
         [JsonPropertyName("custom_notification_recipients")]
-        public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; set; } = default;
+        public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; init; }
 
         public CreateRetentionPolicyRequestBody(string policyName, CreateRetentionPolicyRequestBodyPolicyTypeField policyType, CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
             PolicyName = policyName;

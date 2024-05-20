@@ -12,13 +12,13 @@ namespace Box.Sdk.Gen.Managers {
         /// The name of the policy.
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string PolicyName { get; set; }
+        public string PolicyName { get; }
 
         /// <summary>
         /// A description for the policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = default;
+        public string? Description { get; init; }
 
         /// <summary>
         /// The filter start date.
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Required if `is_ongoing` is set to `false`.
         /// </summary>
         [JsonPropertyName("filter_started_at")]
-        public System.DateTimeOffset? FilterStartedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterStartedAt { get; init; }
 
         /// <summary>
         /// The filter end date.
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Required if `is_ongoing` is set to `false`.
         /// </summary>
         [JsonPropertyName("filter_ended_at")]
-        public System.DateTimeOffset? FilterEndedAt { get; set; } = default;
+        public System.DateTimeOffset? FilterEndedAt { get; init; }
 
         /// <summary>
         /// Whether new assignments under this policy should
@@ -63,7 +63,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Required if no filter dates are set.
         /// </summary>
         [JsonPropertyName("is_ongoing")]
-        public bool? IsOngoing { get; set; } = default;
+        public bool? IsOngoing { get; init; }
 
         public CreateLegalHoldPolicyRequestBody(string policyName) {
             PolicyName = policyName;

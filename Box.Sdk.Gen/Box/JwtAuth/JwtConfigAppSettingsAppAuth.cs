@@ -9,19 +9,19 @@ namespace Box.Sdk.Gen {
         /// Public key ID
         /// </summary>
         [JsonPropertyName("publicKeyID")]
-        public string PublicKeyId { get; set; }
+        public string PublicKeyId { get; }
 
         /// <summary>
         /// Private key
         /// </summary>
         [JsonPropertyName("privateKey")]
-        public string PrivateKey { get; set; }
+        public string PrivateKey { get; }
 
         /// <summary>
         /// Passphrase
         /// </summary>
         [JsonPropertyName("passphrase")]
-        public string Passphrase { get; set; }
+        public string Passphrase { get; }
 
         public JwtConfigAppSettingsAppAuth(string publicKeyId, string privateKey, string passphrase) {
             PublicKeyId = publicKeyId;

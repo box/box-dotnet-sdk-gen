@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// A list of the file conflicts that caused this error.
         /// </summary>
         [JsonPropertyName("conflicts")]
-        public IReadOnlyList<FileConflict>? Conflicts { get; set; } = default;
+        public IReadOnlyList<FileConflict>? Conflicts { get; init; }
 
         public ConflictErrorContextInfoField() {
             

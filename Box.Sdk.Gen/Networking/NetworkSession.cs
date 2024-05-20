@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen
         /// <summary>
         /// Additional headers, which are appended to each API request
         /// </summary>
-        public Dictionary<string, string> AdditionalHeaders { get; }
+        public Dictionary<string, string> AdditionalHeaders { get; init; }
 
         /// <summary>
         /// Custom base urls.
@@ -21,18 +21,16 @@ namespace Box.Sdk.Gen
         /// <summary>
         /// Number of request retries.
         /// </summary>
-        public int RetryAttempts { get; }
+        public int RetryAttempts { get; init; } = 5;
 
         /// <summary>
         /// IRetryStrategy used when retrying http/s request.
         /// </summary>
-        public IRetryStrategy RetryStrategy { get; }
+        public IRetryStrategy RetryStrategy { get; init; } = new ExponentialBackoffRetryStrategy();
 
-        public NetworkSession(Dictionary<string, string>? additionalHeaders = default, int retryAttempts = 5, IRetryStrategy? retryStrategy = null, BaseUrls? baseUrls = null)
+        public NetworkSession(Dictionary<string, string>? additionalHeaders = default, BaseUrls? baseUrls = null)
         {
             AdditionalHeaders = additionalHeaders ?? new Dictionary<string, string>();
-            RetryAttempts = retryAttempts;
-            RetryStrategy = retryStrategy ?? new ExponentialBackoffRetryStrategy();
             BaseUrls = baseUrls ?? new BaseUrls();
         }
 
@@ -44,7 +42,7 @@ namespace Box.Sdk.Gen
         /// Map of headers, which are appended to each API request
         /// </param>
         public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders) {
-            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.RetryAttempts, this.RetryStrategy, this.BaseUrls);
+            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy };
         }
 
         /// <summary>
@@ -55,7 +53,7 @@ namespace Box.Sdk.Gen
         /// Custom base urls.
         /// </param>
         public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls) {
-            return new NetworkSession(this.AdditionalHeaders, this.RetryAttempts, this.RetryStrategy, baseUrls);
+            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy };
         }
     }
 }

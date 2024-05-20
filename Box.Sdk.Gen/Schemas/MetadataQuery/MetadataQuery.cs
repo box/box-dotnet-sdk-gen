@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// can not be used in a query.
         /// </summary>
         [JsonPropertyName("from")]
-        public string From { get; set; }
+        public string From { get; }
 
         /// <summary>
         /// The query to perform. A query is a logical expression that is very similar
@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `query_params` object.
         /// </summary>
         [JsonPropertyName("query")]
-        public string? Query { get; set; } = default;
+        public string? Query { get; init; }
 
         /// <summary>
         /// Set of arguments corresponding to the parameters specified in the
@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the type of the corresponding metadata template field.
         /// </summary>
         [JsonPropertyName("query_params")]
-        public Dictionary<string, string>? QueryParams { get; set; } = default;
+        public Dictionary<string, string>? QueryParams { get; init; }
 
         /// <summary>
         /// The ID of the folder that you are restricting the query to. A
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// corresponding to the ID or in any of its subfolders.
         /// </summary>
         [JsonPropertyName("ancestor_folder_id")]
-        public string AncestorFolderId { get; set; }
+        public string AncestorFolderId { get; }
 
         /// <summary>
         /// A list of template fields and directions to sort the metadata query
@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The ordering `direction` must be the same for each item in the array.
         /// </summary>
         [JsonPropertyName("order_by")]
-        public IReadOnlyList<MetadataQueryOrderByField>? OrderBy { get; set; } = default;
+        public IReadOnlyList<MetadataQueryOrderByField>? OrderBy { get; init; }
 
         /// <summary>
         /// A value between 0 and 100 that indicates the maximum number of results
@@ -60,13 +60,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// returned.
         /// </summary>
         [JsonPropertyName("limit")]
-        public long? Limit { get; set; } = default;
+        public long? Limit { get; init; }
 
         /// <summary>
         /// Marker to use for requesting the next page.
         /// </summary>
         [JsonPropertyName("marker")]
-        public string? Marker { get; set; } = default;
+        public string? Marker { get; init; }
 
         /// <summary>
         /// By default, this endpoint returns only the most basic info about the items for
@@ -88,7 +88,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// `scope` and `templateKey` can be defined.
         /// </summary>
         [JsonPropertyName("fields")]
-        public IReadOnlyList<string>? Fields { get; set; } = default;
+        public IReadOnlyList<string>? Fields { get; init; }
 
         public MetadataQuery(string from, string ancestorFolderId) {
             From = from;

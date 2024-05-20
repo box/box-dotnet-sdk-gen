@@ -7,25 +7,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// The ID of the metadata cascade policy object
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// `metadata_cascade_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyTypeField Type { get; set; }
+        public MetadataCascadePolicyTypeField Type { get; }
 
         /// <summary>
         /// The enterprise that owns this policy.
         /// </summary>
         [JsonPropertyName("owner_enterprise")]
-        public MetadataCascadePolicyOwnerEnterpriseField? OwnerEnterprise { get; set; } = default;
+        public MetadataCascadePolicyOwnerEnterpriseField? OwnerEnterprise { get; init; }
 
         /// <summary>
         /// Represent the folder the policy is applied to.
         /// </summary>
         [JsonPropertyName("parent")]
-        public MetadataCascadePolicyParentField? Parent { get; set; } = default;
+        public MetadataCascadePolicyParentField? Parent { get; init; }
 
         /// <summary>
         /// The scope of the metadata cascade policy can either be `global` or
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// will be the ID of that enterprise.
         /// </summary>
         [JsonPropertyName("scope")]
-        public string? Scope { get; set; } = default;
+        public string? Scope { get; init; }
 
         /// <summary>
         /// The key of the template that is cascaded down to the folder's
@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// [folder]: e://get-folders-id-metadata
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public string? TemplateKey { get; set; } = default;
+        public string? TemplateKey { get; init; }
 
         public MetadataCascadePolicy(string id, MetadataCascadePolicyTypeField type = MetadataCascadePolicyTypeField.MetadataCascadePolicy) {
             Id = id;

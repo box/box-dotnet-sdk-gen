@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The unique identifier for this enterprise
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; } = default;
+        public string? Id { get; init; }
 
         /// <summary>
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public EnterpriseBaseTypeField? Type { get; set; } = default;
+        public EnterpriseBaseTypeField? Type { get; init; }
 
         public EnterpriseBase() {
             
