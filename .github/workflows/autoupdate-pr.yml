@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
+          git config --global user.name 'box-sdk-build'
+          git config --global user.email 'box-sdk-build@box.com'
 
       - name: Fetch all branches and tags
         run: git fetch --prune --unshallow
