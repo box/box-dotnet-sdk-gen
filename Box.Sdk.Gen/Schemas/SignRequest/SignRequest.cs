@@ -39,8 +39,10 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// This URL is returned if `is_document_preparation_needed` is
-        /// set to `true` for Box Sign request. It is used to prepare a signature request
-        /// using the UI. The signature request is not sent until the preparation
+        /// set to `true` in the request. The parameter is used to prepare
+        /// the signature request
+        /// using the UI. The signature request is not
+        /// sent until the preparation
         /// phase is complete.
         /// </summary>
         [JsonPropertyName("prepare_url")]
