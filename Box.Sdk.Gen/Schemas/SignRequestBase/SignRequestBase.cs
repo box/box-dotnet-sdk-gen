@@ -86,7 +86,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? TemplateId { get; init; }
 
         /// <summary>
-        /// Used as an optional system name to appear in the signature log next to the signers who have been assigned an `embed_url_external_id`
+        /// Used as an optional system name to appear in the signature log next to the signers who have been assigned the `embed_url_external_id`.
         /// </summary>
         [JsonPropertyName("external_system_name")]
         public string? ExternalSystemName { get; init; }
