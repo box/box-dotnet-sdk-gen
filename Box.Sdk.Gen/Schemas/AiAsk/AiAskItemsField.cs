@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAskItemsField {
         /// <summary>
-        /// The id of the item
+        /// The id of the item.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// The type of the item
+        /// The type of the item.
         /// </summary>
         [JsonPropertyName("type")]
         public AiAskItemsTypeField Type { get; }
