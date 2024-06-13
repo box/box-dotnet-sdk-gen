@@ -243,5 +243,47 @@ namespace Box.Sdk.Gen
         /// <param name="filepath">Path to the file</param>
         /// <returns>Text from the file</returns>
         public static string ReadTextFromFile(string filepath) => System.IO.File.ReadAllText(filepath);
+
+        /// <summary>
+        /// Partial application of arguments b, c over given func.
+        /// </summary>
+        /// <param name="func">Function</param>
+        /// <param name="b">Param</param>
+        /// <param name="c">Param</param>
+        /// <returns>Partially applied function</returns>
+        public static Func<TArg, TResult> PartialApplication3<TArg, TB, TC, TResult>(Func<TArg, TB, TC, TResult> func,
+            TB b, TC c)
+        {
+            return arg => func(arg, b, c);
+        }
+
+        /// <summary>
+        /// Partial application of arguments b, c and d over given func.
+        /// </summary>
+        /// <param name="func">Function</param>
+        /// <param name="b">Param</param>
+        /// <param name="c">Param</param>
+        /// <param name="d">Param</param>
+        /// <returns>Partially applied function</returns>
+        public static Func<TArg, TResult> PartialApplication4<TArg, TB, TC, TD, TResult>(Func<TArg, TB, TC, TD, TResult> func,
+            TB b, TC c, TD d)
+        {
+            return arg => func(arg, b, c, d);
+        }
+
+        /// <summary>
+        /// Partial application of arguments b, c, d and e over given func.
+        /// </summary>
+        /// <param name="func">Function</param>
+        /// <param name="b">Param</param>
+        /// <param name="c">Param</param>
+        /// <param name="d">Param</param>
+        /// <param name="e">Param</param>
+        /// <returns>Partailly applied function</returns>
+        public static Func<TArg, TResult> PartialApplication5<TArg, TB, TC, TD, TE, TResult>(Func<TArg, TB, TC, TD, TE, TResult> func,
+            TB b, TC c, TD d, TE e)
+        {
+            return arg => func(arg, b, c, d, e);
+        }
     }
 }
