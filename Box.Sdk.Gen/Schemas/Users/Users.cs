@@ -8,6 +8,26 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class Users {
         /// <summary>
+        /// The limit that was used for these entries. This will be the same as the
+        /// `limit` query parameter unless that value exceeded the maximum value
+        /// allowed. The maximum value varies by API.
+        /// </summary>
+        [JsonPropertyName("limit")]
+        public long? Limit { get; init; }
+
+        /// <summary>
+        /// The marker for the start of the next page of results.
+        /// </summary>
+        [JsonPropertyName("next_marker")]
+        public string? NextMarker { get; init; }
+
+        /// <summary>
+        /// The marker for the start of the previous page of results.
+        /// </summary>
+        [JsonPropertyName("prev_marker")]
+        public string? PrevMarker { get; init; }
+
+        /// <summary>
         /// One greater than the offset of the last entry in the entire collection.
         /// The total number of entries in the collection may be less than
         /// `total_count`.
@@ -17,14 +37,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("total_count")]
         public long? TotalCount { get; init; }
-
-        /// <summary>
-        /// The limit that was used for these entries. This will be the same as the
-        /// `limit` query parameter unless that value exceeded the maximum value
-        /// allowed. The maximum value varies by API.
-        /// </summary>
-        [JsonPropertyName("limit")]
-        public long? Limit { get; init; }
 
         /// <summary>
         /// The 0-based offset of the first entry in this set. This will be the same
