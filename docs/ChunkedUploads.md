@@ -241,7 +241,7 @@ await client.ChunkedUploads.UploadBigFileAsync(file: fileByteStream, fileName: f
   - The stream of the file to upload.
 - fileName `string`
   - The name of the file, which will be used for storage in Box.
-- fileSize `int`
+- fileSize `long`
   - The total size of the file for the chunked upload in bytes.
 - parentFolderId `string`
   - The ID of the folder where the file should be uploaded.

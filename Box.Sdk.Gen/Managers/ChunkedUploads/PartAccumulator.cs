@@ -10,13 +10,13 @@ namespace Box.Sdk.Gen.Managers {
 
         internal IReadOnlyList<UploadPart> Parts { get; }
 
-        internal int FileSize { get; }
+        internal long FileSize { get; }
 
         internal string UploadSessionId { get; }
 
         internal Hash FileHash { get; }
 
-        public PartAccumulator(int lastIndex, IReadOnlyList<UploadPart> parts, int fileSize, string uploadSessionId, Hash fileHash) {
+        public PartAccumulator(int lastIndex, IReadOnlyList<UploadPart> parts, long fileSize, string uploadSessionId, Hash fileHash) {
             LastIndex = lastIndex;
             Parts = parts;
             FileSize = fileSize;
