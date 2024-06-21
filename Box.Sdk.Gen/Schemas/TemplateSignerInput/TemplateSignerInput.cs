@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,13 +13,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of input
         /// </summary>
         [JsonPropertyName("type")]
-        public TemplateSignerInputTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TemplateSignerInputTypeField>))]
+        public StringEnum<TemplateSignerInputTypeField>? Type { get; init; }
 
         /// <summary>
         /// Content type of input
         /// </summary>
         [JsonPropertyName("content_type")]
-        public TemplateSignerInputContentTypeField? ContentType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TemplateSignerInputContentTypeField>))]
+        public StringEnum<TemplateSignerInputContentTypeField>? ContentType { get; init; }
 
         /// <summary>
         /// Whether or not the input is required.

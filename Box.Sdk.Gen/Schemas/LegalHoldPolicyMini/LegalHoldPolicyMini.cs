@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class LegalHoldPolicyMini {
@@ -13,11 +15,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// `legal_hold_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public LegalHoldPolicyMiniTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<LegalHoldPolicyMiniTypeField>))]
+        public StringEnum<LegalHoldPolicyMiniTypeField> Type { get; }
 
         public LegalHoldPolicyMini(string id, LegalHoldPolicyMiniTypeField type = LegalHoldPolicyMiniTypeField.LegalHoldPolicy) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal LegalHoldPolicyMini(string id, StringEnum<LegalHoldPolicyMiniTypeField> type) {
+            Id = id;
+            Type = LegalHoldPolicyMiniTypeField.LegalHoldPolicy;
         }
     }
 }

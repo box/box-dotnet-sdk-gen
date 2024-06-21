@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `task_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public TaskAssignmentTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TaskAssignmentTypeField>))]
+        public StringEnum<TaskAssignmentTypeField>? Type { get; init; }
 
         [JsonPropertyName("item")]
         public FileMini? Item { get; init; }
@@ -55,7 +58,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// the `action` value of the task object.
         /// </summary>
         [JsonPropertyName("resolution_state")]
-        public TaskAssignmentResolutionStateField? ResolutionState { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TaskAssignmentResolutionStateField>))]
+        public StringEnum<TaskAssignmentResolutionStateField>? ResolutionState { get; init; }
 
         [JsonPropertyName("assigned_by")]
         public UserMini? AssignedBy { get; init; }

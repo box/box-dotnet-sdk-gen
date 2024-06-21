@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +13,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Status of the shield information report
         /// </summary>
         [JsonPropertyName("status")]
-        public ShieldInformationBarrierReportStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierReportStatusField>))]
+        public StringEnum<ShieldInformationBarrierReportStatusField>? Status { get; init; }
 
         [JsonPropertyName("details")]
         public ShieldInformationBarrierReportDetails? Details { get; init; }

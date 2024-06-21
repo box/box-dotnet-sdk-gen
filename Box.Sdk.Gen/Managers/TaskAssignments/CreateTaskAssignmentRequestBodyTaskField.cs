@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateTaskAssignmentRequestBodyTaskField {
@@ -17,11 +18,18 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the item to assign.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateTaskAssignmentRequestBodyTaskTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateTaskAssignmentRequestBodyTaskTypeField>))]
+        public StringEnum<CreateTaskAssignmentRequestBodyTaskTypeField> Type { get; }
 
         public CreateTaskAssignmentRequestBodyTaskField(string id, CreateTaskAssignmentRequestBodyTaskTypeField type = CreateTaskAssignmentRequestBodyTaskTypeField.Task) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateTaskAssignmentRequestBodyTaskField(string id, StringEnum<CreateTaskAssignmentRequestBodyTaskTypeField> type) {
+            Id = id;
+            Type = CreateTaskAssignmentRequestBodyTaskTypeField.Task;
         }
     }
 }

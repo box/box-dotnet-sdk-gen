@@ -20,12 +20,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(allowlist.Entries).Count >= 0);
             const string domain = "example.com";
             CollaborationAllowlistEntry newEntry = await client.CollaborationAllowlistEntries.CreateCollaborationWhitelistEntryAsync(requestBody: new CreateCollaborationWhitelistEntryRequestBody(direction: CreateCollaborationWhitelistEntryRequestBodyDirectionField.Inbound, domain: domain));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Type) == "collaboration_whitelist_entry");
-            Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Direction) == "inbound");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Type?.Value) == "collaboration_whitelist_entry");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Direction?.Value) == "inbound");
             Assert.IsTrue(newEntry.Domain == domain);
             CollaborationAllowlistEntry entry = await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(newEntry.Id));
             Assert.IsTrue(entry.Id == newEntry.Id);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(entry.Direction) == StringUtils.ToStringRepresentation(newEntry.Direction));
+            Assert.IsTrue(StringUtils.ToStringRepresentation(entry.Direction?.Value) == StringUtils.ToStringRepresentation(newEntry.Direction?.Value));
             Assert.IsTrue(entry.Domain == domain);
             await client.CollaborationAllowlistEntries.DeleteCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
             await Assert.That.IsExceptionAsync(async() => await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id)));

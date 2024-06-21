@@ -1,10 +1,11 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFileMetadataByIdRequestBody {
@@ -13,7 +14,8 @@ namespace Box.Sdk.Gen.Managers {
         /// of these are hazardous as they will change existing templates.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateFileMetadataByIdRequestBodyOpField? Op { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateFileMetadataByIdRequestBodyOpField>))]
+        public StringEnum<UpdateFileMetadataByIdRequestBodyOpField>? Op { get; init; }
 
         /// <summary>
         /// The location in the metadata JSON object

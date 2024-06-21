@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ZipDownloadRequestItemsField {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the item to add to the archive.
         /// </summary>
         [JsonPropertyName("type")]
-        public ZipDownloadRequestItemsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<ZipDownloadRequestItemsTypeField>))]
+        public StringEnum<ZipDownloadRequestItemsTypeField> Type { get; }
 
         /// <summary>
         /// The identifier of the item to add to the archive. When this item is
@@ -17,6 +20,12 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, string id) {
+            Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal ZipDownloadRequestItemsField(StringEnum<ZipDownloadRequestItemsTypeField> type, string id) {
             Type = type;
             Id = id;
         }

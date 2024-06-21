@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetLegalHoldPolicyAssignmentsQueryParams {
@@ -17,7 +18,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Filters the results by the type of item the
         /// policy was applied to.
         /// </summary>
-        public GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField? AssignToType { get; init; }
+        public StringEnum<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>? AssignToType { get; init; }
 
         /// <summary>
         /// Filters the results by the ID of item the

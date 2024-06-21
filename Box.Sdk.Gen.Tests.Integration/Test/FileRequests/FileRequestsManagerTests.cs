@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
             FileRequest fileRequest = await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: fileRequestId);
             Assert.IsTrue(fileRequest.Id == fileRequestId);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(fileRequest.Type) == "file_request");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(fileRequest.Type?.Value) == "file_request");
             FileRequest copiedFileRequest = await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id) { Type = FileRequestCopyRequestFolderTypeField.Folder }));
             Assert.IsTrue(copiedFileRequest.Id != fileRequestId);
             Assert.IsTrue(copiedFileRequest.Title == fileRequest.Title);

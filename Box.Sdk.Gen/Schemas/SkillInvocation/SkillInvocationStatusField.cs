@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         ///   retry would not help.
         /// </summary>
         [JsonPropertyName("state")]
-        public SkillInvocationStatusStateField? State { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SkillInvocationStatusStateField>))]
+        public StringEnum<SkillInvocationStatusStateField>? State { get; init; }
 
         /// <summary>
         /// Status information

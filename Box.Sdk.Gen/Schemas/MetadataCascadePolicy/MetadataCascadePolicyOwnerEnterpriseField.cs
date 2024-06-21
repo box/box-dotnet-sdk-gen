@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataCascadePolicyOwnerEnterpriseField {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyOwnerEnterpriseTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<MetadataCascadePolicyOwnerEnterpriseTypeField>))]
+        public StringEnum<MetadataCascadePolicyOwnerEnterpriseTypeField>? Type { get; init; }
 
         /// <summary>
         /// The ID of the enterprise that owns the policy.

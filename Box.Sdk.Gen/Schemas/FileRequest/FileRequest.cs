@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file_request`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<FileRequestTypeField>))]
+        public StringEnum<FileRequestTypeField> Type { get; }
 
         /// <summary>
         /// The title of file request. This is shown
@@ -49,7 +52,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("status")]
-        public FileRequestStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileRequestStatusField>))]
+        public StringEnum<FileRequestStatusField>? Status { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide
@@ -128,6 +132,15 @@ namespace Box.Sdk.Gen.Schemas {
         public FileRequest(string id, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt, FileRequestTypeField type = FileRequestTypeField.FileRequest) {
             Id = id;
             Type = type;
+            Folder = folder;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
+        }
+        
+        [JsonConstructorAttribute]
+        internal FileRequest(string id, FolderMini folder, System.DateTimeOffset createdAt, System.DateTimeOffset updatedAt, StringEnum<FileRequestTypeField> type) {
+            Id = id;
+            Type = FileRequestTypeField.FileRequest;
             Folder = folder;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;

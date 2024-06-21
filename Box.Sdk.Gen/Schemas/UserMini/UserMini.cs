@@ -19,5 +19,10 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal UserMini(string id, StringEnum<UserBaseTypeField> type) : base(id, type ?? new StringEnum<UserBaseTypeField>(UserBaseTypeField.User)) {
+            
+        }
     }
 }

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `webhook_event`
         /// </summary>
         [JsonPropertyName("type")]
-        public WebhookInvocationTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WebhookInvocationTypeField>))]
+        public StringEnum<WebhookInvocationTypeField>? Type { get; init; }
 
         [JsonPropertyName("webhook")]
         public Webhook? Webhook { get; init; }
@@ -30,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         [JsonPropertyName("trigger")]
-        public WebhookInvocationTriggerField? Trigger { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WebhookInvocationTriggerField>))]
+        public StringEnum<WebhookInvocationTriggerField>? Trigger { get; init; }
 
         [JsonPropertyName("source")]
         public FileOrFolder? Source { get; init; }

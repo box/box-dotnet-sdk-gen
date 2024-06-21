@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateRetentionPolicyRequestBody {
@@ -28,7 +29,8 @@ namespace Box.Sdk.Gen.Managers {
         /// to retain the content is still unknown.
         /// </summary>
         [JsonPropertyName("policy_type")]
-        public CreateRetentionPolicyRequestBodyPolicyTypeField PolicyType { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateRetentionPolicyRequestBodyPolicyTypeField>))]
+        public StringEnum<CreateRetentionPolicyRequestBodyPolicyTypeField> PolicyType { get; }
 
         /// <summary>
         /// The disposition action of the retention policy.
@@ -39,7 +41,8 @@ namespace Box.Sdk.Gen.Managers {
         /// by users once the retention policy has expired.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public CreateRetentionPolicyRequestBodyDispositionActionField DispositionAction { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateRetentionPolicyRequestBodyDispositionActionField>))]
+        public StringEnum<CreateRetentionPolicyRequestBodyDispositionActionField> DispositionAction { get; }
 
         /// <summary>
         /// The length of the retention policy. This value
@@ -70,7 +73,8 @@ namespace Box.Sdk.Gen.Managers {
         /// compliance with regulatory retention policies.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public CreateRetentionPolicyRequestBodyRetentionTypeField? RetentionType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateRetentionPolicyRequestBodyRetentionTypeField>))]
+        public StringEnum<CreateRetentionPolicyRequestBodyRetentionTypeField>? RetentionType { get; init; }
 
         /// <summary>
         /// Whether the owner of a file will be allowed to
@@ -94,6 +98,13 @@ namespace Box.Sdk.Gen.Managers {
         public IReadOnlyList<UserMini>? CustomNotificationRecipients { get; init; }
 
         public CreateRetentionPolicyRequestBody(string policyName, CreateRetentionPolicyRequestBodyPolicyTypeField policyType, CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
+            PolicyName = policyName;
+            PolicyType = policyType;
+            DispositionAction = dispositionAction;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateRetentionPolicyRequestBody(string policyName, StringEnum<CreateRetentionPolicyRequestBodyPolicyTypeField> policyType, StringEnum<CreateRetentionPolicyRequestBodyDispositionActionField> dispositionAction) {
             PolicyName = policyName;
             PolicyType = policyType;
             DispositionAction = dispositionAction;

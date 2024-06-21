@@ -1,10 +1,11 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using System;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateMetadataTemplateRequestBodyFieldsField {
@@ -18,7 +19,8 @@ namespace Box.Sdk.Gen.Managers {
         /// user can select more than one value.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateMetadataTemplateRequestBodyFieldsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateMetadataTemplateRequestBodyFieldsTypeField>))]
+        public StringEnum<CreateMetadataTemplateRequestBodyFieldsTypeField> Type { get; }
 
         /// <summary>
         /// A unique identifier for the field. The identifier must
@@ -55,6 +57,13 @@ namespace Box.Sdk.Gen.Managers {
         public IReadOnlyList<CreateMetadataTemplateRequestBodyFieldsOptionsField>? Options { get; init; }
 
         public CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField type, string key, string displayName) {
+            Type = type;
+            Key = key;
+            DisplayName = displayName;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateMetadataTemplateRequestBodyFieldsField(StringEnum<CreateMetadataTemplateRequestBodyFieldsTypeField> type, string key, string displayName) {
             Type = type;
             Key = key;
             DisplayName = displayName;

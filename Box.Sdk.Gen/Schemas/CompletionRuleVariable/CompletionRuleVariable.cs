@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CompletionRuleVariable {
@@ -9,7 +11,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public CompletionRuleVariableTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableTypeField>))]
+        public StringEnum<CompletionRuleVariableTypeField> Type { get; }
 
         /// <summary>
         /// Variable type
@@ -18,7 +21,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
-        public CompletionRuleVariableVariableTypeField VariableType { get; }
+        [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableVariableTypeField>))]
+        public StringEnum<CompletionRuleVariableVariableTypeField> VariableType { get; }
 
         /// <summary>
         /// Variable
@@ -27,11 +31,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_value")]
-        public CompletionRuleVariableVariableValueField VariableValue { get; }
+        [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableVariableValueField>))]
+        public StringEnum<CompletionRuleVariableVariableValueField> VariableValue { get; }
 
         public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue, CompletionRuleVariableTypeField type = CompletionRuleVariableTypeField.Variable, CompletionRuleVariableVariableTypeField variableType = CompletionRuleVariableVariableTypeField.TaskCompletionRule) {
             Type = type;
             VariableType = variableType;
+            VariableValue = variableValue;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CompletionRuleVariable(StringEnum<CompletionRuleVariableVariableValueField> variableValue, StringEnum<CompletionRuleVariableTypeField> type, StringEnum<CompletionRuleVariableVariableTypeField> variableType) {
+            Type = CompletionRuleVariableTypeField.Variable;
+            VariableType = CompletionRuleVariableVariableTypeField.TaskCompletionRule;
             VariableValue = variableValue;
         }
     }

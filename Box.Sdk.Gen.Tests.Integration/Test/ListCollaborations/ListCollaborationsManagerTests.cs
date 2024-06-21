@@ -16,8 +16,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             GroupFull group = await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: Utils.GetUUID()));
             Collaboration groupCollaboration = await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.Folder, Id = folder.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.Group) { Id = group.Id }, role: CreateCollaborationRequestBodyRoleField.Editor));
             Collaboration fileCollaboration = await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.File, Id = file.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User) { Id = Utils.GetEnvVar(name: "USER_ID") }, role: CreateCollaborationRequestBodyRoleField.Editor));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(groupCollaboration.Role) == "editor");
-            Assert.IsTrue(StringUtils.ToStringRepresentation(groupCollaboration.Type) == "collaboration");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(groupCollaboration.Role?.Value) == "editor");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(groupCollaboration.Type?.Value) == "collaboration");
             Collaborations fileCollaborations = await client.ListCollaborations.GetFileCollaborationsAsync(fileId: file.Id);
             Assert.IsTrue(NullableUtils.Unwrap(fileCollaborations.Entries).Count > 0);
             Collaborations folderCollaborations = await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id);

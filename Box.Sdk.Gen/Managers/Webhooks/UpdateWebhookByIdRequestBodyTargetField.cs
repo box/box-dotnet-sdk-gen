@@ -1,10 +1,12 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using System;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using System;
+using System.Linq;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateWebhookByIdRequestBodyTargetField {
@@ -18,7 +20,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of item to trigger a webhook
         /// </summary>
         [JsonPropertyName("type")]
-        public UpdateWebhookByIdRequestBodyTargetTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateWebhookByIdRequestBodyTargetTypeField>))]
+        public StringEnum<UpdateWebhookByIdRequestBodyTargetTypeField>? Type { get; init; }
 
         public UpdateWebhookByIdRequestBodyTargetField() {
             

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class PostOAuth2Token {
@@ -9,7 +11,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// grant or another access token for the purpose of downscoping a token.
         /// </summary>
         [JsonPropertyName("grant_type")]
-        public PostOAuth2TokenGrantTypeField GrantType { get; }
+        [JsonConverter(typeof(StringEnumConverter<PostOAuth2TokenGrantTypeField>))]
+        public StringEnum<PostOAuth2TokenGrantTypeField> GrantType { get; }
 
         /// <summary>
         /// The Client ID of the application requesting an access token.
@@ -74,7 +77,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("subject_token_type")]
-        public PostOAuth2TokenSubjectTokenTypeField? SubjectTokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<PostOAuth2TokenSubjectTokenTypeField>))]
+        public StringEnum<PostOAuth2TokenSubjectTokenTypeField>? SubjectTokenType { get; init; }
 
         /// <summary>
         /// The token used to create an annotator token.
@@ -93,7 +97,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// as the `grant_type`.
         /// </summary>
         [JsonPropertyName("actor_token_type")]
-        public PostOAuth2TokenActorTokenTypeField? ActorTokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<PostOAuth2TokenActorTokenTypeField>))]
+        public StringEnum<PostOAuth2TokenActorTokenTypeField>? ActorTokenType { get; init; }
 
         /// <summary>
         /// The space-delimited list of scopes that you want apply to the
@@ -115,7 +120,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Used in combination with `client_credentials` as the `grant_type`.
         /// </summary>
         [JsonPropertyName("box_subject_type")]
-        public PostOAuth2TokenBoxSubjectTypeField? BoxSubjectType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<PostOAuth2TokenBoxSubjectTypeField>))]
+        public StringEnum<PostOAuth2TokenBoxSubjectTypeField>? BoxSubjectType { get; init; }
 
         /// <summary>
         /// Used in combination with `client_credentials` as the `grant_type`.
@@ -133,6 +139,11 @@ namespace Box.Sdk.Gen.Schemas {
         public string? BoxSharedLink { get; init; }
 
         public PostOAuth2Token(PostOAuth2TokenGrantTypeField grantType) {
+            GrantType = grantType;
+        }
+        
+        [JsonConstructorAttribute]
+        internal PostOAuth2Token(StringEnum<PostOAuth2TokenGrantTypeField> grantType) {
             GrantType = grantType;
         }
     }

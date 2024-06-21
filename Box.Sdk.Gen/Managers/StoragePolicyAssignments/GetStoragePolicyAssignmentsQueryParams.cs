@@ -1,9 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetStoragePolicyAssignmentsQueryParams {
@@ -18,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The target type to return assignments for
         /// </summary>
-        public GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField ResolvedForType { get; }
+        public StringEnum<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField> ResolvedForType { get; }
 
         /// <summary>
         /// The ID of the user or enterprise to return assignments for

@@ -1,10 +1,12 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using System;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using System;
+using System.Linq;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateWebhookRequestBody {
@@ -25,9 +27,17 @@ namespace Box.Sdk.Gen.Managers {
         /// to be triggered for
         /// </summary>
         [JsonPropertyName("triggers")]
-        public IReadOnlyList<CreateWebhookRequestBodyTriggersField> Triggers { get; }
+        [JsonConverter(typeof(StringEnumListConverter<CreateWebhookRequestBodyTriggersField>))]
+        public IReadOnlyList<StringEnum<CreateWebhookRequestBodyTriggersField>> Triggers { get; }
 
         public CreateWebhookRequestBody(CreateWebhookRequestBodyTargetField target, string address, IReadOnlyList<CreateWebhookRequestBodyTriggersField> triggers) {
+            Target = target;
+            Address = address;
+            Triggers = triggers.Select(x => new StringEnum<CreateWebhookRequestBodyTriggersField>(x)).ToList();
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateWebhookRequestBody(CreateWebhookRequestBodyTargetField target, string address, IReadOnlyList<StringEnum<CreateWebhookRequestBodyTriggersField>> triggers) {
             Target = target;
             Address = address;
             Triggers = triggers;

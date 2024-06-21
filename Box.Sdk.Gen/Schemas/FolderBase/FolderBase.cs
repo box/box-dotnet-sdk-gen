@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FolderBase {
@@ -27,11 +29,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public FolderBaseTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<FolderBaseTypeField>))]
+        public StringEnum<FolderBaseTypeField> Type { get; }
 
         public FolderBase(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal FolderBase(string id, StringEnum<FolderBaseTypeField> type) {
+            Id = id;
+            Type = FolderBaseTypeField.Folder;
         }
     }
 }

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of decision made by the signer.
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestSignerSignerDecisionTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestSignerSignerDecisionTypeField>))]
+        public StringEnum<SignRequestSignerSignerDecisionTypeField>? Type { get; init; }
 
         /// <summary>
         /// Date and Time that the decision was made.

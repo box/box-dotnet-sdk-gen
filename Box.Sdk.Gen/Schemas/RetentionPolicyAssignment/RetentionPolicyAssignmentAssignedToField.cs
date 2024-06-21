@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -16,7 +18,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of resource the policy is assigned to.
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentAssignedToTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyAssignmentAssignedToTypeField>))]
+        public StringEnum<RetentionPolicyAssignmentAssignedToTypeField>? Type { get; init; }
 
         public RetentionPolicyAssignmentAssignedToField() {
             

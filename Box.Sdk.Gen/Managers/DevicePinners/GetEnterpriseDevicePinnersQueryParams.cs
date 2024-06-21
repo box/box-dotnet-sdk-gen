@@ -1,8 +1,8 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetEnterpriseDevicePinnersQueryParams {
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The direction to sort results in. This can be either in alphabetical ascending
         /// (`ASC`) or descending (`DESC`) order.
         /// </summary>
-        public GetEnterpriseDevicePinnersQueryParamsDirectionField? Direction { get; init; }
+        public StringEnum<GetEnterpriseDevicePinnersQueryParamsDirectionField>? Direction { get; init; }
 
         public GetEnterpriseDevicePinnersQueryParams() {
             

@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateShieldInformationBarrierSegmentMemberRequestBody {
@@ -11,7 +12,8 @@ namespace Box.Sdk.Gen.Managers {
         /// -| A type of the shield barrier segment member.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>))]
+        public StringEnum<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>? Type { get; init; }
 
         [JsonPropertyName("shield_information_barrier")]
         public ShieldInformationBarrierBase? ShieldInformationBarrier { get; init; }

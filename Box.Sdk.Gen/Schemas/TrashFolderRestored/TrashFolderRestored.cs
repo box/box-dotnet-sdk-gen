@@ -3,6 +3,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -31,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFolderRestoredTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFolderRestoredTypeField>))]
+        public StringEnum<TrashFolderRestoredTypeField>? Type { get; init; }
 
         [JsonPropertyName("sequence_id")]
         public string? SequenceId { get; init; }
@@ -136,7 +139,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFolderRestoredItemStatusField? ItemStatus { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFolderRestoredItemStatusField>))]
+        public StringEnum<TrashFolderRestoredItemStatusField>? ItemStatus { get; init; }
 
         public TrashFolderRestored() {
             

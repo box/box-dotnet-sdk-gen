@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -31,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFileTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFileTypeField>))]
+        public StringEnum<TrashFileTypeField> Type { get; }
 
         [JsonPropertyName("sequence_id")]
         public string SequenceId { get; }
@@ -135,11 +138,28 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFileItemStatusField ItemStatus { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFileItemStatusField>))]
+        public StringEnum<TrashFileItemStatusField> ItemStatus { get; }
 
         public TrashFile(string id, string sequenceId, string sha1, string description, long size, TrashFilePathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileItemStatusField itemStatus, TrashFileTypeField type = TrashFileTypeField.File) {
             Id = id;
             Type = type;
+            SequenceId = sequenceId;
+            Sha1 = sha1;
+            Description = description;
+            Size = size;
+            PathCollection = pathCollection;
+            CreatedAt = createdAt;
+            ModifiedAt = modifiedAt;
+            ModifiedBy = modifiedBy;
+            OwnedBy = ownedBy;
+            ItemStatus = itemStatus;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TrashFile(string id, string sequenceId, string sha1, string description, long size, TrashFilePathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, StringEnum<TrashFileItemStatusField> itemStatus, StringEnum<TrashFileTypeField> type) {
+            Id = id;
+            Type = TrashFileTypeField.File;
             SequenceId = sequenceId;
             Sha1 = sha1;
             Description = description;

@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `storage_policy_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public StoragePolicyAssignmentTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<StoragePolicyAssignmentTypeField>))]
+        public StringEnum<StoragePolicyAssignmentTypeField> Type { get; }
 
         [JsonPropertyName("storage_policy")]
         public StoragePolicyMini? StoragePolicy { get; init; }
@@ -25,6 +28,12 @@ namespace Box.Sdk.Gen.Schemas {
         public StoragePolicyAssignment(string id, StoragePolicyAssignmentTypeField type = StoragePolicyAssignmentTypeField.StoragePolicyAssignment) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal StoragePolicyAssignment(string id, StringEnum<StoragePolicyAssignmentTypeField> type) {
+            Id = id;
+            Type = StoragePolicyAssignmentTypeField.StoragePolicyAssignment;
         }
     }
 }

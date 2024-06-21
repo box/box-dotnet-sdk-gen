@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataCascadePolicy {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `metadata_cascade_policy`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataCascadePolicyTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<MetadataCascadePolicyTypeField>))]
+        public StringEnum<MetadataCascadePolicyTypeField> Type { get; }
 
         /// <summary>
         /// The enterprise that owns this policy.
@@ -60,6 +63,12 @@ namespace Box.Sdk.Gen.Schemas {
         public MetadataCascadePolicy(string id, MetadataCascadePolicyTypeField type = MetadataCascadePolicyTypeField.MetadataCascadePolicy) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal MetadataCascadePolicy(string id, StringEnum<MetadataCascadePolicyTypeField> type) {
+            Id = id;
+            Type = MetadataCascadePolicyTypeField.MetadataCascadePolicy;
         }
     }
 }

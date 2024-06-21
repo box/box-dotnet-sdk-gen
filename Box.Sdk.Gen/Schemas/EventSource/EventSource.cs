@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -10,7 +12,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("item_type")]
-        public EventSourceItemTypeField ItemType { get; }
+        [JsonConverter(typeof(StringEnumConverter<EventSourceItemTypeField>))]
+        public StringEnum<EventSourceItemTypeField> ItemType { get; }
 
         /// <summary>
         /// The unique identifier that represents the
@@ -42,6 +45,13 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? OwnedBy { get; init; }
 
         public EventSource(EventSourceItemTypeField itemType, string itemId, string itemName) {
+            ItemType = itemType;
+            ItemId = itemId;
+            ItemName = itemName;
+        }
+        
+        [JsonConstructorAttribute]
+        internal EventSource(StringEnum<EventSourceItemTypeField> itemType, string itemId, string itemName) {
             ItemType = itemType;
             ItemId = itemId;
             ItemName = itemName;

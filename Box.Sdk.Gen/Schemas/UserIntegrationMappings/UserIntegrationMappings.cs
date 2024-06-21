@@ -19,5 +19,10 @@ namespace Box.Sdk.Gen.Schemas {
         public UserIntegrationMappings(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal UserIntegrationMappings(string id, StringEnum<UserBaseTypeField> type) : base(id, type ?? new StringEnum<UserBaseTypeField>(UserBaseTypeField.User)) {
+            
+        }
     }
 }

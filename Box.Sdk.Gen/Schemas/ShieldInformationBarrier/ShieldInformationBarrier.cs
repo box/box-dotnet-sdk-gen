@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the shield information barrier
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierTypeField>))]
+        public StringEnum<ShieldInformationBarrierTypeField>? Type { get; init; }
 
         /// <summary>
         /// The `type` and `id` of enterprise this barrier is under.
@@ -26,7 +29,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Status of the shield information barrier
         /// </summary>
         [JsonPropertyName("status")]
-        public ShieldInformationBarrierStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierStatusField>))]
+        public StringEnum<ShieldInformationBarrierStatusField>? Status { get; init; }
 
         /// <summary>
         /// ISO date time string when this

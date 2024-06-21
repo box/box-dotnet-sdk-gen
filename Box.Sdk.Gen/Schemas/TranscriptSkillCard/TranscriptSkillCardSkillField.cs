@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TranscriptSkillCardSkillField {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `service`
         /// </summary>
         [JsonPropertyName("type")]
-        public TranscriptSkillCardSkillTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TranscriptSkillCardSkillTypeField>))]
+        public StringEnum<TranscriptSkillCardSkillTypeField> Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the service that
@@ -18,6 +21,12 @@ namespace Box.Sdk.Gen.Schemas {
 
         public TranscriptSkillCardSkillField(string id, TranscriptSkillCardSkillTypeField type = TranscriptSkillCardSkillTypeField.Service) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TranscriptSkillCardSkillField(string id, StringEnum<TranscriptSkillCardSkillTypeField> type) {
+            Type = TranscriptSkillCardSkillTypeField.Service;
             Id = id;
         }
     }

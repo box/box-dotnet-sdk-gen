@@ -25,12 +25,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
             GroupMembership groupMembership = await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBody(user: new CreateGroupMembershipRequestBodyUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyGroupField(id: group.Id)));
             Assert.IsTrue(NullableUtils.Unwrap(groupMembership.User).Id == user.Id);
             Assert.IsTrue(NullableUtils.Unwrap(groupMembership.Group).Id == group.Id);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(groupMembership.Role) == "member");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(groupMembership.Role?.Value) == "member");
             GroupMembership getGroupMembership = await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
             Assert.IsTrue(getGroupMembership.Id == groupMembership.Id);
             GroupMembership updatedGroupMembership = await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody() { Role = UpdateGroupMembershipByIdRequestBodyRoleField.Admin });
             Assert.IsTrue(updatedGroupMembership.Id == groupMembership.Id);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(updatedGroupMembership.Role) == "admin");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(updatedGroupMembership.Role?.Value) == "admin");
             await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
             await Assert.That.IsExceptionAsync(async() => await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id)));
             await client.Groups.DeleteGroupByIdAsync(groupId: group.Id);

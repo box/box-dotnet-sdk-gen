@@ -1,15 +1,15 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class AuthorizeUserQueryParams {
         /// <summary>
         /// The type of response we'd like to receive.
         /// </summary>
-        public AuthorizeUserQueryParamsResponseTypeField ResponseType { get; }
+        public StringEnum<AuthorizeUserQueryParamsResponseTypeField> ResponseType { get; }
 
         /// <summary>
         /// The Client ID of the application that is requesting to authenticate

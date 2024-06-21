@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -15,7 +17,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public AppItemEventSourceTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<AppItemEventSourceTypeField>))]
+        public StringEnum<AppItemEventSourceTypeField> Type { get; }
 
         /// <summary>
         /// The type of the `AppItem`
@@ -32,6 +35,13 @@ namespace Box.Sdk.Gen.Schemas {
         public AppItemEventSource(string id, string appItemType, AppItemEventSourceTypeField type = AppItemEventSourceTypeField.AppItem) {
             Id = id;
             Type = type;
+            AppItemType = appItemType;
+        }
+        
+        [JsonConstructorAttribute]
+        internal AppItemEventSource(string id, string appItemType, StringEnum<AppItemEventSourceTypeField> type) {
+            Id = id;
+            Type = AppItemEventSourceTypeField.AppItem;
             AppItemType = appItemType;
         }
     }

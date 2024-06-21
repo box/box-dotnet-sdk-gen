@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -21,7 +23,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// to retain the content is still unknown.
         /// </summary>
         [JsonPropertyName("policy_type")]
-        public RetentionPolicyPolicyTypeField? PolicyType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyPolicyTypeField>))]
+        public StringEnum<RetentionPolicyPolicyTypeField>? PolicyType { get; init; }
 
         /// <summary>
         /// Specifies the retention type:
@@ -41,7 +44,8 @@ namespace Box.Sdk.Gen.Schemas {
         ///  compliance with regulatory retention policies.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public RetentionPolicyRetentionTypeField? RetentionType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyRetentionTypeField>))]
+        public StringEnum<RetentionPolicyRetentionTypeField>? RetentionType { get; init; }
 
         /// <summary>
         /// The status of the retention policy. The status of
@@ -51,7 +55,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// active again.
         /// </summary>
         [JsonPropertyName("status")]
-        public RetentionPolicyStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyStatusField>))]
+        public StringEnum<RetentionPolicyStatusField>? Status { get; init; }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }
@@ -97,6 +102,11 @@ namespace Box.Sdk.Gen.Schemas {
         public RetentionPolicyAssignmentCountsField? AssignmentCounts { get; init; }
 
         public RetentionPolicy(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal RetentionPolicy(string id, StringEnum<RetentionPolicyBaseTypeField> type) : base(id, type ?? new StringEnum<RetentionPolicyBaseTypeField>(RetentionPolicyBaseTypeField.RetentionPolicy)) {
             
         }
     }

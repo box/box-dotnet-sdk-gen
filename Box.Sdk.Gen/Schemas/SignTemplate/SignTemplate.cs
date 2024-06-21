@@ -2,7 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +14,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// object type
         /// </summary>
         [JsonPropertyName("type")]
-        public SignTemplateTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignTemplateTypeField>))]
+        public StringEnum<SignTemplateTypeField>? Type { get; init; }
 
         /// <summary>
         /// Template identifier.

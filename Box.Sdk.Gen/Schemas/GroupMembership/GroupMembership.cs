@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `group_membership`
         /// </summary>
         [JsonPropertyName("type")]
-        public GroupMembershipTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<GroupMembershipTypeField>))]
+        public StringEnum<GroupMembershipTypeField>? Type { get; init; }
 
         [JsonPropertyName("user")]
         public UserMini? User { get; init; }
@@ -26,7 +29,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The role of the user in the group.
         /// </summary>
         [JsonPropertyName("role")]
-        public GroupMembershipRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<GroupMembershipRoleField>))]
+        public StringEnum<GroupMembershipRoleField>? Role { get; init; }
 
         /// <summary>
         /// The time this membership was created.

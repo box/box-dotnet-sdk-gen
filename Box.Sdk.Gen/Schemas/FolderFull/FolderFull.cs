@@ -3,13 +3,17 @@ using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using Box.Sdk.Gen;
 using System;
+using Serializer;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FolderFull : Folder {
         [JsonPropertyName("sync_state")]
-        public FolderFullSyncStateField? SyncState { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FolderFullSyncStateField>))]
+        public StringEnum<FolderFullSyncStateField>? SyncState { get; init; }
 
         /// <summary>
         /// Specifies if this folder has any other collaborators.
@@ -47,14 +51,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// be an empty list as sharing is not allowed at that level.
         /// </summary>
         [JsonPropertyName("allowed_shared_link_access_levels")]
-        public IReadOnlyList<FolderFullAllowedSharedLinkAccessLevelsField>? AllowedSharedLinkAccessLevels { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<FolderFullAllowedSharedLinkAccessLevelsField>))]
+        public IReadOnlyList<StringEnum<FolderFullAllowedSharedLinkAccessLevelsField>> AllowedSharedLinkAccessLevels { get; init; }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
         /// when sharing this folder.
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
-        public IReadOnlyList<FolderFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<FolderFullAllowedInviteeRolesField>))]
+        public IReadOnlyList<StringEnum<FolderFullAllowedInviteeRolesField>> AllowedInviteeRoles { get; init; }
 
         [JsonPropertyName("watermark_info")]
         public FolderFullWatermarkInfoField? WatermarkInfo { get; init; }
@@ -82,6 +88,11 @@ namespace Box.Sdk.Gen.Schemas {
         public FolderFullClassificationField? Classification { get; init; }
 
         public FolderFull(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal FolderFull(string id, StringEnum<FolderBaseTypeField> type) : base(id, type ?? new StringEnum<FolderBaseTypeField>(FolderBaseTypeField.Folder)) {
             
         }
     }

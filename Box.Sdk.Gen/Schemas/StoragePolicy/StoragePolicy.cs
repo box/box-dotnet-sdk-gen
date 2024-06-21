@@ -13,5 +13,10 @@ namespace Box.Sdk.Gen.Schemas {
         public StoragePolicy(string id, StoragePolicyMiniTypeField type = StoragePolicyMiniTypeField.StoragePolicy) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal StoragePolicy(string id, StringEnum<StoragePolicyMiniTypeField> type) : base(id, type ?? new StringEnum<StoragePolicyMiniTypeField>(StoragePolicyMiniTypeField.StoragePolicy)) {
+            
+        }
     }
 }

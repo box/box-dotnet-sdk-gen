@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateBoxSkillCardsOnFileRequestBody {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// `replace`
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateBoxSkillCardsOnFileRequestBodyOpField? Op { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateBoxSkillCardsOnFileRequestBodyOpField>))]
+        public StringEnum<UpdateBoxSkillCardsOnFileRequestBodyOpField>? Op { get; init; }
 
         /// <summary>
         /// The JSON Path that represents the card to replace. In most cases

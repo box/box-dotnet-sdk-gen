@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -11,13 +13,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// The trigger's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerTypeField>))]
+        public StringEnum<WorkflowFlowsTriggerTypeField>? Type { get; init; }
 
         /// <summary>
         /// The type of trigger selected for this flow
         /// </summary>
         [JsonPropertyName("trigger_type")]
-        public WorkflowFlowsTriggerTriggerTypeField? TriggerType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerTriggerTypeField>))]
+        public StringEnum<WorkflowFlowsTriggerTriggerTypeField>? TriggerType { get; init; }
 
         /// <summary>
         /// List of trigger scopes

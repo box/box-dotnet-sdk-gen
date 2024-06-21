@@ -1,9 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateStoragePolicyAssignmentRequestBodyStoragePolicyField {
@@ -11,7 +12,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type to assign.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField>))]
+        public StringEnum<CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField> Type { get; }
 
         /// <summary>
         /// The ID of the storage policy to assign.
@@ -21,6 +23,12 @@ namespace Box.Sdk.Gen.Managers {
 
         public CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(string id, CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField type = CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField.StoragePolicy) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(string id, StringEnum<CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField> type) {
+            Type = CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField.StoragePolicy;
             Id = id;
         }
     }

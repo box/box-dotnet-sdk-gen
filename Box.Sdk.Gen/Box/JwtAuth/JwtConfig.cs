@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 using Unions;
+using Box.Sdk.Gen;
 using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public string? UserId { get; init; }
 
-        internal JwtAlgorithm? Algorithm { get; init; } = JwtAlgorithm.Rs256;
+        internal StringEnum<JwtAlgorithm>? Algorithm { get; init; } = JwtAlgorithm.Rs256;
 
         public ITokenStorage TokenStorage { get; }
 

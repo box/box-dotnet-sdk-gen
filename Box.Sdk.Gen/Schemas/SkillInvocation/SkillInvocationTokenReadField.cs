@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -20,7 +22,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of access token returned.
         /// </summary>
         [JsonPropertyName("token_type")]
-        public SkillInvocationTokenReadTokenTypeField? TokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SkillInvocationTokenReadTokenTypeField>))]
+        public StringEnum<SkillInvocationTokenReadTokenTypeField>? TokenType { get; init; }
 
         /// <summary>
         /// The permissions that this access token permits,

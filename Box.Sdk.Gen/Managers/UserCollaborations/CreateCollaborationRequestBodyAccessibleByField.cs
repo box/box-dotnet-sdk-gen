@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateCollaborationRequestBodyAccessibleByField {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of collaborator to invite.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateCollaborationRequestBodyAccessibleByTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateCollaborationRequestBodyAccessibleByTypeField>))]
+        public StringEnum<CreateCollaborationRequestBodyAccessibleByTypeField> Type { get; }
 
         /// <summary>
         /// The ID of the user or group.
@@ -32,6 +34,11 @@ namespace Box.Sdk.Gen.Managers {
         public string? Login { get; init; }
 
         public CreateCollaborationRequestBodyAccessibleByField(CreateCollaborationRequestBodyAccessibleByTypeField type) {
+            Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateCollaborationRequestBodyAccessibleByField(StringEnum<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
             Type = type;
         }
     }

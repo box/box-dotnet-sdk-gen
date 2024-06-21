@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The outcomes resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsOutcomesIfRejectedTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsOutcomesIfRejectedTypeField>))]
+        public StringEnum<WorkflowFlowsOutcomesIfRejectedTypeField>? Type { get; init; }
 
         /// <summary>
         /// The name of the outcome
@@ -26,7 +29,8 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Name { get; init; }
 
         [JsonPropertyName("action_type")]
-        public WorkflowFlowsOutcomesIfRejectedActionTypeField? ActionType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsOutcomesIfRejectedActionTypeField>))]
+        public StringEnum<WorkflowFlowsOutcomesIfRejectedActionTypeField>? ActionType { get; init; }
 
         public WorkflowFlowsOutcomesIfRejectedField() {
             

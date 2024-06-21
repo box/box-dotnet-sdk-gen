@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class Classification {
@@ -21,7 +23,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `securityClassification-6VMVochwUWo`
         /// </summary>
         [JsonPropertyName("$template")]
-        public ClassificationTemplateField? Template { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateField>))]
+        public StringEnum<ClassificationTemplateField>? Template { get; init; }
 
         /// <summary>
         /// The scope of the enterprise that this classification has been

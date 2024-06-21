@@ -1,11 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using NullableExtensions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Errors;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// The type of the subject ID provided. Must be either 'user' or 'enterprise'.
         /// </summary>
-        internal PostOAuth2TokenBoxSubjectTypeField? SubjectType { get; }
+        internal StringEnum<PostOAuth2TokenBoxSubjectTypeField>? SubjectType { get; }
 
         public BoxCcgAuth(CcgConfig config) {
             Config = config;

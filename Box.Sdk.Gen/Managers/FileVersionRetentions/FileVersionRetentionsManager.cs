@@ -1,4 +1,5 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using StringExtensions;
@@ -6,7 +7,6 @@ using DictionaryExtensions;
 using Fetch;
 using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class FileVersionRetentionsManager : IFileVersionRetentionsManager {

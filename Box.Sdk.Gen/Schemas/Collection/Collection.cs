@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class Collection {
@@ -13,13 +15,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `collection`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollectionTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollectionTypeField>))]
+        public StringEnum<CollectionTypeField>? Type { get; init; }
 
         /// <summary>
         /// The name of the collection.
         /// </summary>
         [JsonPropertyName("name")]
-        public CollectionNameField? Name { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollectionNameField>))]
+        public StringEnum<CollectionNameField>? Name { get; init; }
 
         /// <summary>
         /// The type of the collection. This is used to
@@ -27,7 +31,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// collections.
         /// </summary>
         [JsonPropertyName("collection_type")]
-        public CollectionCollectionTypeField? CollectionType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollectionCollectionTypeField>))]
+        public StringEnum<CollectionCollectionTypeField>? CollectionType { get; init; }
 
         public Collection() {
             

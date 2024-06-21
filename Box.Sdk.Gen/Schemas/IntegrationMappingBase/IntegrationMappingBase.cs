@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMappingBase {
@@ -18,7 +20,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// (part of the composite key together with `id`)
         /// </summary>
         [JsonPropertyName("integration_type")]
-        public IntegrationMappingBaseIntegrationTypeField? IntegrationType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingBaseIntegrationTypeField>))]
+        public StringEnum<IntegrationMappingBaseIntegrationTypeField>? IntegrationType { get; init; }
 
         public IntegrationMappingBase() {
             

@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ClassificationTemplateFieldsField {
@@ -16,20 +18,23 @@ namespace Box.Sdk.Gen.Schemas {
         /// The array item type.
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateFieldsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateFieldsTypeField>))]
+        public StringEnum<ClassificationTemplateFieldsTypeField> Type { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public ClassificationTemplateFieldsKeyField Key { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateFieldsKeyField>))]
+        public StringEnum<ClassificationTemplateFieldsKeyField> Key { get; }
 
         /// <summary>
         /// `Classification`
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateFieldsDisplayNameField DisplayName { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateFieldsDisplayNameField>))]
+        public StringEnum<ClassificationTemplateFieldsDisplayNameField> DisplayName { get; }
 
         /// <summary>
         /// Classifications are always visible to web and mobile users.
@@ -48,6 +53,15 @@ namespace Box.Sdk.Gen.Schemas {
             Type = type;
             Key = key;
             DisplayName = displayName;
+            Options = options;
+        }
+        
+        [JsonConstructorAttribute]
+        internal ClassificationTemplateFieldsField(string id, IReadOnlyList<ClassificationTemplateFieldsOptionsField> options, StringEnum<ClassificationTemplateFieldsTypeField> type, StringEnum<ClassificationTemplateFieldsKeyField> key, StringEnum<ClassificationTemplateFieldsDisplayNameField> displayName) {
+            Id = id;
+            Type = ClassificationTemplateFieldsTypeField.Enum;
+            Key = ClassificationTemplateFieldsKeyField.BoxSecurityClassificationKey;
+            DisplayName = ClassificationTemplateFieldsDisplayNameField.Classification;
             Options = options;
         }
     }

@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `lock`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileFullLockTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileFullLockTypeField>))]
+        public StringEnum<FileFullLockTypeField>? Type { get; init; }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }
@@ -44,7 +47,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// the future.
         /// </summary>
         [JsonPropertyName("app_type")]
-        public FileFullLockAppTypeField? AppType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileFullLockAppTypeField>))]
+        public StringEnum<FileFullLockAppTypeField>? AppType { get; init; }
 
         public FileFullLockField() {
             

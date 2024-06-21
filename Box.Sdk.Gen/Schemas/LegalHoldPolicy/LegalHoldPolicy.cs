@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -26,7 +28,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// * 'released' - the policy is no longer active
         /// </summary>
         [JsonPropertyName("status")]
-        public LegalHoldPolicyStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<LegalHoldPolicyStatusField>))]
+        public StringEnum<LegalHoldPolicyStatusField>? Status { get; init; }
 
         /// <summary>
         /// Counts of assignments within this a legal hold policy by item type
@@ -81,6 +84,11 @@ namespace Box.Sdk.Gen.Schemas {
         public string? ReleaseNotes { get; init; }
 
         public LegalHoldPolicy(string id, LegalHoldPolicyMiniTypeField type = LegalHoldPolicyMiniTypeField.LegalHoldPolicy) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal LegalHoldPolicy(string id, StringEnum<LegalHoldPolicyMiniTypeField> type) : base(id, type ?? new StringEnum<LegalHoldPolicyMiniTypeField>(LegalHoldPolicyMiniTypeField.LegalHoldPolicy)) {
             
         }
     }

@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Unions;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -99,12 +101,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public FolderItemStatusField? ItemStatus { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FolderItemStatusField>))]
+        public StringEnum<FolderItemStatusField>? ItemStatus { get; init; }
 
         [JsonPropertyName("item_collection")]
         public Items? ItemCollection { get; init; }
 
         public Folder(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal Folder(string id, StringEnum<FolderBaseTypeField> type) : base(id, type ?? new StringEnum<FolderBaseTypeField>(FolderBaseTypeField.Folder)) {
             
         }
     }

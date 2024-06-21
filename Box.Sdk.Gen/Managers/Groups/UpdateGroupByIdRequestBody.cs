@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateGroupByIdRequestBody {
@@ -64,7 +65,8 @@ namespace Box.Sdk.Gen.Managers {
         /// enterprise can invite the group.
         /// </summary>
         [JsonPropertyName("invitability_level")]
-        public UpdateGroupByIdRequestBodyInvitabilityLevelField? InvitabilityLevel { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateGroupByIdRequestBodyInvitabilityLevelField>))]
+        public StringEnum<UpdateGroupByIdRequestBodyInvitabilityLevelField>? InvitabilityLevel { get; init; }
 
         /// <summary>
         /// Specifies who can see the members of the group.
@@ -76,7 +78,8 @@ namespace Box.Sdk.Gen.Managers {
         ///   enterprise
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
-        public UpdateGroupByIdRequestBodyMemberViewabilityLevelField? MemberViewabilityLevel { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>))]
+        public StringEnum<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>? MemberViewabilityLevel { get; init; }
 
         public UpdateGroupByIdRequestBody() {
             

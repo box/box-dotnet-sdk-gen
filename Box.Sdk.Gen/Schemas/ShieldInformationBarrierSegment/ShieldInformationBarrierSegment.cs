@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the shield information barrier segment
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentTypeField>))]
+        public StringEnum<ShieldInformationBarrierSegmentTypeField>? Type { get; init; }
 
         [JsonPropertyName("shield_information_barrier")]
         public ShieldInformationBarrierBase? ShieldInformationBarrier { get; init; }

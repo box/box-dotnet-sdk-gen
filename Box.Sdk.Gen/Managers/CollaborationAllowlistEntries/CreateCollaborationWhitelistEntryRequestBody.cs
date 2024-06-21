@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateCollaborationWhitelistEntryRequestBody {
@@ -17,9 +18,16 @@ namespace Box.Sdk.Gen.Managers {
         /// The direction in which to allow collaborations.
         /// </summary>
         [JsonPropertyName("direction")]
-        public CreateCollaborationWhitelistEntryRequestBodyDirectionField Direction { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateCollaborationWhitelistEntryRequestBodyDirectionField>))]
+        public StringEnum<CreateCollaborationWhitelistEntryRequestBodyDirectionField> Direction { get; }
 
         public CreateCollaborationWhitelistEntryRequestBody(string domain, CreateCollaborationWhitelistEntryRequestBodyDirectionField direction) {
+            Domain = domain;
+            Direction = direction;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateCollaborationWhitelistEntryRequestBody(string domain, StringEnum<CreateCollaborationWhitelistEntryRequestBodyDirectionField> direction) {
             Domain = domain;
             Direction = direction;
         }

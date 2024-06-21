@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `collaboration_whitelist_exempt_target`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistExemptTargetTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistExemptTargetTypeField>))]
+        public StringEnum<CollaborationAllowlistExemptTargetTypeField>? Type { get; init; }
 
         [JsonPropertyName("enterprise")]
         public CollaborationAllowlistExemptTargetEnterpriseField? Enterprise { get; init; }

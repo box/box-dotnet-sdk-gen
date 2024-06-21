@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiTextGenItemsField {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the item.
         /// </summary>
         [JsonPropertyName("type")]
-        public AiTextGenItemsTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<AiTextGenItemsTypeField>))]
+        public StringEnum<AiTextGenItemsTypeField>? Type { get; init; }
 
         /// <summary>
         /// The content to use as context for generating new text or editing existing text.

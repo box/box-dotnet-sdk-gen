@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(zipDownloadStatus.DownloadedFileCount == 2);
             Assert.IsTrue(zipDownloadStatus.SkippedFileCount == 0);
             Assert.IsTrue(zipDownloadStatus.SkippedFolderCount == 0);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(zipDownloadStatus.State) != "failed");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(zipDownloadStatus.State?.Value) != "failed");
             await client.Files.DeleteFileByIdAsync(fileId: file1.Id);
             await client.Files.DeleteFileByIdAsync(fileId: file2.Id);
             await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id);

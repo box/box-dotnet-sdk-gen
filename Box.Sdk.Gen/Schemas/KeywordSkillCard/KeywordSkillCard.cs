@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -16,13 +18,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_card`
         /// </summary>
         [JsonPropertyName("type")]
-        public KeywordSkillCardTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<KeywordSkillCardTypeField>))]
+        public StringEnum<KeywordSkillCardTypeField> Type { get; }
 
         /// <summary>
         /// `keyword`
         /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public KeywordSkillCardSkillCardTypeField SkillCardType { get; }
+        [JsonConverter(typeof(StringEnumConverter<KeywordSkillCardSkillCardTypeField>))]
+        public StringEnum<KeywordSkillCardSkillCardTypeField> SkillCardType { get; }
 
         /// <summary>
         /// The title of the card.
@@ -52,6 +56,15 @@ namespace Box.Sdk.Gen.Schemas {
         public KeywordSkillCard(KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries, KeywordSkillCardTypeField type = KeywordSkillCardTypeField.SkillCard, KeywordSkillCardSkillCardTypeField skillCardType = KeywordSkillCardSkillCardTypeField.Keyword) {
             Type = type;
             SkillCardType = skillCardType;
+            Skill = skill;
+            Invocation = invocation;
+            Entries = entries;
+        }
+        
+        [JsonConstructorAttribute]
+        internal KeywordSkillCard(KeywordSkillCardSkillField skill, KeywordSkillCardInvocationField invocation, IReadOnlyList<KeywordSkillCardEntriesField> entries, StringEnum<KeywordSkillCardTypeField> type, StringEnum<KeywordSkillCardSkillCardTypeField> skillCardType) {
+            Type = KeywordSkillCardTypeField.SkillCard;
+            SkillCardType = KeywordSkillCardSkillCardTypeField.Keyword;
             Skill = skill;
             Invocation = invocation;
             Entries = entries;

@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateTaskRequestBody {
@@ -21,7 +22,8 @@ namespace Box.Sdk.Gen.Managers {
         /// * `complete` defines a general task which can be completed
         /// </summary>
         [JsonPropertyName("action")]
-        public CreateTaskRequestBodyActionField? Action { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateTaskRequestBodyActionField>))]
+        public StringEnum<CreateTaskRequestBodyActionField>? Action { get; init; }
 
         /// <summary>
         /// An optional message to include with the task.
@@ -46,7 +48,8 @@ namespace Box.Sdk.Gen.Managers {
         /// approve the the task in order for it to be considered completed.
         /// </summary>
         [JsonPropertyName("completion_rule")]
-        public CreateTaskRequestBodyCompletionRuleField? CompletionRule { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateTaskRequestBodyCompletionRuleField>))]
+        public StringEnum<CreateTaskRequestBodyCompletionRuleField>? CompletionRule { get; init; }
 
         public CreateTaskRequestBody(CreateTaskRequestBodyItemField item) {
             Item = item;

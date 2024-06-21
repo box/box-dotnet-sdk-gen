@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TrackingCode {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `tracking_code`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrackingCodeTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrackingCodeTypeField>))]
+        public StringEnum<TrackingCodeTypeField>? Type { get; init; }
 
         /// <summary>
         /// The name of the tracking code, which must be preconfigured in

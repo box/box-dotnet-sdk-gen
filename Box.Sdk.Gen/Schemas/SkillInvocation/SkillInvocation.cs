@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_invocation`
         /// </summary>
         [JsonPropertyName("type")]
-        public SkillInvocationTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SkillInvocationTypeField>))]
+        public StringEnum<SkillInvocationTypeField>? Type { get; init; }
 
         /// <summary>
         /// Unique identifier for the invocation request.

@@ -19,5 +19,10 @@ namespace Box.Sdk.Gen.Schemas {
         public Group(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal Group(string id, StringEnum<GroupBaseTypeField> type) : base(id, type ?? new StringEnum<GroupBaseTypeField>(GroupBaseTypeField.Group)) {
+            
+        }
     }
 }

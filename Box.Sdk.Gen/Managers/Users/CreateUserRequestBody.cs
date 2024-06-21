@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateUserRequestBody {
@@ -33,7 +34,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The user’s enterprise role
         /// </summary>
         [JsonPropertyName("role")]
-        public CreateUserRequestBodyRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateUserRequestBodyRoleField>))]
+        public StringEnum<CreateUserRequestBodyRoleField>? Role { get; init; }
 
         /// <summary>
         /// The language of the user, formatted in modified version of the
@@ -118,7 +120,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The user's account status
         /// </summary>
         [JsonPropertyName("status")]
-        public CreateUserRequestBodyStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateUserRequestBodyStatusField>))]
+        public StringEnum<CreateUserRequestBodyStatusField>? Status { get; init; }
 
         /// <summary>
         /// An external identifier for an app user, which can be used to look

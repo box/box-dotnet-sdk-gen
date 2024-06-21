@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateClassificationOnFolderRequestBody {
@@ -12,14 +13,16 @@ namespace Box.Sdk.Gen.Managers {
         /// `replace`
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateClassificationOnFolderRequestBodyOpField Op { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationOnFolderRequestBodyOpField>))]
+        public StringEnum<UpdateClassificationOnFolderRequestBodyOpField> Op { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("path")]
-        public UpdateClassificationOnFolderRequestBodyPathField Path { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationOnFolderRequestBodyPathField>))]
+        public StringEnum<UpdateClassificationOnFolderRequestBodyPathField> Path { get; }
 
         /// <summary>
         /// The name of the classification to apply to this folder.
@@ -35,6 +38,13 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateClassificationOnFolderRequestBody(string value, UpdateClassificationOnFolderRequestBodyOpField op = UpdateClassificationOnFolderRequestBodyOpField.Replace, UpdateClassificationOnFolderRequestBodyPathField path = UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey) {
             Op = op;
             Path = path;
+            Value = value;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateClassificationOnFolderRequestBody(string value, StringEnum<UpdateClassificationOnFolderRequestBodyOpField> op, StringEnum<UpdateClassificationOnFolderRequestBodyPathField> path) {
+            Op = UpdateClassificationOnFolderRequestBodyOpField.Replace;
+            Path = UpdateClassificationOnFolderRequestBodyPathField.BoxSecurityClassificationKey;
             Value = value;
         }
     }

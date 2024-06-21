@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             MetadataCascadePolicy cascadePolicy = await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBody: new CreateMetadataCascadePolicyRequestBody(folderId: folder.Id, scope: CreateMetadataCascadePolicyRequestBodyScopeField.Enterprise, templateKey: templateKey));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(cascadePolicy.Type) == "metadata_cascade_policy");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(cascadePolicy.Type?.Value) == "metadata_cascade_policy");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(cascadePolicy.OwnerEnterprise).Type)) == "enterprise");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(cascadePolicy.OwnerEnterprise).Id)) == enterpriseId);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(cascadePolicy.Parent).Type)) == "folder");

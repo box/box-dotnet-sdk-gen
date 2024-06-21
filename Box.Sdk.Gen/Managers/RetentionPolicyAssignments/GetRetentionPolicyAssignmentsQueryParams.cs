@@ -1,17 +1,18 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetRetentionPolicyAssignmentsQueryParams {
         /// <summary>
         /// The type of the retention policy assignment to retrieve.
         /// </summary>
-        public GetRetentionPolicyAssignmentsQueryParamsTypeField? Type { get; init; }
+        public StringEnum<GetRetentionPolicyAssignmentsQueryParamsTypeField>? Type { get; init; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the

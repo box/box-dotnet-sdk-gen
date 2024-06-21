@@ -2,7 +2,9 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Force a specific color for the signature (blue, black, or red)
         /// </summary>
         [JsonPropertyName("signature_color")]
-        public SignRequestCreateRequestSignatureColorField? SignatureColor { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestCreateRequestSignatureColorField>))]
+        public StringEnum<SignRequestCreateRequestSignatureColorField>? SignatureColor { get; init; }
 
         /// <summary>
         /// Array of signers for the signature request. 35 is the

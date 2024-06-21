@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFolderWatermarkRequestBodyWatermarkField {
@@ -13,10 +14,16 @@ namespace Box.Sdk.Gen.Managers {
         /// Currently only supports one option.
         /// </summary>
         [JsonPropertyName("imprint")]
-        public UpdateFolderWatermarkRequestBodyWatermarkImprintField Imprint { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateFolderWatermarkRequestBodyWatermarkImprintField>))]
+        public StringEnum<UpdateFolderWatermarkRequestBodyWatermarkImprintField> Imprint { get; }
 
         public UpdateFolderWatermarkRequestBodyWatermarkField(UpdateFolderWatermarkRequestBodyWatermarkImprintField imprint = UpdateFolderWatermarkRequestBodyWatermarkImprintField.Default) {
             Imprint = imprint;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateFolderWatermarkRequestBodyWatermarkField(StringEnum<UpdateFolderWatermarkRequestBodyWatermarkImprintField> imprint) {
+            Imprint = UpdateFolderWatermarkRequestBodyWatermarkImprintField.Default;
         }
     }
 }

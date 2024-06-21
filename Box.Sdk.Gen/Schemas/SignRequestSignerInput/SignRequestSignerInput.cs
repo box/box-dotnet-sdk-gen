@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,13 +10,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of input
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestSignerInputTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestSignerInputTypeField>))]
+        public StringEnum<SignRequestSignerInputTypeField>? Type { get; init; }
 
         /// <summary>
         /// Content type of input
         /// </summary>
         [JsonPropertyName("content_type")]
-        public SignRequestSignerInputContentTypeField? ContentType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestSignerInputContentTypeField>))]
+        public StringEnum<SignRequestSignerInputContentTypeField>? ContentType { get; init; }
 
         /// <summary>
         /// Index of page that the input is on

@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetRetentionPoliciesQueryParams {
@@ -17,7 +18,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Filters results by the type of retention policy.
         /// </summary>
-        public GetRetentionPoliciesQueryParamsPolicyTypeField? PolicyType { get; init; }
+        public StringEnum<GetRetentionPoliciesQueryParamsPolicyTypeField>? PolicyType { get; init; }
 
         /// <summary>
         /// Filters results by the ID of the user who created policy.

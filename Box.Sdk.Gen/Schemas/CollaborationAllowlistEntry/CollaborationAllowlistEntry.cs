@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CollaborationAllowlistEntry {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `collaboration_whitelist_entry`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistEntryTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistEntryTypeField>))]
+        public StringEnum<CollaborationAllowlistEntryTypeField>? Type { get; init; }
 
         /// <summary>
         /// The whitelisted domain
@@ -25,7 +28,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The direction of the collaborations to allow.
         /// </summary>
         [JsonPropertyName("direction")]
-        public CollaborationAllowlistEntryDirectionField? Direction { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistEntryDirectionField>))]
+        public StringEnum<CollaborationAllowlistEntryDirectionField>? Direction { get; init; }
 
         [JsonPropertyName("enterprise")]
         public CollaborationAllowlistEntryEnterpriseField? Enterprise { get; init; }

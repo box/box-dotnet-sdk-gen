@@ -1,9 +1,9 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class SearchForContentQueryParams {
@@ -58,7 +58,7 @@ namespace Box.Sdk.Gen.Managers {
         /// will allow that use to query for content across the entire
         /// enterprise and not only the content that they have access to.
         /// </summary>
-        public SearchForContentQueryParamsScopeField? Scope { get; init; }
+        public StringEnum<SearchForContentQueryParamsScopeField>? Scope { get; init; }
 
         /// <summary>
         /// Limits the search results to any files that match any of the provided
@@ -173,7 +173,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `tags` - Any tags that are applied to an item, as defined by its
         ///    `tags` field.
         /// </summary>
-        public IReadOnlyList<SearchForContentQueryParamsContentTypesField>? ContentTypes { get; init; }
+        public IReadOnlyList<StringEnum<SearchForContentQueryParamsContentTypesField>> ContentTypes { get; init; }
 
         /// <summary>
         /// Limits the search results to any items of this type. This
@@ -185,7 +185,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `web_link` - Limits the search results to web links, also known
         ///    as bookmarks
         /// </summary>
-        public SearchForContentQueryParamsTypeField? Type { get; init; }
+        public StringEnum<SearchForContentQueryParamsTypeField>? Type { get; init; }
 
         /// <summary>
         /// Determines if the search should look in the trash for items.
@@ -198,7 +198,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   the trash
         /// * `all_items` - Searches for both trashed and non-trashed items.
         /// </summary>
-        public SearchForContentQueryParamsTrashContentField? TrashContent { get; init; }
+        public StringEnum<SearchForContentQueryParamsTrashContentField>? TrashContent { get; init; }
 
         /// <summary>
         /// Limits the search results to any items for which the metadata matches the provided filter.
@@ -218,7 +218,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `modified_at` returns the results ordered in descending order by date
         /// at which the item was last modified.
         /// </summary>
-        public SearchForContentQueryParamsSortField? Sort { get; init; }
+        public StringEnum<SearchForContentQueryParamsSortField>? Sort { get; init; }
 
         /// <summary>
         /// Defines the direction in which search results are ordered. This API
@@ -228,7 +228,7 @@ namespace Box.Sdk.Gen.Managers {
         /// When results are sorted by `relevance` the ordering is locked to returning
         /// items in descending order of relevance, and this parameter is ignored.
         /// </summary>
-        public SearchForContentQueryParamsDirectionField? Direction { get; init; }
+        public StringEnum<SearchForContentQueryParamsDirectionField>? Direction { get; init; }
 
         /// <summary>
         /// Defines the maximum number of items to return as part of a page of

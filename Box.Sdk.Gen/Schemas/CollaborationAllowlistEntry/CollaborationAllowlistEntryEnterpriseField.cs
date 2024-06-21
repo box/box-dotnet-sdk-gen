@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CollaborationAllowlistEntryEnterpriseField {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationAllowlistEntryEnterpriseTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistEntryEnterpriseTypeField>))]
+        public StringEnum<CollaborationAllowlistEntryEnterpriseTypeField>? Type { get; init; }
 
         /// <summary>
         /// The name of the enterprise

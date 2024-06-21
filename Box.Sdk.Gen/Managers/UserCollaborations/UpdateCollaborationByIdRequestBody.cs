@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateCollaborationByIdRequestBody {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public UpdateCollaborationByIdRequestBodyRoleField Role { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateCollaborationByIdRequestBodyRoleField>))]
+        public StringEnum<UpdateCollaborationByIdRequestBodyRoleField> Role { get; }
 
         /// <summary>
         /// <!--alex ignore reject-->
@@ -20,7 +22,8 @@ namespace Box.Sdk.Gen.Managers {
         /// effectively accepting, or rejecting the invite.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateCollaborationByIdRequestBodyStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateCollaborationByIdRequestBodyStatusField>))]
+        public StringEnum<UpdateCollaborationByIdRequestBodyStatusField>? Status { get; init; }
 
         /// <summary>
         /// Update the expiration date for the collaboration. At this date,
@@ -59,6 +62,11 @@ namespace Box.Sdk.Gen.Managers {
         public bool? CanViewPath { get; init; }
 
         public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
+            Role = role;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateCollaborationByIdRequestBody(StringEnum<UpdateCollaborationByIdRequestBodyRoleField> role) {
             Role = role;
         }
     }

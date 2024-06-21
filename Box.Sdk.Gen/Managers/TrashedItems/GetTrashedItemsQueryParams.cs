@@ -2,8 +2,8 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetTrashedItemsQueryParams {
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Managers {
         /// The direction to sort results in. This can be either in alphabetical ascending
         /// (`ASC`) or descending (`DESC`) order.
         /// </summary>
-        public GetTrashedItemsQueryParamsDirectionField? Direction { get; init; }
+        public StringEnum<GetTrashedItemsQueryParamsDirectionField>? Direction { get; init; }
 
         /// <summary>
         /// Defines the **second** attribute by which items
@@ -69,7 +69,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// This parameter is not supported when using marker-based pagination.
         /// </summary>
-        public GetTrashedItemsQueryParamsSortField? Sort { get; init; }
+        public StringEnum<GetTrashedItemsQueryParamsSortField>? Sort { get; init; }
 
         public GetTrashedItemsQueryParams() {
             

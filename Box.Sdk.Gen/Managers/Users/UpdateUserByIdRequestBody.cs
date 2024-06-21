@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateUserByIdRequestBody {
@@ -41,7 +42,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The user’s enterprise role
         /// </summary>
         [JsonPropertyName("role")]
-        public UpdateUserByIdRequestBodyRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateUserByIdRequestBodyRoleField>))]
+        public StringEnum<UpdateUserByIdRequestBodyRoleField>? Role { get; init; }
 
         /// <summary>
         /// The language of the user, formatted in modified version of the
@@ -125,7 +127,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The user's account status
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateUserByIdRequestBodyStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateUserByIdRequestBodyStatusField>))]
+        public StringEnum<UpdateUserByIdRequestBodyStatusField>? Status { get; init; }
 
         /// <summary>
         /// The user’s total available space in bytes. Set this to `-1` to

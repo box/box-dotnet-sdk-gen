@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileRequestCopyRequestFolderTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileRequestCopyRequestFolderTypeField>))]
+        public StringEnum<FileRequestCopyRequestFolderTypeField>? Type { get; init; }
 
         /// <summary>
         /// The ID of the folder to associate the new

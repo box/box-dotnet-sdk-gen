@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The flow's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTypeField>))]
+        public StringEnum<WorkflowFlowsTypeField>? Type { get; init; }
 
         [JsonPropertyName("trigger")]
         public WorkflowFlowsTriggerField? Trigger { get; init; }

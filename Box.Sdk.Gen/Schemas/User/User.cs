@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -51,7 +53,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The user's account status
         /// </summary>
         [JsonPropertyName("status")]
-        public UserStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UserStatusField>))]
+        public StringEnum<UserStatusField>? Status { get; init; }
 
         /// <summary>
         /// The user’s job title
@@ -87,6 +90,11 @@ namespace Box.Sdk.Gen.Schemas {
         public UserNotificationEmailField? NotificationEmail { get; init; }
 
         public User(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal User(string id, StringEnum<UserBaseTypeField> type) : base(id, type ?? new StringEnum<UserBaseTypeField>(UserBaseTypeField.User)) {
             
         }
     }

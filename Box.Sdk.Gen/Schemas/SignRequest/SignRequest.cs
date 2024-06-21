@@ -3,6 +3,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +13,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// object type
         /// </summary>
         [JsonPropertyName("type")]
-        public SignRequestTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestTypeField>))]
+        public StringEnum<SignRequestTypeField>? Type { get; init; }
 
         /// <summary>
         /// List of files to create a signing document from. This is currently limited to ten files. Only the ID and type fields are required for each file.
@@ -55,7 +58,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Describes the status of the signature request.
         /// </summary>
         [JsonPropertyName("status")]
-        public SignRequestStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignRequestStatusField>))]
+        public StringEnum<SignRequestStatusField>? Status { get; init; }
 
         /// <summary>
         /// List of files that will be signed, which are copies of the original

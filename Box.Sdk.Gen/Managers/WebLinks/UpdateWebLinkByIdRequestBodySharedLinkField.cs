@@ -2,8 +2,9 @@ using System.Text.Json.Serialization;
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateWebLinkByIdRequestBodySharedLinkField {
@@ -22,7 +23,8 @@ namespace Box.Sdk.Gen.Managers {
         /// accounts.
         /// </summary>
         [JsonPropertyName("access")]
-        public UpdateWebLinkByIdRequestBodySharedLinkAccessField? Access { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateWebLinkByIdRequestBodySharedLinkAccessField>))]
+        public StringEnum<UpdateWebLinkByIdRequestBodySharedLinkAccessField>? Access { get; init; }
 
         /// <summary>
         /// The password required to access the shared link. Set the

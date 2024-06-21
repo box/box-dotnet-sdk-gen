@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -47,7 +49,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// enterprise can invite the group.
         /// </summary>
         [JsonPropertyName("invitability_level")]
-        public GroupFullInvitabilityLevelField? InvitabilityLevel { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<GroupFullInvitabilityLevelField>))]
+        public StringEnum<GroupFullInvitabilityLevelField>? InvitabilityLevel { get; init; }
 
         /// <summary>
         /// Specifies who can view the members of the group
@@ -60,12 +63,18 @@ namespace Box.Sdk.Gen.Schemas {
         ///   enterprise
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
-        public GroupFullMemberViewabilityLevelField? MemberViewabilityLevel { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<GroupFullMemberViewabilityLevelField>))]
+        public StringEnum<GroupFullMemberViewabilityLevelField>? MemberViewabilityLevel { get; init; }
 
         [JsonPropertyName("permissions")]
         public GroupFullPermissionsField? Permissions { get; init; }
 
         public GroupFull(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal GroupFull(string id, StringEnum<GroupBaseTypeField> type) : base(id, type ?? new StringEnum<GroupBaseTypeField>(GroupBaseTypeField.Group)) {
             
         }
     }

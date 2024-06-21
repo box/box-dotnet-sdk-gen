@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrierSegmentRestrictionBase {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Shield information barrier segment restriction
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionBaseTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentRestrictionBaseTypeField>))]
+        public StringEnum<ShieldInformationBarrierSegmentRestrictionBaseTypeField>? Type { get; init; }
 
         /// <summary>
         /// The unique identifier for the

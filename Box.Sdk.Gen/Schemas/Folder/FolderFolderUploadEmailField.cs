@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Unions;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -23,7 +25,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// address.
         /// </summary>
         [JsonPropertyName("access")]
-        public FolderFolderUploadEmailAccessField? Access { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FolderFolderUploadEmailAccessField>))]
+        public StringEnum<FolderFolderUploadEmailAccessField>? Access { get; init; }
 
         /// <summary>
         /// The optional upload email address for this folder.

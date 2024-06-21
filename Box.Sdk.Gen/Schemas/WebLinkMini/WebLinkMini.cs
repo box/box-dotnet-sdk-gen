@@ -22,5 +22,10 @@ namespace Box.Sdk.Gen.Schemas {
         public WebLinkMini(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal WebLinkMini(string id, StringEnum<WebLinkBaseTypeField> type) : base(id, type ?? new StringEnum<WebLinkBaseTypeField>(WebLinkBaseTypeField.WebLink)) {
+            
+        }
     }
 }

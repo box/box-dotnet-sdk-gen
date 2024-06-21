@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public FileVersionsOrderDirectionField? Direction { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileVersionsOrderDirectionField>))]
+        public StringEnum<FileVersionsOrderDirectionField>? Direction { get; init; }
 
         public FileVersionsOrderField() {
             

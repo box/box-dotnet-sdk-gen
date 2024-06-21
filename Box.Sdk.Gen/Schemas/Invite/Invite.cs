@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `invite`
         /// </summary>
         [JsonPropertyName("type")]
-        public InviteTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<InviteTypeField>))]
+        public StringEnum<InviteTypeField> Type { get; }
 
         /// <summary>
         /// A representation of a Box enterprise
@@ -49,6 +52,12 @@ namespace Box.Sdk.Gen.Schemas {
         public Invite(string id, InviteTypeField type = InviteTypeField.Invite) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal Invite(string id, StringEnum<InviteTypeField> type) {
+            Id = id;
+            Type = InviteTypeField.Invite;
         }
     }
 }

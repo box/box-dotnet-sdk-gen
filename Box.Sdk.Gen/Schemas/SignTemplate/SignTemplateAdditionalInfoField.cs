@@ -2,7 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +14,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Non editable fields.
         /// </summary>
         [JsonPropertyName("non_editable")]
-        public IReadOnlyList<SignTemplateAdditionalInfoNonEditableField>? NonEditable { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<SignTemplateAdditionalInfoNonEditableField>))]
+        public IReadOnlyList<StringEnum<SignTemplateAdditionalInfoNonEditableField>> NonEditable { get; init; }
 
         /// <summary>
         /// Required fields.

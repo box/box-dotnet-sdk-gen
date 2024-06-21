@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateTermsOfServiceStatusForUserRequestBodyUserField {
@@ -11,7 +12,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of object.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateTermsOfServiceStatusForUserRequestBodyUserTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>))]
+        public StringEnum<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField> Type { get; }
 
         /// <summary>
         /// The ID of user
@@ -21,6 +23,12 @@ namespace Box.Sdk.Gen.Managers {
 
         public CreateTermsOfServiceStatusForUserRequestBodyUserField(string id, CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type = CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateTermsOfServiceStatusForUserRequestBodyUserField(string id, StringEnum<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField> type) {
+            Type = CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.User;
             Id = id;
         }
     }
