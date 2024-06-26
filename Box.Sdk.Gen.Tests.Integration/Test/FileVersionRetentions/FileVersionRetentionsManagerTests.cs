@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             RetentionPolicyAssignment retentionPolicyAssignment = await client.RetentionPolicyAssignments.CreateRetentionPolicyAssignmentAsync(requestBody: new CreateRetentionPolicyAssignmentRequestBody(policyId: retentionPolicy.Id, assignTo: new CreateRetentionPolicyAssignmentRequestBodyAssignToField(type: CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.Folder) { Id = folder.Id }));
             Assert.IsTrue(NullableUtils.Unwrap(retentionPolicyAssignment.RetentionPolicy).Id == retentionPolicy.Id);
             Assert.IsTrue(NullableUtils.Unwrap(retentionPolicyAssignment.AssignedTo).Id == folder.Id);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(retentionPolicyAssignment.AssignedTo).Type) == StringUtils.ToStringRepresentation(folder.Type));
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(retentionPolicyAssignment.AssignedTo).Type) == StringUtils.ToStringRepresentation(folder.Type?.Value));
             Files files = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: folder.Id)), file: Utils.GenerateByteStream(size: 10)));
             FileFull file = NullableUtils.Unwrap(files.Entries)[0];
             Files newFiles = await client.Uploads.UploadFileVersionAsync(fileId: file.Id, requestBody: new UploadFileVersionRequestBody(attributes: new UploadFileVersionRequestBodyAttributesField(name: NullableUtils.Unwrap(file.Name)), file: Utils.GenerateByteStream(size: 20)));

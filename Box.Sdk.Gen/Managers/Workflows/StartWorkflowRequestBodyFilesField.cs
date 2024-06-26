@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBodyFilesField {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the file object
         /// </summary>
         [JsonPropertyName("type")]
-        public StartWorkflowRequestBodyFilesTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<StartWorkflowRequestBodyFilesTypeField>))]
+        public StringEnum<StartWorkflowRequestBodyFilesTypeField>? Type { get; init; }
 
         /// <summary>
         /// The id of the file

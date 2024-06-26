@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `retention_policy_assignment`
         /// </summary>
         [JsonPropertyName("type")]
-        public RetentionPolicyAssignmentTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyAssignmentTypeField>))]
+        public StringEnum<RetentionPolicyAssignmentTypeField> Type { get; }
 
         [JsonPropertyName("retention_policy")]
         public RetentionPolicyMini? RetentionPolicy { get; init; }
@@ -58,6 +61,12 @@ namespace Box.Sdk.Gen.Schemas {
         public RetentionPolicyAssignment(string id, RetentionPolicyAssignmentTypeField type = RetentionPolicyAssignmentTypeField.RetentionPolicyAssignment) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal RetentionPolicyAssignment(string id, StringEnum<RetentionPolicyAssignmentTypeField> type) {
+            Id = id;
+            Type = RetentionPolicyAssignmentTypeField.RetentionPolicyAssignment;
         }
     }
 }

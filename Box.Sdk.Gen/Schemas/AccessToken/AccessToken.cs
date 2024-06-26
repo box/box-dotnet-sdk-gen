@@ -1,8 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -23,7 +25,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of access token returned.
         /// </summary>
         [JsonPropertyName("token_type")]
-        public AccessTokenTokenTypeField? TokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<AccessTokenTokenTypeField>))]
+        public StringEnum<AccessTokenTokenTypeField>? TokenType { get; init; }
 
         /// <summary>
         /// The permissions that this access token permits,
@@ -45,7 +48,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// returned if an access token has been downscoped.
         /// </summary>
         [JsonPropertyName("issued_token_type")]
-        public AccessTokenIssuedTokenTypeField? IssuedTokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<AccessTokenIssuedTokenTypeField>))]
+        public StringEnum<AccessTokenIssuedTokenTypeField>? IssuedTokenType { get; init; }
 
         public AccessToken() {
             

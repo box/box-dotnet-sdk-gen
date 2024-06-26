@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateClassificationRequestBody {
@@ -13,14 +14,16 @@ namespace Box.Sdk.Gen.Managers {
         /// object.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateClassificationRequestBodyOpField Op { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationRequestBodyOpField>))]
+        public StringEnum<UpdateClassificationRequestBodyOpField> Op { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("fieldKey")]
-        public UpdateClassificationRequestBodyFieldKeyField FieldKey { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationRequestBodyFieldKeyField>))]
+        public StringEnum<UpdateClassificationRequestBodyFieldKeyField> FieldKey { get; }
 
         /// <summary>
         /// The original label of the classification to change.
@@ -37,6 +40,14 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateClassificationRequestBody(string enumOptionKey, UpdateClassificationRequestBodyDataField data, UpdateClassificationRequestBodyOpField op = UpdateClassificationRequestBodyOpField.EditEnumOption, UpdateClassificationRequestBodyFieldKeyField fieldKey = UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey) {
             Op = op;
             FieldKey = fieldKey;
+            EnumOptionKey = enumOptionKey;
+            Data = data;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateClassificationRequestBody(string enumOptionKey, UpdateClassificationRequestBodyDataField data, StringEnum<UpdateClassificationRequestBodyOpField> op, StringEnum<UpdateClassificationRequestBodyFieldKeyField> fieldKey) {
+            Op = UpdateClassificationRequestBodyOpField.EditEnumOption;
+            FieldKey = UpdateClassificationRequestBodyFieldKeyField.BoxSecurityClassificationKey;
             EnumOptionKey = enumOptionKey;
             Data = data;
         }

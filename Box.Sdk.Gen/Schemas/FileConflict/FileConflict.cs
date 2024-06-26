@@ -6,5 +6,10 @@ namespace Box.Sdk.Gen.Schemas {
         public FileConflict(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal FileConflict(string id, StringEnum<FileBaseTypeField> type) : base(id, type ?? new StringEnum<FileBaseTypeField>(FileBaseTypeField.File)) {
+            
+        }
     }
 }

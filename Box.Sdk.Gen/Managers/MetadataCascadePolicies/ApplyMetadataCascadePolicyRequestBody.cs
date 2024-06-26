@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class ApplyMetadataCascadePolicyRequestBody {
@@ -17,9 +18,15 @@ namespace Box.Sdk.Gen.Managers {
         ///   any existing values.
         /// </summary>
         [JsonPropertyName("conflict_resolution")]
-        public ApplyMetadataCascadePolicyRequestBodyConflictResolutionField ConflictResolution { get; }
+        [JsonConverter(typeof(StringEnumConverter<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>))]
+        public StringEnum<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField> ConflictResolution { get; }
 
         public ApplyMetadataCascadePolicyRequestBody(ApplyMetadataCascadePolicyRequestBodyConflictResolutionField conflictResolution) {
+            ConflictResolution = conflictResolution;
+        }
+        
+        [JsonConstructorAttribute]
+        internal ApplyMetadataCascadePolicyRequestBody(StringEnum<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField> conflictResolution) {
             ConflictResolution = conflictResolution;
         }
     }

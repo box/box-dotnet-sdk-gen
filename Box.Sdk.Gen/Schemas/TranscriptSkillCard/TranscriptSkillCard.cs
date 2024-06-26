@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -16,13 +18,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_card`
         /// </summary>
         [JsonPropertyName("type")]
-        public TranscriptSkillCardTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TranscriptSkillCardTypeField>))]
+        public StringEnum<TranscriptSkillCardTypeField> Type { get; }
 
         /// <summary>
         /// `transcript`
         /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public TranscriptSkillCardSkillCardTypeField SkillCardType { get; }
+        [JsonConverter(typeof(StringEnumConverter<TranscriptSkillCardSkillCardTypeField>))]
+        public StringEnum<TranscriptSkillCardSkillCardTypeField> SkillCardType { get; }
 
         /// <summary>
         /// The title of the card.
@@ -62,6 +66,15 @@ namespace Box.Sdk.Gen.Schemas {
         public TranscriptSkillCard(TranscriptSkillCardSkillField skill, TranscriptSkillCardInvocationField invocation, IReadOnlyList<TranscriptSkillCardEntriesField> entries, TranscriptSkillCardTypeField type = TranscriptSkillCardTypeField.SkillCard, TranscriptSkillCardSkillCardTypeField skillCardType = TranscriptSkillCardSkillCardTypeField.Transcript) {
             Type = type;
             SkillCardType = skillCardType;
+            Skill = skill;
+            Invocation = invocation;
+            Entries = entries;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TranscriptSkillCard(TranscriptSkillCardSkillField skill, TranscriptSkillCardInvocationField invocation, IReadOnlyList<TranscriptSkillCardEntriesField> entries, StringEnum<TranscriptSkillCardTypeField> type, StringEnum<TranscriptSkillCardSkillCardTypeField> skillCardType) {
+            Type = TranscriptSkillCardTypeField.SkillCard;
+            SkillCardType = TranscriptSkillCardSkillCardTypeField.Transcript;
             Skill = skill;
             Invocation = invocation;
             Entries = entries;

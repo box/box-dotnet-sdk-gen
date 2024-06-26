@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateClassificationTemplateRequestBody {
@@ -14,20 +15,23 @@ namespace Box.Sdk.Gen.Managers {
         /// ID of the enterprise.
         /// </summary>
         [JsonPropertyName("scope")]
-        public CreateClassificationTemplateRequestBodyScopeField Scope { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyScopeField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyScopeField> Scope { get; }
 
         /// <summary>
         /// Defines the list of metadata templates.
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public CreateClassificationTemplateRequestBodyTemplateKeyField TemplateKey { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyTemplateKeyField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyTemplateKeyField> TemplateKey { get; }
 
         /// <summary>
         /// The name of the
         /// template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public CreateClassificationTemplateRequestBodyDisplayNameField DisplayName { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyDisplayNameField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyDisplayNameField> DisplayName { get; }
 
         /// <summary>
         /// Determines if the classification template is
@@ -57,6 +61,14 @@ namespace Box.Sdk.Gen.Managers {
             Scope = scope;
             TemplateKey = templateKey;
             DisplayName = displayName;
+            Fields = fields;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateClassificationTemplateRequestBody(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsField> fields, StringEnum<CreateClassificationTemplateRequestBodyScopeField> scope, StringEnum<CreateClassificationTemplateRequestBodyTemplateKeyField> templateKey, StringEnum<CreateClassificationTemplateRequestBodyDisplayNameField> displayName) {
+            Scope = CreateClassificationTemplateRequestBodyScopeField.Enterprise;
+            TemplateKey = CreateClassificationTemplateRequestBodyTemplateKeyField.SecurityClassification6VmVochwUWo;
+            DisplayName = CreateClassificationTemplateRequestBodyDisplayNameField.Classification;
             Fields = fields;
         }
     }

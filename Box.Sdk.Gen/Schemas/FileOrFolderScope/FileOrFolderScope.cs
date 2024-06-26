@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The scopes for the resource access
         /// </summary>
         [JsonPropertyName("scope")]
-        public FileOrFolderScopeScopeField? Scope { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileOrFolderScopeScopeField>))]
+        public StringEnum<FileOrFolderScopeScopeField>? Scope { get; init; }
 
         [JsonPropertyName("object")]
         public FileMiniOrFolderMini? Object { get; init; }

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -31,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `folder`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFolderTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFolderTypeField>))]
+        public StringEnum<TrashFolderTypeField> Type { get; }
 
         [JsonPropertyName("sequence_id")]
         public string? SequenceId { get; init; }
@@ -135,11 +138,26 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFolderItemStatusField ItemStatus { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFolderItemStatusField>))]
+        public StringEnum<TrashFolderItemStatusField> ItemStatus { get; }
 
         public TrashFolder(string id, string name, string description, long size, TrashFolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, TrashFolderItemStatusField itemStatus, TrashFolderTypeField type = TrashFolderTypeField.Folder) {
             Id = id;
             Type = type;
+            Name = name;
+            Description = description;
+            Size = size;
+            PathCollection = pathCollection;
+            CreatedBy = createdBy;
+            ModifiedBy = modifiedBy;
+            OwnedBy = ownedBy;
+            ItemStatus = itemStatus;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TrashFolder(string id, string name, string description, long size, TrashFolderPathCollectionField pathCollection, UserMini createdBy, UserMini modifiedBy, UserMini ownedBy, StringEnum<TrashFolderItemStatusField> itemStatus, StringEnum<TrashFolderTypeField> type) {
+            Id = id;
+            Type = TrashFolderTypeField.Folder;
             Name = name;
             Description = description;
             Size = size;

@@ -2,12 +2,12 @@ using System.Text.Json.Serialization;
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DictionaryExtensions;
+using Box.Sdk.Gen;
 using Serializer;
+using DictionaryExtensions;
 using Fetch;
 using StringExtensions;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class WebLinksManager : IWebLinksManager {

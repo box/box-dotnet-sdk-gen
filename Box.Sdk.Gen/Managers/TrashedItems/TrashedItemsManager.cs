@@ -2,12 +2,12 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
 using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class TrashedItemsManager : ITrashedItemsManager {
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<Items> GetTrashedItemsAsync(GetTrashedItemsQueryParams? queryParams = default, GetTrashedItemsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new GetTrashedItemsQueryParams();
             headers = headers ?? new GetTrashedItemsHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "offset", StringUtils.ToStringRepresentation(queryParams.Offset) }, { "usemarker", StringUtils.ToStringRepresentation(queryParams.Usemarker) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "direction", StringUtils.ToStringRepresentation(queryParams.Direction) }, { "sort", StringUtils.ToStringRepresentation(queryParams.Sort) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "offset", StringUtils.ToStringRepresentation(queryParams.Offset) }, { "usemarker", StringUtils.ToStringRepresentation(queryParams.Usemarker) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "direction", StringUtils.ToStringRepresentation(queryParams.Direction?.Value) }, { "sort", StringUtils.ToStringRepresentation(queryParams.Sort?.Value) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/folders/trash/items"), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Items>(response.Data);

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `enterprise`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceEnterpriseTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TermsOfServiceEnterpriseTypeField>))]
+        public StringEnum<TermsOfServiceEnterpriseTypeField>? Type { get; init; }
 
         /// <summary>
         /// The name of the enterprise

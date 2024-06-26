@@ -2,15 +2,15 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetCollaborationsQueryParams {
         /// <summary>
         /// The status of the collaborations to retrieve
         /// </summary>
-        public GetCollaborationsQueryParamsStatusField Status { get; }
+        public StringEnum<GetCollaborationsQueryParamsStatusField> Status { get; }
 
         /// <summary>
         /// A comma-separated list of attributes to include in the

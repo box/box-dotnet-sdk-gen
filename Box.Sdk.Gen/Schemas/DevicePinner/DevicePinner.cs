@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `device_pinner`
         /// </summary>
         [JsonPropertyName("type")]
-        public DevicePinnerTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<DevicePinnerTypeField>))]
+        public StringEnum<DevicePinnerTypeField>? Type { get; init; }
 
         [JsonPropertyName("owned_by")]
         public UserMini? OwnedBy { get; init; }

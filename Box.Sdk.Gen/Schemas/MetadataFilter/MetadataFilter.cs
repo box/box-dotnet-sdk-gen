@@ -1,7 +1,9 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// that are available to all enterprises using Box.
         /// </summary>
         [JsonPropertyName("scope")]
-        public MetadataFilterScopeField? Scope { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<MetadataFilterScopeField>))]
+        public StringEnum<MetadataFilterScopeField>? Scope { get; init; }
 
         /// <summary>
         /// The key of the template used to filter search results.

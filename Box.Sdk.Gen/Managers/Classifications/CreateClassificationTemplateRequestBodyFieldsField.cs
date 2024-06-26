@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateClassificationTemplateRequestBodyFieldsField {
@@ -13,20 +14,23 @@ namespace Box.Sdk.Gen.Managers {
         /// that is always enum.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateClassificationTemplateRequestBodyFieldsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyFieldsTypeField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyFieldsTypeField> Type { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("key")]
-        public CreateClassificationTemplateRequestBodyFieldsKeyField Key { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyFieldsKeyField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyFieldsKeyField> Key { get; }
 
         /// <summary>
         /// A display name for the classification.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public CreateClassificationTemplateRequestBodyFieldsDisplayNameField DisplayName { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateClassificationTemplateRequestBodyFieldsDisplayNameField>))]
+        public StringEnum<CreateClassificationTemplateRequestBodyFieldsDisplayNameField> DisplayName { get; }
 
         /// <summary>
         /// Determines if the classification
@@ -49,6 +53,14 @@ namespace Box.Sdk.Gen.Managers {
             Type = type;
             Key = key;
             DisplayName = displayName;
+            Options = options;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateClassificationTemplateRequestBodyFieldsField(IReadOnlyList<CreateClassificationTemplateRequestBodyFieldsOptionsField> options, StringEnum<CreateClassificationTemplateRequestBodyFieldsTypeField> type, StringEnum<CreateClassificationTemplateRequestBodyFieldsKeyField> key, StringEnum<CreateClassificationTemplateRequestBodyFieldsDisplayNameField> displayName) {
+            Type = CreateClassificationTemplateRequestBodyFieldsTypeField.Enum;
+            Key = CreateClassificationTemplateRequestBodyFieldsKeyField.BoxSecurityClassificationKey;
+            DisplayName = CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification;
             Options = options;
         }
     }

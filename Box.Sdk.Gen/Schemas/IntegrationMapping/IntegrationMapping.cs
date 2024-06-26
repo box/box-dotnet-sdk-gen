@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Mapping type
         /// </summary>
         [JsonPropertyName("type")]
-        public IntegrationMappingTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingTypeField>))]
+        public StringEnum<IntegrationMappingTypeField> Type { get; }
 
         /// <summary>
         /// Mapped item object for Slack
@@ -65,6 +68,13 @@ namespace Box.Sdk.Gen.Schemas {
 
         public IntegrationMapping(IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem, IntegrationMappingTypeField type = IntegrationMappingTypeField.IntegrationMapping) {
             Type = type;
+            PartnerItem = partnerItem;
+            BoxItem = boxItem;
+        }
+        
+        [JsonConstructorAttribute]
+        internal IntegrationMapping(IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem, StringEnum<IntegrationMappingTypeField> type) {
+            Type = IntegrationMappingTypeField.IntegrationMapping;
             PartnerItem = partnerItem;
             BoxItem = boxItem;
         }

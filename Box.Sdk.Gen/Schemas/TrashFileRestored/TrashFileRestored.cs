@@ -3,6 +3,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -31,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashFileRestoredTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFileRestoredTypeField>))]
+        public StringEnum<TrashFileRestoredTypeField> Type { get; }
 
         [JsonPropertyName("sequence_id")]
         public string SequenceId { get; }
@@ -136,11 +139,28 @@ namespace Box.Sdk.Gen.Schemas {
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashFileRestoredItemStatusField ItemStatus { get; }
+        [JsonConverter(typeof(StringEnumConverter<TrashFileRestoredItemStatusField>))]
+        public StringEnum<TrashFileRestoredItemStatusField> ItemStatus { get; }
 
         public TrashFileRestored(string id, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, TrashFileRestoredItemStatusField itemStatus, TrashFileRestoredTypeField type = TrashFileRestoredTypeField.File) {
             Id = id;
             Type = type;
+            SequenceId = sequenceId;
+            Sha1 = sha1;
+            Description = description;
+            Size = size;
+            PathCollection = pathCollection;
+            CreatedAt = createdAt;
+            ModifiedAt = modifiedAt;
+            ModifiedBy = modifiedBy;
+            OwnedBy = ownedBy;
+            ItemStatus = itemStatus;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TrashFileRestored(string id, string sequenceId, string sha1, string description, long size, TrashFileRestoredPathCollectionField pathCollection, System.DateTimeOffset createdAt, System.DateTimeOffset modifiedAt, UserMini modifiedBy, UserMini ownedBy, StringEnum<TrashFileRestoredItemStatusField> itemStatus, StringEnum<TrashFileRestoredTypeField> type) {
+            Id = id;
+            Type = TrashFileRestoredTypeField.File;
             SequenceId = sequenceId;
             Sha1 = sha1;
             Description = description;

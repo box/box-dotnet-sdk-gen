@@ -1,14 +1,14 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using StringExtensions;
 using DictionaryExtensions;
 using Fetch;
-using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class RetentionPolicyAssignmentsManager : IRetentionPolicyAssignmentsManager {
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<RetentionPolicyAssignments> GetRetentionPolicyAssignmentsAsync(string retentionPolicyId, GetRetentionPolicyAssignmentsQueryParams? queryParams = default, GetRetentionPolicyAssignmentsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new GetRetentionPolicyAssignmentsQueryParams();
             headers = headers ?? new GetRetentionPolicyAssignmentsHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "type", StringUtils.ToStringRepresentation(queryParams.Type) }, { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "type", StringUtils.ToStringRepresentation(queryParams.Type?.Value) }, { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) }, { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/retention_policies/", StringUtils.ToStringRepresentation(retentionPolicyId), "/assignments"), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<RetentionPolicyAssignments>(response.Data);

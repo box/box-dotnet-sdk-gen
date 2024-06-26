@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataTemplate {
@@ -16,7 +18,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `metadata_template`
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataTemplateTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<MetadataTemplateTypeField>))]
+        public StringEnum<MetadataTemplateTypeField> Type { get; }
 
         /// <summary>
         /// The scope of the metadata template can either be `global` or
@@ -67,6 +70,12 @@ namespace Box.Sdk.Gen.Schemas {
         public MetadataTemplate(string id, MetadataTemplateTypeField type = MetadataTemplateTypeField.MetadataTemplate) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal MetadataTemplate(string id, StringEnum<MetadataTemplateTypeField> type) {
+            Id = id;
+            Type = MetadataTemplateTypeField.MetadataTemplate;
         }
     }
 }

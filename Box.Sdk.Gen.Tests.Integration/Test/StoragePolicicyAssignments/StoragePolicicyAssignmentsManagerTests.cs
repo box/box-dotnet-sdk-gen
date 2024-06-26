@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             StoragePolicy storagePolicy1 = NullableUtils.Unwrap(storagePolicies.Entries)[0];
             StoragePolicy storagePolicy2 = NullableUtils.Unwrap(storagePolicies.Entries)[1];
             StoragePolicyAssignment storagePolicyAssignment = await GetOrCreateStoragePolicyAssignmentAsync(client: client, policyId: storagePolicy1.Id, userId: newUser.Id);
-            Assert.IsTrue(StringUtils.ToStringRepresentation(storagePolicyAssignment.Type) == "storage_policy_assignment");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(storagePolicyAssignment.Type?.Value) == "storage_policy_assignment");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(storagePolicyAssignment.AssignedTo).Type) == "user");
             Assert.IsTrue(NullableUtils.Unwrap(storagePolicyAssignment.AssignedTo).Id == newUser.Id);
             StoragePolicyAssignment getStoragePolicyAssignment = await client.StoragePolicyAssignments.GetStoragePolicyAssignmentByIdAsync(storagePolicyAssignmentId: storagePolicyAssignment.Id);

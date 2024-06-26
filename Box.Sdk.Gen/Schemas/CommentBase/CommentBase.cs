@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CommentBase {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `comment`
         /// </summary>
         [JsonPropertyName("type")]
-        public CommentBaseTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CommentBaseTypeField>))]
+        public StringEnum<CommentBaseTypeField>? Type { get; init; }
 
         public CommentBase() {
             

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Whether these terms are enabled or not
         /// </summary>
         [JsonPropertyName("status")]
-        public TermsOfServiceStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TermsOfServiceStatusField>))]
+        public StringEnum<TermsOfServiceStatusField>? Status { get; init; }
 
         [JsonPropertyName("enterprise")]
         public TermsOfServiceEnterpriseField? Enterprise { get; init; }
@@ -17,7 +20,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Whether to apply these terms to managed users or external users
         /// </summary>
         [JsonPropertyName("tos_type")]
-        public TermsOfServiceTosTypeField? TosType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TermsOfServiceTosTypeField>))]
+        public StringEnum<TermsOfServiceTosTypeField>? TosType { get; init; }
 
         /// <summary>
         /// The text for your terms and conditions. This text could be
@@ -39,6 +43,11 @@ namespace Box.Sdk.Gen.Schemas {
         public System.DateTimeOffset? ModifiedAt { get; init; }
 
         public TermsOfService(string id, TermsOfServiceBaseTypeField type = TermsOfServiceBaseTypeField.TermsOfService) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal TermsOfService(string id, StringEnum<TermsOfServiceBaseTypeField> type) : base(id, type ?? new StringEnum<TermsOfServiceBaseTypeField>(TermsOfServiceBaseTypeField.TermsOfService)) {
             
         }
     }

@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateTaskAssignmentByIdRequestBody {
@@ -22,7 +23,8 @@ namespace Box.Sdk.Gen.Managers {
         /// `incomplete`, `approved`, or `rejected`.
         /// </summary>
         [JsonPropertyName("resolution_state")]
-        public UpdateTaskAssignmentByIdRequestBodyResolutionStateField? ResolutionState { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>))]
+        public StringEnum<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>? ResolutionState { get; init; }
 
         public UpdateTaskAssignmentByIdRequestBody() {
             

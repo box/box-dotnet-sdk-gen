@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -23,7 +25,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of access token returned.
         /// </summary>
         [JsonPropertyName("token_type")]
-        public FileFullExpiringEmbedLinkTokenTypeField? TokenType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileFullExpiringEmbedLinkTokenTypeField>))]
+        public StringEnum<FileFullExpiringEmbedLinkTokenTypeField>? TokenType { get; init; }
 
         /// <summary>
         /// The permissions that this access token permits,

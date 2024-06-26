@@ -49,7 +49,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.Signers)[1].Email == signerEmail);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.ParentFolder).Id == destinationFolder.Id);
             SignRequest cancelledSignRequest = await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(cancelledSignRequest.Status) == "cancelled");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(cancelledSignRequest.Status?.Value) == "cancelled");
             SignRequests signRequests = await client.SignRequests.GetSignRequestsAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(NullableUtils.Unwrap(signRequests.Entries)[0].Type)) == "sign-request");
             await client.Folders.DeleteFolderByIdAsync(folderId: destinationFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });

@@ -1,9 +1,9 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetEventsQueryParams {
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Managers {
         ///   events will not be returned in chronological order and may
         ///   contain duplicates.
         /// </summary>
-        public GetEventsQueryParamsStreamTypeField? StreamType { get; init; }
+        public StringEnum<GetEventsQueryParamsStreamTypeField>? StreamType { get; init; }
 
         /// <summary>
         /// The location in the event stream to start receiving events from.
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `adming_logs_streaming`. For any other `stream_type` this value will be
         /// ignored.
         /// </summary>
-        public IReadOnlyList<GetEventsQueryParamsEventTypeField>? EventType { get; init; }
+        public IReadOnlyList<StringEnum<GetEventsQueryParamsEventTypeField>> EventType { get; init; }
 
         /// <summary>
         /// The lower bound date and time to return events for. This can only be used

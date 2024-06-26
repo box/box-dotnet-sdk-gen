@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class RoleVariable {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("type")]
-        public RoleVariableTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<RoleVariableTypeField>))]
+        public StringEnum<RoleVariableTypeField> Type { get; }
 
         /// <summary>
         /// The variable type used
@@ -16,14 +19,23 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
-        public RoleVariableVariableTypeField VariableType { get; }
+        [JsonConverter(typeof(StringEnumConverter<RoleVariableVariableTypeField>))]
+        public StringEnum<RoleVariableVariableTypeField> VariableType { get; }
 
         [JsonPropertyName("variable_value")]
-        public RoleVariableVariableValueField VariableValue { get; }
+        [JsonConverter(typeof(StringEnumConverter<RoleVariableVariableValueField>))]
+        public StringEnum<RoleVariableVariableValueField> VariableValue { get; }
 
         public RoleVariable(RoleVariableVariableValueField variableValue, RoleVariableTypeField type = RoleVariableTypeField.Variable, RoleVariableVariableTypeField variableType = RoleVariableVariableTypeField.CollaboratorRole) {
             Type = type;
             VariableType = variableType;
+            VariableValue = variableValue;
+        }
+        
+        [JsonConstructorAttribute]
+        internal RoleVariable(StringEnum<RoleVariableVariableValueField> variableValue, StringEnum<RoleVariableTypeField> type, StringEnum<RoleVariableVariableTypeField> variableType) {
+            Type = RoleVariableTypeField.Variable;
+            VariableType = RoleVariableVariableTypeField.CollaboratorRole;
             VariableValue = variableValue;
         }
     }

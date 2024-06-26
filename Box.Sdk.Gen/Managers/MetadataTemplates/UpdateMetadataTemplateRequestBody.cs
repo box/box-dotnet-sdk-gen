@@ -1,10 +1,11 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using System;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateMetadataTemplateRequestBody {
@@ -13,7 +14,8 @@ namespace Box.Sdk.Gen.Managers {
         /// of these are hazardous as they will change existing templates.
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateMetadataTemplateRequestBodyOpField Op { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateMetadataTemplateRequestBodyOpField>))]
+        public StringEnum<UpdateMetadataTemplateRequestBodyOpField> Op { get; }
 
         /// <summary>
         /// The data for the operation. This will vary depending on the
@@ -65,6 +67,11 @@ namespace Box.Sdk.Gen.Managers {
         public IReadOnlyList<string>? MultiSelectOptionKeys { get; init; }
 
         public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
+            Op = op;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateMetadataTemplateRequestBody(StringEnum<UpdateMetadataTemplateRequestBodyOpField> op) {
             Op = op;
         }
     }

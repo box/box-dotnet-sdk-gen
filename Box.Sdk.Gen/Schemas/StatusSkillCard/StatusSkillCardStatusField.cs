@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class StatusSkillCardStatusField {
@@ -10,7 +12,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// value on this object.
         /// </summary>
         [JsonPropertyName("code")]
-        public StatusSkillCardStatusCodeField Code { get; }
+        [JsonConverter(typeof(StringEnumConverter<StatusSkillCardStatusCodeField>))]
+        public StringEnum<StatusSkillCardStatusCodeField> Code { get; }
 
         /// <summary>
         /// A custom message that can be provided with this status.
@@ -20,6 +23,11 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Message { get; init; }
 
         public StatusSkillCardStatusField(StatusSkillCardStatusCodeField code) {
+            Code = code;
+        }
+        
+        [JsonConstructorAttribute]
+        internal StatusSkillCardStatusField(StringEnum<StatusSkillCardStatusCodeField> code) {
             Code = code;
         }
     }

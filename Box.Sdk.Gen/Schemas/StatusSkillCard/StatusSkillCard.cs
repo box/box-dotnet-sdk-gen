@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class StatusSkillCard {
@@ -13,13 +15,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_card`
         /// </summary>
         [JsonPropertyName("type")]
-        public StatusSkillCardTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<StatusSkillCardTypeField>))]
+        public StringEnum<StatusSkillCardTypeField> Type { get; }
 
         /// <summary>
         /// `status`
         /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public StatusSkillCardSkillCardTypeField SkillCardType { get; }
+        [JsonConverter(typeof(StringEnumConverter<StatusSkillCardSkillCardTypeField>))]
+        public StringEnum<StatusSkillCardSkillCardTypeField> SkillCardType { get; }
 
         /// <summary>
         /// The title of the card.
@@ -49,6 +53,15 @@ namespace Box.Sdk.Gen.Schemas {
         public StatusSkillCard(StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation, StatusSkillCardTypeField type = StatusSkillCardTypeField.SkillCard, StatusSkillCardSkillCardTypeField skillCardType = StatusSkillCardSkillCardTypeField.Status) {
             Type = type;
             SkillCardType = skillCardType;
+            Status = status;
+            Skill = skill;
+            Invocation = invocation;
+        }
+        
+        [JsonConstructorAttribute]
+        internal StatusSkillCard(StatusSkillCardStatusField status, StatusSkillCardSkillField skill, StatusSkillCardInvocationField invocation, StringEnum<StatusSkillCardTypeField> type, StringEnum<StatusSkillCardSkillCardTypeField> skillCardType) {
+            Type = StatusSkillCardTypeField.SkillCard;
+            SkillCardType = StatusSkillCardSkillCardTypeField.Status;
             Status = status;
             Skill = skill;
             Invocation = invocation;

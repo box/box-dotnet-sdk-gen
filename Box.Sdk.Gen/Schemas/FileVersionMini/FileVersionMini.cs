@@ -13,5 +13,10 @@ namespace Box.Sdk.Gen.Schemas {
         public FileVersionMini(string id, FileVersionBaseTypeField type = FileVersionBaseTypeField.FileVersion) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal FileVersionMini(string id, StringEnum<FileVersionBaseTypeField> type) : base(id, type ?? new StringEnum<FileVersionBaseTypeField>(FileVersionBaseTypeField.FileVersion)) {
+            
+        }
     }
 }

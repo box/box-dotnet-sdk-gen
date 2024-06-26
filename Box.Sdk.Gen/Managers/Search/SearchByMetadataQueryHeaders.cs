@@ -1,9 +1,9 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class SearchByMetadataQueryHeaders {

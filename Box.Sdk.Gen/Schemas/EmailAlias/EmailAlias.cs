@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class EmailAlias {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `email_alias`
         /// </summary>
         [JsonPropertyName("type")]
-        public EmailAliasTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<EmailAliasTypeField>))]
+        public StringEnum<EmailAliasTypeField>? Type { get; init; }
 
         /// <summary>
         /// The email address

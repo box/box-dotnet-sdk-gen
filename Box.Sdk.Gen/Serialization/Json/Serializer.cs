@@ -1,9 +1,11 @@
+using Box.Sdk.Gen;
 using Serialization.Json;
 using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Serializer
 {
@@ -48,31 +50,120 @@ namespace Serializer
         }
     }
 
-    class StringEnumConverter<T> : JsonConverter<T>
+    class StringEnumConverter<T> : JsonConverter<StringEnum<T>> where T : struct, Enum
     {
-        public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override StringEnum<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using var document = JsonDocument.ParseValue(ref reader);
+            var stringValue = document.RootElement.ToString();
+            var enumType = typeof(T);
+            var enumFields = enumType.GetFields();
 
-            foreach (var field in typeToConvert.GetFields())
+            foreach (var field in enumType.GetFields(BindingFlags.Public | BindingFlags.Static))
             {
-                var attribute = Attribute.GetCustomAttribute(field,
-                typeof(DescriptionAttribute)) as DescriptionAttribute;
+                var attribute = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
 
-                if (attribute?.Description.ToLower() == document.RootElement.ToString().ToLower())
+                if (attribute?.Description.Equals(stringValue, StringComparison.OrdinalIgnoreCase) == true)
                 {
-                    return (T)field.GetValue(null);
+                    return new StringEnum<T>((T)field.GetValue(null));
                 }
             }
-            throw new Exception("Attribute not found");
+
+            return new StringEnum<T>(stringValue);
         }
 
-        public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, StringEnum<T> value, JsonSerializerOptions options)
         {
-            var field = value.GetType().GetField(value.ToString());
-            var descriptionAttribute = field.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
-            JsonSerializer.Serialize(writer, descriptionAttribute.Description, options);
+            JsonSerializer.Serialize(writer, value.StringValue, options);
             return;
+        }
+    }
+
+    class StringEnumListConverter<T> : JsonConverter<IReadOnlyList<StringEnum<T>>> where T : struct, Enum
+    {
+        private readonly JsonConverter<StringEnum<T>> _singleConverter;
+
+        public StringEnumListConverter()
+        {
+            _singleConverter = new StringEnumConverter<T>();
+        }
+
+        public override IReadOnlyList<StringEnum<T>> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var list = new List<StringEnum<T>>();
+
+            if (reader.TokenType != JsonTokenType.StartArray)
+                throw new JsonException();
+
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonTokenType.EndArray)
+                    return list;
+
+                if (reader.TokenType == JsonTokenType.String)
+                {
+                    var element = _singleConverter.Read(ref reader, typeof(StringEnum<T>), options);
+                    list.Add(element);
+                }
+            }
+
+            throw new JsonException();
+        }
+
+        public override void Write(Utf8JsonWriter writer, IReadOnlyList<StringEnum<T>> value, JsonSerializerOptions options)
+        {
+            writer.WriteStartArray();
+
+            foreach (var item in value)
+            {
+                _singleConverter.Write(writer, item, options);
+            }
+
+            writer.WriteEndArray();
+        }
+    }
+
+    class StringEnumNestedListConverter<T> : JsonConverter<IReadOnlyList<IReadOnlyList<StringEnum<T>>>> where T : struct, Enum
+    {
+        private readonly JsonConverter<IReadOnlyList<StringEnum<T>>> _innerListConverter;
+
+        public StringEnumNestedListConverter()
+        {
+            _innerListConverter = new StringEnumListConverter<T>();
+        }
+
+        public override IReadOnlyList<IReadOnlyList<StringEnum<T>>> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var nestedList = new List<IReadOnlyList<StringEnum<T>>>();
+
+            if (reader.TokenType != JsonTokenType.StartArray)
+                throw new JsonException();
+
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonTokenType.EndArray)
+                    return nestedList;
+
+                if (reader.TokenType == JsonTokenType.StartArray)
+                {
+                    var innerList = _innerListConverter.Read(ref reader, typeof(IReadOnlyList<StringEnum<T>>), options);
+                    nestedList.Add(innerList);
+                }
+            }
+
+            throw new JsonException();
+        }
+
+        public override void Write(Utf8JsonWriter writer, IReadOnlyList<IReadOnlyList<StringEnum<T>>> value, JsonSerializerOptions options)
+        {
+            writer.WriteStartArray();
+
+            foreach (var innerList in value)
+            {
+                _innerListConverter.Write(writer, innerList, options);
+            }
+
+            writer.WriteEndArray();
         }
     }
 }

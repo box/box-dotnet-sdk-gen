@@ -26,5 +26,10 @@ namespace Box.Sdk.Gen.Schemas {
         public FileMini(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }
+        
+        [JsonConstructorAttribute]
+        internal FileMini(string id, StringEnum<FileBaseTypeField> type) : base(id, type ?? new StringEnum<FileBaseTypeField>(FileBaseTypeField.File)) {
+            
+        }
     }
 }

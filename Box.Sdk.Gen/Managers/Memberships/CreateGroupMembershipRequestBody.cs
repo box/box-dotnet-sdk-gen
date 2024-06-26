@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateGroupMembershipRequestBody {
@@ -24,7 +25,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The role of the user in the group.
         /// </summary>
         [JsonPropertyName("role")]
-        public CreateGroupMembershipRequestBodyRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateGroupMembershipRequestBodyRoleField>))]
+        public StringEnum<CreateGroupMembershipRequestBodyRoleField>? Role { get; init; }
 
         /// <summary>
         /// Custom configuration for the permissions an admin

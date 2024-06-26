@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class UploadSession {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `upload_session`
         /// </summary>
         [JsonPropertyName("type")]
-        public UploadSessionTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UploadSessionTypeField>))]
+        public StringEnum<UploadSessionTypeField>? Type { get; init; }
 
         /// <summary>
         /// The date and time when this session expires.

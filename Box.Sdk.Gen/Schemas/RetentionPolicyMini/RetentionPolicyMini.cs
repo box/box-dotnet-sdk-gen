@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -31,9 +33,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// once the retention policy has expired.
         /// </summary>
         [JsonPropertyName("disposition_action")]
-        public RetentionPolicyMiniDispositionActionField? DispositionAction { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RetentionPolicyMiniDispositionActionField>))]
+        public StringEnum<RetentionPolicyMiniDispositionActionField>? DispositionAction { get; init; }
 
         public RetentionPolicyMini(string id, RetentionPolicyBaseTypeField type = RetentionPolicyBaseTypeField.RetentionPolicy) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal RetentionPolicyMini(string id, StringEnum<RetentionPolicyBaseTypeField> type) : base(id, type ?? new StringEnum<RetentionPolicyBaseTypeField>(RetentionPolicyBaseTypeField.RetentionPolicy)) {
             
         }
     }

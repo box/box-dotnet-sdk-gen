@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -20,7 +22,8 @@ namespace Box.Sdk.Gen.Schemas {
         ///   trigger this generation.
         /// </summary>
         [JsonPropertyName("state")]
-        public FileFullRepresentationsEntriesStatusStateField? State { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileFullRepresentationsEntriesStatusStateField>))]
+        public StringEnum<FileFullRepresentationsEntriesStatusStateField>? State { get; init; }
 
         public FileFullRepresentationsEntriesStatusField() {
             

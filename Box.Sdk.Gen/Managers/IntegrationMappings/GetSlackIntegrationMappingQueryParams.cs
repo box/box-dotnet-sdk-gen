@@ -1,9 +1,9 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetSlackIntegrationMappingQueryParams {
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Mapped item type, for which the mapping should be returned
         /// </summary>
-        public GetSlackIntegrationMappingQueryParamsPartnerItemTypeField? PartnerItemType { get; init; }
+        public StringEnum<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>? PartnerItemType { get; init; }
 
         /// <summary>
         /// ID of the mapped item, for which the mapping should be returned
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Box item type, for which the mappings should be returned
         /// </summary>
-        public GetSlackIntegrationMappingQueryParamsBoxItemTypeField? BoxItemType { get; init; }
+        public StringEnum<GetSlackIntegrationMappingQueryParamsBoxItemTypeField>? BoxItemType { get; init; }
 
         /// <summary>
         /// Whether the mapping has been manually created

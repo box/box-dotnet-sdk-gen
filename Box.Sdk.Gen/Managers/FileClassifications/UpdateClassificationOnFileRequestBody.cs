@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateClassificationOnFileRequestBody {
@@ -12,14 +13,16 @@ namespace Box.Sdk.Gen.Managers {
         /// `replace`
         /// </summary>
         [JsonPropertyName("op")]
-        public UpdateClassificationOnFileRequestBodyOpField Op { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationOnFileRequestBodyOpField>))]
+        public StringEnum<UpdateClassificationOnFileRequestBodyOpField> Op { get; }
 
         /// <summary>
         /// Defines classifications 
         /// available in the enterprise.
         /// </summary>
         [JsonPropertyName("path")]
-        public UpdateClassificationOnFileRequestBodyPathField Path { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateClassificationOnFileRequestBodyPathField>))]
+        public StringEnum<UpdateClassificationOnFileRequestBodyPathField> Path { get; }
 
         /// <summary>
         /// The name of the classification to apply to this file.
@@ -35,6 +38,13 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateClassificationOnFileRequestBody(string value, UpdateClassificationOnFileRequestBodyOpField op = UpdateClassificationOnFileRequestBodyOpField.Replace, UpdateClassificationOnFileRequestBodyPathField path = UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey) {
             Op = op;
             Path = path;
+            Value = value;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateClassificationOnFileRequestBody(string value, StringEnum<UpdateClassificationOnFileRequestBodyOpField> op, StringEnum<UpdateClassificationOnFileRequestBodyPathField> path) {
+            Op = UpdateClassificationOnFileRequestBodyOpField.Replace;
+            Path = UpdateClassificationOnFileRequestBodyPathField.BoxSecurityClassificationKey;
             Value = value;
         }
     }

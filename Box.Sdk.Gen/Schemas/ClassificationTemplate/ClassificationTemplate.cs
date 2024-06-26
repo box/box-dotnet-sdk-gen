@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ClassificationTemplate {
@@ -16,7 +18,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `metadata_template`
         /// </summary>
         [JsonPropertyName("type")]
-        public ClassificationTemplateTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateTypeField>))]
+        public StringEnum<ClassificationTemplateTypeField> Type { get; }
 
         /// <summary>
         /// The scope of the classification template. This is in the format
@@ -29,13 +32,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `securityClassification-6VMVochwUWo`
         /// </summary>
         [JsonPropertyName("templateKey")]
-        public ClassificationTemplateTemplateKeyField TemplateKey { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateTemplateKeyField>))]
+        public StringEnum<ClassificationTemplateTemplateKeyField> TemplateKey { get; }
 
         /// <summary>
         /// The name of this template as shown in web and mobile interfaces.
         /// </summary>
         [JsonPropertyName("displayName")]
-        public ClassificationTemplateDisplayNameField DisplayName { get; }
+        [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateDisplayNameField>))]
+        public StringEnum<ClassificationTemplateDisplayNameField> DisplayName { get; }
 
         /// <summary>
         /// Determines if the
@@ -67,6 +72,16 @@ namespace Box.Sdk.Gen.Schemas {
             Scope = scope;
             TemplateKey = templateKey;
             DisplayName = displayName;
+            Fields = fields;
+        }
+        
+        [JsonConstructorAttribute]
+        internal ClassificationTemplate(string id, string scope, IReadOnlyList<ClassificationTemplateFieldsField> fields, StringEnum<ClassificationTemplateTypeField> type, StringEnum<ClassificationTemplateTemplateKeyField> templateKey, StringEnum<ClassificationTemplateDisplayNameField> displayName) {
+            Id = id;
+            Type = ClassificationTemplateTypeField.MetadataTemplate;
+            Scope = scope;
+            TemplateKey = ClassificationTemplateTemplateKeyField.SecurityClassification6VmVochwUWo;
+            DisplayName = ClassificationTemplateDisplayNameField.Classification;
             Fields = fields;
         }
     }

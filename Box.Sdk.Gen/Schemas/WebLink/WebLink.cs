@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Unions;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -63,9 +65,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// the file has been permanently deleted
         /// </summary>
         [JsonPropertyName("item_status")]
-        public WebLinkItemStatusField? ItemStatus { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WebLinkItemStatusField>))]
+        public StringEnum<WebLinkItemStatusField>? ItemStatus { get; init; }
 
         public WebLink(string id, WebLinkBaseTypeField type = WebLinkBaseTypeField.WebLink) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal WebLink(string id, StringEnum<WebLinkBaseTypeField> type) : base(id, type ?? new StringEnum<WebLinkBaseTypeField>(WebLinkBaseTypeField.WebLink)) {
             
         }
     }

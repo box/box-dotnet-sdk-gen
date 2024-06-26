@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the object
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerScopeObjectTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerScopeObjectTypeField>))]
+        public StringEnum<WorkflowFlowsTriggerScopeObjectTypeField>? Type { get; init; }
 
         /// <summary>
         /// The id of the object

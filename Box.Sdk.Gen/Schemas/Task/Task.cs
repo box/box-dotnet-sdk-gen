@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `task`
         /// </summary>
         [JsonPropertyName("type")]
-        public TaskTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TaskTypeField>))]
+        public StringEnum<TaskTypeField>? Type { get; init; }
 
         [JsonPropertyName("item")]
         public FileMini? Item { get; init; }
@@ -30,7 +33,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform.
         /// </summary>
         [JsonPropertyName("action")]
-        public TaskActionField? Action { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TaskActionField>))]
+        public StringEnum<TaskActionField>? Action { get; init; }
 
         /// <summary>
         /// A message that will be included with the task
@@ -66,7 +70,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// approve the the task in order for it to be considered completed.
         /// </summary>
         [JsonPropertyName("completion_rule")]
-        public TaskCompletionRuleField? CompletionRule { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TaskCompletionRuleField>))]
+        public StringEnum<TaskCompletionRuleField>? CompletionRule { get; init; }
 
         public Task() {
             

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -15,7 +17,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The type of the shield information segment
         /// </summary>
         [JsonPropertyName("type")]
-        public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>))]
+        public StringEnum<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>? Type { get; init; }
 
         public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField() {
             

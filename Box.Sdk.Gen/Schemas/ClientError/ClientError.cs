@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ClientError {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// error
         /// </summary>
         [JsonPropertyName("type")]
-        public ClientErrorTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ClientErrorTypeField>))]
+        public StringEnum<ClientErrorTypeField>? Type { get; init; }
 
         /// <summary>
         /// The HTTP status of the response.
@@ -19,7 +22,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// A Box-specific error code
         /// </summary>
         [JsonPropertyName("code")]
-        public ClientErrorCodeField? Code { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ClientErrorCodeField>))]
+        public StringEnum<ClientErrorCodeField>? Code { get; init; }
 
         /// <summary>
         /// A short message describing the error.

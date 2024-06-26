@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `terms_of_service_user_status`
         /// </summary>
         [JsonPropertyName("type")]
-        public TermsOfServiceUserStatusTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TermsOfServiceUserStatusTypeField>))]
+        public StringEnum<TermsOfServiceUserStatusTypeField> Type { get; }
 
         [JsonPropertyName("tos")]
         public TermsOfServiceBase? Tos { get; init; }
@@ -43,6 +46,12 @@ namespace Box.Sdk.Gen.Schemas {
         public TermsOfServiceUserStatus(string id, TermsOfServiceUserStatusTypeField type = TermsOfServiceUserStatusTypeField.TermsOfServiceUserStatus) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TermsOfServiceUserStatus(string id, StringEnum<TermsOfServiceUserStatusTypeField> type) {
+            Id = id;
+            Type = TermsOfServiceUserStatusTypeField.TermsOfServiceUserStatus;
         }
     }
 }

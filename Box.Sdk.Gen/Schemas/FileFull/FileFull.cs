@@ -1,9 +1,12 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -62,7 +65,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// when sharing this file.
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
-        public IReadOnlyList<FileFullAllowedInviteeRolesField>? AllowedInviteeRoles { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<FileFullAllowedInviteeRolesField>))]
+        public IReadOnlyList<StringEnum<FileFullAllowedInviteeRolesField>> AllowedInviteeRoles { get; init; }
 
         /// <summary>
         /// Specifies if this file is owned by a user outside of the
@@ -106,9 +110,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// when sharing this file.
         /// </summary>
         [JsonPropertyName("shared_link_permission_options")]
-        public IReadOnlyList<FileFullSharedLinkPermissionOptionsField>? SharedLinkPermissionOptions { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<FileFullSharedLinkPermissionOptionsField>))]
+        public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>> SharedLinkPermissionOptions { get; init; }
 
         public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal FileFull(string id, StringEnum<FileBaseTypeField> type) : base(id, type ?? new StringEnum<FileBaseTypeField>(FileBaseTypeField.File)) {
             
         }
     }

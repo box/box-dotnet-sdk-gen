@@ -1,8 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -17,7 +19,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file_version_legal_hold`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileVersionLegalHoldTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileVersionLegalHoldTypeField>))]
+        public StringEnum<FileVersionLegalHoldTypeField>? Type { get; init; }
 
         [JsonPropertyName("file_version")]
         public FileVersionMini? FileVersion { get; init; }

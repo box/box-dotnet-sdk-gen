@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file_version_retention`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileVersionRetentionTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileVersionRetentionTypeField>))]
+        public StringEnum<FileVersionRetentionTypeField>? Type { get; init; }
 
         [JsonPropertyName("file_version")]
         public FileVersionMini? FileVersion { get; init; }

@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,13 +10,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// The field that is ordered by
         /// </summary>
         [JsonPropertyName("by")]
-        public DevicePinnersOrderByField? By { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<DevicePinnersOrderByField>))]
+        public StringEnum<DevicePinnersOrderByField>? By { get; init; }
 
         /// <summary>
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        public DevicePinnersOrderDirectionField? Direction { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<DevicePinnersOrderDirectionField>))]
+        public StringEnum<DevicePinnersOrderDirectionField>? Direction { get; init; }
 
         public DevicePinnersOrderField() {
             

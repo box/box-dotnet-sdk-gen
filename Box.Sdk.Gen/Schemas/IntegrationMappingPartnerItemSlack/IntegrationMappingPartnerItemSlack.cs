@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMappingPartnerItemSlack {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Type of the mapped item referenced in `id`
         /// </summary>
         [JsonPropertyName("type")]
-        public IntegrationMappingPartnerItemSlackTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingPartnerItemSlackTypeField>))]
+        public StringEnum<IntegrationMappingPartnerItemSlackTypeField> Type { get; }
 
         /// <summary>
         /// ID of the mapped item (of type referenced in `type`)
@@ -29,6 +32,12 @@ namespace Box.Sdk.Gen.Schemas {
 
         public IntegrationMappingPartnerItemSlack(string id, IntegrationMappingPartnerItemSlackTypeField type = IntegrationMappingPartnerItemSlackTypeField.Channel) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal IntegrationMappingPartnerItemSlack(string id, StringEnum<IntegrationMappingPartnerItemSlackTypeField> type) {
+            Type = IntegrationMappingPartnerItemSlackTypeField.Channel;
             Id = id;
         }
     }

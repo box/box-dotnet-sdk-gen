@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetFolderByIdQueryParams {
@@ -56,13 +57,13 @@ namespace Box.Sdk.Gen.Managers {
         ///   and files listed
         ///   before web links.
         /// </summary>
-        public GetFolderByIdQueryParamsSortField? Sort { get; init; }
+        public StringEnum<GetFolderByIdQueryParamsSortField>? Sort { get; init; }
 
         /// <summary>
         /// The direction to sort results in. This can be either in alphabetical ascending
         /// (`ASC`) or descending (`DESC`) order.
         /// </summary>
-        public GetFolderByIdQueryParamsDirectionField? Direction { get; init; }
+        public StringEnum<GetFolderByIdQueryParamsDirectionField>? Direction { get; init; }
 
         /// <summary>
         /// The offset of the item at which to begin the response.

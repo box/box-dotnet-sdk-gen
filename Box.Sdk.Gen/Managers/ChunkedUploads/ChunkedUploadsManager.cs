@@ -192,17 +192,17 @@ namespace Box.Sdk.Gen.Managers {
             int chunkSize = Utils.BufferLength(buffer: chunkBuffer);
             int bytesStart = lastIndex + 1;
             int bytesEnd = lastIndex + chunkSize;
-            string contentRange = string.Concat("bytes ", StringUtils.ToStringRepresentation(bytesStart), "-", StringUtils.ToStringRepresentation(bytesEnd), "/", StringUtils.ToStringRepresentation(acc.FileSize));
+            string contentRange = string.Concat("bytes ", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesStart)), "-", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesEnd)), "/", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(acc.FileSize)));
             UploadedPart uploadedPart = await this.UploadFilePartAsync(uploadSessionId: acc.UploadSessionId, requestBody: Utils.GenerateByteStreamFromBuffer(buffer: chunkBuffer), headers: new UploadFilePartHeaders(digest: digest, contentRange: contentRange)).ConfigureAwait(false);
             UploadPart part = NullableUtils.Unwrap(uploadedPart.Part);
             string partSha1 = Utils.HexToBase64(value: NullableUtils.Unwrap(part.Sha1));
             if (!(partSha1 == sha1)) {
                 throw new Exception(message: "Assertion failed");
             }
-            if (!(part.Size == chunkSize)) {
+            if (!(NullableUtils.Unwrap(part.Size) == chunkSize)) {
                 throw new Exception(message: "Assertion failed");
             }
-            if (!(part.Offset == bytesStart)) {
+            if (!(NullableUtils.Unwrap(part.Offset) == bytesStart)) {
                 throw new Exception(message: "Assertion failed");
             }
             acc.FileHash.UpdateHash(data: chunkBuffer);
@@ -227,7 +227,7 @@ namespace Box.Sdk.Gen.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<FileFull> UploadBigFileAsync(System.IO.Stream file, string fileName, int fileSize, string parentFolderId, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<FileFull> UploadBigFileAsync(System.IO.Stream file, string fileName, long fileSize, string parentFolderId, System.Threading.CancellationToken? cancellationToken = null) {
             UploadSession uploadSession = await this.CreateFileUploadSessionAsync(requestBody: new CreateFileUploadSessionRequestBody(fileName: fileName, fileSize: fileSize, folderId: parentFolderId), headers: new CreateFileUploadSessionHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
             string uploadSessionId = NullableUtils.Unwrap(uploadSession.Id);
             long partSize = NullableUtils.Unwrap(uploadSession.PartSize);

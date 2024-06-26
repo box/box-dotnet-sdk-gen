@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -32,7 +34,8 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? CreatedBy { get; init; }
 
         [JsonPropertyName("event_type")]
-        public EventEventTypeField? EventType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<EventEventTypeField>))]
+        public StringEnum<EventEventTypeField>? EventType { get; init; }
 
         /// <summary>
         /// The session of the user that performed the action. Not all events will

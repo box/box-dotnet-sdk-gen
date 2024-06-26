@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TimelineSkillCardSkillField {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `service`
         /// </summary>
         [JsonPropertyName("type")]
-        public TimelineSkillCardSkillTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TimelineSkillCardSkillTypeField>))]
+        public StringEnum<TimelineSkillCardSkillTypeField> Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the service that
@@ -18,6 +21,12 @@ namespace Box.Sdk.Gen.Schemas {
 
         public TimelineSkillCardSkillField(string id, TimelineSkillCardSkillTypeField type = TimelineSkillCardSkillTypeField.Service) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TimelineSkillCardSkillField(string id, StringEnum<TimelineSkillCardSkillTypeField> type) {
+            Type = TimelineSkillCardSkillTypeField.Service;
             Id = id;
         }
     }

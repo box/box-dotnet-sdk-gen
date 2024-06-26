@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileRequestUpdateRequest {
@@ -32,7 +34,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// This will default to the value on the existing file request.
         /// </summary>
         [JsonPropertyName("status")]
-        public FileRequestUpdateRequestStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileRequestUpdateRequestStatusField>))]
+        public StringEnum<FileRequestUpdateRequestStatusField>? Status { get; init; }
 
         /// <summary>
         /// Whether a file request submitter is required to provide

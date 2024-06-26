@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class KeywordSkillCardInvocationField {
@@ -7,7 +9,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_invocation`
         /// </summary>
         [JsonPropertyName("type")]
-        public KeywordSkillCardInvocationTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<KeywordSkillCardInvocationTypeField>))]
+        public StringEnum<KeywordSkillCardInvocationTypeField> Type { get; }
 
         /// <summary>
         /// A custom identifier that represent the instance of
@@ -21,6 +24,12 @@ namespace Box.Sdk.Gen.Schemas {
 
         public KeywordSkillCardInvocationField(string id, KeywordSkillCardInvocationTypeField type = KeywordSkillCardInvocationTypeField.SkillInvocation) {
             Type = type;
+            Id = id;
+        }
+        
+        [JsonConstructorAttribute]
+        internal KeywordSkillCardInvocationField(string id, StringEnum<KeywordSkillCardInvocationTypeField> type) {
+            Type = KeywordSkillCardInvocationTypeField.SkillInvocation;
             Id = id;
         }
     }

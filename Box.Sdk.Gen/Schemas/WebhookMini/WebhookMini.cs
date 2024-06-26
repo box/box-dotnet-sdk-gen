@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class WebhookMini {
@@ -13,7 +15,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `webhook`
         /// </summary>
         [JsonPropertyName("type")]
-        public WebhookMiniTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WebhookMiniTypeField>))]
+        public StringEnum<WebhookMiniTypeField>? Type { get; init; }
 
         /// <summary>
         /// The item that will trigger the webhook

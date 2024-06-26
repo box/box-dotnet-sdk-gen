@@ -2,7 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -28,7 +31,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// to be triggered for
         /// </summary>
         [JsonPropertyName("triggers")]
-        public IReadOnlyList<WebhookTriggersField>? Triggers { get; init; }
+        [JsonConverter(typeof(StringEnumListConverter<WebhookTriggersField>))]
+        public IReadOnlyList<StringEnum<WebhookTriggersField>> Triggers { get; init; }
 
         public Webhook() {
             

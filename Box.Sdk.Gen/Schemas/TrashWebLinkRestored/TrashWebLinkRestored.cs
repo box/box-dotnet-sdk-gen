@@ -3,6 +3,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +13,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `web_link`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashWebLinkRestoredTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashWebLinkRestoredTypeField>))]
+        public StringEnum<TrashWebLinkRestoredTypeField>? Type { get; init; }
 
         /// <summary>
         /// The unique identifier for this web link
@@ -104,7 +107,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// the file has been permanently deleted
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashWebLinkRestoredItemStatusField? ItemStatus { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashWebLinkRestoredItemStatusField>))]
+        public StringEnum<TrashWebLinkRestoredItemStatusField>? ItemStatus { get; init; }
 
         public TrashWebLinkRestored(string sequenceId, TrashWebLinkRestoredPathCollectionField pathCollection) {
             SequenceId = sequenceId;

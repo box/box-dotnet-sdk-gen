@@ -1,8 +1,10 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataTemplateFieldsField {
@@ -20,7 +22,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// but cannot be used in the POST request.
         /// </summary>
         [JsonPropertyName("type")]
-        public MetadataTemplateFieldsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<MetadataTemplateFieldsTypeField>))]
+        public StringEnum<MetadataTemplateFieldsTypeField> Type { get; }
 
         /// <summary>
         /// A unique identifier for the field. The identifier must
@@ -63,6 +66,13 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         public MetadataTemplateFieldsField(MetadataTemplateFieldsTypeField type, string key, string displayName) {
+            Type = type;
+            Key = key;
+            DisplayName = displayName;
+        }
+        
+        [JsonConstructorAttribute]
+        internal MetadataTemplateFieldsField(StringEnum<MetadataTemplateFieldsTypeField> type, string key, string displayName) {
             Type = type;
             Key = key;
             DisplayName = displayName;

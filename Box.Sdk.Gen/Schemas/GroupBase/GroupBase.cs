@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class GroupBase {
@@ -13,11 +15,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// `group`
         /// </summary>
         [JsonPropertyName("type")]
-        public GroupBaseTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<GroupBaseTypeField>))]
+        public StringEnum<GroupBaseTypeField> Type { get; }
 
         public GroupBase(string id, GroupBaseTypeField type = GroupBaseTypeField.Group) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal GroupBase(string id, StringEnum<GroupBaseTypeField> type) {
+            Id = id;
+            Type = GroupBaseTypeField.Group;
         }
     }
 }

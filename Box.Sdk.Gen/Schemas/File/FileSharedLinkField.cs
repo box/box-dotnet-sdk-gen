@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Unions;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -54,7 +56,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// will be set to the default access level specified by the enterprise admin.
         /// </summary>
         [JsonPropertyName("access")]
-        public FileSharedLinkAccessField? Access { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<FileSharedLinkAccessField>))]
+        public StringEnum<FileSharedLinkAccessField>? Access { get; init; }
 
         /// <summary>
         /// The effective access level for the shared link. This can be a more
@@ -62,7 +65,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// enterprise settings restrict the allowed access levels.
         /// </summary>
         [JsonPropertyName("effective_access")]
-        public FileSharedLinkEffectiveAccessField EffectiveAccess { get; }
+        [JsonConverter(typeof(StringEnumConverter<FileSharedLinkEffectiveAccessField>))]
+        public StringEnum<FileSharedLinkEffectiveAccessField> EffectiveAccess { get; }
 
         /// <summary>
         /// The effective permissions for this shared link.
@@ -72,7 +76,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// such as a folder.
         /// </summary>
         [JsonPropertyName("effective_permission")]
-        public FileSharedLinkEffectivePermissionField EffectivePermission { get; }
+        [JsonConverter(typeof(StringEnumConverter<FileSharedLinkEffectivePermissionField>))]
+        public StringEnum<FileSharedLinkEffectivePermissionField> EffectivePermission { get; }
 
         /// <summary>
         /// The date and time when this link will be unshared. This field can only be
@@ -108,6 +113,16 @@ namespace Box.Sdk.Gen.Schemas {
         public long PreviewCount { get; }
 
         public FileSharedLinkField(string url, FileSharedLinkEffectiveAccessField effectiveAccess, FileSharedLinkEffectivePermissionField effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
+            Url = url;
+            EffectiveAccess = effectiveAccess;
+            EffectivePermission = effectivePermission;
+            IsPasswordEnabled = isPasswordEnabled;
+            DownloadCount = downloadCount;
+            PreviewCount = previewCount;
+        }
+        
+        [JsonConstructorAttribute]
+        internal FileSharedLinkField(string url, StringEnum<FileSharedLinkEffectiveAccessField> effectiveAccess, StringEnum<FileSharedLinkEffectivePermissionField> effectivePermission, bool isPasswordEnabled, long downloadCount, long previewCount) {
             Url = url;
             EffectiveAccess = effectiveAccess;
             EffectivePermission = effectivePermission;

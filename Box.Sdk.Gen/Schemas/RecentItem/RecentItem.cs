@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -18,7 +20,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// the item.
         /// </summary>
         [JsonPropertyName("interaction_type")]
-        public RecentItemInteractionTypeField? InteractionType { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<RecentItemInteractionTypeField>))]
+        public StringEnum<RecentItemInteractionTypeField>? InteractionType { get; init; }
 
         /// <summary>
         /// The time of the most recent interaction.

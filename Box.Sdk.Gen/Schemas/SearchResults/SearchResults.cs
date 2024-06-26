@@ -1,8 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -34,7 +36,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// Specifies the response as search result items without shared links
         /// </summary>
         [JsonPropertyName("type")]
-        public SearchResultsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<SearchResultsTypeField>))]
+        public StringEnum<SearchResultsTypeField> Type { get; }
 
         /// <summary>
         /// The search results for the query provided.
@@ -44,6 +47,11 @@ namespace Box.Sdk.Gen.Schemas {
 
         public SearchResults(SearchResultsTypeField type = SearchResultsTypeField.SearchResultsItems) {
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal SearchResults(StringEnum<SearchResultsTypeField> type) {
+            Type = SearchResultsTypeField.SearchResultsItems;
         }
     }
 }

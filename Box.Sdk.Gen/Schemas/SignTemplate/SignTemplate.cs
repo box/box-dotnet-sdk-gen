@@ -2,7 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
+using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -11,7 +14,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// object type
         /// </summary>
         [JsonPropertyName("type")]
-        public SignTemplateTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<SignTemplateTypeField>))]
+        public StringEnum<SignTemplateTypeField>? Type { get; init; }
 
         /// <summary>
         /// Template identifier.
@@ -84,6 +88,12 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// Array of signers for the template.
+        /// 
+        /// **Note**: It may happen that some signers specified in the template belong to conflicting [segments](r://shield-information-barrier-segment-member) (user groups).
+        /// This means that due to the security policies, users are assigned to segments to prevent exchanges or communication that could lead to ethical conflicts.
+        /// In such a case, an attempt to send a sign request based on a template that lists signers in conflicting segments will result in an error.
+        /// 
+        /// Read more about [segments and ethical walls](https://support.box.com/hc/en-us/articles/9920431507603-Understanding-Information-Barriers#h_01GFVJEHQA06N7XEZ4GCZ9GFAQ).
         /// </summary>
         [JsonPropertyName("signers")]
         public IReadOnlyList<TemplateSigner>? Signers { get; init; }

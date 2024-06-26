@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(exemptTargets.Entries).Count >= 0);
             UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: Utils.GetUUID()) { Login = string.Concat(Utils.GetUUID(), "@boxdemo.com"), IsPlatformAccessOnly = true });
             CollaborationAllowlistExemptTarget newExemptTarget = await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBody(user: new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(id: user.Id)));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(newExemptTarget.Type) == "collaboration_whitelist_exempt_target");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(newExemptTarget.Type?.Value) == "collaboration_whitelist_exempt_target");
             Assert.IsTrue(NullableUtils.Unwrap(newExemptTarget.User).Id == user.Id);
             CollaborationAllowlistExemptTarget exemptTarget = await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(newExemptTarget.Id));
             Assert.IsTrue(exemptTarget.Id == newExemptTarget.Id);

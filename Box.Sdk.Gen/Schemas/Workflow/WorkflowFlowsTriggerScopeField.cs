@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -8,7 +10,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The trigger scope's resource type
         /// </summary>
         [JsonPropertyName("type")]
-        public WorkflowFlowsTriggerScopeTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerScopeTypeField>))]
+        public StringEnum<WorkflowFlowsTriggerScopeTypeField>? Type { get; init; }
 
         /// <summary>
         /// Indicates the path of the condition value to check

@@ -1,19 +1,22 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiAskItemsField {
         /// <summary>
-        /// The id of the item
+        /// The id of the item.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// The type of the item
+        /// The type of the item.
         /// </summary>
         [JsonPropertyName("type")]
-        public AiAskItemsTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<AiAskItemsTypeField>))]
+        public StringEnum<AiAskItemsTypeField> Type { get; }
 
         /// <summary>
         /// The content of the item, often the text representation.
@@ -24,6 +27,12 @@ namespace Box.Sdk.Gen.Schemas {
         public AiAskItemsField(string id, AiAskItemsTypeField type = AiAskItemsTypeField.File) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal AiAskItemsField(string id, StringEnum<AiAskItemsTypeField> type) {
+            Id = id;
+            Type = AiAskItemsTypeField.File;
         }
     }
 }

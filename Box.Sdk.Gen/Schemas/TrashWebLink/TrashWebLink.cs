@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -11,7 +13,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `web_link`
         /// </summary>
         [JsonPropertyName("type")]
-        public TrashWebLinkTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashWebLinkTypeField>))]
+        public StringEnum<TrashWebLinkTypeField>? Type { get; init; }
 
         /// <summary>
         /// The unique identifier for this web link
@@ -102,7 +105,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// the file has been permanently deleted
         /// </summary>
         [JsonPropertyName("item_status")]
-        public TrashWebLinkItemStatusField? ItemStatus { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<TrashWebLinkItemStatusField>))]
+        public StringEnum<TrashWebLinkItemStatusField>? ItemStatus { get; init; }
 
         public TrashWebLink() {
             

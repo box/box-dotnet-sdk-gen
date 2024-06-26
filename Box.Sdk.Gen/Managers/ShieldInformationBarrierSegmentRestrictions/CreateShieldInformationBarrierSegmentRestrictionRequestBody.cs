@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateShieldInformationBarrierSegmentRestrictionRequestBody {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// restriction for this member.
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>))]
+        public StringEnum<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField> Type { get; }
 
         [JsonPropertyName("shield_information_barrier")]
         public ShieldInformationBarrierBase? ShieldInformationBarrier { get; init; }
@@ -33,6 +35,13 @@ namespace Box.Sdk.Gen.Managers {
 
         public CreateShieldInformationBarrierSegmentRestrictionRequestBody(CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField shieldInformationBarrierSegment, CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField restrictedSegment, CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField type = CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction) {
             Type = type;
+            ShieldInformationBarrierSegment = shieldInformationBarrierSegment;
+            RestrictedSegment = restrictedSegment;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateShieldInformationBarrierSegmentRestrictionRequestBody(CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField shieldInformationBarrierSegment, CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField restrictedSegment, StringEnum<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField> type) {
+            Type = CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.ShieldInformationBarrierSegmentRestriction;
             ShieldInformationBarrierSegment = shieldInformationBarrierSegment;
             RestrictedSegment = restrictedSegment;
         }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateAllSkillCardsOnFileRequestBody {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// Defines the status of this invocation. Set this to `success` when setting Skill cards.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateAllSkillCardsOnFileRequestBodyStatusField Status { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateAllSkillCardsOnFileRequestBodyStatusField>))]
+        public StringEnum<UpdateAllSkillCardsOnFileRequestBodyStatusField> Status { get; }
 
         /// <summary>
         /// The metadata to set for this skill. This is a list of
@@ -44,6 +46,13 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateAllSkillCardsOnFileRequestBodyUsageField? Usage { get; init; }
 
         public UpdateAllSkillCardsOnFileRequestBody(UpdateAllSkillCardsOnFileRequestBodyStatusField status, UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata, UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+            Status = status;
+            Metadata = metadata;
+            File = file;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateAllSkillCardsOnFileRequestBody(StringEnum<UpdateAllSkillCardsOnFileRequestBodyStatusField> status, UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata, UpdateAllSkillCardsOnFileRequestBodyFileField file) {
             Status = status;
             Metadata = metadata;
             File = file;

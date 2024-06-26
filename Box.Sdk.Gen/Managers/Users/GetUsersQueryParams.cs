@@ -1,10 +1,11 @@
 using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class GetUsersQueryParams {
@@ -32,7 +33,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `external` returns all external users for whom the
         ///   `login` matches the `filter_term` exactly.
         /// </summary>
-        public GetUsersQueryParamsUserTypeField? UserType { get; init; }
+        public StringEnum<GetUsersQueryParamsUserTypeField>? UserType { get; init; }
 
         /// <summary>
         /// Limits the results to app users with the given

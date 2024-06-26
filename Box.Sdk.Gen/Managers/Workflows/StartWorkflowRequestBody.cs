@@ -2,9 +2,10 @@ using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBody {
@@ -12,7 +13,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The type of the parameters object
         /// </summary>
         [JsonPropertyName("type")]
-        public StartWorkflowRequestBodyTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<StartWorkflowRequestBodyTypeField>))]
+        public StringEnum<StartWorkflowRequestBodyTypeField>? Type { get; init; }
 
         /// <summary>
         /// The flow that will be triggered

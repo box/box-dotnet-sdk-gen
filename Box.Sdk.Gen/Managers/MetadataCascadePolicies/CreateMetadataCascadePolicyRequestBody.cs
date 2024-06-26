@@ -1,9 +1,10 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateMetadataCascadePolicyRequestBody {
@@ -20,7 +21,8 @@ namespace Box.Sdk.Gen.Managers {
         /// need to already have an instance applied to the targeted folder.
         /// </summary>
         [JsonPropertyName("scope")]
-        public CreateMetadataCascadePolicyRequestBodyScopeField Scope { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateMetadataCascadePolicyRequestBodyScopeField>))]
+        public StringEnum<CreateMetadataCascadePolicyRequestBodyScopeField> Scope { get; }
 
         /// <summary>
         /// The key of the targeted metadata template. This template will
@@ -43,6 +45,13 @@ namespace Box.Sdk.Gen.Managers {
         public string TemplateKey { get; }
 
         public CreateMetadataCascadePolicyRequestBody(string folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, string templateKey) {
+            FolderId = folderId;
+            Scope = scope;
+            TemplateKey = templateKey;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateMetadataCascadePolicyRequestBody(string folderId, StringEnum<CreateMetadataCascadePolicyRequestBodyScopeField> scope, string templateKey) {
             FolderId = folderId;
             Scope = scope;
             TemplateKey = templateKey;

@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -16,13 +18,15 @@ namespace Box.Sdk.Gen.Schemas {
         /// `skill_card`
         /// </summary>
         [JsonPropertyName("type")]
-        public TimelineSkillCardTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<TimelineSkillCardTypeField>))]
+        public StringEnum<TimelineSkillCardTypeField> Type { get; }
 
         /// <summary>
         /// `timeline`
         /// </summary>
         [JsonPropertyName("skill_card_type")]
-        public TimelineSkillCardSkillCardTypeField SkillCardType { get; }
+        [JsonConverter(typeof(StringEnumConverter<TimelineSkillCardSkillCardTypeField>))]
+        public StringEnum<TimelineSkillCardSkillCardTypeField> SkillCardType { get; }
 
         /// <summary>
         /// The title of the card.
@@ -58,6 +62,15 @@ namespace Box.Sdk.Gen.Schemas {
         public TimelineSkillCard(TimelineSkillCardSkillField skill, TimelineSkillCardInvocationField invocation, IReadOnlyList<TimelineSkillCardEntriesField> entries, TimelineSkillCardTypeField type = TimelineSkillCardTypeField.SkillCard, TimelineSkillCardSkillCardTypeField skillCardType = TimelineSkillCardSkillCardTypeField.Timeline) {
             Type = type;
             SkillCardType = skillCardType;
+            Skill = skill;
+            Invocation = invocation;
+            Entries = entries;
+        }
+        
+        [JsonConstructorAttribute]
+        internal TimelineSkillCard(TimelineSkillCardSkillField skill, TimelineSkillCardInvocationField invocation, IReadOnlyList<TimelineSkillCardEntriesField> entries, StringEnum<TimelineSkillCardTypeField> type, StringEnum<TimelineSkillCardSkillCardTypeField> skillCardType) {
+            Type = TimelineSkillCardTypeField.SkillCard;
+            SkillCardType = TimelineSkillCardSkillCardTypeField.Timeline;
             Skill = skill;
             Invocation = invocation;
             Entries = entries;

@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateCollaborationRequestBody {
@@ -24,7 +25,8 @@ namespace Box.Sdk.Gen.Managers {
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public CreateCollaborationRequestBodyRoleField Role { get; }
+        [JsonConverter(typeof(StringEnumConverter<CreateCollaborationRequestBodyRoleField>))]
+        public StringEnum<CreateCollaborationRequestBodyRoleField> Role { get; }
 
         /// <summary>
         /// If set to `true`, collaborators have access to
@@ -69,6 +71,13 @@ namespace Box.Sdk.Gen.Managers {
         public System.DateTimeOffset? ExpiresAt { get; init; }
 
         public CreateCollaborationRequestBody(CreateCollaborationRequestBodyItemField item, CreateCollaborationRequestBodyAccessibleByField accessibleBy, CreateCollaborationRequestBodyRoleField role) {
+            Item = item;
+            AccessibleBy = accessibleBy;
+            Role = role;
+        }
+        
+        [JsonConstructorAttribute]
+        internal CreateCollaborationRequestBody(CreateCollaborationRequestBodyItemField item, CreateCollaborationRequestBodyAccessibleByField accessibleBy, StringEnum<CreateCollaborationRequestBodyRoleField> role) {
             Item = item;
             AccessibleBy = accessibleBy;
             Role = role;

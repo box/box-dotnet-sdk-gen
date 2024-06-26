@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetUserMe() {
             UserFull currentUser = await client.Users.GetUserMeAsync();
-            Assert.IsTrue(StringUtils.ToStringRepresentation(currentUser.Type) == "user");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(currentUser.Type?.Value) == "user");
         }
 
         [TestMethod]

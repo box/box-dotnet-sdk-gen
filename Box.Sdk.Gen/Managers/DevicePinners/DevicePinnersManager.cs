@@ -1,12 +1,12 @@
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Box.Sdk.Gen;
 using DictionaryExtensions;
 using StringExtensions;
 using Fetch;
 using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class DevicePinnersManager : IDevicePinnersManager {
@@ -78,7 +78,7 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<DevicePinners> GetEnterpriseDevicePinnersAsync(string enterpriseId, GetEnterpriseDevicePinnersQueryParams? queryParams = default, GetEnterpriseDevicePinnersHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new GetEnterpriseDevicePinnersQueryParams();
             headers = headers ?? new GetEnterpriseDevicePinnersHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "direction", StringUtils.ToStringRepresentation(queryParams.Direction) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "direction", StringUtils.ToStringRepresentation(queryParams.Direction?.Value) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/enterprises/", StringUtils.ToStringRepresentation(enterpriseId), "/device_pinners"), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<DevicePinners>(response.Data);

@@ -2,8 +2,9 @@ using System.Text.Json.Serialization;
 using Unions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class DeleteWebLinkByIdHeaders {

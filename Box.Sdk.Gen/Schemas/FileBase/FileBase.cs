@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileBase {
@@ -27,11 +29,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// `file`
         /// </summary>
         [JsonPropertyName("type")]
-        public FileBaseTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<FileBaseTypeField>))]
+        public StringEnum<FileBaseTypeField> Type { get; }
 
         public FileBase(string id, FileBaseTypeField type = FileBaseTypeField.File) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal FileBase(string id, StringEnum<FileBaseTypeField> type) {
+            Id = id;
+            Type = FileBaseTypeField.File;
         }
     }
 }

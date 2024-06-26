@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Collaboration collaborationFromApi = await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId);
             Assert.IsTrue(collaborationId == collaborationFromApi.Id);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(collaborationFromApi.Status)) == "accepted");
-            Assert.IsTrue(StringUtils.ToStringRepresentation(collaborationFromApi.Type) == "collaboration");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(collaborationFromApi.Type?.Value) == "collaboration");
             Assert.IsTrue(collaborationFromApi.InviteEmail == null);
             Collaboration updatedCollaboration = await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(updatedCollaboration.Role)) == "viewer");
@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Collaboration collaborationFromApi = await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId);
             Assert.IsTrue(collaborationId == collaborationFromApi.Id);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(collaborationFromApi.Status)) == "pending");
-            Assert.IsTrue(StringUtils.ToStringRepresentation(collaborationFromApi.Type) == "collaboration");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(collaborationFromApi.Type?.Value) == "collaboration");
             Assert.IsTrue(collaborationFromApi.InviteEmail == userLogin);
             Collaboration updatedCollaboration = await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(updatedCollaboration.Role)) == "viewer");

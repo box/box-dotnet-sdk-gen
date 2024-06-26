@@ -1,3 +1,4 @@
+using Box.Sdk.Gen;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +8,12 @@ using System.Text.Json;
 
 namespace StringExtensions
 {
-    static class StringUtils
+    public static class StringUtils
     {
-        internal static string? ToStringRepresentation<T>(T? obj)
+        public static string? ToStringRepresentation<T>(T? obj)
         {
-            var isList = (obj is IList || obj is IEnumerable) && obj.GetType().IsGenericType;
+            Type objType = obj?.GetType();
+            var isList = (obj is IList || obj is IEnumerable) && objType.IsGenericType;
             if (obj != null && isList)
             {
                 var listOfStrings = new List<string>();
@@ -34,6 +36,11 @@ namespace StringExtensions
                     (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
                 return attributes[0].Description;
+            }
+            else if (objType != null && objType.IsGenericType && objType.GetGenericTypeDefinition() == typeof(StringEnum<>))
+            {
+                var field = objType.GetProperty("StringValue");
+                return (string)field.GetValue(obj);
             }
             else if (isNotPrimitive(obj))
             {

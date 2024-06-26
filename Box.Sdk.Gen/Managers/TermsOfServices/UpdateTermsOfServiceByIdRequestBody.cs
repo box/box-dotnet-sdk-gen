@@ -1,9 +1,10 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateTermsOfServiceByIdRequestBody {
@@ -11,7 +12,8 @@ namespace Box.Sdk.Gen.Managers {
         /// Whether this terms of service is active.
         /// </summary>
         [JsonPropertyName("status")]
-        public UpdateTermsOfServiceByIdRequestBodyStatusField Status { get; }
+        [JsonConverter(typeof(StringEnumConverter<UpdateTermsOfServiceByIdRequestBodyStatusField>))]
+        public StringEnum<UpdateTermsOfServiceByIdRequestBodyStatusField> Status { get; }
 
         /// <summary>
         /// The terms of service text to display to users.
@@ -22,6 +24,12 @@ namespace Box.Sdk.Gen.Managers {
         public string Text { get; }
 
         public UpdateTermsOfServiceByIdRequestBody(UpdateTermsOfServiceByIdRequestBodyStatusField status, string text) {
+            Status = status;
+            Text = text;
+        }
+        
+        [JsonConstructorAttribute]
+        internal UpdateTermsOfServiceByIdRequestBody(StringEnum<UpdateTermsOfServiceByIdRequestBodyStatusField> status, string text) {
             Status = status;
             Text = text;
         }

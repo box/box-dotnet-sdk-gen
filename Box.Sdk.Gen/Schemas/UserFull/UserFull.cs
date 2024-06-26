@@ -1,5 +1,7 @@
 using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Serializer;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -11,7 +13,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The user’s enterprise role
         /// </summary>
         [JsonPropertyName("role")]
-        public UserFullRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<UserFullRoleField>))]
+        public StringEnum<UserFullRoleField>? Role { get; init; }
 
         /// <summary>
         /// Tracking codes allow an admin to generate reports from the
@@ -85,6 +88,11 @@ namespace Box.Sdk.Gen.Schemas {
         public string? ExternalAppUserId { get; init; }
 
         public UserFull(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
+            
+        }
+        
+        [JsonConstructorAttribute]
+        internal UserFull(string id, StringEnum<UserBaseTypeField> type) : base(id, type ?? new StringEnum<UserBaseTypeField>(UserBaseTypeField.User)) {
             
         }
     }

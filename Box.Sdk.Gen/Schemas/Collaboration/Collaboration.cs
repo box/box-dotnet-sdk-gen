@@ -1,5 +1,7 @@
 using Unions;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -14,7 +16,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// `collaboration`
         /// </summary>
         [JsonPropertyName("type")]
-        public CollaborationTypeField Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationTypeField>))]
+        public StringEnum<CollaborationTypeField> Type { get; }
 
         [JsonPropertyName("item")]
         public FileOrFolderOrWebLink? Item { get; init; }
@@ -33,7 +36,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// The level of access granted.
         /// </summary>
         [JsonPropertyName("role")]
-        public CollaborationRoleField? Role { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationRoleField>))]
+        public StringEnum<CollaborationRoleField>? Role { get; init; }
 
         /// <summary>
         /// When the collaboration will expire, or `null` if no expiration
@@ -57,7 +61,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// is `pending`, `login` and `name` return an empty string.
         /// </summary>
         [JsonPropertyName("status")]
-        public CollaborationStatusField? Status { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CollaborationStatusField>))]
+        public StringEnum<CollaborationStatusField>? Status { get; init; }
 
         /// <summary>
         /// When the `status` of the collaboration object changed to
@@ -87,6 +92,12 @@ namespace Box.Sdk.Gen.Schemas {
         public Collaboration(string id, CollaborationTypeField type = CollaborationTypeField.Collaboration) {
             Id = id;
             Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal Collaboration(string id, StringEnum<CollaborationTypeField> type) {
+            Id = id;
+            Type = CollaborationTypeField.Collaboration;
         }
     }
 }

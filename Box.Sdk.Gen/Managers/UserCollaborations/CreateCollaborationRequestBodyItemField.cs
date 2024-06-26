@@ -2,9 +2,10 @@ using Unions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
+using Serializer;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateCollaborationRequestBodyItemField {
@@ -13,7 +14,8 @@ namespace Box.Sdk.Gen.Managers {
         /// granted access to
         /// </summary>
         [JsonPropertyName("type")]
-        public CreateCollaborationRequestBodyItemTypeField? Type { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<CreateCollaborationRequestBodyItemTypeField>))]
+        public StringEnum<CreateCollaborationRequestBodyItemTypeField>? Type { get; init; }
 
         /// <summary>
         /// The ID of the item that will be granted access to
