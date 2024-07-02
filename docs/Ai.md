@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: "multiple_item_qa", prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File) { Content = "Earth goes around the sun" },new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File) { Content = "Sun rises in the East in the morning" }})));
+await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File) { Content = "Earth goes around the sun" },new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File) { Content = "Sun rises in the East in the morning" }})));
 ```
 
 ### Arguments

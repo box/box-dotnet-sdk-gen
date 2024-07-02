@@ -9,6 +9,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAsk {
         /// <summary>
+        /// The mode specifies if this request is for a single or multiple items. If you select `single_item_qa` the `items` array can have one element only. Selecting `multiple_item_qa` allows you to provide up to 25 items.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        [JsonConverter(typeof(StringEnumConverter<AiAskModeField>))]
+        public StringEnum<AiAskModeField> Mode { get; }
+
+        /// <summary>
         /// The prompt provided by the client to be answered by the LLM. The prompt's length is limited to 10000 characters.
         /// </summary>
         [JsonPropertyName("prompt")]
@@ -24,7 +31,15 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("items")]
         public IReadOnlyList<AiAskItemsField> Items { get; }
 
-        public AiAsk(string prompt, IReadOnlyList<AiAskItemsField> items) {
+        public AiAsk(AiAskModeField mode, string prompt, IReadOnlyList<AiAskItemsField> items) {
+            Mode = mode;
+            Prompt = prompt;
+            Items = items;
+        }
+        
+        [JsonConstructorAttribute]
+        internal AiAsk(StringEnum<AiAskModeField> mode, string prompt, IReadOnlyList<AiAskItemsField> items) {
+            Mode = mode;
             Prompt = prompt;
             Items = items;
         }
