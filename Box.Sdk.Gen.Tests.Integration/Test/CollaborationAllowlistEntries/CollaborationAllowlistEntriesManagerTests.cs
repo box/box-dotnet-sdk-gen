@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestCollaborationAllowlistEntries() {
             CollaborationAllowlistEntries allowlist = await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntriesAsync();
             Assert.IsTrue(NullableUtils.Unwrap(allowlist.Entries).Count >= 0);
-            const string domain = "example.com";
+            string domain = string.Concat(Utils.GetUUID(), "example.com");
             CollaborationAllowlistEntry newEntry = await client.CollaborationAllowlistEntries.CreateCollaborationWhitelistEntryAsync(requestBody: new CreateCollaborationWhitelistEntryRequestBody(direction: CreateCollaborationWhitelistEntryRequestBodyDirectionField.Inbound, domain: domain));
             Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Type?.Value) == "collaboration_whitelist_entry");
             Assert.IsTrue(StringUtils.ToStringRepresentation(newEntry.Direction?.Value) == "inbound");
