@@ -63,17 +63,19 @@ namespace Box.Sdk.Gen.Schemas {
         public string? DeclinedRedirectUrl { get; init; }
 
         /// <summary>
-        /// If set to true, signer will need to login to a Box account
+        /// If set to true, the signer will need to log in to a Box account
         /// before signing the request. If the signer does not have
-        /// an existing account, they will have an option to create
-        /// a free Box account.
+        /// an existing account, they will have the option to create
+        /// a free Box account. Cannot be selected in combination with
+        /// `verification_phone_number`.
         /// </summary>
         [JsonPropertyName("login_required")]
         public bool? LoginRequired { get; init; }
 
         /// <summary>
-        /// If set, this phone number is be used to verify the signer
-        /// via two factor authentication before they are able to sign the document.
+        /// If set, this phone number will be used to verify the signer
+        /// via two-factor authentication before they are able to sign the document.
+        /// Cannot be selected in combination with `login_required`.
         /// </summary>
         [JsonPropertyName("verification_phone_number")]
         public string? VerificationPhoneNumber { get; init; }

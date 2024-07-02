@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     [JsonConverter(typeof(AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUserConverter))]
-    public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser : OneOf<AppItemEventSource, EventSource, File, Folder, Dictionary<string, string>, User> {
+    public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser : OneOf<AppItemEventSource, EventSource, File, Folder, Dictionary<string, object>, User> {
         public AppItemEventSource? AppItemEventSource => _val0;
         
         public EventSource? EventSource => _val1;
@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         
         public Folder? Folder => _val3;
         
-        public Dictionary<string, string>? GenericSource => _val4;
+        public Dictionary<string, object>? GenericSource => _val4;
         
         public User? User => _val5;
         
@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         
         public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Folder value) : base(value) {}
         
-        public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Dictionary<string, string> value) : base(value) {}
+        public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Dictionary<string, object> value) : base(value) {}
         
         public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(User value) : base(value) {}
         
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         
         public static implicit operator AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Folder value) => new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(value);
         
-        public static implicit operator AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Dictionary<string, string> value) => new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(value);
+        public static implicit operator AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(Dictionary<string, object> value) => new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(value);
         
         public static implicit operator AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(User value) => new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(value);
         
@@ -71,7 +71,7 @@ namespace Box.Sdk.Gen.Schemas {
                     }
                 }
                 try {
-                    var result = JsonSerializer.Deserialize<Dictionary<string, string>>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
+                    var result = JsonSerializer.Deserialize<Dictionary<string, object>>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
                     return result;
                 } catch {
                     

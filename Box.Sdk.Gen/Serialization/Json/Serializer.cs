@@ -33,6 +33,33 @@ namespace Serializer
         }
 
         public static string SdToJson(SerializedData obj) => JsonSerializer.Serialize(obj.Data, _options);
+
+        internal static object? ConvertJsonElement(JsonElement element)
+        {
+            return element.ValueKind switch
+            {
+                JsonValueKind.Object => JsonSerializer.Deserialize<Dictionary<string, object>>(element.GetRawText()),
+                JsonValueKind.Array => ConvertJsonArray(element),
+                JsonValueKind.String => element.GetString(),
+                JsonValueKind.Number => element.TryGetInt32(out int intValue) ? (object)intValue : element.GetDouble(),
+                JsonValueKind.True => true,
+                JsonValueKind.False => false,
+                JsonValueKind.Null => null,
+                _ => throw new JsonException($"Unexpected JsonValueKind: {element.ValueKind}")
+            };
+        }
+
+        private static List<object?> ConvertJsonArray(JsonElement element)
+        {
+            var list = new List<object?>();
+
+            foreach (var item in element.EnumerateArray())
+            {
+                list.Add(ConvertJsonElement(item));
+            }
+
+            return list;
+        }
     }
 
     //Remove when migrated to .NET 7

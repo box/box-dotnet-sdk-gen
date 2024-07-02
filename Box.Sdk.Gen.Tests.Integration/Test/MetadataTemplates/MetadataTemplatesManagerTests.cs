@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(template.Fields).Count == 1);
             Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[0].Key == "testName");
             Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[0].DisplayName == "testName");
-            MetadataTemplate updatedTemplate = await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField) { FieldKey = "newfieldname", Data = new Dictionary<string, string>() { { "type", "string" }, { "displayName", "newFieldName" } } }}));
+            MetadataTemplate updatedTemplate = await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField) { FieldKey = "newfieldname", Data = new Dictionary<string, object>() { { "type", "string" }, { "displayName", "newFieldName" } } }}));
             Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields).Count == 2);
             Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[1].Key == "newfieldname");
             Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[1].DisplayName == "newFieldName");
@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             string templateKey = string.Concat("key", Utils.GetUUID());
             MetadataTemplate template = await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}) });
-            MetadataFull createdMetadataInstance = await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, string>() { { "testName", "xyz" } });
+            MetadataFull createdMetadataInstance = await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, object>() { { "testName", "xyz" } });
             MetadataTemplates metadataTemplates = await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id)));
             Assert.IsTrue(NullableUtils.Unwrap(metadataTemplates.Entries).Count == 1);
             Assert.IsTrue(NullableUtils.Unwrap(metadataTemplates.Entries)[0].DisplayName == templateKey);
