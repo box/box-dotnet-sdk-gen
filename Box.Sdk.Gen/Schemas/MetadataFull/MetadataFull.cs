@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Serializer;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -36,7 +37,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? TypeVersion { get; init; }
 
         [JsonPropertyName("extraData")]
-        public Dictionary<string, string>? ExtraData { get; set; }
+        public Dictionary<string, object>? ExtraData { get; set; }
 
         public MetadataFull() {
             
@@ -50,9 +51,9 @@ namespace Box.Sdk.Gen.Schemas {
 
         public void OnDeserialized() {
             if (_additionalProperties != null) {
-                ExtraData = new Dictionary<string, string>();
+                ExtraData = new Dictionary<string, object>();
                 foreach (var kvp in _additionalProperties) {
-                    ExtraData.Add(kvp.Key, JsonSerializer.Deserialize<string>(kvp.Value));
+                    ExtraData.Add(kvp.Key, SimpleJsonSerializer.ConvertJsonElement(kvp.Value));
                 }
                 _additionalProperties.Clear();
             }
