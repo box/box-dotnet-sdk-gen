@@ -94,7 +94,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: new Dictionary<string, string>() { { "abc", "xyz" } });
+await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, object>() { { "name", "John" }, { "age", 23 }, { "birthDate", "2001-01-03T02:20:50.520Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } });
 ```
 
 ### Arguments
@@ -105,7 +105,7 @@ await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: Cr
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `Dictionary<string, string>`
+- requestBody `Dictionary<string, object>`
   - Request body of createFileMetadataById method
 - headers `CreateFileMetadataByIdHeaders`
   - Headers of createFileMetadataById method
@@ -177,7 +177,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Global, templateKey: "properties");
+await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey);
 ```
 
 ### Arguments

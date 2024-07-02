@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Managers {
         /// operation being performed.
         /// </summary>
         [JsonPropertyName("data")]
-        public Dictionary<string, string>? Data { get; init; }
+        public Dictionary<string, object>? Data { get; init; }
 
         /// <summary>
         /// For operations that affect a single field this defines the key of

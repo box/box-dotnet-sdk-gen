@@ -99,7 +99,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: new Dictionary<string, string>() { { "abc", "xyz" } });
+await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, object>() { { "name", "John" }, { "age", 23 }, { "birthDate", "2001-01-03T02:20:50.520Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } });
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, s
   - The scope of the metadata template Example: "global"
 - templateKey `string`
   - The name of the metadata template Example: "properties"
-- requestBody `Dictionary<string, string>`
+- requestBody `Dictionary<string, object>`
   - Request body of createFolderMetadataById method
 - headers `CreateFolderMetadataByIdHeaders`
   - Headers of createFolderMetadataById method
@@ -182,7 +182,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_metadata_id_id -->
 ```
-await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Global, templateKey: "properties");
+await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Enterprise, templateKey: templateKey);
 ```
 
 ### Arguments
