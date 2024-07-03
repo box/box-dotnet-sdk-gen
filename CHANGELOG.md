@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/box/box-codegen/compare/v0.3.1...v0.4.0) (2024-07-03)
+
+
+### Bug Fixes
+
+* Change base urls (box/box-codegen[#491](https://github.com/box/box-codegen/issues/491)) ([#126](https://github.com/box/box-codegen/issues/126)) ([b4c6025](https://github.com/box/box-codegen/commit/b4c6025dc7039e923b19282333f162bb9d3469a9))
+* Fix CI for auto update pull requests (box/box-codegen[#506](https://github.com/box/box-codegen/issues/506)) ([#152](https://github.com/box/box-codegen/issues/152)) ([766f03c](https://github.com/box/box-codegen/commit/766f03c743b7a2ab363135ff282e468b6b71d377))
+* Fix schemas for updating classification on a file and folder (box/box-openapi[#423](https://github.com/box/box-codegen/issues/423)) ([#117](https://github.com/box/box-codegen/issues/117)) ([40f5a97](https://github.com/box/box-codegen/commit/40f5a97ea44118ff9425e8b0ebb767d9ed08cee7))
+* improve wording for box sign (box/box-openapi[#424](https://github.com/box/box-codegen/issues/424)) ([#122](https://github.com/box/box-codegen/issues/122)) ([64b3bcd](https://github.com/box/box-codegen/commit/64b3bcd2d99039d1c881a565de6e7bc40dfe7aa9))
+
+
+### New Features and Enhancements
+
+* add default implementation for interface methods (box/box-codegen[#502](https://github.com/box/box-codegen/issues/502)) ([#148](https://github.com/box/box-codegen/issues/148)) ([0f39071](https://github.com/box/box-codegen/commit/0f39071d2442b9d07f9c51de8a5a757b16cc4fe7))
+* add docs improvements and marker pagination (box/box-openapi[#431](https://github.com/box/box-codegen/issues/431)) ([#153](https://github.com/box/box-codegen/issues/153)) ([780a58b](https://github.com/box/box-codegen/commit/780a58b4d4b18c357381c76dd5e72dd791a20d89))
+* add support for `ExtraData` of generic type `(box/box-codegen[#521](https://github.com/box/box-codegen/issues/521))` ([#170](https://github.com/box/box-codegen/issues/170)) ([2a2208d](https://github.com/box/box-codegen/commit/2a2208d422f5beb1718576acdc10d9eb973ba95c))
+* add support for unions of primitives in c# (box/box-codegen[#501](https://github.com/box/box-codegen/issues/501)) ([#150](https://github.com/box/box-codegen/issues/150)) ([e75ce82](https://github.com/box/box-codegen/commit/e75ce82b09641d4bec439d620facbbf25da97845))
+* make models immutable in c#, hide fields for auths (box/box-codegen[#494](https://github.com/box/box-codegen/issues/494)) ([#127](https://github.com/box/box-codegen/issues/127)) ([8adcc85](https://github.com/box/box-codegen/commit/8adcc858ef0f924f168406b031d379c786fa90d0))
+* move notification suppression to public schema (box/box-openapi[#425](https://github.com/box/box-codegen/issues/425)) ([#124](https://github.com/box/box-codegen/issues/124)) ([c841881](https://github.com/box/box-codegen/commit/c841881cea9b0636bb624fe45d77c2817327dd35))
+* support `StringEnum` in C# (box/box-codegen[#514](https://github.com/box/box-codegen/issues/514)) ([#162](https://github.com/box/box-codegen/issues/162)) ([6ac2fe9](https://github.com/box/box-codegen/commit/6ac2fe9811efde6b02cd3ca50834b0bdafea1ab3))
+
 ### [0.3.1](https://github.com/box/box-codegen/compare/v0.3.0...v0.3.1) (2024-05-14)
 
 
