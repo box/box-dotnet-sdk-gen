@@ -1,9 +1,9 @@
 using System;
 
-namespace Fetch
+namespace Box.Sdk.Gen.Internal
 {
-    public static class Version
+    static class Version
     {
-        public static string sdkVersion = "0.4.0";
+        internal static string sdkVersion = "0.4.0";
     }
 }

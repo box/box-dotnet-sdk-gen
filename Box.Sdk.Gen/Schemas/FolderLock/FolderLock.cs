@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Unions;
+using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {

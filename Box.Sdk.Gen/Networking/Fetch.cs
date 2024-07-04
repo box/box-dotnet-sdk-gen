@@ -1,7 +1,5 @@
 using Box.Sdk.Gen;
-using Errors;
 using Microsoft.Extensions.DependencyInjection;
-using Serializer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Fetch
+namespace Box.Sdk.Gen.Internal
 {
     static class ContentTypes
     {

@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 
-namespace StringExtensions
+namespace Box.Sdk.Gen.Internal 
 {
     public static class StringUtils
     {

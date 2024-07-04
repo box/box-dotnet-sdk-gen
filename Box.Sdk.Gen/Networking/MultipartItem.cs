@@ -1,8 +1,6 @@
 using System.IO;
-using Serializer;
-using Serialization.Json;
 
-namespace Box.Sdk.Gen
+namespace Box.Sdk.Gen.Internal
 {
     /// <summary>
     /// Multipart item used in Fetch, usually for stream requests.

@@ -1,4 +1,4 @@
-using NullableExtensions;
+using Box.Sdk.Gen.Internal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;

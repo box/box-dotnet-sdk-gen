@@ -1,10 +1,8 @@
-using Unions;
 using Box.Sdk.Gen;
-using NullableExtensions;
+using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Errors;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
 

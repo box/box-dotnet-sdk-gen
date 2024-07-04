@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DictionaryExtensions;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen
 {

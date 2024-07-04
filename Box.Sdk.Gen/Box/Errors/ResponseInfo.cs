@@ -1,8 +1,8 @@
-using Serialization.Json;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen.Internal;
 
-namespace Errors
+namespace Box.Sdk.Gen
 {
     public class ResponseInfo
     {

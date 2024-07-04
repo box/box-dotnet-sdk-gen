@@ -1,7 +1,6 @@
-using Unions;
-using System.Text.Json.Serialization;
 using Box.Sdk.Gen;
-using Serializer;
+using System.Text.Json.Serialization;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class StatusSkillCardSkillField {

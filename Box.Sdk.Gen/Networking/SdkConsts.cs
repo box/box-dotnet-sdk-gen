@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Fetch
+namespace Box.Sdk.Gen.Internal
 {
     static class SdkConsts
     {

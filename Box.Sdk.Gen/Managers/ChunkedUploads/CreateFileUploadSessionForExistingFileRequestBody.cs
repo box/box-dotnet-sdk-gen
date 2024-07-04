@@ -2,9 +2,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Unions;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateFileUploadSessionForExistingFileRequestBody {

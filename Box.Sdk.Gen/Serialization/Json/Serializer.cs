@@ -1,5 +1,4 @@
 using Box.Sdk.Gen;
-using Serialization.Json;
 using System;
 using System.ComponentModel;
 using System.Reflection;
@@ -7,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
-namespace Serializer
+namespace Box.Sdk.Gen.Internal
 {
     static class SimpleJsonSerializer
     {

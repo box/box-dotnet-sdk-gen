@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Box.Sdk.Gen
+namespace Box.Sdk.Gen.Internal
 {
     /// <summary>
     /// Class for various utilities functions used in SDK.

@@ -1,13 +1,9 @@
-using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
-using Serializer;
+using Box.Sdk.Gen.Internal;
 using System;
-using DictionaryExtensions;
-using StringExtensions;
-using Fetch;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
