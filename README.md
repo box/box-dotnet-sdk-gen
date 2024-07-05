@@ -35,10 +35,19 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 
 # Installing
 
-In the current version, you can refer to your project directly after cloning it to a local directory, or build the .dll files by running the
-`dotnet build` command and then refer to them in your project.
+You can install SDK using Nuget
 
-The Nuget package and other artifacts on Github will be published when the SDK enters public beta.
+```pwsh
+Install-Package Box.Sdk.Gen
+```
+
+Alternatively, you can find this package and it's latest version [on nuget](https://www.nuget.org/packages/Box.Sdk.Gen) and manually add it to the `.csproj` file as a reference:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Box.Sdk.Gen" Version="X.Y.Z" />
+</ItemGroup>
+```
 
 # Getting Started
 
