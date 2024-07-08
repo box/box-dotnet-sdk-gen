@@ -167,8 +167,9 @@ namespace Box.Sdk.Gen.Internal
         /// </summary>
         /// <param name="stream">Stream to iterate over</param>
         /// <param name="chunkSize">Size of a chunk</param>
+        /// <param name="fileSize">Size of a file</param>
         /// <returns>Iteartor over a stream.</returns>
-        public static IEnumerable<Stream> IterateChunks(Stream stream, long chunkSize)
+        public static IEnumerable<Stream> IterateChunks(Stream stream, long chunkSize, long fileSize)
         {
             int bufferSize = Convert.ToInt32(chunkSize);
             var buffer = new byte[bufferSize];

@@ -234,7 +234,7 @@ namespace Box.Sdk.Gen.Managers {
                 throw new Exception(message: "Assertion failed");
             }
             Hash fileHash = new Hash(algorithm: HashName.Sha1);
-            IEnumerable<System.IO.Stream> chunksIterator = Utils.IterateChunks(stream: file, chunkSize: partSize);
+            IEnumerable<System.IO.Stream> chunksIterator = Utils.IterateChunks(stream: file, chunkSize: partSize, fileSize: fileSize);
             PartAccumulator results = await Utils.ReduceIteratorAsync(iterator: chunksIterator, reducer: this.ReducerAsync, initialValue: new PartAccumulator(lastIndex: -1, parts: Enumerable.Empty<UploadPart>().ToList(), fileSize: fileSize, uploadSessionId: uploadSessionId, fileHash: fileHash)).ConfigureAwait(false);
             IReadOnlyList<UploadPart> parts = results.Parts;
             UploadParts processedSessionParts = await this.GetFileUploadSessionPartsAsync(uploadSessionId: uploadSessionId, queryParams: new GetFileUploadSessionPartsQueryParams(), headers: new GetFileUploadSessionPartsHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
