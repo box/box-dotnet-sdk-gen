@@ -1,6 +1,5 @@
-using NullableExtensions;
+using Box.Sdk.Gen.Internal;
 using System.Linq;
-using StringExtensions;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;

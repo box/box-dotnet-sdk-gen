@@ -1,4 +1,4 @@
-using Unions;
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 
 namespace Box.Sdk.Gen.Schemas {

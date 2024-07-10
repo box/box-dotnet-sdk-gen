@@ -1,7 +1,6 @@
-using Unions;
-using System.Text.Json.Serialization;
 using Box.Sdk.Gen;
-using Serializer;
+using System.Text.Json.Serialization;
+using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;

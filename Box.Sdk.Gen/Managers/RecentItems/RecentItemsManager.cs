@@ -1,13 +1,9 @@
-using Unions;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using StringExtensions;
-using DictionaryExtensions;
-using Fetch;
-using Serializer;
+using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class RecentItemsManager : IRecentItemsManager {

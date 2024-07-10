@@ -13,7 +13,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-namespace Box.Sdk.Gen
+namespace Box.Sdk.Gen.Internal
 {
     /// <summary>
     /// Class for various jwt utilities functions used in SDK.

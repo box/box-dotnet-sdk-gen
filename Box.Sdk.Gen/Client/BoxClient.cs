@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Box.Sdk.Gen.Managers;
-using Box.Sdk.Gen;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen {
     public class BoxClient : IBoxClient {

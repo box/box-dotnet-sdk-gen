@@ -1,23 +1,21 @@
-using Serializer;
-
-namespace Serialization.Json
+namespace Box.Sdk.Gen.Internal
 {
 
     public class SerializedData
     {
-        public object Data { get; }
+        internal object Data { get; }
 
         //TODO support other data types
-        public bool IsJson { get; }
+        internal bool IsJson { get; }
 
-        public SerializedData(object data, bool isJson = false)
+        internal SerializedData(object data, bool isJson = false)
         {
             Data = data;
             //TODO determine based on content
             IsJson = isJson;
         }
 
-        public string AsJson()
+        internal string AsJson()
         {
             if (IsJson)
             {

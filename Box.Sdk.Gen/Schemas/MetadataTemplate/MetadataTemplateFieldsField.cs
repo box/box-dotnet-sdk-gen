@@ -1,10 +1,9 @@
-using Unions;
-using System.Text.Json.Serialization;
 using Box.Sdk.Gen;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Serializer;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataTemplateFieldsField {

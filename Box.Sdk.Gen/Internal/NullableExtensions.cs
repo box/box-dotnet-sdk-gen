@@ -1,6 +1,6 @@
 using System;
 
-namespace NullableExtensions
+namespace Box.Sdk.Gen.Internal 
 {
     public class NullableUtils
     {

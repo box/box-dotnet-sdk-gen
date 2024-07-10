@@ -1,8 +1,6 @@
 using System.IO;
-using Serializer;
-using Serialization.Json;
 
-namespace Fetch
+namespace Box.Sdk.Gen.Internal
 {
     /// <summary>
     /// Result of a Fetch call.

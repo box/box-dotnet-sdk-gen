@@ -1,11 +1,9 @@
-using Unions;
-using Errors;
-using NullableExtensions;
+using Box.Sdk.Gen;
+using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {

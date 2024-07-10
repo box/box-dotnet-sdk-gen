@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Errors
+namespace Box.Sdk.Gen
 {
     public class RequestInfo
     {

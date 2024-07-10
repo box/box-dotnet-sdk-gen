@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DictionaryExtensions {
+namespace Box.Sdk.Gen.Internal {
     /// <summary>
     /// Class for various dictionary extension utils functions.
     /// </summary>

@@ -2,8 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using NullableExtensions;
-using StringExtensions;
+using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 

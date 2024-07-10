@@ -1,6 +1,6 @@
 using System;
 
-namespace Errors
+namespace Box.Sdk.Gen
 {
     public class BoxSdkException : Exception
     {

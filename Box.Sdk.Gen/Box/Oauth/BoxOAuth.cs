@@ -1,12 +1,9 @@
-using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Serializer;
-using NullableExtensions;
-using Errors;
+using Box.Sdk.Gen.Internal;
 using System;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {

@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]

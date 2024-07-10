@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using Unions;
-using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen {

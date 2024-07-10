@@ -1,4 +1,3 @@
-using Serializer;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -6,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Box.Sdk.Gen
+namespace Box.Sdk.Gen.Internal
 {
     [JsonConverter(typeof(StringEnumConverter<HashName>))]
     internal enum HashName

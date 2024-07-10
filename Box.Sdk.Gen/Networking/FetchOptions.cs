@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
-using Serialization.Json;
 
-namespace Fetch
+namespace Box.Sdk.Gen.Internal
 {
     /// <summary>
     /// Holds parameters used for http/s request.

@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using NullableExtensions;
+using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;

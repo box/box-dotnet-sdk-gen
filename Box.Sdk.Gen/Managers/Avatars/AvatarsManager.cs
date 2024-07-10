@@ -1,13 +1,9 @@
-using Unions;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DictionaryExtensions;
-using StringExtensions;
-using Fetch;
+using Box.Sdk.Gen.Internal;
 using System;
-using Serializer;
 using Box.Sdk.Gen.Schemas;
-using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen.Managers {
     public class AvatarsManager : IAvatarsManager {

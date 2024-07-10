@@ -1,4 +1,4 @@
-namespace Unions {
+namespace Box.Sdk.Gen {
     public class OneOf<T0,T1,T2,T3,T4,T5,T6,T7> {
         protected T0? _val0 { get; }
         
