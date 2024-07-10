@@ -16,12 +16,12 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetTermsOfServices() {
             TermsOfService tos = await new CommonsManager().GetOrCreateTermsOfServicesAsync();
-            TermsOfService updatedTos1 = await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Enabled, text: "Enabled TOS"));
-            Assert.IsTrue(StringUtils.ToStringRepresentation(updatedTos1.Status?.Value) == "enabled");
-            Assert.IsTrue(updatedTos1.Text == "Enabled TOS");
-            TermsOfService updatedTos2 = await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Disabled TOS"));
+            TermsOfService updatedTos1 = await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "TOS"));
+            Assert.IsTrue(StringUtils.ToStringRepresentation(updatedTos1.Status?.Value) == "disabled");
+            Assert.IsTrue(updatedTos1.Text == "TOS");
+            TermsOfService updatedTos2 = await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Updated TOS"));
             Assert.IsTrue(StringUtils.ToStringRepresentation(updatedTos2.Status?.Value) == "disabled");
-            Assert.IsTrue(updatedTos2.Text == "Disabled TOS");
+            Assert.IsTrue(updatedTos2.Text == "Updated TOS");
             TermsOfServices listTos = await client.TermsOfServices.GetTermsOfServiceAsync();
             Assert.IsTrue(NullableUtils.Unwrap(listTos.TotalCount) > 0);
         }
