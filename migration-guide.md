@@ -10,6 +10,9 @@
   - [Self-documenting object creation](#self-documenting-object-creation)
   - [Native cancellation token support](#native-cancellation-token-support)
   - [One package to rule them all](#one-package-to-rule-them-all)
+  - [Simplified namespaces](#simplified-namespaces)
+  - [Enum wrapper](#enum-wrapper)
+  - [Union types](#union-types)
 - [Diving into Authentication](#diving-into-authentication)
   - [Developer Token](#developer-token)
   - [JWT Authentication](#jwt-authentication)
@@ -24,6 +27,9 @@
     - [Fetching the Authorization URL](#fetching-the-authorization-url)
     - [Seamless Authentication](#seamless-authentication)
   - [Customizable Token Storage](#customizable-token-storage)
+- [Configuration](#configuration)
+  - [As-User header](#as-user-header)
+  - [Custom Base URLs](#custom-base-urls)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -42,14 +48,14 @@ For those who wish to delve deeper into the intricacies and advantages of the ne
 Embarking on your journey with the `Box DotNet SDK` is straightforward. Here's how you can set it up:
 
 ```console
-Install-Package Box.DotNet.Sdk.Gen
+Install-Package Box.Sdk.Gen
 ```
 
-Alternatively, you can find this package in nuget and add it to your .csproj as a reference:
+Alternatively, you can find this package and it's latest version [on nuget](https://www.nuget.org/packages/Box.Sdk.Gen) and manually add it to the `.csproj` file as a reference:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Box.DotNet.Sdk.Gen" Version="X.Y.Z" />
+  <PackageReference Include="Box.Sdk.Gen" Version="X.Y.Z" />
 </ItemGroup>
 ```
 
@@ -135,9 +141,104 @@ When task is cancelled, native .NET `TaskCanceledException` is thrown.
 
 ### One package to rule them all
 
-Legacy SDK `Box Windows V2 SDK` was distributed as a two separate packages namely `Box.V2` and `Box.V2.Core`. Adding the fact that some supported frameworks overlapped in both packages caused additional confusion for the customers, who had to decide which one was best for their projects. Additionally, the maintenance of both packages introduced developer overhead, extending the time of development for some features.
+Legacy `Box Windows V2 SDK` was distributed as a two separate packages namely `Box.V2` and `Box.V2.Core`. Adding the fact that some supported frameworks overlapped in both packages caused additional confusion for the customers, who had to decide which one was best for their projects. Additionally, the maintenance of both packages introduced developer overhead, extending the time of development for some features.
 
-In our new generation .NET SDK `Box DotNet SDK`, we have decided to distribute one package that is designed for multiple platforms, namely `Box.DotNet.Sdk.Gen`. The determination of the best possible package match to the project in which this package is used will be delegated to the .NET platform itself. Each target platform with significiant differences will have a separate code base so that one target does not limit another. Most of the SDK is automatically generated now, so this will not cause a significant development overhead. For now, only .NET (formerly .NET Core) is supported, but .NET Framework support is planned for the future.
+In our new generation .NET SDK `Box DotNet SDK`, we have decided to distribute one package that is designed for multiple platforms, namely `Box.Sdk.Gen`. The determination of the best possible package match to the project in which this package is used will be delegated to the .NET platform itself. Each target platform with significiant differences will have a separate code base so that one target does not limit another. Most of the SDK is automatically generated now, so this will not cause a significant development overhead. For now, only .NET (formerly .NET Core) is supported, but .NET Framework support is planned for the future.
+
+### Simplified namespaces
+
+Legacy `Box Windows V2 SDK` contained multiple namespaces which greatly reduced the discoverability of new features. The namespaces were also grouped based on their physical location rather than purpose they serve. Developers had to navigate through numerous namespaces to find the classes and methods they needed, which could be overwhelming and confusing, especially for newcomers.
+
+To simplify it, our the new generation .NET SDK `Box DotNet SDK`, provides only 4 main namespaces:
+
+- Box.Sdk.Gen - mostly contains base classes used by the SDK (e.g. `OneOf`, `StringEnum`).
+- Box.Sdk.Gen.Managers - contains managers that expose endpoints as functions. It also contains classes used to create requests, such as typed request body or query parameters.
+- Box.Sdk.Gen.Schemas - contains data models described by the API spec.
+- Box.Sdk.Gen.Internal - utility functions and classes used by the SDK. Should be used only if needed too.
+
+### Enum wrapper
+
+Legacy `Box Windows V2 SDK` used [C# enumeration types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) when API exposed model with limited number of possible value for `String`.
+
+```c#
+public enum BoxRetentionType
+{
+    modifiable,
+    non_modifiable
+}
+//response fails during deserialization if BoxRetention type returned from the API is not defined on enum (e.g. partially_modifiable)
+var retentionType = await (client.RetentionPoliciesManager.GetRetentionPolicyAsync('id')).Type;
+```
+
+Sometimes this led to a situation where a newly added enum variant was present in the specification, but not in the SDK, and an exception could be thrown when deserializing the response.
+
+To overcome these issues the new generation .NET SDK `Box DotNet SDK` wraps enum types in safe, custom `StringEnum` structure.
+
+```c#
+// Type can be null, but it no longer fails,
+var retentionType = (await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id)).Type;
+if (retentionType.Value.HasValue)
+{
+    //it's a nullable enum so we need to access the underlying value
+    RetentionPolicyRetentionTypeField enumVal = retentionType.Value.Value;
+}
+else
+{
+    //if the enum value was null it means that this enum is unknown to the SDK at the moment, but we still can access the original value that came from the api through .StringValue prop
+    string enumVaueAsString = retentionType.StringValue;
+}
+```
+
+This allows safe access to the underlying enumeration type. If the enumeration value is not yet known to the SDK, you can still access the original value from the API, by accessing `.StringValue` field.
+
+Thanks to [implicit conversion operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators) converting enum types to `StringEnum` is simple and usually there's no need to do it explicitly.
+
+```c#
+var requestBody = new CreateRetentionPolicyRequestBody("myPolicy", CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, CreateRetentionPolicyRequestBodyDispositionActionField.PermanentlyDelete);
+RetentionPolicy retentionPolicy = await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody);
+```
+
+Usually there's no need to wrap enum type in the `StringEnum`, but if such need arises, you can use existing constructor of the `StringEnum`.
+
+```c#
+RetentionPolicyRetentionTypeField retentionPolicyType = RetentionPolicyRetentionTypeField.Modifiable;
+StringEnum<RetentionPolicyRetentionTypeField> retentionPolicyTypeWrapped = new StringEnum<RetentionPolicyRetentionTypeField>(retentionPolicyType);
+```
+
+### Union types
+
+Box APIs can return and accept objects with different schemas at certain endpoints. This means that in C#, they must be represented by different classes to take full advantage of the type system.
+
+Legacy `Box Windows V2 SDK` used approach with common ancestor, by returning base object (in this case `BoxEntity`) that needed to be explicitly casted to the desired type.
+
+```c#
+var enterpriseEvents = await boxClient.EventsManager.EnterpriseEventsAsync();
+foreach (BoxEnterpriseEvent entry in enterpriseEvents.Entries)
+{
+    // we need to check if Source is of type BoxFileEventSource and cast it
+    if (entry.Source is BoxFileEventSource fileEvent)
+    {
+        Console.WriteLine(fileEvent.Parent.Id);
+    }
+}
+```
+
+This solution is error-prone and relies on the knowledge of the internals of the SDK.
+
+New generation .NET SDK `Box DotNet SDK` provides a custom structure to represent union types (or sum types) called `OneOf<T1, T2, ...>`. The different variant are represented as different fields on this structure. This allows new SDK users to use it like any other model. In addition, the SDK does not directly expose the `OneOf` structure in the models, but inherits from it, so you do not need to know how it works in detail when working with models.
+
+```c#
+var enterpriseEvents = await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs });
+
+foreach (var entry in enterpriseEvents.Entries)
+{
+    //if .File is not null it means it was returned from the API
+    if (entry.Source.File != null)
+    {
+        Console.WriteLine(entry.Source.File.Parent.Id);
+    }
+}
+```
 
 ## Diving into Authentication
 
@@ -150,9 +251,9 @@ The Developer Token remains a straightforward method for authentication:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2.Auth;
-using Box.Sdk.Gen.V2.Config;
-using Box.Sdk.Gen.V2;
+using Box.Sdk.V2.Auth;
+using Box.Sdk.V2.Config;
+using Box.Sdk.V2;
 
 var config = new BoxConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET").Build();
 var session = new OAuthSession("YOUR_DEVELOPER_TOKEN", "N/A", 3600, "bearer");
@@ -179,9 +280,9 @@ JSON Web Tokens (JWT) offer a secure method of authentication. Here's how the pr
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2;
-using Box.Sdk.Gen.V2.Config;
-using Box.Sdk.Gen.V2.JWTAuth;
+using Box.Sdk.V2;
+using Box.Sdk.V2.Config;
+using Box.Sdk.V2.JWTAuth;
 
 using var file = File.Open("/path/to/config.json", FileMode.Open, FileAccess.Read, FileShare.None);
 var config = BoxConfigBuilder.CreateFromJsonFile(file).Build();
@@ -210,9 +311,9 @@ For those who prefer manual configurations, both SDKs offer flexibility:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2;
-using Box.Sdk.Gen.V2.Config;
-using Box.Sdk.Gen.V2.JWTAuth;
+using Box.Sdk.V2;
+using Box.Sdk.V2.Config;
+using Box.Sdk.V2.JWTAuth;
 
 var boxConfig = new BoxConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "YOUR_ENTERPRISE_ID", "YOUR_PRIVATE_KEY", "YOUR_PRIVATE_KEY_PASSPHRASE", "YOUR_KEY_ID").Build();
 var boxJWT = new BoxJWTAuth(boxConfig);
@@ -240,9 +341,9 @@ Authenticating as a user has been made even more straightforward:
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2;
-using Box.Sdk.Gen.V2.Config;
-using Box.Sdk.Gen.V2.JWTAuth;
+using Box.Sdk.V2;
+using Box.Sdk.V2.Config;
+using Box.Sdk.V2.JWTAuth;
 
 var userToken = await boxJWT.UserTokenAsync("USER_ID");
 var userClient = boxJWT.UserClient(userToken, "YOUR_USER_ID");
@@ -268,8 +369,8 @@ The Client Credentials Grant method is a popular choice for many developers. Let
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2.CCGAuth;
-using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.V2.CCGAuth;
+using Box.Sdk.V2.Config;
 
 var boxConfig = new BoxConfigBuilder(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET")
                 .SetEnterpriseId("YOUR_ENTERPRISE_ID")
@@ -296,8 +397,8 @@ var client = new BoxClient(auth: auth);
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2.CCGAuth;
-using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.V2.CCGAuth;
+using Box.Sdk.V2.Config;
 
 var boxConfig = new BoxConfigBuilder(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET")
                 .Build();
@@ -339,8 +440,8 @@ OAuth 2.0 remains a robust authentication method. Let's explore the improvements
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2;
-using Box.Sdk.Gen.V2.Config;
+using Box.Sdk.V2;
+using Box.Sdk.V2.Config;
 
 var config = new BoxConfigBuilder("CLIENT_ID", "CLIENT_SECRET", new System.Uri("YOUR_REDIRECT_URL")).Build();
 var client = new BoxClient(config);
@@ -368,7 +469,7 @@ var authorizeUrl = auth.GetAuthorizeUrl(new GetAuthorizeUrlOptions() { RedirectU
 **Legacy (`Box Windows V2 SDK`):**
 
 ```c#
-using Box.Sdk.Gen.V2;
+using Box.Sdk.V2;
 
 var session = await client.Auth.AuthenticateAsync("[CODE]");
 var client = new BoxClient(config, session);
@@ -443,4 +544,79 @@ class CustomTokenStorage : ITokenStorage
 
 var tokenStorage = new CustomTokenStorage();
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", tokenStorage: tokenStorage);
+```
+
+## Configuration
+
+### As-User header
+
+The As-User header is used by enterprise admins to make API calls on behalf of their enterprise's users.
+This requires the API request to pass an `As-User: USER-ID` header. The following examples assume that the client has
+been instantiated with an access token with appropriate privileges to make As-User calls.
+
+In old SDK you could call client constructor with `asUser` parameter to create a new client to impersonate the provided user.
+
+**Legacy (`Box Windows V2 SDK`):**
+
+```c#
+using Box.V2.Config;
+
+var config = new BoxConfigBuilder("clientId", "clientSecret").Build();
+var client = new BoxClient(config, asUser: "userId");
+```
+
+**Modern (`Box DotNet SDK`):**
+
+In the new SDK the method was renamed to `WithAsUserHeader(string userId)`
+and returns a new instance of `BoxClient` class with the As-User header appended to all API calls made by the client.
+The method accepts only user id as a parameter.
+
+```c#
+using Box.Sdk.Gen;
+
+var client = new BoxClient(new BoxCcgAuth(new CcgConfig("clientId", "clientSecret")));
+var asUserClient = client.WithAsUserHeader("userId");
+```
+
+Additionally `BoxClient` offers a `WithExtraHeaders(Dictionary<string, string>? extraHeaders = default) `
+method, which allows you to specify the custom set of headers, which will be included in every API call made by client.
+Calling the `client.WithExtraHeaders(extraHeaders)` method creates a new client, leaving the original client unmodified.
+
+```c#
+using Box.Sdk.Gen;
+
+var client = new BoxClient(new BoxCcgAuth(new CcgConfig("clientId", "clientSecret")));
+var clientWithHeaders = client.WithExtraHeaders(new Dictionary<string, string>() { { "customHeaders", "customHeaderValue" } });
+```
+
+### Custom Base URLs
+
+**Legacy (`Box Windows V2 SDK`):**
+
+In old SDK you could specify the custom base URLs, which will be used for API calls made by setting
+the new values by calling function of `BoxConfigBuilder`.
+
+```c#
+using Box.V2.Config;
+
+var config = new BoxConfigBuilder("clientId", "clientSecret")
+    .SetBoxApiHostUri(new Uri("https://new-base-url.com"))
+    .SetBoxUploadApiUri(new Uri("https://my-company-upload-url.com"))
+    .Build();
+```
+
+**Modern (`Box DotNet SDK`):**
+
+In the new SDK this functionality has been implemented as part of the `BoxClient` class.
+By calling the `client.WithCustomBaseUrls()` method, you can specify the custom base URLs that will be used for API
+calls made by client. Following the immutability pattern, this call creates a new client, leaving the original client unmodified.
+
+```c#
+using Box.Sdk.Gen;
+
+var client = new BoxClient(new BoxCcgAuth(new CcgConfig("clientId", "clientSecret")));
+
+var clientWithCustomUrls = client.WithCustomBaseUrls(new BaseUrls("https://new-base-url.com",
+    "https://my-company-upload-url.com",
+    "https://my-company.com/oauth2"));
 ```
