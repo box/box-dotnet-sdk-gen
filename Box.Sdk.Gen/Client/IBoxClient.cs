@@ -3,147 +3,147 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen {
     public interface IBoxClient {
-        public IAuthentication Auth { get; }
+        public IAuthentication Auth { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public NetworkSession NetworkSession { get; }
+        public NetworkSession NetworkSession { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IAuthorizationManager Authorization { get; }
+        public IAuthorizationManager Authorization { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFilesManager Files { get; }
+        public IFilesManager Files { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITrashedFilesManager TrashedFiles { get; }
+        public ITrashedFilesManager TrashedFiles { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IDownloadsManager Downloads { get; }
+        public IDownloadsManager Downloads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IUploadsManager Uploads { get; }
+        public IUploadsManager Uploads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IChunkedUploadsManager ChunkedUploads { get; }
+        public IChunkedUploadsManager ChunkedUploads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IListCollaborationsManager ListCollaborations { get; }
+        public IListCollaborationsManager ListCollaborations { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ICommentsManager Comments { get; }
+        public ICommentsManager Comments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITasksManager Tasks { get; }
+        public ITasksManager Tasks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileVersionsManager FileVersions { get; }
+        public IFileVersionsManager FileVersions { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileMetadataManager FileMetadata { get; }
+        public IFileMetadataManager FileMetadata { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileClassificationsManager FileClassifications { get; }
+        public IFileClassificationsManager FileClassifications { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISkillsManager Skills { get; }
+        public ISkillsManager Skills { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileWatermarksManager FileWatermarks { get; }
+        public IFileWatermarksManager FileWatermarks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileRequestsManager FileRequests { get; }
+        public IFileRequestsManager FileRequests { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFoldersManager Folders { get; }
+        public IFoldersManager Folders { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITrashedFoldersManager TrashedFolders { get; }
+        public ITrashedFoldersManager TrashedFolders { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFolderMetadataManager FolderMetadata { get; }
+        public IFolderMetadataManager FolderMetadata { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFolderClassificationsManager FolderClassifications { get; }
+        public IFolderClassificationsManager FolderClassifications { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITrashedItemsManager TrashedItems { get; }
+        public ITrashedItemsManager TrashedItems { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFolderWatermarksManager FolderWatermarks { get; }
+        public IFolderWatermarksManager FolderWatermarks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFolderLocksManager FolderLocks { get; }
+        public IFolderLocksManager FolderLocks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IMetadataTemplatesManager MetadataTemplates { get; }
+        public IMetadataTemplatesManager MetadataTemplates { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IClassificationsManager Classifications { get; }
+        public IClassificationsManager Classifications { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IMetadataCascadePoliciesManager MetadataCascadePolicies { get; }
+        public IMetadataCascadePoliciesManager MetadataCascadePolicies { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISearchManager Search { get; }
+        public ISearchManager Search { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IUserCollaborationsManager UserCollaborations { get; }
+        public IUserCollaborationsManager UserCollaborations { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITaskAssignmentsManager TaskAssignments { get; }
+        public ITaskAssignmentsManager TaskAssignments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISharedLinksFilesManager SharedLinksFiles { get; }
+        public ISharedLinksFilesManager SharedLinksFiles { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISharedLinksFoldersManager SharedLinksFolders { get; }
+        public ISharedLinksFoldersManager SharedLinksFolders { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IWebLinksManager WebLinks { get; }
+        public IWebLinksManager WebLinks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITrashedWebLinksManager TrashedWebLinks { get; }
+        public ITrashedWebLinksManager TrashedWebLinks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISharedLinksWebLinksManager SharedLinksWebLinks { get; }
+        public ISharedLinksWebLinksManager SharedLinksWebLinks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IUsersManager Users { get; }
+        public IUsersManager Users { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISessionTerminationManager SessionTermination { get; }
+        public ISessionTerminationManager SessionTermination { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IAvatarsManager Avatars { get; }
+        public IAvatarsManager Avatars { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITransferManager Transfer { get; }
+        public ITransferManager Transfer { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IEmailAliasesManager EmailAliases { get; }
+        public IEmailAliasesManager EmailAliases { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IMembershipsManager Memberships { get; }
+        public IMembershipsManager Memberships { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IInvitesManager Invites { get; }
+        public IInvitesManager Invites { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IGroupsManager Groups { get; }
+        public IGroupsManager Groups { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IWebhooksManager Webhooks { get; }
+        public IWebhooksManager Webhooks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IEventsManager Events { get; }
+        public IEventsManager Events { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ICollectionsManager Collections { get; }
+        public ICollectionsManager Collections { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IRecentItemsManager RecentItems { get; }
+        public IRecentItemsManager RecentItems { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IRetentionPoliciesManager RetentionPolicies { get; }
+        public IRetentionPoliciesManager RetentionPolicies { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IRetentionPolicyAssignmentsManager RetentionPolicyAssignments { get; }
+        public IRetentionPolicyAssignmentsManager RetentionPolicyAssignments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ILegalHoldPoliciesManager LegalHoldPolicies { get; }
+        public ILegalHoldPoliciesManager LegalHoldPolicies { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ILegalHoldPolicyAssignmentsManager LegalHoldPolicyAssignments { get; }
+        public ILegalHoldPolicyAssignmentsManager LegalHoldPolicyAssignments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileVersionRetentionsManager FileVersionRetentions { get; }
+        public IFileVersionRetentionsManager FileVersionRetentions { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IFileVersionLegalHoldsManager FileVersionLegalHolds { get; }
+        public IFileVersionLegalHoldsManager FileVersionLegalHolds { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IShieldInformationBarriersManager ShieldInformationBarriers { get; }
+        public IShieldInformationBarriersManager ShieldInformationBarriers { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IShieldInformationBarrierReportsManager ShieldInformationBarrierReports { get; }
+        public IShieldInformationBarrierReportsManager ShieldInformationBarrierReports { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IShieldInformationBarrierSegmentsManager ShieldInformationBarrierSegments { get; }
+        public IShieldInformationBarrierSegmentsManager ShieldInformationBarrierSegments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IShieldInformationBarrierSegmentMembersManager ShieldInformationBarrierSegmentMembers { get; }
+        public IShieldInformationBarrierSegmentMembersManager ShieldInformationBarrierSegmentMembers { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IShieldInformationBarrierSegmentRestrictionsManager ShieldInformationBarrierSegmentRestrictions { get; }
+        public IShieldInformationBarrierSegmentRestrictionsManager ShieldInformationBarrierSegmentRestrictions { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IDevicePinnersManager DevicePinners { get; }
+        public IDevicePinnersManager DevicePinners { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITermsOfServicesManager TermsOfServices { get; }
+        public ITermsOfServicesManager TermsOfServices { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ITermsOfServiceUserStatusesManager TermsOfServiceUserStatuses { get; }
+        public ITermsOfServiceUserStatusesManager TermsOfServiceUserStatuses { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ICollaborationAllowlistEntriesManager CollaborationAllowlistEntries { get; }
+        public ICollaborationAllowlistEntriesManager CollaborationAllowlistEntries { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ICollaborationAllowlistExemptTargetsManager CollaborationAllowlistExemptTargets { get; }
+        public ICollaborationAllowlistExemptTargetsManager CollaborationAllowlistExemptTargets { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IStoragePoliciesManager StoragePolicies { get; }
+        public IStoragePoliciesManager StoragePolicies { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IStoragePolicyAssignmentsManager StoragePolicyAssignments { get; }
+        public IStoragePolicyAssignmentsManager StoragePolicyAssignments { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IZipDownloadsManager ZipDownloads { get; }
+        public IZipDownloadsManager ZipDownloads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISignRequestsManager SignRequests { get; }
+        public ISignRequestsManager SignRequests { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IWorkflowsManager Workflows { get; }
+        public IWorkflowsManager Workflows { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public ISignTemplatesManager SignTemplates { get; }
+        public ISignTemplatesManager SignTemplates { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IIntegrationMappingsManager IntegrationMappings { get; }
+        public IIntegrationMappingsManager IntegrationMappings { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
-        public IAiManager Ai { get; }
+        public IAiManager Ai { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
     }
 }

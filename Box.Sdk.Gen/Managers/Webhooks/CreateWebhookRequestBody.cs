@@ -29,14 +29,7 @@ namespace Box.Sdk.Gen.Managers {
         [JsonConverter(typeof(StringEnumListConverter<CreateWebhookRequestBodyTriggersField>))]
         public IReadOnlyList<StringEnum<CreateWebhookRequestBodyTriggersField>> Triggers { get; }
 
-        public CreateWebhookRequestBody(CreateWebhookRequestBodyTargetField target, string address, IReadOnlyList<CreateWebhookRequestBodyTriggersField> triggers) {
-            Target = target;
-            Address = address;
-            Triggers = triggers.Select(x => new StringEnum<CreateWebhookRequestBodyTriggersField>(x)).ToList();
-        }
-        
-        [JsonConstructorAttribute]
-        internal CreateWebhookRequestBody(CreateWebhookRequestBodyTargetField target, string address, IReadOnlyList<StringEnum<CreateWebhookRequestBodyTriggersField>> triggers) {
+        public CreateWebhookRequestBody(CreateWebhookRequestBodyTargetField target, string address, IReadOnlyList<StringEnum<CreateWebhookRequestBodyTriggersField>> triggers) {
             Target = target;
             Address = address;
             Triggers = triggers;

@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestWebhooksCrud() {
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
-            Webhook webhook = await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField() { Id = folder.Id, Type = CreateWebhookRequestBodyTargetTypeField.Folder }, address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {CreateWebhookRequestBodyTriggersField.FileUploaded})));
+            Webhook webhook = await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField() { Id = folder.Id, Type = CreateWebhookRequestBodyTargetTypeField.Folder }, address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {new StringEnum<CreateWebhookRequestBodyTriggersField>(CreateWebhookRequestBodyTriggersField.FileUploaded)})));
             Assert.IsTrue(NullableUtils.Unwrap(webhook.Target).Id == folder.Id);
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(webhook.Target).Type) == "folder");
             Assert.IsTrue(NullableUtils.Unwrap(webhook.Triggers).Count == Array.AsReadOnly(new [] {"FILE.UPLOADED"}).Count);
