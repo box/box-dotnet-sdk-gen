@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Mapped item object for Slack
         /// </summary>
         [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemSlack PartnerItem { get; }
+        public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
 
         /// <summary>
         /// The Box folder, to which the object from the
@@ -65,14 +65,14 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }
 
-        public IntegrationMapping(IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem, IntegrationMappingTypeField type = IntegrationMappingTypeField.IntegrationMapping) {
+        public IntegrationMapping(IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, IntegrationMappingTypeField type = IntegrationMappingTypeField.IntegrationMapping) {
             Type = type;
             PartnerItem = partnerItem;
             BoxItem = boxItem;
         }
         
         [JsonConstructorAttribute]
-        internal IntegrationMapping(IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem, StringEnum<IntegrationMappingTypeField> type) {
+        internal IntegrationMapping(IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, StringEnum<IntegrationMappingTypeField> type) {
             Type = IntegrationMappingTypeField.IntegrationMapping;
             PartnerItem = partnerItem;
             BoxItem = boxItem;
