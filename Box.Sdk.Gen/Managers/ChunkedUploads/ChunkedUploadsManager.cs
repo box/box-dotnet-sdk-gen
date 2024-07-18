@@ -241,10 +241,6 @@ namespace Box.Sdk.Gen.Managers {
             if (!(NullableUtils.Unwrap(processedSessionParts.TotalCount) == totalParts)) {
                 throw new Exception(message: "Assertion failed");
             }
-            UploadSession processedSession = await this.GetFileUploadSessionByIdAsync(uploadSessionId: uploadSessionId, headers: new GetFileUploadSessionByIdHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
-            if (!(processedSession.NumPartsProcessed == totalParts)) {
-                throw new Exception(message: "Assertion failed");
-            }
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64").ConfigureAwait(false);
             string digest = string.Concat("sha=", sha1);
             Files committedSession = await this.CreateFileUploadSessionCommitAsync(uploadSessionId: uploadSessionId, requestBody: new CreateFileUploadSessionCommitRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitHeaders(digest: digest), cancellationToken: cancellationToken).ConfigureAwait(false);
