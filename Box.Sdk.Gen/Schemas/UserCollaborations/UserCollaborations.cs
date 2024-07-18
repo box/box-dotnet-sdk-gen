@@ -16,6 +16,12 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("login")]
         public string? Login { get; init; }
 
+        /// <summary>
+        /// If set to `false`, the user is either deactivated or deleted.
+        /// </summary>
+        [JsonPropertyName("is_active")]
+        public bool? IsActive { get; init; }
+
         public UserCollaborations(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             
         }
