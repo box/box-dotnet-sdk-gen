@@ -7,13 +7,41 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
     public interface ICollectionsManager {
-        public IAuthentication? Auth { get; init; }
+        /// <summary>
+    /// Retrieves all collections for a given user.
+    /// 
+    /// Currently, only the `favorites` collection
+    /// is supported.
+    /// </summary>
+    /// <param name="queryParams">
+    /// Query parameters of getCollections method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of getCollections method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<Collections> GetCollectionsAsync(GetCollectionsQueryParams? queryParams = default, GetCollectionsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
-        public NetworkSession NetworkSession { get; }
-
-        public System.Threading.Tasks.Task<Collections> GetCollectionsAsync(GetCollectionsQueryParams? queryParams = default, GetCollectionsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
-
-        public System.Threading.Tasks.Task<Items> GetCollectionItemsAsync(string collectionId, GetCollectionItemsQueryParams? queryParams = default, GetCollectionItemsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+        /// <summary>
+    /// Retrieves the files and/or folders contained within
+    /// this collection.
+    /// </summary>
+    /// <param name="collectionId">
+    /// The ID of the collection.
+    /// Example: "926489"
+    /// </param>
+    /// <param name="queryParams">
+    /// Query parameters of getCollectionItems method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of getCollectionItems method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<Items> GetCollectionItemsAsync(string collectionId, GetCollectionItemsQueryParams? queryParams = default, GetCollectionItemsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
