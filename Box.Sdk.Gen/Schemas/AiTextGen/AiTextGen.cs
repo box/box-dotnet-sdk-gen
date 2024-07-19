@@ -4,6 +4,7 @@ using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiTextGen {
@@ -28,6 +29,9 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("dialogue_history")]
         public IReadOnlyList<AiTextGenDialogueHistoryField>? DialogueHistory { get; init; }
+
+        [JsonPropertyName("ai_agent")]
+        public AiAgentTextGen? AiAgent { get; init; }
 
         public AiTextGen(string prompt, IReadOnlyList<AiTextGenItemsField> items) {
             Prompt = prompt;

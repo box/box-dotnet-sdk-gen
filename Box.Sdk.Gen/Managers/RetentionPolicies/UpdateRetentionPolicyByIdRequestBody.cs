@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Managers {
         /// which will lift the retention policy from the content,
         /// allowing it to be deleted by users,
         /// once the retention policy has expired.
-        /// You can use "null" if you don't want to change `disposition_action`.
+        /// You can use `null` if you don't want to change `disposition_action`.
         /// </summary>
         [JsonPropertyName("disposition_action")]
         public string? DispositionAction { get; init; }

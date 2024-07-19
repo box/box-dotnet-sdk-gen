@@ -34,5 +34,19 @@ namespace Box.Sdk.Gen.Managers {
     /// </param>
     public System.Threading.Tasks.Task<AiResponse> CreateAiTextGenAsync(AiTextGen requestBody, CreateAiTextGenHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
+        /// <summary>
+    /// Get the AI agent default config
+    /// </summary>
+    /// <param name="queryParams">
+    /// Query parameters of getAiAgentDefault method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of getAiAgentDefault method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<AiAgentAskResponseOrAiAgentTextGenResponse> GetAiAgentDefaultAsync(GetAiAgentDefaultQueryParams queryParams, GetAiAgentDefaultHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
     }
 }
