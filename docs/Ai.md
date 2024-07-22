@@ -71,19 +71,22 @@ A successful response including the answer from the LLM.
 
 Get the AI agent default config
 
-This operation is performed by calling function `GetAiAgentDefault`.
+This operation is performed by calling function `GetAiAgentDefaultConfig`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-ai-agent-default/).
 
-*Currently we don't have an example for calling `GetAiAgentDefault` in integration tests*
+<!-- sample get_ai_agent_default -->
+```
+await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.TextGen) { Language = "en-US" });
+```
 
 ### Arguments
 
-- queryParams `GetAiAgentDefaultQueryParams`
-  - Query parameters of getAiAgentDefault method
-- headers `GetAiAgentDefaultHeaders`
-  - Headers of getAiAgentDefault method
+- queryParams `GetAiAgentDefaultConfigQueryParams`
+  - Query parameters of getAiAgentDefaultConfig method
+- headers `GetAiAgentDefaultConfigHeaders`
+  - Headers of getAiAgentDefaultConfig method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

@@ -5,11 +5,11 @@ using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
-    public class GetAiAgentDefaultQueryParams {
+    public class GetAiAgentDefaultConfigQueryParams {
         /// <summary>
         /// The mode to filter the agent config to return.
         /// </summary>
-        public StringEnum<GetAiAgentDefaultQueryParamsModeField> Mode { get; }
+        public StringEnum<GetAiAgentDefaultConfigQueryParamsModeField> Mode { get; }
 
         /// <summary>
         /// The ISO language code to return the agent config for.
@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Managers {
         /// </summary>
         public string? Model { get; init; }
 
-        public GetAiAgentDefaultQueryParams(GetAiAgentDefaultQueryParamsModeField mode) {
+        public GetAiAgentDefaultConfigQueryParams(GetAiAgentDefaultConfigQueryParamsModeField mode) {
             Mode = mode;
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Tests.Integration {
@@ -41,6 +42,16 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(response.Answer.Contains("sun"));
             Assert.IsTrue(response.CompletionReason == "done");
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk.Id);
+        }
+
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestGettingAiAskAgentConfig() {
+            AiAgentAskOrAiAgentTextGen aiAskConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.Ask) { Language = "ja-JP" });
+        }
+
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestGettingAiTextGenAgentConfig() {
+            AiAgentAskOrAiAgentTextGen aiTextGenConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.TextGen) { Language = "en-US" });
         }
 
     }

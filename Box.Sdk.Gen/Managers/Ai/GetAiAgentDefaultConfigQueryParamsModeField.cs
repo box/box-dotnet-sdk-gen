@@ -3,7 +3,7 @@ using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
-    public enum GetAiAgentDefaultQueryParamsModeField {
+    public enum GetAiAgentDefaultConfigQueryParamsModeField {
         [Description("ask")]
         Ask,
         [Description("text_gen")]
