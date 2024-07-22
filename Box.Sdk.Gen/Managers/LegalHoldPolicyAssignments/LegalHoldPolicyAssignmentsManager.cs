@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public LegalHoldPolicyAssignmentsManager(NetworkSession networkSession = default) {
+        public LegalHoldPolicyAssignmentsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

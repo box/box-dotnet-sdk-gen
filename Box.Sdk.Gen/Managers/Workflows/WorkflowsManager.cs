@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public WorkflowsManager(NetworkSession networkSession = default) {
+        public WorkflowsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

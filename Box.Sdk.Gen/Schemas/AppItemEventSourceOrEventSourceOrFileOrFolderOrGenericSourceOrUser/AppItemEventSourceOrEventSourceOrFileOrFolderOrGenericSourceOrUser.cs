@@ -72,7 +72,9 @@ namespace Box.Sdk.Gen.Schemas {
                 }
                 try {
                     var result = JsonSerializer.Deserialize<Dictionary<string, object>>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return result;
+                    if (result != null) {
+                        return result;
+                    }
                 } catch {
                     
                 }

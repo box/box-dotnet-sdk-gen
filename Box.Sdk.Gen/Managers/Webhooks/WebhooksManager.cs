@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public WebhooksManager(NetworkSession networkSession = default) {
+        public WebhooksManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

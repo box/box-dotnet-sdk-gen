@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen {
         /// </summary>
         internal ITokenStorage TokenStorage { get; }
 
-        public BoxDeveloperTokenAuth(string token, DeveloperTokenConfig config = default) {
+        public BoxDeveloperTokenAuth(string token, DeveloperTokenConfig? config = default) {
             Token = token;
             Config = config ?? new DeveloperTokenConfig();
             TokenStorage = new InMemoryTokenStorage(token: new AccessToken() { AccessTokenField = this.Token });

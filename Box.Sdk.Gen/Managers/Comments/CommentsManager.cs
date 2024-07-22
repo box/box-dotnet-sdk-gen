@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public CommentsManager(NetworkSession networkSession = default) {
+        public CommentsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

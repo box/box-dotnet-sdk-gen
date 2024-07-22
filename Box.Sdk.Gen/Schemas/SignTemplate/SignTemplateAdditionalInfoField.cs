@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("non_editable")]
         [JsonConverter(typeof(StringEnumListConverter<SignTemplateAdditionalInfoNonEditableField>))]
-        public IReadOnlyList<StringEnum<SignTemplateAdditionalInfoNonEditableField>> NonEditable { get; init; }
+        public IReadOnlyList<StringEnum<SignTemplateAdditionalInfoNonEditableField>>? NonEditable { get; init; }
 
         /// <summary>
         /// Required fields.

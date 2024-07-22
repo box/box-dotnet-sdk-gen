@@ -1,4 +1,3 @@
-using Box.Sdk.Gen;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -246,7 +245,7 @@ namespace Box.Sdk.Gen.Internal
                 var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Data);
                 httpContent = new FormUrlEncodedContent(deserialized);
             }
-            else if (options.ContentType == ContentTypes.OctetStream)
+            else if (options.ContentType == ContentTypes.OctetStream && options.FileStream != null)
             {
                 httpContent = new StreamContent(options.FileStream);
             }

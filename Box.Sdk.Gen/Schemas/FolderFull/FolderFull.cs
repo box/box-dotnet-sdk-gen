@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("allowed_shared_link_access_levels")]
         [JsonConverter(typeof(StringEnumListConverter<FolderFullAllowedSharedLinkAccessLevelsField>))]
-        public IReadOnlyList<StringEnum<FolderFullAllowedSharedLinkAccessLevelsField>> AllowedSharedLinkAccessLevels { get; init; }
+        public IReadOnlyList<StringEnum<FolderFullAllowedSharedLinkAccessLevelsField>>? AllowedSharedLinkAccessLevels { get; init; }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
@@ -59,7 +59,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
         [JsonConverter(typeof(StringEnumListConverter<FolderFullAllowedInviteeRolesField>))]
-        public IReadOnlyList<StringEnum<FolderFullAllowedInviteeRolesField>> AllowedInviteeRoles { get; init; }
+        public IReadOnlyList<StringEnum<FolderFullAllowedInviteeRolesField>>? AllowedInviteeRoles { get; init; }
 
         [JsonPropertyName("watermark_info")]
         public FolderFullWatermarkInfoField? WatermarkInfo { get; init; }

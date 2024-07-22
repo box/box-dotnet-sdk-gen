@@ -41,11 +41,11 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public string? UserId { get; init; }
 
-        internal StringEnum<JwtAlgorithm>? Algorithm { get; init; } = JwtAlgorithm.Rs256;
+        internal StringEnum<JwtAlgorithm>? Algorithm { get; }
 
         public ITokenStorage TokenStorage { get; }
 
-        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage tokenStorage = default) {
+        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage? tokenStorage = default) {
             ClientId = clientId;
             ClientSecret = clientSecret;
             JwtKeyId = jwtKeyId;

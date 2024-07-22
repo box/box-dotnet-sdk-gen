@@ -53,7 +53,10 @@ namespace Box.Sdk.Gen.Schemas {
             if (_additionalProperties != null) {
                 ExtraData = new Dictionary<string, object>();
                 foreach (var kvp in _additionalProperties) {
-                    ExtraData.Add(kvp.Key, SimpleJsonSerializer.ConvertJsonElement(kvp.Value));
+                    var value = SimpleJsonSerializer.ConvertJsonElement(kvp.Value);
+                    if (value != null) {
+                        ExtraData.Add(kvp.Key, value);
+                    }
                 }
                 _additionalProperties.Clear();
             }

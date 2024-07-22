@@ -173,7 +173,7 @@ namespace Box.Sdk.Gen.Managers {
         /// * `tags` - Any tags that are applied to an item, as defined by its
         ///    `tags` field.
         /// </summary>
-        public IReadOnlyList<StringEnum<SearchForContentQueryParamsContentTypesField>> ContentTypes { get; init; }
+        public IReadOnlyList<StringEnum<SearchForContentQueryParamsContentTypesField>>? ContentTypes { get; init; }
 
         /// <summary>
         /// Limits the search results to any items of this type. This

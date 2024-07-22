@@ -147,7 +147,7 @@ namespace Box.Sdk.Gen {
 
         public IAiManager Ai { get; }
 
-        public BoxClient(IAuthentication auth, NetworkSession networkSession = default) {
+        public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
             Auth = auth;
             NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
             Authorization = new AuthorizationManager(networkSession: this.NetworkSession) { Auth = this.Auth };

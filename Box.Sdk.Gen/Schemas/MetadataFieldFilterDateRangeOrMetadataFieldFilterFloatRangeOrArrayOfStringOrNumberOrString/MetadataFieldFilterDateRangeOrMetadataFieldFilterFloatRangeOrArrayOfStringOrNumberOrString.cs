@@ -42,19 +42,25 @@ namespace Box.Sdk.Gen.Schemas {
                 using var document = JsonDocument.ParseValue(ref reader);
                 try {
                     var result = JsonSerializer.Deserialize<MetadataFieldFilterDateRange>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return result;
+                    if (result != null) {
+                        return result;
+                    }
                 } catch {
                     
                 }
                 try {
                     var result = JsonSerializer.Deserialize<MetadataFieldFilterFloatRange>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return result;
+                    if (result != null) {
+                        return result;
+                    }
                 } catch {
                     
                 }
                 try {
                     var result = JsonSerializer.Deserialize<IReadOnlyList<string>>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(result);
+                    if (result != null) {
+                        return new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(result);
+                    }
                 } catch {
                     
                 }
@@ -66,7 +72,9 @@ namespace Box.Sdk.Gen.Schemas {
                 }
                 try {
                     var result = JsonSerializer.Deserialize<string>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return result;
+                    if (result != null) {
+                        return result;
+                    }
                 } catch {
                     
                 }

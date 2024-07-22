@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public ListCollaborationsManager(NetworkSession networkSession = default) {
+        public ListCollaborationsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

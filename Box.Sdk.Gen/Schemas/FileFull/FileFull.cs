@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("allowed_invitee_roles")]
         [JsonConverter(typeof(StringEnumListConverter<FileFullAllowedInviteeRolesField>))]
-        public IReadOnlyList<StringEnum<FileFullAllowedInviteeRolesField>> AllowedInviteeRoles { get; init; }
+        public IReadOnlyList<StringEnum<FileFullAllowedInviteeRolesField>>? AllowedInviteeRoles { get; init; }
 
         /// <summary>
         /// Specifies if this file is owned by a user outside of the
@@ -110,7 +110,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("shared_link_permission_options")]
         [JsonConverter(typeof(StringEnumListConverter<FileFullSharedLinkPermissionOptionsField>))]
-        public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>> SharedLinkPermissionOptions { get; init; }
+        public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? SharedLinkPermissionOptions { get; init; }
 
         public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             

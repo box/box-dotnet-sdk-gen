@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("signers")]
         [JsonConverter(typeof(StringEnumNestedListConverter<SignTemplateAdditionalInfoRequiredSignersField>))]
-        public IReadOnlyList<IReadOnlyList<StringEnum<SignTemplateAdditionalInfoRequiredSignersField>>> Signers { get; init; }
+        public IReadOnlyList<IReadOnlyList<StringEnum<SignTemplateAdditionalInfoRequiredSignersField>>>? Signers { get; init; }
 
         public SignTemplateAdditionalInfoRequiredField() {
             

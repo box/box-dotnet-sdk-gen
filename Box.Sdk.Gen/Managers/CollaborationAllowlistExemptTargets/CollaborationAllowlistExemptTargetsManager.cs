@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public CollaborationAllowlistExemptTargetsManager(NetworkSession networkSession = default) {
+        public CollaborationAllowlistExemptTargetsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

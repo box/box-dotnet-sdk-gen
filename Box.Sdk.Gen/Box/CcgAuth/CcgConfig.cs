@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public ITokenStorage TokenStorage { get; }
 
-        public CcgConfig(string clientId, string clientSecret, ITokenStorage tokenStorage = default) {
+        public CcgConfig(string clientId, string clientSecret, ITokenStorage? tokenStorage = default) {
             ClientId = clientId;
             ClientSecret = clientSecret;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();

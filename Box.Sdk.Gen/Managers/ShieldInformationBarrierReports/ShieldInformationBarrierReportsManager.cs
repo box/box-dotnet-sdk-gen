@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public ShieldInformationBarrierReportsManager(NetworkSession networkSession = default) {
+        public ShieldInformationBarrierReportsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

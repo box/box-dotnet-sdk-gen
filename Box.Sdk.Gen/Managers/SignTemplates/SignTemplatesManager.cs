@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public SignTemplatesManager(NetworkSession networkSession = default) {
+        public SignTemplatesManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

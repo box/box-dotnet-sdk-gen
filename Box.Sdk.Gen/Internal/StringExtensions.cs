@@ -1,22 +1,24 @@
-using Box.Sdk.Gen;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Reflection;
 using System.Text.Json;
 
-namespace Box.Sdk.Gen.Internal 
+namespace Box.Sdk.Gen.Internal
 {
     public static class StringUtils
     {
         public static string? ToStringRepresentation<T>(T? obj)
         {
-            Type objType = obj?.GetType();
+            if (obj == null)
+            {
+                return null;
+            }
+            Type objType = obj.GetType();
             var isList = (obj is IList || obj is IEnumerable) && objType.IsGenericType;
             if (obj != null && isList)
             {
-                var listOfStrings = new List<string>();
+                var listOfStrings = new List<string?>();
                 var asList = (IList)obj;
                 foreach (var value in asList)
                 {
@@ -30,7 +32,17 @@ namespace Box.Sdk.Gen.Internal
             }
             else if (obj is Enum)
             {
-                FieldInfo fieldInfo = obj.GetType().GetField(obj.ToString());
+                var objectAsString = obj.ToString();
+                if (objectAsString == null)
+                {
+                    return null;
+                }
+                var fieldInfo = objType.GetField(objectAsString);
+
+                if (fieldInfo == null)
+                {
+                    return null;
+                }
 
                 DescriptionAttribute[] attributes =
                     (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -40,7 +52,16 @@ namespace Box.Sdk.Gen.Internal
             else if (objType != null && objType.IsGenericType && objType.GetGenericTypeDefinition() == typeof(StringEnum<>))
             {
                 var field = objType.GetProperty("StringValue");
-                return (string)field.GetValue(obj);
+                if (field == null)
+                {
+                    return null;
+                }
+                var propertyValue = field.GetValue(obj);
+                if (propertyValue == null)
+                {
+                    return null;
+                }
+                return (string)propertyValue;
             }
             else if (isNotPrimitive(obj))
             {
@@ -52,7 +73,7 @@ namespace Box.Sdk.Gen.Internal
             }
         }
 
-        private static bool isNotPrimitive(object obj) => obj != null && !obj.GetType().IsPrimitive && obj.GetType() != typeof(string);
+        private static bool isNotPrimitive(object? obj) => obj != null && !obj.GetType().IsPrimitive && obj.GetType() != typeof(string);
 
         private static bool anyNonPrimitives(IList list)
         {
