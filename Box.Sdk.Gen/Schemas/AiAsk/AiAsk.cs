@@ -4,6 +4,7 @@ using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiAsk {
@@ -29,6 +30,9 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("items")]
         public IReadOnlyList<AiAskItemsField> Items { get; }
+
+        [JsonPropertyName("ai_agent")]
+        public AiAgentAsk? AiAgent { get; init; }
 
         public AiAsk(AiAskModeField mode, string prompt, IReadOnlyList<AiAskItemsField> items) {
             Mode = mode;
