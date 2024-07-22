@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Managers {
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<AiAgentAskResponseOrAiAgentTextGenResponse> GetAiAgentDefaultAsync(GetAiAgentDefaultQueryParams queryParams, GetAiAgentDefaultHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<AiAgentAskOrAiAgentTextGen> GetAiAgentDefaultAsync(GetAiAgentDefaultQueryParams queryParams, GetAiAgentDefaultHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }

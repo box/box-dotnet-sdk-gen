@@ -90,7 +90,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `AiAgentAskResponseOrAiAgentTextGenResponse`.
+This function returns a value of type `AiAgentAskOrAiAgentTextGen`.
 
 A successful response including the default agent configuration.
 This response can be one of the following two objects:

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// The type of the source that this event represents. Can be only `app_item`.
+        /// The type of the source that this event represents. Can only be `app_item`.
         /// 
         /// </summary>
         [JsonPropertyName("type")]

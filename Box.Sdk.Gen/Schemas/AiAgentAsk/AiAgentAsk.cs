@@ -7,11 +7,10 @@ namespace Box.Sdk.Gen.Schemas {
     public class AiAgentAsk {
         /// <summary>
         /// The type of AI agent used to handle queries.
-        /// This parameter is **required**.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AiAgentAskTypeField>))]
-        public StringEnum<AiAgentAskTypeField> Type { get; }
+        public StringEnum<AiAgentAskTypeField>? Type { get; init; }
 
         [JsonPropertyName("long_text")]
         public AiAgentLongTextTool? LongText { get; init; }
@@ -25,13 +24,8 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("basic_text_multi")]
         public AiAgentBasicTextToolAsk? BasicTextMulti { get; init; }
 
-        public AiAgentAsk(AiAgentAskTypeField type = AiAgentAskTypeField.AiAgentAsk) {
-            Type = type;
-        }
-        
-        [JsonConstructorAttribute]
-        internal AiAgentAsk(StringEnum<AiAgentAskTypeField> type) {
-            Type = AiAgentAskTypeField.AiAgentAsk;
+        public AiAgentAsk() {
+            
         }
     }
 }
