@@ -55,8 +55,10 @@ namespace Box.Sdk.Gen.Internal
                 var response = await ExecuteRequest(client, request, cancellationToken).ConfigureAwait(false);
 
                 var statusCode = (int)response.StatusCode;
+                var isRetryAfterPresent = response.Headers.Contains("retry-after");
+                var isRetryAfterWithAcceptedPresent = isRetryAfterPresent && statusCode == 202;
 
-                if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode && !isRetryAfterWithAcceptedPresent)
                 {
                     return isStreamResponse ?
                         new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
@@ -75,9 +77,9 @@ namespace Box.Sdk.Gen.Internal
                         await options.Auth.RefreshTokenAsync(networkSession).ConfigureAwait(false);
                     }
                 }
-                else if (statusCode == 429 || statusCode >= 500)
+                else if (statusCode == 429 || statusCode >= 500 || isRetryAfterWithAcceptedPresent)
                 {
-                    var retryTimeout = response.Headers.Contains("retry-after") ?
+                    var retryTimeout = isRetryAfterPresent ?
                       int.Parse(response.Headers.GetValues("retry-after").First()) :
                       networkSession.RetryStrategy.GetRetryTimeout(attempt);
 
