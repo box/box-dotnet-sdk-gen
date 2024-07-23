@@ -19,7 +19,12 @@ namespace Box.Sdk.Gen.Internal
         {
             if (IsJson)
             {
-                return Data as string;
+                var dataAsString = Data as string;
+                if (dataAsString == null)
+                {
+                    throw new BoxSdkException("Json cannot be converted to string");
+                }
+                return dataAsString;
             }
             else
             {

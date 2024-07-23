@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public DevicePinnersManager(NetworkSession networkSession = default) {
+        public DevicePinnersManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

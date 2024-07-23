@@ -24,7 +24,10 @@ namespace Box.Sdk.Gen.Schemas {
             if (_additionalProperties != null) {
                 ExtraData = new Dictionary<string, Dictionary<string, Metadata>>();
                 foreach (var kvp in _additionalProperties) {
-                    ExtraData.Add(kvp.Key, JsonSerializer.Deserialize<Dictionary<string, Metadata>>(kvp.Value));
+                    var value = JsonSerializer.Deserialize<Dictionary<string, Metadata>>(kvp.Value);
+                    if (value != null) {
+                        ExtraData.Add(kvp.Key, value);
+                    }
                 }
                 _additionalProperties.Clear();
             }

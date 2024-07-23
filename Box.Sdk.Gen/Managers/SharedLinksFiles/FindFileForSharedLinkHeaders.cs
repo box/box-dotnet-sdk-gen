@@ -31,9 +31,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; init; }
+        public Dictionary<string, string?> ExtraHeaders { get; }
 
-        public FindFileForSharedLinkHeaders(string boxapi, Dictionary<string, string?> extraHeaders = default) {
+        public FindFileForSharedLinkHeaders(string boxapi, Dictionary<string, string?>? extraHeaders = default) {
             Boxapi = boxapi;
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };
         }

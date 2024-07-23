@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen {
 
         public ITokenStorage TokenStorage { get; }
 
-        public OAuthConfig(string clientId, string clientSecret, ITokenStorage tokenStorage = default) {
+        public OAuthConfig(string clientId, string clientSecret, ITokenStorage? tokenStorage = default) {
             ClientId = clientId;
             ClientSecret = clientSecret;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();

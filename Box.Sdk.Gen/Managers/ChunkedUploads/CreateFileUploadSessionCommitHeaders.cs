@@ -43,9 +43,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; init; }
+        public Dictionary<string, string?> ExtraHeaders { get; }
 
-        public CreateFileUploadSessionCommitHeaders(string digest, Dictionary<string, string?> extraHeaders = default) {
+        public CreateFileUploadSessionCommitHeaders(string digest, Dictionary<string, string?>? extraHeaders = default) {
             Digest = digest;
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };
         }

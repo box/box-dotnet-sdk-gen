@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("triggers")]
         [JsonConverter(typeof(StringEnumListConverter<WebhookTriggersField>))]
-        public IReadOnlyList<StringEnum<WebhookTriggersField>> Triggers { get; init; }
+        public IReadOnlyList<StringEnum<WebhookTriggersField>>? Triggers { get; init; }
 
         public Webhook() {
             

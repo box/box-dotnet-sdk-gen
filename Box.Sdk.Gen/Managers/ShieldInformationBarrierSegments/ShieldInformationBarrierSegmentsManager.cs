@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public ShieldInformationBarrierSegmentsManager(NetworkSession networkSession = default) {
+        public ShieldInformationBarrierSegmentsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

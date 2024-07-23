@@ -1,10 +1,9 @@
-using Box.Sdk.Gen;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
 
 namespace Box.Sdk.Gen.Internal
 {
@@ -26,9 +25,21 @@ namespace Box.Sdk.Gen.Internal
         public static SerializedData Serialize(object obj) => new SerializedData(obj);
 
 
-        public static T Deserialize<T>(SerializedData obj)
+        public static T Deserialize<T>(SerializedData? obj)
         {
-            return JsonSerializer.Deserialize<T>(obj.AsJson(), _options);
+            if (obj == null)
+            {
+                throw new BoxSdkException("Object to be deserialized cannot be null");
+            }
+
+            var deserializedObject = JsonSerializer.Deserialize<T>(obj.AsJson(), _options);
+
+            if (deserializedObject == null)
+            {
+                throw new BoxSdkException("Deserialized object cannot be null");
+            }
+
+            return deserializedObject;
         }
 
         public static string SdToJson(SerializedData obj) => JsonSerializer.Serialize(obj.Data, _options);
@@ -91,7 +102,7 @@ namespace Box.Sdk.Gen.Internal
 
                 if (attribute?.Description.Equals(stringValue, StringComparison.OrdinalIgnoreCase) == true)
                 {
-                    return new StringEnum<T>((T)field.GetValue(null));
+                    return new StringEnum<T>((T?)field.GetValue(null));
                 }
             }
 
@@ -129,7 +140,10 @@ namespace Box.Sdk.Gen.Internal
                 if (reader.TokenType == JsonTokenType.String)
                 {
                     var element = _singleConverter.Read(ref reader, typeof(StringEnum<T>), options);
-                    list.Add(element);
+                    if (element != null)
+                    {
+                        list.Add(element);
+                    }
                 }
             }
 
@@ -173,7 +187,10 @@ namespace Box.Sdk.Gen.Internal
                 if (reader.TokenType == JsonTokenType.StartArray)
                 {
                     var innerList = _innerListConverter.Read(ref reader, typeof(IReadOnlyList<StringEnum<T>>), options);
-                    nestedList.Add(innerList);
+                    if (innerList != null)
+                    {
+                        nestedList.Add(innerList);
+                    }
                 }
             }
 

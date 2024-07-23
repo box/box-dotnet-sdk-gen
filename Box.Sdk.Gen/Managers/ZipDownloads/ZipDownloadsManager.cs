@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public ZipDownloadsManager(NetworkSession networkSession = default) {
+        public ZipDownloadsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>
@@ -124,8 +124,8 @@ namespace Box.Sdk.Gen.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<System.IO.Stream> DownloadZipAsync(ZipDownloadRequest requestBody, DownloadZipHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new DownloadZipHeaders();
-            ZipDownload zipDownloadSession = await this.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: requestBody.Items) { DownloadFileName = requestBody.DownloadFileName }, headers: new CreateZipDownloadHeaders() { ExtraHeaders = headers.ExtraHeaders }, cancellationToken: cancellationToken).ConfigureAwait(false);
-            return await this.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownloadSession.DownloadUrl), headers: new GetZipDownloadContentHeaders() { ExtraHeaders = headers.ExtraHeaders }, cancellationToken: cancellationToken).ConfigureAwait(false);
+            ZipDownload zipDownloadSession = await this.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: requestBody.Items) { DownloadFileName = requestBody.DownloadFileName }, headers: new CreateZipDownloadHeaders(extraHeaders: headers.ExtraHeaders), cancellationToken: cancellationToken).ConfigureAwait(false);
+            return await this.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownloadSession.DownloadUrl), headers: new GetZipDownloadContentHeaders(extraHeaders: headers.ExtraHeaders), cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
     }

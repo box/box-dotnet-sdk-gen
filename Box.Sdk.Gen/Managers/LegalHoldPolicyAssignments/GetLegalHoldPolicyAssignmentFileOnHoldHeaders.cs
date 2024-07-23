@@ -11,9 +11,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Extra headers that will be included in the HTTP request.
         /// </summary>
-        public Dictionary<string, string?> ExtraHeaders { get; init; }
+        public Dictionary<string, string?> ExtraHeaders { get; }
 
-        public GetLegalHoldPolicyAssignmentFileOnHoldHeaders(Dictionary<string, string?> extraHeaders = default) {
+        public GetLegalHoldPolicyAssignmentFileOnHoldHeaders(Dictionary<string, string?>? extraHeaders = default) {
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };
         }
     }

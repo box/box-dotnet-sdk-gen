@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Internal
         /// <returns>Jwt assertion</returns>
         internal static string CreateJwtAssertion(Dictionary<string, object> claims, JwtKey key, JwtSignOptions options)
         {
-            var jwtClaims = claims.Select(x => new Claim(x.Key, x.Value?.ToString())).ToList();
+            var jwtClaims = claims.Select(x => new Claim(x.Key, x.Value.ToString()!)).ToList();
 
             var randomNumber = new byte[64];
             using (var rng = RandomNumberGenerator.Create())
@@ -40,7 +40,13 @@ namespace Box.Sdk.Gen.Internal
             jwtClaims.Add(new Claim("jti", Convert.ToBase64String(randomNumber)));
             jwtClaims.Add(new Claim("sub", options.Subject));
 
-            var expTime = long.Parse(claims["exp"].ToString());
+            var expClaim = claims["exp"].ToString();
+            if (string.IsNullOrEmpty(expClaim))
+            {
+                throw new BoxSdkException("Exp claim cannot be empty");
+            }
+
+            var expTime = long.Parse(expClaim);
 
             var jwtPayload = new JwtPayload(options.Issuer, options.Audience,
                 jwtClaims, null, DateTimeOffset.FromUnixTimeSeconds(expTime).LocalDateTime);

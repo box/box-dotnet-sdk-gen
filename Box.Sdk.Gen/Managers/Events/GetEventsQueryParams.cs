@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `adming_logs_streaming`. For any other `stream_type` this value will be
         /// ignored.
         /// </summary>
-        public IReadOnlyList<StringEnum<GetEventsQueryParamsEventTypeField>> EventType { get; init; }
+        public IReadOnlyList<StringEnum<GetEventsQueryParamsEventTypeField>>? EventType { get; init; }
 
         /// <summary>
         /// The lower bound date and time to return events for. This can only be used

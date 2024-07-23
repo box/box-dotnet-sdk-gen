@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
 
         public NetworkSession NetworkSession { get; }
 
-        public ChunkedUploadsManager(NetworkSession networkSession = default) {
+        public ChunkedUploadsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
         /// <summary>

@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Managers {
         /// </summary>
         [JsonPropertyName("triggers")]
         [JsonConverter(typeof(StringEnumListConverter<UpdateWebhookByIdRequestBodyTriggersField>))]
-        public IReadOnlyList<StringEnum<UpdateWebhookByIdRequestBodyTriggersField>> Triggers { get; init; }
+        public IReadOnlyList<StringEnum<UpdateWebhookByIdRequestBodyTriggersField>>? Triggers { get; init; }
 
         public UpdateWebhookByIdRequestBody() {
             

@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Internal
 
     class Hash
     {
-        internal HashAlgorithm HashAlgorithm { get; }
+        internal HashAlgorithm? HashAlgorithm { get; }
         internal HashName Algorithm { get; }
         internal byte[]? Data { get; private set; }
 

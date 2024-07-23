@@ -24,7 +24,9 @@ namespace Box.Sdk.Gen.Schemas {
                 using var document = JsonDocument.ParseValue(ref reader);
                 try {
                     var result = JsonSerializer.Deserialize<string>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
-                    return result;
+                    if (result != null) {
+                        return result;
+                    }
                 } catch {
                     
                 }
