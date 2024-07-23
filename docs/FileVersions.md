@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_versions_id -->
 ```
-await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersionsRestored.Entries)[0].Id);
+await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersion.Id);
 ```
 
 ### Arguments

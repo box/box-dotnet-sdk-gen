@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
-        public async System.Threading.Tasks.Task TestCreateListGetRestoreDeleteFileVersion() {
+        public async System.Threading.Tasks.Task TestCreateListGetPromoteFileVersion() {
             string oldName = Utils.GetUUID();
             string newName = Utils.GetUUID();
             Files files = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: oldName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 10)));
@@ -29,12 +29,10 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FileVersionFull fileVersion = await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
             Assert.IsTrue(fileVersion.Id == NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
             await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody() { Id = NullableUtils.Unwrap(fileVersions.Entries)[0].Id, Type = PromoteFileVersionRequestBodyTypeField.FileVersion });
-            FileFull fileRestored = await client.Files.GetFileByIdAsync(fileId: file.Id);
-            Assert.IsTrue(fileRestored.Name == oldName);
-            Assert.IsTrue(fileRestored.Size == 10);
-            FileVersions fileVersionsRestored = await client.FileVersions.GetFileVersionsAsync(fileId: file.Id);
-            await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersionsRestored.Entries)[0].Id);
-            await client.FileVersions.GetFileVersionsAsync(fileId: file.Id);
+            FileFull fileWithPromotedVersion = await client.Files.GetFileByIdAsync(fileId: file.Id);
+            Assert.IsTrue(fileWithPromotedVersion.Name == oldName);
+            Assert.IsTrue(fileWithPromotedVersion.Size == 10);
+            await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersion.Id);
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
