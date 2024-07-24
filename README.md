@@ -4,7 +4,14 @@
 
 # Box Dotnet SDK GENERATED
 
-We are excited to introduce the latest generation (currently in Beta) of Box Dotnet SDK Gen, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+![build](https://github.com/box/box-dotnet-sdk-gen/actions/workflows/build.yml/badge.svg)
+[![nuget version](https://img.shields.io/nuget/v/box.sdk.gen.svg)](https://badge.fury.io/nu/box.sdk.gen)
+[![image](https://img.shields.io/nuget/dt/box.sdk.gen.svg)](https://badge.fury.io/nu/box.sdk.gen)
+![Platform](https://img.shields.io/badge/.NET-6%2B-brightgreen)
+[![Coverage](https://coveralls.io/repos/github/box/box-dotnet-sdk-gen/badge.svg?branch=main)](https://coveralls.io/github/box/box-dotnet-sdk-gen?branch=main)
+
+We are excited to introduce the stable release of the latest generation of Box Dotnet SDK Gen, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
 
 With this SDK, you’ll have access to:
 
@@ -23,6 +30,8 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 
 - [Installing](#installing)
 - [Getting Started](#getting-started)
+- [Documentation](#documentation)
+- [Upgrades](#upgrades)
 - [Integration Tests](#integration-tests)
   - [Running integration tests locally](#running-integration-tests-locally)
     - [Create Custom Application](#create-custom-application)
@@ -71,17 +80,17 @@ if (items.Entries != null)
 {
     foreach (var item in items.Entries)
     {
-        if (item.FileMini != null)
+        if (item.FileFull != null)
         {
-            Console.WriteLine(item.FileMini.Name);
+            Console.WriteLine(item.FileFull.Name);
         }
         else if (item.FolderMini != null)
         {
             Console.WriteLine(item.FolderMini.Name);
         }
-        else if (item.WebLinkMini != null)
+        else if (item.WebLink != null)
         {
-            Console.WriteLine(item.WebLinkMini.Name);
+            Console.WriteLine(item.WebLink.Name);
         }
     }
 }
@@ -90,6 +99,14 @@ if (items.Entries != null)
 The usage docs that show how to make calls to the Box API with the SDK can be found [here](https://github.com/box/box-Dotnet-sdk-gen/tree/main/docs).
 
 We recommend, familiarizing yourself with the remaining [authentication methods](https://github.com/box/box-Dotnet-sdk-gen/tree/main/docs/Authentication.md), [uploading files](https://github.com/box/box-Dotnet-sdk-gen/tree/main/docs/Uploads.md) and [downloading files](https://github.com/box/box-Dotnet-sdk-gen/tree/main/docs/Downloads.md).
+
+# Documentation
+
+Browse the [docs](docs/README.md) or see [API Reference](https://developer.box.com/reference/) for more information.
+
+# Upgrades
+
+Upgrading from our legacy SDKs to the new generation SDKs is a straightforward process. See our [migration guide](migration-guide.md) and [changelog](CHANGELOG.md) for more information.
 
 # Integration Tests
 
