@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/box/box-codegen/compare/v0.4.0...v1.0.0) (2024-07-24)
+
+
+### Bug Fixes
+
+* Extract `IntegrationMappingPartnerItemSlack` to `IntegrationMappingPartnerItemSlackUnion` (box/box-codegen[#530](https://github.com/box/box-codegen/issues/530)) ([#183](https://github.com/box/box-codegen/issues/183)) ([3b1b634](https://github.com/box/box-codegen/commit/3b1b634904edc73af094aa8aa6e89d32b9e92aee))
+* Improve chunked upload reliability (box/box-codegen[#529](https://github.com/box/box-codegen/issues/529)) ([#182](https://github.com/box/box-codegen/issues/182)) ([e2a045f](https://github.com/box/box-codegen/commit/e2a045f5d2afbe15be0284099ee2236f9c19cd73))
+* remove `init` from some of the required fields, `nullability` fixes (box/box-codegen[#532](https://github.com/box/box-codegen/issues/532)) ([#190](https://github.com/box/box-codegen/issues/190)) ([c58f8af](https://github.com/box/box-codegen/commit/c58f8afa41fa4346eb3f2ced9e48695980e917e1))
+* retry requests with status code of 202 and `retry-after` header (box/box-codegen[#533](https://github.com/box/box-codegen/issues/533)) ([#191](https://github.com/box/box-codegen/issues/191)) ([abaafd7](https://github.com/box/box-codegen/commit/abaafd70b982ae560430ff083b4bee1d533d5275))
+* Update chunked upload (box/box-codegen[#523](https://github.com/box/box-codegen/issues/523)) ([#177](https://github.com/box/box-codegen/issues/177)) ([9bcaf51](https://github.com/box/box-codegen/commit/9bcaf51e0bcd3134dea2b37277a24abaa483754a))
+
+
+### New Features and Enhancements
+
+* Add `is_active` parameter to user collaboration (box/box-openapi[#437](https://github.com/box/box-codegen/issues/437)) ([#181](https://github.com/box/box-codegen/issues/181)) ([ec5f2d1](https://github.com/box/box-codegen/commit/ec5f2d1d2cdba330f26a7db40042b70d3ec5bca2))
+* simplify `namespaces` (box/box-codegen[#518](https://github.com/box/box-codegen/issues/518)) ([#175](https://github.com/box/box-codegen/issues/175)) ([7831b09](https://github.com/box/box-codegen/commit/7831b098971616497cbc90a8c277fee9b2c42c39))
+* Support AI Agent API (box/box-codegen[#531](https://github.com/box/box-codegen/issues/531)) ([#188](https://github.com/box/box-codegen/issues/188)) ([0c29645](https://github.com/box/box-codegen/commit/0c296458ef966e57c5aba2a8068034d4de820ef9))
+* Support default interface properties, bump dependencies (box/box-codegen[#527](https://github.com/box/box-codegen/issues/527)) ([#184](https://github.com/box/box-codegen/issues/184)) ([6b52792](https://github.com/box/box-codegen/commit/6b52792057ab94f6bcc2f86b47e0ed5f25900adf))
+
 ## [0.4.0](https://github.com/box/box-codegen/compare/v0.3.1...v0.4.0) (2024-07-03)
 
 
