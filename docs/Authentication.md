@@ -5,6 +5,9 @@
 
 - [Authentication methods](#authentication-methods)
   - [Developer Token](#developer-token)
+  - [JWT Auth](#jwt-auth)
+    - [Authenticate Enterprise](#authenticate-enterprise)
+    - [Authenticate User](#authenticate-user)
   - [Client Credentials Grant](#client-credentials-grant)
     - [Obtaining Service Account token](#obtaining-service-account-token)
     - [Obtaining User token](#obtaining-user-token)
@@ -44,6 +47,89 @@ Console.WriteLine($"My user ID is {me.Id}");
 ```
 
 [dev_console]: https://app.box.com/developers/console
+
+## JWT Auth
+
+Before using JWT Auth make sure you set up correctly your Box App.
+The guide with all required steps can be found here: [Setup with JWT][jwt_guide]
+
+### Authenticate Enterprise
+
+JWT auth allows your application to authenticate itself with the Box API
+for a given enterprise. By default, your application has a [Service Account][service_account]
+that represents it and can perform API calls. The Service Account is separate
+from the Box accounts of the application developer and the enterprise admin of
+any enterprise that has authorized the app — files stored in that account are
+not accessible in any other account by default, and vice versa.
+
+If you generated your public and private keys automatically through the
+[Box Developer Console][dev_console], you can use the JSON file created there
+to configure your SDK instance and create a client to make calls as the
+Service Account. Call one of static `JwtConfig` methods:
+`JwtConfig.FromConfigFile(configFilePath)` and pass JSON file local path
+or `JwtConfig.FromConfigJsonString(configJsonString)` and pass JSON config file content as string.
+
+```c#
+using Box.Sdk.Gen;
+
+var config = JwtConfig.FromConfigFile("/path/to/settings.json");
+var jwtAuth = new BoxJwtAuth(config);
+var client = new BoxClient(jwtAuth);
+
+var me = await client.Users.GetUserMeAsync();
+Console.WriteLine($"My user ID is {me.Id}");
+```
+
+Otherwise, you'll need to provide the necessary configuration fields directly to the `JwtConfig` constructor:
+
+```c#
+using Box.Sdk.Gen;
+
+var jwtConfig = new JwtConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", jwtKeyId: "YOUR_JWT_KEY_ID",
+    privateKey: "YOUR_PRIVATE_KEY", privateKeyPassphrase: "PASSPHRASE") { EnterpriseId = "YOUR_ENTERPRISE_ID" };
+var jwtAuth = new BoxJwtAuth(jwtConfig);
+var serviceAccountClient = new BoxClient(jwtAuth);
+```
+
+### Authenticate User
+
+App auth applications also often have associated [App Users][app_user], which are
+created and managed directly by the application — they do not have normal login credentials,
+and can only be accessed through the Box API by the application that created them.
+You may authenticate as the Service Account to provision and manage users, or as an individual app user to
+make calls as that user. See the [API documentation](https://developer.box.com/)
+for detailed instructions on how to use app auth.
+
+Clients for making calls as an App User can be created with the same JSON JWT config file generated through the
+[Box Developer Console][dev_console]. Calling `jwtAuth.WithUserSubject("USER_ID")` method will return a new auth object,
+which is authenticated as the user with provided id, leaving the original object unchanged.
+
+```c#
+using Box.Sdk.Gen;
+
+var config = JwtConfig.FromConfigFile("/path/to/settings.json");
+var jwtAuth = new BoxJwtAuth(config);
+var userAuth = jwtAuth.WithUserSubject("USER_ID");
+var userClient = new BoxClient(userAuth);
+```
+
+Alternatively, clients for making calls as an App User can be created with the same `JwtConfig`
+constructor as in the above examples, similarly to creating a Service Account client. Simply pass the
+`userId` instead of `enterpriseId` when constructing the auth config instance:
+
+```c#
+using Box.Sdk.Gen;
+
+var jwtConfig = new JwtConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", jwtKeyId: "YOUR_JWT_KEY_ID",
+    privateKey: "YOUR_PRIVATE_KEY", privateKeyPassphrase: "PASSPHRASE")
+{ UserId = "USER_ID" };
+var jwtAuth = new BoxJwtAuth(jwtConfig);
+var userClient = new BoxClient(jwtAuth);
+```
+
+[jwt_guide]: https://developer.box.com/guides/authentication/jwt/jwt-setup/
+[service_account]: https://developer.box.com/guides/getting-started/user-types/service-account/
+[app_user]: https://developer.box.com/guides/getting-started/user-types/app-users/
 
 ## Client Credentials Grant
 
