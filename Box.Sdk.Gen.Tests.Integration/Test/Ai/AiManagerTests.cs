@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [TestMethod]
         public async System.Threading.Tasks.Task TestGettingAiAskAgentConfig() {
-            AiAgentAskOrAiAgentTextGen aiAskConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.Ask) { Language = "ja-JP" });
+            AiAgentAskOrAiAgentTextGen aiAskConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.Ask) { Language = "en-US" });
         }
 
         [TestMethod]
