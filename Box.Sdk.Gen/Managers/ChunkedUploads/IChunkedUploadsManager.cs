@@ -48,6 +48,8 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
     /// Return information about an upload session.
+    /// 
+    /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions) endpoint.
     /// </summary>
     /// <param name="uploadSessionId">
     /// The ID of the upload session.
@@ -62,7 +64,10 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<UploadSession> GetFileUploadSessionByIdAsync(string uploadSessionId, GetFileUploadSessionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Updates a chunk of an upload session for a file.
+    /// Uploads a chunk of a file for an upload session.
+    /// 
+    /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+    /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
     /// </summary>
     /// <param name="uploadSessionId">
     /// The ID of the upload session.
@@ -83,6 +88,9 @@ namespace Box.Sdk.Gen.Managers {
     /// Abort an upload session and discard all data uploaded.
     /// 
     /// This cannot be reversed.
+    /// 
+    /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+    /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
     /// </summary>
     /// <param name="uploadSessionId">
     /// The ID of the upload session.
@@ -97,8 +105,10 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task DeleteFileUploadSessionByIdAsync(string uploadSessionId, DeleteFileUploadSessionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Return a list of the chunks uploaded to the upload
-    /// session so far.
+    /// Return a list of the chunks uploaded to the upload session so far.
+    /// 
+    /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+    /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
     /// </summary>
     /// <param name="uploadSessionId">
     /// The ID of the upload session.
@@ -116,8 +126,10 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<UploadParts> GetFileUploadSessionPartsAsync(string uploadSessionId, GetFileUploadSessionPartsQueryParams? queryParams = default, GetFileUploadSessionPartsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Close an upload session and create a file from the
-    /// uploaded chunks.
+    /// Close an upload session and create a file from the uploaded chunks.
+    /// 
+    /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+    /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
     /// </summary>
     /// <param name="uploadSessionId">
     /// The ID of the upload session.
