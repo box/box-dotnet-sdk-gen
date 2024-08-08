@@ -12,10 +12,8 @@ Retrieves a single collaboration.
 
 This operation is performed by calling function `GetCollaborationById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-collaborations-id/).
 
-<!-- sample get_collaborations_id -->
+
 ```
 await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: collaborationId);
 ```
@@ -47,10 +45,8 @@ accept collaboration invites.
 
 This operation is performed by calling function `UpdateCollaborationById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-collaborations-id/).
 
-<!-- sample put_collaborations_id -->
+
 ```
 await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: collaborationId, requestBody: new UpdateCollaborationByIdRequestBody(role: UpdateCollaborationByIdRequestBodyRoleField.Viewer));
 ```
@@ -82,10 +78,8 @@ Deletes a single collaboration.
 
 This operation is performed by calling function `DeleteCollaborationById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-collaborations-id/).
 
-<!-- sample delete_collaborations_id -->
+
 ```
 await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: groupCollaboration.Id);
 ```
@@ -127,10 +121,8 @@ using `user_id`,
 
 This operation is performed by calling function `CreateCollaboration`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-collaborations/).
 
-<!-- sample post_collaborations -->
+
 ```
 await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.File, Id = file.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User) { Id = Utils.GetEnvVar(name: "USER_ID") }, role: CreateCollaborationRequestBodyRoleField.Editor));
 ```

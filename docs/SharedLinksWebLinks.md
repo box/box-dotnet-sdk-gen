@@ -19,10 +19,8 @@ shared web link when only given a shared link.
 
 This operation is performed by calling function `FindWebLinkForSharedLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-shared-items-web-links/).
 
-<!-- sample get_shared_items#web_links -->
+
 ```
 await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword")));
 ```
@@ -51,10 +49,8 @@ Gets the information for a shared link on a web link.
 
 This operation is performed by calling function `GetSharedLinkForWebLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-web-links-id-get-shared-link/).
 
-<!-- sample get_web_links_id#get_shared_link -->
+
 ```
 await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link"));
 ```
@@ -85,10 +81,8 @@ Adds a shared link to a web link.
 
 This operation is performed by calling function `AddShareLinkToWebLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-web-links-id-add-shared-link/).
 
-<!-- sample put_web_links_id#add_shared_link -->
+
 ```
 await client.SharedLinksWebLinks.AddShareLinkToWebLinkAsync(webLinkId: webLinkId, requestBody: new AddShareLinkToWebLinkRequestBody() { SharedLink = new AddShareLinkToWebLinkRequestBodySharedLinkField() { Access = AddShareLinkToWebLinkRequestBodySharedLinkAccessField.Open, Password = "Secret123@" } }, queryParams: new AddShareLinkToWebLinkQueryParams(fields: "shared_link"));
 ```
@@ -121,10 +115,8 @@ Updates a shared link on a web link.
 
 This operation is performed by calling function `UpdateSharedLinkOnWebLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-web-links-id-update-shared-link/).
 
-<!-- sample put_web_links_id#update_shared_link -->
+
 ```
 await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody() { SharedLink = new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField() { Access = UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link"));
 ```
@@ -157,8 +149,6 @@ Removes a shared link from a web link.
 
 This operation is performed by calling function `RemoveSharedLinkFromWebLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-web-links-id-remove-shared-link/).
 
 *Currently we don't have an example for calling `RemoveSharedLinkFromWebLink` in integration tests*
 

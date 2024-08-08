@@ -9,10 +9,8 @@ Returns the contents of a file in binary format.
 
 This operation is performed by calling function `DownloadFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-content/).
 
-<!-- sample get_files_id_content -->
+
 ```
 await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id);
 ```

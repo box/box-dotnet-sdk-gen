@@ -15,10 +15,8 @@ see [files under retention](e://get-retention-policy-assignments-id-files-under-
 
 This operation is performed by calling function `GetFileVersionRetentions`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-file-version-retentions/).
 
-<!-- sample get_file_version_retentions -->
+
 ```
 await client.FileVersionRetentions.GetFileVersionRetentionsAsync();
 ```
@@ -51,10 +49,8 @@ see [files under retention](e://get-retention-policy-assignments-id-files-under-
 
 This operation is performed by calling function `GetFileVersionRetentionById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-file-version-retentions-id/).
 
-<!-- sample get_file_version_retentions_id -->
+
 ```
 await client.FileVersionRetentions.GetFileVersionRetentionByIdAsync(fileVersionRetentionId: NullableUtils.Unwrap(fileVersionRetention.Id));
 ```

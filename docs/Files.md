@@ -13,10 +13,8 @@ Retrieves the details about a file.
 
 This operation is performed by calling function `GetFileById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id/).
 
-<!-- sample get_files_id -->
+
 ```
 await client.Files.GetFileByIdAsync(fileId: file.Id);
 ```
@@ -51,10 +49,8 @@ create a shared link, or lock a file.
 
 This operation is performed by calling function `UpdateFileById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id/).
 
-<!-- sample put_files_id -->
+
 ```
 await downscopedClient.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Name = Utils.GetUUID() });
 ```
@@ -94,10 +90,8 @@ be permanently deleted from Box or moved to the trash.
 
 This operation is performed by calling function `DeleteFileById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-files-id/).
 
-<!-- sample delete_files_id -->
+
 ```
 await parentClient.Files.DeleteFileByIdAsync(fileId: file.Id);
 ```
@@ -126,10 +120,8 @@ Creates a copy of a file.
 
 This operation is performed by calling function `CopyFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-files-id-copy/).
 
-<!-- sample post_files_id_copy -->
+
 ```
 await client.Files.CopyFileAsync(fileId: fileOrigin.Id, requestBody: new CopyFileRequestBody(parent: new CopyFileRequestBodyParentField(id: "0")) { Name = copiedFileName });
 ```
@@ -174,10 +166,8 @@ Thumbnails can be generated for the image and video file formats listed
 
 This operation is performed by calling function `GetFileThumbnailById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-thumbnail-id/).
 
-<!-- sample get_files_id_thumbnail_id -->
+
 ```
 await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtension.Png);
 ```

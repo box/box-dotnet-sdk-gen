@@ -10,10 +10,8 @@ Gets Box Sign templates created by a user.
 
 This operation is performed by calling function `GetSignTemplates`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-sign-templates/).
 
-<!-- sample get_sign_templates -->
+
 ```
 await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParams() { Limit = 2 });
 ```
@@ -41,10 +39,8 @@ Fetches details of a specific Box Sign template.
 
 This operation is performed by calling function `GetSignTemplateById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-sign-templates-id/).
 
-<!-- sample get_sign_templates_id -->
+
 ```
 await client.SignTemplates.GetSignTemplateByIdAsync(templateId: NullableUtils.Unwrap(NullableUtils.Unwrap(signTemplates.Entries)[0].Id));
 ```

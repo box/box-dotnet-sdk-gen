@@ -14,10 +14,8 @@ an enterprise.
 
 This operation is performed by calling function `GetLegalHoldPolicies`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-legal-hold-policies/).
 
-<!-- sample get_legal_hold_policies -->
+
 ```
 await client.LegalHoldPolicies.GetLegalHoldPoliciesAsync();
 ```
@@ -45,10 +43,8 @@ Create a new legal hold policy.
 
 This operation is performed by calling function `CreateLegalHoldPolicy`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-legal-hold-policies/).
 
-<!-- sample post_legal_hold_policies -->
+
 ```
 await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBody(policyName: legalHoldPolicyName) { Description = legalHoldDescription, IsOngoing = false, FilterStartedAt = filterStartedAt, FilterEndedAt = filterEndedAt });
 ```
@@ -76,10 +72,8 @@ Retrieve a legal hold policy.
 
 This operation is performed by calling function `GetLegalHoldPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-legal-hold-policies-id/).
 
-<!-- sample get_legal_hold_policies_id -->
+
 ```
 await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId);
 ```
@@ -107,10 +101,8 @@ Update legal hold policy.
 
 This operation is performed by calling function `UpdateLegalHoldPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-legal-hold-policies-id/).
 
-<!-- sample put_legal_hold_policies_id -->
+
 ```
 await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId, requestBody: new UpdateLegalHoldPolicyByIdRequestBody() { PolicyName = updatedLegalHoldPolicyName });
 ```
@@ -143,10 +135,8 @@ fully deleted yet when the response returns.
 
 This operation is performed by calling function `DeleteLegalHoldPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-legal-hold-policies-id/).
 
-<!-- sample delete_legal_hold_policies_id -->
+
 ```
 await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicy.Id);
 ```
