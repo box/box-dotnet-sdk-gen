@@ -66,6 +66,8 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
         /// Return information about an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions) endpoint.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -80,12 +82,15 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<UploadSession> GetFileUploadSessionByIdAsync(string uploadSessionId, GetFileUploadSessionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetFileUploadSessionByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://{box-upload-server}/api/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadSession>(response.Data);
         }
 
         /// <summary>
-        /// Updates a chunk of an upload session for a file.
+        /// Uploads a chunk of a file for an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -102,7 +107,7 @@ namespace Box.Sdk.Gen.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<UploadedPart> UploadFilePartAsync(string uploadSessionId, System.IO.Stream requestBody, UploadFilePartHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "content-range", StringUtils.ToStringRepresentation(headers.ContentRange) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "PUT", Headers = headersMap, FileStream = requestBody, ContentType = "application/octet-stream", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://{box-upload-server}/api/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "PUT", Headers = headersMap, FileStream = requestBody, ContentType = "application/octet-stream", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadedPart>(response.Data);
         }
 
@@ -110,6 +115,9 @@ namespace Box.Sdk.Gen.Managers {
         /// Abort an upload session and discard all data uploaded.
         /// 
         /// This cannot be reversed.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -124,12 +132,14 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task DeleteFileUploadSessionByIdAsync(string uploadSessionId, DeleteFileUploadSessionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new DeleteFileUploadSessionByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://{box-upload-server}/api/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId)), new FetchOptions(networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Return a list of the chunks uploaded to the upload
-        /// session so far.
+        /// Return a list of the chunks uploaded to the upload session so far.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -149,13 +159,15 @@ namespace Box.Sdk.Gen.Managers {
             headers = headers ?? new GetFileUploadSessionPartsHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "offset", StringUtils.ToStringRepresentation(queryParams.Offset) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId), "/parts"), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://{box-upload-server}/api/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId), "/parts"), new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<UploadParts>(response.Data);
         }
 
         /// <summary>
-        /// Close an upload session and create a file from the
-        /// uploaded chunks.
+        /// Close an upload session and create a file from the uploaded chunks.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -172,7 +184,7 @@ namespace Box.Sdk.Gen.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<Files> CreateFileUploadSessionCommitAsync(string uploadSessionId, CreateFileUploadSessionCommitRequestBody requestBody, CreateFileUploadSessionCommitHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId), "/commit"), new FetchOptions(networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(string.Concat("https://{box-upload-server}/api/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId), "/commit"), new FetchOptions(networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
         }
 
