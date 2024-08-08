@@ -11,10 +11,8 @@ Retrieves information about an individual device pin.
 
 This operation is performed by calling function `GetDevicePinnerById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-device-pinners-id/).
 
-<!-- sample get_device_pinners_id -->
+
 ```
 await client.DevicePinners.GetDevicePinnerByIdAsync(devicePinnerId: devicePinnerId);
 ```
@@ -42,10 +40,8 @@ Deletes an individual device pin.
 
 This operation is performed by calling function `DeleteDevicePinnerById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-device-pinners-id/).
 
-<!-- sample delete_device_pinners_id -->
+
 ```
 await client.DevicePinners.DeleteDevicePinnerByIdAsync(devicePinnerId: devicePinnerId);
 ```
@@ -76,10 +72,8 @@ needs the "manage enterprise" scope to make this call.
 
 This operation is performed by calling function `GetEnterpriseDevicePinners`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-enterprises-id-device-pinners/).
 
-<!-- sample get_enterprises_id_device_pinners -->
+
 ```
 await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId, queryParams: new GetEnterpriseDevicePinnersQueryParams() { Direction = GetEnterpriseDevicePinnersQueryParamsDirectionField.Desc });
 ```

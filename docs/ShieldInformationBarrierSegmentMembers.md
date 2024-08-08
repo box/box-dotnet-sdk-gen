@@ -13,10 +13,8 @@ segment member by its ID.
 
 This operation is performed by calling function `GetShieldInformationBarrierSegmentMemberById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members-id/).
 
-<!-- sample get_shield_information_barrier_segment_members_id -->
+
 ```
 await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id));
 ```
@@ -45,10 +43,8 @@ segment member based on provided ID.
 
 This operation is performed by calling function `DeleteShieldInformationBarrierSegmentMemberById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-members-id/).
 
-<!-- sample delete_shield_information_barrier_segment_members_id -->
+
 ```
 await client.ShieldInformationBarrierSegmentMembers.DeleteShieldInformationBarrierSegmentMemberByIdAsync(shieldInformationBarrierSegmentMemberId: NullableUtils.Unwrap(segmentMember.Id));
 ```
@@ -78,10 +74,8 @@ based on provided segment IDs.
 
 This operation is performed by calling function `GetShieldInformationBarrierSegmentMembers`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members/).
 
-<!-- sample get_shield_information_barrier_segment_members -->
+
 ```
 await client.ShieldInformationBarrierSegmentMembers.GetShieldInformationBarrierSegmentMembersAsync(queryParams: new GetShieldInformationBarrierSegmentMembersQueryParams(shieldInformationBarrierSegmentId: NullableUtils.Unwrap(segment.Id)));
 ```
@@ -110,10 +104,8 @@ Creates a new shield information barrier segment member.
 
 This operation is performed by calling function `CreateShieldInformationBarrierSegmentMember`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-members/).
 
-<!-- sample post_shield_information_barrier_segment_members -->
+
 ```
 await client.ShieldInformationBarrierSegmentMembers.CreateShieldInformationBarrierSegmentMemberAsync(requestBody: new CreateShieldInformationBarrierSegmentMemberRequestBody(shieldInformationBarrierSegment: new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField() { Id = NullableUtils.Unwrap(segment.Id), Type = CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.ShieldInformationBarrierSegment }, user: new UserBase(id: Utils.GetEnvVar(name: "USER_ID"))));
 ```

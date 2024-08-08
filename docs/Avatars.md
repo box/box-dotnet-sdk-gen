@@ -11,10 +11,8 @@ Retrieves an image of a the user's avatar.
 
 This operation is performed by calling function `GetUserAvatar`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users-id-avatar/).
 
-<!-- sample get_users_id_avatar -->
+
 ```
 await client.Avatars.GetUserAvatarAsync(userId: user.Id);
 ```
@@ -44,10 +42,8 @@ Adds or updates a user avatar.
 
 This operation is performed by calling function `CreateUserAvatar`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-users-id-avatar/).
 
-<!-- sample post_users_id_avatar -->
+
 ```
 await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new CreateUserAvatarRequestBody(pic: Utils.DecodeBase64ByteStream(data: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg==")) { PicContentType = "image/png", PicFileName = "avatar.png" });
 ```
@@ -80,10 +76,8 @@ You cannot reverse this operation.
 
 This operation is performed by calling function `DeleteUserAvatar`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-users-id-avatar/).
 
-<!-- sample delete_users_id_avatar -->
+
 ```
 await client.Avatars.DeleteUserAvatarAsync(userId: user.Id);
 ```

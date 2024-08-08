@@ -13,10 +13,8 @@ is supported.
 
 This operation is performed by calling function `GetCollections`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-collections/).
 
-<!-- sample get_collections -->
+
 ```
 await client.Collections.GetCollectionsAsync();
 ```
@@ -45,10 +43,8 @@ this collection.
 
 This operation is performed by calling function `GetCollectionItems`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-collections-id-items/).
 
-<!-- sample get_collections_id_items -->
+
 ```
 await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
 ```

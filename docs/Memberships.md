@@ -16,10 +16,8 @@ use this API.
 
 This operation is performed by calling function `GetUserMemberships`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users-id-memberships/).
 
-<!-- sample get_users_id_memberships -->
+
 ```
 await client.Memberships.GetUserMembershipsAsync(userId: user.Id);
 ```
@@ -52,10 +50,8 @@ use this API.
 
 This operation is performed by calling function `GetGroupMemberships`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-groups-id-memberships/).
 
-<!-- sample get_groups_id_memberships -->
+
 ```
 await client.Memberships.GetGroupMembershipsAsync(groupId: group.Id);
 ```
@@ -87,10 +83,8 @@ admin-level permissions will be able to use this API.
 
 This operation is performed by calling function `CreateGroupMembership`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-group-memberships/).
 
-<!-- sample post_group_memberships -->
+
 ```
 await client.Memberships.CreateGroupMembershipAsync(requestBody: new CreateGroupMembershipRequestBody(user: new CreateGroupMembershipRequestBodyUserField(id: user.Id), group: new CreateGroupMembershipRequestBodyGroupField(id: group.Id)));
 ```
@@ -122,10 +116,8 @@ use this API.
 
 This operation is performed by calling function `GetGroupMembershipById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-group-memberships-id/).
 
-<!-- sample get_group_memberships_id -->
+
 ```
 await client.Memberships.GetGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
 ```
@@ -157,10 +149,8 @@ use this API.
 
 This operation is performed by calling function `UpdateGroupMembershipById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-group-memberships-id/).
 
-<!-- sample put_group_memberships_id -->
+
 ```
 await client.Memberships.UpdateGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id), requestBody: new UpdateGroupMembershipByIdRequestBody() { Role = UpdateGroupMembershipByIdRequestBodyRoleField.Admin });
 ```
@@ -194,10 +184,8 @@ use this API.
 
 This operation is performed by calling function `DeleteGroupMembershipById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-group-memberships-id/).
 
-<!-- sample delete_group_memberships_id -->
+
 ```
 await client.Memberships.DeleteGroupMembershipByIdAsync(groupMembershipId: NullableUtils.Unwrap(groupMembership.Id));
 ```

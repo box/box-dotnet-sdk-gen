@@ -14,10 +14,8 @@ retention policy.
 
 This operation is performed by calling function `GetRetentionPolicyAssignments`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-retention-policies-id-assignments/).
 
-<!-- sample get_retention_policies_id_assignments -->
+
 ```
 await client.RetentionPolicyAssignments.GetRetentionPolicyAssignmentsAsync(retentionPolicyId: retentionPolicy.Id);
 ```
@@ -48,10 +46,8 @@ Assigns a retention policy to an item.
 
 This operation is performed by calling function `CreateRetentionPolicyAssignment`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-retention-policy-assignments/).
 
-<!-- sample post_retention_policy_assignments -->
+
 ```
 await client.RetentionPolicyAssignments.CreateRetentionPolicyAssignmentAsync(requestBody: new CreateRetentionPolicyAssignmentRequestBody(policyId: retentionPolicy.Id, assignTo: new CreateRetentionPolicyAssignmentRequestBodyAssignToField(type: CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.Folder) { Id = folder.Id }));
 ```
@@ -79,10 +75,8 @@ Retrieves a retention policy assignment
 
 This operation is performed by calling function `GetRetentionPolicyAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-retention-policy-assignments-id/).
 
-<!-- sample get_retention_policy_assignments_id -->
+
 ```
 await client.RetentionPolicyAssignments.GetRetentionPolicyAssignmentByIdAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id);
 ```
@@ -113,10 +107,8 @@ applied to content.
 
 This operation is performed by calling function `DeleteRetentionPolicyAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-retention-policy-assignments-id/).
 
-<!-- sample delete_retention_policy_assignments_id -->
+
 ```
 await client.RetentionPolicyAssignments.DeleteRetentionPolicyAssignmentByIdAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id);
 ```
@@ -145,10 +137,8 @@ Returns a list of files under retention for a retention policy assignment.
 
 This operation is performed by calling function `GetFilesUnderRetentionPolicyAssignment`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-retention-policy-assignments-id-files-under-retention/).
 
-<!-- sample get_retention_policy_assignments_id_files_under_retention -->
+
 ```
 await client.RetentionPolicyAssignments.GetFilesUnderRetentionPolicyAssignmentAsync(retentionPolicyAssignmentId: retentionPolicyAssignment.Id);
 ```

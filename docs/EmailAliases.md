@@ -12,10 +12,8 @@ does not include the primary login for the user.
 
 This operation is performed by calling function `GetUserEmailAliases`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users-id-email-aliases/).
 
-<!-- sample get_users_id_email_aliases -->
+
 ```
 await client.EmailAliases.GetUserEmailAliasesAsync(userId: newUser.Id);
 ```
@@ -43,10 +41,8 @@ Adds a new email alias to a user account..
 
 This operation is performed by calling function `CreateUserEmailAlias`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-users-id-email-aliases/).
 
-<!-- sample post_users_id_email_aliases -->
+
 ```
 await client.EmailAliases.CreateUserEmailAliasAsync(userId: newUser.Id, requestBody: new CreateUserEmailAliasRequestBody(email: newAliasEmail));
 ```
@@ -76,10 +72,8 @@ Removes an email alias from a user.
 
 This operation is performed by calling function `DeleteUserEmailAliasById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-users-id-email-aliases-id/).
 
-<!-- sample delete_users_id_email_aliases_id -->
+
 ```
 await client.EmailAliases.DeleteUserEmailAliasByIdAsync(userId: newUser.Id, emailAliasId: NullableUtils.Unwrap(newAlias.Id));
 ```

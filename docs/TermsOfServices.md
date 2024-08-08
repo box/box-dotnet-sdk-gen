@@ -13,10 +13,8 @@ for the enterprise.
 
 This operation is performed by calling function `GetTermsOfService`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-terms-of-services/).
 
-<!-- sample get_terms_of_services -->
+
 ```
 await client.TermsOfServices.GetTermsOfServiceAsync();
 ```
@@ -46,10 +44,8 @@ and type of user.
 
 This operation is performed by calling function `CreateTermsOfService`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-terms-of-services/).
 
-<!-- sample post_terms_of_services -->
+
 ```
 await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTermsOfServiceRequestBody(status: CreateTermsOfServiceRequestBodyStatusField.Disabled, text: "Test TOS") { TosType = CreateTermsOfServiceRequestBodyTosTypeField.Managed });
 ```
@@ -77,8 +73,6 @@ Fetches a specific terms of service.
 
 This operation is performed by calling function `GetTermsOfServiceById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-terms-of-services-id/).
 
 *Currently we don't have an example for calling `GetTermsOfServiceById` in integration tests*
 
@@ -105,10 +99,8 @@ Updates a specific terms of service.
 
 This operation is performed by calling function `UpdateTermsOfServiceById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-terms-of-services-id/).
 
-<!-- sample put_terms_of_services_id -->
+
 ```
 await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "Updated TOS"));
 ```

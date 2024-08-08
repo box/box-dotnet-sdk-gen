@@ -14,10 +14,8 @@ scope within the developer console in to use this endpoint.
 
 This operation is performed by calling function `GetWorkflows`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-workflows/).
 
-<!-- sample get_workflows -->
+
 ```
 await adminClient.Workflows.GetWorkflowsAsync(queryParams: new GetWorkflowsQueryParams(folderId: workflowFolderId));
 ```
@@ -48,10 +46,8 @@ scope within the developer console.
 
 This operation is performed by calling function `StartWorkflow`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-workflows-id-start/).
 
-<!-- sample post_workflows_id_start -->
+
 ```
 await adminClient.Workflows.StartWorkflowAsync(workflowId: NullableUtils.Unwrap(workflowToRun.Id), requestBody: new StartWorkflowRequestBody(flow: new StartWorkflowRequestBodyFlowField() { Type = "flow", Id = NullableUtils.Unwrap(NullableUtils.Unwrap(workflowToRun.Flows)[0].Id) }, files: Array.AsReadOnly(new [] {new StartWorkflowRequestBodyFilesField() { Type = StartWorkflowRequestBodyFilesTypeField.File, Id = workflowFileId }}), folder: new StartWorkflowRequestBodyFolderField() { Type = StartWorkflowRequestBodyFolderTypeField.Folder, Id = workflowFolderId }) { Type = StartWorkflowRequestBodyTypeField.WorkflowParameters });
 ```
