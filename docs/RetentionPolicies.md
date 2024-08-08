@@ -13,10 +13,8 @@ Retrieves all of the retention policies for an enterprise.
 
 This operation is performed by calling function `GetRetentionPolicies`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-retention-policies/).
 
-<!-- sample get_retention_policies -->
+
 ```
 await client.RetentionPolicies.GetRetentionPoliciesAsync();
 ```
@@ -44,10 +42,8 @@ Creates a retention policy.
 
 This operation is performed by calling function `CreateRetentionPolicy`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-retention-policies/).
 
-<!-- sample post_retention_policies -->
+
 ```
 await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: Utils.GetUUID(), policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention) { RetentionLength = "1", Description = description, CanOwnerExtendRetention = false, RetentionType = CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable });
 ```
@@ -75,10 +71,8 @@ Retrieves a retention policy.
 
 This operation is performed by calling function `GetRetentionPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-retention-policies-id/).
 
-<!-- sample get_retention_policies_id -->
+
 ```
 await client.RetentionPolicies.GetRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
 ```
@@ -108,10 +102,8 @@ Updates a retention policy.
 
 This operation is performed by calling function `UpdateRetentionPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-retention-policies-id/).
 
-<!-- sample put_retention_policies_id -->
+
 ```
 await client.RetentionPolicies.UpdateRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id, requestBody: new UpdateRetentionPolicyByIdRequestBody() { PolicyName = updatedRetentionPolicyName });
 ```
@@ -141,10 +133,8 @@ Permanently deletes a retention policy.
 
 This operation is performed by calling function `DeleteRetentionPolicyById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-retention-policies-id/).
 
-<!-- sample delete_retention_policies_id -->
+
 ```
 await client.RetentionPolicies.DeleteRetentionPolicyByIdAsync(retentionPolicyId: retentionPolicy.Id);
 ```

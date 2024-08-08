@@ -12,10 +12,8 @@ Creates a web link object within a folder.
 
 This operation is performed by calling function `CreateWebLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-web-links/).
 
-<!-- sample post_web_links -->
+
 ```
 await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: "https://www.box.com", parent: new CreateWebLinkRequestBodyParentField(id: parent.Id)) { Name = Utils.GetUUID(), Description = "Weblink description" });
 ```
@@ -43,10 +41,8 @@ Retrieve information about a web link.
 
 This operation is performed by calling function `GetWebLinkById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-web-links-id/).
 
-<!-- sample get_web_links_id -->
+
 ```
 await client.WebLinks.GetWebLinkByIdAsync(webLinkId: weblink.Id);
 ```
@@ -74,10 +70,8 @@ Updates a web link object.
 
 This operation is performed by calling function `UpdateWebLinkById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-web-links-id/).
 
-<!-- sample put_web_links_id -->
+
 ```
 await client.WebLinks.UpdateWebLinkByIdAsync(webLinkId: weblink.Id, requestBody: new UpdateWebLinkByIdRequestBody() { Name = updatedName, SharedLink = new UpdateWebLinkByIdRequestBodySharedLinkField() { Access = UpdateWebLinkByIdRequestBodySharedLinkAccessField.Open, Password = password } });
 ```
@@ -107,10 +101,8 @@ Deletes a web link.
 
 This operation is performed by calling function `DeleteWebLinkById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-web-links-id/).
 
-<!-- sample delete_web_links_id -->
+
 ```
 await client.WebLinks.DeleteWebLinkByIdAsync(webLinkId: webLinkId);
 ```

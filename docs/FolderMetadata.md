@@ -14,10 +14,8 @@ folder with ID `0`.
 
 This operation is performed by calling function `GetFolderMetadata`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-folders-id-metadata/).
 
-<!-- sample get_folders_id_metadata -->
+
 ```
 await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id);
 ```
@@ -49,10 +47,8 @@ folder. This can not be used on the root folder with ID `0`.
 
 This operation is performed by calling function `GetFolderMetadataById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-folders-id-metadata-id-id/).
 
-<!-- sample get_folders_id_metadata_id_id -->
+
 ```
 await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scope: GetFolderMetadataByIdScope.Global, templateKey: "properties");
 ```
@@ -94,10 +90,8 @@ admin console.
 
 This operation is performed by calling function `CreateFolderMetadataById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-folders-id-metadata-id-id/).
 
-<!-- sample post_folders_id_metadata_id_id -->
+
 ```
 await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, scope: CreateFolderMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, object>() { { "name", "John" }, { "age", 23 }, { "birthDate", "2001-01-03T02:20:50.520Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } });
 ```
@@ -139,10 +133,8 @@ application of the operations, the metadata instance will not be changed.
 
 This operation is performed by calling function `UpdateFolderMetadataById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-folders-id-metadata-id-id/).
 
-<!-- sample put_folders_id_metadata_id_id -->
+
 ```
 await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, scope: UpdateFolderMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFolderMetadataByIdRequestBody() { Op = UpdateFolderMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
 ```
@@ -177,10 +169,8 @@ Deletes a piece of folder metadata.
 
 This operation is performed by calling function `DeleteFolderMetadataById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-folders-id-metadata-id-id/).
 
-<!-- sample delete_folders_id_metadata_id_id -->
+
 ```
 await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, scope: DeleteFolderMetadataByIdScope.Enterprise, templateKey: templateKey);
 ```

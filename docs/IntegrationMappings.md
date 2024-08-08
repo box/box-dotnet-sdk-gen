@@ -15,10 +15,8 @@ use this endpoint.
 
 This operation is performed by calling function `GetSlackIntegrationMapping`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-integration-mappings-slack/).
 
-<!-- sample get_integration_mappings_slack -->
+
 ```
 await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync();
 ```
@@ -50,10 +48,8 @@ use this endpoint.
 
 This operation is performed by calling function `CreateSlackIntegrationMapping`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-integration-mappings-slack/).
 
-<!-- sample post_integration_mappings_slack -->
+
 ```
 await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
 ```
@@ -85,8 +81,6 @@ use this endpoint.
 
 This operation is performed by calling function `UpdateSlackIntegrationMappingById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-integration-mappings-slack-id/).
 
 *Currently we don't have an example for calling `UpdateSlackIntegrationMappingById` in integration tests*
 
@@ -119,8 +113,6 @@ use this endpoint.
 
 This operation is performed by calling function `DeleteSlackIntegrationMappingById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-integration-mappings-slack-id/).
 
 *Currently we don't have an example for calling `DeleteSlackIntegrationMappingById` in integration tests*
 

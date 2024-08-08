@@ -27,10 +27,8 @@ total size does not exceed 25GB.
 
 This operation is performed by calling function `CreateZipDownload`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-zip-downloads/).
 
-<!-- sample post_zip_downloads -->
+
 ```
 await client.ZipDownloads.CreateZipDownloadAsync(requestBody: new ZipDownloadRequest(items: Array.AsReadOnly(new [] {new ZipDownloadRequestItemsField(id: file1.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: file2.Id, type: ZipDownloadRequestItemsTypeField.File),new ZipDownloadRequestItemsField(id: folder1.Id, type: ZipDownloadRequestItemsTypeField.Folder)})) { DownloadFileName = "zip" });
 ```
@@ -72,10 +70,8 @@ this endpoint.
 
 This operation is performed by calling function `GetZipDownloadContent`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-zip-downloads-id-content/).
 
-<!-- sample get_zip_downloads_id_content -->
+
 ```
 await client.ZipDownloads.GetZipDownloadContentAsync(downloadUrl: NullableUtils.Unwrap(zipDownload.DownloadUrl));
 ```
@@ -115,10 +111,8 @@ this endpoint.
 
 This operation is performed by calling function `GetZipDownloadStatus`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-zip-downloads-id-status/).
 
-<!-- sample get_zip_downloads_id_status -->
+
 ```
 await client.ZipDownloads.GetZipDownloadStatusAsync(statusUrl: NullableUtils.Unwrap(zipDownload.StatusUrl));
 ```

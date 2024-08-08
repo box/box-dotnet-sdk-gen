@@ -39,5 +39,10 @@
         <PackagePath>lib\net6.0</PackagePath>
     </_PackageFiles>
   </ItemGroup>
+    
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Box.Sdk.Gen.Tests.Integration"/>
+  </ItemGroup>
 
 </Project>

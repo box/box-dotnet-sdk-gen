@@ -11,10 +11,8 @@ Retrieve the watermark for a file.
 
 This operation is performed by calling function `GetFileWatermark`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-watermark/).
 
-<!-- sample get_files_id_watermark -->
+
 ```
 await client.FileWatermarks.GetFileWatermarkAsync(fileId: file.Id);
 ```
@@ -43,10 +41,8 @@ Applies or update a watermark on a file.
 
 This operation is performed by calling function `UpdateFileWatermark`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-watermark/).
 
-<!-- sample put_files_id_watermark -->
+
 ```
 await client.FileWatermarks.UpdateFileWatermarkAsync(fileId: file.Id, requestBody: new UpdateFileWatermarkRequestBody(watermark: new UpdateFileWatermarkRequestBodyWatermarkField(imprint: UpdateFileWatermarkRequestBodyWatermarkImprintField.Default)));
 ```
@@ -78,10 +74,8 @@ Removes the watermark from a file.
 
 This operation is performed by calling function `DeleteFileWatermark`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-files-id-watermark/).
 
-<!-- sample delete_files_id_watermark -->
+
 ```
 await client.FileWatermarks.DeleteFileWatermarkAsync(fileId: file.Id);
 ```

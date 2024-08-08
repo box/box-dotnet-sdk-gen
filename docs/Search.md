@@ -15,8 +15,6 @@ of the metadata, use the `fields` attribute in the query.
 
 This operation is performed by calling function `SearchByMetadataQuery`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-metadata-queries-execute-read/).
 
 *Currently we don't have an example for calling `SearchByMetadataQuery` in integration tests*
 
@@ -44,8 +42,6 @@ users content or across the entire enterprise.
 
 This operation is performed by calling function `SearchForContent`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-search/).
 
 *Currently we don't have an example for calling `SearchForContent` in integration tests*
 

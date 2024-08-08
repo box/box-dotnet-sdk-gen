@@ -16,10 +16,8 @@ of the current version of a file, use the `GET /file/:id` API.
 
 This operation is performed by calling function `GetFileVersions`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-versions/).
 
-<!-- sample get_files_id_versions -->
+
 ```
 await client.FileVersions.GetFileVersionsAsync(fileId: file.Id);
 ```
@@ -51,10 +49,8 @@ Versions are only tracked for Box users with premium accounts.
 
 This operation is performed by calling function `GetFileVersionById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-versions-id/).
 
-<!-- sample get_files_id_versions_id -->
+
 ```
 await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
 ```
@@ -93,8 +89,6 @@ PPTX or similar.
 
 This operation is performed by calling function `UpdateFileVersionById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-versions-id/).
 
 *Currently we don't have an example for calling `UpdateFileVersionById` in integration tests*
 
@@ -127,10 +121,8 @@ Versions are only tracked for Box users with premium accounts.
 
 This operation is performed by calling function `DeleteFileVersionById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-files-id-versions-id/).
 
-<!-- sample delete_files_id_versions_id -->
+
 ```
 await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersion.Id);
 ```
@@ -176,10 +168,8 @@ PPTX or similar.
 
 This operation is performed by calling function `PromoteFileVersion`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-files-id-versions-current/).
 
-<!-- sample post_files_id_versions_current -->
+
 ```
 await client.FileVersions.PromoteFileVersionAsync(fileId: file.Id, requestBody: new PromoteFileVersionRequestBody() { Id = NullableUtils.Unwrap(fileVersions.Entries)[0].Id, Type = PromoteFileVersionRequestBodyTypeField.FileVersion });
 ```

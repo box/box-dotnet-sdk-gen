@@ -13,10 +13,8 @@ Cancels a sign request.
 
 This operation is performed by calling function `CancelSignRequest`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-sign-requests-id-cancel/).
 
-<!-- sample post_sign_requests_id_cancel -->
+
 ```
 await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
 ```
@@ -44,8 +42,6 @@ Resends a signature request email to all outstanding signers.
 
 This operation is performed by calling function `ResendSignRequest`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-sign-requests-id-resend/).
 
 *Currently we don't have an example for calling `ResendSignRequest` in integration tests*
 
@@ -73,10 +69,8 @@ Gets a sign request by ID.
 
 This operation is performed by calling function `GetSignRequestById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-sign-requests-id/).
 
-<!-- sample get_sign_requests_id -->
+
 ```
 await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
 ```
@@ -105,10 +99,8 @@ Gets signature requests created by a user. If the `sign_files` and/or
 
 This operation is performed by calling function `GetSignRequests`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-sign-requests/).
 
-<!-- sample get_sign_requests -->
+
 ```
 await client.SignRequests.GetSignRequestsAsync();
 ```
@@ -137,10 +129,8 @@ sending the signature request to signers.
 
 This operation is performed by calling function `CreateSignRequest`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-sign-requests/).
 
-<!-- sample post_sign_requests -->
+
 ```
 await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signer1Email, SignerGroupId = "user" },new SignRequestCreateSigner() { Email = signer2Email, SignerGroupId = "user" }}), parentFolder: new FolderMini(id: destinationFolder.Id), sourceFiles: Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id)})));
 ```

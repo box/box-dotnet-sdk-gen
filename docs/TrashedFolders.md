@@ -21,10 +21,8 @@ operation can performed on any of the locked folders.
 
 This operation is performed by calling function `RestoreFolderFromTrash`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-folders-id/).
 
-<!-- sample post_folders_id -->
+
 ```
 await client.TrashedFolders.RestoreFolderFromTrashAsync(folderId: folder.Id);
 ```
@@ -66,10 +64,8 @@ API.
 
 This operation is performed by calling function `GetTrashedFolderById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-folders-id-trash/).
 
-<!-- sample get_folders_id_trash -->
+
 ```
 await client.TrashedFolders.GetTrashedFolderByIdAsync(folderId: folder.Id);
 ```
@@ -102,10 +98,8 @@ This action cannot be undone.
 
 This operation is performed by calling function `DeleteTrashedFolderById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-folders-id-trash/).
 
-<!-- sample delete_folders_id_trash -->
+
 ```
 await client.TrashedFolders.DeleteTrashedFolderByIdAsync(folderId: folder.Id);
 ```

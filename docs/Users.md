@@ -19,10 +19,8 @@ enterprise.
 
 This operation is performed by calling function `GetUsers`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users/).
 
-<!-- sample get_users -->
+
 ```
 await client.Users.GetUsersAsync();
 ```
@@ -52,10 +50,8 @@ admin permissions.
 
 This operation is performed by calling function `CreateUser`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-users/).
 
-<!-- sample post_users -->
+
 ```
 await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
 ```
@@ -94,10 +90,8 @@ Use the `As-User` header to change who this API call is made on behalf of.
 
 This operation is performed by calling function `GetUserMe`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users-me/).
 
-<!-- sample get_users_me -->
+
 ```
 await client.Users.GetUserMeAsync();
 ```
@@ -135,10 +129,8 @@ null instead.
 
 This operation is performed by calling function `GetUserById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-users-id/).
 
-<!-- sample get_users_id -->
+
 ```
 await client.Users.GetUserByIdAsync(userId: user.Id);
 ```
@@ -175,10 +167,8 @@ admin permissions.
 
 This operation is performed by calling function `UpdateUserById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-users-id/).
 
-<!-- sample put_users_id -->
+
 ```
 await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { Name = updatedUserName });
 ```
@@ -213,10 +203,8 @@ the user and their files.
 
 This operation is performed by calling function `DeleteUserById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-users-id/).
 
-<!-- sample delete_users_id -->
+
 ```
 await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
 ```

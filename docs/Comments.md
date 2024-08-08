@@ -13,10 +13,8 @@ Retrieves a list of comments for a file.
 
 This operation is performed by calling function `GetFileComments`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-comments/).
 
-<!-- sample get_files_id_comments -->
+
 ```
 await client.Comments.GetFileCommentsAsync(fileId: fileId);
 ```
@@ -48,10 +46,8 @@ as information on the user who created the comment.
 
 This operation is performed by calling function `GetCommentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-comments-id/).
 
-<!-- sample get_comments_id -->
+
 ```
 await client.Comments.GetCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id));
 ```
@@ -81,10 +77,8 @@ Update the message of a comment.
 
 This operation is performed by calling function `UpdateCommentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-comments-id/).
 
-<!-- sample put_comments_id -->
+
 ```
 await client.Comments.UpdateCommentByIdAsync(commentId: NullableUtils.Unwrap(newReplyComment.Id), requestBody: new UpdateCommentByIdRequestBody() { Message = newMessage });
 ```
@@ -116,10 +110,8 @@ Permanently deletes a comment.
 
 This operation is performed by calling function `DeleteCommentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-comments-id/).
 
-<!-- sample delete_comments_id -->
+
 ```
 await client.Comments.DeleteCommentByIdAsync(commentId: NullableUtils.Unwrap(newComment.Id));
 ```
@@ -148,10 +140,8 @@ as a reply to an other comment.
 
 This operation is performed by calling function `CreateComment`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-comments/).
 
-<!-- sample post_comments -->
+
 ```
 await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: NullableUtils.Unwrap(newComment.Id), type: CreateCommentRequestBodyItemTypeField.Comment)));
 ```

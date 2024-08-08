@@ -13,10 +13,8 @@ for within the current enterprise.
 
 This operation is performed by calling function `GetCollaborationWhitelistEntries`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-collaboration-whitelist-entries/).
 
-<!-- sample get_collaboration_whitelist_entries -->
+
 ```
 await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntriesAsync();
 ```
@@ -45,10 +43,8 @@ collaboration for.
 
 This operation is performed by calling function `CreateCollaborationWhitelistEntry`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-collaboration-whitelist-entries/).
 
-<!-- sample post_collaboration_whitelist_entries -->
+
 ```
 await client.CollaborationAllowlistEntries.CreateCollaborationWhitelistEntryAsync(requestBody: new CreateCollaborationWhitelistEntryRequestBody(direction: CreateCollaborationWhitelistEntryRequestBodyDirectionField.Inbound, domain: domain));
 ```
@@ -77,10 +73,8 @@ for within the current enterprise.
 
 This operation is performed by calling function `GetCollaborationWhitelistEntryById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-collaboration-whitelist-entries-id/).
 
-<!-- sample get_collaboration_whitelist_entries_id -->
+
 ```
 await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
 ```
@@ -109,10 +103,8 @@ collaborations for within the current enterprise.
 
 This operation is performed by calling function `DeleteCollaborationWhitelistEntryById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-collaboration-whitelist-entries-id/).
 
-<!-- sample delete_collaboration_whitelist_entries_id -->
+
 ```
 await client.CollaborationAllowlistEntries.DeleteCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
 ```

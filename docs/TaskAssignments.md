@@ -13,10 +13,8 @@ Lists all of the assignments for a given task.
 
 This operation is performed by calling function `GetTaskAssignments`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-tasks-id-assignments/).
 
-<!-- sample get_tasks_id_assignments -->
+
 ```
 await client.TaskAssignments.GetTaskAssignmentsAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```
@@ -48,10 +46,8 @@ assignments.
 
 This operation is performed by calling function `CreateTaskAssignment`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-task-assignments/).
 
-<!-- sample post_task_assignments -->
+
 ```
 await client.TaskAssignments.CreateTaskAssignmentAsync(requestBody: new CreateTaskAssignmentRequestBody(task: new CreateTaskAssignmentRequestBodyTaskField(type: CreateTaskAssignmentRequestBodyTaskTypeField.Task, id: NullableUtils.Unwrap(task.Id)), assignTo: new CreateTaskAssignmentRequestBodyAssignToField() { Id = currentUser.Id }));
 ```
@@ -79,10 +75,8 @@ Retrieves information about a task assignment.
 
 This operation is performed by calling function `GetTaskAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-task-assignments-id/).
 
-<!-- sample get_task_assignments_id -->
+
 ```
 await client.TaskAssignments.GetTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id));
 ```
@@ -112,10 +106,8 @@ used to update the state of a task assigned to a user.
 
 This operation is performed by calling function `UpdateTaskAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-task-assignments-id/).
 
-<!-- sample put_task_assignments_id -->
+
 ```
 await client.TaskAssignments.UpdateTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id), requestBody: new UpdateTaskAssignmentByIdRequestBody() { Message = "updated message", ResolutionState = UpdateTaskAssignmentByIdRequestBodyResolutionStateField.Approved });
 ```
@@ -145,10 +137,8 @@ Deletes a specific task assignment.
 
 This operation is performed by calling function `DeleteTaskAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-task-assignments-id/).
 
-<!-- sample delete_task_assignments_id -->
+
 ```
 await client.TaskAssignments.DeleteTaskAssignmentByIdAsync(taskAssignmentId: NullableUtils.Unwrap(taskAssignment.Id));
 ```

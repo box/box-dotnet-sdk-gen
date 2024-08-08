@@ -13,10 +13,8 @@ Retrieves a list of items a legal hold policy has been assigned to.
 
 This operation is performed by calling function `GetLegalHoldPolicyAssignments`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments/).
 
-<!-- sample get_legal_hold_policy_assignments -->
+
 ```
 await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentsAsync(queryParams: new GetLegalHoldPolicyAssignmentsQueryParams(policyId: legalHoldPolicyId));
 ```
@@ -44,10 +42,8 @@ Assign a legal hold to a file, file version, folder, or user.
 
 This operation is performed by calling function `CreateLegalHoldPolicyAssignment`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-legal-hold-policy-assignments/).
 
-<!-- sample post_legal_hold_policy_assignments -->
+
 ```
 await client.LegalHoldPolicyAssignments.CreateLegalHoldPolicyAssignmentAsync(requestBody: new CreateLegalHoldPolicyAssignmentRequestBody(policyId: legalHoldPolicyId, assignTo: new CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(type: CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField.File, id: fileId)));
 ```
@@ -75,10 +71,8 @@ Retrieve a legal hold policy assignment.
 
 This operation is performed by calling function `GetLegalHoldPolicyAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id/).
 
-<!-- sample get_legal_hold_policy_assignments_id -->
+
 ```
 await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
 ```
@@ -109,10 +103,8 @@ fully removed yet when the response returns.
 
 This operation is performed by calling function `DeleteLegalHoldPolicyAssignmentById`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-legal-hold-policy-assignments-id/).
 
-<!-- sample delete_legal_hold_policy_assignments_id -->
+
 ```
 await client.LegalHoldPolicyAssignments.DeleteLegalHoldPolicyAssignmentByIdAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
 ```
@@ -159,10 +151,8 @@ find a list of policy assignments for a given policy ID.
 
 This operation is performed by calling function `GetLegalHoldPolicyAssignmentFileOnHold`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id-files-on-hold/).
 
-<!-- sample get_legal_hold_policy_assignments_id_files_on_hold -->
+
 ```
 await client.LegalHoldPolicyAssignments.GetLegalHoldPolicyAssignmentFileOnHoldAsync(legalHoldPolicyAssignmentId: legalHoldPolicyAssignmentId);
 ```

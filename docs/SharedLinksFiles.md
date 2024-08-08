@@ -22,10 +22,8 @@ by requesting it in the `fields` query parameter.
 
 This operation is performed by calling function `FindFileForSharedLink`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-shared-items/).
 
-<!-- sample get_shared_items -->
+
 ```
 await userClient.SharedLinksFiles.FindFileForSharedLinkAsync(queryParams: new FindFileForSharedLinkQueryParams(), headers: new FindFileForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(fileFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword")));
 ```
@@ -54,10 +52,8 @@ Gets the information for a shared link on a file.
 
 This operation is performed by calling function `GetSharedLinkForFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-get-shared-link/).
 
-<!-- sample get_files_id#get_shared_link -->
+
 ```
 await client.SharedLinksFiles.GetSharedLinkForFileAsync(fileId: fileId, queryParams: new GetSharedLinkForFileQueryParams(fields: "shared_link"));
 ```
@@ -88,10 +84,8 @@ Adds a shared link to a file.
 
 This operation is performed by calling function `AddShareLinkToFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-add-shared-link/).
 
-<!-- sample put_files_id#add_shared_link -->
+
 ```
 await client.SharedLinksFiles.AddShareLinkToFileAsync(fileId: fileId, requestBody: new AddShareLinkToFileRequestBody() { SharedLink = new AddShareLinkToFileRequestBodySharedLinkField() { Access = AddShareLinkToFileRequestBodySharedLinkAccessField.Open, Password = "Secret123@" } }, queryParams: new AddShareLinkToFileQueryParams(fields: "shared_link"));
 ```
@@ -124,10 +118,8 @@ Updates a shared link on a file.
 
 This operation is performed by calling function `UpdateSharedLinkOnFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-update-shared-link/).
 
-<!-- sample put_files_id#update_shared_link -->
+
 ```
 await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody() { SharedLink = new UpdateSharedLinkOnFileRequestBodySharedLinkField() { Access = UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link"));
 ```
@@ -160,8 +152,6 @@ Removes a shared link from a file.
 
 This operation is performed by calling function `RemoveSharedLinkFromFile`.
 
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-remove-shared-link/).
 
 *Currently we don't have an example for calling `RemoveSharedLinkFromFile` in integration tests*
 
