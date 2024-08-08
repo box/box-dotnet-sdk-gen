@@ -29,7 +29,7 @@ await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.Mul
 
 ### Returns
 
-This function returns a value of type `AiResponse`.
+This function returns a value of type `AiAskResponse`.
 
 A successful response including the answer from the LLM.
 
@@ -43,7 +43,7 @@ This operation is performed by calling function `CreateAiTextGen`.
 
 
 ```
-await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField() { Id = fileToAsk.Id, Type = AiTextGenItemsTypeField.File, Content = "The Earth goes around the sun. Sun rises in the East in the morning." }})) { DialogueHistory = Array.AsReadOnly(new [] {new AiTextGenDialogueHistoryField() { Prompt = "What does the earth go around?", Answer = "The sun", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") },new AiTextGenDialogueHistoryField() { Prompt = "On Earth, where does the sun rise?", Answer = "East", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") }}) });
+await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField() { Id = fileToAsk.Id, Type = AiTextGenItemsTypeField.File, Content = "The Earth goes around the sun. Sun rises in the East in the morning." }})) { DialogueHistory = Array.AsReadOnly(new [] {new AiDialogueHistory() { Prompt = "What does the earth go around?", Answer = "The sun", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") },new AiDialogueHistory() { Prompt = "On Earth, where does the sun rise?", Answer = "East", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") }}) });
 ```
 
 ### Arguments

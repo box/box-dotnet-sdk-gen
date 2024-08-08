@@ -1,10 +1,8 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
-using Box.Sdk.Gen.Internal;
-using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiTextGenDialogueHistoryField {
+    public class AiDialogueHistory {
         /// <summary>
         /// The prompt previously provided by the client and answered by the LLM.
         /// </summary>
@@ -23,7 +21,7 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
-        public AiTextGenDialogueHistoryField() {
+        public AiDialogueHistory() {
             
         }
     }
