@@ -13,8 +13,10 @@ Retrieves all metadata for a given file.
 
 This operation is performed by calling function `GetFileMetadata`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-
+<!-- sample get_files_id_metadata -->
 ```
 await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id);
 ```
@@ -46,8 +48,10 @@ file.
 
 This operation is performed by calling function `GetFileMetadataById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-
+<!-- sample get_files_id_metadata_id_id -->
 ```
 await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFileMetadataByIdScope.Global, templateKey: "properties");
 ```
@@ -85,8 +89,10 @@ any key-value pair.
 
 This operation is performed by calling function `CreateFileMetadataById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-files-id-metadata-id-id/).
 
-
+<!-- sample post_files_id_metadata_id_id -->
 ```
 await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: CreateFileMetadataByIdScope.Enterprise, templateKey: templateKey, requestBody: new Dictionary<string, object>() { { "name", "John" }, { "age", 23 }, { "birthDate", "2001-01-03T02:20:50.520Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } });
 ```
@@ -128,8 +134,10 @@ application of the operations, the metadata instance will not be changed.
 
 This operation is performed by calling function `UpdateFileMetadataById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-
+<!-- sample put_files_id_metadata_id_id -->
 ```
 await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: UpdateFileMetadataByIdScope.Global, templateKey: "properties", requestBody: Array.AsReadOnly(new [] {new UpdateFileMetadataByIdRequestBody() { Op = UpdateFileMetadataByIdRequestBodyOpField.Replace, Path = "/abc", Value = newValue }}));
 ```
@@ -164,8 +172,10 @@ Deletes a piece of file metadata.
 
 This operation is performed by calling function `DeleteFileMetadataById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-files-id-metadata-id-id/).
 
-
+<!-- sample delete_files_id_metadata_id_id -->
 ```
 await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: DeleteFileMetadataByIdScope.Enterprise, templateKey: templateKey);
 ```

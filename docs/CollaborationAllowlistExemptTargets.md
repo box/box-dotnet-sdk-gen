@@ -13,8 +13,10 @@ domain restrictions.
 
 This operation is performed by calling function `GetCollaborationWhitelistExemptTargets`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets/).
 
-
+<!-- sample get_collaboration_whitelist_exempt_targets -->
 ```
 await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync();
 ```
@@ -43,8 +45,10 @@ for collaborations.
 
 This operation is performed by calling function `CreateCollaborationWhitelistExemptTarget`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-collaboration-whitelist-exempt-targets/).
 
-
+<!-- sample post_collaboration_whitelist_exempt_targets -->
 ```
 await client.CollaborationAllowlistExemptTargets.CreateCollaborationWhitelistExemptTargetAsync(requestBody: new CreateCollaborationWhitelistExemptTargetRequestBody(user: new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(id: user.Id)));
 ```
@@ -73,8 +77,10 @@ domain restrictions.
 
 This operation is performed by calling function `GetCollaborationWhitelistExemptTargetById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets-id/).
 
-
+<!-- sample get_collaboration_whitelist_exempt_targets_id -->
 ```
 await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id));
 ```
@@ -103,8 +109,10 @@ of domains for collaborations.
 
 This operation is performed by calling function `DeleteCollaborationWhitelistExemptTargetById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-collaboration-whitelist-exempt-targets-id/).
 
-
+<!-- sample delete_collaboration_whitelist_exempt_targets_id -->
 ```
 await client.CollaborationAllowlistExemptTargets.DeleteCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id));
 ```

@@ -18,6 +18,8 @@ scope `manage enterprise properties` checked.
 
 This operation is performed by calling function `GetEvents`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-events/).
 
 *Currently we don't have an example for calling `GetEvents` in integration tests*
 
@@ -82,6 +84,8 @@ first.
 
 This operation is performed by calling function `GetEventsWithLongPolling`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/options-events/).
 
 *Currently we don't have an example for calling `GetEventsWithLongPolling` in integration tests*
 

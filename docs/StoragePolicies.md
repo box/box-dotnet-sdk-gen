@@ -10,8 +10,10 @@ Fetches all the storage policies in the enterprise.
 
 This operation is performed by calling function `GetStoragePolicies`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-storage-policies/).
 
-
+<!-- sample get_storage_policies -->
 ```
 await client.StoragePolicies.GetStoragePoliciesAsync();
 ```
@@ -39,8 +41,10 @@ Fetches a specific storage policy.
 
 This operation is performed by calling function `GetStoragePolicyById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-storage-policies-id/).
 
-
+<!-- sample get_storage_policies_id -->
 ```
 await client.StoragePolicies.GetStoragePolicyByIdAsync(storagePolicyId: storagePolicy.Id);
 ```

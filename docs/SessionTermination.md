@@ -13,8 +13,10 @@ Returns the status for the POST request.
 
 This operation is performed by calling function `TerminateUsersSessions`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-users-terminate-sessions/).
 
-
+<!-- sample post_users_terminate_sessions -->
 ```
 await client.SessionTermination.TerminateUsersSessionsAsync(requestBody: new TerminateUsersSessionsRequestBody(userIds: Array.AsReadOnly(new [] {Utils.GetEnvVar("USER_ID")}), userLogins: Array.AsReadOnly(new [] {NullableUtils.Unwrap(user.Login)})));
 ```
@@ -45,8 +47,10 @@ Returns the status for the POST request.
 
 This operation is performed by calling function `TerminateGroupsSessions`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-groups-terminate-sessions/).
 
-
+<!-- sample post_groups_terminate_sessions -->
 ```
 await client.SessionTermination.TerminateGroupsSessionsAsync(requestBody: new TerminateGroupsSessionsRequestBody(groupIds: Array.AsReadOnly(new [] {group.Id})));
 ```

@@ -17,8 +17,10 @@ uploading the file will receive a HTTP `400` error with a
 
 This operation is performed by calling function `UploadFileVersion`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-files-id-content/).
 
-
+<!-- sample post_files_id_content -->
 ```
 await client.Uploads.UploadFileVersionAsync(fileId: file.Id, requestBody: new UploadFileVersionRequestBody(attributes: new UploadFileVersionRequestBodyAttributesField(name: NullableUtils.Unwrap(file.Name)), file: Utils.GenerateByteStream(size: 20)));
 ```
@@ -56,8 +58,10 @@ uploading the file will receive a HTTP `400` error with a
 
 This operation is performed by calling function `UploadFile`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-files-content/).
 
-
+<!-- sample post_files_content -->
 ```
 await parentClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 1024 * 1024)));
 ```
@@ -88,6 +92,8 @@ before you upload the entire file.
 
 This operation is performed by calling function `PreflightFileUploadCheck`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/options-files-content/).
 
 *Currently we don't have an example for calling `PreflightFileUploadCheck` in integration tests*
 

@@ -11,8 +11,10 @@ Retrieve the watermark for a folder.
 
 This operation is performed by calling function `GetFolderWatermark`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-folders-id-watermark/).
 
-
+<!-- sample get_folders_id_watermark -->
 ```
 await client.FolderWatermarks.GetFolderWatermarkAsync(folderId: folder.Id);
 ```
@@ -41,8 +43,10 @@ Applies or update a watermark on a folder.
 
 This operation is performed by calling function `UpdateFolderWatermark`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-folders-id-watermark/).
 
-
+<!-- sample put_folders_id_watermark -->
 ```
 await client.FolderWatermarks.UpdateFolderWatermarkAsync(folderId: folder.Id, requestBody: new UpdateFolderWatermarkRequestBody(watermark: new UpdateFolderWatermarkRequestBodyWatermarkField(imprint: UpdateFolderWatermarkRequestBodyWatermarkImprintField.Default)));
 ```
@@ -74,8 +78,10 @@ Removes the watermark from a folder.
 
 This operation is performed by calling function `DeleteFolderWatermark`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-folders-id-watermark/).
 
-
+<!-- sample delete_folders_id_watermark -->
 ```
 await client.FolderWatermarks.DeleteFolderWatermarkAsync(folderId: folder.Id);
 ```

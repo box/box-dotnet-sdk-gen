@@ -14,8 +14,10 @@ original folder has been deleted.
 
 This operation is performed by calling function `RestoreFileFromTrash`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-files-id/).
 
-
+<!-- sample post_files_id -->
 ```
 await client.TrashedFiles.RestoreFileFromTrashAsync(fileId: file.Id);
 ```
@@ -57,8 +59,10 @@ API.
 
 This operation is performed by calling function `GetTrashedFileById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-files-id-trash/).
 
-
+<!-- sample get_files_id_trash -->
 ```
 await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: uploadedFile.Id);
 ```
@@ -91,8 +95,10 @@ This action cannot be undone.
 
 This operation is performed by calling function `DeleteTrashedFileById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-files-id-trash/).
 
-
+<!-- sample delete_files_id_trash -->
 ```
 await client.TrashedFiles.DeleteTrashedFileByIdAsync(fileId: file.Id);
 ```

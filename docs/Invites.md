@@ -18,8 +18,10 @@ the application, which can be enabled within the developer console.
 
 This operation is performed by calling function `CreateInvite`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-invites/).
 
-
+<!-- sample post_invites -->
 ```
 await client.Invites.CreateInviteAsync(requestBody: new CreateInviteRequestBody(enterprise: new CreateInviteRequestBodyEnterpriseField(id: NullableUtils.Unwrap(NullableUtils.Unwrap(currentUser.Enterprise).Id)), actionableBy: new CreateInviteRequestBodyActionableByField() { Login = email }));
 ```
@@ -49,8 +51,10 @@ Returns the status of a user invite.
 
 This operation is performed by calling function `GetInviteById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-invites-id/).
 
-
+<!-- sample get_invites_id -->
 ```
 await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id);
 ```

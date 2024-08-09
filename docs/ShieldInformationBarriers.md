@@ -12,8 +12,10 @@ Get shield information barrier based on provided ID.
 
 This operation is performed by calling function `GetShieldInformationBarrierById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barriers-id/).
 
-
+<!-- sample get_shield_information_barriers_id -->
 ```
 await client.ShieldInformationBarriers.GetShieldInformationBarrierByIdAsync(shieldInformationBarrierId: barrierId);
 ```
@@ -41,8 +43,10 @@ Change status of shield information barrier with the specified ID.
 
 This operation is performed by calling function `UpdateShieldInformationBarrierStatus`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-shield-information-barriers-change-status/).
 
-
+<!-- sample post_shield_information_barriers_change_status -->
 ```
 await client.ShieldInformationBarriers.UpdateShieldInformationBarrierStatusAsync(requestBody: new UpdateShieldInformationBarrierStatusRequestBody(id: barrierId, status: UpdateShieldInformationBarrierStatusRequestBodyStatusField.Disabled));
 ```
@@ -71,8 +75,10 @@ for the enterprise of JWT.
 
 This operation is performed by calling function `GetShieldInformationBarriers`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barriers/).
 
-
+<!-- sample get_shield_information_barriers -->
 ```
 await client.ShieldInformationBarriers.GetShieldInformationBarriersAsync();
 ```
@@ -104,8 +110,10 @@ firm and prevents confidential information passing between them.
 
 This operation is performed by calling function `CreateShieldInformationBarrier`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-shield-information-barriers/).
 
-
+<!-- sample post_shield_information_barriers -->
 ```
 await client.ShieldInformationBarriers.CreateShieldInformationBarrierAsync(requestBody: new CreateShieldInformationBarrierRequestBody(enterprise: new EnterpriseBase() { Id = enterpriseId }));
 ```

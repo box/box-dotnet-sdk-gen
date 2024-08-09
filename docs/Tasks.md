@@ -14,8 +14,10 @@ endpoint does not support pagination.
 
 This operation is performed by calling function `GetFileTasks`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-files-id-tasks/).
 
-
+<!-- sample get_files_id_tasks -->
 ```
 await client.Tasks.GetFileTasksAsync(fileId: file.Id);
 ```
@@ -47,8 +49,10 @@ will need to be assigned separately.
 
 This operation is performed by calling function `CreateTask`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-tasks/).
 
-
+<!-- sample post_tasks -->
 ```
 await client.Tasks.CreateTaskAsync(requestBody: new CreateTaskRequestBody(item: new CreateTaskRequestBodyItemField() { Type = CreateTaskRequestBodyItemTypeField.File, Id = file.Id }) { Message = "test message", DueAt = date, Action = CreateTaskRequestBodyActionField.Review, CompletionRule = CreateTaskRequestBodyCompletionRuleField.AllAssignees });
 ```
@@ -76,8 +80,10 @@ Retrieves information about a specific task.
 
 This operation is performed by calling function `GetTaskById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-tasks-id/).
 
-
+<!-- sample get_tasks_id -->
 ```
 await client.Tasks.GetTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```
@@ -106,8 +112,10 @@ update its completion state.
 
 This operation is performed by calling function `UpdateTaskById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-tasks-id/).
 
-
+<!-- sample put_tasks_id -->
 ```
 await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), requestBody: new UpdateTaskByIdRequestBody() { Message = "updated message" });
 ```
@@ -137,8 +145,10 @@ Removes a task from a file.
 
 This operation is performed by calling function `DeleteTaskById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-tasks-id/).
 
-
+<!-- sample delete_tasks_id -->
 ```
 await client.Tasks.DeleteTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id));
 ```

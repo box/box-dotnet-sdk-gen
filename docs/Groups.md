@@ -14,8 +14,10 @@ must have admin permissions to inspect enterprise's groups.
 
 This operation is performed by calling function `GetGroups`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-groups/).
 
-
+<!-- sample get_groups -->
 ```
 await client.Groups.GetGroupsAsync();
 ```
@@ -45,8 +47,10 @@ permissions can create new groups.
 
 This operation is performed by calling function `CreateGroup`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-groups/).
 
-
+<!-- sample post_groups -->
 ```
 await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName) { Description = groupDescription });
 ```
@@ -78,8 +82,10 @@ use this API.
 
 This operation is performed by calling function `GetGroupById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-groups-id/).
 
-
+<!-- sample get_groups_id -->
 ```
 await client.Groups.GetGroupByIdAsync(groupId: group.Id);
 ```
@@ -111,8 +117,10 @@ use this API.
 
 This operation is performed by calling function `UpdateGroupById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-groups-id/).
 
-
+<!-- sample put_groups_id -->
 ```
 await client.Groups.UpdateGroupByIdAsync(groupId: group.Id, requestBody: new UpdateGroupByIdRequestBody() { Name = updatedGroupName });
 ```
@@ -145,8 +153,10 @@ admin-level permissions will be able to use this API.
 
 This operation is performed by calling function `DeleteGroupById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-groups-id/).
 
-
+<!-- sample delete_groups_id -->
 ```
 await client.Groups.DeleteGroupByIdAsync(groupId: group.Id);
 ```

@@ -23,8 +23,10 @@ To fetch more items within the folder, use the
 
 This operation is performed by calling function `GetFolderById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-folders-id/).
 
-
+<!-- sample get_folders_id -->
 ```
 await client.Folders.GetFolderByIdAsync(folderId: newFolder.Id);
 ```
@@ -65,8 +67,10 @@ create shared links, update collaborations, and more.
 
 This operation is performed by calling function `UpdateFolderById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-folders-id/).
 
-
+<!-- sample put_folders_id -->
 ```
 await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Name = Utils.GetUUID() });
 ```
@@ -108,8 +112,10 @@ the trash.
 
 This operation is performed by calling function `DeleteFolderById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-folders-id/).
 
-
+<!-- sample delete_folders_id -->
 ```
 await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
 ```
@@ -144,8 +150,10 @@ use the [Get a folder](#get-folders-id) endpoint instead.
 
 This operation is performed by calling function `GetFolderItems`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-folders-id-items/).
 
-
+<!-- sample get_folders_id_items -->
 ```
 await client.Folders.GetFolderItemsAsync(folderId: folderOrigin.Id);
 ```
@@ -175,8 +183,10 @@ Creates a new empty folder within the specified parent folder.
 
 This operation is performed by calling function `CreateFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-folders/).
 
-
+<!-- sample post_folders -->
 ```
 await parentClient.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
 ```
@@ -212,8 +222,10 @@ The original folder will not be changed.
 
 This operation is performed by calling function `CopyFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-folders-id-copy/).
 
-
+<!-- sample post_folders_id_copy -->
 ```
 await client.Folders.CopyFolderAsync(folderId: folderOrigin.Id, requestBody: new CopyFolderRequestBody(parent: new CopyFolderRequestBodyParentField(id: "0")) { Name = copiedFolderName });
 ```

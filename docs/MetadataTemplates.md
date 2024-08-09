@@ -17,8 +17,10 @@ template.
 
 This operation is performed by calling function `GetMetadataTemplatesByInstanceId`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-metadata-templates/).
 
-
+<!-- sample get_metadata_templates -->
 ```
 await client.MetadataTemplates.GetMetadataTemplatesByInstanceIdAsync(queryParams: new GetMetadataTemplatesByInstanceIdQueryParams(metadataInstanceId: NullableUtils.Unwrap(createdMetadataInstance.Id)));
 ```
@@ -50,8 +52,10 @@ an enterprise or globally, or list all templates applied to a file or folder.
 
 This operation is performed by calling function `GetMetadataTemplate`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-metadata-templates-id-id-schema/).
 
-
+<!-- sample get_metadata_templates_id_id_schema -->
 ```
 await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
 ```
@@ -88,8 +92,10 @@ application of the operations, the metadata template will not be changed.
 
 This operation is performed by calling function `UpdateMetadataTemplate`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-metadata-templates-id-id-schema/).
 
-
+<!-- sample put_metadata_templates_id_id_schema -->
 ```
 await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField) { FieldKey = "newfieldname", Data = new Dictionary<string, object>() { { "type", "string" }, { "displayName", "newFieldName" } } }}));
 ```
@@ -123,8 +129,10 @@ This deletion is permanent and can not be reversed.
 
 This operation is performed by calling function `DeleteMetadataTemplate`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-metadata-templates-id-id-schema/).
 
-
+<!-- sample delete_metadata_templates_id_id_schema -->
 ```
 await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: templateKey);
 ```
@@ -155,8 +163,10 @@ Retrieves a metadata template by its ID.
 
 This operation is performed by calling function `GetMetadataTemplateById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-metadata-templates-id/).
 
-
+<!-- sample get_metadata_templates_id -->
 ```
 await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id);
 ```
@@ -185,8 +195,10 @@ enterprises using Box.
 
 This operation is performed by calling function `GetGlobalMetadataTemplates`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-metadata-templates-global/).
 
-
+<!-- sample get_metadata_templates_global -->
 ```
 await client.MetadataTemplates.GetGlobalMetadataTemplatesAsync();
 ```
@@ -216,8 +228,10 @@ the user's enterprise
 
 This operation is performed by calling function `GetEnterpriseMetadataTemplates`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise/).
 
-
+<!-- sample get_metadata_templates_enterprise -->
 ```
 await client.MetadataTemplates.GetEnterpriseMetadataTemplatesAsync();
 ```
@@ -247,8 +261,10 @@ files and folders.
 
 This operation is performed by calling function `CreateMetadataTemplate`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-metadata-templates-schema/).
 
-
+<!-- sample post_metadata_templates_schema -->
 ```
 await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "name", displayName: "name"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Float, key: "age", displayName: "age"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Date, key: "birthDate", displayName: "birthDate"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Enum, key: "countryCode", displayName: "countryCode") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "US"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "CA")}) },new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.MultiSelect, key: "sports", displayName: "sports") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "basketball"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "football"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "tennis")}) }}) });
 ```

@@ -14,8 +14,10 @@ the original folder has been deleted.
 
 This operation is performed by calling function `RestoreWeblinkFromTrash`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-web-links-id/).
 
-
+<!-- sample post_web_links_id -->
 ```
 await client.TrashedWebLinks.RestoreWeblinkFromTrashAsync(webLinkId: weblink.Id);
 ```
@@ -47,8 +49,10 @@ Retrieves a web link that has been moved to the trash.
 
 This operation is performed by calling function `GetTrashedWebLinkById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-web-links-id-trash/).
 
-
+<!-- sample get_web_links_id_trash -->
 ```
 await client.TrashedWebLinks.GetTrashedWebLinkByIdAsync(webLinkId: weblink.Id);
 ```
@@ -81,8 +85,10 @@ This action cannot be undone.
 
 This operation is performed by calling function `DeleteTrashedWebLinkById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-web-links-id-trash/).
 
-
+<!-- sample delete_web_links_id_trash -->
 ```
 await client.TrashedWebLinks.DeleteTrashedWebLinkByIdAsync(webLinkId: weblink.Id);
 ```

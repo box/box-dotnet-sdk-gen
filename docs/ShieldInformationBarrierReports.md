@@ -11,8 +11,10 @@ Lists shield information barrier reports.
 
 This operation is performed by calling function `GetShieldInformationBarrierReports`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports/).
 
-
+<!-- sample get_shield_information_barrier_reports -->
 ```
 await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportsAsync(queryParams: new GetShieldInformationBarrierReportsQueryParams(shieldInformationBarrierId: barrierId));
 ```
@@ -40,8 +42,10 @@ Creates a shield information barrier report for a given barrier.
 
 This operation is performed by calling function `CreateShieldInformationBarrierReport`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-shield-information-barrier-reports/).
 
-
+<!-- sample post_shield_information_barrier_reports -->
 ```
 await client.ShieldInformationBarrierReports.CreateShieldInformationBarrierReportAsync(requestBody: new ShieldInformationBarrierReference() { ShieldInformationBarrier = new ShieldInformationBarrierBase() { Id = barrierId, Type = ShieldInformationBarrierBaseTypeField.ShieldInformationBarrier } });
 ```
@@ -69,8 +73,10 @@ Retrieves a shield information barrier report by its ID.
 
 This operation is performed by calling function `GetShieldInformationBarrierReportById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports-id/).
 
-
+<!-- sample get_shield_information_barrier_reports_id -->
 ```
 await client.ShieldInformationBarrierReports.GetShieldInformationBarrierReportByIdAsync(shieldInformationBarrierReportId: NullableUtils.Unwrap(createdReport.Id));
 ```

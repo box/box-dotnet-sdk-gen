@@ -18,8 +18,10 @@ vice versa.
 
 This operation is performed by calling function `GetWebhooks`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-webhooks/).
 
-
+<!-- sample get_webhooks -->
 ```
 await client.Webhooks.GetWebhooksAsync();
 ```
@@ -47,8 +49,10 @@ Creates a webhook.
 
 This operation is performed by calling function `CreateWebhook`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-webhooks/).
 
-
+<!-- sample post_webhooks -->
 ```
 await client.Webhooks.CreateWebhookAsync(requestBody: new CreateWebhookRequestBody(target: new CreateWebhookRequestBodyTargetField() { Id = folder.Id, Type = CreateWebhookRequestBodyTargetTypeField.Folder }, address: "https://example.com/new-webhook", triggers: Array.AsReadOnly(new [] {new StringEnum<CreateWebhookRequestBodyTriggersField>(CreateWebhookRequestBodyTriggersField.FileUploaded)})));
 ```
@@ -76,8 +80,10 @@ Retrieves a specific webhook
 
 This operation is performed by calling function `GetWebhookById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-webhooks-id/).
 
-
+<!-- sample get_webhooks_id -->
 ```
 await client.Webhooks.GetWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id));
 ```
@@ -105,8 +111,10 @@ Updates a webhook.
 
 This operation is performed by calling function `UpdateWebhookById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-webhooks-id/).
 
-
+<!-- sample put_webhooks_id -->
 ```
 await client.Webhooks.UpdateWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id), requestBody: new UpdateWebhookByIdRequestBody() { Address = "https://example.com/updated-webhook" });
 ```
@@ -136,8 +144,10 @@ Deletes a webhook.
 
 This operation is performed by calling function `DeleteWebhookById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-webhooks-id/).
 
-
+<!-- sample delete_webhooks_id -->
 ```
 await client.Webhooks.DeleteWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhook.Id));
 ```

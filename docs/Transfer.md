@@ -41,8 +41,10 @@ Admins will receive an email when the operation is completed.
 
 This operation is performed by calling function `TransferOwnedFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-users-id-folders-0/).
 
-
+<!-- sample put_users_id_folders_0 -->
 ```
 await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParams() { Notify = false });
 ```

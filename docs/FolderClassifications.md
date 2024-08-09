@@ -17,8 +17,10 @@ URL explicitly, for example
 
 This operation is performed by calling function `GetClassificationOnFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-
+<!-- sample get_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
 await client.FolderClassifications.GetClassificationOnFolderAsync(folderId: folder.Id);
 ```
@@ -54,8 +56,10 @@ URL explicitly, for example
 
 This operation is performed by calling function `AddClassificationToFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-
+<!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
 await client.FolderClassifications.AddClassificationToFolderAsync(folderId: folder.Id, requestBody: new AddClassificationToFolderRequestBody() { BoxSecurityClassificationKey = classification.Key });
 ```
@@ -90,8 +94,10 @@ defined for the enterprise will be accepted.
 
 This operation is performed by calling function `UpdateClassificationOnFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-
+<!-- sample put_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
 await client.FolderClassifications.UpdateClassificationOnFolderAsync(folderId: folder.Id, requestBody: Array.AsReadOnly(new [] {new UpdateClassificationOnFolderRequestBody(value: secondClassification.Key)}));
 ```
@@ -125,8 +131,10 @@ URL explicitly, for example
 
 This operation is performed by calling function `DeleteClassificationFromFolder`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-
+<!-- sample delete_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
 await client.FolderClassifications.DeleteClassificationFromFolderAsync(folderId: folder.Id);
 ```

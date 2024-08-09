@@ -12,8 +12,10 @@ Retrieves the information about a file request.
 
 This operation is performed by calling function `GetFileRequestById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-file-requests-id/).
 
-
+<!-- sample get_file_requests_id -->
 ```
 await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id);
 ```
@@ -42,8 +44,10 @@ deactivate a file request.
 
 This operation is performed by calling function `UpdateFileRequestById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/put-file-requests-id/).
 
-
+<!-- sample put_file_requests_id -->
 ```
 await client.FileRequests.UpdateFileRequestByIdAsync(fileRequestId: copiedFileRequest.Id, requestBody: new FileRequestUpdateRequest() { Title = "updated title", Description = "updated description" });
 ```
@@ -73,8 +77,10 @@ Deletes a file request permanently.
 
 This operation is performed by calling function `DeleteFileRequestById`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/delete-file-requests-id/).
 
-
+<!-- sample delete_file_requests_id -->
 ```
 await client.FileRequests.DeleteFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id);
 ```
@@ -104,8 +110,10 @@ and applies it to another folder.
 
 This operation is performed by calling function `CreateFileRequestCopy`.
 
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-file-requests-id-copy/).
 
-
+<!-- sample post_file_requests_id_copy -->
 ```
 await client.FileRequests.CreateFileRequestCopyAsync(fileRequestId: fileRequestId, requestBody: new FileRequestCopyRequest(folder: new FileRequestCopyRequestFolderField(id: fileRequest.Folder.Id) { Type = FileRequestCopyRequestFolderTypeField.Folder }));
 ```
