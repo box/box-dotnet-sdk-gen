@@ -65,7 +65,32 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Using this method with urls provided in response when creating a new upload session is preferred to use over GetFileUploadSessionById method. 
+        /// This allows to always upload your content to the closest Box data center and can significantly improve upload speed.
+        ///  Return information about an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions) endpoint.
+        /// </summary>
+        /// <param name="url">
+        /// URL of getFileUploadSessionById method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getFileUploadSessionById method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<UploadSession> GetFileUploadSessionByUrlAsync(string url, GetFileUploadSessionByUrlHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new GetFileUploadSessionByUrlHeaders();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(url, new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<UploadSession>(response.Data);
+        }
+
+        /// <summary>
         /// Return information about an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions) endpoint.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -85,7 +110,36 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Updates a chunk of an upload session for a file.
+        /// Using this method with urls provided in response when creating a new upload session is preferred to use over UploadFilePart method. 
+        /// This allows to always upload your content to the closest Box data center and can significantly improve upload speed.
+        ///  Uploads a chunk of a file for an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
+        /// </summary>
+        /// <param name="url">
+        /// URL of uploadFilePart method
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of uploadFilePart method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of uploadFilePart method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<UploadedPart> UploadFilePartByUrlAsync(string url, System.IO.Stream requestBody, UploadFilePartByUrlHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "content-range", StringUtils.ToStringRepresentation(headers.ContentRange) } }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(url, new FetchOptions(networkSession: this.NetworkSession) { Method = "PUT", Headers = headersMap, FileStream = requestBody, ContentType = "application/octet-stream", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<UploadedPart>(response.Data);
+        }
+
+        /// <summary>
+        /// Uploads a chunk of a file for an upload session.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -107,9 +161,37 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Using this method with urls provided in response when creating a new upload session is preferred to use over DeleteFileUploadSessionById method. 
+        /// This allows to always upload your content to the closest Box data center and can significantly improve upload speed.
+        ///  Abort an upload session and discard all data uploaded.
+        /// 
+        /// This cannot be reversed.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
+        /// </summary>
+        /// <param name="url">
+        /// URL of deleteFileUploadSessionById method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of deleteFileUploadSessionById method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task DeleteFileUploadSessionByUrlAsync(string url, DeleteFileUploadSessionByUrlHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteFileUploadSessionByUrlHeaders();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(url, new FetchOptions(networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+        }
+
+        /// <summary>
         /// Abort an upload session and discard all data uploaded.
         /// 
         /// This cannot be reversed.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -128,8 +210,39 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Return a list of the chunks uploaded to the upload
-        /// session so far.
+        /// Using this method with urls provided in response when creating a new upload session is preferred to use over GetFileUploadSessionParts method. 
+        /// This allows to always upload your content to the closest Box data center and can significantly improve upload speed.
+        ///  Return a list of the chunks uploaded to the upload session so far.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
+        /// </summary>
+        /// <param name="url">
+        /// URL of getFileUploadSessionParts method
+        /// </param>
+        /// <param name="queryParams">
+        /// Query parameters of getFileUploadSessionParts method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getFileUploadSessionParts method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<UploadParts> GetFileUploadSessionPartsByUrlAsync(string url, GetFileUploadSessionPartsByUrlQueryParams? queryParams = default, GetFileUploadSessionPartsByUrlHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetFileUploadSessionPartsByUrlQueryParams();
+            headers = headers ?? new GetFileUploadSessionPartsByUrlHeaders();
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "offset", StringUtils.ToStringRepresentation(queryParams.Offset) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(url, new FetchOptions(networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<UploadParts>(response.Data);
+        }
+
+        /// <summary>
+        /// Return a list of the chunks uploaded to the upload session so far.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -154,8 +267,36 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Close an upload session and create a file from the
-        /// uploaded chunks.
+        /// Using this method with urls provided in response when creating a new upload session is preferred to use over CreateFileUploadSessionCommit method. 
+        /// This allows to always upload your content to the closest Box data center and can significantly improve upload speed.
+        ///  Close an upload session and create a file from the uploaded chunks.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
+        /// </summary>
+        /// <param name="url">
+        /// URL of createFileUploadSessionCommit method
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of createFileUploadSessionCommit method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createFileUploadSessionCommit method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Files> CreateFileUploadSessionCommitByUrlAsync(string url, CreateFileUploadSessionCommitByUrlRequestBody requestBody, CreateFileUploadSessionCommitByUrlHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) } }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(url, new FetchOptions(networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<Files>(response.Data);
+        }
+
+        /// <summary>
+        /// Close an upload session and create a file from the uploaded chunks.
+        /// 
+        /// The actual endpoint URL is returned by the [`Create upload session`](e://post-files-upload-sessions)
+        /// and [`Get upload session`](e://get-files-upload-sessions-id) endpoints.
         /// </summary>
         /// <param name="uploadSessionId">
         /// The ID of the upload session.
@@ -188,7 +329,7 @@ namespace Box.Sdk.Gen.Managers {
             int bytesStart = lastIndex + 1;
             int bytesEnd = lastIndex + chunkSize;
             string contentRange = string.Concat("bytes ", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesStart)), "-", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesEnd)), "/", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(acc.FileSize)));
-            UploadedPart uploadedPart = await this.UploadFilePartAsync(uploadSessionId: acc.UploadSessionId, requestBody: Utils.GenerateByteStreamFromBuffer(buffer: chunkBuffer), headers: new UploadFilePartHeaders(digest: digest, contentRange: contentRange)).ConfigureAwait(false);
+            UploadedPart uploadedPart = await this.UploadFilePartByUrlAsync(url: acc.UploadPartUrl, requestBody: Utils.GenerateByteStreamFromBuffer(buffer: chunkBuffer), headers: new UploadFilePartByUrlHeaders(digest: digest, contentRange: contentRange)).ConfigureAwait(false);
             UploadPart part = NullableUtils.Unwrap(uploadedPart.Part);
             string partSha1 = Utils.HexToBase64(value: NullableUtils.Unwrap(part.Sha1));
             if (!(partSha1 == sha1)) {
@@ -201,7 +342,7 @@ namespace Box.Sdk.Gen.Managers {
                 throw new Exception(message: "Assertion failed");
             }
             acc.FileHash.UpdateHash(data: chunkBuffer);
-            return new PartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadSessionId: acc.UploadSessionId, fileHash: acc.FileHash);
+            return new PartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadPartUrl: acc.UploadPartUrl, fileHash: acc.FileHash);
         }
 
         /// <summary>
@@ -224,7 +365,9 @@ namespace Box.Sdk.Gen.Managers {
         /// </param>
         public async System.Threading.Tasks.Task<FileFull> UploadBigFileAsync(System.IO.Stream file, string fileName, long fileSize, string parentFolderId, System.Threading.CancellationToken? cancellationToken = null) {
             UploadSession uploadSession = await this.CreateFileUploadSessionAsync(requestBody: new CreateFileUploadSessionRequestBody(fileName: fileName, fileSize: fileSize, folderId: parentFolderId), headers: new CreateFileUploadSessionHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
-            string uploadSessionId = NullableUtils.Unwrap(uploadSession.Id);
+            string uploadPartUrl = NullableUtils.Unwrap(NullableUtils.Unwrap(uploadSession.SessionEndpoints).UploadPart);
+            string commitUrl = NullableUtils.Unwrap(NullableUtils.Unwrap(uploadSession.SessionEndpoints).Commit);
+            string listPartsUrl = NullableUtils.Unwrap(NullableUtils.Unwrap(uploadSession.SessionEndpoints).ListParts);
             long partSize = NullableUtils.Unwrap(uploadSession.PartSize);
             int totalParts = NullableUtils.Unwrap(uploadSession.TotalParts);
             if (!(partSize * totalParts >= fileSize)) {
@@ -235,15 +378,15 @@ namespace Box.Sdk.Gen.Managers {
             }
             Hash fileHash = new Hash(algorithm: HashName.Sha1);
             IEnumerable<System.IO.Stream> chunksIterator = Utils.IterateChunks(stream: file, chunkSize: partSize, fileSize: fileSize);
-            PartAccumulator results = await Utils.ReduceIteratorAsync(iterator: chunksIterator, reducer: this.ReducerAsync, initialValue: new PartAccumulator(lastIndex: -1, parts: Enumerable.Empty<UploadPart>().ToList(), fileSize: fileSize, uploadSessionId: uploadSessionId, fileHash: fileHash)).ConfigureAwait(false);
+            PartAccumulator results = await Utils.ReduceIteratorAsync(iterator: chunksIterator, reducer: this.ReducerAsync, initialValue: new PartAccumulator(lastIndex: -1, parts: Enumerable.Empty<UploadPart>().ToList(), fileSize: fileSize, uploadPartUrl: uploadPartUrl, fileHash: fileHash)).ConfigureAwait(false);
             IReadOnlyList<UploadPart> parts = results.Parts;
-            UploadParts processedSessionParts = await this.GetFileUploadSessionPartsAsync(uploadSessionId: uploadSessionId, queryParams: new GetFileUploadSessionPartsQueryParams(), headers: new GetFileUploadSessionPartsHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
+            UploadParts processedSessionParts = await this.GetFileUploadSessionPartsByUrlAsync(url: listPartsUrl, queryParams: new GetFileUploadSessionPartsByUrlQueryParams(), headers: new GetFileUploadSessionPartsByUrlHeaders(), cancellationToken: cancellationToken).ConfigureAwait(false);
             if (!(NullableUtils.Unwrap(processedSessionParts.TotalCount) == totalParts)) {
                 throw new Exception(message: "Assertion failed");
             }
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64").ConfigureAwait(false);
             string digest = string.Concat("sha=", sha1);
-            Files committedSession = await this.CreateFileUploadSessionCommitAsync(uploadSessionId: uploadSessionId, requestBody: new CreateFileUploadSessionCommitRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitHeaders(digest: digest), cancellationToken: cancellationToken).ConfigureAwait(false);
+            Files committedSession = await this.CreateFileUploadSessionCommitByUrlAsync(url: commitUrl, requestBody: new CreateFileUploadSessionCommitByUrlRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitByUrlHeaders(digest: digest), cancellationToken: cancellationToken).ConfigureAwait(false);
             return NullableUtils.Unwrap(committedSession.Entries)[0];
         }
 

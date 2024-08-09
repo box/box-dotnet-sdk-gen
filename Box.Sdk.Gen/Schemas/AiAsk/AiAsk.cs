@@ -31,6 +31,18 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("items")]
         public IReadOnlyList<AiAskItemsField> Items { get; }
 
+        /// <summary>
+        /// The history of prompts and answers previously passed to the LLM. This provides additional context to the LLM in generating the response.
+        /// </summary>
+        [JsonPropertyName("dialogue_history")]
+        public IReadOnlyList<AiDialogueHistory>? DialogueHistory { get; init; }
+
+        /// <summary>
+        /// A flag to indicate whether citations should be returned.
+        /// </summary>
+        [JsonPropertyName("include_citations")]
+        public bool? IncludeCitations { get; init; }
+
         [JsonPropertyName("ai_agent")]
         public AiAgentAsk? AiAgent { get; init; }
 
