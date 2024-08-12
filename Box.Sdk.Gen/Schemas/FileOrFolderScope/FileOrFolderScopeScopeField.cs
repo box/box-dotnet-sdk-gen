@@ -26,6 +26,8 @@ namespace Box.Sdk.Gen.Schemas {
         [Description("item_rename")]
         ItemRename,
         [Description("item_share")]
-        ItemShare
+        ItemShare,
+        [Description("item_upload")]
+        ItemUpload
     }
 }

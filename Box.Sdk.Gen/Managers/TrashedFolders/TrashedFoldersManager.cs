@@ -21,8 +21,6 @@ namespace Box.Sdk.Gen.Managers {
         /// An optional new parent ID can be provided to restore the folder to in case the
         /// original folder has been deleted.
         /// 
-        /// # Folder locking
-        /// 
         /// During this operation, part of the file tree will be locked, mainly
         /// the source folder and all of its descendants, as well as the destination
         /// folder.
