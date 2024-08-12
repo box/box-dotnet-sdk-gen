@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The history of prompts and answers previously passed to the LLM. This provides additional context to the LLM in generating the response.
         /// </summary>
         [JsonPropertyName("dialogue_history")]
-        public IReadOnlyList<AiTextGenDialogueHistoryField>? DialogueHistory { get; init; }
+        public IReadOnlyList<AiDialogueHistory>? DialogueHistory { get; init; }
 
         [JsonPropertyName("ai_agent")]
         public AiAgentTextGen? AiAgent { get; init; }
