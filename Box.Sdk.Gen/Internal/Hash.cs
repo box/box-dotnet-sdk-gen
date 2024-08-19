@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -16,9 +15,8 @@ namespace Box.Sdk.Gen.Internal
 
     class Hash
     {
-        internal HashAlgorithm? HashAlgorithm { get; }
         internal HashName Algorithm { get; }
-        internal byte[]? Data { get; private set; }
+        private SHA1 _sha1;
 
         internal Hash(HashName algorithm)
         {
@@ -26,6 +24,7 @@ namespace Box.Sdk.Gen.Internal
             {
                 case HashName.Sha1:
                     Algorithm = algorithm;
+                    _sha1 = SHA1.Create();
                     break;
                 default:
                     throw new ArgumentException($"Provided hash algorithm {algorithm} not supported");
@@ -34,19 +33,17 @@ namespace Box.Sdk.Gen.Internal
 
         internal async Task<string> DigestHashAsync(string encoding)
         {
-            if (Data == null)
+            _sha1.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            if (_sha1.Hash == null)
             {
-                throw new ArgumentException("Data part of Hash is empty");
+                throw new ArgumentException("Hash is empty");
             }
-            using (var sha1 = SHA1.Create())
-            {
-                return await Task.FromResult(Convert.ToBase64String(sha1.ComputeHash(Data)));
-            }
+            return await Task.FromResult(Convert.ToBase64String(_sha1.Hash));
         }
 
         internal void UpdateHash(byte[] data)
         {
-            Data = Data == null ? data : Data.Concat(data).ToArray();
+            _sha1.TransformBlock(data, 0, data.Length, null, 0);
         }
     }
 
