@@ -1,7 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
@@ -25,8 +27,11 @@ namespace Box.Sdk.Gen.Internal
 
         static HttpClientAdapter()
         {
-            var serviceProvider = new ServiceCollection().AddHttpClient().BuildServiceProvider();
-            var httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
+            var serviceCollection = new ServiceCollection();
+
+            serviceCollection.AddHttpClient();
+
+            var httpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
             if (httpClientFactory == null)
             {
                 throw new BoxSdkException("Unable to create HttpClient. Cannot get an IHttpClientFactory instance from a ServiceProvider.");
@@ -49,61 +54,90 @@ namespace Box.Sdk.Gen.Internal
             var cancellationToken = options.CancellationToken ?? default(System.Threading.CancellationToken);
 
             bool isStreamResponse = options.ResponseFormat == "binary";
+
+            Stream? seekableStream = null;
+            if (options.FileStream != null && options.ContentType == ContentTypes.OctetStream)
+            {
+                // buffer the stream in memory in case we cannot rewind it
+                seekableStream = options.FileStream.CanSeek ? options.FileStream : await ToMemoryStreamAsync(options.FileStream).ConfigureAwait(false);
+            }
+
             while (true)
             {
-                var request = await BuildHttpRequest(resource, options).ConfigureAwait(false);
-                var response = await ExecuteRequest(client, request, cancellationToken).ConfigureAwait(false);
+                var request = await BuildHttpRequest(resource, options, seekableStream).ConfigureAwait(false);
+                var result = await ExecuteRequest(client, request, isStreamResponse, cancellationToken).ConfigureAwait(false);
 
-                var statusCode = (int)response.StatusCode;
-                var isRetryAfterPresent = response.Headers.Contains("retry-after");
-                var isRetryAfterWithAcceptedPresent = isRetryAfterPresent && statusCode == 202;
-
-                if (response.IsSuccessStatusCode && !isRetryAfterWithAcceptedPresent)
+                if (result.IsSuccess)
                 {
-                    return isStreamResponse ?
-                        new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
-                        new FetchResponse { Status = statusCode, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+                    var response = result.Value!;
+
+                    var statusCode = (int)response.StatusCode;
+                    var isRetryAfterPresent = response.Headers.Contains("retry-after");
+                    var isRetryAfterWithAcceptedPresent = isRetryAfterPresent && statusCode == 202;
+
+                    if (response.IsSuccessStatusCode && !isRetryAfterWithAcceptedPresent)
+                    {
+                        seekableStream?.Dispose();
+                        return isStreamResponse ?
+                            new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
+                            new FetchResponse { Status = statusCode, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+                    }
+
+                    if (attempt >= networkSession.RetryAttempts)
+                    {
+                        seekableStream?.Dispose();
+                        throw new BoxSdkException($"Max retry attempts excedeed.", DateTimeOffset.UtcNow);
+                    }
+
+                    if (statusCode == 401)
+                    {
+                        if (options.Auth != null)
+                        {
+                            await options.Auth.RefreshTokenAsync(networkSession).ConfigureAwait(false);
+                        }
+                    }
+                    else if (statusCode == 429 || statusCode >= 500 || isRetryAfterWithAcceptedPresent)
+                    {
+                        var retryTimeout = isRetryAfterPresent ?
+                          int.Parse(response.Headers.GetValues("retry-after").First()) :
+                          networkSession.RetryStrategy.GetRetryTimeout(attempt);
+
+                        await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(retryTimeout)).ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        seekableStream?.Dispose();
+                        throw await BuildApiException(request, response, options, statusCode, cancellationToken).ConfigureAwait(false);
+                    }
+
+                    response?.Dispose();
                 }
-
-                if (attempt >= networkSession.RetryAttempts)
+                else
                 {
-                    throw await BuildApiException(request, response, options, statusCode, cancellationToken, "Max retry attempts excedeed.").ConfigureAwait(false);
-                }
+                    if (attempt >= networkSession.RetryAttempts)
+                    {
+                        seekableStream?.Dispose();
+                        throw new BoxSdkException($"Network error. Max retry attempts excedeed. {result.Exception?.ToString()}", DateTimeOffset.UtcNow);
+                    }
 
-                if (statusCode == 401)
-                {
+                    var retryTimeout = networkSession.RetryStrategy.GetRetryTimeout(attempt);
+                    await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(retryTimeout)).ConfigureAwait(false);
+
+                    // reauth in case of terminated connection by the peer
                     if (options.Auth != null)
                     {
                         await options.Auth.RefreshTokenAsync(networkSession).ConfigureAwait(false);
                     }
                 }
-                else if (statusCode == 429 || statusCode >= 500 || isRetryAfterWithAcceptedPresent)
-                {
-                    var retryTimeout = isRetryAfterPresent ?
-                      int.Parse(response.Headers.GetValues("retry-after").First()) :
-                      networkSession.RetryStrategy.GetRetryTimeout(attempt);
 
-                    await Task.Delay(TimeSpan.FromSeconds(retryTimeout)).ConfigureAwait(false);
-                }
-                else
-                {
-                    throw await BuildApiException(request, response, options, statusCode, cancellationToken).ConfigureAwait(false);
-                }
-
-                response?.Dispose();
                 attempt++;
             }
 
         }
 
         private static async Task<Exception> BuildApiException(HttpRequestMessage request, HttpResponseMessage? response, FetchOptions options,
-            int statusCode, System.Threading.CancellationToken cancellationToken, string? message = null)
+            int statusCode, System.Threading.CancellationToken cancellationToken)
         {
-            if (message != null)
-            {
-                return new BoxSdkException(message, DateTimeOffset.UtcNow);
-            }
-
             string responseContent;
             Dictionary<string, string> responseHeaders;
 
@@ -135,13 +169,13 @@ namespace Box.Sdk.Gen.Internal
             return new BoxApiException(responseContent, DateTimeOffset.UtcNow, requestInfo, responseInfo);
         }
 
-        private static async Task<HttpRequestMessage> BuildHttpRequest(string resource, FetchOptions options)
+        private static async Task<HttpRequestMessage> BuildHttpRequest(string resource, FetchOptions options, Stream? stream)
         {
             var httpRequest = new HttpRequestMessage
             {
                 Method = options._httpMethod,
                 RequestUri = HttpUtils.BuildUri(resource, options.Parameters),
-                Content = BuildHttpContent(options)
+                Content = BuildHttpContent(options, stream)
             };
 
             if (options.NetworkSession != null)
@@ -185,19 +219,25 @@ namespace Box.Sdk.Gen.Internal
             return httpRequest;
         }
 
-        private static async Task<HttpResponseMessage> ExecuteRequest(HttpClient client, HttpRequestMessage httpRequestMessage, CancellationToken cancellationToken)
+        private static async Task<Result<HttpResponseMessage>> ExecuteRequest(HttpClient client, HttpRequestMessage httpRequestMessage, bool isStreamResponse,
+           CancellationToken cancellationToken)
         {
             try
             {
-                return await client.SendAsync(httpRequestMessage, cancellationToken).ConfigureAwait(false);
+                HttpCompletionOption completionOption = isStreamResponse ?
+                    HttpCompletionOption.ResponseHeadersRead :
+                    HttpCompletionOption.ResponseContentRead;
+
+                var response = await client.SendAsync(httpRequestMessage, completionOption, cancellationToken).ConfigureAwait(false);
+                return Result<HttpResponseMessage>.Ok(response);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                return Result<HttpResponseMessage>.Fail(ex);
             }
         }
 
-        private static HttpContent? BuildHttpContent(FetchOptions options)
+        private static HttpContent? BuildHttpContent(FetchOptions options, Stream? stream)
         {
             HttpContent? httpContent;
 
@@ -213,7 +253,7 @@ namespace Box.Sdk.Gen.Internal
                 foreach (var part in options.MultipartData)
                 {
                     HttpContent partContent = part.FileStream != null ?
-                        new StreamContent(part.FileStream) :
+                        new ReusableContent(part.FileStream) :
                         part.Data != null ?
                             new StringContent(JsonUtils.SdToJson(part.Data)) :
                             throw new BoxSdkException($"HttpContent for MultipartData {part} not found");
@@ -247,9 +287,9 @@ namespace Box.Sdk.Gen.Internal
                 var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Data);
                 httpContent = new FormUrlEncodedContent(deserialized);
             }
-            else if (options.ContentType == ContentTypes.OctetStream && options.FileStream != null)
+            else if (options.ContentType == ContentTypes.OctetStream && stream != null)
             {
-                httpContent = new StreamContent(options.FileStream);
+                httpContent = new ReusableContent(stream);
             }
             else
             {
@@ -257,6 +297,14 @@ namespace Box.Sdk.Gen.Internal
             }
 
             return httpContent;
+        }
+
+        private static async Task<MemoryStream> ToMemoryStreamAsync(Stream inputStream)
+        {
+            var memoryStream = new MemoryStream();
+            await inputStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+            memoryStream.Position = 0;
+            return memoryStream;
         }
     }
 }
