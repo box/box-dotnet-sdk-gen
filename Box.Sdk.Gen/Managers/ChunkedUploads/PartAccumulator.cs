@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
     internal class PartAccumulator {
-        internal int LastIndex { get; }
+        internal long LastIndex { get; }
 
         internal IReadOnlyList<UploadPart> Parts { get; }
 
@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Managers {
 
         internal Hash FileHash { get; }
 
-        public PartAccumulator(int lastIndex, IReadOnlyList<UploadPart> parts, long fileSize, string uploadPartUrl, Hash fileHash) {
+        public PartAccumulator(long lastIndex, IReadOnlyList<UploadPart> parts, long fileSize, string uploadPartUrl, Hash fileHash) {
             LastIndex = lastIndex;
             Parts = parts;
             FileSize = fileSize;
