@@ -10,13 +10,18 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AiAgentTextGenTypeField>))]
-        public StringEnum<AiAgentTextGenTypeField>? Type { get; init; }
+        public StringEnum<AiAgentTextGenTypeField> Type { get; }
 
         [JsonPropertyName("basic_gen")]
         public AiAgentBasicGenTool? BasicGen { get; init; }
 
-        public AiAgentTextGen() {
-            
+        public AiAgentTextGen(AiAgentTextGenTypeField type = AiAgentTextGenTypeField.AiAgentTextGen) {
+            Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal AiAgentTextGen(StringEnum<AiAgentTextGenTypeField> type) {
+            Type = AiAgentTextGenTypeField.AiAgentTextGen;
         }
     }
 }
