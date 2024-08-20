@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AiAgentAskTypeField>))]
-        public StringEnum<AiAgentAskTypeField>? Type { get; init; }
+        public StringEnum<AiAgentAskTypeField> Type { get; }
 
         [JsonPropertyName("long_text")]
         public AiAgentLongTextTool? LongText { get; init; }
@@ -24,8 +24,13 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("basic_text_multi")]
         public AiAgentBasicTextToolAsk? BasicTextMulti { get; init; }
 
-        public AiAgentAsk() {
-            
+        public AiAgentAsk(AiAgentAskTypeField type = AiAgentAskTypeField.AiAgentAsk) {
+            Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal AiAgentAsk(StringEnum<AiAgentAskTypeField> type) {
+            Type = AiAgentAskTypeField.AiAgentAsk;
         }
     }
 }
