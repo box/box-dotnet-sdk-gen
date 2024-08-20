@@ -318,7 +318,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         internal async System.Threading.Tasks.Task<PartAccumulator> ReducerAsync(PartAccumulator acc, System.IO.Stream chunk) {
-            int lastIndex = acc.LastIndex;
+            long lastIndex = acc.LastIndex;
             IReadOnlyList<UploadPart> parts = acc.Parts;
             byte[] chunkBuffer = await Utils.ReadByteStreamAsync(byteStream: chunk).ConfigureAwait(false);
             Hash hash = new Hash(algorithm: HashName.Sha1);
@@ -326,8 +326,8 @@ namespace Box.Sdk.Gen.Managers {
             string sha1 = await hash.DigestHashAsync(encoding: "base64").ConfigureAwait(false);
             string digest = string.Concat("sha=", sha1);
             int chunkSize = Utils.BufferLength(buffer: chunkBuffer);
-            int bytesStart = lastIndex + 1;
-            int bytesEnd = lastIndex + chunkSize;
+            long bytesStart = lastIndex + 1;
+            long bytesEnd = lastIndex + chunkSize;
             string contentRange = string.Concat("bytes ", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesStart)), "-", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(bytesEnd)), "/", NullableUtils.Unwrap(StringUtils.ToStringRepresentation(acc.FileSize)));
             UploadedPart uploadedPart = await this.UploadFilePartByUrlAsync(url: acc.UploadPartUrl, requestBody: Utils.GenerateByteStreamFromBuffer(buffer: chunkBuffer), headers: new UploadFilePartByUrlHeaders(digest: digest, contentRange: contentRange)).ConfigureAwait(false);
             UploadPart part = NullableUtils.Unwrap(uploadedPart.Part);
