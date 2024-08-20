@@ -1,8 +1,7 @@
 using System.ComponentModel;
-using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public enum IntegrationMappingTypeField {
+    public enum IntegrationMappingBaseTypeField {
         [Description("integration_mapping")]
         IntegrationMapping
     }

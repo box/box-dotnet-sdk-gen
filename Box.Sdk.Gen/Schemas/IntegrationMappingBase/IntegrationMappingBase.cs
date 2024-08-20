@@ -10,20 +10,24 @@ namespace Box.Sdk.Gen.Schemas {
         /// with `integration_type`)
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; init; }
+        public string Id { get; }
 
         /// <summary>
-        /// Identifies the Box partner app,
-        /// with which the mapping is associated.
-        /// Currently only supports Slack.
-        /// (part of the composite key together with `id`)
+        /// Mapping type
         /// </summary>
-        [JsonPropertyName("integration_type")]
-        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingBaseIntegrationTypeField>))]
-        public StringEnum<IntegrationMappingBaseIntegrationTypeField>? IntegrationType { get; init; }
+        [JsonPropertyName("type")]
+        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingBaseTypeField>))]
+        public StringEnum<IntegrationMappingBaseTypeField> Type { get; }
 
-        public IntegrationMappingBase() {
-            
+        public IntegrationMappingBase(string id, IntegrationMappingBaseTypeField type = IntegrationMappingBaseTypeField.IntegrationMapping) {
+            Id = id;
+            Type = type;
+        }
+        
+        [JsonConstructorAttribute]
+        internal IntegrationMappingBase(string id, StringEnum<IntegrationMappingBaseTypeField> type) {
+            Id = id;
+            Type = IntegrationMappingBaseTypeField.IntegrationMapping;
         }
     }
 }

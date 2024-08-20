@@ -2,7 +2,7 @@
 
 
 - [List Slack integration mappings](#list-slack-integration-mappings)
-- [Create integration mapping](#create-integration-mapping)
+- [Create Slack integration mapping](#create-slack-integration-mapping)
 - [Update Slack integration mapping](#update-slack-integration-mapping)
 - [Delete Slack integration mapping](#delete-slack-integration-mapping)
 
@@ -40,7 +40,7 @@ This function returns a value of type `IntegrationMappings`.
 Returns a collection of integration mappings
 
 
-## Create integration mapping
+## Create Slack integration mapping
 
 Creates a [Slack integration mapping](https://support.box.com/hc/en-us/articles/4415585987859-Box-as-the-Content-Layer-for-Slack)
 by mapping a Slack channel to a Box item.
@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)) { PartnerItem = new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId } });
 ```
 
 ### Arguments
