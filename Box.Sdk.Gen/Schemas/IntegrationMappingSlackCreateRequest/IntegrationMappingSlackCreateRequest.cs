@@ -11,10 +11,11 @@ namespace Box.Sdk.Gen.Schemas {
         public IntegrationMappingSlackOptions? Options { get; init; }
 
         [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemSlack? PartnerItem { get; init; }
+        public IntegrationMappingPartnerItemSlack PartnerItem { get; }
 
-        public IntegrationMappingSlackCreateRequest(IntegrationMappingBoxItemSlack boxItem) {
+        public IntegrationMappingSlackCreateRequest(IntegrationMappingBoxItemSlack boxItem, IntegrationMappingPartnerItemSlack partnerItem) {
             BoxItem = boxItem;
+            PartnerItem = partnerItem;
         }
     }
 }

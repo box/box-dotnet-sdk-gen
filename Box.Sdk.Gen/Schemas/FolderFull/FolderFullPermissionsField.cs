@@ -48,15 +48,16 @@ namespace Box.Sdk.Gen.Schemas {
         /// Specifies if the user can upload into this folder.
         /// </summary>
         [JsonPropertyName("can_upload")]
-        public bool? CanUpload { get; init; }
+        public bool CanUpload { get; }
 
-        public FolderFullPermissionsField(bool canDelete, bool canDownload, bool canInviteCollaborator, bool canRename, bool canSetShareAccess, bool canShare) {
+        public FolderFullPermissionsField(bool canDelete, bool canDownload, bool canInviteCollaborator, bool canRename, bool canSetShareAccess, bool canShare, bool canUpload) {
             CanDelete = canDelete;
             CanDownload = canDownload;
             CanInviteCollaborator = canInviteCollaborator;
             CanRename = canRename;
             CanSetShareAccess = canSetShareAccess;
             CanShare = canShare;
+            CanUpload = canUpload;
         }
     }
 }

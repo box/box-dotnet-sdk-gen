@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             const string partnerItemId = "1";
             string userId = Utils.GetEnvVar(name: "USER_ID");
             BoxClient userClient = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
-            await Assert.That.IsExceptionAsync(async() => await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)) { PartnerItem = new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId } }));
+            await Assert.That.IsExceptionAsync(async() => await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id))));
             IntegrationMappings integrationMappings = await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync();
             Assert.IsTrue(NullableUtils.Unwrap(integrationMappings.Entries).Count == 0);
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
