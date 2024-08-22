@@ -1,5 +1,5 @@
-using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using Box.Sdk.Gen;
 using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;

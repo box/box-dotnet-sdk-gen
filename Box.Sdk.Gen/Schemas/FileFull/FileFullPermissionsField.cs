@@ -1,4 +1,3 @@
-using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Schemas;
 
@@ -48,46 +47,52 @@ namespace Box.Sdk.Gen.Schemas {
         /// Specifies if the user can place annotations on this file.
         /// </summary>
         [JsonPropertyName("can_annotate")]
-        public bool? CanAnnotate { get; init; }
+        public bool CanAnnotate { get; }
 
         /// <summary>
         /// Specifies if the user can place comments on this file.
         /// </summary>
         [JsonPropertyName("can_comment")]
-        public bool? CanComment { get; init; }
+        public bool CanComment { get; }
 
         /// <summary>
         /// Specifies if the user can preview this file.
         /// </summary>
         [JsonPropertyName("can_preview")]
-        public bool? CanPreview { get; init; }
+        public bool CanPreview { get; }
 
         /// <summary>
         /// Specifies if the user can upload a new version of this file.
         /// </summary>
         [JsonPropertyName("can_upload")]
-        public bool? CanUpload { get; init; }
+        public bool CanUpload { get; }
 
         /// <summary>
         /// Specifies if the user view all annotations placed on this file
         /// </summary>
         [JsonPropertyName("can_view_annotations_all")]
-        public bool? CanViewAnnotationsAll { get; init; }
+        public bool CanViewAnnotationsAll { get; }
 
         /// <summary>
         /// Specifies if the user view annotations placed by themselves
         /// on this file
         /// </summary>
         [JsonPropertyName("can_view_annotations_self")]
-        public bool? CanViewAnnotationsSelf { get; init; }
+        public bool CanViewAnnotationsSelf { get; }
 
-        public FileFullPermissionsField(bool canDelete, bool canDownload, bool canInviteCollaborator, bool canRename, bool canSetShareAccess, bool canShare) {
+        public FileFullPermissionsField(bool canDelete, bool canDownload, bool canInviteCollaborator, bool canRename, bool canSetShareAccess, bool canShare, bool canAnnotate, bool canComment, bool canPreview, bool canUpload, bool canViewAnnotationsAll, bool canViewAnnotationsSelf) {
             CanDelete = canDelete;
             CanDownload = canDownload;
             CanInviteCollaborator = canInviteCollaborator;
             CanRename = canRename;
             CanSetShareAccess = canSetShareAccess;
             CanShare = canShare;
+            CanAnnotate = canAnnotate;
+            CanComment = canComment;
+            CanPreview = canPreview;
+            CanUpload = canUpload;
+            CanViewAnnotationsAll = canViewAnnotationsAll;
+            CanViewAnnotationsSelf = canViewAnnotationsSelf;
         }
     }
 }
