@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<AiTextGenItemsField> Items { get; }
 
         /// <summary>
-        /// The history of prompts and answers previously passed to the LLM. This provides additional context to the LLM in generating the response.
+        /// The history of prompts and answers previously passed to the LLM. This parameter provides the additional context to the LLM when generating the response.
         /// </summary>
         [JsonPropertyName("dialogue_history")]
         public IReadOnlyList<AiDialogueHistory>? DialogueHistory { get; init; }

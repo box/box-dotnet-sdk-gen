@@ -6,6 +6,22 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMapping : IntegrationMappingBase {
         /// <summary>
+        /// Identifies the Box partner app,
+        /// with which the mapping is associated.
+        /// Currently only supports Slack.
+        /// (part of the composite key together with `id`)
+        /// </summary>
+        [JsonPropertyName("integration_type")]
+        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingIntegrationTypeField>))]
+        public StringEnum<IntegrationMappingIntegrationTypeField>? IntegrationType { get; init; }
+
+        /// <summary>
+        /// Mapped item object for Slack or Teams
+        /// </summary>
+        [JsonPropertyName("partner_item")]
+        public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
+
+        /// <summary>
         /// The Box folder, to which the object from the
         /// partner app domain (referenced in `partner_item_id`) is mapped
         /// </summary>
@@ -49,31 +65,15 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }
 
-        /// <summary>
-        /// Identifies the Box partner app,
-        /// with which the mapping is associated.
-        /// Currently only supports Slack.
-        /// (part of the composite key together with `id`)
-        /// </summary>
-        [JsonPropertyName("integration_type")]
-        [JsonConverter(typeof(StringEnumConverter<IntegrationMappingIntegrationTypeField>))]
-        public StringEnum<IntegrationMappingIntegrationTypeField>? IntegrationType { get; init; }
-
-        /// <summary>
-        /// Mapped item object for Slack or Teams
-        /// </summary>
-        [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
-
-        public IntegrationMapping(string id, FolderMini boxItem, IntegrationMappingPartnerItemSlackUnion partnerItem, IntegrationMappingBaseTypeField type = IntegrationMappingBaseTypeField.IntegrationMapping) : base(id, type) {
-            BoxItem = boxItem;
+        public IntegrationMapping(string id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, IntegrationMappingBaseTypeField type = IntegrationMappingBaseTypeField.IntegrationMapping) : base(id, type) {
             PartnerItem = partnerItem;
+            BoxItem = boxItem;
         }
         
         [JsonConstructorAttribute]
-        internal IntegrationMapping(string id, FolderMini boxItem, IntegrationMappingPartnerItemSlackUnion partnerItem, StringEnum<IntegrationMappingBaseTypeField> type) : base(id, type ?? new StringEnum<IntegrationMappingBaseTypeField>(IntegrationMappingBaseTypeField.IntegrationMapping)) {
-            BoxItem = boxItem;
+        internal IntegrationMapping(string id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, StringEnum<IntegrationMappingBaseTypeField> type) : base(id, type ?? new StringEnum<IntegrationMappingBaseTypeField>(IntegrationMappingBaseTypeField.IntegrationMapping)) {
             PartnerItem = partnerItem;
+            BoxItem = boxItem;
         }
     }
 }

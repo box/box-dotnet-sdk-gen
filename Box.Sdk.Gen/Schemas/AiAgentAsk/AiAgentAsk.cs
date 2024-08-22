@@ -16,13 +16,13 @@ namespace Box.Sdk.Gen.Schemas {
         public AiAgentLongTextTool? LongText { get; init; }
 
         [JsonPropertyName("basic_text")]
-        public AiAgentBasicTextToolAsk? BasicText { get; init; }
+        public AiAgentBasicTextTool? BasicText { get; init; }
 
         [JsonPropertyName("long_text_multi")]
         public AiAgentLongTextTool? LongTextMulti { get; init; }
 
         [JsonPropertyName("basic_text_multi")]
-        public AiAgentBasicTextToolAsk? BasicTextMulti { get; init; }
+        public AiAgentBasicTextTool? BasicTextMulti { get; init; }
 
         public AiAgentAsk(AiAgentAskTypeField type = AiAgentAskTypeField.AiAgentAsk) {
             Type = type;
