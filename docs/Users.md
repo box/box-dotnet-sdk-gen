@@ -180,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id -->
 ```
-await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { Name = updatedUserName });
+await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { NotificationEmail = null });
 ```
 
 ### Arguments

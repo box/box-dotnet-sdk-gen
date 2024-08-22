@@ -8,12 +8,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateUserByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isenterpriseSet")]
+        protected bool _isEnterpriseSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isnotification_emailSet")]
+        protected bool _isNotificationEmailSet { get; set; }
+
+        protected string? _enterprise { get; set; }
+
+        protected UpdateUserByIdRequestBodyNotificationEmailField? _notificationEmail { get; set; }
+
         /// <summary>
         /// Set this to `null` to roll the user out of the enterprise
         /// and make them a free user
         /// </summary>
         [JsonPropertyName("enterprise")]
-        public string? Enterprise { get; init; }
+        public string? Enterprise { get => _enterprise; init { _enterprise = value; _isEnterpriseSet = true; } }
 
         /// <summary>
         /// Whether the user should receive an email when they
@@ -145,7 +157,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Set this value to `null` to remove the notification email.
         /// </summary>
         [JsonPropertyName("notification_email")]
-        public UpdateUserByIdRequestBodyNotificationEmailField? NotificationEmail { get; init; }
+        public UpdateUserByIdRequestBodyNotificationEmailField? NotificationEmail { get => _notificationEmail; init { _notificationEmail = value; _isNotificationEmailSet = true; } }
 
         /// <summary>
         /// An external identifier for an app user, which can be used to look

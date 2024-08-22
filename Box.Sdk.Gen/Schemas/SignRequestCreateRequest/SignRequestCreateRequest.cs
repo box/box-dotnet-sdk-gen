@@ -8,18 +8,30 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequestCreateRequest : SignRequestBase {
+        [JsonInclude]
+        [JsonPropertyName("_issource_filesSet")]
+        protected bool _isSourceFilesSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_issignature_colorSet")]
+        protected bool _isSignatureColorSet { get; set; }
+
+        protected IReadOnlyList<FileBase>? _sourceFiles { get; set; }
+
+        protected StringEnum<SignRequestCreateRequestSignatureColorField>? _signatureColor { get; set; }
+
         /// <summary>
         /// List of files to create a signing document from. This is currently limited to ten files. Only the ID and type fields are required for each file.
         /// </summary>
         [JsonPropertyName("source_files")]
-        public IReadOnlyList<FileBase>? SourceFiles { get; init; }
+        public IReadOnlyList<FileBase>? SourceFiles { get => _sourceFiles; init { _sourceFiles = value; _isSourceFilesSet = true; } }
 
         /// <summary>
         /// Force a specific color for the signature (blue, black, or red)
         /// </summary>
         [JsonPropertyName("signature_color")]
         [JsonConverter(typeof(StringEnumConverter<SignRequestCreateRequestSignatureColorField>))]
-        public StringEnum<SignRequestCreateRequestSignatureColorField>? SignatureColor { get; init; }
+        public StringEnum<SignRequestCreateRequestSignatureColorField>? SignatureColor { get => _signatureColor; init { _signatureColor = value; _isSignatureColorSet = true; } }
 
         /// <summary>
         /// Array of signers for the signature request. 35 is the

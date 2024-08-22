@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
+await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, queryParams: new GetFileVersionByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"trashed_at","trashed_by","restored_at","restored_by"}) });
 ```
 
 ### Arguments
@@ -96,7 +96,10 @@ This operation is performed by calling function `UpdateFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-versions-id/).
 
-*Currently we don't have an example for calling `UpdateFileVersionById` in integration tests*
+<!-- sample put_files_id_versions_id -->
+```
+await client.FileVersions.UpdateFileVersionByIdAsync(fileId: file.Id, fileVersionId: fileVersion.Id, requestBody: new UpdateFileVersionByIdRequestBody() { TrashedAt = null });
+```
 
 ### Arguments
 

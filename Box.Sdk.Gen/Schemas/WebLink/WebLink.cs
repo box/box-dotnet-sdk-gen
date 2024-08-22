@@ -8,6 +8,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class WebLink : WebLinkMini {
+        [JsonInclude]
+        [JsonPropertyName("_istrashed_atSet")]
+        protected bool _isTrashedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispurged_atSet")]
+        protected bool _isPurgedAtSet { get; set; }
+
+        protected System.DateTimeOffset? _trashedAt { get; set; }
+
+        protected System.DateTimeOffset? _purgedAt { get; set; }
+
         [JsonPropertyName("parent")]
         public FolderMini? Parent { get; init; }
 
@@ -38,13 +50,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// When this file was moved to the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; init; }
+        public System.DateTimeOffset? TrashedAt { get => _trashedAt; init { _trashedAt = value; _isTrashedAtSet = true; } }
 
         /// <summary>
         /// When this file will be permanently deleted.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; init; }
+        public System.DateTimeOffset? PurgedAt { get => _purgedAt; init { _purgedAt = value; _isPurgedAtSet = true; } }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }

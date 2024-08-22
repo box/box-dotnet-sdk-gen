@@ -5,6 +5,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileFullLockField {
+        [JsonInclude]
+        [JsonPropertyName("_isapp_typeSet")]
+        protected bool _isAppTypeSet { get; set; }
+
+        protected StringEnum<FileFullLockAppTypeField>? _appType { get; set; }
+
         /// <summary>
         /// The unique identifier for this lock
         /// </summary>
@@ -47,7 +53,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("app_type")]
         [JsonConverter(typeof(StringEnumConverter<FileFullLockAppTypeField>))]
-        public StringEnum<FileFullLockAppTypeField>? AppType { get; init; }
+        public StringEnum<FileFullLockAppTypeField>? AppType { get => _appType; init { _appType = value; _isAppTypeSet = true; } }
 
         public FileFullLockField() {
             

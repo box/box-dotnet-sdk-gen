@@ -4,6 +4,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField {
+        [JsonInclude]
+        [JsonPropertyName("_isuser_has_strong_passwordSet")]
+        protected bool _isUserHasStrongPasswordSet { get; set; }
+
+        protected bool? _userHasStrongPassword { get; set; }
+
         /// <summary>
         /// Whether or not the enterprise that owns the content requires
         /// a strong password to collaborate on the content.
@@ -17,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// required.
         /// </summary>
         [JsonPropertyName("user_has_strong_password")]
-        public bool? UserHasStrongPassword { get; init; }
+        public bool? UserHasStrongPassword { get => _userHasStrongPassword; init { _userHasStrongPassword = value; _isUserHasStrongPasswordSet = true; } }
 
         public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField() {
             

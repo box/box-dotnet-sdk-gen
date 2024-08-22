@@ -5,6 +5,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class User : UserMini {
+        [JsonInclude]
+        [JsonPropertyName("_isnotification_emailSet")]
+        protected bool _isNotificationEmailSet { get; set; }
+
+        protected UserNotificationEmailField? _notificationEmail { get; set; }
+
         /// <summary>
         /// When the user object was created
         /// </summary>
@@ -86,7 +92,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// to the primary email address.
         /// </summary>
         [JsonPropertyName("notification_email")]
-        public UserNotificationEmailField? NotificationEmail { get; init; }
+        public UserNotificationEmailField? NotificationEmail { get => _notificationEmail; init { _notificationEmail = value; _isNotificationEmailSet = true; } }
 
         public User(string id, UserBaseTypeField type = UserBaseTypeField.User) : base(id, type) {
             

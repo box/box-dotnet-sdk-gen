@@ -10,6 +10,30 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileFull : File {
+        [JsonInclude]
+        [JsonPropertyName("_islockSet")]
+        protected bool _isLockSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isexpires_atSet")]
+        protected bool _isExpiresAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isdisposition_atSet")]
+        protected bool _isDispositionAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isshared_link_permission_optionsSet")]
+        protected bool _isSharedLinkPermissionOptionsSet { get; set; }
+
+        protected FileFullLockField? _lock { get; set; }
+
+        protected System.DateTimeOffset? _expiresAt { get; set; }
+
+        protected System.DateTimeOffset? _dispositionAt { get; set; }
+
+        protected IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? _sharedLinkPermissionOptions { get; set; }
+
         /// <summary>
         /// The version number of this file
         /// </summary>
@@ -29,7 +53,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<string>? Tags { get; init; }
 
         [JsonPropertyName("lock")]
-        public FileFullLockField? Lock { get; init; }
+        public FileFullLockField? Lock { get => _lock; init { _lock = value; _isLockSet = true; } }
 
         /// <summary>
         /// Indicates the (optional) file extension for this file. By default,
@@ -87,7 +111,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file will automatically be deleted
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; init; }
+        public System.DateTimeOffset? ExpiresAt { get => _expiresAt; init { _expiresAt = value; _isExpiresAtSet = true; } }
 
         [JsonPropertyName("representations")]
         public FileFullRepresentationsField? Representations { get; init; }
@@ -102,7 +126,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The retention expiration timestamp for the given file
         /// </summary>
         [JsonPropertyName("disposition_at")]
-        public System.DateTimeOffset? DispositionAt { get; init; }
+        public System.DateTimeOffset? DispositionAt { get => _dispositionAt; init { _dispositionAt = value; _isDispositionAtSet = true; } }
 
         /// <summary>
         /// A list of the types of roles that user can be invited at
@@ -110,7 +134,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("shared_link_permission_options")]
         [JsonConverter(typeof(StringEnumListConverter<FileFullSharedLinkPermissionOptionsField>))]
-        public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? SharedLinkPermissionOptions { get; init; }
+        public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? SharedLinkPermissionOptions { get => _sharedLinkPermissionOptions; init { _sharedLinkPermissionOptions = value; _isSharedLinkPermissionOptionsSet = true; } }
 
         public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             

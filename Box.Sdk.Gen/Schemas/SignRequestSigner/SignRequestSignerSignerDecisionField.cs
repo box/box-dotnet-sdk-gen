@@ -5,6 +5,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequestSignerSignerDecisionField {
+        [JsonInclude]
+        [JsonPropertyName("_isadditional_infoSet")]
+        protected bool _isAdditionalInfoSet { get; set; }
+
+        protected string? _additionalInfo { get; set; }
+
         /// <summary>
         /// Type of decision made by the signer.
         /// </summary>
@@ -22,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Additional info about the decision, such as the decline reason from the signer.
         /// </summary>
         [JsonPropertyName("additional_info")]
-        public string? AdditionalInfo { get; init; }
+        public string? AdditionalInfo { get => _additionalInfo; init { _additionalInfo = value; _isAdditionalInfoSet = true; } }
 
         public SignRequestSignerSignerDecisionField() {
             

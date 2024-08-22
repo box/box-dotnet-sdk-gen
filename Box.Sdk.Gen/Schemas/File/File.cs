@@ -8,6 +8,36 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class File : FileMini {
+        [JsonInclude]
+        [JsonPropertyName("_istrashed_atSet")]
+        protected bool _isTrashedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispurged_atSet")]
+        protected bool _isPurgedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscontent_created_atSet")]
+        protected bool _isContentCreatedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscontent_modified_atSet")]
+        protected bool _isContentModifiedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isparentSet")]
+        protected bool _isParentSet { get; set; }
+
+        protected System.DateTimeOffset? _trashedAt { get; set; }
+
+        protected System.DateTimeOffset? _purgedAt { get; set; }
+
+        protected System.DateTimeOffset? _contentCreatedAt { get; set; }
+
+        protected System.DateTimeOffset? _contentModifiedAt { get; set; }
+
+        protected FolderMini? _parent { get; set; }
+
         /// <summary>
         /// The optional description of this file.
         /// If the description exceeds 255 characters, the first 255 characters
@@ -42,28 +72,28 @@ namespace Box.Sdk.Gen.Schemas {
         /// The time at which this file was put in the trash.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; init; }
+        public System.DateTimeOffset? TrashedAt { get => _trashedAt; init { _trashedAt = value; _isTrashedAtSet = true; } }
 
         /// <summary>
         /// The time at which this file is expected to be purged
         /// from the trash.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; init; }
+        public System.DateTimeOffset? PurgedAt { get => _purgedAt; init { _purgedAt = value; _isPurgedAtSet = true; } }
 
         /// <summary>
         /// The date and time at which this file was originally
         /// created, which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; init; }
+        public System.DateTimeOffset? ContentCreatedAt { get => _contentCreatedAt; init { _contentCreatedAt = value; _isContentCreatedAtSet = true; } }
 
         /// <summary>
         /// The date and time at which this file was last updated,
         /// which might be before it was uploaded to Box.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; init; }
+        public System.DateTimeOffset? ContentModifiedAt { get => _contentModifiedAt; init { _contentModifiedAt = value; _isContentModifiedAtSet = true; } }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }
@@ -78,7 +108,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileSharedLinkField? SharedLink { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; init; }
+        public FolderMini? Parent { get => _parent; init { _parent = value; _isParentSet = true; } }
 
         /// <summary>
         /// Defines if this item has been deleted or not.

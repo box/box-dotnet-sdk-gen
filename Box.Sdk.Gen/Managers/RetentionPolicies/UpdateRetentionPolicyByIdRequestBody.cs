@@ -8,17 +8,59 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateRetentionPolicyByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_ispolicy_nameSet")]
+        protected bool _isPolicyNameSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isdescriptionSet")]
+        protected bool _isDescriptionSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isretention_typeSet")]
+        protected bool _isRetentionTypeSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isstatusSet")]
+        protected bool _isStatusSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscan_owner_extend_retentionSet")]
+        protected bool _isCanOwnerExtendRetentionSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isare_owners_notifiedSet")]
+        protected bool _isAreOwnersNotifiedSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscustom_notification_recipientsSet")]
+        protected bool _isCustomNotificationRecipientsSet { get; set; }
+
+        protected string? _policyName { get; set; }
+
+        protected string? _description { get; set; }
+
+        protected string? _retentionType { get; set; }
+
+        protected string? _status { get; set; }
+
+        protected bool? _canOwnerExtendRetention { get; set; }
+
+        protected bool? _areOwnersNotified { get; set; }
+
+        protected IReadOnlyList<UserBase>? _customNotificationRecipients { get; set; }
+
         /// <summary>
         /// The name for the retention policy
         /// </summary>
         [JsonPropertyName("policy_name")]
-        public string? PolicyName { get; init; }
+        public string? PolicyName { get => _policyName; init { _policyName = value; _isPolicyNameSet = true; } }
 
         /// <summary>
         /// The additional text description of the retention policy.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; init; }
+        public string? Description { get => _description; init { _description = value; _isDescriptionSet = true; } }
 
         /// <summary>
         /// The disposition action of the retention policy.
@@ -55,7 +97,7 @@ namespace Box.Sdk.Gen.Managers {
         /// not the other way around.
         /// </summary>
         [JsonPropertyName("retention_type")]
-        public string? RetentionType { get; init; }
+        public string? RetentionType { get => _retentionType; init { _retentionType = value; _isRetentionTypeSet = true; } }
 
         /// <summary>
         /// The length of the retention policy. This value
@@ -75,7 +117,7 @@ namespace Box.Sdk.Gen.Managers {
         /// or set it to `null`.
         /// </summary>
         [JsonPropertyName("status")]
-        public string? Status { get; init; }
+        public string? Status { get => _status; init { _status = value; _isStatusSet = true; } }
 
         /// <summary>
         /// Determines if the owner of items under the policy
@@ -83,7 +125,7 @@ namespace Box.Sdk.Gen.Managers {
         /// duration is about to end.
         /// </summary>
         [JsonPropertyName("can_owner_extend_retention")]
-        public bool? CanOwnerExtendRetention { get; init; }
+        public bool? CanOwnerExtendRetention { get => _canOwnerExtendRetention; init { _canOwnerExtendRetention = value; _isCanOwnerExtendRetentionSet = true; } }
 
         /// <summary>
         /// Determines if owners and co-owners of items
@@ -91,13 +133,13 @@ namespace Box.Sdk.Gen.Managers {
         /// the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("are_owners_notified")]
-        public bool? AreOwnersNotified { get; init; }
+        public bool? AreOwnersNotified { get => _areOwnersNotified; init { _areOwnersNotified = value; _isAreOwnersNotifiedSet = true; } }
 
         /// <summary>
         /// A list of users notified when the retention duration is about to end.
         /// </summary>
         [JsonPropertyName("custom_notification_recipients")]
-        public IReadOnlyList<UserBase>? CustomNotificationRecipients { get; init; }
+        public IReadOnlyList<UserBase>? CustomNotificationRecipients { get => _customNotificationRecipients; init { _customNotificationRecipients = value; _isCustomNotificationRecipientsSet = true; } }
 
         public UpdateRetentionPolicyByIdRequestBody() {
             

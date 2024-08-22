@@ -8,12 +8,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class RemoveSharedLinkFromFileRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isshared_linkSet")]
+        protected bool _isSharedLinkSet { get; set; }
+
+        protected RemoveSharedLinkFromFileRequestBodySharedLinkField? _sharedLink { get; set; }
+
         /// <summary>
         /// By setting this value to `null`, the shared link
         /// is removed from the file.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public RemoveSharedLinkFromFileRequestBodySharedLinkField? SharedLink { get; init; }
+        public RemoveSharedLinkFromFileRequestBodySharedLinkField? SharedLink { get => _sharedLink; init { _sharedLink = value; _isSharedLinkSet = true; } }
 
         public RemoveSharedLinkFromFileRequestBody() {
             

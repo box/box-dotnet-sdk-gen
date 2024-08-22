@@ -7,6 +7,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateWebLinkByIdRequestBodySharedLinkField {
+        [JsonInclude]
+        [JsonPropertyName("_ispasswordSet")]
+        protected bool _isPasswordSet { get; set; }
+
+        protected string? _password { get; set; }
+
         /// <summary>
         /// The level of access for the shared link. This can be
         /// restricted to anyone with the link (`open`), only people
@@ -34,7 +40,7 @@ namespace Box.Sdk.Gen.Managers {
         /// A password can only be set when `access` is set to `open`.
         /// </summary>
         [JsonPropertyName("password")]
-        public string? Password { get; init; }
+        public string? Password { get => _password; init { _password = value; _isPasswordSet = true; } }
 
         /// <summary>
         /// Defines a custom vanity name to use in the shared link URL,

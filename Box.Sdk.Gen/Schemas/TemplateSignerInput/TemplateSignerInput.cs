@@ -8,6 +8,30 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TemplateSignerInput : SignRequestPrefillTag {
+        [JsonInclude]
+        [JsonPropertyName("_isdocument_idSet")]
+        protected bool _isDocumentIdSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isdropdown_choicesSet")]
+        protected bool _isDropdownChoicesSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isgroup_idSet")]
+        protected bool _isGroupIdSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_islabelSet")]
+        protected bool _isLabelSet { get; set; }
+
+        protected string? _documentId { get; set; }
+
+        protected IReadOnlyList<string>? _dropdownChoices { get; set; }
+
+        protected string? _groupId { get; set; }
+
+        protected string? _label { get; set; }
+
         /// <summary>
         /// Type of input
         /// </summary>
@@ -38,19 +62,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// Document identifier.
         /// </summary>
         [JsonPropertyName("document_id")]
-        public string? DocumentId { get; init; }
+        public string? DocumentId { get => _documentId; init { _documentId = value; _isDocumentIdSet = true; } }
 
         /// <summary>
         /// When the input is of the type `dropdown` this values will be filled with all the dropdown options.
         /// </summary>
         [JsonPropertyName("dropdown_choices")]
-        public IReadOnlyList<string>? DropdownChoices { get; init; }
+        public IReadOnlyList<string>? DropdownChoices { get => _dropdownChoices; init { _dropdownChoices = value; _isDropdownChoicesSet = true; } }
 
         /// <summary>
         /// When the input is of type `radio` they can be grouped to gather with this identifier.
         /// </summary>
         [JsonPropertyName("group_id")]
-        public string? GroupId { get; init; }
+        public string? GroupId { get => _groupId; init { _groupId = value; _isGroupIdSet = true; } }
 
         /// <summary>
         /// Where the input is located on a page.
@@ -68,7 +92,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The label field is used especially for text, attachment, radio, and checkbox type inputs.
         /// </summary>
         [JsonPropertyName("label")]
-        public string? Label { get; init; }
+        public string? Label { get => _label; init { _label = value; _isLabelSet = true; } }
 
         /// <summary>
         /// Whether this input was defined as read-only(immutable by signers) or not

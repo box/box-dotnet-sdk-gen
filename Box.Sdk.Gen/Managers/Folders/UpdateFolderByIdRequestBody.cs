@@ -8,6 +8,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFolderByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isfolder_upload_emailSet")]
+        protected bool _isFolderUploadEmailSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscollectionsSet")]
+        protected bool _isCollectionsSet { get; set; }
+
+        protected UpdateFolderByIdRequestBodyFolderUploadEmailField? _folderUploadEmail { get; set; }
+
+        protected IReadOnlyList<UpdateFolderByIdRequestBodyCollectionsField>? _collections { get; set; }
+
         /// <summary>
         /// The optional new name for this folder.
         /// </summary>
@@ -47,7 +59,7 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateFolderByIdRequestBodySharedLinkField? SharedLink { get; init; }
 
         [JsonPropertyName("folder_upload_email")]
-        public UpdateFolderByIdRequestBodyFolderUploadEmailField? FolderUploadEmail { get; init; }
+        public UpdateFolderByIdRequestBodyFolderUploadEmailField? FolderUploadEmail { get => _folderUploadEmail; init { _folderUploadEmail = value; _isFolderUploadEmailSet = true; } }
 
         /// <summary>
         /// The tags for this item. These tags are shown in
@@ -84,7 +96,7 @@ namespace Box.Sdk.Gen.Managers {
         /// [1]: e://get-collections
         /// </summary>
         [JsonPropertyName("collections")]
-        public IReadOnlyList<UpdateFolderByIdRequestBodyCollectionsField>? Collections { get; init; }
+        public IReadOnlyList<UpdateFolderByIdRequestBodyCollectionsField>? Collections { get => _collections; init { _collections = value; _isCollectionsSet = true; } }
 
         /// <summary>
         /// Restricts collaborators who are not the owner of

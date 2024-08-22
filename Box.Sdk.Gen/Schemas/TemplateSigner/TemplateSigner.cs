@@ -8,6 +8,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TemplateSigner {
+        [JsonInclude]
+        [JsonPropertyName("_isemailSet")]
+        protected bool _isEmailSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_issigner_group_idSet")]
+        protected bool _isSignerGroupIdSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_islabelSet")]
+        protected bool _isLabelSet { get; set; }
+
+        protected string? _email { get; set; }
+
+        protected string? _signerGroupId { get; set; }
+
+        protected string? _label { get; set; }
+
         [JsonPropertyName("inputs")]
         public IReadOnlyList<TemplateSignerInput>? Inputs { get; init; }
 
@@ -15,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Email address of the signer
         /// </summary>
         [JsonPropertyName("email")]
-        public string? Email { get; init; }
+        public string? Email { get => _email; init { _email = value; _isEmailSet = true; } }
 
         /// <summary>
         /// Defines the role of the signer in the signature request. A role of
@@ -48,13 +66,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// within Box Sign requests created from it.
         /// </summary>
         [JsonPropertyName("signer_group_id")]
-        public string? SignerGroupId { get; init; }
+        public string? SignerGroupId { get => _signerGroupId; init { _signerGroupId = value; _isSignerGroupIdSet = true; } }
 
         /// <summary>
         /// A placeholder label for the signer set by the template creator to differentiate between signers.
         /// </summary>
         [JsonPropertyName("label")]
-        public string? Label { get; init; }
+        public string? Label { get => _label; init { _label = value; _isLabelSet = true; } }
 
         /// <summary>
         /// An identifier for the signer. This can be used to identify a signer within the template.

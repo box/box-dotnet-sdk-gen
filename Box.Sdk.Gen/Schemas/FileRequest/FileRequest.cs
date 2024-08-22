@@ -5,6 +5,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileRequest {
+        [JsonInclude]
+        [JsonPropertyName("_isdescriptionSet")]
+        protected bool _isDescriptionSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isetagSet")]
+        protected bool _isEtagSet { get; set; }
+
+        protected string? _description { get; set; }
+
+        protected string? _etag { get; set; }
+
         /// <summary>
         /// The unique identifier for this file request.
         /// </summary>
@@ -36,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// copied to create this file request.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; init; }
+        public string? Description { get => _description; init { _description = value; _isDescriptionSet = true; } }
 
         /// <summary>
         /// The status of the file request. This defaults
@@ -108,7 +120,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// header.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; init; }
+        public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }

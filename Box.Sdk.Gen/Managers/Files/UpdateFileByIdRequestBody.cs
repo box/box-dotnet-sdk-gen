@@ -8,6 +8,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFileByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isshared_linkSet")]
+        protected bool _isSharedLinkSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_islockSet")]
+        protected bool _isLockSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscollectionsSet")]
+        protected bool _isCollectionsSet { get; set; }
+
+        protected UpdateFileByIdRequestBodySharedLinkField? _sharedLink { get; set; }
+
+        protected UpdateFileByIdRequestBodyLockField? _lock { get; set; }
+
+        protected IReadOnlyList<UpdateFileByIdRequestBodyCollectionsField>? _collections { get; set; }
+
         /// <summary>
         /// An optional different name for the file. This can be used to
         /// rename the file.
@@ -28,7 +46,7 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateFileByIdRequestBodyParentField? Parent { get; init; }
 
         [JsonPropertyName("shared_link")]
-        public UpdateFileByIdRequestBodySharedLinkField? SharedLink { get; init; }
+        public UpdateFileByIdRequestBodySharedLinkField? SharedLink { get => _sharedLink; init { _sharedLink = value; _isSharedLinkSet = true; } }
 
         /// <summary>
         /// Defines a lock on an item. This prevents the item from being
@@ -38,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Set this to `null` to remove the lock.
         /// </summary>
         [JsonPropertyName("lock")]
-        public UpdateFileByIdRequestBodyLockField? Lock { get; init; }
+        public UpdateFileByIdRequestBodyLockField? Lock { get => _lock; init { _lock = value; _isLockSet = true; } }
 
         /// <summary>
         /// The retention expiration timestamp for the given file. This
@@ -67,7 +85,7 @@ namespace Box.Sdk.Gen.Managers {
         /// [1]: e://get-collections
         /// </summary>
         [JsonPropertyName("collections")]
-        public IReadOnlyList<UpdateFileByIdRequestBodyCollectionsField>? Collections { get; init; }
+        public IReadOnlyList<UpdateFileByIdRequestBodyCollectionsField>? Collections { get => _collections; init { _collections = value; _isCollectionsSet = true; } }
 
         /// <summary>
         /// The tags for this item. These tags are shown in

@@ -8,6 +8,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class RetentionPolicyAssignment {
+        [JsonInclude]
+        [JsonPropertyName("_isfilter_fieldsSet")]
+        protected bool _isFilterFieldsSet { get; set; }
+
+        protected IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField>? _filterFields { get; set; }
+
         /// <summary>
         /// The unique identifier for a retention policy assignment.
         /// </summary>
@@ -37,7 +43,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// type is `metadata_template`. Otherwise, the array is blank.
         /// </summary>
         [JsonPropertyName("filter_fields")]
-        public IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField>? FilterFields { get; init; }
+        public IReadOnlyList<RetentionPolicyAssignmentFilterFieldsField>? FilterFields { get => _filterFields; init { _filterFields = value; _isFilterFieldsSet = true; } }
 
         [JsonPropertyName("assigned_by")]
         public UserMini? AssignedBy { get; init; }

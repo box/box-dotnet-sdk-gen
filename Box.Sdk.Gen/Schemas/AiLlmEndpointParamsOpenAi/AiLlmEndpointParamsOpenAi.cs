@@ -4,6 +4,36 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiLlmEndpointParamsOpenAi {
+        [JsonInclude]
+        [JsonPropertyName("_istemperatureSet")]
+        protected bool _isTemperatureSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_istop_pSet")]
+        protected bool _isTopPSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isfrequency_penaltySet")]
+        protected bool _isFrequencyPenaltySet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispresence_penaltySet")]
+        protected bool _isPresencePenaltySet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isstopSet")]
+        protected bool _isStopSet { get; set; }
+
+        protected double? _temperature { get; set; }
+
+        protected double? _topP { get; set; }
+
+        protected double? _frequencyPenalty { get; set; }
+
+        protected double? _presencePenalty { get; set; }
+
+        protected string? _stop { get; set; }
+
         /// <summary>
         /// The type of the AI LLM endpoint params object for OpenAI.
         /// This parameter is **required**.
@@ -18,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// We generally recommend altering this or `top_p` but not both.
         /// </summary>
         [JsonPropertyName("temperature")]
-        public double? Temperature { get; init; }
+        public double? Temperature { get => _temperature; init { _temperature = value; _isTemperatureSet = true; } }
 
         /// <summary>
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results 
@@ -26,27 +56,27 @@ namespace Box.Sdk.Gen.Schemas {
         /// mass are considered. We generally recommend altering this or temperature but not both.
         /// </summary>
         [JsonPropertyName("top_p")]
-        public double? TopP { get; init; }
+        public double? TopP { get => _topP; init { _topP = value; _isTopPSet = true; } }
 
         /// <summary>
         /// Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the 
         /// text so far, decreasing the model's likelihood to repeat the same line verbatim.
         /// </summary>
         [JsonPropertyName("frequency_penalty")]
-        public double? FrequencyPenalty { get; init; }
+        public double? FrequencyPenalty { get => _frequencyPenalty; init { _frequencyPenalty = value; _isFrequencyPenaltySet = true; } }
 
         /// <summary>
         /// Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, 
         /// increasing the model's likelihood to talk about new topics.
         /// </summary>
         [JsonPropertyName("presence_penalty")]
-        public double? PresencePenalty { get; init; }
+        public double? PresencePenalty { get => _presencePenalty; init { _presencePenalty = value; _isPresencePenaltySet = true; } }
 
         /// <summary>
         /// Up to 4 sequences where the API will stop generating further tokens.
         /// </summary>
         [JsonPropertyName("stop")]
-        public string? Stop { get; init; }
+        public string? Stop { get => _stop; init { _stop = value; _isStopSet = true; } }
 
         public AiLlmEndpointParamsOpenAi(AiLlmEndpointParamsOpenAiTypeField type = AiLlmEndpointParamsOpenAiTypeField.OpenaiParams) {
             Type = type;

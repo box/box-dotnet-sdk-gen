@@ -5,6 +5,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TrashFilePathCollectionEntriesField {
+        [JsonInclude]
+        [JsonPropertyName("_issequence_idSet")]
+        protected bool _isSequenceIdSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isetagSet")]
+        protected bool _isEtagSet { get; set; }
+
+        protected string? _sequenceId { get; set; }
+
+        protected string? _etag { get; set; }
+
         /// <summary>
         /// `folder`
         /// </summary>
@@ -22,13 +34,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// This field is null for the Trash folder
         /// </summary>
         [JsonPropertyName("sequence_id")]
-        public string? SequenceId { get; init; }
+        public string? SequenceId { get => _sequenceId; init { _sequenceId = value; _isSequenceIdSet = true; } }
 
         /// <summary>
         /// This field is null for the Trash folder
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; init; }
+        public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
         /// The name of the Trash folder.

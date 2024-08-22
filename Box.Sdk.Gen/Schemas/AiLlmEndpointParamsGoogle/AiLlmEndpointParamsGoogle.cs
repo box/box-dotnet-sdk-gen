@@ -4,6 +4,24 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiLlmEndpointParamsGoogle {
+        [JsonInclude]
+        [JsonPropertyName("_istemperatureSet")]
+        protected bool _isTemperatureSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_istop_pSet")]
+        protected bool _isTopPSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_istop_kSet")]
+        protected bool _isTopKSet { get; set; }
+
+        protected double? _temperature { get; set; }
+
+        protected double? _topP { get; set; }
+
+        protected double? _topK { get; set; }
+
         /// <summary>
         /// The type of the AI LLM endpoint params object for Google.
         /// This parameter is **required**.
@@ -17,14 +35,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// Temperature controls the degree of randomness in token selection.
         /// </summary>
         [JsonPropertyName("temperature")]
-        public double? Temperature { get; init; }
+        public double? Temperature { get => _temperature; init { _temperature = value; _isTemperatureSet = true; } }
 
         /// <summary>
         /// `Top-P` changes how the model selects tokens for output. Tokens are selected from the most (see `top-K`) to least probable
         /// until the sum of their probabilities equals the `top-P` value.
         /// </summary>
         [JsonPropertyName("top_p")]
-        public double? TopP { get; init; }
+        public double? TopP { get => _topP; init { _topP = value; _isTopPSet = true; } }
 
         /// <summary>
         /// `Top-K` changes how the model selects tokens for output. A `top-K` of 1 means the next selected token is
@@ -32,7 +50,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// while a `top-K` of 3 means that the next token is selected from among the three most probable tokens by using temperature.
         /// </summary>
         [JsonPropertyName("top_k")]
-        public double? TopK { get; init; }
+        public double? TopK { get => _topK; init { _topK = value; _isTopKSet = true; } }
 
         public AiLlmEndpointParamsGoogle(AiLlmEndpointParamsGoogleTypeField type = AiLlmEndpointParamsGoogleTypeField.GoogleParams) {
             Type = type;

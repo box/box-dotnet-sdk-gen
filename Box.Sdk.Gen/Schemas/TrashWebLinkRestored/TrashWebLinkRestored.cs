@@ -8,6 +8,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TrashWebLinkRestored {
+        [JsonInclude]
+        [JsonPropertyName("_istrashed_atSet")]
+        protected bool _isTrashedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispurged_atSet")]
+        protected bool _isPurgedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isshared_linkSet")]
+        protected bool _isSharedLinkSet { get; set; }
+
+        protected string? _trashedAt { get; set; }
+
+        protected string? _purgedAt { get; set; }
+
+        protected string? _sharedLink { get; set; }
+
         /// <summary>
         /// `web_link`
         /// </summary>
@@ -74,14 +92,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// trash - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; init; }
+        public string? TrashedAt { get => _trashedAt; init { _trashedAt = value; _isTrashedAtSet = true; } }
 
         /// <summary>
         /// The time at which this bookmark will be permanently
         /// deleted - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; init; }
+        public string? PurgedAt { get => _purgedAt; init { _purgedAt = value; _isPurgedAtSet = true; } }
 
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }
@@ -98,7 +116,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// link does become active again.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public string? SharedLink { get; init; }
+        public string? SharedLink { get => _sharedLink; init { _sharedLink = value; _isSharedLinkSet = true; } }
 
         /// <summary>
         /// Whether this item is deleted or not. Values include `active`,
