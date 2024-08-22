@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiAgentLongTextTool : AiAgentBasicTextToolTextGen {
+    public class AiAgentLongTextTool : AiAgentBasicTextTool {
         [JsonPropertyName("embeddings")]
         public AiAgentLongTextToolEmbeddingsField? Embeddings { get; init; }
 

@@ -50,6 +50,18 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("signer_group_id")]
         public string? SignerGroupId { get; init; }
 
+        /// <summary>
+        /// A placeholder label for the signer set by the template creator to differentiate between signers.
+        /// </summary>
+        [JsonPropertyName("label")]
+        public string? Label { get; init; }
+
+        /// <summary>
+        /// An identifier for the signer. This can be used to identify a signer within the template.
+        /// </summary>
+        [JsonPropertyName("public_id")]
+        public string? PublicId { get; init; }
+
         public TemplateSigner() {
             
         }
