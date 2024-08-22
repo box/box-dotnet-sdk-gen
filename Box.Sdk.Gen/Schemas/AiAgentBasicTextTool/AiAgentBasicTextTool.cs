@@ -3,10 +3,9 @@ using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiAgentBasicTextToolTextGen : AiAgentBasicTextToolBase {
+    public class AiAgentBasicTextTool : AiAgentBasicTextToolBase {
         /// <summary>
         /// System messages try to help the LLM "understand" its role and what it is supposed to do.
-        /// Input for `{current_date}` is optional, depending on the use.
         /// </summary>
         [JsonPropertyName("system_message")]
         public string? SystemMessage { get; init; }
@@ -14,13 +13,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// The prompt template contains contextual information of the request and the user prompt.
         /// 
-        /// When using the `prompt_template` parameter, you **must include** input for `{user_question}`.
-        /// Inputs for `{current_date}` and `{content}` are optional, depending on the use.
+        /// When passing `prompt_template` parameters, you **must include** inputs for `{user_question}` and `{content}`.
+        /// 
+        /// Input for `{current_date}` is optional, depending on the use.
         /// </summary>
         [JsonPropertyName("prompt_template")]
         public string? PromptTemplate { get; init; }
 
-        public AiAgentBasicTextToolTextGen() {
+        public AiAgentBasicTextTool() {
             
         }
     }
