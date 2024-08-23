@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/box/box-codegen/compare/v1.0.0...v1.1.0) (2024-08-23)
+
+
+### Bug Fixes
+
+* Add missing `item_upload` scope ([#201](https://github.com/box/box-codegen/issues/201)) ([483b055](https://github.com/box/box-codegen/commit/483b05586f8e45771e101d286fddebc564ff89bd))
+* Add missing fields to Sign Template Signer and fix AI schema (box/box-openapi[#451](https://github.com/box/box-codegen/issues/451)) ([#229](https://github.com/box/box-codegen/issues/229)) ([121f733](https://github.com/box/box-codegen/commit/121f733f52e945927125f4941206b1553202914d))
+* Fix `IntegrationMapping` schemas (box/box-codegen[#551](https://github.com/box/box-codegen/issues/551)) ([#226](https://github.com/box/box-codegen/issues/226)) ([3eca154](https://github.com/box/box-codegen/commit/3eca15434b65bc0bb2421d36ec50691e7fe40e3b))
+* Improve handling of network exceptions, handle big file upload (box/box-openapi[#444](https://github.com/box/box-codegen/issues/444)) ([#222](https://github.com/box/box-codegen/issues/222)) ([75ccd07](https://github.com/box/box-codegen/commit/75ccd078e29015b865462ea1aaf0420d5e63d9cd))
+
+
+### New Features and Enhancements
+
+* add new parameters to Box AI methods and introduce `AiResponseFull` variant (box/box-openapi[#446](https://github.com/box/box-codegen/issues/446)) ([#224](https://github.com/box/box-codegen/issues/224)) ([6d205c4](https://github.com/box/box-codegen/commit/6d205c4e28a657ad65ae704a7343a8670806f7f1))
+* Include URL into `FetchOptions` (box/box-codegen[#549](https://github.com/box/box-codegen/issues/549)) ([#231](https://github.com/box/box-codegen/issues/231)) ([41c45dc](https://github.com/box/box-codegen/commit/41c45dcf6476b6cae7941c0952c375aa76ce42a1))
+* parametrise chunked uploads endpoint urls (box/box-openapi[#444](https://github.com/box/box-codegen/issues/444)) ([#208](https://github.com/box/box-codegen/issues/208)) ([feac37c](https://github.com/box/box-codegen/commit/feac37c34f99b5951731b605ef895f7f3b5de6dd))
+* Support `nullable` fields (box/box-codegen[#550](https://github.com/box/box-codegen/issues/550)) ([#230](https://github.com/box/box-codegen/issues/230)) ([b9da32b](https://github.com/box/box-codegen/commit/b9da32b27f506618faa0119f725528555be14f60))
+
 ## [1.0.0](https://github.com/box/box-codegen/compare/v0.4.0...v1.0.0) (2024-07-24)
 
 
