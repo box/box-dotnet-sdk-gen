@@ -13,6 +13,11 @@ namespace Box.Sdk.Gen.Internal
     class FetchOptions
     {
         /// <summary>
+        /// Http/s Url as string.
+        /// </summary>
+        internal string Url { get; }
+
+        /// <summary>
         /// Http/s Method as string.
         /// </summary>
         internal string? Method { get; init; }
@@ -95,8 +100,9 @@ namespace Box.Sdk.Gen.Internal
         /// <summary>
         /// Creates FetchOptions from the parameters.
         /// </summary>
-        internal FetchOptions(NetworkSession networkSession)
+        internal FetchOptions(string url, NetworkSession networkSession)
         {
+            Url = url;
             NetworkSession = networkSession;
         }
     }
