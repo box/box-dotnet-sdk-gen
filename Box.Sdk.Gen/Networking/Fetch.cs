@@ -42,10 +42,9 @@ namespace Box.Sdk.Gen.Internal
         /// <summary>
         /// Executes http/s request.
         /// </summary>
-        /// <param name="resource">Target url of a request.</param>
         /// <param name="options">Request options of a request.</param>
         /// <returns>A http/s Response as a FetchResponse.</returns>
-        internal static async Task<FetchResponse> FetchAsync(string resource, FetchOptions options)
+        internal static async Task<FetchResponse> FetchAsync(FetchOptions options)
         {
             var client = _clientFactory.CreateClient();
 
@@ -64,7 +63,7 @@ namespace Box.Sdk.Gen.Internal
 
             while (true)
             {
-                var request = await BuildHttpRequest(resource, options, seekableStream).ConfigureAwait(false);
+                var request = await BuildHttpRequest(options, seekableStream).ConfigureAwait(false);
                 var result = await ExecuteRequest(client, request, isStreamResponse, cancellationToken).ConfigureAwait(false);
 
                 if (result.IsSuccess)
@@ -169,12 +168,12 @@ namespace Box.Sdk.Gen.Internal
             return new BoxApiException(responseContent, DateTimeOffset.UtcNow, requestInfo, responseInfo);
         }
 
-        private static async Task<HttpRequestMessage> BuildHttpRequest(string resource, FetchOptions options, Stream? stream)
+        private static async Task<HttpRequestMessage> BuildHttpRequest(FetchOptions options, Stream? stream)
         {
             var httpRequest = new HttpRequestMessage
             {
                 Method = options._httpMethod,
-                RequestUri = HttpUtils.BuildUri(resource, options.Parameters),
+                RequestUri = HttpUtils.BuildUri(options.Url, options.Parameters),
                 Content = BuildHttpContent(options, stream)
             };
 
