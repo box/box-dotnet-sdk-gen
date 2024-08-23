@@ -4,6 +4,12 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FolderBase {
+        [JsonInclude]
+        [JsonPropertyName("_isetagSet")]
+        protected bool _isEtagSet { get; set; }
+
+        protected string? _etag { get; set; }
+
         /// <summary>
         /// The unique identifier that represent a folder.
         /// 
@@ -22,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform changes on the folder if (no) changes have happened.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; init; }
+        public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
         /// `folder`

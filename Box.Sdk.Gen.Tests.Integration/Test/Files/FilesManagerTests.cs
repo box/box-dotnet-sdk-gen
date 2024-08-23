@@ -64,6 +64,16 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
 
         [TestMethod]
+        public async System.Threading.Tasks.Task TestFileLock() {
+            FileFull file = await new CommonsManager().UploadNewFileAsync();
+            FileFull fileWithLock = await client.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Lock = new UpdateFileByIdRequestBodyLockField() { Access = UpdateFileByIdRequestBodyLockAccessField.Lock } }, queryParams: new UpdateFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"lock"}) });
+            Assert.IsTrue(fileWithLock.Lock != null);
+            FileFull fileWithoutLock = await client.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Lock = null }, queryParams: new UpdateFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"lock"}) });
+            Assert.IsTrue(fileWithoutLock.Lock == null);
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id);
+        }
+
+        [TestMethod]
         public async System.Threading.Tasks.Task TestCopyFile() {
             FileFull fileOrigin = await new CommonsManager().UploadNewFileAsync();
             string copiedFileName = Utils.GetUUID();

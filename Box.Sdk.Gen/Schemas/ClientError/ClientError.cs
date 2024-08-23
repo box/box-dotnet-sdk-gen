@@ -4,6 +4,12 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ClientError {
+        [JsonInclude]
+        [JsonPropertyName("_iscontext_infoSet")]
+        protected bool _isContextInfoSet { get; set; }
+
+        protected ClientErrorContextInfoField? _contextInfo { get; set; }
+
         /// <summary>
         /// error
         /// </summary>
@@ -36,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// a per-endpoint basis. `message` is only one example.
         /// </summary>
         [JsonPropertyName("context_info")]
-        public ClientErrorContextInfoField? ContextInfo { get; init; }
+        public ClientErrorContextInfoField? ContextInfo { get => _contextInfo; init { _contextInfo = value; _isContextInfoSet = true; } }
 
         /// <summary>
         /// A URL that links to more information about why this error occurred.

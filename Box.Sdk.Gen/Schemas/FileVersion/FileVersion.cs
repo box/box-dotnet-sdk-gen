@@ -4,6 +4,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FileVersion : FileVersionMini {
+        [JsonInclude]
+        [JsonPropertyName("_istrashed_atSet")]
+        protected bool _isTrashedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isrestored_atSet")]
+        protected bool _isRestoredAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispurged_atSet")]
+        protected bool _isPurgedAtSet { get; set; }
+
+        protected System.DateTimeOffset? _trashedAt { get; set; }
+
+        protected System.DateTimeOffset? _restoredAt { get; set; }
+
+        protected System.DateTimeOffset? _purgedAt { get; set; }
+
         /// <summary>
         /// The name of the file version
         /// </summary>
@@ -35,7 +53,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version object was trashed.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public System.DateTimeOffset? TrashedAt { get; init; }
+        public System.DateTimeOffset? TrashedAt { get => _trashedAt; init { _trashedAt = value; _isTrashedAtSet = true; } }
 
         [JsonPropertyName("trashed_by")]
         public UserMini? TrashedBy { get; init; }
@@ -44,7 +62,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version was restored from the trash.
         /// </summary>
         [JsonPropertyName("restored_at")]
-        public System.DateTimeOffset? RestoredAt { get; init; }
+        public System.DateTimeOffset? RestoredAt { get => _restoredAt; init { _restoredAt = value; _isRestoredAtSet = true; } }
 
         [JsonPropertyName("restored_by")]
         public UserMini? RestoredBy { get; init; }
@@ -53,7 +71,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// When the file version object will be permanently deleted.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public System.DateTimeOffset? PurgedAt { get; init; }
+        public System.DateTimeOffset? PurgedAt { get => _purgedAt; init { _purgedAt = value; _isPurgedAtSet = true; } }
 
         [JsonPropertyName("uploader_display_name")]
         public string? UploaderDisplayName { get; init; }

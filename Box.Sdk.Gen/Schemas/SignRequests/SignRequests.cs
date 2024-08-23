@@ -7,6 +7,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequests {
+        [JsonInclude]
+        [JsonPropertyName("_isnext_markerSet")]
+        protected bool _isNextMarkerSet { get; set; }
+
+        protected string? _nextMarker { get; set; }
+
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
         /// `limit` query parameter unless that value exceeded the maximum value
@@ -19,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; init; }
+        public string? NextMarker { get => _nextMarker; init { _nextMarker = value; _isNextMarkerSet = true; } }
 
         /// <summary>
         /// A list of Box Sign requests.

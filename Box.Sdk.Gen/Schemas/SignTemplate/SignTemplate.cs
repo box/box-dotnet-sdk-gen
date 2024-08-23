@@ -9,6 +9,42 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignTemplate {
+        [JsonInclude]
+        [JsonPropertyName("_isnameSet")]
+        protected bool _isNameSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isemail_subjectSet")]
+        protected bool _isEmailSubjectSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isemail_messageSet")]
+        protected bool _isEmailMessageSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isdays_validSet")]
+        protected bool _isDaysValidSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isready_sign_linkSet")]
+        protected bool _isReadySignLinkSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscustom_brandingSet")]
+        protected bool _isCustomBrandingSet { get; set; }
+
+        protected string? _name { get; set; }
+
+        protected string? _emailSubject { get; set; }
+
+        protected string? _emailMessage { get; set; }
+
+        protected long? _daysValid { get; set; }
+
+        protected SignTemplateReadySignLinkField? _readySignLink { get; set; }
+
+        protected SignTemplateCustomBrandingField? _customBranding { get; set; }
+
         /// <summary>
         /// object type
         /// </summary>
@@ -26,25 +62,25 @@ namespace Box.Sdk.Gen.Schemas {
         /// The name of the template.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; init; }
+        public string? Name { get => _name; init { _name = value; _isNameSet = true; } }
 
         /// <summary>
         /// Subject of signature request email. This is cleaned by sign request. If this field is not passed, a default subject will be used.
         /// </summary>
         [JsonPropertyName("email_subject")]
-        public string? EmailSubject { get; init; }
+        public string? EmailSubject { get => _emailSubject; init { _emailSubject = value; _isEmailSubjectSet = true; } }
 
         /// <summary>
         /// Message to include in signature request email. The field is cleaned through sanitization of specific characters. However, some html tags are allowed. Links included in the message are also converted to hyperlinks in the email. The message may contain the following html tags including `a`, `abbr`, `acronym`, `b`, `blockquote`, `code`, `em`, `i`, `ul`, `li`, `ol`, and `strong`. Be aware that when the text to html ratio is too high, the email may end up in spam filters. Custom styles on these tags are not allowed. If this field is not passed, a default message will be used.
         /// </summary>
         [JsonPropertyName("email_message")]
-        public string? EmailMessage { get; init; }
+        public string? EmailMessage { get => _emailMessage; init { _emailMessage = value; _isEmailMessageSet = true; } }
 
         /// <summary>
         /// Set the number of days after which the created signature request will automatically expire if not completed. By default, we do not apply any expiration date on signature requests, and the signature request does not expire.
         /// </summary>
         [JsonPropertyName("days_valid")]
-        public long? DaysValid { get; init; }
+        public long? DaysValid { get => _daysValid; init { _daysValid = value; _isDaysValidSet = true; } }
 
         [JsonPropertyName("parent_folder")]
         public FolderMini? ParentFolder { get; init; }
@@ -107,14 +143,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// Box's ready-sign link feature enables you to create a link to a signature request that you've created from a template. Use this link when you want to post a signature request on a public form — such as an email, social media post, or web page — without knowing who the signers will be. Note: The ready-sign link feature is limited to Enterprise Plus customers and not available to Box Verified Enterprises.
         /// </summary>
         [JsonPropertyName("ready_sign_link")]
-        public SignTemplateReadySignLinkField? ReadySignLink { get; init; }
+        public SignTemplateReadySignLinkField? ReadySignLink { get => _readySignLink; init { _readySignLink = value; _isReadySignLinkSet = true; } }
 
         /// <summary>
         /// Custom branding applied to notifications
         /// and signature requests.
         /// </summary>
         [JsonPropertyName("custom_branding")]
-        public SignTemplateCustomBrandingField? CustomBranding { get; init; }
+        public SignTemplateCustomBrandingField? CustomBranding { get => _customBranding; init { _customBranding = value; _isCustomBrandingSet = true; } }
 
         public SignTemplate() {
             

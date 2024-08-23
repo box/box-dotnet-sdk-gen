@@ -7,6 +7,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class RetentionPolicyAssignments {
+        [JsonInclude]
+        [JsonPropertyName("_isnext_markerSet")]
+        protected bool _isNextMarkerSet { get; set; }
+
+        protected string? _nextMarker { get; set; }
+
         /// <summary>
         /// A list of retention policy assignments
         /// </summary>
@@ -25,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; init; }
+        public string? NextMarker { get => _nextMarker; init { _nextMarker = value; _isNextMarkerSet = true; } }
 
         public RetentionPolicyAssignments() {
             

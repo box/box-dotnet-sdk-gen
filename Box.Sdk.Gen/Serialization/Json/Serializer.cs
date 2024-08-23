@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
+using System.Linq;
 
 namespace Box.Sdk.Gen.Internal
 {
@@ -18,8 +20,43 @@ namespace Box.Sdk.Gen.Internal
                 PropertyNameCaseInsensitive = true,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
+                TypeInfoResolver = new DefaultJsonTypeInfoResolver
+                {
+                    Modifiers = { IncludeExplicitNulls }
+                }
             };
             _options.Converters.Add(new DateOnlyJsonConverter());
+        }
+
+        static void IncludeExplicitNulls(JsonTypeInfo jsonTypeInfo)
+        {
+            var privateProps = jsonTypeInfo.Type
+                .GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Select(p => p.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name)
+                .ToHashSet();
+
+            foreach (var propInfo in jsonTypeInfo.Properties)
+            {
+                //remove _isFieldSet fields from json
+                if (privateProps.Contains(propInfo.Name))
+                {
+                    propInfo.ShouldSerialize = static (obj, value) => false;
+                    continue;
+                }
+                var isSetFieldName = $"_is{propInfo.Name}Set";
+                var isSetField = jsonTypeInfo.Properties.FirstOrDefault(propInfo => propInfo.Name == isSetFieldName);
+
+                if (isSetField != null)
+                {
+                    propInfo.ShouldSerialize = (obj, value) =>
+                    {
+                        var properties = obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic);
+                        var foundProp = properties.FirstOrDefault(p => p.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name == isSetFieldName);
+                        return (bool)foundProp!.GetValue(obj)!;
+                    };
+                }
+
+            }
         }
 
         public static SerializedData Serialize(object obj) => new SerializedData(obj);

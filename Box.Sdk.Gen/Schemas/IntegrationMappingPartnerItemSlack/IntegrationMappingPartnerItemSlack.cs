@@ -4,6 +4,18 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMappingPartnerItemSlack {
+        [JsonInclude]
+        [JsonPropertyName("_isslack_workspace_idSet")]
+        protected bool _isSlackWorkspaceIdSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isslack_org_idSet")]
+        protected bool _isSlackOrgIdSet { get; set; }
+
+        protected string? _slackWorkspaceId { get; set; }
+
+        protected string? _slackOrgId { get; set; }
+
         /// <summary>
         /// Type of the mapped item referenced in `id`
         /// </summary>
@@ -21,13 +33,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// ID of the Slack workspace with which the item is associated. Use this parameter if Box for Slack is installed at a workspace level. Do not use `slack_org_id` at the same time.
         /// </summary>
         [JsonPropertyName("slack_workspace_id")]
-        public string? SlackWorkspaceId { get; init; }
+        public string? SlackWorkspaceId { get => _slackWorkspaceId; init { _slackWorkspaceId = value; _isSlackWorkspaceIdSet = true; } }
 
         /// <summary>
         /// ID of the Slack org with which the item is associated. Use this parameter if Box for Slack is installed at the org level. Do not use `slack_workspace_id` at the same time.
         /// </summary>
         [JsonPropertyName("slack_org_id")]
-        public string? SlackOrgId { get; init; }
+        public string? SlackOrgId { get => _slackOrgId; init { _slackOrgId = value; _isSlackOrgIdSet = true; } }
 
         public IntegrationMappingPartnerItemSlack(string id, IntegrationMappingPartnerItemSlackTypeField type = IntegrationMappingPartnerItemSlackTypeField.Channel) {
             Type = type;

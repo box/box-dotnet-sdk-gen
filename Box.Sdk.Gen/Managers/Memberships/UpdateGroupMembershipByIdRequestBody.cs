@@ -8,6 +8,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateGroupMembershipByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isconfigurable_permissionsSet")]
+        protected bool _isConfigurablePermissionsSet { get; set; }
+
+        protected Dictionary<string, bool>? _configurablePermissions { get; set; }
+
         /// <summary>
         /// The role of the user in the group.
         /// </summary>
@@ -28,7 +34,7 @@ namespace Box.Sdk.Gen.Managers {
         /// them accordingly, omitted permissions will be enabled by default.
         /// </summary>
         [JsonPropertyName("configurable_permissions")]
-        public Dictionary<string, bool>? ConfigurablePermissions { get; init; }
+        public Dictionary<string, bool>? ConfigurablePermissions { get => _configurablePermissions; init { _configurablePermissions = value; _isConfigurablePermissionsSet = true; } }
 
         public UpdateGroupMembershipByIdRequestBody() {
             

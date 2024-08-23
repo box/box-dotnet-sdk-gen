@@ -7,6 +7,12 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
     public class UpdateShieldInformationBarrierSegmentByIdRequestBody {
+        [JsonInclude]
+        [JsonPropertyName("_isdescriptionSet")]
+        protected bool _isDescriptionSet { get; set; }
+
+        protected string? _description { get; set; }
+
         /// <summary>
         /// The updated name for the shield information barrier segment.
         /// </summary>
@@ -18,7 +24,7 @@ namespace Box.Sdk.Gen.Managers {
         /// the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; init; }
+        public string? Description { get => _description; init { _description = value; _isDescriptionSet = true; } }
 
         public UpdateShieldInformationBarrierSegmentByIdRequestBody() {
             

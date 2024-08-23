@@ -5,6 +5,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class EventSource {
+        [JsonInclude]
+        [JsonPropertyName("_isparentSet")]
+        protected bool _isParentSet { get; set; }
+
+        protected FolderMini? _parent { get; set; }
+
         /// <summary>
         /// The type of the item that the event
         /// represents. Can be `file` or `folder`.
@@ -38,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         public EventSourceClassificationField? Classification { get; init; }
 
         [JsonPropertyName("parent")]
-        public FolderMini? Parent { get; init; }
+        public FolderMini? Parent { get => _parent; init { _parent = value; _isParentSet = true; } }
 
         [JsonPropertyName("owned_by")]
         public UserMini? OwnedBy { get; init; }

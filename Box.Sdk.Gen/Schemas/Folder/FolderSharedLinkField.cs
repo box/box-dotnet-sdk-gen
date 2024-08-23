@@ -8,6 +8,30 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class FolderSharedLinkField {
+        [JsonInclude]
+        [JsonPropertyName("_isdownload_urlSet")]
+        protected bool _isDownloadUrlSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isvanity_urlSet")]
+        protected bool _isVanityUrlSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isvanity_nameSet")]
+        protected bool _isVanityNameSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isunshared_atSet")]
+        protected bool _isUnsharedAtSet { get; set; }
+
+        protected string? _downloadUrl { get; set; }
+
+        protected string? _vanityUrl { get; set; }
+
+        protected string? _vanityName { get; set; }
+
+        protected System.DateTimeOffset? _unsharedAt { get; set; }
+
         /// <summary>
         /// The URL that can be used to access the item on Box.
         /// 
@@ -28,20 +52,20 @@ namespace Box.Sdk.Gen.Schemas {
         /// This property will be `null` for folders.
         /// </summary>
         [JsonPropertyName("download_url")]
-        public string? DownloadUrl { get; init; }
+        public string? DownloadUrl { get => _downloadUrl; init { _downloadUrl = value; _isDownloadUrlSet = true; } }
 
         /// <summary>
         /// The "Custom URL" that can also be used to preview the item on Box.  Custom
         /// URLs can only be created or modified in the Box Web application.
         /// </summary>
         [JsonPropertyName("vanity_url")]
-        public string? VanityUrl { get; init; }
+        public string? VanityUrl { get => _vanityUrl; init { _vanityUrl = value; _isVanityUrlSet = true; } }
 
         /// <summary>
         /// The custom name of a shared link, as used in the `vanity_url` field.
         /// </summary>
         [JsonPropertyName("vanity_name")]
-        public string? VanityName { get; init; }
+        public string? VanityName { get => _vanityName; init { _vanityName = value; _isVanityNameSet = true; } }
 
         /// <summary>
         /// The access level for this shared link.
@@ -83,7 +107,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// set by users with paid accounts.
         /// </summary>
         [JsonPropertyName("unshared_at")]
-        public System.DateTimeOffset? UnsharedAt { get; init; }
+        public System.DateTimeOffset? UnsharedAt { get => _unsharedAt; init { _unsharedAt = value; _isUnsharedAtSet = true; } }
 
         /// <summary>
         /// Defines if the shared link requires a password to access the item.

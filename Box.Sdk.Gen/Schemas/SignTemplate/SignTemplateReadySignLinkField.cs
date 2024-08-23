@@ -9,6 +9,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignTemplateReadySignLinkField {
+        [JsonInclude]
+        [JsonPropertyName("_isnameSet")]
+        protected bool _isNameSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isinstructionsSet")]
+        protected bool _isInstructionsSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isfolder_idSet")]
+        protected bool _isFolderIdSet { get; set; }
+
+        protected string? _name { get; set; }
+
+        protected string? _instructions { get; set; }
+
+        protected string? _folderId { get; set; }
+
         /// <summary>
         /// The URL that can be sent to signers.
         /// </summary>
@@ -19,13 +37,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// Request name.
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; init; }
+        public string? Name { get => _name; init { _name = value; _isNameSet = true; } }
 
         /// <summary>
         /// Extra instructions for all signers.
         /// </summary>
         [JsonPropertyName("instructions")]
-        public string? Instructions { get; init; }
+        public string? Instructions { get => _instructions; init { _instructions = value; _isInstructionsSet = true; } }
 
         /// <summary>
         /// The destination folder to place final,
@@ -35,7 +53,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder ID `0`, cannot be used.
         /// </summary>
         [JsonPropertyName("folder_id")]
-        public string? FolderId { get; init; }
+        public string? FolderId { get => _folderId; init { _folderId = value; _isFolderIdSet = true; } }
 
         /// <summary>
         /// Whether to disable notifications when

@@ -8,6 +8,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
     public class CreateRetentionPolicyAssignmentRequestBodyAssignToField {
+        [JsonInclude]
+        [JsonPropertyName("_isidSet")]
+        protected bool _isIdSet { get; set; }
+
+        protected string? _id { get; set; }
+
         /// <summary>
         /// The type of item to assign the policy to.
         /// </summary>
@@ -21,7 +27,7 @@ namespace Box.Sdk.Gen.Managers {
         /// `enterprise`.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; init; }
+        public string? Id { get => _id; init { _id = value; _isIdSet = true; } }
 
         public CreateRetentionPolicyAssignmentRequestBodyAssignToField(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
             Type = type;

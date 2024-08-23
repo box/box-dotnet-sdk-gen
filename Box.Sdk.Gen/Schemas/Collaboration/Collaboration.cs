@@ -5,6 +5,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class Collaboration {
+        [JsonInclude]
+        [JsonPropertyName("_isitemSet")]
+        protected bool _isItemSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isinvite_emailSet")]
+        protected bool _isInviteEmailSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isexpires_atSet")]
+        protected bool _isExpiresAtSet { get; set; }
+
+        protected FileOrFolderOrWebLink? _item { get; set; }
+
+        protected string? _inviteEmail { get; set; }
+
+        protected System.DateTimeOffset? _expiresAt { get; set; }
+
         /// <summary>
         /// The unique identifier for this collaboration.
         /// </summary>
@@ -19,7 +37,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<CollaborationTypeField> Type { get; }
 
         [JsonPropertyName("item")]
-        public FileOrFolderOrWebLink? Item { get; init; }
+        public FileOrFolderOrWebLink? Item { get => _item; init { _item = value; _isItemSet = true; } }
 
         [JsonPropertyName("accessible_by")]
         public GroupMiniOrUserCollaborations? AccessibleBy { get; init; }
@@ -29,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// they are not a registered user.
         /// </summary>
         [JsonPropertyName("invite_email")]
-        public string? InviteEmail { get; init; }
+        public string? InviteEmail { get => _inviteEmail; init { _inviteEmail = value; _isInviteEmailSet = true; } }
 
         /// <summary>
         /// The level of access granted.
@@ -43,7 +61,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// date is set.
         /// </summary>
         [JsonPropertyName("expires_at")]
-        public System.DateTimeOffset? ExpiresAt { get; init; }
+        public System.DateTimeOffset? ExpiresAt { get => _expiresAt; init { _expiresAt = value; _isExpiresAtSet = true; } }
 
         /// <summary>
         /// If set to `true`, collaborators have access to

@@ -8,6 +8,24 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class SignRequest : SignRequestBase {
+        [JsonInclude]
+        [JsonPropertyName("_issignature_colorSet")]
+        protected bool _isSignatureColorSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isprepare_urlSet")]
+        protected bool _isPrepareUrlSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isauto_expire_atSet")]
+        protected bool _isAutoExpireAtSet { get; set; }
+
+        protected string? _signatureColor { get; set; }
+
+        protected string? _prepareUrl { get; set; }
+
+        protected System.DateTimeOffset? _autoExpireAt { get; set; }
+
         /// <summary>
         /// object type
         /// </summary>
@@ -31,7 +49,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Force a specific color for the signature (blue, black, or red).
         /// </summary>
         [JsonPropertyName("signature_color")]
-        public string? SignatureColor { get; init; }
+        public string? SignatureColor { get => _signatureColor; init { _signatureColor = value; _isSignatureColorSet = true; } }
 
         /// <summary>
         /// Box Sign request ID.
@@ -48,7 +66,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// phase is complete.
         /// </summary>
         [JsonPropertyName("prepare_url")]
-        public string? PrepareUrl { get; init; }
+        public string? PrepareUrl { get => _prepareUrl; init { _prepareUrl = value; _isPrepareUrlSet = true; } }
 
         [JsonPropertyName("signing_log")]
         public FileMini? SigningLog { get; init; }
@@ -72,7 +90,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Uses `days_valid` to calculate the date and time, in GMT, the sign request will expire if unsigned.
         /// </summary>
         [JsonPropertyName("auto_expire_at")]
-        public System.DateTimeOffset? AutoExpireAt { get; init; }
+        public System.DateTimeOffset? AutoExpireAt { get => _autoExpireAt; init { _autoExpireAt = value; _isAutoExpireAtSet = true; } }
 
         [JsonPropertyName("parent_folder")]
         public FolderMini? ParentFolder { get; init; }

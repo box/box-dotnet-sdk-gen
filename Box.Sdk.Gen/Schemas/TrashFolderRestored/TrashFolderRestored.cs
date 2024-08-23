@@ -8,6 +8,60 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class TrashFolderRestored {
+        [JsonInclude]
+        [JsonPropertyName("_isetagSet")]
+        protected bool _isEtagSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscreated_atSet")]
+        protected bool _isCreatedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ismodified_atSet")]
+        protected bool _isModifiedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_istrashed_atSet")]
+        protected bool _isTrashedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_ispurged_atSet")]
+        protected bool _isPurgedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscontent_created_atSet")]
+        protected bool _isContentCreatedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_iscontent_modified_atSet")]
+        protected bool _isContentModifiedAtSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isshared_linkSet")]
+        protected bool _isSharedLinkSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isfolder_upload_emailSet")]
+        protected bool _isFolderUploadEmailSet { get; set; }
+
+        protected string? _etag { get; set; }
+
+        protected System.DateTimeOffset? _createdAt { get; set; }
+
+        protected System.DateTimeOffset? _modifiedAt { get; set; }
+
+        protected string? _trashedAt { get; set; }
+
+        protected string? _purgedAt { get; set; }
+
+        protected System.DateTimeOffset? _contentCreatedAt { get; set; }
+
+        protected System.DateTimeOffset? _contentModifiedAt { get; set; }
+
+        protected string? _sharedLink { get; set; }
+
+        protected string? _folderUploadEmail { get; set; }
+
         /// <summary>
         /// The unique identifier that represent a folder.
         /// 
@@ -26,7 +80,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// perform changes on the folder if (no) changes have happened.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string? Etag { get; init; }
+        public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
         /// `folder`
@@ -50,7 +104,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; init; }
+        public System.DateTimeOffset? CreatedAt { get => _createdAt; init { _createdAt = value; _isCreatedAtSet = true; } }
 
         /// <summary>
         /// The date and time when the folder was last updated. This value may
@@ -58,7 +112,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// folder.
         /// </summary>
         [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; init; }
+        public System.DateTimeOffset? ModifiedAt { get => _modifiedAt; init { _modifiedAt = value; _isModifiedAtSet = true; } }
 
         [JsonPropertyName("description")]
         public string? Description { get; init; }
@@ -86,27 +140,27 @@ namespace Box.Sdk.Gen.Schemas {
         /// trash - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("trashed_at")]
-        public string? TrashedAt { get; init; }
+        public string? TrashedAt { get => _trashedAt; init { _trashedAt = value; _isTrashedAtSet = true; } }
 
         /// <summary>
         /// The time at which this folder is expected to be purged
         /// from the trash  - becomes `null` after restore.
         /// </summary>
         [JsonPropertyName("purged_at")]
-        public string? PurgedAt { get; init; }
+        public string? PurgedAt { get => _purgedAt; init { _purgedAt = value; _isPurgedAtSet = true; } }
 
         /// <summary>
         /// The date and time at which this folder was originally
         /// created.
         /// </summary>
         [JsonPropertyName("content_created_at")]
-        public System.DateTimeOffset? ContentCreatedAt { get; init; }
+        public System.DateTimeOffset? ContentCreatedAt { get => _contentCreatedAt; init { _contentCreatedAt = value; _isContentCreatedAtSet = true; } }
 
         /// <summary>
         /// The date and time at which this folder was last updated.
         /// </summary>
         [JsonPropertyName("content_modified_at")]
-        public System.DateTimeOffset? ContentModifiedAt { get; init; }
+        public System.DateTimeOffset? ContentModifiedAt { get => _contentModifiedAt; init { _contentModifiedAt = value; _isContentModifiedAtSet = true; } }
 
         [JsonPropertyName("owned_by")]
         public UserMini? OwnedBy { get; init; }
@@ -117,7 +171,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// link does become active again.
         /// </summary>
         [JsonPropertyName("shared_link")]
-        public string? SharedLink { get; init; }
+        public string? SharedLink { get => _sharedLink; init { _sharedLink = value; _isSharedLinkSet = true; } }
 
         /// <summary>
         /// The folder upload email for this folder. This will
@@ -125,7 +179,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// email does become active again.
         /// </summary>
         [JsonPropertyName("folder_upload_email")]
-        public string? FolderUploadEmail { get; init; }
+        public string? FolderUploadEmail { get => _folderUploadEmail; init { _folderUploadEmail = value; _isFolderUploadEmailSet = true; } }
 
         [JsonPropertyName("parent")]
         public FolderMini? Parent { get; init; }

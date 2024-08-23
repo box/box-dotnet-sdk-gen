@@ -5,13 +5,19 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class RetentionPolicyAssignmentAssignedToField {
+        [JsonInclude]
+        [JsonPropertyName("_isidSet")]
+        protected bool _isIdSet { get; set; }
+
+        protected string? _id { get; set; }
+
         /// <summary>
         /// The ID of the folder, enterprise, or metadata template
         /// the policy is assigned to.
         /// Set to null or omit when type is set to enterprise.
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; init; }
+        public string? Id { get => _id; init { _id = value; _isIdSet = true; } }
 
         /// <summary>
         /// The type of resource the policy is assigned to.

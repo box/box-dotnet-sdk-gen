@@ -8,6 +8,18 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class Users {
+        [JsonInclude]
+        [JsonPropertyName("_isnext_markerSet")]
+        protected bool _isNextMarkerSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isprev_markerSet")]
+        protected bool _isPrevMarkerSet { get; set; }
+
+        protected string? _nextMarker { get; set; }
+
+        protected string? _prevMarker { get; set; }
+
         /// <summary>
         /// The limit that was used for these entries. This will be the same as the
         /// `limit` query parameter unless that value exceeded the maximum value
@@ -20,13 +32,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// The marker for the start of the next page of results.
         /// </summary>
         [JsonPropertyName("next_marker")]
-        public string? NextMarker { get; init; }
+        public string? NextMarker { get => _nextMarker; init { _nextMarker = value; _isNextMarkerSet = true; } }
 
         /// <summary>
         /// The marker for the start of the previous page of results.
         /// </summary>
         [JsonPropertyName("prev_marker")]
-        public string? PrevMarker { get; init; }
+        public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
         /// One greater than the offset of the last entry in the entire collection.

@@ -4,6 +4,12 @@ using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField {
+        [JsonInclude]
+        [JsonPropertyName("_isuser_has_two_factor_authentication_enabledSet")]
+        protected bool _isUserHasTwoFactorAuthenticationEnabledSet { get; set; }
+
+        protected bool? _userHasTwoFactorAuthenticationEnabled { get; set; }
+
         /// <summary>
         /// Whether or not the enterprise that owns the content requires
         /// two-factor authentication to be enabled in order to
@@ -18,7 +24,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// authentication is not required.
         /// </summary>
         [JsonPropertyName("user_has_two_factor_authentication_enabled")]
-        public bool? UserHasTwoFactorAuthenticationEnabled { get; init; }
+        public bool? UserHasTwoFactorAuthenticationEnabled { get => _userHasTwoFactorAuthenticationEnabled; init { _userHasTwoFactorAuthenticationEnabled = value; _isUserHasTwoFactorAuthenticationEnabledSet = true; } }
 
         public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField() {
             
