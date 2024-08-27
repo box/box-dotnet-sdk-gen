@@ -13,7 +13,7 @@ has been applied to a folder.
 
 This API can also be called by including the enterprise ID in the
 URL explicitly, for example
-`/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
+`/folders/:id/enterprise_12345/securityClassification-6VMVochwUWo`.
 
 This operation is performed by calling function `GetClassificationOnFolder`.
 
@@ -52,7 +52,7 @@ classification to add.
 
 This API can also be called by including the enterprise ID in the
 URL explicitly, for example
-`/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
+`/folders/:id/enterprise_12345/securityClassification-6VMVochwUWo`.
 
 This operation is performed by calling function `AddClassificationToFolder`.
 
@@ -127,7 +127,7 @@ Removes any classifications from a folder.
 
 This API can also be called by including the enterprise ID in the
 URL explicitly, for example
-`/folders/:id//enterprise_12345/securityClassification-6VMVochwUWo`.
+`/folders/:id/enterprise_12345/securityClassification-6VMVochwUWo`.
 
 This operation is performed by calling function `DeleteClassificationFromFolder`.
 
