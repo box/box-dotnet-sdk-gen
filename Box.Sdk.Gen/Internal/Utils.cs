@@ -286,5 +286,21 @@ namespace Box.Sdk.Gen.Internal
         {
             return arg => func(arg, b, c, d, e);
         }
+
+        /// <summary>
+        /// Partial application of arguments b, c, d, e and f over given func.
+        /// </summary>
+        /// <param name="func">Function</param>
+        /// <param name="b">Param</param>
+        /// <param name="c">Param</param>
+        /// <param name="d">Param</param>
+        /// <param name="e">Param</param>
+        /// <param name="f">Param</param>
+        /// <returns>Partailly applied function</returns>
+        public static Func<TArg, TResult> PartialApplication6<TArg, TB, TC, TD, TE, TF, TResult>(Func<TArg, TB, TC, TD, TE, TF, TResult> func,
+            TB b, TC c, TD d, TE e, TF f)
+        {
+            return arg => func(arg, b, c, d, e, f);
+        }
     }
 }
