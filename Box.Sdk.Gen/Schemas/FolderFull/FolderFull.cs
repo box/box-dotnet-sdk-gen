@@ -86,6 +86,15 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("classification")]
         public FolderFullClassificationField? Classification { get; init; }
 
+        /// <summary>
+        /// This field will return true if the folder or any ancestor of the
+        /// folder is associated with at least one app item. Note that this will
+        /// return true even if the context user does not have access to the
+        /// app item(s) associated with the folder.
+        /// </summary>
+        [JsonPropertyName("is_associated_with_app_item")]
+        public bool? IsAssociatedWithAppItem { get; init; }
+
         public FolderFull(string id, FolderBaseTypeField type = FolderBaseTypeField.Folder) : base(id, type) {
             
         }

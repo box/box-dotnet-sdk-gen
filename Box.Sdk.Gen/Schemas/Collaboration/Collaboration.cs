@@ -10,6 +10,10 @@ namespace Box.Sdk.Gen.Schemas {
         protected bool _isItemSet { get; set; }
 
         [JsonInclude]
+        [JsonPropertyName("_isapp_itemSet")]
+        protected bool _isAppItemSet { get; set; }
+
+        [JsonInclude]
         [JsonPropertyName("_isinvite_emailSet")]
         protected bool _isInviteEmailSet { get; set; }
 
@@ -18,6 +22,8 @@ namespace Box.Sdk.Gen.Schemas {
         protected bool _isExpiresAtSet { get; set; }
 
         protected FileOrFolderOrWebLink? _item { get; set; }
+
+        protected AppItem? _appItem { get; set; }
 
         protected string? _inviteEmail { get; set; }
 
@@ -38,6 +44,9 @@ namespace Box.Sdk.Gen.Schemas {
 
         [JsonPropertyName("item")]
         public FileOrFolderOrWebLink? Item { get => _item; init { _item = value; _isItemSet = true; } }
+
+        [JsonPropertyName("app_item")]
+        public AppItem? AppItem { get => _appItem; init { _appItem = value; _isAppItemSet = true; } }
 
         [JsonPropertyName("accessible_by")]
         public GroupMiniOrUserCollaborations? AccessibleBy { get; init; }

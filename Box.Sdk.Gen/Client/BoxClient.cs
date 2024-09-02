@@ -15,6 +15,8 @@ namespace Box.Sdk.Gen {
 
         public ITrashedFilesManager TrashedFiles { get; }
 
+        public IAppItemAssociationsManager AppItemAssociations { get; }
+
         public IDownloadsManager Downloads { get; }
 
         public IUploadsManager Uploads { get; }
@@ -153,6 +155,7 @@ namespace Box.Sdk.Gen {
             Authorization = new AuthorizationManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Files = new FilesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             TrashedFiles = new TrashedFilesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            AppItemAssociations = new AppItemAssociationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Downloads = new DownloadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Uploads = new UploadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             ChunkedUploads = new ChunkedUploadsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
