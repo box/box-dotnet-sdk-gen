@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-await client.Files.GetFileByIdAsync(fileId: file.Id);
+await client.Files.GetFileByIdAsync(fileId: fileId, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"is_associated_with_app_item"}) });
 ```
 
 ### Arguments

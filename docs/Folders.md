@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync(folderId: newFolder.Id);
+await client.Folders.GetFolderByIdAsync(folderId: folderId, queryParams: new GetFolderByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"is_associated_with_app_item"}) });
 ```
 
 ### Arguments
