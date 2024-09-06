@@ -136,6 +136,15 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonConverter(typeof(StringEnumListConverter<FileFullSharedLinkPermissionOptionsField>))]
         public IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? SharedLinkPermissionOptions { get => _sharedLinkPermissionOptions; init { _sharedLinkPermissionOptions = value; _isSharedLinkPermissionOptionsSet = true; } }
 
+        /// <summary>
+        /// This field will return true if the file or any ancestor of the file
+        /// is associated with at least one app item. Note that this will return
+        /// true even if the context user does not have access to the app item(s)
+        /// associated with the file.
+        /// </summary>
+        [JsonPropertyName("is_associated_with_app_item")]
+        public bool? IsAssociatedWithAppItem { get; init; }
+
         public FileFull(string id, FileBaseTypeField type = FileBaseTypeField.File) : base(id, type) {
             
         }

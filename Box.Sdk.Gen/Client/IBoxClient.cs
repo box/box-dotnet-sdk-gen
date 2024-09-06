@@ -13,6 +13,8 @@ namespace Box.Sdk.Gen {
 
         public ITrashedFilesManager TrashedFiles { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
+        public IAppItemAssociationsManager AppItemAssociations { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
+
         public IDownloadsManager Downloads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
         public IUploadsManager Uploads { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
