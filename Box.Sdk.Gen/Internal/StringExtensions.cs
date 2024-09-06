@@ -63,6 +63,10 @@ namespace Box.Sdk.Gen.Internal
                 }
                 return (string)propertyValue;
             }
+            else if (obj is DateTimeOffset dateTime)
+            {
+                return Utils.DateTimeToString(dateTime);
+            }
             else if (isNotPrimitive(obj))
             {
                 return JsonSerializer.Serialize(obj);

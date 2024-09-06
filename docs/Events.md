@@ -21,7 +21,10 @@ This operation is performed by calling function `GetEvents`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-events/).
 
-*Currently we don't have an example for calling `GetEvents` in integration tests*
+<!-- sample get_events -->
+```
+await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs, Limit = 1, CreatedAfter = createdAfterDate, CreatedBefore = createdBeforeDate });
+```
 
 ### Arguments
 
@@ -87,7 +90,10 @@ This operation is performed by calling function `GetEventsWithLongPolling`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/options-events/).
 
-*Currently we don't have an example for calling `GetEventsWithLongPolling` in integration tests*
+<!-- sample options_events -->
+```
+await client.Events.GetEventsWithLongPollingAsync();
+```
 
 ### Arguments
 
