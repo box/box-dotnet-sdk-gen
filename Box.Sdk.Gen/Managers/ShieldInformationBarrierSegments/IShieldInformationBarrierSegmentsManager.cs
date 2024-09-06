@@ -23,6 +23,22 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<ShieldInformationBarrierSegment> GetShieldInformationBarrierSegmentByIdAsync(string shieldInformationBarrierSegmentId, GetShieldInformationBarrierSegmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
+    /// Deletes the shield information barrier segment
+    /// based on provided ID.
+    /// </summary>
+    /// <param name="shieldInformationBarrierSegmentId">
+    /// The ID of the shield information barrier segment.
+    /// Example: "3423"
+    /// </param>
+    /// <param name="headers">
+    /// Headers of deleteShieldInformationBarrierSegmentById method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task DeleteShieldInformationBarrierSegmentByIdAsync(string shieldInformationBarrierSegmentId, DeleteShieldInformationBarrierSegmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
     /// Updates the shield information barrier segment based on provided ID..
     /// </summary>
     /// <param name="shieldInformationBarrierSegmentId">
@@ -39,22 +55,6 @@ namespace Box.Sdk.Gen.Managers {
     /// Token used for request cancellation.
     /// </param>
     public System.Threading.Tasks.Task<ShieldInformationBarrierSegment> UpdateShieldInformationBarrierSegmentByIdAsync(string shieldInformationBarrierSegmentId, UpdateShieldInformationBarrierSegmentByIdRequestBody? requestBody = default, UpdateShieldInformationBarrierSegmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
-
-        /// <summary>
-    /// Deletes the shield information barrier segment
-    /// based on provided ID.
-    /// </summary>
-    /// <param name="shieldInformationBarrierSegmentId">
-    /// The ID of the shield information barrier segment.
-    /// Example: "3423"
-    /// </param>
-    /// <param name="headers">
-    /// Headers of deleteShieldInformationBarrierSegmentById method
-    /// </param>
-    /// <param name="cancellationToken">
-    /// Token used for request cancellation.
-    /// </param>
-    public System.Threading.Tasks.Task DeleteShieldInformationBarrierSegmentByIdAsync(string shieldInformationBarrierSegmentId, DeleteShieldInformationBarrierSegmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Retrieves a list of shield information barrier segment objects

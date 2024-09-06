@@ -1,7 +1,7 @@
 using Box.Sdk.Gen;
-using System;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System;
 using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
@@ -14,35 +14,6 @@ namespace Box.Sdk.Gen.Managers {
         public EventsManager(NetworkSession? networkSession = default) {
             NetworkSession = networkSession ?? new NetworkSession();
         }
-        /// <summary>
-        /// Returns up to a year of past events for a given user
-        /// or for the entire enterprise.
-        /// 
-        /// By default this returns events for the authenticated user. To retrieve events
-        /// for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
-        /// for live monitoring of new events, or `admin_logs` for querying across
-        /// historical events. The user making the API call will
-        /// need to have admin privileges, and the application will need to have the
-        /// scope `manage enterprise properties` checked.
-        /// </summary>
-        /// <param name="queryParams">
-        /// Query parameters of getEvents method
-        /// </param>
-        /// <param name="headers">
-        /// Headers of getEvents method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParams? queryParams = default, GetEventsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetEventsQueryParams();
-            headers = headers ?? new GetEventsHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "stream_type", StringUtils.ToStringRepresentation(queryParams.StreamType) }, { "stream_position", StringUtils.ToStringRepresentation(queryParams.StreamPosition) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "event_type", StringUtils.ToStringRepresentation(queryParams.EventType) }, { "created_after", StringUtils.ToStringRepresentation(queryParams.CreatedAfter) }, { "created_before", StringUtils.ToStringRepresentation(queryParams.CreatedBefore) } });
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/events"), networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<Events>(response.Data);
-        }
-
         /// <summary>
         /// Returns a list of real-time servers that can be used for long-polling updates
         /// to the [event stream](#get-events).
@@ -89,6 +60,35 @@ namespace Box.Sdk.Gen.Managers {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/events"), networkSession: this.NetworkSession) { Method = "OPTIONS", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<RealtimeServers>(response.Data);
+        }
+
+        /// <summary>
+        /// Returns up to a year of past events for a given user
+        /// or for the entire enterprise.
+        /// 
+        /// By default this returns events for the authenticated user. To retrieve events
+        /// for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
+        /// for live monitoring of new events, or `admin_logs` for querying across
+        /// historical events. The user making the API call will
+        /// need to have admin privileges, and the application will need to have the
+        /// scope `manage enterprise properties` checked.
+        /// </summary>
+        /// <param name="queryParams">
+        /// Query parameters of getEvents method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getEvents method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParams? queryParams = default, GetEventsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetEventsQueryParams();
+            headers = headers ?? new GetEventsHeaders();
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "stream_type", StringUtils.ToStringRepresentation(queryParams.StreamType) }, { "stream_position", StringUtils.ToStringRepresentation(queryParams.StreamPosition) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "event_type", StringUtils.ToStringRepresentation(queryParams.EventType) }, { "created_after", StringUtils.ToStringRepresentation(queryParams.CreatedAfter) }, { "created_before", StringUtils.ToStringRepresentation(queryParams.CreatedBefore) } });
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/events"), networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<Events>(response.Data);
         }
 
     }

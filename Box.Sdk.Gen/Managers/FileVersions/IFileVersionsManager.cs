@@ -66,6 +66,33 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<FileVersionFull> GetFileVersionByIdAsync(string fileId, string fileVersionId, GetFileVersionByIdQueryParams? queryParams = default, GetFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
+    /// Move a file version to the trash.
+    /// 
+    /// Versions are only tracked for Box users with premium accounts.
+    /// </summary>
+    /// <param name="fileId">
+    /// The unique identifier that represents a file.
+    /// 
+    /// The ID for any file can be determined
+    /// by visiting a file in the web application
+    /// and copying the ID from the URL. For example,
+    /// for the URL `https://*.app.box.com/files/123`
+    /// the `file_id` is `123`.
+    /// Example: "12345"
+    /// </param>
+    /// <param name="fileVersionId">
+    /// The ID of the file version
+    /// Example: "1234"
+    /// </param>
+    /// <param name="headers">
+    /// Headers of deleteFileVersionById method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task DeleteFileVersionByIdAsync(string fileId, string fileVersionId, DeleteFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
     /// Restores a specific version of a file after it was deleted.
     /// Don't use this endpoint to restore Box Notes,
     /// as it works with file formats such as PDF, DOC,
@@ -95,33 +122,6 @@ namespace Box.Sdk.Gen.Managers {
     /// Token used for request cancellation.
     /// </param>
     public System.Threading.Tasks.Task<FileVersionFull> UpdateFileVersionByIdAsync(string fileId, string fileVersionId, UpdateFileVersionByIdRequestBody? requestBody = default, UpdateFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
-
-        /// <summary>
-    /// Move a file version to the trash.
-    /// 
-    /// Versions are only tracked for Box users with premium accounts.
-    /// </summary>
-    /// <param name="fileId">
-    /// The unique identifier that represents a file.
-    /// 
-    /// The ID for any file can be determined
-    /// by visiting a file in the web application
-    /// and copying the ID from the URL. For example,
-    /// for the URL `https://*.app.box.com/files/123`
-    /// the `file_id` is `123`.
-    /// Example: "12345"
-    /// </param>
-    /// <param name="fileVersionId">
-    /// The ID of the file version
-    /// Example: "1234"
-    /// </param>
-    /// <param name="headers">
-    /// Headers of deleteFileVersionById method
-    /// </param>
-    /// <param name="cancellationToken">
-    /// Token used for request cancellation.
-    /// </param>
-    public System.Threading.Tasks.Task DeleteFileVersionByIdAsync(string fileId, string fileVersionId, DeleteFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Promote a specific version of a file.

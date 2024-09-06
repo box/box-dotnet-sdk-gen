@@ -56,6 +56,27 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Performs a check to verify that a file will be accepted by Box
+        /// before you upload the entire file.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of preflightFileUploadCheck method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of preflightFileUploadCheck method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadCheckAsync(PreflightFileUploadCheckRequestBody? requestBody = default, PreflightFileUploadCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new PreflightFileUploadCheckRequestBody();
+            headers = headers ?? new PreflightFileUploadCheckHeaders();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/content"), networkSession: this.NetworkSession) { Method = "OPTIONS", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<UploadUrl>(response.Data);
+        }
+
+        /// <summary>
         /// Uploads a small file to Box. For file sizes over 50MB we recommend
         /// using the Chunk Upload APIs.
         /// 
@@ -83,27 +104,6 @@ namespace Box.Sdk.Gen.Managers {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/content"), networkSession: this.NetworkSession) { Method = "POST", Parameters = queryParamsMap, Headers = headersMap, MultipartData = Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes") { Data = SimpleJsonSerializer.Serialize(requestBody.Attributes) },new MultipartItem(partName: "file") { FileStream = requestBody.File, FileName = requestBody.FileFileName, ContentType = requestBody.FileContentType }}), ContentType = "multipart/form-data", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
-        }
-
-        /// <summary>
-        /// Performs a check to verify that a file will be accepted by Box
-        /// before you upload the entire file.
-        /// </summary>
-        /// <param name="requestBody">
-        /// Request body of preflightFileUploadCheck method
-        /// </param>
-        /// <param name="headers">
-        /// Headers of preflightFileUploadCheck method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadCheckAsync(PreflightFileUploadCheckRequestBody? requestBody = default, PreflightFileUploadCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new PreflightFileUploadCheckRequestBody();
-            headers = headers ?? new PreflightFileUploadCheckHeaders();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/content"), networkSession: this.NetworkSession) { Method = "OPTIONS", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<UploadUrl>(response.Data);
         }
 
     }

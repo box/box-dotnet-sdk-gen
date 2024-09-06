@@ -1,34 +1,12 @@
 using Box.Sdk.Gen;
-using System;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Managers {
     public interface IEventsManager {
-        /// <summary>
-    /// Returns up to a year of past events for a given user
-    /// or for the entire enterprise.
-    /// 
-    /// By default this returns events for the authenticated user. To retrieve events
-    /// for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
-    /// for live monitoring of new events, or `admin_logs` for querying across
-    /// historical events. The user making the API call will
-    /// need to have admin privileges, and the application will need to have the
-    /// scope `manage enterprise properties` checked.
-    /// </summary>
-    /// <param name="queryParams">
-    /// Query parameters of getEvents method
-    /// </param>
-    /// <param name="headers">
-    /// Headers of getEvents method
-    /// </param>
-    /// <param name="cancellationToken">
-    /// Token used for request cancellation.
-    /// </param>
-    public System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParams? queryParams = default, GetEventsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
-
         /// <summary>
     /// Returns a list of real-time servers that can be used for long-polling updates
     /// to the [event stream](#get-events).
@@ -71,6 +49,28 @@ namespace Box.Sdk.Gen.Managers {
     /// Token used for request cancellation.
     /// </param>
     public System.Threading.Tasks.Task<RealtimeServers> GetEventsWithLongPollingAsync(GetEventsWithLongPollingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
+    /// Returns up to a year of past events for a given user
+    /// or for the entire enterprise.
+    /// 
+    /// By default this returns events for the authenticated user. To retrieve events
+    /// for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
+    /// for live monitoring of new events, or `admin_logs` for querying across
+    /// historical events. The user making the API call will
+    /// need to have admin privileges, and the application will need to have the
+    /// scope `manage enterprise properties` checked.
+    /// </summary>
+    /// <param name="queryParams">
+    /// Query parameters of getEvents method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of getEvents method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<Events> GetEventsAsync(GetEventsQueryParams? queryParams = default, GetEventsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
