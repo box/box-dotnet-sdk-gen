@@ -10,7 +10,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileFullMetadataField : IJsonOnDeserialized {
         [JsonPropertyName("extraData")]
-        public Dictionary<string, Dictionary<string, Metadata>>? ExtraData { get; set; }
+        public Dictionary<string, Dictionary<string, MetadataFull>>? ExtraData { get; set; }
 
         public FileFullMetadataField() {
             
@@ -24,9 +24,9 @@ namespace Box.Sdk.Gen.Schemas {
 
         public void OnDeserialized() {
             if (_additionalProperties != null) {
-                ExtraData = new Dictionary<string, Dictionary<string, Metadata>>();
+                ExtraData = new Dictionary<string, Dictionary<string, MetadataFull>>();
                 foreach (var kvp in _additionalProperties) {
-                    var value = JsonSerializer.Deserialize<Dictionary<string, Metadata>>(kvp.Value);
+                    var value = JsonSerializer.Deserialize<Dictionary<string, MetadataFull>>(kvp.Value);
                     if (value != null) {
                         ExtraData.Add(kvp.Key, value);
                     }
