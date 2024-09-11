@@ -87,6 +87,37 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Move a file version to the trash.
+        /// 
+        /// Versions are only tracked for Box users with premium accounts.
+        /// </summary>
+        /// <param name="fileId">
+        /// The unique identifier that represents a file.
+        /// 
+        /// The ID for any file can be determined
+        /// by visiting a file in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/files/123`
+        /// the `file_id` is `123`.
+        /// Example: "12345"
+        /// </param>
+        /// <param name="fileVersionId">
+        /// The ID of the file version
+        /// Example: "1234"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of deleteFileVersionById method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task DeleteFileVersionByIdAsync(string fileId, string fileVersionId, DeleteFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteFileVersionByIdHeaders();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) } }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/versions/", StringUtils.ToStringRepresentation(fileVersionId)), networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+        }
+
+        /// <summary>
         /// Restores a specific version of a file after it was deleted.
         /// Don't use this endpoint to restore Box Notes,
         /// as it works with file formats such as PDF, DOC,
@@ -121,37 +152,6 @@ namespace Box.Sdk.Gen.Managers {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/versions/", StringUtils.ToStringRepresentation(fileVersionId)), networkSession: this.NetworkSession) { Method = "PUT", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<FileVersionFull>(response.Data);
-        }
-
-        /// <summary>
-        /// Move a file version to the trash.
-        /// 
-        /// Versions are only tracked for Box users with premium accounts.
-        /// </summary>
-        /// <param name="fileId">
-        /// The unique identifier that represents a file.
-        /// 
-        /// The ID for any file can be determined
-        /// by visiting a file in the web application
-        /// and copying the ID from the URL. For example,
-        /// for the URL `https://*.app.box.com/files/123`
-        /// the `file_id` is `123`.
-        /// Example: "12345"
-        /// </param>
-        /// <param name="fileVersionId">
-        /// The ID of the file version
-        /// Example: "1234"
-        /// </param>
-        /// <param name="headers">
-        /// Headers of deleteFileVersionById method
-        /// </param>
-        /// <param name="cancellationToken">
-        /// Token used for request cancellation.
-        /// </param>
-        public async System.Threading.Tasks.Task DeleteFileVersionByIdAsync(string fileId, string fileVersionId, DeleteFileVersionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteFileVersionByIdHeaders();
-            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) } }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/versions/", StringUtils.ToStringRepresentation(fileVersionId)), networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
         }
 
         /// <summary>

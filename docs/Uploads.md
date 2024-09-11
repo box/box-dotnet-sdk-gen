@@ -2,8 +2,8 @@
 
 
 - [Upload file version](#upload-file-version)
-- [Upload file](#upload-file)
 - [Preflight check before upload](#preflight-check-before-upload)
+- [Upload file](#upload-file)
 
 ## Upload file version
 
@@ -46,6 +46,36 @@ This function returns a value of type `Files`.
 Returns the new file object in a list.
 
 
+## Preflight check before upload
+
+Performs a check to verify that a file will be accepted by Box
+before you upload the entire file.
+
+This operation is performed by calling function `PreflightFileUploadCheck`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/options-files-content/).
+
+*Currently we don't have an example for calling `PreflightFileUploadCheck` in integration tests*
+
+### Arguments
+
+- requestBody `PreflightFileUploadCheckRequestBody`
+  - Request body of preflightFileUploadCheck method
+- headers `PreflightFileUploadCheckHeaders`
+  - Headers of preflightFileUploadCheck method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `UploadUrl`.
+
+If the check passed, the response will include a session URL that
+can be used to upload the file to.
+
+
 ## Upload file
 
 Uploads a small file to Box. For file sizes over 50MB we recommend
@@ -83,35 +113,5 @@ await parentClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBod
 This function returns a value of type `Files`.
 
 Returns the new file object in a list.
-
-
-## Preflight check before upload
-
-Performs a check to verify that a file will be accepted by Box
-before you upload the entire file.
-
-This operation is performed by calling function `PreflightFileUploadCheck`.
-
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/options-files-content/).
-
-*Currently we don't have an example for calling `PreflightFileUploadCheck` in integration tests*
-
-### Arguments
-
-- requestBody `PreflightFileUploadCheckRequestBody`
-  - Request body of preflightFileUploadCheck method
-- headers `PreflightFileUploadCheckHeaders`
-  - Headers of preflightFileUploadCheck method
-- cancellationToken `System.Threading.CancellationToken?`
-  - Token used for request cancellation.
-
-
-### Returns
-
-This function returns a value of type `UploadUrl`.
-
-If the check passed, the response will include a session URL that
-can be used to upload the file to.
 
 

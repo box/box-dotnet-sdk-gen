@@ -1,53 +1,8 @@
 # IEventsManager
 
 
-- [List user and enterprise events](#list-user-and-enterprise-events)
 - [Get events long poll endpoint](#get-events-long-poll-endpoint)
-
-## List user and enterprise events
-
-Returns up to a year of past events for a given user
-or for the entire enterprise.
-
-By default this returns events for the authenticated user. To retrieve events
-for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
-for live monitoring of new events, or `admin_logs` for querying across
-historical events. The user making the API call will
-need to have admin privileges, and the application will need to have the
-scope `manage enterprise properties` checked.
-
-This operation is performed by calling function `GetEvents`.
-
-See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-events/).
-
-<!-- sample get_events -->
-```
-await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs, Limit = 1, CreatedAfter = createdAfterDate, CreatedBefore = createdBeforeDate });
-```
-
-### Arguments
-
-- queryParams `GetEventsQueryParams`
-  - Query parameters of getEvents method
-- headers `GetEventsHeaders`
-  - Headers of getEvents method
-- cancellationToken `System.Threading.CancellationToken?`
-  - Token used for request cancellation.
-
-
-### Returns
-
-This function returns a value of type `Events`.
-
-Returns a list of event objects.
-
-Events objects are returned in pages, with each page (chunk)
-including a list of event objects. The response includes a
-`chunk_size` parameter indicating how many events were returned in this
-chunk, as well as the next `stream_position` that can be
-queried.
-
+- [List user and enterprise events](#list-user-and-enterprise-events)
 
 ## Get events long poll endpoint
 
@@ -109,5 +64,50 @@ This function returns a value of type `RealtimeServers`.
 
 Returns a paginated array of servers that can be used
 instead of the regular endpoints for long-polling events.
+
+
+## List user and enterprise events
+
+Returns up to a year of past events for a given user
+or for the entire enterprise.
+
+By default this returns events for the authenticated user. To retrieve events
+for the entire enterprise, set the `stream_type` to `admin_logs_streaming`
+for live monitoring of new events, or `admin_logs` for querying across
+historical events. The user making the API call will
+need to have admin privileges, and the application will need to have the
+scope `manage enterprise properties` checked.
+
+This operation is performed by calling function `GetEvents`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-events/).
+
+<!-- sample get_events -->
+```
+await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs, Limit = 1, CreatedAfter = createdAfterDate, CreatedBefore = createdBeforeDate });
+```
+
+### Arguments
+
+- queryParams `GetEventsQueryParams`
+  - Query parameters of getEvents method
+- headers `GetEventsHeaders`
+  - Headers of getEvents method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `Events`.
+
+Returns a list of event objects.
+
+Events objects are returned in pages, with each page (chunk)
+including a list of event objects. The response includes a
+`chunk_size` parameter indicating how many events were returned in this
+chunk, as well as the next `stream_position` that can be
+queried.
 
 

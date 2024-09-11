@@ -42,6 +42,21 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<Files> UploadFileVersionAsync(string fileId, UploadFileVersionRequestBody requestBody, UploadFileVersionQueryParams? queryParams = default, UploadFileVersionHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
+    /// Performs a check to verify that a file will be accepted by Box
+    /// before you upload the entire file.
+    /// </summary>
+    /// <param name="requestBody">
+    /// Request body of preflightFileUploadCheck method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of preflightFileUploadCheck method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadCheckAsync(PreflightFileUploadCheckRequestBody? requestBody = default, PreflightFileUploadCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
     /// Uploads a small file to Box. For file sizes over 50MB we recommend
     /// using the Chunk Upload APIs.
     /// 
@@ -63,21 +78,6 @@ namespace Box.Sdk.Gen.Managers {
     /// Token used for request cancellation.
     /// </param>
     public System.Threading.Tasks.Task<Files> UploadFileAsync(UploadFileRequestBody requestBody, UploadFileQueryParams? queryParams = default, UploadFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
-
-        /// <summary>
-    /// Performs a check to verify that a file will be accepted by Box
-    /// before you upload the entire file.
-    /// </summary>
-    /// <param name="requestBody">
-    /// Request body of preflightFileUploadCheck method
-    /// </param>
-    /// <param name="headers">
-    /// Headers of preflightFileUploadCheck method
-    /// </param>
-    /// <param name="cancellationToken">
-    /// Token used for request cancellation.
-    /// </param>
-    public System.Threading.Tasks.Task<UploadUrl> PreflightFileUploadCheckAsync(PreflightFileUploadCheckRequestBody? requestBody = default, PreflightFileUploadCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
