@@ -5,7 +5,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAgentLongTextToolEmbeddingsField {
         /// <summary>
-        /// The model used for the AI Agent for calculating embeddings.
+        /// The model used for the AI agent for calculating embeddings.
         /// </summary>
         [JsonPropertyName("model")]
         public string? Model { get; init; }

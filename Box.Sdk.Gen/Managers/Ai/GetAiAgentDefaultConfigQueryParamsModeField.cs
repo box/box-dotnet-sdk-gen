@@ -7,6 +7,10 @@ namespace Box.Sdk.Gen.Managers {
         [Description("ask")]
         Ask,
         [Description("text_gen")]
-        TextGen
+        TextGen,
+        [Description("extract")]
+        Extract,
+        [Description("extract_structured")]
+        ExtractStructured
     }
 }

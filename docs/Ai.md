@@ -1,11 +1,13 @@
 # IAiManager
 
 
-- [Send AI question request](#send-ai-question-request)
-- [Send AI request to generate text](#send-ai-request-to-generate-text)
+- [Ask question](#ask-question)
+- [Generate text](#generate-text)
 - [Get AI agent default configuration](#get-ai-agent-default-configuration)
+- [Extract metadata (freeform)](#extract-metadata-freeform)
+- [Extract metadata (structured)](#extract-metadata-structured)
 
-## Send AI question request
+## Ask question
 
 Sends an AI request to supported LLMs and returns an answer specifically focused on the user's question given the provided context.
 
@@ -16,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiAskItemsField(id: fileToAsk1.Id, type: AiAskItemsTypeField.File) { Content = "Earth goes around the sun" },new AiAskItemsField(id: fileToAsk2.Id, type: AiAskItemsTypeField.File) { Content = "Sun rises in the East in the morning" }})));
+await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiItemBase(id: fileToAsk1.Id, type: AiItemBaseTypeField.File) { Content = "Earth goes around the sun" },new AiItemBase(id: fileToAsk2.Id, type: AiItemBaseTypeField.File) { Content = "Sun rises in the East in the morning" }})));
 ```
 
 ### Arguments
@@ -36,9 +38,9 @@ This function returns a value of type `AiResponseFull`.
 A successful response including the answer from the LLM.
 
 
-## Send AI request to generate text
+## Generate text
 
-Sends an AI request to supported LLMs and returns an answer specifically focused on the creation of new text.
+Sends an AI request to supported Large Language Models (LLMs) and returns generated text based on the provided prompt.
 
 This operation is performed by calling function `CreateAiTextGen`.
 
@@ -93,11 +95,74 @@ await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultC
 
 ### Returns
 
-This function returns a value of type `AiAgentAskOrAiAgentTextGen`.
+This function returns a value of type `AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen`.
 
 A successful response including the default agent configuration.
-This response can be one of the following two objects:
-AI agent for questions and AI agent for text generation. The response
-depends on the agent configuration requested in this endpoint.
+This response can be one of the following four objects:
+* AI agent for questions
+* AI agent for text generation
+* AI agent for freeform metadata extraction
+* AI agent for structured metadata extraction.
+The response depends on the agent configuration requested in this endpoint.
+
+
+## Extract metadata (freeform)
+
+Sends an AI request to supported Large Language Models (LLMs) and extracts metadata in form of key-value pairs.
+Freeform metadata extraction does not require any metadata template setup before sending the request.
+
+This operation is performed by calling function `CreateAiExtract`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-ai-extract/).
+
+*Currently we don't have an example for calling `CreateAiExtract` in integration tests*
+
+### Arguments
+
+- requestBody `AiExtract`
+  - Request body of createAiExtract method
+- headers `CreateAiExtractHeaders`
+  - Headers of createAiExtract method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `AiResponse`.
+
+A response including the answer from the LLM.
+
+
+## Extract metadata (structured)
+
+Sends an AI request to supported Large Language Models (LLMs) and returns extracted metadata as a set of key-value pairs.
+For this request, you need to use an already defined metadata template or a define a schema yourself.
+To learn more about creating templates, see [Creating metadata templates in the Admin Console](https://support.box.com/hc/en-us/articles/360044194033-Customizing-Metadata-Templates)
+or use the [metadata template API](g://metadata/templates/create).
+
+This operation is performed by calling function `CreateAiExtractStructured`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/post-ai-extract-structured/).
+
+*Currently we don't have an example for calling `CreateAiExtractStructured` in integration tests*
+
+### Arguments
+
+- requestBody `AiExtractStructured`
+  - Request body of createAiExtractStructured method
+- headers `CreateAiExtractStructuredHeaders`
+  - Headers of createAiExtractStructured method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `AiExtractResponse`.
+
+A successful response including the answer from the LLM.
 
 

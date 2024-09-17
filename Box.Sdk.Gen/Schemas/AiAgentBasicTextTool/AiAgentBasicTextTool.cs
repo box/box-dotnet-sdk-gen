@@ -12,10 +12,8 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// The prompt template contains contextual information of the request and the user prompt.
-        /// 
         /// When passing `prompt_template` parameters, you **must include** inputs for `{user_question}` and `{content}`.
-        /// 
-        /// Input for `{current_date}` is optional, depending on the use.
+        /// `{current_date}` is optional, depending on the use.
         /// </summary>
         [JsonPropertyName("prompt_template")]
         public string? PromptTemplate { get; init; }
