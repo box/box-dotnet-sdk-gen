@@ -116,7 +116,10 @@ This operation is performed by calling function `CreateAiExtract`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-extract/).
 
-*Currently we don't have an example for calling `CreateAiExtract` in integration tests*
+<!-- sample post_ai_extract -->
+```
+await client.Ai.CreateAiExtractAsync(requestBody: new AiExtract(prompt: "firstName, lastName, location, yearOfBirth, company", items: Array.AsReadOnly(new [] {new AiItemBase(id: file.Id)})));
+```
 
 ### Arguments
 
