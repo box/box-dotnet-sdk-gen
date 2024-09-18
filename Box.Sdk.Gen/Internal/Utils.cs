@@ -257,7 +257,8 @@ namespace Box.Sdk.Gen.Internal
         /// Waits for a given number of seconds.
         /// </summary>
         /// <param name="seconds">Number of seconds to wait</param>
-        public static void DelayInSeconds(int seconds) => System.Threading.Thread.Sleep(seconds * 1000);
+        /// <returns>Task</returns>
+        public static async Task DelayInSecondsAsync(int seconds) => await Task.Delay(seconds * 1000);
 
         /// <summary>
         /// Partial application of arguments b, c over given func.
