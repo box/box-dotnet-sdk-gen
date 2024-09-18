@@ -31,15 +31,13 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<AiLlmEndpointParamsGoogleTypeField> Type { get; }
 
         /// <summary>
-        /// The temperature is used for sampling during response generation, which occurs when `top-P` and `top-K` are applied. 
-        /// Temperature controls the degree of randomness in token selection.
+        /// The temperature is used for sampling during response generation, which occurs when `top-P` and `top-K` are applied. Temperature controls the degree of randomness in the token selection.
         /// </summary>
         [JsonPropertyName("temperature")]
         public double? Temperature { get => _temperature; init { _temperature = value; _isTemperatureSet = true; } }
 
         /// <summary>
-        /// `Top-P` changes how the model selects tokens for output. Tokens are selected from the most (see `top-K`) to least probable
-        /// until the sum of their probabilities equals the `top-P` value.
+        /// `Top-P` changes how the model selects tokens for output. Tokens are selected from the most (see `top-K`) to least probable until the sum of their probabilities equals the `top-P` value.
         /// </summary>
         [JsonPropertyName("top_p")]
         public double? TopP { get => _topP; init { _topP = value; _isTopPSet = true; } }

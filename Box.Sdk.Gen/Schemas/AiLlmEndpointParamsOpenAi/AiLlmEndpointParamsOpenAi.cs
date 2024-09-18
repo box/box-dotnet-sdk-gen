@@ -59,15 +59,14 @@ namespace Box.Sdk.Gen.Schemas {
         public double? TopP { get => _topP; init { _topP = value; _isTopPSet = true; } }
 
         /// <summary>
-        /// Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the 
+        /// A number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the 
         /// text so far, decreasing the model's likelihood to repeat the same line verbatim.
         /// </summary>
         [JsonPropertyName("frequency_penalty")]
         public double? FrequencyPenalty { get => _frequencyPenalty; init { _frequencyPenalty = value; _isFrequencyPenaltySet = true; } }
 
         /// <summary>
-        /// Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, 
-        /// increasing the model's likelihood to talk about new topics.
+        /// A number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
         /// </summary>
         [JsonPropertyName("presence_penalty")]
         public double? PresencePenalty { get => _presencePenalty; init { _presencePenalty = value; _isPresencePenaltySet = true; } }

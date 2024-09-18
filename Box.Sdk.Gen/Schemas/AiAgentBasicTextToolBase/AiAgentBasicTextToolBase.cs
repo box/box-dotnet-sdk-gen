@@ -5,7 +5,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAgentBasicTextToolBase {
         /// <summary>
-        /// The model used for the AI Agent for basic text. For specific model values, see the [available models list](g://box-ai/supported-models).
+        /// The model used for the AI agent for basic text. For specific model values, see the [available models list](g://box-ai/supported-models).
         /// </summary>
         [JsonPropertyName("model")]
         public string? Model { get; init; }

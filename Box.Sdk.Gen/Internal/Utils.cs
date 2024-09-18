@@ -34,6 +34,13 @@ namespace Box.Sdk.Gen.Internal
         public static string DecodeBase64(string value) => System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(value));
 
         /// <summary>
+        /// Converts string to a stream.
+        /// </summary>
+        /// <param name="value">String text.</param>
+        /// <returns>A stream of a given string.</returns>
+        public static Stream StringToByteStream(string text) => new MemoryStream(System.Text.Encoding.UTF8.GetBytes(text));
+
+        /// <summary>
         /// Returns string representation of an object.
         /// </summary>
         /// <param name="obj">Object class.</param>
@@ -244,6 +251,13 @@ namespace Box.Sdk.Gen.Internal
         /// <param name="filepath">Path to the file</param>
         /// <returns>Text from the file</returns>
         public static string ReadTextFromFile(string filepath) => System.IO.File.ReadAllText(filepath);
+
+
+        /// <summary>
+        /// Waits for a given number of seconds.
+        /// </summary>
+        /// <param name="seconds">Number of seconds to wait</param>
+        public static void DelayInSeconds(int seconds) => System.Threading.Thread.Sleep(seconds * 1000);
 
         /// <summary>
         /// Partial application of arguments b, c over given func.

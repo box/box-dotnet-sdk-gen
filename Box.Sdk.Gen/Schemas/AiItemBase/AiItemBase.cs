@@ -1,22 +1,21 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
-using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiAskItemsField {
+    public class AiItemBase {
         /// <summary>
-        /// The id of the item.
+        /// The ID of the file.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// The type of the item.
+        /// The type of the item. Currently the value can be `file` only.
         /// </summary>
         [JsonPropertyName("type")]
-        [JsonConverter(typeof(StringEnumConverter<AiAskItemsTypeField>))]
-        public StringEnum<AiAskItemsTypeField> Type { get; }
+        [JsonConverter(typeof(StringEnumConverter<AiItemBaseTypeField>))]
+        public StringEnum<AiItemBaseTypeField> Type { get; }
 
         /// <summary>
         /// The content of the item, often the text representation.
@@ -24,15 +23,15 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("content")]
         public string? Content { get; init; }
 
-        public AiAskItemsField(string id, AiAskItemsTypeField type = AiAskItemsTypeField.File) {
+        public AiItemBase(string id, AiItemBaseTypeField type = AiItemBaseTypeField.File) {
             Id = id;
             Type = type;
         }
         
         [JsonConstructorAttribute]
-        internal AiAskItemsField(string id, StringEnum<AiAskItemsTypeField> type) {
+        internal AiItemBase(string id, StringEnum<AiItemBaseTypeField> type) {
             Id = id;
-            Type = AiAskItemsTypeField.File;
+            Type = AiItemBaseTypeField.File;
         }
     }
 }
