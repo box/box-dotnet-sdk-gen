@@ -8,7 +8,7 @@ using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateWebhookByIdRequestBody {
+    public class UpdateWebhookByIdRequestBody : ISerializable {
         /// <summary>
         /// The item that will trigger the webhook
         /// </summary>
@@ -32,5 +32,22 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateWebhookByIdRequestBody() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

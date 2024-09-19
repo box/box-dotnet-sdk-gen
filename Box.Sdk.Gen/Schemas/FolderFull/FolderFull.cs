@@ -1,15 +1,15 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using Box.Sdk.Gen.Internal;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System;
-using Box.Sdk.Gen.Internal;
 using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class FolderFull : Folder {
+    public class FolderFull : Folder, ISerializable {
         [JsonPropertyName("sync_state")]
         [JsonConverter(typeof(StringEnumConverter<FolderFullSyncStateField>))]
         public StringEnum<FolderFullSyncStateField>? SyncState { get; init; }
@@ -103,5 +103,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal FolderFull(string id, StringEnum<FolderBaseTypeField> type) : base(id, type ?? new StringEnum<FolderBaseTypeField>(FolderBaseTypeField.Folder)) {
             
         }
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

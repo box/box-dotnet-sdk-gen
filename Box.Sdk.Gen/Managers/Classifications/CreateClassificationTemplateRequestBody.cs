@@ -7,7 +7,7 @@ using System;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateClassificationTemplateRequestBody {
+    public class CreateClassificationTemplateRequestBody : ISerializable {
         /// <summary>
         /// The scope in which to create the classifications. This should
         /// be `enterprise` or `enterprise_{id}` where `id` is the unique
@@ -70,5 +70,22 @@ namespace Box.Sdk.Gen.Managers {
             DisplayName = CreateClassificationTemplateRequestBodyDisplayNameField.Classification;
             Fields = fields;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

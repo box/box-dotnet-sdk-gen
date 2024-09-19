@@ -7,7 +7,7 @@ using System;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateClassificationTemplateRequestBodyFieldsField {
+    public class CreateClassificationTemplateRequestBodyFieldsField : ISerializable {
         /// <summary>
         /// The type of the field
         /// that is always enum.
@@ -62,5 +62,22 @@ namespace Box.Sdk.Gen.Managers {
             DisplayName = CreateClassificationTemplateRequestBodyFieldsDisplayNameField.Classification;
             Options = options;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class TrashWebLinkRestored {
+    public class TrashWebLinkRestored : ISerializable {
         [JsonInclude]
         [JsonPropertyName("_istrashed_atSet")]
         protected bool _isTrashedAtSet { get; set; }
@@ -131,5 +131,22 @@ namespace Box.Sdk.Gen.Schemas {
             SequenceId = sequenceId;
             PathCollection = pathCollection;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

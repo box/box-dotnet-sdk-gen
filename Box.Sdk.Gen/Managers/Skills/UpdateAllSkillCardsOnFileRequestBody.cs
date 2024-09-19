@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateAllSkillCardsOnFileRequestBody {
+    public class UpdateAllSkillCardsOnFileRequestBody : ISerializable {
         /// <summary>
         /// Defines the status of this invocation. Set this to `success` when setting Skill cards.
         /// </summary>
@@ -56,5 +56,22 @@ namespace Box.Sdk.Gen.Managers {
             Metadata = metadata;
             File = file;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

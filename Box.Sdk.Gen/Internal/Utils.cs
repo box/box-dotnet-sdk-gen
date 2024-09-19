@@ -317,5 +317,29 @@ namespace Box.Sdk.Gen.Internal
         {
             return arg => func(arg, b, c, d, e, f);
         }
+
+        internal static object GetValueFromObjectRawData(object obj, string key)
+        {
+            var method = obj.GetType().GetMethod("GetRawData");
+            if (method == null)
+            {
+                throw new Exception("Method GetRawData not present on the object");
+            }
+            var rawData = method.Invoke(obj, null) as Dictionary<string, object>;
+
+            if (rawData == null)
+            {
+                throw new Exception("Raw data is empty");
+            }
+
+            if (rawData.TryGetValue(key, out object? objValue))
+            {
+                return objValue;
+            }
+            else
+            {
+                throw new Exception("Key not found");
+            }
+        }
     }
 }

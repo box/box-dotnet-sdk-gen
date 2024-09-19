@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateStoragePolicyAssignmentRequestBodyAssignedToField {
+    public class CreateStoragePolicyAssignmentRequestBodyAssignedToField : ISerializable {
         /// <summary>
         /// The type to assign the policy to.
         /// </summary>
@@ -30,5 +30,22 @@ namespace Box.Sdk.Gen.Managers {
             Type = type;
             Id = id;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

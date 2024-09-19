@@ -68,7 +68,7 @@ namespace Box.Sdk.Gen.Managers {
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "mode", StringUtils.ToStringRepresentation(queryParams.Mode?.Value) }, { "language", StringUtils.ToStringRepresentation(queryParams.Language) }, { "model", StringUtils.ToStringRepresentation(queryParams.Model) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/ai_agent_default"), networkSession: this.NetworkSession) { Method = "GET", Parameters = queryParamsMap, Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen>(response.Data);
+            return SimpleJsonSerializer.DeserializeWithoutRawJson<AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen>(response.Data);
         }
 
         /// <summary>

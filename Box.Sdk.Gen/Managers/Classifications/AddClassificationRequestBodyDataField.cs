@@ -7,7 +7,7 @@ using System;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class AddClassificationRequestBodyDataField {
+    public class AddClassificationRequestBodyDataField : ISerializable {
         /// <summary>
         /// The label of the classification as shown in the web and
         /// mobile interfaces. This is the only field required to
@@ -25,5 +25,22 @@ namespace Box.Sdk.Gen.Managers {
         public AddClassificationRequestBodyDataField(string key) {
             Key = key;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

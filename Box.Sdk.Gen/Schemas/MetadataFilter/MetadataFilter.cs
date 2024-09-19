@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class MetadataFilter {
+    public class MetadataFilter : ISerializable {
         /// <summary>
         /// Specifies the scope of the template to filter search results by.
         /// 
@@ -49,5 +49,22 @@ namespace Box.Sdk.Gen.Schemas {
         public MetadataFilter() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

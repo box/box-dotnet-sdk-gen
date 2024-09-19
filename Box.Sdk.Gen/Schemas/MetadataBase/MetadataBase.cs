@@ -1,8 +1,10 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class MetadataBase {
+    public class MetadataBase : ISerializable {
         /// <summary>
         /// The identifier of the item that this metadata instance
         /// has been attached to. This combines the `type` and the `id`
@@ -36,5 +38,22 @@ namespace Box.Sdk.Gen.Schemas {
         public MetadataBase() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

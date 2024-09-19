@@ -1,12 +1,13 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using Box.Sdk.Gen.Internal;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class FolderFullMetadataField : IJsonOnDeserialized {
+    public class FolderFullMetadataField : IJsonOnDeserialized, ISerializable {
         [JsonPropertyName("extraData")]
         public Dictionary<string, Dictionary<string, MetadataFull>>? ExtraData { get; set; }
 
@@ -18,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonExtensionData]
         [JsonInclude]
-        public Dictionary<string, JsonElement>? _additionalProperties { get; private set; } = default;
+        internal Dictionary<string, JsonElement>? _additionalProperties { get; private set; } = default;
 
         public void OnDeserialized() {
             if (_additionalProperties != null) {
@@ -31,6 +32,23 @@ namespace Box.Sdk.Gen.Schemas {
                 }
                 _additionalProperties.Clear();
             }
+        }
+
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
         }
 
     }

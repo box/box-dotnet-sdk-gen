@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CopyFolderRequestBody {
+    public class CopyFolderRequestBody : ISerializable {
         /// <summary>
         /// An optional new name for the copied folder.
         /// 
@@ -31,5 +31,22 @@ namespace Box.Sdk.Gen.Managers {
         public CopyFolderRequestBody(CopyFolderRequestBodyParentField parent) {
             Parent = parent;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

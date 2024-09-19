@@ -160,7 +160,7 @@ namespace Box.Sdk.Gen.Internal
             var requestInfo = new RequestInfo(request.Method.ToString(), request.RequestUri?.ToString(), options.Parameters, requestHeaders);
 
             var responseAsSerializedData = JsonUtils.JsonToSerializedData(responseContent);
-            var errorDetails = SimpleJsonSerializer.Deserialize<BoxApiExceptionDetails>(responseAsSerializedData);
+            var errorDetails = SimpleJsonSerializer.DeserializeWithoutRawJson<BoxApiExceptionDetails>(responseAsSerializedData);
 
             var responseInfo = new ResponseInfo(statusCode, responseHeaders, responseAsSerializedData, responseContent, errorDetails.Code, errorDetails.ContextInfo,
                 errorDetails.RequestId, errorDetails.HelpUrl);
@@ -283,7 +283,7 @@ namespace Box.Sdk.Gen.Internal
             }
             else if (options.ContentType == ContentTypes.FormUrlEncoded && options.Data != null)
             {
-                var deserialized = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(options.Data);
+                var deserialized = SimpleJsonSerializer.DeserializeWithoutRawJson<Dictionary<string, string>>(options.Data);
                 httpContent = new FormUrlEncodedContent(deserialized);
             }
             else if (options.ContentType == ContentTypes.OctetStream && stream != null)

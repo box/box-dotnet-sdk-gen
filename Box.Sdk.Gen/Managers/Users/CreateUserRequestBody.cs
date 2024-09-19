@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateUserRequestBody {
+    public class CreateUserRequestBody : ISerializable {
         /// <summary>
         /// The name of the user
         /// </summary>
@@ -133,5 +133,22 @@ namespace Box.Sdk.Gen.Managers {
         public CreateUserRequestBody(string name) {
             Name = name;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

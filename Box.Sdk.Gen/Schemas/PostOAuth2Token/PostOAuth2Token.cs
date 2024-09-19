@@ -1,9 +1,10 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
+using System.Collections.Generic;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class PostOAuth2Token {
+    public class PostOAuth2Token : ISerializable {
         /// <summary>
         /// The type of request being made, either using a client-side obtained
         /// authorization code, a refresh token, a JWT assertion, client credentials
@@ -145,5 +146,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal PostOAuth2Token(StringEnum<PostOAuth2TokenGrantTypeField> grantType) {
             GrantType = grantType;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

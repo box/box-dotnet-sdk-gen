@@ -1,10 +1,11 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
+using System.Collections.Generic;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class IntegrationMapping : IntegrationMappingBase {
+    public class IntegrationMapping : IntegrationMappingBase, ISerializable {
         /// <summary>
         /// Identifies the Box partner app,
         /// with which the mapping is associated.
@@ -75,5 +76,22 @@ namespace Box.Sdk.Gen.Schemas {
             PartnerItem = partnerItem;
             BoxItem = boxItem;
         }
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

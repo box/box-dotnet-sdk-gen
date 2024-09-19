@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateMetadataTemplateRequestBodyFieldsField {
+    public class CreateMetadataTemplateRequestBodyFieldsField : ISerializable {
         /// <summary>
         /// The type of field. The basic fields are a `string` field for text, a
         /// `float` field for numbers, and a `date` fields to present the user with a
@@ -67,5 +67,22 @@ namespace Box.Sdk.Gen.Managers {
             Key = key;
             DisplayName = displayName;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }
