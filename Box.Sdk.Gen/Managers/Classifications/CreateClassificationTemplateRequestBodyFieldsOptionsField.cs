@@ -7,7 +7,7 @@ using System;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateClassificationTemplateRequestBodyFieldsOptionsField {
+    public class CreateClassificationTemplateRequestBodyFieldsOptionsField : ISerializable {
         /// <summary>
         /// The display name and key this classification. This
         /// will be show in the Box UI.
@@ -24,5 +24,22 @@ namespace Box.Sdk.Gen.Managers {
         public CreateClassificationTemplateRequestBodyFieldsOptionsField(string key) {
             Key = key;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

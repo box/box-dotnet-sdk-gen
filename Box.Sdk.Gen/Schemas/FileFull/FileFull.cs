@@ -1,15 +1,15 @@
 using System.Text.Json.Serialization;
-using Box.Sdk.Gen;
+using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
 using System.Text.Json;
 using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class FileFull : File {
+    public class FileFull : File, ISerializable {
         [JsonInclude]
         [JsonPropertyName("_islockSet")]
         protected bool _isLockSet { get; set; }
@@ -153,5 +153,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal FileFull(string id, StringEnum<FileBaseTypeField> type) : base(id, type ?? new StringEnum<FileBaseTypeField>(FileBaseTypeField.File)) {
             
         }
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateMetadataTemplateRequestBody {
+    public class UpdateMetadataTemplateRequestBody : ISerializable {
         /// <summary>
         /// The type of change to perform on the template. Some
         /// of these are hazardous as they will change existing templates.
@@ -73,5 +73,22 @@ namespace Box.Sdk.Gen.Managers {
         internal UpdateMetadataTemplateRequestBody(StringEnum<UpdateMetadataTemplateRequestBodyOpField> op) {
             Op = op;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

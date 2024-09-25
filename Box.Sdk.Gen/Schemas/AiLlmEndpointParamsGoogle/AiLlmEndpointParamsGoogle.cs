@@ -1,9 +1,10 @@
 using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
+using System.Collections.Generic;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiLlmEndpointParamsGoogle {
+    public class AiLlmEndpointParamsGoogle : ISerializable {
         [JsonInclude]
         [JsonPropertyName("_istemperatureSet")]
         protected bool _isTemperatureSet { get; set; }
@@ -58,5 +59,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal AiLlmEndpointParamsGoogle(StringEnum<AiLlmEndpointParamsGoogleTypeField> type) {
             Type = AiLlmEndpointParamsGoogleTypeField.GoogleParams;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

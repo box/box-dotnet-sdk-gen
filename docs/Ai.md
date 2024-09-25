@@ -150,7 +150,10 @@ This operation is performed by calling function `CreateAiExtractStructured`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-extract-structured/).
 
-*Currently we don't have an example for calling `CreateAiExtractStructured` in integration tests*
+<!-- sample post_ai_extract_structured -->
+```
+await client.Ai.CreateAiExtractStructuredAsync(requestBody: new AiExtractStructured(items: Array.AsReadOnly(new [] {new AiItemBase(id: file.Id)})) { MetadataTemplate = new AiExtractStructuredMetadataTemplateField() { TemplateKey = templateKey, Scope = "enterprise" } });
+```
 
 ### Arguments
 

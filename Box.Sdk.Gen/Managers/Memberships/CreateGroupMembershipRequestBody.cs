@@ -7,7 +7,7 @@ using System;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateGroupMembershipRequestBody {
+    public class CreateGroupMembershipRequestBody : ISerializable {
         [JsonInclude]
         [JsonPropertyName("_isconfigurable_permissionsSet")]
         protected bool _isConfigurablePermissionsSet { get; set; }
@@ -52,5 +52,22 @@ namespace Box.Sdk.Gen.Managers {
             User = user;
             Group = group;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

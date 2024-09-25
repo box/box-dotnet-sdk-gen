@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class MetadataFull : Metadata, IJsonOnDeserialized {
+    public class MetadataFull : Metadata, IJsonOnDeserialized, ISerializable {
         /// <summary>
         /// Whether the user can edit this metadata instance.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonExtensionData]
         [JsonInclude]
-        public Dictionary<string, JsonElement>? _additionalProperties { get; private set; } = default;
+        internal Dictionary<string, JsonElement>? _additionalProperties { get; private set; } = default;
 
         public void OnDeserialized() {
             if (_additionalProperties != null) {
@@ -60,6 +60,23 @@ namespace Box.Sdk.Gen.Schemas {
                 }
                 _additionalProperties.Clear();
             }
+        }
+
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
         }
 
     }

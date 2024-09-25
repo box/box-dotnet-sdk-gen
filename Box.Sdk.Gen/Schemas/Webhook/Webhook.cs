@@ -8,7 +8,7 @@ using System.Linq;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class Webhook : WebhookMini {
+    public class Webhook : WebhookMini, ISerializable {
         [JsonPropertyName("created_by")]
         public UserMini? CreatedBy { get; init; }
 
@@ -36,5 +36,22 @@ namespace Box.Sdk.Gen.Schemas {
         public Webhook() {
             
         }
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

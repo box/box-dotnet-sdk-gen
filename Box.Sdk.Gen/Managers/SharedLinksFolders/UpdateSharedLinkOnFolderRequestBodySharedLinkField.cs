@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateSharedLinkOnFolderRequestBodySharedLinkField {
+    public class UpdateSharedLinkOnFolderRequestBodySharedLinkField : ISerializable {
         /// <summary>
         /// The level of access for the shared link. This can be
         /// restricted to anyone with the link (`open`), only people
@@ -63,5 +63,22 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateSharedLinkOnFolderRequestBodySharedLinkField() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

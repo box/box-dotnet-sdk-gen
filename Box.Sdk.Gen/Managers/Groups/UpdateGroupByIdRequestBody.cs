@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateGroupByIdRequestBody {
+    public class UpdateGroupByIdRequestBody : ISerializable {
         /// <summary>
         /// The name of the new group to be created. Must be unique within the
         /// enterprise.
@@ -83,5 +83,22 @@ namespace Box.Sdk.Gen.Managers {
         public UpdateGroupByIdRequestBody() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

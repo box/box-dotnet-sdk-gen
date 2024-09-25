@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class SearchResults {
+    public class SearchResults : ISerializable {
         /// <summary>
         /// One greater than the offset of the last entry in the search results.
         /// The total number of entries in the collection may be less than
@@ -52,5 +52,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal SearchResults(StringEnum<SearchResultsTypeField> type) {
             Type = SearchResultsTypeField.SearchResultsItems;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

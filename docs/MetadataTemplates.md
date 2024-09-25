@@ -134,7 +134,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: templateKey);
+await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
 ```
 
 ### Arguments
@@ -266,7 +266,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_templates_schema -->
 ```
-await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "name", displayName: "name"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Float, key: "age", displayName: "age"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Date, key: "birthDate", displayName: "birthDate"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Enum, key: "countryCode", displayName: "countryCode") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "US"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "CA")}) },new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.MultiSelect, key: "sports", displayName: "sports") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "basketball"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "football"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "tennis")}) }}) });
+await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(key: "firstName", displayName: "First name", type: CreateMetadataTemplateRequestBodyFieldsTypeField.String) { Description = "Person first name" },new CreateMetadataTemplateRequestBodyFieldsField(key: "lastName", displayName: "Last name", type: CreateMetadataTemplateRequestBodyFieldsTypeField.String) { Description = "Person last name" },new CreateMetadataTemplateRequestBodyFieldsField(key: "dateOfBirth", displayName: "Birth date", type: CreateMetadataTemplateRequestBodyFieldsTypeField.Date) { Description = "Person date of birth" },new CreateMetadataTemplateRequestBodyFieldsField(key: "age", displayName: "Age", type: CreateMetadataTemplateRequestBodyFieldsTypeField.Float) { Description = "Person age" },new CreateMetadataTemplateRequestBodyFieldsField(key: "hobby", displayName: "Hobby", type: CreateMetadataTemplateRequestBodyFieldsTypeField.MultiSelect) { Description = "Person hobby" }}) });
 ```
 
 ### Arguments

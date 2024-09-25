@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateMetadataCascadePolicyRequestBody {
+    public class CreateMetadataCascadePolicyRequestBody : ISerializable {
         /// <summary>
         /// The ID of the folder to apply the policy to. This folder will
         /// need to already have an instance of the targeted metadata
@@ -55,5 +55,22 @@ namespace Box.Sdk.Gen.Managers {
             Scope = scope;
             TemplateKey = templateKey;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

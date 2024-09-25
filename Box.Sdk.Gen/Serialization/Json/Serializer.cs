@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Internal
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 TypeInfoResolver = new DefaultJsonTypeInfoResolver
                 {
-                    Modifiers = { IncludeExplicitNulls }
+                    Modifiers = { IncludeExplicitNulls, InternalExtraDataHandling }
                 }
             };
             _options.Converters.Add(new DateOnlyJsonConverter());
@@ -59,16 +59,35 @@ namespace Box.Sdk.Gen.Internal
             }
         }
 
+        static void InternalExtraDataHandling(JsonTypeInfo jsonTypeInfo)
+        {
+            if (jsonTypeInfo.Kind == JsonTypeInfoKind.Object && jsonTypeInfo.Properties.All(prop => !prop.IsExtensionData))
+            {
+                PropertyInfo? extensionProp = jsonTypeInfo.Type
+                    .GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                    .FirstOrDefault(prop => prop.GetCustomAttribute<JsonExtensionDataAttribute>() != null);
+
+                if (extensionProp != null)
+                {
+                    JsonPropertyInfo jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(extensionProp.PropertyType, extensionProp.Name);
+                    jsonPropertyInfo.Get = extensionProp.GetValue;
+                    jsonPropertyInfo.Set = extensionProp.SetValue;
+                    jsonPropertyInfo.IsExtensionData = true;
+                    jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+                }
+            }
+        }
+
         public static SerializedData Serialize(object obj) => new SerializedData(obj);
 
-
-        public static T Deserialize<T>(SerializedData? obj)
+        static (T, string) BaseDeserialize<T>(SerializedData? obj)
         {
             if (obj == null)
             {
                 throw new BoxSdkException("Object to be deserialized cannot be null");
             }
 
+            var objAsJson = obj.AsJson();
             var deserializedObject = JsonSerializer.Deserialize<T>(obj.AsJson(), _options);
 
             if (deserializedObject == null)
@@ -76,7 +95,19 @@ namespace Box.Sdk.Gen.Internal
                 throw new BoxSdkException("Deserialized object cannot be null");
             }
 
-            return deserializedObject;
+            return (deserializedObject, objAsJson);
+        }
+
+        public static T Deserialize<T>(SerializedData? obj) where T : ISerializable
+        {
+            var (deserialized, objAsJson) = BaseDeserialize<T>(obj);
+            deserialized.SetJson(objAsJson);
+            return deserialized;
+        }
+
+        internal static T DeserializeWithoutRawJson<T>(SerializedData? obj)
+        {
+            return BaseDeserialize<T>(obj).Item1;
         }
 
         public static string SdToJson(SerializedData obj) => JsonSerializer.Serialize(obj.Data, _options);
@@ -106,6 +137,32 @@ namespace Box.Sdk.Gen.Internal
             }
 
             return list;
+        }
+
+        internal static Dictionary<string, object?>? GetAllFields(ISerializable dto)
+        {
+            string? json = dto.GetJson();
+
+            if (json == null)
+            {
+                return null;
+            }
+
+            var asRawDict = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(json, _options);
+
+            if (asRawDict == null)
+            {
+                return null;
+            }
+
+            var parsedJson = new Dictionary<string, object?>();
+
+            foreach (var kvp in asRawDict)
+            {
+                parsedJson[kvp.Key] = ConvertJsonElement(kvp.Value);
+            }
+
+            return parsedJson;
         }
     }
 
@@ -245,5 +302,11 @@ namespace Box.Sdk.Gen.Internal
 
             writer.WriteEndArray();
         }
+    }
+
+    internal interface ISerializable
+    {
+        internal void SetJson(string json);
+        internal string? GetJson();
     }
 }

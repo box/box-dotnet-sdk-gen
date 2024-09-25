@@ -257,7 +257,8 @@ namespace Box.Sdk.Gen.Internal
         /// Waits for a given number of seconds.
         /// </summary>
         /// <param name="seconds">Number of seconds to wait</param>
-        public static void DelayInSeconds(int seconds) => System.Threading.Thread.Sleep(seconds * 1000);
+        /// <returns>Task</returns>
+        public static async Task DelayInSecondsAsync(int seconds) => await Task.Delay(seconds * 1000);
 
         /// <summary>
         /// Partial application of arguments b, c over given func.
@@ -315,6 +316,30 @@ namespace Box.Sdk.Gen.Internal
             TB b, TC c, TD d, TE e, TF f)
         {
             return arg => func(arg, b, c, d, e, f);
+        }
+
+        internal static object GetValueFromObjectRawData(object obj, string key)
+        {
+            var method = obj.GetType().GetMethod("GetRawData");
+            if (method == null)
+            {
+                throw new Exception("Method GetRawData not present on the object");
+            }
+            var rawData = method.Invoke(obj, null) as Dictionary<string, object>;
+
+            if (rawData == null)
+            {
+                throw new Exception("Raw data is empty");
+            }
+
+            if (rawData.TryGetValue(key, out object? objValue))
+            {
+                return objValue;
+            }
+            else
+            {
+                throw new Exception("Key not found");
+            }
         }
     }
 }

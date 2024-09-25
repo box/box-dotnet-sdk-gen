@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Internal
         internal static string SdToUrlParams(SerializedData data)
         {
             //TODO typecheck
-            var parameters = SimpleJsonSerializer.Deserialize<Dictionary<string, string>>(data);
+            var parameters = SimpleJsonSerializer.DeserializeWithoutRawJson<Dictionary<string, string>>(data);
             return string.Join('&',
                    parameters.Select(q => $"{HttpUtility.UrlEncode(q.Key)}={HttpUtility.UrlEncode(q.Value)}"));
         }

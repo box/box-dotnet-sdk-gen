@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateFolderRequestBodyFolderUploadEmailField {
+    public class CreateFolderRequestBodyFolderUploadEmailField : ISerializable {
         /// <summary>
         /// When this parameter has been set, users can email files
         /// to the email address that has been automatically
@@ -30,5 +30,22 @@ namespace Box.Sdk.Gen.Managers {
         public CreateFolderRequestBodyFolderUploadEmailField() {
             
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

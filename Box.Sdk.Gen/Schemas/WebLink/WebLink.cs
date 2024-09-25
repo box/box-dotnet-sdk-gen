@@ -2,12 +2,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Internal;
+using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class WebLink : WebLinkMini {
+    public class WebLink : WebLinkMini, ISerializable {
         [JsonInclude]
         [JsonPropertyName("_istrashed_atSet")]
         protected bool _isTrashedAtSet { get; set; }
@@ -87,5 +87,22 @@ namespace Box.Sdk.Gen.Schemas {
         internal WebLink(string id, StringEnum<WebLinkBaseTypeField> type) : base(id, type ?? new StringEnum<WebLinkBaseTypeField>(WebLinkBaseTypeField.WebLink)) {
             
         }
+        internal new string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public new Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

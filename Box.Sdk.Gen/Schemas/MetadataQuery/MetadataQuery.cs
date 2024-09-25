@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class MetadataQuery {
+    public class MetadataQuery : ISerializable {
         /// <summary>
         /// Specifies the template used in the query. Must be in the form
         /// `scope.templateKey`. Not all templates can be used in this field,
@@ -95,5 +95,22 @@ namespace Box.Sdk.Gen.Schemas {
             From = from;
             AncestorFolderId = ancestorFolderId;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }

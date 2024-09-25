@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class CreateTermsOfServiceStatusForUserRequestBody {
+    public class CreateTermsOfServiceStatusForUserRequestBody : ISerializable {
         /// <summary>
         /// The terms of service to set the status for.
         /// </summary>
@@ -30,5 +30,22 @@ namespace Box.Sdk.Gen.Managers {
             User = user;
             IsAccepted = isAccepted;
         }
+        internal string? RawJson { get; set; } = default;
+
+        void ISerializable.SetJson(string json) {
+            RawJson = json;
+        }
+
+        string? ISerializable.GetJson() {
+            return RawJson;
+        }
+
+        /// <summary>
+        /// Returns raw json response returned from the API.
+        /// </summary>
+        public Dictionary<string, object?>? GetRawData() {
+            return SimpleJsonSerializer.GetAllFields(this);
+        }
+
     }
 }
