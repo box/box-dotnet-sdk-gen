@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/box/box-codegen/compare/v1.1.0...v1.2.0) (2024-09-26)
+
+
+### Bug Fixes
+
+* correctly send `datetime` when in `queryParams` (box/box-codegen[#560](https://github.com/box/box-codegen/issues/560)) ([#243](https://github.com/box/box-codegen/issues/243)) ([9657526](https://github.com/box/box-codegen/commit/9657526667753d77eacfd674cde60ab4030ae42d))
+* Fix variants in metadata query results (box/box-openapi[#456](https://github.com/box/box-codegen/issues/456)) ([#249](https://github.com/box/box-codegen/issues/249)) ([37625ea](https://github.com/box/box-codegen/commit/37625eabe4f87d57a9f58920829c00cddd34bcb1))
+
+
+### New Features and Enhancements
+
+* add Hubs Beta (box/box-openapi[#453](https://github.com/box/box-codegen/issues/453)) ([#241](https://github.com/box/box-codegen/issues/241)) ([c28f660](https://github.com/box/box-codegen/commit/c28f6605c94e250bbab853ef610c46c1d3c9ef95))
+* include raw `json` in types (box/box-codegen[#567](https://github.com/box/box-codegen/issues/567)) ([#258](https://github.com/box/box-codegen/issues/258)) ([a1e7bc5](https://github.com/box/box-codegen/commit/a1e7bc55da0dec8bfd1159a1c158154177581019))
+* Support `ai/extract` and `ai/extract_structured` endpoints (box/box-codegen[#564](https://github.com/box/box-codegen/issues/564)) ([#253](https://github.com/box/box-codegen/issues/253)) ([a17d8f8](https://github.com/box/box-codegen/commit/a17d8f8dbce8ac7f42b9e23c8c216e992a64d762))
+
 ## [1.1.0](https://github.com/box/box-codegen/compare/v1.0.0...v1.1.0) (2024-08-23)
 
 
