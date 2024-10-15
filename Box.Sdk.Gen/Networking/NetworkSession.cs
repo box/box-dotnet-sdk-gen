@@ -28,6 +28,11 @@ namespace Box.Sdk.Gen
         /// </summary>
         public IRetryStrategy RetryStrategy { get; init; } = new ExponentialBackoffRetryStrategy();
 
+        /// <summary>
+        /// Proxy configuration
+        /// </summary>
+        public ProxyConfig? proxyConfig { get; init; }
+
         public NetworkSession(Dictionary<string, string>? additionalHeaders = default, BaseUrls? baseUrls = null)
         {
             AdditionalHeaders = additionalHeaders ?? new Dictionary<string, string>();
@@ -41,8 +46,9 @@ namespace Box.Sdk.Gen
         /// <param name="additionalHeaders">
         /// Map of headers, which are appended to each API request
         /// </param>
-        public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders) {
-            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy };
+        public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders)
+        {
+            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig };
         }
 
         /// <summary>
@@ -52,8 +58,21 @@ namespace Box.Sdk.Gen
         /// <param name="baseUrls">
         /// Custom base urls.
         /// </param>
-        public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls) {
-            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy };
+        public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls)
+        {
+            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig };
+        }
+
+        /// <summary>
+        /// Generate a fresh network session by duplicating the existing configuration and network parameters,
+        /// while also including a proxy to be used for each API call.
+        /// </summary>
+        /// <param name="proxyConfig">
+        /// Proxy configuration.
+        /// </param>
+        public NetworkSession WithProxy(ProxyConfig config)
+        {
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = config };
         }
     }
 }

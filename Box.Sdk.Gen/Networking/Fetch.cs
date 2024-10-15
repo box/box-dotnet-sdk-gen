@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,6 +25,8 @@ namespace Box.Sdk.Gen.Internal
     static class HttpClientAdapter
     {
         static IHttpClientFactory _clientFactory;
+
+        private static ProxyClient? _proxyClient;
 
         static HttpClientAdapter()
         {
@@ -46,9 +49,10 @@ namespace Box.Sdk.Gen.Internal
         /// <returns>A http/s Response as a FetchResponse.</returns>
         internal static async Task<FetchResponse> FetchAsync(FetchOptions options)
         {
-            var client = _clientFactory.CreateClient();
-
             var networkSession = options.NetworkSession ?? new NetworkSession();
+
+            var client = GetOrCreateHttpClient(networkSession);
+
             var attempt = 1;
             var cancellationToken = options.CancellationToken ?? default(System.Threading.CancellationToken);
 
@@ -103,6 +107,10 @@ namespace Box.Sdk.Gen.Internal
 
                         await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(retryTimeout)).ConfigureAwait(false);
                     }
+                    else if (statusCode == 407)
+                    {
+                        throw new BoxSdkException($"Proxy authorization required. Check provided credentials in proxy configuration.", DateTimeOffset.UtcNow);
+                    }
                     else
                     {
                         seekableStream?.Dispose();
@@ -113,7 +121,12 @@ namespace Box.Sdk.Gen.Internal
                 }
                 else
                 {
-                    if (attempt >= networkSession.RetryAttempts)
+                    if (!result.IsRetryable)
+                    {
+                        seekableStream?.Dispose();
+                        throw new BoxSdkException($"Request was not retried. Inner exception: {result.Exception?.ToString()}", DateTimeOffset.UtcNow);
+                    }
+                    else if (attempt >= networkSession.RetryAttempts)
                     {
                         seekableStream?.Dispose();
                         throw new BoxSdkException($"Network error. Max retry attempts excedeed. {result.Exception?.ToString()}", DateTimeOffset.UtcNow);
@@ -132,6 +145,47 @@ namespace Box.Sdk.Gen.Internal
                 attempt++;
             }
 
+        }
+
+        private static HttpClient GetOrCreateHttpClient(NetworkSession networkSession)
+        {
+            if (networkSession.proxyConfig == null)
+            {
+                return _clientFactory.CreateClient();
+            }
+            else
+            {
+                //To handle proxy clients with different configurations better, we could use ConcurrentDictionary instead
+                var proxyKey = GenerateProxyKey(networkSession.proxyConfig);
+                if (_proxyClient == null || _proxyClient.ProxyKey != proxyKey)
+                {
+                    var newClient = new ProxyClient(proxyKey, networkSession.proxyConfig);
+                    _proxyClient = newClient;
+                    return newClient.HttpClient;
+                }
+                return _proxyClient.HttpClient!;
+            }
+        }
+
+        private static HttpClient CreateProxyClient(ProxyConfig proxyConfig)
+        {
+            var handler = new HttpClientHandler
+            {
+                Proxy = new WebProxy(proxyConfig.Url)
+                {
+                    Credentials = new NetworkCredential(proxyConfig.Username, proxyConfig.Password, proxyConfig.Domain)
+                },
+                UseProxy = true,
+                PreAuthenticate = true,
+                UseDefaultCredentials = false
+            };
+
+            return new HttpClient(handler, disposeHandler: true);
+        }
+
+        private static string GenerateProxyKey(ProxyConfig proxyConfig)
+        {
+            return $"{proxyConfig.Url}_{proxyConfig.Domain}_{proxyConfig.Username}_{proxyConfig.Password}";
         }
 
         private static async Task<Exception> BuildApiException(HttpRequestMessage request, HttpResponseMessage? response, FetchOptions options,
@@ -230,6 +284,21 @@ namespace Box.Sdk.Gen.Internal
                 var response = await client.SendAsync(httpRequestMessage, completionOption, cancellationToken).ConfigureAwait(false);
                 return Result<HttpResponseMessage>.Ok(response);
             }
+            catch (HttpRequestException ex)
+            {
+                string pattern = @"status code\s*'(\d+)'";
+                Match match = Regex.Match(ex.Message, pattern);
+                if (match.Success)
+                {
+                    string statusCode = match.Groups[1].Value;
+
+                    if (statusCode == "407")
+                    {
+                        return Result<HttpResponseMessage>.Fail(ex, false);
+                    }
+                }
+                return Result<HttpResponseMessage>.Fail(ex);
+            }
             catch (Exception ex)
             {
                 return Result<HttpResponseMessage>.Fail(ex);
@@ -304,6 +373,18 @@ namespace Box.Sdk.Gen.Internal
             await inputStream.CopyToAsync(memoryStream).ConfigureAwait(false);
             memoryStream.Position = 0;
             return memoryStream;
+        }
+
+        private class ProxyClient
+        {
+            public string ProxyKey { get; }
+            public HttpClient HttpClient { get; }
+
+            public ProxyClient(string proxyKey, ProxyConfig proxyConfig)
+            {
+                ProxyKey = proxyKey;
+                HttpClient = CreateProxyClient(proxyConfig);
+            }
         }
     }
 }

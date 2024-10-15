@@ -261,5 +261,15 @@ namespace Box.Sdk.Gen {
             return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithCustomBaseUrls(baseUrls: baseUrls));
         }
 
+        /// <summary>
+        /// Create a new client with a custom proxy that will be used for every API call
+        /// </summary>
+        /// <param name="config">
+        /// 
+        /// </param>
+        public BoxClient WithProxy(ProxyConfig config) {
+            return new BoxClient(auth: this.Auth, networkSession: this.NetworkSession.WithProxy(config: config));
+        }
+
     }
 }

@@ -11,6 +11,7 @@ divided across resource managers.
   - [Suppress notifications](#suppress-notifications)
   - [Custom headers](#custom-headers)
 - [Custom Base URLs](#custom-base-urls)
+- [Use Proxy for API calls](#use-proxy-for-api-calls)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -72,10 +73,18 @@ var newClient = client.WithExtraHeaders(extraHeaders: extraHeaders);
 You can also specify the custom base URLs, which will be used for API calls made by client.
 Calling the `client.WithCustomBaseUrls()` method creates a new client, leaving the original client unmodified.
 
-```python
+```c#
 var newClient = client.WithCustomBaseUrls(new BaseUrls(
   baseUrl: "https://api.box2.com",
   uploadUrl: "https://upload.box.com/api",
   oauth2Url: "https://account.box.com/api/oauth2"
 ));
+```
+
+# Use Proxy for API calls
+
+In order to use a proxy for API calls, calling the `client.WithProxy(proxyConfig)` method creates a new client, leaving the original client unmodified, with the username and password being optional.
+
+```c#
+var newClient = client.WithProxy(new ProxyConfig("http://proxy.com") { Username = "username", Password = "password", Domain = "example" });
 ```
