@@ -8,12 +8,14 @@ namespace Box.Sdk.Gen.Internal
     public T? Value { get; }
     public bool IsSuccess { get; }
     public Exception? Exception { get; }
+    public bool IsRetryable { get; }
 
-    private Result(bool isSuccess, T? value = default, Exception? exception = default)
+    private Result(bool isSuccess, T? value = default, Exception? exception = default, bool isRetryable = true)
     {
       IsSuccess = isSuccess;
       Value = value;
       Exception = exception;
+      IsRetryable = isRetryable;
     }
 
     public static Result<T> Ok(T value)
@@ -21,9 +23,9 @@ namespace Box.Sdk.Gen.Internal
       return new Result<T>(true, value);
     }
 
-    public static Result<T> Fail(Exception ex)
+    public static Result<T> Fail(Exception ex, bool isRetryable = true)
     {
-      return new Result<T>(false, default(T), ex);
+      return new Result<T>(false, default(T), ex, isRetryable);
     }
   }
 }
