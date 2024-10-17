@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/box/box-codegen/compare/v1.2.0...v1.3.0) (2024-10-17)
+
+
+### Bug Fixes
+
+* bump `system.text.json` to 8.0.5 (box/box-codegen[#578](https://github.com/box/box-codegen/issues/578)) ([#271](https://github.com/box/box-codegen/issues/271)) ([dad2f52](https://github.com/box/box-codegen/commit/dad2f521066e73c3dcdaec196cd6940401e31f3a))
+
+
+### New Features and Enhancements
+
+* support proxy (box/box-codegen[#577](https://github.com/box/box-codegen/issues/577)) ([#274](https://github.com/box/box-codegen/issues/274)) ([dea1937](https://github.com/box/box-codegen/commit/dea19373a7169365acb968a66c78c5937ef698e1))
+
 ## [1.2.0](https://github.com/box/box-codegen/compare/v1.1.0...v1.2.0) (2024-09-26)
 
 
