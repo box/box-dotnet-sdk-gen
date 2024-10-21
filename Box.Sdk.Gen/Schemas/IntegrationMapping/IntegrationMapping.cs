@@ -17,19 +17,6 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<IntegrationMappingIntegrationTypeField>? IntegrationType { get; init; }
 
         /// <summary>
-        /// Mapped item object for Slack or Teams
-        /// </summary>
-        [JsonPropertyName("partner_item")]
-        public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
-
-        /// <summary>
-        /// The Box folder, to which the object from the
-        /// partner app domain (referenced in `partner_item_id`) is mapped
-        /// </summary>
-        [JsonPropertyName("box_item")]
-        public FolderMini BoxItem { get; }
-
-        /// <summary>
         /// Identifies whether the mapping has
         /// been manually set
         /// (as opposed to being automatically created)
@@ -53,6 +40,19 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("modified_by")]
         public UserIntegrationMappings? ModifiedBy { get; init; }
+
+        /// <summary>
+        /// Mapped item object for Slack
+        /// </summary>
+        [JsonPropertyName("partner_item")]
+        public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
+
+        /// <summary>
+        /// The Box folder, to which the object from the
+        /// partner app domain (referenced in `partner_item_id`) is mapped
+        /// </summary>
+        [JsonPropertyName("box_item")]
+        public FolderMini BoxItem { get; }
 
         /// <summary>
         /// When the integration mapping object was created
