@@ -22,7 +22,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// The parameters for the LLM endpoint specific to OpenAI / Google models.
         /// </summary>
         [JsonPropertyName("llm_endpoint_params")]
-        public AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi? LlmEndpointParams { get; init; }
+        public AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi? LlmEndpointParams { get; init; }
 
         public AiAgentBasicTextToolBase() {
             
