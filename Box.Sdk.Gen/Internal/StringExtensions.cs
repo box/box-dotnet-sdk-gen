@@ -77,7 +77,22 @@ namespace Box.Sdk.Gen.Internal
             }
         }
 
-        private static bool isNotPrimitive(object? obj) => obj != null && !obj.GetType().IsPrimitive && obj.GetType() != typeof(string);
+        private static bool isNotPrimitive(object? obj) =>
+            obj != null &&
+            !obj.GetType().IsPrimitive &&
+            obj.GetType() != typeof(string) &&
+            !IsStringEnumType(obj.GetType());
+
+        private static bool IsStringEnumType(Type type)
+        {
+            if (type.IsGenericType)
+            {
+                var genericTypeDefinition = type.GetGenericTypeDefinition();
+                return genericTypeDefinition == typeof(StringEnum<>);
+            }
+
+            return false;
+        }
 
         private static bool anyNonPrimitives(IList list)
         {
