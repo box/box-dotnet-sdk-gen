@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/box/box-codegen/compare/v1.3.0...v1.3.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* properly serialize `StringEnum` list when inside query `params` ([#288](https://github.com/box/box-codegen/issues/288)) ([dac8392](https://github.com/box/box-codegen/commit/dac839280b43f4bd954d3966032ff4925150c061))
+* update client error schema to support schema errors (box/box-openapi[#467](https://github.com/box/box-codegen/issues/467)) ([#281](https://github.com/box/box-codegen/issues/281)) ([bef2632](https://github.com/box/box-codegen/commit/bef2632af99f0477bd009bcb91248c678b4e1bab))
+* update integration mapping response description (box/box-openapi[#463](https://github.com/box/box-codegen/issues/463)) ([#279](https://github.com/box/box-codegen/issues/279)) ([05e07b0](https://github.com/box/box-codegen/commit/05e07b025c234de4c4161e567c0919748d24f804))
+
 ## [1.3.0](https://github.com/box/box-codegen/compare/v1.2.0...v1.3.0) (2024-10-17)
 
 
