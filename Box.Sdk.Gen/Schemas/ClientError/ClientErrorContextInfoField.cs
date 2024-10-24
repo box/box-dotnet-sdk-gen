@@ -5,15 +5,6 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     public class ClientErrorContextInfoField : ISerializable {
-        /// <summary>
-        /// More details on the error.
-        /// </summary>
-        [JsonPropertyName("message")]
-        public string? Message { get; init; }
-
-        public ClientErrorContextInfoField() {
-            
-        }
         internal string? RawJson { get; set; } = default;
 
         void ISerializable.SetJson(string json) {
