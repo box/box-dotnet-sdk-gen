@@ -98,15 +98,15 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// Create a new BoxJWTAuth instance that uses the provided enterprise ID as the subject of the JWT assertion.
         /// </summary>
-        /// <param name="userId">
+        /// <param name="enterpriseId">
         /// The id of the enterprise to authenticate
         /// </param>
         /// <param name="tokenStorage">
         /// Object responsible for storing token in newly created BoxJWTAuth. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public BoxJwtAuth WithEnterpriseSubject(string userId, ITokenStorage? tokenStorage = default) {
+        public BoxJwtAuth WithEnterpriseSubject(string enterpriseId, ITokenStorage? tokenStorage = default) {
             tokenStorage = tokenStorage ?? new InMemoryTokenStorage();
-            JwtConfig newConfig = new JwtConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, jwtKeyId: this.Config.JwtKeyId, privateKey: this.Config.PrivateKey, privateKeyPassphrase: this.Config.PrivateKeyPassphrase, tokenStorage: tokenStorage) { EnterpriseId = userId, UserId = null };
+            JwtConfig newConfig = new JwtConfig(clientId: this.Config.ClientId, clientSecret: this.Config.ClientSecret, jwtKeyId: this.Config.JwtKeyId, privateKey: this.Config.PrivateKey, privateKeyPassphrase: this.Config.PrivateKeyPassphrase, tokenStorage: tokenStorage) { EnterpriseId = enterpriseId, UserId = null };
             BoxJwtAuth newAuth = new BoxJwtAuth(config: newConfig);
             return newAuth;
         }
