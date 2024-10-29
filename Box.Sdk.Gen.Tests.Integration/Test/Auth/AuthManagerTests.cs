@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             BoxClient userClient = new BoxClient(auth: userAuth);
             UserFull currentUser = await userClient.Users.GetUserMeAsync();
             Assert.IsTrue(currentUser.Id == userId);
-            BoxJwtAuth enterpriseAuth = auth.WithEnterpriseSubject(userId: enterpriseId);
+            BoxJwtAuth enterpriseAuth = auth.WithEnterpriseSubject(enterpriseId: enterpriseId);
             BoxClient enterpriseClient = new BoxClient(auth: enterpriseAuth);
             UserFull newUser = await enterpriseClient.Users.GetUserMeAsync(queryParams: new GetUserMeQueryParams() { Fields = Array.AsReadOnly(new [] {"enterprise"}) });
             Assert.IsTrue(newUser.Enterprise != null);
