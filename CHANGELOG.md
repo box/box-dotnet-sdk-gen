@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/box/box-codegen/compare/v1.3.1...v1.4.0) (2024-10-31)
+
+
+### Bug Fixes
+
+* Change `QueryParams` type in `MetadataQuery` from `Dictionary<string, string>` to `Dictionary<string, object>` (box/box-openapi[#479](https://github.com/box/box-codegen/issues/479)) ([#298](https://github.com/box/box-codegen/issues/298)) ([656b495](https://github.com/box/box-codegen/commit/656b495bea779879bb82b2cda0cca5a30a8ad8ca))
+* Fix conversion to `RSAKey` (box/box-codegen[#591](https://github.com/box/box-codegen/issues/591)) ([#297](https://github.com/box/box-codegen/issues/297)) ([068b1f7](https://github.com/box/box-codegen/commit/068b1f7b3ea3c62647e03e0e17176bde049949db))
+
+
+### New Features and Enhancements
+
+* add AI LLM endpoint AWS `params`(box/box-openapi[#478](https://github.com/box/box-codegen/issues/478)) ([#291](https://github.com/box/box-codegen/issues/291)) ([dcb8a20](https://github.com/box/box-codegen/commit/dcb8a201577be08b644266c157db45cd6797c71c))
+
 ### [1.3.1](https://github.com/box/box-codegen/compare/v1.3.0...v1.3.1) (2024-10-24)
 
 
