@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### New Features and Enhancements
 
-* add AI LLM endpoint AWS `params`(box/box-openapi[#478](https://github.com/box/box-codegen/issues/478)) ([#291](https://github.com/box/box-codegen/issues/291)) ([dcb8a20](https://github.com/box/box-codegen/commit/dcb8a201577be08b644266c157db45cd6797c71c))
+* add AI LLM endpoint AWS `params`. Change the type from `AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi` to `AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi` (box/box-openapi[#478](https://github.com/box/box-codegen/issues/478)) ([#291](https://github.com/box/box-codegen/issues/291)) ([dcb8a20](https://github.com/box/box-codegen/commit/dcb8a201577be08b644266c157db45cd6797c71c))
 
 ### [1.3.1](https://github.com/box/box-codegen/compare/v1.3.0...v1.3.1) (2024-10-24)
 
