@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// the type of the corresponding metadata template field.
         /// </summary>
         [JsonPropertyName("query_params")]
-        public Dictionary<string, string>? QueryParams { get; init; }
+        public Dictionary<string, object>? QueryParams { get; init; }
 
         /// <summary>
         /// The ID of the folder that you are restricting the query to. A
