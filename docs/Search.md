@@ -18,7 +18,10 @@ This operation is performed by calling function `SearchByMetadataQuery`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-queries-execute-read/).
 
-*Currently we don't have an example for calling `SearchByMetadataQuery` in integration tests*
+<!-- sample post_metadata_queries_execute_read -->
+```
+await client.Search.SearchByMetadataQueryAsync(requestBody: new MetadataQuery(ancestorFolderId: "0", from: searchFrom) { Query = "testColor = :value", QueryParams = new Dictionary<string, object>() { { "value", Array.AsReadOnly(new [] {"red","blue"}) } } });
+```
 
 ### Arguments
 
