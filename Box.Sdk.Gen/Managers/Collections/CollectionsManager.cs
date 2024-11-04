@@ -64,5 +64,25 @@ namespace Box.Sdk.Gen.Managers {
             return SimpleJsonSerializer.Deserialize<Items>(response.Data);
         }
 
+        /// <summary>
+        /// Retrieves a collection by its ID.
+        /// </summary>
+        /// <param name="collectionId">
+        /// The ID of the collection.
+        /// Example: "926489"
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getCollectionById method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Collection> GetCollectionByIdAsync(string collectionId, GetCollectionByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new GetCollectionByIdHeaders();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/collections/", StringUtils.ToStringRepresentation(collectionId)), networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<Collection>(response.Data);
+        }
+
     }
 }

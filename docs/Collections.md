@@ -3,6 +3,7 @@
 
 - [List all collections](#list-all-collections)
 - [List collection items](#list-collection-items)
+- [Get collection by ID](#get-collection-by-id)
 
 ## List all collections
 
@@ -68,6 +69,34 @@ await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unw
 ### Returns
 
 This function returns a value of type `Items`.
+
+Returns an array of items in the collection.
+
+
+## Get collection by ID
+
+Retrieves a collection by its ID.
+
+This operation is performed by calling function `GetCollectionById`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/get-collections-id/).
+
+*Currently we don't have an example for calling `GetCollectionById` in integration tests*
+
+### Arguments
+
+- collectionId `string`
+  - The ID of the collection. Example: "926489"
+- headers `GetCollectionByIdHeaders`
+  - Headers of getCollectionById method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `Collection`.
 
 Returns an array of items in the collection.
 
