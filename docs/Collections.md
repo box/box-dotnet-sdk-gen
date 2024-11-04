@@ -82,7 +82,10 @@ This operation is performed by calling function `GetCollectionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collections-id/).
 
-*Currently we don't have an example for calling `GetCollectionById` in integration tests*
+<!-- sample get_collections_id -->
+```
+await client.Collections.GetCollectionByIdAsync(collectionId: NullableUtils.Unwrap(NullableUtils.Unwrap(collections.Entries)[0].Id));
+```
 
 ### Arguments
 
