@@ -19,7 +19,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestCollections() {
             Collections collections = await client.Collections.GetCollectionsAsync();
-            Collection favouriteCollection = NullableUtils.Unwrap(collections.Entries)[0];
+            Collection favouriteCollection = await client.Collections.GetCollectionByIdAsync(collectionId: NullableUtils.Unwrap(NullableUtils.Unwrap(collections.Entries)[0].Id));
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(favouriteCollection.Type)) == "collection");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(favouriteCollection.CollectionType)) == "favorites");
             Items collectionItems = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Array.AsReadOnly(new [] {new UpdateFolderByIdRequestBodyCollectionsField() { Id = favouriteCollection.Id }}) });
