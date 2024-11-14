@@ -28,7 +28,10 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Box Dotnet SDK GENERATED](#box-dotnet-sdk-generated)
+- [Table of contents](#table-of-contents)
 - [Installing](#installing)
+  - [BouncyCastle runtime integrity check](#bouncycastle-runtime-integrity-check)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
 - [Upgrades](#upgrades)
@@ -55,6 +58,19 @@ Alternatively, you can find this package and it's latest version [on nuget](http
 ```xml
 <ItemGroup>
   <PackageReference Include="Box.Sdk.Gen" Version="X.Y.Z" />
+</ItemGroup>
+```
+
+## BouncyCastle runtime integrity check
+
+The version of BouncyCastle included in the SDK performs a checksum validation at runtime. As a result, any modifications to the .dll file, such as those introduced by optimizations like [ReadyToRun (R2R)](https://learn.microsoft.com/en-us/dotnet/core/deploying/ready-to-run) compilation, can alter the checksum, causing the validation to fail. This can lead to issues with SDK functionalities that rely on BouncyCastle, such as JWT authentication unusable.
+
+You can exclude BouncyCastle from ReadyToRun compilation by adding the following to your `.csproj` file:
+
+```xml
+<ItemGroup>
+  <PublishReadyToRunExclude Include="bc-fips-1.0.2.dll" />
+  <PublishReadyToRunExclude Include="bcpkix-fips-1.0.2.dll" />
 </ItemGroup>
 ```
 
