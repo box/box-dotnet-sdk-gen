@@ -63,6 +63,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FolderFull destinationFolder = await new CommonsManager().CreateNewFolderAsync();
             SignRequest createdSignRequest = await client.SignRequests.CreateSignRequestAsync(requestBody: new SignRequestCreateRequest(signers: Array.AsReadOnly(new [] {new SignRequestCreateSigner() { Email = signer1Email, SignerGroupId = "user" },new SignRequestCreateSigner() { Email = signer2Email, SignerGroupId = "user" }})) { ParentFolder = new FolderMini(id: destinationFolder.Id), SourceFiles = Array.AsReadOnly(new [] {new FileBase(id: fileToSign.Id)}) });
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers).Count == 3);
+            Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].SignerGroupId != null);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].SignerGroupId == NullableUtils.Unwrap(createdSignRequest.Signers)[2].SignerGroupId);
             await client.Folders.DeleteFolderByIdAsync(folderId: destinationFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });
             await client.Files.DeleteFileByIdAsync(fileId: fileToSign.Id);

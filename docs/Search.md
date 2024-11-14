@@ -20,7 +20,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_queries_execute_read -->
 ```
-await client.Search.SearchByMetadataQueryAsync(requestBody: new MetadataQuery(ancestorFolderId: "0", from: searchFrom) { Query = "testColor = :value", QueryParams = new Dictionary<string, object>() { { "value", Array.AsReadOnly(new [] {"red","blue"}) } } });
+await client.Search.SearchByMetadataQueryAsync(requestBody: new MetadataQuery(ancestorFolderId: "0", from: searchFrom) { Query = "name = :name AND age < :age AND birthDate >= :birthDate AND countryCode = :countryCode AND sports = :sports", QueryParams = new Dictionary<string, object>() { { "name", "John" }, { "age", 50 }, { "birthDate", "2001-01-01T02:20:10.120Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } } });
 ```
 
 ### Arguments
