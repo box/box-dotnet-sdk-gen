@@ -286,9 +286,12 @@ namespace Box.Sdk.Gen.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Files> CreateFileUploadSessionCommitByUrlAsync(string url, CreateFileUploadSessionCommitByUrlRequestBody requestBody, CreateFileUploadSessionCommitByUrlHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<Files?> CreateFileUploadSessionCommitByUrlAsync(string url, CreateFileUploadSessionCommitByUrlRequestBody requestBody, CreateFileUploadSessionCommitByUrlHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) } }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: url, networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            if (StringUtils.ToStringRepresentation(response.Status) == "202") {
+                return null;
+            }
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
         }
 
@@ -311,9 +314,12 @@ namespace Box.Sdk.Gen.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<Files> CreateFileUploadSessionCommitAsync(string uploadSessionId, CreateFileUploadSessionCommitRequestBody requestBody, CreateFileUploadSessionCommitHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
+        public async System.Threading.Tasks.Task<Files?> CreateFileUploadSessionCommitAsync(string uploadSessionId, CreateFileUploadSessionCommitRequestBody requestBody, CreateFileUploadSessionCommitHeaders headers, System.Threading.CancellationToken? cancellationToken = null) {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "digest", StringUtils.ToStringRepresentation(headers.Digest) }, { "if-match", StringUtils.ToStringRepresentation(headers.IfMatch) }, { "if-none-match", StringUtils.ToStringRepresentation(headers.IfNoneMatch) } }, headers.ExtraHeaders));
             FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.UploadUrl, "/2.0/files/upload_sessions/", StringUtils.ToStringRepresentation(uploadSessionId), "/commit"), networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            if (StringUtils.ToStringRepresentation(response.Status) == "202") {
+                return null;
+            }
             return SimpleJsonSerializer.Deserialize<Files>(response.Data);
         }
 
@@ -386,8 +392,8 @@ namespace Box.Sdk.Gen.Managers {
             }
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64").ConfigureAwait(false);
             string digest = string.Concat("sha=", sha1);
-            Files committedSession = await this.CreateFileUploadSessionCommitByUrlAsync(url: commitUrl, requestBody: new CreateFileUploadSessionCommitByUrlRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitByUrlHeaders(digest: digest), cancellationToken: cancellationToken).ConfigureAwait(false);
-            return NullableUtils.Unwrap(committedSession.Entries)[0];
+            Files? committedSession = await this.CreateFileUploadSessionCommitByUrlAsync(url: commitUrl, requestBody: new CreateFileUploadSessionCommitByUrlRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitByUrlHeaders(digest: digest), cancellationToken: cancellationToken).ConfigureAwait(false);
+            return NullableUtils.Unwrap(NullableUtils.Unwrap(committedSession).Entries)[0];
         }
 
     }

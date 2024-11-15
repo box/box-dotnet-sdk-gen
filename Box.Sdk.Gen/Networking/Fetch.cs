@@ -78,7 +78,7 @@ namespace Box.Sdk.Gen.Internal
                     var isRetryAfterPresent = response.Headers.Contains("retry-after");
                     var isRetryAfterWithAcceptedPresent = isRetryAfterPresent && statusCode == 202;
 
-                    if (response.IsSuccessStatusCode && !isRetryAfterWithAcceptedPresent)
+                    if (response.IsSuccessStatusCode && (!isRetryAfterWithAcceptedPresent || attempt >= networkSession.RetryAttempts))
                     {
                         seekableStream?.Dispose();
                         return isStreamResponse ?

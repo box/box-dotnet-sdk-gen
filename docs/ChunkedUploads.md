@@ -391,7 +391,7 @@ await client.ChunkedUploads.CreateFileUploadSessionCommitByUrlAsync(url: commitU
 
 ### Returns
 
-This function returns a value of type `Files`.
+This function returns a value of type `Files?`.
 
 Returns the file object in a list.Returns when all chunks have been uploaded but not yet processed.
 
@@ -431,7 +431,7 @@ await client.ChunkedUploads.CreateFileUploadSessionCommitAsync(uploadSessionId: 
 
 ### Returns
 
-This function returns a value of type `Files`.
+This function returns a value of type `Files?`.
 
 Returns the file object in a list.Returns when all chunks have been uploaded but not yet processed.
 
