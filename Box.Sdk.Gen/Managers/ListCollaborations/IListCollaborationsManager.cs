@@ -71,7 +71,7 @@ namespace Box.Sdk.Gen.Managers {
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<Collaborations> GetCollaborationsAsync(GetCollaborationsQueryParams queryParams, GetCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<CollaborationsOffsetPaginated> GetCollaborationsAsync(GetCollaborationsQueryParams queryParams, GetCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Retrieves all the collaborations for a group. The user
@@ -93,7 +93,7 @@ namespace Box.Sdk.Gen.Managers {
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<Collaborations> GetGroupCollaborationsAsync(string groupId, GetGroupCollaborationsQueryParams? queryParams = default, GetGroupCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<CollaborationsOffsetPaginated> GetGroupCollaborationsAsync(string groupId, GetGroupCollaborationsQueryParams? queryParams = default, GetGroupCollaborationsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
