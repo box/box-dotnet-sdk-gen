@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Managers;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Tests.Integration {
@@ -60,8 +60,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(processedSession.Id) == uploadSessionId);
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64");
             string digest = string.Concat("sha=", sha1);
-            Files committedSession = await client.ChunkedUploads.CreateFileUploadSessionCommitAsync(uploadSessionId: uploadSessionId, requestBody: new CreateFileUploadSessionCommitRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitHeaders(digest: digest));
-            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(committedSession.Entries)[0].Name) == fileName);
+            Files? committedSession = await client.ChunkedUploads.CreateFileUploadSessionCommitAsync(uploadSessionId: uploadSessionId, requestBody: new CreateFileUploadSessionCommitRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitHeaders(digest: digest));
+            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(NullableUtils.Unwrap(committedSession).Entries)[0].Name) == fileName);
             await client.ChunkedUploads.DeleteFileUploadSessionByIdAsync(uploadSessionId: uploadSessionId);
         }
 
@@ -114,8 +114,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(processedSession.Id) == uploadSessionId);
             string sha1 = await fileHash.DigestHashAsync(encoding: "base64");
             string digest = string.Concat("sha=", sha1);
-            Files committedSession = await client.ChunkedUploads.CreateFileUploadSessionCommitByUrlAsync(url: commitUrl, requestBody: new CreateFileUploadSessionCommitByUrlRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitByUrlHeaders(digest: digest));
-            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(committedSession.Entries)[0].Name) == fileName);
+            Files? committedSession = await client.ChunkedUploads.CreateFileUploadSessionCommitByUrlAsync(url: commitUrl, requestBody: new CreateFileUploadSessionCommitByUrlRequestBody(parts: parts), headers: new CreateFileUploadSessionCommitByUrlHeaders(digest: digest));
+            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(NullableUtils.Unwrap(committedSession).Entries)[0].Name) == fileName);
             await client.ChunkedUploads.DeleteFileUploadSessionByUrlAsync(url: abortUrl);
         }
 

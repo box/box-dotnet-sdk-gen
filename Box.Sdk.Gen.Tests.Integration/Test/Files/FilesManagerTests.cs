@@ -1,9 +1,9 @@
 using Box.Sdk.Gen.Internal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Box.Sdk.Gen;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
 
@@ -25,7 +25,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             string thumbnailFileName = Utils.GetUUID();
             System.IO.Stream thumbnailContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
             FileFull thumbnailFile = await UploadFileAsync(fileName: thumbnailFileName, fileStream: thumbnailContentStream);
-            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtension.Png)), buffer2: await Utils.ReadByteStreamAsync(byteStream: thumbnailContentStream)) != true);
+            System.IO.Stream? thumbnail = await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtension.Png);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: NullableUtils.Unwrap(thumbnail)), buffer2: await Utils.ReadByteStreamAsync(byteStream: thumbnailContentStream)) != true);
             await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
         }
 

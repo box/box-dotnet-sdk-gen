@@ -31,7 +31,7 @@ await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id);
 
 ### Returns
 
-This function returns a value of type `System.IO.Stream`.
+This function returns a value of type `System.IO.Stream?`.
 
 Returns the requested file if the client has the **follow
 redirects** setting enabled to automatically

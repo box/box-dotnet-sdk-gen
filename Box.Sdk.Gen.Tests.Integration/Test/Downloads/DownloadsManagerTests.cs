@@ -19,8 +19,8 @@ namespace Box.Sdk.Gen.Tests.Integration {
             System.IO.Stream fileContentStream = Utils.GenerateByteStreamFromBuffer(buffer: fileBuffer);
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: newFileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileContentStream));
             FileFull uploadedFile = NullableUtils.Unwrap(uploadedFiles.Entries)[0];
-            System.IO.Stream downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id);
-            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: downloadedFileContent), buffer2: fileBuffer));
+            System.IO.Stream? downloadedFileContent = await client.Downloads.DownloadFileAsync(fileId: uploadedFile.Id);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: NullableUtils.Unwrap(downloadedFileContent)), buffer2: fileBuffer));
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
