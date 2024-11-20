@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class CollaborationsOrderField : ISerializable {
+    public class ItemsOffsetPaginatedOrderField : ISerializable {
         /// <summary>
         /// The field to order by
         /// </summary>
@@ -16,10 +16,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// The direction to order by, either ascending or descending
         /// </summary>
         [JsonPropertyName("direction")]
-        [JsonConverter(typeof(StringEnumConverter<CollaborationsOrderDirectionField>))]
-        public StringEnum<CollaborationsOrderDirectionField>? Direction { get; init; }
+        [JsonConverter(typeof(StringEnumConverter<ItemsOffsetPaginatedOrderDirectionField>))]
+        public StringEnum<ItemsOffsetPaginatedOrderDirectionField>? Direction { get; init; }
 
-        public CollaborationsOrderField() {
+        public ItemsOffsetPaginatedOrderField() {
             
         }
         internal string? RawJson { get; set; } = default;

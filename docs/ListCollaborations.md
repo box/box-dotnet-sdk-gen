@@ -112,7 +112,7 @@ await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetColla
 
 ### Returns
 
-This function returns a value of type `Collaborations`.
+This function returns a value of type `CollaborationsOffsetPaginated`.
 
 Returns a collection of pending collaboration objects.
 
@@ -152,7 +152,7 @@ await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id);
 
 ### Returns
 
-This function returns a value of type `Collaborations`.
+This function returns a value of type `CollaborationsOffsetPaginated`.
 
 Returns a collection of collaboration objects. If there are no
 collaborations, an empty collection will be returned.

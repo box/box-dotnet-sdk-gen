@@ -22,13 +22,13 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Collection favouriteCollection = await client.Collections.GetCollectionByIdAsync(collectionId: NullableUtils.Unwrap(NullableUtils.Unwrap(collections.Entries)[0].Id));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(favouriteCollection.Type)) == "collection");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(favouriteCollection.CollectionType)) == "favorites");
-            Items collectionItems = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
+            ItemsOffsetPaginated collectionItems = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Array.AsReadOnly(new [] {new UpdateFolderByIdRequestBodyCollectionsField() { Id = favouriteCollection.Id }}) });
-            Items collectionItemsAfterUpdate = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
+            ItemsOffsetPaginated collectionItemsAfterUpdate = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterUpdate.Entries).Count == NullableUtils.Unwrap(collectionItems.Entries).Count + 1);
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Enumerable.Empty<UpdateFolderByIdRequestBodyCollectionsField>().ToList() });
-            Items collectionItemsAfterRemove = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
+            ItemsOffsetPaginated collectionItemsAfterRemove = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterRemove.Entries).Count == NullableUtils.Unwrap(collectionItems.Entries).Count);
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }

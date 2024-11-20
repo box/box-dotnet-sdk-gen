@@ -13,6 +13,19 @@ namespace Box.Sdk.Gen.Managers {
         /// </summary>
         public string MetadataInstanceId { get; }
 
+        /// <summary>
+        /// Defines the position marker at which to begin returning results. This is
+        /// used when paginating using marker-based pagination.
+        /// 
+        /// This requires `usemarker` to be set to `true`.
+        /// </summary>
+        public string? Marker { get; init; }
+
+        /// <summary>
+        /// The maximum number of items to return per page.
+        /// </summary>
+        public long? Limit { get; init; }
+
         public GetMetadataTemplatesByInstanceIdQueryParams(string metadataInstanceId) {
             MetadataInstanceId = metadataInstanceId;
         }

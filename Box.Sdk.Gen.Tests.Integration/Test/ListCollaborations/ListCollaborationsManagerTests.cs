@@ -21,9 +21,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(fileCollaborations.Entries).Count > 0);
             Collaborations folderCollaborations = await client.ListCollaborations.GetFolderCollaborationsAsync(folderId: folder.Id);
             Assert.IsTrue(NullableUtils.Unwrap(folderCollaborations.Entries).Count > 0);
-            Collaborations pendingCollaborations = await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParams(status: GetCollaborationsQueryParamsStatusField.Pending));
+            CollaborationsOffsetPaginated pendingCollaborations = await client.ListCollaborations.GetCollaborationsAsync(queryParams: new GetCollaborationsQueryParams(status: GetCollaborationsQueryParamsStatusField.Pending));
             Assert.IsTrue(NullableUtils.Unwrap(pendingCollaborations.Entries).Count >= 0);
-            Collaborations groupCollaborations = await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id);
+            CollaborationsOffsetPaginated groupCollaborations = await client.ListCollaborations.GetGroupCollaborationsAsync(groupId: group.Id);
             Assert.IsTrue(NullableUtils.Unwrap(groupCollaborations.Entries).Count > 0);
             await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: groupCollaboration.Id);
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);

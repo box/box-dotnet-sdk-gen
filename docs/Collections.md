@@ -68,7 +68,7 @@ await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unw
 
 ### Returns
 
-This function returns a value of type `Items`.
+This function returns a value of type `ItemsOffsetPaginated`.
 
 Returns an array of items in the collection.
 
