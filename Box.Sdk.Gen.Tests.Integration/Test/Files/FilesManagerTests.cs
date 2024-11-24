@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             System.IO.Stream updatedContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
             FileFull uploadedFile = await UploadFileAsync(fileName: newFileName, fileStream: updatedContentStream);
             FileFull file = await client.Files.GetFileByIdAsync(fileId: uploadedFile.Id);
-            await Assert.That.IsExceptionAsync(async() => await client.Files.GetFileByIdAsync(fileId: uploadedFile.Id, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"name"}) }, headers: new GetFileByIdHeaders(extraHeaders: new Dictionary<string, string>() { { "if-none-match", file.Etag } })));
+            await Assert.That.IsExceptionAsync(async() => await client.Files.GetFileByIdAsync(fileId: uploadedFile.Id, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"name"}) }, headers: new GetFileByIdHeaders(extraHeaders: new Dictionary<string, string>() { { "if-none-match", NullableUtils.Unwrap(file.Etag) } })));
             Assert.IsTrue(file.Name == newFileName);
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
             TrashFile trashedFile = await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: uploadedFile.Id);
