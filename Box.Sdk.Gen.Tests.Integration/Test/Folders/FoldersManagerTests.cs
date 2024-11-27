@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Box.Sdk.Gen.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
@@ -20,6 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FolderFull rootFolder = await client.Folders.GetFolderByIdAsync(folderId: "0");
             Assert.IsTrue(rootFolder.Id == "0");
             Assert.IsTrue(rootFolder.Name == "All Files");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(rootFolder.Type?.Value) == "folder");
         }
 
         [TestMethod]

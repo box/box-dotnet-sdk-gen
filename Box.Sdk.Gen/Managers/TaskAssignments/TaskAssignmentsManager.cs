@@ -30,8 +30,8 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<TaskAssignments> GetTaskAssignmentsAsync(string taskId, GetTaskAssignmentsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetTaskAssignmentsHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/tasks/", StringUtils.ToStringRepresentation(taskId), "/assignments"), networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<TaskAssignments>(response.Data);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/tasks/", StringUtils.ToStringRepresentation(taskId), "/assignments"), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<TaskAssignments>(NullableUtils.Unwrap(response.Data));
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<TaskAssignment> CreateTaskAssignmentAsync(CreateTaskAssignmentRequestBody requestBody, CreateTaskAssignmentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new CreateTaskAssignmentHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments"), networkSession: this.NetworkSession) { Method = "POST", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<TaskAssignment>(response.Data);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<TaskAssignment>(NullableUtils.Unwrap(response.Data));
         }
 
         /// <summary>
@@ -72,8 +72,8 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<TaskAssignment> GetTaskAssignmentByIdAsync(string taskAssignmentId, GetTaskAssignmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new GetTaskAssignmentByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), networkSession: this.NetworkSession) { Method = "GET", Headers = headersMap, ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<TaskAssignment>(response.Data);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<TaskAssignment>(NullableUtils.Unwrap(response.Data));
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace Box.Sdk.Gen.Managers {
             requestBody = requestBody ?? new UpdateTaskAssignmentByIdRequestBody();
             headers = headers ?? new UpdateTaskAssignmentByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), networkSession: this.NetworkSession) { Method = "PUT", Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), ContentType = "application/json", ResponseFormat = "json", Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
-            return SimpleJsonSerializer.Deserialize<TaskAssignment>(response.Data);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), method: "PUT", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<TaskAssignment>(NullableUtils.Unwrap(response.Data));
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task DeleteTaskAssignmentByIdAsync(string taskAssignmentId, DeleteTaskAssignmentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             headers = headers ?? new DeleteTaskAssignmentByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
-            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), networkSession: this.NetworkSession) { Method = "DELETE", Headers = headersMap, ResponseFormat = null, Auth = this.Auth, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            FetchResponse response = await HttpClientAdapter.FetchAsync(new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/task_assignments/", StringUtils.ToStringRepresentation(taskAssignmentId)), method: "DELETE", responseFormat: Box.Sdk.Gen.ResponseFormat.NoContent) { Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
         }
 
     }
