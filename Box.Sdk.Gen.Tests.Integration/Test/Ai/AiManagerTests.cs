@@ -90,7 +90,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             AiExtractResponse response = await client.Ai.CreateAiExtractStructuredAsync(requestBody: new AiExtractStructured(items: Array.AsReadOnly(new [] {new AiItemBase(id: file.Id)})) { MetadataTemplate = new AiExtractStructuredMetadataTemplateField() { TemplateKey = templateKey, Scope = "enterprise" } });
             Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "firstName")) == "John");
             Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "lastName")) == "Doe");
-            Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "dateOfBirth")) == "1990-07-04");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "dateOfBirth")) == "1990-07-04T00:00:00Z");
             Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "age")) == "34");
             Assert.IsTrue(StringUtils.ToStringRepresentation(Utils.GetValueFromObjectRawData(obj: response, key: "hobby")) == StringUtils.ToStringRepresentation(Array.AsReadOnly(new [] {"guitar","books"})));
             await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
