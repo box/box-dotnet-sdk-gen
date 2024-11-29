@@ -51,30 +51,30 @@ namespace Box.Sdk.Gen
         /// <param name="obj">The SerializedData object.</param>
         /// <param name="key">The key to look for in the serialized data.</param>
         /// <returns>The value as a string if found; otherwise, null.</returns>
-        public static string GetSdValueByKey(SerializedData obj, string key)
+        public static string? GetSdValueByKey(SerializedData obj, string key)
         {
-              try
-              {
-                  if (obj.IsJson)
-                  {
-                      var jsonData = obj.AsJson();
-                      var dictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
-                      if (dictionary != null && dictionary.TryGetValue(key, out var value))
-                      {
-                          return value?.ToString();
-                      }
-                  }
-                  else
-                  {
-                      throw new NotSupportedException("Only JSON data is currently supported.");
-                  }
-              }
-              catch (Exception ex)
-              {
-                  throw new InvalidOperationException($"Failed to retrieve value by key '{key}' from SerializedData.", ex);
-              }
+            try
+            {
+                if (obj.IsJson)
+                {
+                    var jsonData = obj.AsJson();
+                    var dictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
+                    if (dictionary != null && dictionary.TryGetValue(key, out var value))
+                    {
+                        return value?.ToString();
+                    }
+                }
+                else
+                {
+                    throw new NotSupportedException("Only JSON data is currently supported.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Failed to retrieve value by key '{key}' from SerializedData.", ex);
+            }
 
-              return null;
+            return null;
         }
     }
 }
