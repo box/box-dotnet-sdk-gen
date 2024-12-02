@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Internal
             var attempt = 1;
             var cancellationToken = options.CancellationToken ?? default(System.Threading.CancellationToken);
 
-            bool isStreamResponse = options.ResponseFormat == "binary";
+            bool isStreamResponse = options.ResponseFormat == ResponseFormat.Binary;
 
             Stream? seekableStream = null;
             if (options.FileStream != null && options.ContentType == ContentTypes.OctetStream)
@@ -82,8 +82,8 @@ namespace Box.Sdk.Gen.Internal
                     {
                         seekableStream?.Dispose();
                         return isStreamResponse ?
-                            new FetchResponse { Status = statusCode, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
-                            new FetchResponse { Status = statusCode, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
+                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
                     }
 
                     if (attempt >= networkSession.RetryAttempts)
@@ -183,6 +183,16 @@ namespace Box.Sdk.Gen.Internal
             return new HttpClient(handler, disposeHandler: true);
         }
 
+        private static HttpMethod MapHttpMethod(string method)
+        {
+            if (!httpMethodsMap.TryGetValue(method.ToUpper(), out var tempMethod))
+            {
+                throw new ArgumentException($"Provided HTTP method '{method}' is not supported.", nameof(method));
+            }
+
+            return tempMethod;
+        }
+
         private static string GenerateProxyKey(ProxyConfig proxyConfig)
         {
             return $"{proxyConfig.Url}_{proxyConfig.Domain}_{proxyConfig.Username}_{proxyConfig.Password}";
@@ -226,7 +236,7 @@ namespace Box.Sdk.Gen.Internal
         {
             var httpRequest = new HttpRequestMessage
             {
-                Method = options._httpMethod,
+                Method = MapHttpMethod(options.Method),
                 RequestUri = HttpUtils.BuildUri(options.Url, options.Parameters),
                 Content = BuildHttpContent(options, stream)
             };
@@ -239,17 +249,20 @@ namespace Box.Sdk.Gen.Internal
                 }
             }
 
-            foreach (var header in options.Headers)
+            if (options.Headers != null)
             {
-                //TODO make it more generic
-                if (header.Key == "content-range")
+                foreach (var header in options.Headers)
                 {
-                    var headValue = header.Value;
-                    httpRequest.Content!.Headers.Add(header.Key, headValue);
-                }
-                else
-                {
-                    httpRequest.Headers.Add(header.Key, header.Value);
+                    //TODO make it more generic
+                    if (header.Key == "content-range")
+                    {
+                        var headValue = header.Value;
+                        httpRequest.Content!.Headers.Add(header.Key, headValue);
+                    }
+                    else
+                    {
+                        httpRequest.Headers.Add(header.Key, header.Value);
+                    }
                 }
             }
 
@@ -386,5 +399,16 @@ namespace Box.Sdk.Gen.Internal
                 HttpClient = CreateProxyClient(proxyConfig);
             }
         }
+
+        private static Dictionary<string, HttpMethod> httpMethodsMap = new Dictionary<string, HttpMethod>() {
+            { "GET", HttpMethod.Get },
+            { "POST", HttpMethod.Post },
+            { "PUT", HttpMethod.Put },
+            { "PATCH", HttpMethod.Patch },
+            { "DELETE", HttpMethod.Delete },
+            { "OPTIONS", HttpMethod.Options },
+            { "HEAD", HttpMethod.Head },
+            { "TRACE", HttpMethod.Trace },
+        };
     }
 }

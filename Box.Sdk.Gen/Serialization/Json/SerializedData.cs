@@ -1,4 +1,5 @@
-namespace Box.Sdk.Gen.Internal
+using Box.Sdk.Gen.Internal;
+namespace Box.Sdk.Gen
 {
 
     public class SerializedData

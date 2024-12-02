@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen {
             if (Utils.IsBrowser()) {
                 throw new BoxSdkException(message: "JWT auth is not supported in browser environment.");
             }
-            JwtAlgorithm alg = this.Config.Algorithm?.Value != null ? NullableUtils.Unwrap(this.Config.Algorithm?.Value) : JwtAlgorithm.Rs256;
+            JwtAlgorithm alg = this.Config.Algorithm != null ? NullableUtils.Unwrap(this.Config.Algorithm) : JwtAlgorithm.Rs256;
             Dictionary<string, object> claims = new Dictionary<string, object>() { { "exp", Utils.GetEpochTimeInSeconds() + 30 }, { "box_sub_type", this.SubjectType } };
             JwtSignOptions jwtOptions = new JwtSignOptions(algorithm: alg, audience: "https://api.box.com/oauth2/token", subject: this.SubjectId, issuer: this.Config.ClientId, jwtid: Utils.GetUUID(), keyid: this.Config.JwtKeyId);
             JwtKey jwtKey = new JwtKey(key: this.Config.PrivateKey, passphrase: this.Config.PrivateKeyPassphrase);

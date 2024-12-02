@@ -3,6 +3,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     [JsonConverter(typeof(FileFullOrFolderFullConverter))]

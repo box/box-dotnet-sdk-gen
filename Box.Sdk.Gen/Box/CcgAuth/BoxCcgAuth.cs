@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// The type of the subject ID provided. Must be either 'user' or 'enterprise'.
         /// </summary>
-        internal StringEnum<PostOAuth2TokenBoxSubjectTypeField>? SubjectType { get; }
+        internal PostOAuth2TokenBoxSubjectTypeField? SubjectType { get; }
 
         public BoxCcgAuth(CcgConfig config) {
             Config = config;

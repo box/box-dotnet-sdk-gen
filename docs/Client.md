@@ -6,6 +6,10 @@ divided across resource managers.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Make custom HTTP request](#make-custom-http-request)
+  - [JSON request](#json-request)
+  - [Multi-part request](#multi-part-request)
+  - [Binary response](#binary-response)
 - [Additional headers](#additional-headers)
   - [As-User header](#as-user-header)
   - [Suppress notifications](#suppress-notifications)
@@ -14,6 +18,50 @@ divided across resource managers.
 - [Use Proxy for API calls](#use-proxy-for-api-calls)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Make custom HTTP request
+
+You can make custom HTTP requests using the `client.MakeRequestAsync()` method.
+This method allows you to make any HTTP request to the Box API. It will automatically use authentication and
+network configuration settings from the client.
+The method accepts a `FetchOptions` object as an argument and returns a `FetchResponse` object.
+
+## JSON request
+
+The following example demonstrates how to make a custom POST request to create a new folder in the root folder.
+
+```c#
+string requestBodyPost = "{\"name\": \"newFolderName\", \"parent\": {\"id\": \"0\"}}";
+FetchResponse response = await client.MakeRequestAsync(fetchOptions: new FetchOptions(method: "POST", url: "https://api.box.com/2.0/folders") { Data = JsonUtils.JsonToSerializedData(text: requestBodyPost) });
+Console.WriteLine("Received status code: " + response.status);
+Console.WriteLine("Created folder name: " + response.data["name"]);
+```
+
+## Multi-part request
+
+The following example demonstrates how to make a custom multipart request that uploads a file to a folder.
+
+```c#
+string multipartAttributes = "{\"name\": \"newFileName\", \"parent\": {\"id\": \"newFolderId\"}}";
+FetchResponse response = await client.MakeRequestAsync(fetchOptions: new FetchOptions(method: "POST", url: "https://upload.box.com/api/2.0/files/content", contentType: "multipart/form-data") { FileStream = fileContentStream, MultipartData = Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes") { Data = JsonUtils.JsonToSerializedData(text: multipartAttributes) },new MultipartItem(partName: "file") { FileStream = fileContentStream }}) });
+Console.WriteLine("Received status code: " + response.status);
+```
+
+## Binary response
+
+The following example demonstrates how to make a custom request that expects a binary response.
+It is required to specify the `responseFormat` parameter in the `FetchOptions` object to `Box.Sdk.Gen.ResponseFormat.Binary`.
+
+```c#
+string fileId = "123456789";
+FetchResponse response = await client.MakeRequestAsync(fetchOptions: new FetchOptions(method: "GET", url: string.Concat("https://api.box.com/2.0/files/", fileId, "/content"), responseFormat: Box.Sdk.Gen.ResponseFormat.Binary));
+Console.WriteLine("Received status code: " + response.status);
+string filePath = "output.txt";
+using (FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+{
+    responseStream.CopyTo(response.content);
+}
+```
 
 # Additional headers
 

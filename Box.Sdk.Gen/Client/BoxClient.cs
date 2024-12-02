@@ -1,7 +1,8 @@
+using Box.Sdk.Gen.Internal;
+using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Box.Sdk.Gen.Managers;
-using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen {
     public class BoxClient : IBoxClient {
@@ -223,6 +224,19 @@ namespace Box.Sdk.Gen {
             IntegrationMappings = new IntegrationMappingsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Ai = new AiManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
+        /// <summary>
+        /// Make a custom http request using the client authentication and network session.
+        /// </summary>
+        /// <param name="fetchOptions">
+        /// Options to be passed to the fetch call
+        /// </param>
+        public async System.Threading.Tasks.Task<FetchResponse> MakeRequestAsync(FetchOptions fetchOptions) {
+            IAuthentication auth = fetchOptions.Auth == null ? this.Auth : NullableUtils.Unwrap(fetchOptions.Auth);
+            NetworkSession networkSession = fetchOptions.NetworkSession == null ? this.NetworkSession : NullableUtils.Unwrap(fetchOptions.NetworkSession);
+            FetchOptions enrichedFetchOptions = new FetchOptions(url: fetchOptions.Url, method: fetchOptions.Method, contentType: fetchOptions.ContentType, responseFormat: fetchOptions.ResponseFormat) { Auth = auth, NetworkSession = networkSession, Parameters = fetchOptions.Parameters, Headers = fetchOptions.Headers, Data = fetchOptions.Data, FileStream = fetchOptions.FileStream, MultipartData = fetchOptions.MultipartData };
+            return await HttpClientAdapter.FetchAsync(enrichedFetchOptions).ConfigureAwait(false);
+        }
+
         /// <summary>
         /// Create a new client to impersonate user with the provided ID. All calls made with the new client will be made in context of the impersonated user, leaving the original client unmodified.
         /// </summary>
