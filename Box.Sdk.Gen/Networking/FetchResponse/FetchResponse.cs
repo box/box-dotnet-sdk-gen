@@ -6,6 +6,11 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen {
     public class FetchResponse {
         /// <summary>
+        /// URL of the response
+        /// </summary>
+        public string? Url { get; init; }
+
+        /// <summary>
         /// HTTP status code of the response
         /// </summary>
         public int Status { get; }

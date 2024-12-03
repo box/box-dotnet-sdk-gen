@@ -74,6 +74,7 @@ namespace Box.Sdk.Gen.Internal
                 {
                     var response = result.Value!;
 
+                    var url = response.RequestMessage?.RequestUri?.ToString() ?? request.RequestUri?.ToString() ?? options.Url;
                     var statusCode = (int)response.StatusCode;
                     var isRetryAfterPresent = response.Headers.Contains("retry-after");
                     var isRetryAfterWithAcceptedPresent = isRetryAfterPresent && statusCode == 202;
@@ -82,8 +83,8 @@ namespace Box.Sdk.Gen.Internal
                     {
                         seekableStream?.Dispose();
                         return isStreamResponse ?
-                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
-                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
+                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
                     }
 
                     if (attempt >= networkSession.RetryAttempts)
