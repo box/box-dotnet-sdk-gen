@@ -170,15 +170,24 @@ namespace Box.Sdk.Gen.Internal
 
         private static HttpClient CreateProxyClient(ProxyConfig proxyConfig)
         {
+            var webProxy = new WebProxy(proxyConfig.Url)
+            {
+                UseDefaultCredentials = proxyConfig.UseDefaultCredentials
+            };
+
+            if (!proxyConfig.UseDefaultCredentials)
+            {
+                webProxy.Credentials = new NetworkCredential(
+                    proxyConfig.Username,
+                    proxyConfig.Password,
+                    proxyConfig.Domain);
+            }
+
             var handler = new HttpClientHandler
             {
-                Proxy = new WebProxy(proxyConfig.Url)
-                {
-                    Credentials = new NetworkCredential(proxyConfig.Username, proxyConfig.Password, proxyConfig.Domain)
-                },
+                Proxy = webProxy,
                 UseProxy = true,
-                PreAuthenticate = true,
-                UseDefaultCredentials = false
+                PreAuthenticate = true
             };
 
             return new HttpClient(handler, disposeHandler: true);

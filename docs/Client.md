@@ -131,8 +131,17 @@ var newClient = client.WithCustomBaseUrls(new BaseUrls(
 
 # Use Proxy for API calls
 
-In order to use a proxy for API calls, calling the `client.WithProxy(proxyConfig)` method creates a new client, leaving the original client unmodified, with the username and password being optional.
+In order to use a proxy for API calls, call the `client.WithProxy(proxyConfig)` method that creates a new client with proxy, leaving the original client unmodified.
+In config, you can specify the username, password and domain for the proxy server.
+Alternatively you can set 'UseDefaultCredentials' to true to use the credentials of the currently logged on user - `DefaultCredentials`.
+NOTE: Setting UseDefaultCredentials takes precedence over Username, Password and Domain fields. If UseDefaultCredentials is set to true, the Username, Password and Domain fields will be ignored.
 
 ```c#
 var newClient = client.WithProxy(new ProxyConfig("http://proxy.com") { Username = "username", Password = "password", Domain = "example" });
+```
+
+To use proxy with default credentials:
+
+```c#
+var newClient = client.WithProxy(new ProxyConfig("http://proxy.com") { UseDefaultCredentials = true });
 ```
