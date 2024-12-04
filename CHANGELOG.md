@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.4.0...v1.5.0) (2024-12-04)
+
+
+### Bug Fixes
+
+* Support status codes with no content (box/box-codegen[#604](https://github.com/box/box-dotnet-sdk-gen/issues/604)) ([#314](https://github.com/box/box-dotnet-sdk-gen/issues/314)) ([57747d5](https://github.com/box/box-dotnet-sdk-gen/commit/57747d50c48dd4c433dad342a5e2a20ac0b15952))
+* update collaboration, metadata and collection resources (box/box-openapi[#483](https://github.com/box/box-dotnet-sdk-gen/issues/483)) ([#316](https://github.com/box/box-dotnet-sdk-gen/issues/316)) ([d331f8a](https://github.com/box/box-dotnet-sdk-gen/commit/d331f8a1f7110e5e00df170cedef85af682d58b4))
+
+
+### New Features and Enhancements
+
+* Add optional URL parameter to `FetchResponse` (box/box-codegen[#617](https://github.com/box/box-dotnet-sdk-gen/issues/617)) ([#331](https://github.com/box/box-dotnet-sdk-gen/issues/331)) ([61484ec](https://github.com/box/box-dotnet-sdk-gen/commit/61484ec9fbf96c0ae62116ec1ee0cbb50aae7493))
+* Allow using default credentials for proxy (box/box-codegen[#623](https://github.com/box/box-dotnet-sdk-gen/issues/623)) ([#334](https://github.com/box/box-dotnet-sdk-gen/issues/334)) ([bc4636e](https://github.com/box/box-dotnet-sdk-gen/commit/bc4636e64859fd7d0b1449ec34b6144d0eb1a768)), closes [#333](https://github.com/box/box-dotnet-sdk-gen/issues/333)
+* Expose method for making custom HTTP requests (box/box-codegen[#622](https://github.com/box/box-dotnet-sdk-gen/issues/622)) ([#329](https://github.com/box/box-dotnet-sdk-gen/issues/329)) ([e689140](https://github.com/box/box-dotnet-sdk-gen/commit/e689140d6d3be772ff2370e7de5797707df7bdad))
+* Support get collection by ID endpoint (box/box-codegen[#595](https://github.com/box/box-dotnet-sdk-gen/issues/595)) ([#304](https://github.com/box/box-dotnet-sdk-gen/issues/304)) ([9ebf59a](https://github.com/box/box-dotnet-sdk-gen/commit/9ebf59ae388aa9aec5d8a0a3551f13e544c7571d))
+
 ## [1.4.0](https://github.com/box/box-codegen/compare/v1.3.1...v1.4.0) (2024-10-31)
 
 
