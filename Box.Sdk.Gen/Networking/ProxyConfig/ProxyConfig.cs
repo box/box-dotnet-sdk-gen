@@ -10,8 +10,11 @@ namespace Box.Sdk.Gen {
 
         public string? Domain { get; init; }
 
-        public ProxyConfig(string url) {
+        public bool UseDefaultCredentials { get; }
+
+        public ProxyConfig(string url, bool useDefaultCredentials = false) {
             Url = url;
+            UseDefaultCredentials = useDefaultCredentials;
         }
     }
 }
