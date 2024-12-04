@@ -2,34 +2,29 @@ using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
-using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiResponse : ISerializable {
+    public class AiAgentInfoModelsField : ISerializable {
         /// <summary>
-        /// The answer provided by the LLM.
+        /// The name of the model used for the request
         /// </summary>
-        [JsonPropertyName("answer")]
-        public string Answer { get; }
-
-        /// <summary>
-        /// The ISO date formatted timestamp of when the answer to the prompt was created.
-        /// </summary>
-        [JsonPropertyName("created_at")]
-        public System.DateTimeOffset CreatedAt { get; }
+        [JsonPropertyName("name")]
+        public string? Name { get; init; }
 
         /// <summary>
-        /// The reason the response finishes.
+        /// The provider that owns the model used for the request
         /// </summary>
-        [JsonPropertyName("completion_reason")]
-        public string? CompletionReason { get; init; }
+        [JsonPropertyName("provider")]
+        public string? Provider { get; init; }
 
-        [JsonPropertyName("ai_agent_info")]
-        public AiAgentInfo? AiAgentInfo { get; init; }
+        /// <summary>
+        /// The supported purpose utilized by the model used for the request
+        /// </summary>
+        [JsonPropertyName("supported_purpose")]
+        public string? SupportedPurpose { get; init; }
 
-        public AiResponse(string answer, System.DateTimeOffset createdAt) {
-            Answer = answer;
-            CreatedAt = createdAt;
+        public AiAgentInfoModelsField() {
+            
         }
         internal string? RawJson { get; set; } = default;
 
