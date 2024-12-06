@@ -1,25 +1,25 @@
+using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
-using Box.Sdk.Gen;
+using System;
 using System.Collections.ObjectModel;
-using Box.Sdk.Gen.Schemas;
 
-namespace Box.Sdk.Gen.Managers {
-    public class UpdateWebLinkByIdRequestBodyParentField : ISerializable {
+namespace Box.Sdk.Gen.Schemas {
+    public class AiAgentInfo : ISerializable {
         /// <summary>
-        /// The ID of parent item
+        /// The models used for the request
         /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; init; }
+        [JsonPropertyName("models")]
+        public IReadOnlyList<AiAgentInfoModelsField>? Models { get; init; }
 
         /// <summary>
-        /// The input for `{user_id}` is optional. Moving to non-root folder is not allowed when `{user_id}` is present. Parent folder id should be zero when `{user_id}` is provided.
+        /// The processor used for the request
         /// </summary>
-        [JsonPropertyName("user_id")]
-        public string? UserId { get; init; }
+        [JsonPropertyName("processor")]
+        public string? Processor { get; init; }
 
-        public UpdateWebLinkByIdRequestBodyParentField() {
+        public AiAgentInfo() {
             
         }
         internal string? RawJson { get; set; } = default;
