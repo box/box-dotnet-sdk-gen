@@ -14,6 +14,12 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
+        /// <summary>
+        /// The input for `{user_id}` is optional. Moving to non-root folder is not allowed when `{user_id}` is present. Parent folder id should be zero when `{user_id}` is provided.
+        /// </summary>
+        [JsonPropertyName("user_id")]
+        public string? UserId { get; init; }
+
         public RestoreFileFromTrashRequestBodyParentField() {
             
         }

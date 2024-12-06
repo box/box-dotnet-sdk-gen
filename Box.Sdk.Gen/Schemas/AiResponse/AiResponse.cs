@@ -2,6 +2,7 @@ using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
+using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
     public class AiResponse : ISerializable {
@@ -22,6 +23,9 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("completion_reason")]
         public string? CompletionReason { get; init; }
+
+        [JsonPropertyName("ai_agent_info")]
+        public AiAgentInfo? AiAgentInfo { get; init; }
 
         public AiResponse(string answer, System.DateTimeOffset createdAt) {
             Answer = answer;

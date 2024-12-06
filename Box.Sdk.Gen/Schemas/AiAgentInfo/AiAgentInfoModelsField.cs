@@ -2,25 +2,28 @@ using Box.Sdk.Gen;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
-using System;
-using System.Collections.ObjectModel;
-using Box.Sdk.Gen.Schemas;
 
-namespace Box.Sdk.Gen.Managers {
-    public class RestoreWeblinkFromTrashRequestBodyParentField : ISerializable {
+namespace Box.Sdk.Gen.Schemas {
+    public class AiAgentInfoModelsField : ISerializable {
         /// <summary>
-        /// The ID of parent item
+        /// The name of the model used for the request
         /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; init; }
+        [JsonPropertyName("name")]
+        public string? Name { get; init; }
 
         /// <summary>
-        /// The input for `{user_id}` is optional. Moving to non-root folder is not allowed when `{user_id}` is present. Parent folder id should be zero when `{user_id}` is provided.
+        /// The provider that owns the model used for the request
         /// </summary>
-        [JsonPropertyName("user_id")]
-        public string? UserId { get; init; }
+        [JsonPropertyName("provider")]
+        public string? Provider { get; init; }
 
-        public RestoreWeblinkFromTrashRequestBodyParentField() {
+        /// <summary>
+        /// The supported purpose utilized by the model used for the request
+        /// </summary>
+        [JsonPropertyName("supported_purpose")]
+        public string? SupportedPurpose { get; init; }
+
+        public AiAgentInfoModelsField() {
             
         }
         internal string? RawJson { get; set; } = default;
