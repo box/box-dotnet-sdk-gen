@@ -48,10 +48,6 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("can_non_owners_invite")]
         public bool? CanNonOwnersInvite { get; init; }
 
-        /// <summary>
-        /// The parent folder for this folder. Use this to move
-        /// the folder or to restore it out of the trash.
-        /// </summary>
         [JsonPropertyName("parent")]
         public UpdateFolderByIdRequestBodyParentField? Parent { get; init; }
 

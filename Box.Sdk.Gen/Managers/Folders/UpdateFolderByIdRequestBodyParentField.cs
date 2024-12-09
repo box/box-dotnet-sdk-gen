@@ -9,10 +9,16 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFolderByIdRequestBodyParentField : ISerializable {
         /// <summary>
-        /// The ID of the new parent folder
+        /// The ID of parent item
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
+
+        /// <summary>
+        /// The input for `user_id` is optional. Moving to non-root folder is not allowed when `user_id` is present. Parent folder id should be zero when `user_id` is provided.
+        /// </summary>
+        [JsonPropertyName("user_id")]
+        public string? UserId { get; init; }
 
         public UpdateFolderByIdRequestBodyParentField() {
             
