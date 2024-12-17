@@ -33,10 +33,6 @@ namespace Box.Sdk.Gen.Schemas {
         protected bool _isExternalIdSet { get; set; }
 
         [JsonInclude]
-        [JsonPropertyName("_isis_phone_verification_required_to_viewSet")]
-        protected bool _isIsPhoneVerificationRequiredToViewSet { get; set; }
-
-        [JsonInclude]
         [JsonPropertyName("_istemplate_idSet")]
         protected bool _isTemplateIdSet { get; set; }
 
@@ -55,8 +51,6 @@ namespace Box.Sdk.Gen.Schemas {
         protected long? _daysValid { get; set; }
 
         protected string? _externalId { get; set; }
-
-        protected bool? _isPhoneVerificationRequiredToView { get; set; }
 
         protected string? _templateId { get; set; }
 
@@ -127,12 +121,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("external_id")]
         public string? ExternalId { get => _externalId; init { _externalId = value; _isExternalIdSet = true; } }
-
-        /// <summary>
-        /// Forces signers to verify a text message prior to viewing the document. You must specify the phone number of signers to have this setting apply to them.
-        /// </summary>
-        [JsonPropertyName("is_phone_verification_required_to_view")]
-        public bool? IsPhoneVerificationRequiredToView { get => _isPhoneVerificationRequiredToView; init { _isPhoneVerificationRequiredToView = value; _isIsPhoneVerificationRequiredToViewSet = true; } }
 
         /// <summary>
         /// When a signature request is created from a template this field will indicate the id of that template.
