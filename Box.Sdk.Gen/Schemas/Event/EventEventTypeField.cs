@@ -78,6 +78,18 @@ namespace Box.Sdk.Gen.Schemas {
         Edit,
         [Description("EDIT_USER")]
         EditUser,
+        [Description("EDR_CROWDSTRIKE_DEVICE_DETECTED")]
+        EdrCrowdstrikeDeviceDetected,
+        [Description("EDR_CROWDSTRIKE_NO_BOX_TOOLS")]
+        EdrCrowdstrikeNoBoxTools,
+        [Description("EDR_CROWDSTRIKE_BOX_TOOLS_OUTDATED")]
+        EdrCrowdstrikeBoxToolsOutdated,
+        [Description("EDR_CROWDSTRIKE_DRIVE_OUTDATED")]
+        EdrCrowdstrikeDriveOutdated,
+        [Description("EDR_CROWDSTRIKE_ACCESS_ALLOWED_NO_CROWDSTRIKE_DEVICE")]
+        EdrCrowdstrikeAccessAllowedNoCrowdstrikeDevice,
+        [Description("EDR_CROWDSTRIKE_ACCESS_REVOKED")]
+        EdrCrowdstrikeAccessRevoked,
         [Description("EMAIL_ALIAS_CONFIRM")]
         EmailAliasConfirm,
         [Description("EMAIL_ALIAS_REMOVE")]
