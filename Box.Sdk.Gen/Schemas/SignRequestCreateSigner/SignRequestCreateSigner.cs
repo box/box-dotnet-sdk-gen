@@ -26,10 +26,6 @@ namespace Box.Sdk.Gen.Schemas {
         protected bool _isLoginRequiredSet { get; set; }
 
         [JsonInclude]
-        [JsonPropertyName("_isverification_phone_numberSet")]
-        protected bool _isVerificationPhoneNumberSet { get; set; }
-
-        [JsonInclude]
         [JsonPropertyName("_ispasswordSet")]
         protected bool _isPasswordSet { get; set; }
 
@@ -50,8 +46,6 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _declinedRedirectUrl { get; set; }
 
         protected bool? _loginRequired { get; set; }
-
-        protected string? _verificationPhoneNumber { get; set; }
 
         protected string? _password { get; set; }
 
@@ -120,19 +114,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// If set to true, the signer will need to log in to a Box account
         /// before signing the request. If the signer does not have
         /// an existing account, they will have the option to create
-        /// a free Box account. Cannot be selected in combination with
-        /// `verification_phone_number`.
+        /// a free Box account.
         /// </summary>
         [JsonPropertyName("login_required")]
         public bool? LoginRequired { get => _loginRequired; init { _loginRequired = value; _isLoginRequiredSet = true; } }
-
-        /// <summary>
-        /// If set, this phone number will be used to verify the signer
-        /// via two-factor authentication before they are able to sign the document.
-        /// Cannot be selected in combination with `login_required`.
-        /// </summary>
-        [JsonPropertyName("verification_phone_number")]
-        public string? VerificationPhoneNumber { get => _verificationPhoneNumber; init { _verificationPhoneNumber = value; _isVerificationPhoneNumberSet = true; } }
 
         /// <summary>
         /// If set, the signer is required to enter the password before they are able
