@@ -37,7 +37,7 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 - [Upgrades](#upgrades)
 - [Integration Tests](#integration-tests)
   - [Running integration tests locally](#running-integration-tests-locally)
-    - [Create Custom Application](#create-custom-application)
+    - [Create Platform Application](#create-platform-application)
     - [Export configuration](#export-configuration)
     - [Running tests](#running-tests)
 - [Questions, Bugs, and Feature Requests?](#questions-bugs-and-feature-requests)
@@ -128,7 +128,7 @@ Upgrading from our legacy SDKs to the new generation SDKs is a straightforward p
 
 ## Running integration tests locally
 
-### Create Custom Application
+### Create Platform Application
 
 To run integration tests locally you will need a `Custom App` created in the [Box Developer
 Console](https://app.box.com/developers/console)

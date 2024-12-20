@@ -3,6 +3,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Authentication](#authentication)
 - [Authentication methods](#authentication-methods)
   - [Developer Token](#developer-token)
   - [JWT Auth](#jwt-auth)
@@ -50,7 +51,7 @@ Console.WriteLine($"My user ID is {me.Id}");
 
 ## JWT Auth
 
-Before using JWT Auth make sure you set up correctly your Box App.
+Before using JWT Auth make sure you set up correctly your Box platform app.
 The guide with all required steps can be found here: [Setup with JWT][jwt_guide]
 
 ### Authenticate Enterprise
@@ -133,7 +134,7 @@ var userClient = new BoxClient(jwtAuth);
 
 ## Client Credentials Grant
 
-Before using Client Credentials Grant Auth make sure you set up correctly your Box App.
+Before using Client Credentials Grant Auth make sure you set up correctly your Box platform app.
 The guide with all required steps can be found here: [Setup with Client Credentials Grant][ccg_guide]
 
 Client Credentials Grant Auth method allows you to obtain an access token by having client credentials

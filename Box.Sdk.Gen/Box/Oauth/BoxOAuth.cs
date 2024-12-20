@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen {
         }
 
         /// <summary>
-        /// Get a new access token for the app user.
+        /// Get a new access token for the platform app user.
         /// </summary>
         /// <param name="networkSession">
         /// An object to keep network session state
