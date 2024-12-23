@@ -1,5 +1,4 @@
 using Box.Sdk.Gen.Internal;
-using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Box.Sdk.Gen.Managers;
@@ -234,7 +233,7 @@ namespace Box.Sdk.Gen {
             IAuthentication auth = fetchOptions.Auth == null ? this.Auth : NullableUtils.Unwrap(fetchOptions.Auth);
             NetworkSession networkSession = fetchOptions.NetworkSession == null ? this.NetworkSession : NullableUtils.Unwrap(fetchOptions.NetworkSession);
             FetchOptions enrichedFetchOptions = new FetchOptions(url: fetchOptions.Url, method: fetchOptions.Method, contentType: fetchOptions.ContentType, responseFormat: fetchOptions.ResponseFormat) { Auth = auth, NetworkSession = networkSession, Parameters = fetchOptions.Parameters, Headers = fetchOptions.Headers, Data = fetchOptions.Data, FileStream = fetchOptions.FileStream, MultipartData = fetchOptions.MultipartData };
-            return await HttpClientAdapter.FetchAsync(enrichedFetchOptions).ConfigureAwait(false);
+            return await networkSession.NetworkClient.FetchAsync(options: enrichedFetchOptions).ConfigureAwait(false);
         }
 
         /// <summary>
