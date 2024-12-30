@@ -33,10 +33,24 @@ namespace Box.Sdk.Gen
         /// </summary>
         public ProxyConfig? proxyConfig { get; init; }
 
+        /// <summary>
+        /// Network client used to make API calls.
+        /// </summary>
+        public INetworkClient NetworkClient { get; init; } = new BoxNetworkClient();
+
         public NetworkSession(Dictionary<string, string>? additionalHeaders = default, BaseUrls? baseUrls = null)
         {
             AdditionalHeaders = additionalHeaders ?? new Dictionary<string, string>();
             BaseUrls = baseUrls ?? new BaseUrls();
+        }
+
+        /// <summary>
+        /// Generate a fresh network session by duplicating the existing configuration and network parameters,
+        /// while also including a custom network client to be used for each API call.
+        /// </summary>
+        public NetworkSession WithNetworkClient(INetworkClient networkClient)
+        {
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = networkClient };
         }
 
         /// <summary>
@@ -48,7 +62,7 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders)
         {
-            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig };
+            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient};
         }
 
         /// <summary>
@@ -60,7 +74,7 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls)
         {
-            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig };
+            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient};
         }
 
         /// <summary>
@@ -72,7 +86,7 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithProxy(ProxyConfig config)
         {
-            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = config };
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = config, NetworkClient = this.NetworkClient};
         }
     }
 }

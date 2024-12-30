@@ -12,23 +12,13 @@ using System.Threading.Tasks;
 
 namespace Box.Sdk.Gen.Internal
 {
-    static class ContentTypes
-    {
-        internal const string FormUrlEncoded = "application/x-www-form-urlencoded";
-        internal const string MultipartFormData = "multipart/form-data";
-        internal const string OctetStream = "application/octet-stream";
-    }
-
-    /// <summary>
-    /// Static HttpClient.
-    /// </summary>
-    static class HttpClientAdapter
+    class BoxNetworkClient : INetworkClient
     {
         static IHttpClientFactory _clientFactory;
 
         private static ProxyClient? _proxyClient;
 
-        static HttpClientAdapter()
+        static BoxNetworkClient()
         {
             var serviceCollection = new ServiceCollection();
 
@@ -47,7 +37,7 @@ namespace Box.Sdk.Gen.Internal
         /// </summary>
         /// <param name="options">Request options of a request.</param>
         /// <returns>A http/s Response as a FetchResponse.</returns>
-        internal static async Task<FetchResponse> FetchAsync(FetchOptions options)
+        async Task<FetchResponse> INetworkClient.FetchAsync(FetchOptions options)
         {
             var networkSession = options.NetworkSession ?? new NetworkSession();
 
