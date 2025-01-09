@@ -14,7 +14,7 @@ List the Box Skills metadata cards that are attached to a file.
 This operation is performed by calling function `GetBoxSkillCardsOnFile`.
 
 See the endpoint docs at
-[API Reference](https://developer.box.com/reference/get-files-id-metadata-global-box-skills-cards/).
+[API Reference](https://developer.box.com/reference/get-files-id-metadata-global-boxSkillsCards/).
 
 *Currently we don't have an example for calling `GetBoxSkillCardsOnFile` in integration tests*
 
@@ -45,7 +45,7 @@ Applies one or more Box Skills metadata cards to a file.
 This operation is performed by calling function `CreateBoxSkillCardsOnFile`.
 
 See the endpoint docs at
-[API Reference](https://developer.box.com/reference/post-files-id-metadata-global-box-skills-cards/).
+[API Reference](https://developer.box.com/reference/post-files-id-metadata-global-boxSkillsCards/).
 
 *Currently we don't have an example for calling `CreateBoxSkillCardsOnFile` in integration tests*
 
@@ -76,7 +76,7 @@ Updates one or more Box Skills metadata cards to a file.
 This operation is performed by calling function `UpdateBoxSkillCardsOnFile`.
 
 See the endpoint docs at
-[API Reference](https://developer.box.com/reference/put-files-id-metadata-global-box-skills-cards/).
+[API Reference](https://developer.box.com/reference/put-files-id-metadata-global-boxSkillsCards/).
 
 *Currently we don't have an example for calling `UpdateBoxSkillCardsOnFile` in integration tests*
 
@@ -107,7 +107,7 @@ Removes any Box Skills cards metadata from a file.
 This operation is performed by calling function `DeleteBoxSkillCardsFromFile`.
 
 See the endpoint docs at
-[API Reference](https://developer.box.com/reference/delete-files-id-metadata-global-box-skills-cards/).
+[API Reference](https://developer.box.com/reference/delete-files-id-metadata-global-boxSkillsCards/).
 
 *Currently we don't have an example for calling `DeleteBoxSkillCardsFromFile` in integration tests*
 
