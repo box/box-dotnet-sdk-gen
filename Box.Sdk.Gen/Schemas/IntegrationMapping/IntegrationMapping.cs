@@ -7,25 +7,6 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMapping : IntegrationMappingBase, ISerializable {
         /// <summary>
-        /// The Box folder, to which the object from the
-        /// partner app domain (referenced in `partner_item_id`) is mapped
-        /// </summary>
-        [JsonPropertyName("box_item")]
-        public FolderMini BoxItem { get; }
-
-        /// <summary>
-        /// When the integration mapping object was created
-        /// </summary>
-        [JsonPropertyName("created_at")]
-        public System.DateTimeOffset? CreatedAt { get; init; }
-
-        /// <summary>
-        /// When the integration mapping object was last modified
-        /// </summary>
-        [JsonPropertyName("modified_at")]
-        public System.DateTimeOffset? ModifiedAt { get; init; }
-
-        /// <summary>
         /// Identifies the Box partner app,
         /// with which the mapping is associated.
         /// Currently only supports Slack.
@@ -66,15 +47,34 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("partner_item")]
         public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
 
-        public IntegrationMapping(string id, FolderMini boxItem, IntegrationMappingPartnerItemSlackUnion partnerItem, IntegrationMappingBaseTypeField type = IntegrationMappingBaseTypeField.IntegrationMapping) : base(id, type) {
-            BoxItem = boxItem;
+        /// <summary>
+        /// The Box folder, to which the object from the
+        /// partner app domain (referenced in `partner_item_id`) is mapped
+        /// </summary>
+        [JsonPropertyName("box_item")]
+        public FolderMini BoxItem { get; }
+
+        /// <summary>
+        /// When the integration mapping object was created
+        /// </summary>
+        [JsonPropertyName("created_at")]
+        public System.DateTimeOffset? CreatedAt { get; init; }
+
+        /// <summary>
+        /// When the integration mapping object was last modified
+        /// </summary>
+        [JsonPropertyName("modified_at")]
+        public System.DateTimeOffset? ModifiedAt { get; init; }
+
+        public IntegrationMapping(string id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, IntegrationMappingBaseTypeField type = IntegrationMappingBaseTypeField.IntegrationMapping) : base(id, type) {
             PartnerItem = partnerItem;
+            BoxItem = boxItem;
         }
         
         [JsonConstructorAttribute]
-        internal IntegrationMapping(string id, FolderMini boxItem, IntegrationMappingPartnerItemSlackUnion partnerItem, StringEnum<IntegrationMappingBaseTypeField> type) : base(id, type ?? new StringEnum<IntegrationMappingBaseTypeField>(IntegrationMappingBaseTypeField.IntegrationMapping)) {
-            BoxItem = boxItem;
+        internal IntegrationMapping(string id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem, StringEnum<IntegrationMappingBaseTypeField> type) : base(id, type ?? new StringEnum<IntegrationMappingBaseTypeField>(IntegrationMappingBaseTypeField.IntegrationMapping)) {
             PartnerItem = partnerItem;
+            BoxItem = boxItem;
         }
         internal new string? RawJson { get; set; } = default;
 
