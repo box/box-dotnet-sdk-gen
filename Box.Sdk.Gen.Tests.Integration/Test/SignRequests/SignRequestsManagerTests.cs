@@ -30,9 +30,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(createdSignRequest.ExternalId == "123");
             Assert.IsTrue(createdSignRequest.ExternalSystemName == "BoxSignIntegration");
             Assert.IsTrue(createdSignRequest.IsDocumentPreparationNeeded == false);
-            Assert.IsTrue(createdSignRequest.Name == "Sign Request");
+            Assert.IsTrue(createdSignRequest.Name == "Sign Request.pdf");
             Assert.IsTrue(createdSignRequest.RedirectUrl == "https://www.box.com");
-            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
+            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.SignFiles).Files)[0].Name == createdSignRequest.Name);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].Email == signerEmail);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].SuppressNotifications == true);
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.Signers)[1].DeclinedRedirectUrl == "https://www.box.com");
@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(createdSignRequest.ParentFolder).Id == destinationFolder.Id);
             Assert.IsTrue(Utils.DateToString(date: NullableUtils.Unwrap(NullableUtils.Unwrap(createdSignRequest.PrefillTags)[0].DateValue)) == "2035-01-01");
             SignRequest newSignRequest = await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
-            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(newSignRequest.SignFiles).Files)[0].Name == fileToSign.Name);
+            Assert.IsTrue(NullableUtils.Unwrap(NullableUtils.Unwrap(newSignRequest.SignFiles).Files)[0].Name == createdSignRequest.Name);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.Signers)[1].Email == signerEmail);
             Assert.IsTrue(NullableUtils.Unwrap(newSignRequest.ParentFolder).Id == destinationFolder.Id);
             SignRequest cancelledSignRequest = await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Unwrap(createdSignRequest.Id));
