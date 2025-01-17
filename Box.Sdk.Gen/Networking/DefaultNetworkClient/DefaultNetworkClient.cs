@@ -32,7 +32,14 @@ namespace Box.Sdk.Gen.Internal
         {
             var serviceCollection = new ServiceCollection();
 
-            serviceCollection.AddHttpClient();
+            serviceCollection.AddHttpClient("DefaultHttpClient")
+                .ConfigurePrimaryHttpMessageHandler(() =>
+            {
+                return new HttpClientHandler
+                {
+                    AllowAutoRedirect = false,
+                };
+            });
 
             var httpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
             if (httpClientFactory == null)
@@ -82,15 +89,33 @@ namespace Box.Sdk.Gen.Internal
                     if (response.IsSuccessStatusCode && (!isRetryAfterWithAcceptedPresent || attempt >= networkSession.RetryAttempts))
                     {
                         seekableStream?.Dispose();
-                        return isStreamResponse ?
-                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
-                            new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+                        return await ReadResponse(isStreamResponse, response, statusCode, url, cancellationToken).ConfigureAwait(false);
                     }
 
                     if (attempt >= networkSession.RetryAttempts)
                     {
                         seekableStream?.Dispose();
                         throw new BoxSdkException($"Max retry attempts excedeed.", DateTimeOffset.UtcNow);
+                    }
+
+                    if (statusCode >= 300 & statusCode < 400)
+                    {
+                        if (options.FollowRedirects == false)
+                        {
+                            seekableStream?.Dispose();
+                            return await ReadResponse(isStreamResponse, response, statusCode, url, cancellationToken).ConfigureAwait(false);
+                        }
+
+                        var locationHeader = response.Headers.FirstOrDefault(
+                            h => string.Equals(h.Key, "location", StringComparison.OrdinalIgnoreCase));
+
+                        if (locationHeader.Key == null)
+                        {
+                            throw new BoxSdkException($"Redirect response missing Location header for: {options.Url}");
+                        }
+
+                        return await ((INetworkClient)this).FetchAsync(new FetchOptions(locationHeader.Value.First(), "GET", options.ContentType, options.ResponseFormat)
+                        { Auth = options.Auth, NetworkSession = networkSession }).ConfigureAwait(false);
                     }
 
                     if (statusCode == 401)
@@ -152,7 +177,7 @@ namespace Box.Sdk.Gen.Internal
         {
             if (networkSession.proxyConfig == null)
             {
-                return _clientFactory.CreateClient();
+                return _clientFactory.CreateClient("DefaultHttpClient");
             }
             else
             {
@@ -187,7 +212,8 @@ namespace Box.Sdk.Gen.Internal
             {
                 Proxy = webProxy,
                 UseProxy = true,
-                PreAuthenticate = true
+                PreAuthenticate = true,
+                AllowAutoRedirect = false
             };
 
             return new HttpClient(handler, disposeHandler: true);
@@ -415,5 +441,12 @@ namespace Box.Sdk.Gen.Internal
             { "HEAD", HttpMethod.Head },
             { "TRACE", HttpMethod.Trace },
         };
+
+        private static async Task<FetchResponse> ReadResponse(bool isStreamResponse, HttpResponseMessage response, int statusCode, string url, CancellationToken cancellationToken)
+        {
+            return isStreamResponse ?
+                new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Content = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false) } :
+                new FetchResponse(status: statusCode, headers: response.Headers.ToDictionary(x => x.Key, x => x.Value.First())) { Url = url, Data = JsonUtils.JsonToSerializedData(await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)) };
+        }
     }
 }

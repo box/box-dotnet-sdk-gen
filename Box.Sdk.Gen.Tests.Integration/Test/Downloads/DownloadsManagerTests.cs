@@ -24,5 +24,14 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestGetDownloadUrl() {
+            FileFull uploadedFile = await new CommonsManager().UploadNewFileAsync();
+            string downloadUrl = await client.Downloads.GetDownloadFileUrlAsync(fileId: uploadedFile.Id);
+            Assert.IsTrue(downloadUrl != null);
+            Assert.IsTrue(downloadUrl.Contains("https://"));
+            await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
+        }
+
     }
 }

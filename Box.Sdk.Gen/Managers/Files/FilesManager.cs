@@ -180,6 +180,56 @@ namespace Box.Sdk.Gen.Managers {
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
+        public async System.Threading.Tasks.Task<string> GetFileThumbnailUrlAsync(string fileId, GetFileThumbnailUrlExtension extension, GetFileThumbnailUrlQueryParams? queryParams = default, GetFileThumbnailUrlHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetFileThumbnailUrlQueryParams();
+            headers = headers ?? new GetFileThumbnailUrlHeaders();
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "min_height", StringUtils.ToStringRepresentation(queryParams.MinHeight) }, { "min_width", StringUtils.ToStringRepresentation(queryParams.MinWidth) }, { "max_height", StringUtils.ToStringRepresentation(queryParams.MaxHeight) }, { "max_width", StringUtils.ToStringRepresentation(queryParams.MaxWidth) } });
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
+            FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/thumbnail.", StringUtils.ToStringRepresentation(extension)), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.NoContent) { Parameters = queryParamsMap, Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken, FollowRedirects = false }).ConfigureAwait(false);
+            if (response.Headers.ContainsKey("location")) {
+                return response.Headers["location"];
+            }
+            if (response.Headers.ContainsKey("Location")) {
+                return response.Headers["Location"];
+            }
+            throw new BoxSdkException(message: "No location header in response");
+        }
+
+        /// <summary>
+        /// Retrieves a thumbnail, or smaller image representation, of a file.
+        /// 
+        /// Sizes of `32x32`,`64x64`, `128x128`, and `256x256` can be returned in
+        /// the `.png` format and sizes of `32x32`, `160x160`, and `320x320`
+        /// can be returned in the `.jpg` format.
+        /// 
+        /// Thumbnails can be generated for the image and video file formats listed
+        /// [found on our community site][1].
+        /// 
+        /// [1]: https://community.box.com/t5/Migrating-and-Previewing-Content/File-Types-and-Fonts-Supported-in-Box-Content-Preview/ta-p/327
+        /// </summary>
+        /// <param name="fileId">
+        /// The unique identifier that represents a file.
+        /// 
+        /// The ID for any file can be determined
+        /// by visiting a file in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/files/123`
+        /// the `file_id` is `123`.
+        /// Example: "12345"
+        /// </param>
+        /// <param name="extension">
+        /// The file format for the thumbnail
+        /// Example: "png"
+        /// </param>
+        /// <param name="queryParams">
+        /// Query parameters of getFileThumbnailById method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of getFileThumbnailById method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
         public async System.Threading.Tasks.Task<System.IO.Stream?> GetFileThumbnailByIdAsync(string fileId, GetFileThumbnailByIdExtension extension, GetFileThumbnailByIdQueryParams? queryParams = default, GetFileThumbnailByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new GetFileThumbnailByIdQueryParams();
             headers = headers ?? new GetFileThumbnailByIdHeaders();
