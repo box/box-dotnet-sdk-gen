@@ -149,6 +149,10 @@ namespace Box.Sdk.Gen {
 
         public IAiManager Ai { get; }
 
+        public IDocgenTemplateManager DocgenTemplate { get; }
+
+        public IDocgenManager Docgen { get; }
+
         public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
             Auth = auth;
             NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
@@ -222,6 +226,8 @@ namespace Box.Sdk.Gen {
             SignTemplates = new SignTemplatesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             IntegrationMappings = new IntegrationMappingsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Ai = new AiManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            DocgenTemplate = new DocgenTemplateManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Docgen = new DocgenManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
         /// Make a custom http request using the client authentication and network session.
