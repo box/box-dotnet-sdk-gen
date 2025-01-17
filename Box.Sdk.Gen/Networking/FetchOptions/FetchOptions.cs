@@ -66,6 +66,11 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public System.Threading.CancellationToken? CancellationToken { get; init; }
 
+        /// <summary>
+        /// A boolean value indicate if the request should follow redirects. Defaults to True. Not supported in Browser environment.
+        /// </summary>
+        public bool? FollowRedirects { get; init; } = true;
+
         public FetchOptions(string url, string method, string contentType = "application/json", Box.Sdk.Gen.ResponseFormat responseFormat = Box.Sdk.Gen.ResponseFormat.Json) {
             Url = url;
             Method = method;

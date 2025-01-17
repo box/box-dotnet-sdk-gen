@@ -21,6 +21,17 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
 
         [TestMethod]
+        public async System.Threading.Tasks.Task TestGetFileThumbnailUrl() {
+            string thumbnailFileName = Utils.GetUUID();
+            System.IO.Stream thumbnailContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
+            FileFull thumbnailFile = await UploadFileAsync(fileName: thumbnailFileName, fileStream: thumbnailContentStream);
+            string downloadUrl = await client.Files.GetFileThumbnailUrlAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailUrlExtension.Png);
+            Assert.IsTrue(downloadUrl != null);
+            Assert.IsTrue(downloadUrl.Contains("https://"));
+            await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
+        }
+
+        [TestMethod]
         public async System.Threading.Tasks.Task TestGetFileThumbnail() {
             string thumbnailFileName = Utils.GetUUID();
             System.IO.Stream thumbnailContentStream = Utils.GenerateByteStream(size: 1024 * 1024);

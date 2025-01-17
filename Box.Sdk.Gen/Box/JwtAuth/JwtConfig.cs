@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen {
         /// </summary>
         public string? UserId { get; init; }
 
-        internal JwtAlgorithm? Algorithm { get; }
+        internal JwtAlgorithm? Algorithm { get; init; } = JwtAlgorithm.Rs256;
 
         public ITokenStorage TokenStorage { get; }
 
