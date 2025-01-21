@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.5.0...v1.6.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* Add missing token scope (box/box-openapi[#490](https://github.com/box/box-dotnet-sdk-gen/issues/490)) ([#353](https://github.com/box/box-dotnet-sdk-gen/issues/353)) ([d41e1c8](https://github.com/box/box-dotnet-sdk-gen/commit/d41e1c8c3195a08850f3217fe747e9751a979c76))
+* Fix invalid variant config for Integration mapping Slack (box/box-openapi[#492](https://github.com/box/box-dotnet-sdk-gen/issues/492)) ([#356](https://github.com/box/box-dotnet-sdk-gen/issues/356)) ([8320fb7](https://github.com/box/box-dotnet-sdk-gen/commit/8320fb7da8449a8ae9965bd3496523a0f3bfe5af))
+* order of fields in the `IntegrationMapping` schema (box/box-openapi[#497](https://github.com/box/box-dotnet-sdk-gen/issues/497)) ([#370](https://github.com/box/box-dotnet-sdk-gen/issues/370)) ([3361ad1](https://github.com/box/box-dotnet-sdk-gen/commit/3361ad1833670f9e99902b2206112592f7272ab8))
+* unused parameter from `SignRequest` (box/box-openapi[#489](https://github.com/box/box-dotnet-sdk-gen/issues/489)) ([#343](https://github.com/box/box-dotnet-sdk-gen/issues/343)) ([5d88a51](https://github.com/box/box-dotnet-sdk-gen/commit/5d88a5176489f82057a93bd5dc119e4ae3afdcd7))
+
+
+### New Features and Enhancements
+
+* Add `aiAgent` info to `AiResponse` (box/box-openapi[#485](https://github.com/box/box-dotnet-sdk-gen/issues/485)) ([#336](https://github.com/box/box-dotnet-sdk-gen/issues/336)) ([cbf91fc](https://github.com/box/box-dotnet-sdk-gen/commit/cbf91fc23012588f0f4175a713d562738818218e))
+* Add support for replacing the network client implementation (box/box-codegen[#629](https://github.com/box/box-dotnet-sdk-gen/issues/629)) ([#347](https://github.com/box/box-dotnet-sdk-gen/issues/347)) ([29d904e](https://github.com/box/box-dotnet-sdk-gen/commit/29d904e72fd9c4511183ba35454a82ff9c2d7358))
+* Support Box Doc Gen API (box/box-codegen[#644](https://github.com/box/box-dotnet-sdk-gen/issues/644)) ([#378](https://github.com/box/box-dotnet-sdk-gen/issues/378)) ([5cd0fde](https://github.com/box/box-dotnet-sdk-gen/commit/5cd0fdefb6a976fb8904beb08752f3e7dbb7428b))
+* Support getting file download URL and file thumbnail URL (box/box-codegen[#642](https://github.com/box/box-dotnet-sdk-gen/issues/642)) ([#374](https://github.com/box/box-dotnet-sdk-gen/issues/374)) ([76b1513](https://github.com/box/box-dotnet-sdk-gen/commit/76b151371f405940eef5ef34fb00809c8f1d8f35))
+* Support optional `userId` parameter for updating files, folders and web links (box/box-openapi[#488](https://github.com/box/box-dotnet-sdk-gen/issues/488)) ([#340](https://github.com/box/box-dotnet-sdk-gen/issues/340)) ([fd1c597](https://github.com/box/box-dotnet-sdk-gen/commit/fd1c59739c5361ec4462d2597f504fa3cff5be17))
+
 ## [1.5.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.4.0...v1.5.0) (2024-12-04)
 
 
