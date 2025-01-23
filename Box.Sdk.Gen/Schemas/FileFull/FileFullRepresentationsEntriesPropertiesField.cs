@@ -20,14 +20,14 @@ namespace Box.Sdk.Gen.Schemas {
         /// pages.
         /// </summary>
         [JsonPropertyName("paged")]
-        public bool? Paged { get; init; }
+        public string? Paged { get; init; }
 
         /// <summary>
         /// Indicates if the representation can be used as a thumbnail of
         /// the file.
         /// </summary>
         [JsonPropertyName("thumb")]
-        public bool? Thumb { get; init; }
+        public string? Thumb { get; init; }
 
         public FileFullRepresentationsEntriesPropertiesField() {
             
