@@ -1,6 +1,7 @@
 using Box.Sdk.Gen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System;
 using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
@@ -88,7 +89,7 @@ namespace Box.Sdk.Gen.Managers {
         public async System.Threading.Tasks.Task<SignRequests> GetSignRequestsAsync(GetSignRequestsQueryParams? queryParams = default, GetSignRequestsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
             queryParams = queryParams ?? new GetSignRequestsQueryParams();
             headers = headers ?? new GetSignRequestsHeaders();
-            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) } });
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "marker", StringUtils.ToStringRepresentation(queryParams.Marker) }, { "limit", StringUtils.ToStringRepresentation(queryParams.Limit) }, { "senders", StringUtils.ToStringRepresentation(queryParams.Senders) }, { "shared_requests", StringUtils.ToStringRepresentation(queryParams.SharedRequests) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/sign_requests"), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Parameters = queryParamsMap, Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<SignRequests>(NullableUtils.Unwrap(response.Data));

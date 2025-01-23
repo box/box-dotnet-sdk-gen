@@ -20,11 +20,29 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("_isauto_expire_atSet")]
         protected bool _isAutoExpireAtSet { get; set; }
 
+        [JsonInclude]
+        [JsonPropertyName("_iscollaborator_levelSet")]
+        protected bool _isCollaboratorLevelSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_issender_emailSet")]
+        protected bool _isSenderEmailSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_issender_idSet")]
+        protected bool _isSenderIdSet { get; set; }
+
         protected string? _signatureColor { get; set; }
 
         protected string? _prepareUrl { get; set; }
 
         protected System.DateTimeOffset? _autoExpireAt { get; set; }
+
+        protected string? _collaboratorLevel { get; set; }
+
+        protected string? _senderEmail { get; set; }
+
+        protected long? _senderId { get; set; }
 
         /// <summary>
         /// object type
@@ -94,6 +112,24 @@ namespace Box.Sdk.Gen.Schemas {
 
         [JsonPropertyName("parent_folder")]
         public FolderMini? ParentFolder { get; init; }
+
+        /// <summary>
+        /// The collaborator level of the user to the sign request. Values can include "owner", "editor", and "viewer"
+        /// </summary>
+        [JsonPropertyName("collaborator_level")]
+        public string? CollaboratorLevel { get => _collaboratorLevel; init { _collaboratorLevel = value; _isCollaboratorLevelSet = true; } }
+
+        /// <summary>
+        /// The email address of the sender of the sign request.
+        /// </summary>
+        [JsonPropertyName("sender_email")]
+        public string? SenderEmail { get => _senderEmail; init { _senderEmail = value; _isSenderEmailSet = true; } }
+
+        /// <summary>
+        /// The user ID of the sender of the sign request.
+        /// </summary>
+        [JsonPropertyName("sender_id")]
+        public long? SenderId { get => _senderId; init { _senderId = value; _isSenderIdSet = true; } }
 
         public SignRequest() {
             
