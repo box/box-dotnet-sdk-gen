@@ -105,8 +105,11 @@ namespace Box.Sdk.Gen.Internal
                             throw new BoxSdkException($"Redirect response missing Location header for: {options.Url}");
                         }
 
+                        var originUri = new Uri(url);
+                        var redirectUri = new Uri(locationHeader.Value.First());
+                        var sameOrigin = originUri.Host == redirectUri.Host && originUri.Port == redirectUri.Port && originUri.Scheme == redirectUri.Scheme;
                         return await ((INetworkClient)this).FetchAsync(new FetchOptions(locationHeader.Value.First(), "GET", options.ContentType, options.ResponseFormat)
-                        { Auth = options.Auth, NetworkSession = networkSession }).ConfigureAwait(false);
+                        { Auth = sameOrigin ? options.Auth : null, NetworkSession = networkSession }).ConfigureAwait(false);
                     }
 
                     if (statusCode == 401)
