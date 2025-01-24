@@ -14,6 +14,8 @@
     - [Obtaining User token](#obtaining-user-token)
     - [Switching between Service Account and User](#switching-between-service-account-and-user)
   - [OAuth 2.0 Auth](#oauth-20-auth)
+- [Retrieve current access token](#retrieve-current-access-token)
+- [Refresh access token](#refresh-access-token)
 - [Revoke token](#revoke-token)
 - [Downscope token](#downscope-token)
 - [Token storage](#token-storage)
@@ -243,6 +245,28 @@ You need to provide the auth code to the SDK to obtain an access token, then you
 
 ```c#
 await auth.GetTokensAuthorizationCodeGrantAsync("code");
+```
+
+# Retrieve current access token
+
+After initializing the authentication object, the SDK will able to retrieve the access token.
+To retrieve the current access token you can use the following code:
+
+<!-- sample post_oauth2_token -->
+
+```c#
+await auth.RetrieveTokenAsync();
+```
+
+# Refresh access token
+
+Access tokens are short-lived and need to be refreshed periodically. The SDK will automatically refresh the token when needed.
+If you want to manually refresh the token, you can use the following code:
+
+<!-- sample post_oauth2_token refresh -->
+
+```c#
+await auth.RefreshTokenAsync();
 ```
 
 # Revoke token
