@@ -116,7 +116,7 @@ namespace Box.Sdk.Gen.Internal
         {
             return element.ValueKind switch
             {
-                JsonValueKind.Object => JsonSerializer.Deserialize<Dictionary<string, object>>(element.GetRawText()),
+                JsonValueKind.Object => ConvertJsonObject(element),
                 JsonValueKind.Array => ConvertJsonArray(element),
                 JsonValueKind.String => element.GetString(),
                 JsonValueKind.Number => element.TryGetInt32(out int intValue) ? (object)intValue : element.GetDouble(),
@@ -125,6 +125,18 @@ namespace Box.Sdk.Gen.Internal
                 JsonValueKind.Null => null,
                 _ => throw new JsonException($"Unexpected JsonValueKind: {element.ValueKind}")
             };
+        }
+
+        private static Dictionary<string, object?> ConvertJsonObject(JsonElement element)
+        {
+            var dict = new Dictionary<string, object?>();
+
+            foreach (var property in element.EnumerateObject())
+            {
+                dict[property.Name] = ConvertJsonElement(property.Value);
+            }
+
+            return dict;
         }
 
         private static List<object?> ConvertJsonArray(JsonElement element)

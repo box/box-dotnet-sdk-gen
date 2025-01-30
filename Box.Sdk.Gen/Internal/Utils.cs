@@ -333,14 +333,22 @@ namespace Box.Sdk.Gen.Internal
                 throw new Exception("Raw data is empty");
             }
 
-            if (rawData.TryGetValue(key, out object? objValue))
+            string[] keys = key.Split('.');
+            object? current = rawData;
+
+            foreach (string k in keys)
             {
-                return objValue;
+                if (current is Dictionary<string, object> dict && dict.TryGetValue(k, out object? next))
+                {
+                    current = next;
+                }
+                else
+                {
+                    throw new Exception("Key not found");
+                }
             }
-            else
-            {
-                throw new Exception("Key not found");
-            }
+
+            return current;
         }
     }
 }
