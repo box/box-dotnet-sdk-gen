@@ -14,6 +14,8 @@
     - [Obtaining User token](#obtaining-user-token)
     - [Switching between Service Account and User](#switching-between-service-account-and-user)
   - [OAuth 2.0 Auth](#oauth-20-auth)
+    - [Authentication with OAuth2](#authentication-with-oauth2)
+    - [Injecting existing token into BoxOAuth](#injecting-existing-token-into-boxoauth)
 - [Retrieve current access token](#retrieve-current-access-token)
 - [Refresh access token](#refresh-access-token)
 - [Revoke token](#revoke-token)
@@ -212,6 +214,8 @@ to authenticate as User with provided ID. The new token will be automatically fe
 
 ## OAuth 2.0 Auth
 
+### Authentication with OAuth2
+
 If your application needs to integrate with existing Box users who will provide
 their login credentials to grant your application access to their account, you
 will need to go through the standard OAuth2 login flow. A detailed guide for
@@ -251,9 +255,31 @@ await auth.GetTokensAuthorizationCodeGrantAsync("code");
 var client = new BoxClient(auth: auth);
 ```
 
+### Injecting existing token into BoxOAuth
+
+If you already have an access token and refresh token, you can initialize `BoxOAuth` with them.
+You can achieve this by feeding `BoxOAuth` with token storage containing the token.
+This can be useful when you want to reuse the token between runs of your application.
+
+```c#
+var accessToken = new AccessToken
+{
+    AccessTokenField = "<ACCESS_TOKEN>",
+    RefreshToken = "<REFRESH_TOKEN>"
+};
+var tokenStorage = new InMemoryTokenStorage();
+await tokenStorage.StoreAsync(accessToken);
+var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", tokenStorage: tokenStorage);
+var auth = new BoxOAuth(config: config);
+var client = new BoxClient(auth: auth);
+```
+
+Alternatively, you can create a custom implementation of `ITokenStorage` interface and pass it to the `BoxOAuth` object.
+See the [Custom storage](#custom-storage) section for more information.
+
 # Retrieve current access token
 
-After initializing the authentication object, the SDK will able to retrieve the access token.
+After initializing the authentication object, the SDK will be able to retrieve the access token.
 To retrieve the current access token you can use the following code:
 
 <!-- sample post_oauth2_token -->
@@ -343,6 +369,24 @@ and implements all of its abstract methods. Then, pass an instance of your class
 
 ```c#
 using Box.Sdk.Gen;
+
+class MyCustomTokenStorage : ITokenStorage
+{
+    public Task StoreAsync(AccessToken token)
+    {
+        // store token in your custom storage
+    }
+
+    public Task<AccessToken?> GetAsync()
+    {
+        // retrieve token from your custom storage
+    }
+
+    public Task ClearAsync()
+    {
+        // clear token from your custom storage
+    }
+}
 
 var config = new OAuthConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", tokenStorage: new MyCustomTokenStorage());
 var auth = new BoxOAuth(config: config)
