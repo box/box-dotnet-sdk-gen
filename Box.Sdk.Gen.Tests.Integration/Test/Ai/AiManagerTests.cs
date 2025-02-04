@@ -2,8 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen;
+using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 using Box.Sdk.Gen.Managers;
 
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestAskAiSingleItem() {
             FileFull fileToAsk = await new CommonsManager().UploadNewFileAsync();
-            AiResponseFull response = await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.SingleItemQa, prompt: "which direction sun rises", items: Array.AsReadOnly(new [] {new AiItemBase(id: fileToAsk.Id, type: AiItemBaseTypeField.File) { Content = "Sun rises in the East" }})));
+            AiResponseFull? response = await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.SingleItemQa, prompt: "which direction sun rises", items: Array.AsReadOnly(new [] {new AiItemAsk(id: fileToAsk.Id, type: AiItemAskTypeField.File) { Content = "Sun rises in the East" }})));
             Assert.IsTrue(response.Answer.Contains("East"));
             Assert.IsTrue(response.CompletionReason == "done");
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk.Id);
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public async System.Threading.Tasks.Task TestAskAiMultipleItems() {
             FileFull fileToAsk1 = await new CommonsManager().UploadNewFileAsync();
             FileFull fileToAsk2 = await new CommonsManager().UploadNewFileAsync();
-            AiResponseFull response = await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiItemBase(id: fileToAsk1.Id, type: AiItemBaseTypeField.File) { Content = "Earth goes around the sun" },new AiItemBase(id: fileToAsk2.Id, type: AiItemBaseTypeField.File) { Content = "Sun rises in the East in the morning" }})));
+            AiResponseFull? response = await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiItemAsk(id: fileToAsk1.Id, type: AiItemAskTypeField.File) { Content = "Earth goes around the sun" },new AiItemAsk(id: fileToAsk2.Id, type: AiItemAskTypeField.File) { Content = "Sun rises in the East in the morning" }})));
             Assert.IsTrue(response.Answer.Contains("East"));
             Assert.IsTrue(response.CompletionReason == "done");
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk1.Id);

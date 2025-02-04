@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// If you set `mode` parameter to `single_item_qa`, the `items` array can have one element only. 
         /// </summary>
         [JsonPropertyName("items")]
-        public IReadOnlyList<AiItemBase> Items { get; }
+        public IReadOnlyList<AiItemAsk> Items { get; }
 
         /// <summary>
         /// The history of prompts and answers previously passed to the LLM. This provides additional context to the LLM in generating the response.
@@ -46,14 +46,14 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("ai_agent")]
         public AiAgentAsk? AiAgent { get; init; }
 
-        public AiAsk(AiAskModeField mode, string prompt, IReadOnlyList<AiItemBase> items) {
+        public AiAsk(AiAskModeField mode, string prompt, IReadOnlyList<AiItemAsk> items) {
             Mode = mode;
             Prompt = prompt;
             Items = items;
         }
         
         [JsonConstructorAttribute]
-        internal AiAsk(StringEnum<AiAskModeField> mode, string prompt, IReadOnlyList<AiItemBase> items) {
+        internal AiAsk(StringEnum<AiAskModeField> mode, string prompt, IReadOnlyList<AiItemAsk> items) {
             Mode = mode;
             Prompt = prompt;
             Items = items;
