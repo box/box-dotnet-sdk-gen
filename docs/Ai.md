@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiItemBase(id: fileToAsk1.Id, type: AiItemBaseTypeField.File) { Content = "Earth goes around the sun" },new AiItemBase(id: fileToAsk2.Id, type: AiItemBaseTypeField.File) { Content = "Sun rises in the East in the morning" }})));
+await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.MultipleItemQa, prompt: "Which direction sun rises?", items: Array.AsReadOnly(new [] {new AiItemAsk(id: fileToAsk1.Id, type: AiItemAskTypeField.File) { Content = "Earth goes around the sun" },new AiItemAsk(id: fileToAsk2.Id, type: AiItemAskTypeField.File) { Content = "Sun rises in the East in the morning" }})));
 ```
 
 ### Arguments
@@ -33,9 +33,9 @@ await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.Mul
 
 ### Returns
 
-This function returns a value of type `AiResponseFull`.
+This function returns a value of type `AiResponseFull?`.
 
-A successful response including the answer from the LLM.
+A successful response including the answer from the LLM.No content is available to answer the question. This is returned when the request item is a hub, but content in the hubs is not indexed. To ensure content in the hub is indexed, make sure Box AI for Hubs in the Admin Console was enabled before hub creation.
 
 
 ## Generate text
