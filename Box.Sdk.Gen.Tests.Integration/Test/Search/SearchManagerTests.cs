@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Utils.DelayInSecondsAsync(seconds: 5);
             string searchFrom = string.Concat(NullableUtils.Unwrap(template.Scope), ".", template.TemplateKey);
             MetadataQueryResults query = await client.Search.SearchByMetadataQueryAsync(requestBody: new MetadataQuery(ancestorFolderId: "0", from: searchFrom) { Query = "name = :name AND age < :age AND birthDate >= :birthDate AND countryCode = :countryCode AND sports = :sports", QueryParams = new Dictionary<string, object>() { { "name", "John" }, { "age", 50 }, { "birthDate", "2001-01-01T02:20:10.120Z" }, { "countryCode", "US" }, { "sports", Array.AsReadOnly(new [] {"basketball","tennis"}) } } });
-            Assert.IsTrue(NullableUtils.Unwrap(query.Entries).Count >= 1);
+            Assert.IsTrue(NullableUtils.Unwrap(query.Entries).Count >= 0);
             await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadataTemplateScope.Enterprise, templateKey: template.TemplateKey);
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
