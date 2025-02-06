@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### New Features and Enhancements
 
 * Add Box Sign shared requests (box/box-openapi[#504](https://github.com/box/box-dotnet-sdk-gen/issues/504)) ([#384](https://github.com/box/box-dotnet-sdk-gen/issues/384)) ([d563886](https://github.com/box/box-dotnet-sdk-gen/commit/d563886f2a2f48a20df13600f9c25ff95198a56f))
-* Add hubs support to `/ai/ask` (box/box-codegen[#656](https://github.com/box/box-dotnet-sdk-gen/issues/656)) ([#397](https://github.com/box/box-dotnet-sdk-gen/issues/397)) ([32b6d03](https://github.com/box/box-dotnet-sdk-gen/commit/32b6d03aba97c18a8901efe98fc60c74e10197ce))
+* feat: Add hubs support to /ai/ask. Replace type of `Items` property from `IReadOnlyList<AiItemBase>` to `IReadOnlyList<AiItemAsk>` in the `AiAsk` class` (box/box-codegen[#656](https://github.com/box/box-dotnet-sdk-gen/issues/656)) ([#397](https://github.com/box/box-dotnet-sdk-gen/issues/397)) ([32b6d03](https://github.com/box/box-dotnet-sdk-gen/commit/32b6d03aba97c18a8901efe98fc60c74e10197ce))
 * Update `/ai/extract_structured` response schema (box/box-codegen[#641](https://github.com/box/box-dotnet-sdk-gen/issues/641)) ([#391](https://github.com/box/box-dotnet-sdk-gen/issues/391)) ([5f79a03](https://github.com/box/box-dotnet-sdk-gen/commit/5f79a03453b9339a26eb130113d8f55748f0d912))
 
 ## [1.6.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.5.0...v1.6.0) (2025-01-21)
