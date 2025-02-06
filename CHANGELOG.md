@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.6.0...v1.7.0) (2025-02-06)
+
+
+### Bug Fixes
+
+* Correct types of `paged` and `thumb` properties in File representation (box/box-openapi[#503](https://github.com/box/box-dotnet-sdk-gen/issues/503)) ([#383](https://github.com/box/box-dotnet-sdk-gen/issues/383)) ([d6995ad](https://github.com/box/box-dotnet-sdk-gen/commit/d6995ad8ffa4f2cceb8195ffbfb6606f934a671f))
+* Prevent `Authentication` header from being passed during cross-origin redirects (box/box-codegen[#648](https://github.com/box/box-dotnet-sdk-gen/issues/648)) ([#382](https://github.com/box/box-dotnet-sdk-gen/issues/382)) ([a64d373](https://github.com/box/box-dotnet-sdk-gen/commit/a64d373a935cd2a8e6f72184b8dc129a973e9d45))
+
+
+### New Features and Enhancements
+
+* Add Box Sign shared requests (box/box-openapi[#504](https://github.com/box/box-dotnet-sdk-gen/issues/504)) ([#384](https://github.com/box/box-dotnet-sdk-gen/issues/384)) ([d563886](https://github.com/box/box-dotnet-sdk-gen/commit/d563886f2a2f48a20df13600f9c25ff95198a56f))
+* Add hubs support to `/ai/ask` (box/box-codegen[#656](https://github.com/box/box-dotnet-sdk-gen/issues/656)) ([#397](https://github.com/box/box-dotnet-sdk-gen/issues/397)) ([32b6d03](https://github.com/box/box-dotnet-sdk-gen/commit/32b6d03aba97c18a8901efe98fc60c74e10197ce))
+* Update `/ai/extract_structured` response schema (box/box-codegen[#641](https://github.com/box/box-dotnet-sdk-gen/issues/641)) ([#391](https://github.com/box/box-dotnet-sdk-gen/issues/391)) ([5f79a03](https://github.com/box/box-dotnet-sdk-gen/commit/5f79a03453b9339a26eb130113d8f55748f0d912))
+
 ## [1.6.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.5.0...v1.6.0) (2025-01-21)
 
 
