@@ -85,7 +85,7 @@ See the endpoint docs at
 
 <!-- sample get_events -->
 ```
-await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs, Limit = 1, CreatedAfter = createdAfterDate, CreatedBefore = createdBeforeDate });
+await client.Events.GetEventsAsync();
 ```
 
 ### Arguments

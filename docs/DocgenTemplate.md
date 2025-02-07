@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample post_docgen_templates_v2025.0 -->
 ```
-await client.DocgenTemplate.CreateDocgenTemplateV2025R0Async(requestBody: new DocGenTemplateCreateRequestV2025R0(file: new FileReferenceV2025R0(id: uploadedFile.Id)));
+await client.DocgenTemplate.CreateDocgenTemplateV2025R0Async(requestBody: new DocGenTemplateCreateRequestV2025R0(file: new FileReferenceV2025R0(id: file.Id)));
 ```
 
 ### Arguments

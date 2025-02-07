@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-await client.Files.GetFileByIdAsync(fileId: fileId, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"is_associated_with_app_item"}) });
+await client.Files.GetFileByIdAsync(fileId: uploadedFile.Id, queryParams: new GetFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"is_externally_owned","has_collaborations"}) });
 ```
 
 ### Arguments
@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-await downscopedClient.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Name = Utils.GetUUID() });
+await client.Files.UpdateFileByIdAsync(fileId: fileToUpdate.Id, requestBody: new UpdateFileByIdRequestBody() { Name = updatedName, Description = "Updated description" });
 ```
 
 ### Arguments
@@ -100,7 +100,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-await parentClient.Files.DeleteFileByIdAsync(fileId: file.Id);
+await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
 ```
 
 ### Arguments

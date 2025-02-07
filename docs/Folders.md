@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-await client.Folders.GetFolderByIdAsync(folderId: folderId, queryParams: new GetFolderByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"is_associated_with_app_item"}) });
+await client.Folders.GetFolderByIdAsync(folderId: "0");
 ```
 
 ### Arguments
@@ -72,7 +72,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-await downscopedClient.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Name = Utils.GetUUID() });
+await client.Folders.UpdateFolderByIdAsync(folderId: folderToUpdate.Id, requestBody: new UpdateFolderByIdRequestBody() { Name = updatedName, Description = "Updated description" });
 ```
 
 ### Arguments
@@ -117,7 +117,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
+await client.Folders.DeleteFolderByIdAsync(folderId: newFolder.Id);
 ```
 
 ### Arguments
@@ -188,7 +188,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-await parentClient.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
+await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: newFolderName, parent: new CreateFolderRequestBodyParentField(id: "0")));
 ```
 
 ### Arguments

@@ -87,7 +87,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id -->
 ```
-await client.Groups.GetGroupByIdAsync(groupId: group.Id);
+await client.Groups.GetGroupByIdAsync(groupId: group.Id, queryParams: new GetGroupByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"id","name","description","group_type"}) });
 ```
 
 ### Arguments
