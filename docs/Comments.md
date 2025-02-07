@@ -153,7 +153,7 @@ See the endpoint docs at
 
 <!-- sample post_comments -->
 ```
-await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: NullableUtils.Unwrap(newComment.Id), type: CreateCommentRequestBodyItemTypeField.Comment)));
+await client.Comments.CreateCommentAsync(requestBody: new CreateCommentRequestBody(message: message, item: new CreateCommentRequestBodyItemField(id: fileId, type: CreateCommentRequestBodyItemTypeField.File)));
 ```
 
 ### Arguments

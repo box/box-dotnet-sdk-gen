@@ -82,7 +82,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_exempt_targets_id -->
 ```
-await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(exemptTarget.Id));
+await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetByIdAsync(collaborationWhitelistExemptTargetId: NullableUtils.Unwrap(newExemptTarget.Id));
 ```
 
 ### Arguments

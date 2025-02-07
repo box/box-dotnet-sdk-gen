@@ -81,7 +81,7 @@ See the endpoint docs at
 
 <!-- sample get_enterprises_id_device_pinners -->
 ```
-await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId, queryParams: new GetEnterpriseDevicePinnersQueryParams() { Direction = GetEnterpriseDevicePinnersQueryParamsDirectionField.Desc });
+await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId);
 ```
 
 ### Arguments

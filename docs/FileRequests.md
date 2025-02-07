@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_file_requests_id -->
 ```
-await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: updatedFileRequest.Id);
+await client.FileRequests.GetFileRequestByIdAsync(fileRequestId: fileRequestId);
 ```
 
 ### Arguments

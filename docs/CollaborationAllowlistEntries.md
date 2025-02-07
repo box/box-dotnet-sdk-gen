@@ -82,7 +82,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_entries_id -->
 ```
-await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(entry.Id));
+await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntryByIdAsync(collaborationWhitelistEntryId: NullableUtils.Unwrap(newEntry.Id));
 ```
 
 ### Arguments

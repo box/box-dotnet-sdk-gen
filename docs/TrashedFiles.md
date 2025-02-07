@@ -64,7 +64,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_trash -->
 ```
-await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: uploadedFile.Id);
+await client.TrashedFiles.GetTrashedFileByIdAsync(fileId: file.Id);
 ```
 
 ### Arguments

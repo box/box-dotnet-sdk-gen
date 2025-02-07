@@ -87,7 +87,7 @@ See the endpoint docs at
 
 <!-- sample delete_collaborations_id -->
 ```
-await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: groupCollaboration.Id);
+await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: collaborationId);
 ```
 
 ### Arguments
@@ -132,7 +132,7 @@ See the endpoint docs at
 
 <!-- sample post_collaborations -->
 ```
-await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.File, Id = file.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User) { Id = Utils.GetEnvVar(name: "USER_ID") }, role: CreateCollaborationRequestBodyRoleField.Editor));
+await client.UserCollaborations.CreateCollaborationAsync(requestBody: new CreateCollaborationRequestBody(item: new CreateCollaborationRequestBodyItemField() { Type = CreateCollaborationRequestBodyItemTypeField.Folder, Id = folder.Id }, accessibleBy: new CreateCollaborationRequestBodyAccessibleByField(type: CreateCollaborationRequestBodyAccessibleByTypeField.User) { Id = user.Id }, role: CreateCollaborationRequestBodyRoleField.Editor));
 ```
 
 ### Arguments

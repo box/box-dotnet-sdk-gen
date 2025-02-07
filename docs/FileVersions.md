@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_versions_id -->
 ```
-await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id, queryParams: new GetFileVersionByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"trashed_at","trashed_by","restored_at","restored_by"}) });
+await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId: NullableUtils.Unwrap(fileVersions.Entries)[0].Id);
 ```
 
 ### Arguments
