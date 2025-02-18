@@ -21,9 +21,9 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// The scope of the metadata template that can either be global or
-        /// enterprise. 
+        /// enterprise.
         /// * The **global** scope is used for templates that are
-        /// available to any Box enterprise. 
+        /// available to any Box enterprise.
         /// * The **enterprise** scope represents templates created within a specific enterprise,
         ///   containing the ID of that enterprise.
         /// </summary>

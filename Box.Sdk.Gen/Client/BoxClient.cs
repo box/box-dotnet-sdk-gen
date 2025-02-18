@@ -149,6 +149,8 @@ namespace Box.Sdk.Gen {
 
         public IAiManager Ai { get; }
 
+        public IAiStudioManager AiStudio { get; }
+
         public IDocgenTemplateManager DocgenTemplate { get; }
 
         public IDocgenManager Docgen { get; }
@@ -226,6 +228,7 @@ namespace Box.Sdk.Gen {
             SignTemplates = new SignTemplatesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             IntegrationMappings = new IntegrationMappingsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Ai = new AiManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            AiStudio = new AiStudioManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             DocgenTemplate = new DocgenTemplateManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Docgen = new DocgenManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
