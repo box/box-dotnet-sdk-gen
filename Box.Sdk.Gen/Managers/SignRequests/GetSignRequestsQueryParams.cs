@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Managers {
         public long? Limit { get; init; }
 
         /// <summary>
-        /// A list of sender emails to filter the signature requests by sender. 
+        /// A list of sender emails to filter the signature requests by sender.
         /// If provided, `shared_requests` must be set to `true`.
         /// </summary>
         public IReadOnlyList<string>? Senders { get; init; }

@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<AiExtractStructuredFieldsField>? Fields { get; init; }
 
         [JsonPropertyName("ai_agent")]
-        public AiAgentExtractStructured? AiAgent { get; init; }
+        public AiAgentExtractStructuredOrAiAgentReference? AiAgent { get; init; }
 
         public AiExtractStructured(IReadOnlyList<AiItemBase> items) {
             Items = items;

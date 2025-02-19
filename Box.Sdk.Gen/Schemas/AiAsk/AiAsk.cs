@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         /// **Note**: Box AI handles documents with text representations up to 1MB in size, or a maximum of 25 files, whichever comes first.
         /// If the file size exceeds 1MB, the first 1MB of text representation will be processed.
-        /// If you set `mode` parameter to `single_item_qa`, the `items` array can have one element only. 
+        /// If you set `mode` parameter to `single_item_qa`, the `items` array can have one element only.
         /// </summary>
         [JsonPropertyName("items")]
         public IReadOnlyList<AiItemAsk> Items { get; }
@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? IncludeCitations { get; init; }
 
         [JsonPropertyName("ai_agent")]
-        public AiAgentAsk? AiAgent { get; init; }
+        public AiAgentAskOrAiAgentReference? AiAgent { get; init; }
 
         public AiAsk(AiAskModeField mode, string prompt, IReadOnlyList<AiItemAsk> items) {
             Mode = mode;
