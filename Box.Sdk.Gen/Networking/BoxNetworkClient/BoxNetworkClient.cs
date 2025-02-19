@@ -327,6 +327,10 @@ namespace Box.Sdk.Gen.Internal
                 var response = await client.SendAsync(httpRequestMessage, completionOption, cancellationToken).ConfigureAwait(false);
                 return Result<HttpResponseMessage>.Ok(response);
             }
+            catch (TaskCanceledException ex)
+            {
+                return Result<HttpResponseMessage>.Fail(ex, isRetryable: false);
+            }
             catch (HttpRequestException ex)
             {
                 string pattern = @"status code\s*'(\d+)'";
