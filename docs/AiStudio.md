@@ -16,7 +16,10 @@ This operation is performed by calling function `GetAiAgents`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-ai-agents/).
 
-*Currently we don't have an example for calling `GetAiAgents` in integration tests*
+<!-- sample get_ai_agents -->
+```
+await client.AiStudio.GetAiAgentsAsync();
+```
 
 ### Arguments
 
@@ -44,11 +47,14 @@ This operation is performed by calling function `CreateAiAgent`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-agents/).
 
-*Currently we don't have an example for calling `CreateAiAgent` in integration tests*
+<!-- sample post_ai_agents -->
+```
+await client.AiStudio.CreateAiAgentAsync(requestBody: new CreateAiAgent(name: agentName, accessState: "enabled") { Ask = new AiStudioAgentAsk(accessState: "enabled", description: "desc1") });
+```
 
 ### Arguments
 
-- requestBody `CreateAiAgentAsync`
+- requestBody `CreateAiAgent`
   - Request body of createAiAgent method
 - headers `CreateAiAgentHeaders`
   - Headers of createAiAgent method
@@ -72,13 +78,16 @@ This operation is performed by calling function `UpdateAiAgentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-ai-agents-id/).
 
-*Currently we don't have an example for calling `UpdateAiAgentById` in integration tests*
+<!-- sample put_ai_agents_id -->
+```
+await client.AiStudio.UpdateAiAgentByIdAsync(agentId: createdAgent.Id, requestBody: new CreateAiAgent(name: agentName, accessState: "enabled") { Ask = new AiStudioAgentAsk(accessState: "disabled", description: "desc2") });
+```
 
 ### Arguments
 
 - agentId `string`
   - The ID of the agent to update. Example: "1234"
-- requestBody `CreateAiAgentAsync`
+- requestBody `CreateAiAgent`
   - Request body of updateAiAgentById method
 - headers `UpdateAiAgentByIdHeaders`
   - Headers of updateAiAgentById method
@@ -102,7 +111,10 @@ This operation is performed by calling function `GetAiAgentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-ai-agents-id/).
 
-*Currently we don't have an example for calling `GetAiAgentById` in integration tests*
+<!-- sample get_ai_agents_id -->
+```
+await client.AiStudio.GetAiAgentByIdAsync(agentId: createdAgent.Id, queryParams: new GetAiAgentByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"ask"}) });
+```
 
 ### Arguments
 
@@ -132,7 +144,10 @@ This operation is performed by calling function `DeleteAiAgentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-ai-agents-id/).
 
-*Currently we don't have an example for calling `DeleteAiAgentById` in integration tests*
+<!-- sample delete_ai_agents_id -->
+```
+await client.AiStudio.DeleteAiAgentByIdAsync(agentId: createdAgent.Id);
+```
 
 ### Arguments
 

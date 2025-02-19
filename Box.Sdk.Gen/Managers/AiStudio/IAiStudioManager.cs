@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Managers {
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<AiSingleAgentResponseFull> CreateAiAgentAsync(CreateAiAgentAsync requestBody, CreateAiAgentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<AiSingleAgentResponseFull> CreateAiAgentAsync(CreateAiAgent requestBody, CreateAiAgentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Updates an AI agent.
@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Managers {
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<AiSingleAgentResponseFull> UpdateAiAgentByIdAsync(string agentId, CreateAiAgentAsync requestBody, UpdateAiAgentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<AiSingleAgentResponseFull> UpdateAiAgentByIdAsync(string agentId, CreateAiAgent requestBody, UpdateAiAgentByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Gets an AI Agent using the `agent_id` parameter.
