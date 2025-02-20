@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.7.0...v1.8.0) (2025-02-20)
+
+
+### Bug Fixes
+
+* Do not retry HTTP request when `TaskCanceledException` is thrown (box/box-codegen[#665](https://github.com/box/box-dotnet-sdk-gen/issues/665)) ([#406](https://github.com/box/box-dotnet-sdk-gen/issues/406)) ([1af0a6a](https://github.com/box/box-dotnet-sdk-gen/commit/1af0a6aaf5f1e80f092ce506abe1cc01bf110bb8))
+
+
+### New Features and Enhancements
+
+* Support AI Studio API (box/box-codegen[#626](https://github.com/box/box-dotnet-sdk-gen/issues/626)) ([#409](https://github.com/box/box-dotnet-sdk-gen/issues/409)) ([9661450](https://github.com/box/box-dotnet-sdk-gen/commit/966145021d4a1dd450cd199cc9ed3e9457f5a141))
+
 ## [1.7.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.6.0...v1.7.0) (2025-02-06)
 
 
