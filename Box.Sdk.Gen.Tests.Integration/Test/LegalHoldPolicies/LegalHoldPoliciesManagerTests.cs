@@ -13,6 +13,20 @@ namespace Box.Sdk.Gen.Tests.Integration {
             client = new CommonsManager().GetDefaultClient();
         }
         [TestMethod]
+        public async System.Threading.Tasks.Task TestCreateNotOngoingLegalHoldPolicy() {
+            string legalHoldPolicyName = Utils.GetUUID();
+            const string legalHoldDescription = "test description";
+            System.DateTimeOffset filterStartedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00-08:00");
+            System.DateTimeOffset filterEndedAt = Utils.DateTimeFromString(dateTime: "2022-01-01T00:00:00-08:00");
+            LegalHoldPolicy legalHoldPolicy = await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBody(policyName: legalHoldPolicyName) { Description = legalHoldDescription, IsOngoing = false, FilterStartedAt = filterStartedAt, FilterEndedAt = filterEndedAt });
+            Assert.IsTrue(legalHoldPolicy.PolicyName == legalHoldPolicyName);
+            Assert.IsTrue(legalHoldPolicy.Description == legalHoldDescription);
+            Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(legalHoldPolicy.FilterStartedAt)) == Utils.DateTimeToString(dateTime: filterStartedAt));
+            Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(legalHoldPolicy.FilterEndedAt)) == Utils.DateTimeToString(dateTime: filterEndedAt));
+            await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicy.Id);
+        }
+
+        [TestMethod]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteLegalHoldPolicy() {
             string legalHoldPolicyName = Utils.GetUUID();
             const string legalHoldDescription = "test description";
@@ -28,20 +42,6 @@ namespace Box.Sdk.Gen.Tests.Integration {
             LegalHoldPolicy updatedLegalHoldPolicy = await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId, requestBody: new UpdateLegalHoldPolicyByIdRequestBody() { PolicyName = updatedLegalHoldPolicyName });
             Assert.IsTrue(updatedLegalHoldPolicy.PolicyName == updatedLegalHoldPolicyName);
             await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicyId);
-        }
-
-        [TestMethod]
-        public async System.Threading.Tasks.Task TestCreateNotOngoingLegalHoldPolicy() {
-            string legalHoldPolicyName = Utils.GetUUID();
-            const string legalHoldDescription = "test description";
-            System.DateTimeOffset filterStartedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00-08:00");
-            System.DateTimeOffset filterEndedAt = Utils.DateTimeFromString(dateTime: "2022-01-01T00:00:00-08:00");
-            LegalHoldPolicy legalHoldPolicy = await client.LegalHoldPolicies.CreateLegalHoldPolicyAsync(requestBody: new CreateLegalHoldPolicyRequestBody(policyName: legalHoldPolicyName) { Description = legalHoldDescription, IsOngoing = false, FilterStartedAt = filterStartedAt, FilterEndedAt = filterEndedAt });
-            Assert.IsTrue(legalHoldPolicy.PolicyName == legalHoldPolicyName);
-            Assert.IsTrue(legalHoldPolicy.Description == legalHoldDescription);
-            Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(legalHoldPolicy.FilterStartedAt)) == Utils.DateTimeToString(dateTime: filterStartedAt));
-            Assert.IsTrue(Utils.DateTimeToString(dateTime: NullableUtils.Unwrap(legalHoldPolicy.FilterEndedAt)) == Utils.DateTimeToString(dateTime: filterEndedAt));
-            await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicy.Id);
         }
 
     }

@@ -18,16 +18,29 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestMetadataTemplates() {
             string templateKey = string.Concat("key", Utils.GetUUID());
-            MetadataTemplate template = await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName")}) });
+            MetadataTemplate template = await client.MetadataTemplates.CreateMetadataTemplateAsync(requestBody: new CreateMetadataTemplateRequestBody(scope: "enterprise", displayName: templateKey) { TemplateKey = templateKey, Fields = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.String, key: "testName", displayName: "testName"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Float, key: "age", displayName: "age"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Date, key: "birthDate", displayName: "birthDate"),new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.Enum, key: "countryCode", displayName: "countryCode") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "US"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "CA")}) },new CreateMetadataTemplateRequestBodyFieldsField(type: CreateMetadataTemplateRequestBodyFieldsTypeField.MultiSelect, key: "sports", displayName: "sports") { Options = Array.AsReadOnly(new [] {new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "basketball"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "football"),new CreateMetadataTemplateRequestBodyFieldsOptionsField(key: "tennis")}) }}) });
             Assert.IsTrue(template.TemplateKey == templateKey);
             Assert.IsTrue(template.DisplayName == templateKey);
-            Assert.IsTrue(NullableUtils.Unwrap(template.Fields).Count == 1);
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields).Count == 5);
             Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[0].Key == "testName");
             Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[0].DisplayName == "testName");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(template.Fields)[0].Type) == "string");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[1].Key == "age");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[1].DisplayName == "age");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(template.Fields)[1].Type) == "float");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[2].Key == "birthDate");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[2].DisplayName == "birthDate");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(template.Fields)[2].Type) == "date");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[3].Key == "countryCode");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[3].DisplayName == "countryCode");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(template.Fields)[3].Type) == "enum");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[4].Key == "sports");
+            Assert.IsTrue(NullableUtils.Unwrap(template.Fields)[4].DisplayName == "sports");
+            Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(template.Fields)[4].Type) == "multiSelect");
             MetadataTemplate updatedTemplate = await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadataTemplateScope.Enterprise, templateKey: templateKey, requestBody: Array.AsReadOnly(new [] {new UpdateMetadataTemplateRequestBody(op: UpdateMetadataTemplateRequestBodyOpField.AddField) { FieldKey = "newfieldname", Data = new Dictionary<string, object>() { { "type", "string" }, { "displayName", "newFieldName" } } }}));
-            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields).Count == 2);
-            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[1].Key == "newfieldname");
-            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[1].DisplayName == "newFieldName");
+            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields).Count == 6);
+            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[5].Key == "newfieldname");
+            Assert.IsTrue(NullableUtils.Unwrap(updatedTemplate.Fields)[5].DisplayName == "newFieldName");
             MetadataTemplate getMetadataTemplate = await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template.Id);
             Assert.IsTrue(getMetadataTemplate.Id == template.Id);
             MetadataTemplate getMetadataTemplateSchema = await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTemplateScope.Enterprise, templateKey: NullableUtils.Unwrap(template.TemplateKey));
