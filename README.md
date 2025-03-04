@@ -2,7 +2,7 @@
   <img src="https://github.com/box/sdks/blob/master/images/box-dev-logo.png" alt= “box-dev-logo” width="30%" height="50%">
 </p>
 
-# Box Dotnet SDK GENERATED
+# Box Dotnet SDK Gen
 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 ![build](https://github.com/box/box-dotnet-sdk-gen/actions/workflows/build.yml/badge.svg)
@@ -28,7 +28,7 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Box Dotnet SDK GENERATED](#box-dotnet-sdk-generated)
+- [Box Dotnet SDK Gen](#box-dotnet-sdk-gen)
 - [Table of contents](#table-of-contents)
 - [Installing](#installing)
   - [BouncyCastle runtime integrity check](#bouncycastle-runtime-integrity-check)
