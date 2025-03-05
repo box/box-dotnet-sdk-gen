@@ -9,23 +9,23 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen {
 public interface ICommonsManager {
-    public BoxJwtAuth GetJwtAuth();
+    BoxJwtAuth GetJwtAuth();
 
-    public BoxClient GetDefaultClientWithUserSubject(string userId);
+    BoxClient GetDefaultClientWithUserSubject(string userId);
 
-    public BoxClient GetDefaultClient();
+    BoxClient GetDefaultClient();
 
-    public System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
+    System.Threading.Tasks.Task<FolderFull> CreateNewFolderAsync();
 
-    public System.Threading.Tasks.Task<FileFull> UploadNewFileAsync();
+    System.Threading.Tasks.Task<FileFull> UploadNewFileAsync();
 
-    public System.Threading.Tasks.Task<TermsOfService> GetOrCreateTermsOfServicesAsync();
+    System.Threading.Tasks.Task<TermsOfService> GetOrCreateTermsOfServicesAsync();
 
-    public System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate);
+    System.Threading.Tasks.Task<ClassificationTemplateFieldsOptionsField> GetOrCreateClassificationAsync(ClassificationTemplate classificationTemplate);
 
-    public System.Threading.Tasks.Task<ClassificationTemplate> GetOrCreateClassificationTemplateAsync();
+    System.Threading.Tasks.Task<ClassificationTemplate> GetOrCreateClassificationTemplateAsync();
 
-    public System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId);
+    System.Threading.Tasks.Task<ShieldInformationBarrier> GetOrCreateShieldInformationBarrierAsync(BoxClient client, string enterpriseId);
 
 }
 }
