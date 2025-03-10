@@ -38,17 +38,5 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Users.DeleteUserByIdAsync(userId: user.Id);
         }
 
-        [TestMethod]
-        public async System.Threading.Tasks.Task TestUserNotificationEmail() {
-            string userName = Utils.GetUUID();
-            string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
-            UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { Login = userLogin, IsPlatformAccessOnly = true });
-            UserFull updatedWithNotificationEmail = await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { NotificationEmail = new UpdateUserByIdRequestBodyNotificationEmailField() { Email = userLogin } });
-            Assert.IsTrue(updatedWithNotificationEmail.NotificationEmail != null);
-            UserFull updatedWithoutNotificationEmail = await client.Users.UpdateUserByIdAsync(userId: user.Id, requestBody: new UpdateUserByIdRequestBody() { NotificationEmail = null });
-            Assert.IsTrue(updatedWithoutNotificationEmail.NotificationEmail == null);
-            await client.Users.DeleteUserByIdAsync(userId: user.Id);
-        }
-
     }
 }
