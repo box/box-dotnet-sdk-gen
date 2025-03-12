@@ -5,7 +5,7 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class GetSharedItemAppItemsHeaders {
+    public class FindAppItemForSharedLinkHeaders {
         /// <summary>
         /// A header containing the shared link and optional password for the
         /// shared link.
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Managers {
         /// </summary>
         public Dictionary<string, string?> ExtraHeaders { get; }
 
-        public GetSharedItemAppItemsHeaders(string boxapi, Dictionary<string, string?>? extraHeaders = default) {
+        public FindAppItemForSharedLinkHeaders(string boxapi, Dictionary<string, string?>? extraHeaders = default) {
             Boxapi = boxapi;
             ExtraHeaders = extraHeaders ?? new Dictionary<string, string?>() {  };
         }
