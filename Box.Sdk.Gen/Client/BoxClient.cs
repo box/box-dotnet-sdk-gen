@@ -77,6 +77,8 @@ namespace Box.Sdk.Gen {
 
         public ISharedLinksWebLinksManager SharedLinksWebLinks { get; }
 
+        public ISharedLinksAppItemsManager SharedLinksAppItems { get; }
+
         public IUsersManager Users { get; }
 
         public ISessionTerminationManager SessionTermination { get; }
@@ -192,6 +194,7 @@ namespace Box.Sdk.Gen {
             WebLinks = new WebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             TrashedWebLinks = new TrashedWebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             SharedLinksWebLinks = new SharedLinksWebLinksManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            SharedLinksAppItems = new SharedLinksAppItemsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Users = new UsersManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             SessionTermination = new SessionTerminationManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Avatars = new AvatarsManager(networkSession: this.NetworkSession) { Auth = this.Auth };

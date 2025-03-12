@@ -75,6 +75,8 @@ namespace Box.Sdk.Gen {
 
         public ISharedLinksWebLinksManager SharedLinksWebLinks { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
+        public ISharedLinksAppItemsManager SharedLinksAppItems { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
+
         public IUsersManager Users { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
         public ISessionTerminationManager SessionTermination { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
