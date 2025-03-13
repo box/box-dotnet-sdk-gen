@@ -92,7 +92,10 @@ This operation is performed by calling function `UpdateSlackIntegrationMappingBy
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-integration-mappings-slack-id/).
 
-*Currently we don't have an example for calling `UpdateSlackIntegrationMappingById` in integration tests*
+<!-- sample put_integration_mappings_slack_id -->
+```
+await userClient.IntegrationMappings.UpdateSlackIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId, requestBody: new UpdateSlackIntegrationMappingByIdRequestBody() { BoxItem = new IntegrationMappingBoxItemSlack(id: "1234567") });
+```
 
 ### Arguments
 
@@ -126,7 +129,10 @@ This operation is performed by calling function `DeleteSlackIntegrationMappingBy
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-integration-mappings-slack-id/).
 
-*Currently we don't have an example for calling `DeleteSlackIntegrationMappingById` in integration tests*
+<!-- sample delete_integration_mappings_slack_id -->
+```
+await userClient.IntegrationMappings.DeleteSlackIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId);
+```
 
 ### Arguments
 
@@ -151,19 +157,22 @@ Lists [Teams integration mappings](https://support.box.com/hc/en-us/articles/360
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `GetIntegrationMappingTeams`.
+This operation is performed by calling function `GetTeamsIntegrationMapping`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-integration-mappings-teams/).
 
-*Currently we don't have an example for calling `GetIntegrationMappingTeams` in integration tests*
+<!-- sample get_integration_mappings_teams -->
+```
+await userClient.IntegrationMappings.GetTeamsIntegrationMappingAsync();
+```
 
 ### Arguments
 
-- queryParams `GetIntegrationMappingTeamsQueryParams`
-  - Query parameters of getIntegrationMappingTeams method
-- headers `GetIntegrationMappingTeamsHeaders`
-  - Headers of getIntegrationMappingTeams method
+- queryParams `GetTeamsIntegrationMappingQueryParams`
+  - Query parameters of getTeamsIntegrationMapping method
+- headers `GetTeamsIntegrationMappingHeaders`
+  - Headers of getTeamsIntegrationMapping method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -182,19 +191,22 @@ by mapping a Teams channel to a Box item.
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `CreateIntegrationMappingTeams`.
+This operation is performed by calling function `CreateTeamsIntegrationMapping`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-integration-mappings-teams/).
 
-*Currently we don't have an example for calling `CreateIntegrationMappingTeams` in integration tests*
+<!-- sample post_integration_mappings_teams -->
+```
+await userClient.IntegrationMappings.CreateTeamsIntegrationMappingAsync(requestBody: new IntegrationMappingTeamsCreateRequest(partnerItem: new IntegrationMappingPartnerItemTeamsCreateRequest(type: IntegrationMappingPartnerItemTeamsCreateRequestTypeField.Channel, id: partnerItemId, tenantId: tenantId, teamId: teamId), boxItem: new FolderReference(id: folder.Id)));
+```
 
 ### Arguments
 
 - requestBody `IntegrationMappingTeamsCreateRequest`
-  - Request body of createIntegrationMappingTeams method
-- headers `CreateIntegrationMappingTeamsHeaders`
-  - Headers of createIntegrationMappingTeams method
+  - Request body of createTeamsIntegrationMapping method
+- headers `CreateTeamsIntegrationMappingHeaders`
+  - Headers of createTeamsIntegrationMapping method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -213,21 +225,24 @@ Supports updating the Box folder ID and options.
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `UpdateIntegrationMappingTeamsById`.
+This operation is performed by calling function `UpdateTeamsIntegrationMappingById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-integration-mappings-teams-id/).
 
-*Currently we don't have an example for calling `UpdateIntegrationMappingTeamsById` in integration tests*
+<!-- sample put_integration_mappings_teams_id -->
+```
+await userClient.IntegrationMappings.UpdateTeamsIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId, requestBody: new UpdateTeamsIntegrationMappingByIdRequestBody() { BoxItem = new FolderReference(id: "1234567") });
+```
 
 ### Arguments
 
 - integrationMappingId `string`
   - An ID of an integration mapping Example: "11235432"
-- requestBody `UpdateIntegrationMappingTeamsByIdRequestBody`
-  - Request body of updateIntegrationMappingTeamsById method
-- headers `UpdateIntegrationMappingTeamsByIdHeaders`
-  - Headers of updateIntegrationMappingTeamsById method
+- requestBody `UpdateTeamsIntegrationMappingByIdRequestBody`
+  - Request body of updateTeamsIntegrationMappingById method
+- headers `UpdateTeamsIntegrationMappingByIdHeaders`
+  - Headers of updateTeamsIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
@@ -245,19 +260,22 @@ Deletes a [Teams integration mapping](https://support.box.com/hc/en-us/articles/
 You need Admin or Co-Admin role to
 use this endpoint.
 
-This operation is performed by calling function `DeleteIntegrationMappingTeamsById`.
+This operation is performed by calling function `DeleteTeamsIntegrationMappingById`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-integration-mappings-teams-id/).
 
-*Currently we don't have an example for calling `DeleteIntegrationMappingTeamsById` in integration tests*
+<!-- sample delete_integration_mappings_teams_id -->
+```
+await userClient.IntegrationMappings.DeleteTeamsIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId);
+```
 
 ### Arguments
 
 - integrationMappingId `string`
   - An ID of an integration mapping Example: "11235432"
-- headers `DeleteIntegrationMappingTeamsByIdHeaders`
-  - Headers of deleteIntegrationMappingTeamsById method
+- headers `DeleteTeamsIntegrationMappingByIdHeaders`
+  - Headers of deleteTeamsIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 
