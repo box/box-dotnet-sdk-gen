@@ -12,12 +12,12 @@ namespace Box.Sdk.Gen.Managers {
     /// The link can originate from the current enterprise or another.
     /// </summary>
     /// <param name="headers">
-    /// Headers of getSharedItemAppItems method
+    /// Headers of findAppItemForSharedLink method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<AppItem> GetSharedItemAppItemsAsync(GetSharedItemAppItemsHeaders headers, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<AppItem> FindAppItemForSharedLinkAsync(FindAppItemForSharedLinkHeaders headers, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
