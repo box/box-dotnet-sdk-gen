@@ -49,6 +49,7 @@ the SDK are available by topic:
 * [Retention policy assignments](RetentionPolicyAssignments.md)
 * [Search](Search.md)
 * [Session termination](SessionTermination.md)
+* [Shared links app items](SharedLinksAppItems.md)
 * [Shared links files](SharedLinksFiles.md)
 * [Shared links folders](SharedLinksFolders.md)
 * [Shared links web links](SharedLinksWebLinks.md)
