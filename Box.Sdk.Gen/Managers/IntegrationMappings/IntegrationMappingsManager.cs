@@ -118,17 +118,17 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="queryParams">
-        /// Query parameters of getIntegrationMappingTeams method
+        /// Query parameters of getTeamsIntegrationMapping method
         /// </param>
         /// <param name="headers">
-        /// Headers of getIntegrationMappingTeams method
+        /// Headers of getTeamsIntegrationMapping method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<IntegrationMappingsTeams> GetIntegrationMappingTeamsAsync(GetIntegrationMappingTeamsQueryParams? queryParams = default, GetIntegrationMappingTeamsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            queryParams = queryParams ?? new GetIntegrationMappingTeamsQueryParams();
-            headers = headers ?? new GetIntegrationMappingTeamsHeaders();
+        public async System.Threading.Tasks.Task<IntegrationMappingsTeams> GetTeamsIntegrationMappingAsync(GetTeamsIntegrationMappingQueryParams? queryParams = default, GetTeamsIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new GetTeamsIntegrationMappingQueryParams();
+            headers = headers ?? new GetTeamsIntegrationMappingHeaders();
             Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "partner_item_type", StringUtils.ToStringRepresentation(queryParams.PartnerItemType) }, { "partner_item_id", StringUtils.ToStringRepresentation(queryParams.PartnerItemId) }, { "box_item_id", StringUtils.ToStringRepresentation(queryParams.BoxItemId) }, { "box_item_type", StringUtils.ToStringRepresentation(queryParams.BoxItemType) } });
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/integration_mappings/teams"), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Parameters = queryParamsMap, Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
@@ -142,16 +142,16 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="requestBody">
-        /// Request body of createIntegrationMappingTeams method
+        /// Request body of createTeamsIntegrationMapping method
         /// </param>
         /// <param name="headers">
-        /// Headers of createIntegrationMappingTeams method
+        /// Headers of createTeamsIntegrationMapping method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<IntegrationMappingTeams> CreateIntegrationMappingTeamsAsync(IntegrationMappingTeamsCreateRequest requestBody, CreateIntegrationMappingTeamsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateIntegrationMappingTeamsHeaders();
+        public async System.Threading.Tasks.Task<IntegrationMappingTeams> CreateTeamsIntegrationMappingAsync(IntegrationMappingTeamsCreateRequest requestBody, CreateTeamsIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new CreateTeamsIntegrationMappingHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/integration_mappings/teams"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<IntegrationMappingTeams>(NullableUtils.Unwrap(response.Data));
@@ -168,17 +168,17 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "11235432"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of updateIntegrationMappingTeamsById method
+        /// Request body of updateTeamsIntegrationMappingById method
         /// </param>
         /// <param name="headers">
-        /// Headers of updateIntegrationMappingTeamsById method
+        /// Headers of updateTeamsIntegrationMappingById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<IntegrationMappingTeams> UpdateIntegrationMappingTeamsByIdAsync(string integrationMappingId, UpdateIntegrationMappingTeamsByIdRequestBody? requestBody = default, UpdateIntegrationMappingTeamsByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            requestBody = requestBody ?? new UpdateIntegrationMappingTeamsByIdRequestBody();
-            headers = headers ?? new UpdateIntegrationMappingTeamsByIdHeaders();
+        public async System.Threading.Tasks.Task<IntegrationMappingTeams> UpdateTeamsIntegrationMappingByIdAsync(string integrationMappingId, UpdateTeamsIntegrationMappingByIdRequestBody? requestBody = default, UpdateTeamsIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            requestBody = requestBody ?? new UpdateTeamsIntegrationMappingByIdRequestBody();
+            headers = headers ?? new UpdateTeamsIntegrationMappingByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/integration_mappings/teams/", StringUtils.ToStringRepresentation(integrationMappingId)), method: "PUT", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<IntegrationMappingTeams>(NullableUtils.Unwrap(response.Data));
@@ -194,13 +194,13 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "11235432"
         /// </param>
         /// <param name="headers">
-        /// Headers of deleteIntegrationMappingTeamsById method
+        /// Headers of deleteTeamsIntegrationMappingById method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task DeleteIntegrationMappingTeamsByIdAsync(string integrationMappingId, DeleteIntegrationMappingTeamsByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new DeleteIntegrationMappingTeamsByIdHeaders();
+        public async System.Threading.Tasks.Task DeleteTeamsIntegrationMappingByIdAsync(string integrationMappingId, DeleteTeamsIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new DeleteTeamsIntegrationMappingByIdHeaders();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/integration_mappings/teams/", StringUtils.ToStringRepresentation(integrationMappingId)), method: "DELETE", responseFormat: Box.Sdk.Gen.ResponseFormat.NoContent) { Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
         }

@@ -6,11 +6,11 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class GetIntegrationMappingTeamsQueryParams {
+    public class GetTeamsIntegrationMappingQueryParams {
         /// <summary>
         /// Mapped item type, for which the mapping should be returned
         /// </summary>
-        public StringEnum<GetIntegrationMappingTeamsQueryParamsPartnerItemTypeField>? PartnerItemType { get; init; }
+        public StringEnum<GetTeamsIntegrationMappingQueryParamsPartnerItemTypeField>? PartnerItemType { get; init; }
 
         /// <summary>
         /// ID of the mapped item, for which the mapping should be returned
@@ -25,9 +25,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// Box item type, for which the mappings should be returned
         /// </summary>
-        public StringEnum<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField>? BoxItemType { get; init; }
+        public StringEnum<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField>? BoxItemType { get; init; }
 
-        public GetIntegrationMappingTeamsQueryParams() {
+        public GetTeamsIntegrationMappingQueryParams() {
             
         }
     }
