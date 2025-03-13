@@ -6,11 +6,11 @@ using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Managers {
-    public class UpdateIntegrationMappingTeamsByIdRequestBody : ISerializable {
+    public class UpdateTeamsIntegrationMappingByIdRequestBody : ISerializable {
         [JsonPropertyName("box_item")]
         public FolderReference? BoxItem { get; init; }
 
-        public UpdateIntegrationMappingTeamsByIdRequestBody() {
+        public UpdateTeamsIntegrationMappingByIdRequestBody() {
             
         }
         internal string? RawJson { get; set; } = default;

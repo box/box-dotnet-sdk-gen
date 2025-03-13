@@ -89,15 +89,15 @@ namespace Box.Sdk.Gen.Managers {
     /// use this endpoint.
     /// </summary>
     /// <param name="queryParams">
-    /// Query parameters of getIntegrationMappingTeams method
+    /// Query parameters of getTeamsIntegrationMapping method
     /// </param>
     /// <param name="headers">
-    /// Headers of getIntegrationMappingTeams method
+    /// Headers of getTeamsIntegrationMapping method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<IntegrationMappingsTeams> GetIntegrationMappingTeamsAsync(GetIntegrationMappingTeamsQueryParams? queryParams = default, GetIntegrationMappingTeamsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<IntegrationMappingsTeams> GetTeamsIntegrationMappingAsync(GetTeamsIntegrationMappingQueryParams? queryParams = default, GetTeamsIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Creates a [Teams integration mapping](https://support.box.com/hc/en-us/articles/360044681474-Using-Box-for-Teams)
@@ -106,15 +106,15 @@ namespace Box.Sdk.Gen.Managers {
     /// use this endpoint.
     /// </summary>
     /// <param name="requestBody">
-    /// Request body of createIntegrationMappingTeams method
+    /// Request body of createTeamsIntegrationMapping method
     /// </param>
     /// <param name="headers">
-    /// Headers of createIntegrationMappingTeams method
+    /// Headers of createTeamsIntegrationMapping method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<IntegrationMappingTeams> CreateIntegrationMappingTeamsAsync(IntegrationMappingTeamsCreateRequest requestBody, CreateIntegrationMappingTeamsHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<IntegrationMappingTeams> CreateTeamsIntegrationMappingAsync(IntegrationMappingTeamsCreateRequest requestBody, CreateTeamsIntegrationMappingHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Updates a [Teams integration mapping](https://support.box.com/hc/en-us/articles/360044681474-Using-Box-for-Teams).
@@ -127,15 +127,15 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "11235432"
     /// </param>
     /// <param name="requestBody">
-    /// Request body of updateIntegrationMappingTeamsById method
+    /// Request body of updateTeamsIntegrationMappingById method
     /// </param>
     /// <param name="headers">
-    /// Headers of updateIntegrationMappingTeamsById method
+    /// Headers of updateTeamsIntegrationMappingById method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<IntegrationMappingTeams> UpdateIntegrationMappingTeamsByIdAsync(string integrationMappingId, UpdateIntegrationMappingTeamsByIdRequestBody? requestBody = default, UpdateIntegrationMappingTeamsByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<IntegrationMappingTeams> UpdateTeamsIntegrationMappingByIdAsync(string integrationMappingId, UpdateTeamsIntegrationMappingByIdRequestBody? requestBody = default, UpdateTeamsIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
     /// Deletes a [Teams integration mapping](https://support.box.com/hc/en-us/articles/360044681474-Using-Box-for-Teams).
@@ -147,12 +147,12 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "11235432"
     /// </param>
     /// <param name="headers">
-    /// Headers of deleteIntegrationMappingTeamsById method
+    /// Headers of deleteTeamsIntegrationMappingById method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task DeleteIntegrationMappingTeamsByIdAsync(string integrationMappingId, DeleteIntegrationMappingTeamsByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task DeleteTeamsIntegrationMappingByIdAsync(string integrationMappingId, DeleteTeamsIntegrationMappingByIdHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
