@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// An object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </summary>
-        internal ITokenStorage TokenStorage { get; }
+        public ITokenStorage TokenStorage { get; }
 
         /// <summary>
         /// The ID of the user or enterprise to authenticate as. If not provided, defaults to the enterprise ID if set, otherwise defaults to the user ID.

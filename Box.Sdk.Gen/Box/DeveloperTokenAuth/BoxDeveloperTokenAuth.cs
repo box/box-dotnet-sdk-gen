@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen {
         /// <summary>
         /// An object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </summary>
-        internal ITokenStorage TokenStorage { get; }
+        public ITokenStorage TokenStorage { get; }
 
         public BoxDeveloperTokenAuth(string token, DeveloperTokenConfig? config = default) {
             Token = token;
