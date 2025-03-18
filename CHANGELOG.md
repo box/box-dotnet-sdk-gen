@@ -7,13 +7,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* add `verification_phone_number` property to create sign request (box/box-openapi[#515](https://github.com/box/box-dotnet-sdk-gen/issues/515)) ([#427](https://github.com/box/box-dotnet-sdk-gen/issues/427)) ([d90faea](https://github.com/box/box-dotnet-sdk-gen/commit/d90faea77650a37ce794a93c51bd9a8eb91f619c))
+* Add `verification_phone_number` property to create sign request (box/box-openapi[#515](https://github.com/box/box-dotnet-sdk-gen/issues/515)) ([#427](https://github.com/box/box-dotnet-sdk-gen/issues/427)) ([d90faea](https://github.com/box/box-dotnet-sdk-gen/commit/d90faea77650a37ce794a93c51bd9a8eb91f619c))
 
 
 ### New Features and Enhancements
 
-* add find app item for shared link endpoint (box/box-openapi[#514](https://github.com/box/box-dotnet-sdk-gen/issues/514)) ([#426](https://github.com/box/box-dotnet-sdk-gen/issues/426)) ([4dc5dc1](https://github.com/box/box-dotnet-sdk-gen/commit/4dc5dc14e3c204c537180df166d07735ae1c4e40))
-* add Integration Mappings Teams API (box/box-openapi[#517](https://github.com/box/box-dotnet-sdk-gen/issues/517)) ([#429](https://github.com/box/box-dotnet-sdk-gen/issues/429)) ([92063c4](https://github.com/box/box-dotnet-sdk-gen/commit/92063c435d7cb38a7eeca2e71f42e32b995a659a))
+* Add find app item for shared link endpoint (box/box-openapi[#514](https://github.com/box/box-dotnet-sdk-gen/issues/514)) ([#426](https://github.com/box/box-dotnet-sdk-gen/issues/426)) ([4dc5dc1](https://github.com/box/box-dotnet-sdk-gen/commit/4dc5dc14e3c204c537180df166d07735ae1c4e40))
+* Add Integration Mappings Teams API (box/box-openapi[#517](https://github.com/box/box-dotnet-sdk-gen/issues/517)) ([#429](https://github.com/box/box-dotnet-sdk-gen/issues/429)) ([92063c4](https://github.com/box/box-dotnet-sdk-gen/commit/92063c435d7cb38a7eeca2e71f42e32b995a659a))
 * Expose token storage for authentication classes (box/box-codegen[#682](https://github.com/box/box-dotnet-sdk-gen/issues/682)) ([#435](https://github.com/box/box-dotnet-sdk-gen/issues/435)) ([413058e](https://github.com/box/box-dotnet-sdk-gen/commit/413058e78cb69c89be6a819c0e63f9457bd7f2f5))
 
 ## [1.8.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.7.0...v1.8.0) (2025-02-20)
