@@ -26,6 +26,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await userClient.SharedLinksFolders.FindFolderForSharedLinkAsync(queryParams: new FindFolderForSharedLinkQueryParams(), headers: new FindFolderForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(folderFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))));
             FolderFull updatedFolder = await client.SharedLinksFolders.UpdateSharedLinkOnFolderAsync(folderId: folder.Id, requestBody: new UpdateSharedLinkOnFolderRequestBody() { SharedLink = new UpdateSharedLinkOnFolderRequestBodySharedLinkField() { Access = UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnFolderQueryParams(fields: "shared_link"));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(updatedFolder.SharedLink).Access) == "collaborators");
+            await client.SharedLinksFolders.RemoveSharedLinkFromFolderAsync(folderId: folder.Id, requestBody: new RemoveSharedLinkFromFolderRequestBody() { SharedLink = null }, queryParams: new RemoveSharedLinkFromFolderQueryParams(fields: "shared_link"));
+            FolderFull folderFromApiAfterRemove = await client.SharedLinksFolders.GetSharedLinkForFolderAsync(folderId: folder.Id, queryParams: new GetSharedLinkForFolderQueryParams(fields: "shared_link"));
+            Assert.IsTrue(folderFromApiAfterRemove.SharedLink == null);
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 

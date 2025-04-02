@@ -160,7 +160,10 @@ This operation is performed by calling function `RemoveSharedLinkFromFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id--remove-shared-link/).
 
-*Currently we don't have an example for calling `RemoveSharedLinkFromFolder` in integration tests*
+<!-- sample put_folders_id#remove_shared_link -->
+```
+await client.SharedLinksFolders.RemoveSharedLinkFromFolderAsync(folderId: folder.Id, requestBody: new RemoveSharedLinkFromFolderRequestBody() { SharedLink = null }, queryParams: new RemoveSharedLinkFromFolderQueryParams(fields: "shared_link"));
+```
 
 ### Arguments
 
