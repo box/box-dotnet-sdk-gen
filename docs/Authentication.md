@@ -173,9 +173,6 @@ using Box.Sdk.Gen;
 var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET") { EnterpriseId: "YOUR_ENTERPRISE_ID" };
 var auth = new BoxCcgAuth(config: config);
 var client = new BoxClient(auth: auth);
-
-var auth = new BoxCcgAuth(config: config);
-var client = new BoxClient(auth: auth);
 ```
 
 ### Obtaining User token
