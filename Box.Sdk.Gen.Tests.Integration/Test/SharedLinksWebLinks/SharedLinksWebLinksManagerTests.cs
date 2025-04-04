@@ -28,6 +28,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await userClient.SharedLinksWebLinks.FindWebLinkForSharedLinkAsync(queryParams: new FindWebLinkForSharedLinkQueryParams(), headers: new FindWebLinkForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(webLinkFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))));
             WebLink updatedWebLink = await client.SharedLinksWebLinks.UpdateSharedLinkOnWebLinkAsync(webLinkId: webLinkId, requestBody: new UpdateSharedLinkOnWebLinkRequestBody() { SharedLink = new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField() { Access = UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnWebLinkQueryParams(fields: "shared_link"));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(updatedWebLink.SharedLink).Access) == "collaborators");
+            await client.SharedLinksWebLinks.RemoveSharedLinkFromWebLinkAsync(webLinkId: webLinkId, requestBody: new RemoveSharedLinkFromWebLinkRequestBody() { SharedLink = null }, queryParams: new RemoveSharedLinkFromWebLinkQueryParams(fields: "shared_link"));
+            WebLink webLinkFromApiAfterRemove = await client.SharedLinksWebLinks.GetSharedLinkForWebLinkAsync(webLinkId: webLinkId, queryParams: new GetSharedLinkForWebLinkQueryParams(fields: "shared_link"));
+            Assert.IsTrue(webLinkFromApiAfterRemove.SharedLink == null);
             await client.WebLinks.DeleteWebLinkByIdAsync(webLinkId: webLinkId);
         }
 

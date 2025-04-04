@@ -27,6 +27,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await userClient.SharedLinksFiles.FindFileForSharedLinkAsync(queryParams: new FindFileForSharedLinkQueryParams(), headers: new FindFileForSharedLinkHeaders(boxapi: string.Concat("shared_link=", NullableUtils.Unwrap(fileFromApi.SharedLink).Url, "&shared_link_password=incorrectPassword"))));
             FileFull updatedFile = await client.SharedLinksFiles.UpdateSharedLinkOnFileAsync(fileId: fileId, requestBody: new UpdateSharedLinkOnFileRequestBody() { SharedLink = new UpdateSharedLinkOnFileRequestBodySharedLinkField() { Access = UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.Collaborators } }, queryParams: new UpdateSharedLinkOnFileQueryParams(fields: "shared_link"));
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(updatedFile.SharedLink).Access) == "collaborators");
+            await client.SharedLinksFiles.RemoveSharedLinkFromFileAsync(fileId: fileId, requestBody: new RemoveSharedLinkFromFileRequestBody() { SharedLink = null }, queryParams: new RemoveSharedLinkFromFileQueryParams(fields: "shared_link"));
+            FileFull fileFromApiAfterRemove = await client.SharedLinksFiles.GetSharedLinkForFileAsync(fileId: fileId, queryParams: new GetSharedLinkForFileQueryParams(fields: "shared_link"));
+            Assert.IsTrue(fileFromApiAfterRemove.SharedLink == null);
             await client.Files.DeleteFileByIdAsync(fileId: fileId);
         }
 
