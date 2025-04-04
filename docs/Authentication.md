@@ -170,7 +170,7 @@ To obtain service account you will have to provide enterprise ID with client id 
 ```c#
 using Box.Sdk.Gen;
 
-var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", enterpriseId: "YOUR_ENTERPRISE_ID");
+var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET") { EnterpriseId: "YOUR_ENTERPRISE_ID" };
 var auth = new BoxCcgAuth(config: config);
 var client = new BoxClient(auth: auth);
 
@@ -189,7 +189,7 @@ To obtain user account you will have to provide user ID with client id and secre
 ```c#
 using Box.Sdk.Gen;
 
-var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", userId: "YOUR_USER_ID");
+var config = new CcgConfig(clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET") { UserId: "YOUR_USER_ID" };
 var auth = new BoxCcgAuth(config: config);
 var client = new BoxClient(auth: auth);
 ```
