@@ -163,7 +163,10 @@ This operation is performed by calling function `RemoveSharedLinkFromFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id--remove-shared-link/).
 
-*Currently we don't have an example for calling `RemoveSharedLinkFromFile` in integration tests*
+<!-- sample put_files_id#remove_shared_link -->
+```
+await client.SharedLinksFiles.RemoveSharedLinkFromFileAsync(fileId: fileId, requestBody: new RemoveSharedLinkFromFileRequestBody() { SharedLink = null }, queryParams: new RemoveSharedLinkFromFileQueryParams(fields: "shared_link"));
+```
 
 ### Arguments
 
