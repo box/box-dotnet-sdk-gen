@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen
 {
@@ -21,6 +23,24 @@ namespace Box.Sdk.Gen
             Url = url ?? "";
             QueryParams = queryParams ?? new ReadOnlyDictionary<string, string>(new Dictionary<string, string>());
             Headers = headers;
+        }
+
+        internal string Print(DataSanitizer dataSanitizer)
+        {
+            string queryParamsString = QueryParams.Count > 0
+                ? string.Join(", ", QueryParams.Select(kvp => $"{kvp.Key}: {kvp.Value}"))
+                : "None";
+
+            string headersString = Headers.Count > 0
+                ? string.Join(", ", dataSanitizer.SanitizeHeaders(new Dictionary<string, string>(Headers)).Select(kvp => $"{kvp.Key}: {kvp.Value}"))
+                : "None";
+
+            return $"RequestInfo:\n" +
+                   $"\tMethod: {Method}\n" +
+                   $"\tURL: {Url}\n" +
+                   $"\tQuery Params: {queryParamsString}\n" +
+                   $"\tHeaders: {headersString}\n" +
+                   $"\tBody: {(string.IsNullOrEmpty(Body) ? "None" : Body)}";
         }
     }
 }

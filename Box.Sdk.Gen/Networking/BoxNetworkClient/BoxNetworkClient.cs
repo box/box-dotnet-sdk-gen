@@ -259,7 +259,9 @@ namespace Box.Sdk.Gen.Internal
             var responseInfo = new ResponseInfo(statusCode, responseHeaders, responseAsSerializedData, responseContent, errorDetails.Code, errorDetails.ContextInfo,
                 errorDetails.RequestId, errorDetails.HelpUrl);
 
-            return new BoxApiException(responseContent, DateTimeOffset.UtcNow, requestInfo, responseInfo);
+            var dataSanitizer = options.NetworkSession?.DataSanitizer ?? new DataSanitizer();
+
+            return new BoxApiException(responseContent, DateTimeOffset.UtcNow, requestInfo, responseInfo) {DataSanitizer = dataSanitizer};
         }
 
         private static async Task<HttpRequestMessage> BuildHttpRequest(FetchOptions options, Stream? stream)

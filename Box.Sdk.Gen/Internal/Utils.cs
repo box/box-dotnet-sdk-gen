@@ -350,5 +350,25 @@ namespace Box.Sdk.Gen.Internal
 
             return current;
         }
+
+        /// <summary>
+        /// Returns a string replacement for sensitive data.
+        /// </summary>
+        /// <returns>A string replacement for sensitive data.</returns>
+        internal static string SanitizedValue() => "---[redacted]---";
+
+        /// <summary>
+        /// Sanitizes a dictionary from sensitive data.
+        /// </summary>
+        /// <param name="mapToSanitize">Dictionary to sanitize.</param>
+        /// <param name="keysToSanitize">Keys to sanitize.</param>
+        /// <returns>Sanitized dictionary.</returns>
+        internal static Dictionary<string, string> SanitizeMap(Dictionary<string, string> mapToSanitize, Dictionary<string, string> keysToSanitize)
+        {
+            return mapToSanitize.ToDictionary(kvp => kvp.Key,
+                kvp => keysToSanitize.ContainsKey(kvp.Key.ToLower()) ? SanitizedValue() : kvp.Value);
+
+        }
+
     }
 }
