@@ -18,11 +18,11 @@ namespace Box.Sdk.Gen
         }
 
         public override string ToString()
-                {
-                    return $"{base.ToString()}\n" +
-                           $"{RequestInfo.Print(DataSanitizer)}\n" +
-                           $"{ResponseInfo.Print(DataSanitizer)}";
-                }
+        {
+            return $"{base.ToString()}\n" +
+                   $"{RequestInfo.Print(DataSanitizer)}\n" +
+                   $"{ResponseInfo.Print(DataSanitizer)}";
+        }
 
     }
 }
