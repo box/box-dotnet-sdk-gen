@@ -18,12 +18,12 @@ namespace Box.Sdk.Gen.Internal
       IsRetryable = isRetryable;
     }
 
-    public static Result<T> Ok(T value)
+    internal static Result<T> Ok(T value)
     {
       return new Result<T>(true, value);
     }
 
-    public static Result<T> Fail(Exception ex, bool isRetryable = true)
+    internal static Result<T> Fail(Exception ex, bool isRetryable = true)
     {
       return new Result<T>(false, default(T), ex, isRetryable);
     }
