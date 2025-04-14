@@ -34,10 +34,11 @@ namespace Box.Sdk.Gen.Tests.Integration {
         [TestMethod]
         public async System.Threading.Tasks.Task TestGetFileThumbnail() {
             string thumbnailFileName = Utils.GetUUID();
-            System.IO.Stream thumbnailContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
+            byte[] thumbnailBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
+            System.IO.Stream thumbnailContentStream = Utils.GenerateByteStreamFromBuffer(buffer: thumbnailBuffer);
             FileFull thumbnailFile = await UploadFileAsync(fileName: thumbnailFileName, fileStream: thumbnailContentStream);
             System.IO.Stream? thumbnail = await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension: GetFileThumbnailByIdExtension.Png);
-            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: NullableUtils.Unwrap(thumbnail)), buffer2: await Utils.ReadByteStreamAsync(byteStream: thumbnailContentStream)) != true);
+            Assert.IsTrue(Utils.BufferEquals(buffer1: await Utils.ReadByteStreamAsync(byteStream: NullableUtils.Unwrap(thumbnail)), buffer2: thumbnailBuffer) != true);
             await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
         }
 
