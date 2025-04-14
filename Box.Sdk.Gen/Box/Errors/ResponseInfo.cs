@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
 
@@ -34,6 +35,29 @@ namespace Box.Sdk.Gen
             RequestId = requestId;
             HelpUrl = helpUrl;
         }
+
+        internal string Print(DataSanitizer dataSanitizer)
+        {
+            string headersString = Headers.Count > 0
+                ? string.Join(", ", dataSanitizer.SanitizeHeaders(new Dictionary<string, string>(Headers)).Select(kvp => $"{kvp.Key}: {kvp.Value}"))
+                : "None";
+
+            string contextInfoString = (ContextInfo != null && ContextInfo.Count > 0)
+                ? string.Join(", ", ContextInfo.Select(kvp => $"{kvp.Key}: {kvp.Value}"))
+                : "None";
+
+            string sanitizedBody = Body != null ? JsonUtils.SdToJson(dataSanitizer.SanitizeBody(Body)) : "None";
+
+            return $"ResponseInfo:\n" +
+                   $"\tStatus Code: {StatusCode}\n" +
+                   $"\tHeaders: {headersString}\n" +
+                   $"\tBody: {sanitizedBody}\n" +
+                   $"\tCode: {(string.IsNullOrEmpty(Code) ? "None" : Code)}\n" +
+                   $"\tContext Info: {contextInfoString}\n" +
+                   $"\tRequest ID: {(string.IsNullOrEmpty(RequestId) ? "None" : RequestId)}\n" +
+                   $"\tHelp URL: {(string.IsNullOrEmpty(HelpUrl) ? "None" : HelpUrl)}";
+        }
+
     }
 
     internal class BoxApiExceptionDetails

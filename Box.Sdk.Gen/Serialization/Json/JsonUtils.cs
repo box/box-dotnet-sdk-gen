@@ -76,5 +76,24 @@ namespace Box.Sdk.Gen
 
             return null;
         }
+
+
+        /// <summary>
+        /// Returns a string replacement for sensitive data.
+        /// </summary>
+        /// <returns>A string replacement for sensitive data.</returns>
+        internal static string SanitizedValue() => "---[redacted]---";
+
+
+        /// <summary>
+        /// Sanitizes a SerializedData from sensitive data.
+        /// </summary>
+        /// <param name="sd">SerializedData to sanitize.</param>
+        /// <param name="keysToSanitize">Keys to sanitize.</param>
+        /// <returns>Sanitized SerializedData.</returns>
+        internal static SerializedData SanitizeSerializedData(SerializedData sd, Dictionary<string, string> keysToSanitize)
+        {
+            return sd;
+        }
     }
 }

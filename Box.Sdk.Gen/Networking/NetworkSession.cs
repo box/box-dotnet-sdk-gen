@@ -38,6 +38,11 @@ namespace Box.Sdk.Gen
         /// </summary>
         public INetworkClient NetworkClient { get; init; } = new BoxNetworkClient();
 
+        /// <summary>
+        /// Data sanitizer used to sanitize sensitive data for logging.
+        /// </summary>
+        public DataSanitizer DataSanitizer { get; init; } = new DataSanitizer();
+
         public NetworkSession(Dictionary<string, string>? additionalHeaders = default, BaseUrls? baseUrls = null)
         {
             AdditionalHeaders = additionalHeaders ?? new Dictionary<string, string>();
@@ -50,7 +55,7 @@ namespace Box.Sdk.Gen
         /// </summary>
         public NetworkSession WithNetworkClient(INetworkClient networkClient)
         {
-            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = networkClient };
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = networkClient, DataSanitizer = this.DataSanitizer };
         }
 
         /// <summary>
@@ -62,7 +67,7 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithAdditionalHeaders(Dictionary<string, string> additionalHeaders)
         {
-            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient};
+            return new NetworkSession(DictionaryUtils.MergeDictionaries(this.AdditionalHeaders, additionalHeaders), this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient, DataSanitizer = this.DataSanitizer };
         }
 
         /// <summary>
@@ -74,7 +79,7 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithCustomBaseUrls(BaseUrls baseUrls)
         {
-            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient};
+            return new NetworkSession(this.AdditionalHeaders, baseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient, DataSanitizer = this.DataSanitizer  };
         }
 
         /// <summary>
@@ -86,7 +91,15 @@ namespace Box.Sdk.Gen
         /// </param>
         public NetworkSession WithProxy(ProxyConfig config)
         {
-            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = config, NetworkClient = this.NetworkClient};
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = config, NetworkClient = this.NetworkClient, DataSanitizer = this.DataSanitizer };
+        }
+
+        /// <summary>
+        /// Generate a fresh network session by duplicating the existing configuration and network parameters,
+        /// while also including a data sanitizer to be used to sanitize sensitive data for logging.
+        public NetworkSession WithDataSanitizer(DataSanitizer dataSanitizer)
+        {
+            return new NetworkSession(this.AdditionalHeaders, this.BaseUrls) { RetryAttempts = this.RetryAttempts, RetryStrategy = this.RetryStrategy, proxyConfig = this.proxyConfig, NetworkClient = this.NetworkClient, DataSanitizer = dataSanitizer };
         }
     }
 }
