@@ -20,11 +20,29 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("_islabelSet")]
         protected bool _isLabelSet { get; set; }
 
+        [JsonInclude]
+        [JsonPropertyName("_isis_password_requiredSet")]
+        protected bool _isIsPasswordRequiredSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_isis_phone_number_requiredSet")]
+        protected bool _isIsPhoneNumberRequiredSet { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("_islogin_requiredSet")]
+        protected bool _isLoginRequiredSet { get; set; }
+
         protected string? _email { get; set; }
 
         protected string? _signerGroupId { get; set; }
 
         protected string? _label { get; set; }
+
+        protected bool? _isPasswordRequired { get; set; }
+
+        protected bool? _isPhoneNumberRequired { get; set; }
+
+        protected bool? _loginRequired { get; set; }
 
         [JsonPropertyName("inputs")]
         public IReadOnlyList<TemplateSignerInput>? Inputs { get; init; }
@@ -79,6 +97,26 @@ namespace Box.Sdk.Gen.Schemas {
         /// </summary>
         [JsonPropertyName("public_id")]
         public string? PublicId { get; init; }
+
+        /// <summary>
+        /// If true for signers with a defined email, the password provided when the template was created is used by default. 
+        /// If true for signers without a specified / defined email, the creator needs to provide a password when using the template.
+        /// </summary>
+        [JsonPropertyName("is_password_required")]
+        public bool? IsPasswordRequired { get => _isPasswordRequired; init { _isPasswordRequired = value; _isIsPasswordRequiredSet = true; } }
+
+        /// <summary>
+        /// If true for signers with a defined email, the phone number provided when the template was created is used by default. 
+        /// If true for signers without a specified / defined email, the template creator needs to provide a phone number when creating a request.
+        /// </summary>
+        [JsonPropertyName("is_phone_number_required")]
+        public bool? IsPhoneNumberRequired { get => _isPhoneNumberRequired; init { _isPhoneNumberRequired = value; _isIsPhoneNumberRequiredSet = true; } }
+
+        /// <summary>
+        /// If true, the signer is required to login to access the document.
+        /// </summary>
+        [JsonPropertyName("login_required")]
+        public bool? LoginRequired { get => _loginRequired; init { _loginRequired = value; _isLoginRequiredSet = true; } }
 
         public TemplateSigner() {
             
