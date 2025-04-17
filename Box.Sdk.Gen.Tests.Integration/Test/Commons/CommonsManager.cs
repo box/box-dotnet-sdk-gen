@@ -9,6 +9,12 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen {
     public class CommonsManager : ICommonsManager {
+        public BoxCcgAuth GetCcgAuth() {
+            CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { EnterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID") };
+            BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
+            return auth;
+        }
+
         public BoxJwtAuth GetJwtAuth() {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
@@ -16,13 +22,18 @@ namespace Box.Sdk.Gen {
         }
 
         public BoxClient GetDefaultClientWithUserSubject(string userId) {
+            if (Utils.IsBrowser()) {
+                BoxCcgAuth ccgAuth = GetCcgAuth();
+                BoxCcgAuth ccgAuthUser = ccgAuth.WithUserSubject(userId: userId);
+                return new BoxClient(auth: ccgAuthUser);
+            }
             BoxJwtAuth auth = GetJwtAuth();
             BoxJwtAuth authUser = auth.WithUserSubject(userId: userId);
             return new BoxClient(auth: authUser);
         }
 
         public BoxClient GetDefaultClient() {
-            BoxClient client = new BoxClient(auth: GetJwtAuth());
+            BoxClient client = new BoxClient(auth: Utils.IsBrowser() ? GetCcgAuth() : GetJwtAuth());
             return client;
         }
 

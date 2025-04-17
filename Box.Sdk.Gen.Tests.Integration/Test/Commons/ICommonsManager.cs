@@ -9,6 +9,8 @@ using Box.Sdk.Gen;
 
 namespace Box.Sdk.Gen {
 public interface ICommonsManager {
+    BoxCcgAuth GetCcgAuth();
+
     BoxJwtAuth GetJwtAuth();
 
     BoxClient GetDefaultClientWithUserSubject(string userId);
