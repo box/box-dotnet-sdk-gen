@@ -59,7 +59,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: partnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
+await userClient.IntegrationMappings.CreateSlackIntegrationMappingAsync(requestBody: new IntegrationMappingSlackCreateRequest(partnerItem: new IntegrationMappingPartnerItemSlack(id: slackPartnerItemId) { SlackOrgId = slackOrgId }, boxItem: new IntegrationMappingBoxItemSlack(id: folder.Id)));
 ```
 
 ### Arguments
@@ -94,7 +94,7 @@ See the endpoint docs at
 
 <!-- sample put_integration_mappings_slack_id -->
 ```
-await userClient.IntegrationMappings.UpdateSlackIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId, requestBody: new UpdateSlackIntegrationMappingByIdRequestBody() { BoxItem = new IntegrationMappingBoxItemSlack(id: "1234567") });
+await userClient.IntegrationMappings.UpdateSlackIntegrationMappingByIdAsync(integrationMappingId: slackIntegrationMapping.Id, requestBody: new UpdateSlackIntegrationMappingByIdRequestBody() { BoxItem = new IntegrationMappingBoxItemSlack(id: folder.Id) });
 ```
 
 ### Arguments
@@ -131,7 +131,7 @@ See the endpoint docs at
 
 <!-- sample delete_integration_mappings_slack_id -->
 ```
-await userClient.IntegrationMappings.DeleteSlackIntegrationMappingByIdAsync(integrationMappingId: integrationMappingId);
+await userClient.IntegrationMappings.DeleteSlackIntegrationMappingByIdAsync(integrationMappingId: slackIntegrationMapping.Id);
 ```
 
 ### Arguments
