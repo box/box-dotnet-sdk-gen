@@ -4,6 +4,7 @@
 - [Upload file version](#upload-file-version)
 - [Preflight check before upload](#preflight-check-before-upload)
 - [Upload file](#upload-file)
+- [Upload a file with a preflight check](#upload-a-file-with-a-preflight-check)
 
 ## Upload file version
 
@@ -56,7 +57,10 @@ This operation is performed by calling function `PreflightFileUploadCheck`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/options-files-content/).
 
-*Currently we don't have an example for calling `PreflightFileUploadCheck` in integration tests*
+<!-- sample options_files_content -->
+```
+await client.Uploads.PreflightFileUploadCheckAsync(requestBody: new PreflightFileUploadCheckRequestBody() { Name = newFileName, Size = 1024 * 1024, Parent = new PreflightFileUploadCheckRequestBodyParentField() { Id = "0" } });
+```
 
 ### Arguments
 
@@ -113,5 +117,36 @@ await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attr
 This function returns a value of type `Files`.
 
 Returns the new file object in a list.
+
+
+## Upload a file with a preflight check
+
+ Upload a file with a preflight check
+
+This operation is performed by calling function `UploadWithPreflightCheck`.
+
+
+
+```
+await client.Uploads.UploadWithPreflightCheckAsync(requestBody: new UploadWithPreflightCheckRequestBody(attributes: new UploadWithPreflightCheckRequestBodyAttributesField(name: newFileName, size: -1, parent: new UploadWithPreflightCheckRequestBodyAttributesParentField(id: "0")), file: fileContentStream));
+```
+
+### Arguments
+
+- requestBody `UploadWithPreflightCheckRequestBody`
+  - 
+- queryParams `UploadWithPreflightCheckQueryParams`
+  - Query parameters of uploadFile method
+- headers `UploadWithPreflightCheckHeaders`
+  - Headers of uploadFile method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `Files`.
+
+
 
 

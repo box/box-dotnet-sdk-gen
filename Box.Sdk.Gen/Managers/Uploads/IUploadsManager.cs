@@ -79,5 +79,22 @@ namespace Box.Sdk.Gen.Managers {
     /// </param>
     public System.Threading.Tasks.Task<Files> UploadFileAsync(UploadFileRequestBody requestBody, UploadFileQueryParams? queryParams = default, UploadFileHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
+        /// <summary>
+    ///  Upload a file with a preflight check
+    /// </summary>
+    /// <param name="requestBody">
+    /// 
+    /// </param>
+    /// <param name="queryParams">
+    /// Query parameters of uploadFile method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of uploadFile method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<Files> UploadWithPreflightCheckAsync(UploadWithPreflightCheckRequestBody requestBody, UploadWithPreflightCheckQueryParams? queryParams = default, UploadWithPreflightCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
     }
 }
