@@ -37,5 +37,25 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: fileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileByteStream), queryParams: new UploadFileQueryParams(), headers: new UploadFileHeaders(), cancellationToken: cancellationToken));
         }
 
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestUploadFileWithPreflightCheck() {
+            string newFileName = Utils.GetUUID();
+            System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
+            await Assert.That.IsExceptionAsync(async() => await client.Uploads.UploadWithPreflightCheckAsync(requestBody: new UploadWithPreflightCheckRequestBody(attributes: new UploadWithPreflightCheckRequestBodyAttributesField(name: newFileName, size: -1, parent: new UploadWithPreflightCheckRequestBodyAttributesParentField(id: "0")), file: fileContentStream)));
+            Files uploadFilesWithPreflight = await client.Uploads.UploadWithPreflightCheckAsync(requestBody: new UploadWithPreflightCheckRequestBody(attributes: new UploadWithPreflightCheckRequestBodyAttributesField(name: newFileName, size: 1024 * 1024, parent: new UploadWithPreflightCheckRequestBodyAttributesParentField(id: "0")), file: fileContentStream));
+            FileFull file = NullableUtils.Unwrap(uploadFilesWithPreflight.Entries)[0];
+            Assert.IsTrue(file.Name == newFileName);
+            Assert.IsTrue(file.Size == 1024 * 1024);
+            await Assert.That.IsExceptionAsync(async() => await client.Uploads.UploadWithPreflightCheckAsync(requestBody: new UploadWithPreflightCheckRequestBody(attributes: new UploadWithPreflightCheckRequestBodyAttributesField(name: newFileName, size: 1024 * 1024, parent: new UploadWithPreflightCheckRequestBodyAttributesParentField(id: "0")), file: fileContentStream)));
+            await client.Files.DeleteFileByIdAsync(fileId: file.Id);
+        }
+
+        [TestMethod]
+        public async System.Threading.Tasks.Task TestPreflightCheck() {
+            string newFileName = Utils.GetUUID();
+            UploadUrl preflightCheckResult = await client.Uploads.PreflightFileUploadCheckAsync(requestBody: new PreflightFileUploadCheckRequestBody() { Name = newFileName, Size = 1024 * 1024, Parent = new PreflightFileUploadCheckRequestBodyParentField() { Id = "0" } });
+            Assert.IsTrue(preflightCheckResult.UploadUrlField != "");
+        }
+
     }
 }

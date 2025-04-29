@@ -106,5 +106,33 @@ namespace Box.Sdk.Gen.Managers {
             return SimpleJsonSerializer.Deserialize<Files>(NullableUtils.Unwrap(response.Data));
         }
 
+        /// <summary>
+        ///  Upload a file with a preflight check
+        /// </summary>
+        /// <param name="requestBody">
+        /// 
+        /// </param>
+        /// <param name="queryParams">
+        /// Query parameters of uploadFile method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of uploadFile method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<Files> UploadWithPreflightCheckAsync(UploadWithPreflightCheckRequestBody requestBody, UploadWithPreflightCheckQueryParams? queryParams = default, UploadWithPreflightCheckHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            queryParams = queryParams ?? new UploadWithPreflightCheckQueryParams();
+            headers = headers ?? new UploadWithPreflightCheckHeaders();
+            Dictionary<string, string> queryParamsMap = Utils.PrepareParams(map: new Dictionary<string, string?>() { { "fields", StringUtils.ToStringRepresentation(queryParams.Fields) } });
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "content-md5", StringUtils.ToStringRepresentation(headers.ContentMd5) } }, headers.ExtraHeaders));
+            UploadUrl preflightUploadUrl = await this.PreflightFileUploadCheckAsync(requestBody: new PreflightFileUploadCheckRequestBody() { Name = requestBody.Attributes.Name, Size = requestBody.Attributes.Size, Parent = new PreflightFileUploadCheckRequestBodyParentField() { Id = requestBody.Attributes.Parent.Id } }, headers: new PreflightFileUploadCheckHeaders(extraHeaders: headers.ExtraHeaders), cancellationToken: cancellationToken).ConfigureAwait(false);
+            if (preflightUploadUrl.UploadUrlField == null || !(NullableUtils.Unwrap(preflightUploadUrl.UploadUrlField).Contains("http"))) {
+                throw new BoxSdkException(message: "Unable to get preflight upload URL");
+            }
+            FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: NullableUtils.Unwrap(preflightUploadUrl.UploadUrlField), method: "POST", contentType: "multipart/form-data", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Parameters = queryParamsMap, Headers = headersMap, MultipartData = Array.AsReadOnly(new [] {new MultipartItem(partName: "attributes") { Data = SimpleJsonSerializer.Serialize(requestBody.Attributes) },new MultipartItem(partName: "file") { FileStream = requestBody.File, FileName = requestBody.FileFileName, ContentType = requestBody.FileContentType }}), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<Files>(NullableUtils.Unwrap(response.Data));
+        }
+
     }
 }
