@@ -28,19 +28,8 @@ namespace Box.Sdk.Gen.Managers {
         [JsonPropertyName("path")]
         public string? Path { get; init; }
 
-        /// <summary>
-        /// The value to be set or tested.
-        /// 
-        /// Required for `add`, `replace`, and `test` operations. For `add`,
-        /// if the value exists already the previous value will be overwritten
-        /// by the new value. For `replace`, the value must exist before
-        /// replacing.
-        /// 
-        /// For `test`, the existing value at the `path` location must match
-        /// the specified value.
-        /// </summary>
         [JsonPropertyName("value")]
-        public string? Value { get; init; }
+        public MetadataInstanceValue? Value { get; init; }
 
         /// <summary>
         /// The location in the metadata JSON object to move or copy a value
