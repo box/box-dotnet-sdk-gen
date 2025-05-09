@@ -18,11 +18,8 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("num_tokens_for_completion")]
         public long? NumTokensForCompletion { get; init; }
 
-        /// <summary>
-        /// The parameters for the LLM endpoint specific to OpenAI / Google models.
-        /// </summary>
         [JsonPropertyName("llm_endpoint_params")]
-        public AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi? LlmEndpointParams { get; init; }
+        public AiLlmEndpointParams? LlmEndpointParams { get; init; }
 
         public AiAgentBasicTextToolBase() {
             
