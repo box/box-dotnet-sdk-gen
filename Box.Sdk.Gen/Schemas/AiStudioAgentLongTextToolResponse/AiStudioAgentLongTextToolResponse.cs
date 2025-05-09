@@ -1,21 +1,20 @@
 using Box.Sdk.Gen;
-using System.Text.Json.Serialization;
+using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class AiSingleAgentResponseFull : AiSingleAgentResponse, ISerializable {
-        [JsonPropertyName("ask")]
-        public AiStudioAgentAskResponse? Ask { get; init; }
+    public class AiStudioAgentLongTextToolResponse : AiStudioAgentLongTextTool, ISerializable {
+        /// <summary>
+        /// Warnings concerning tool
+        /// </summary>
+        [JsonPropertyName("warnings")]
+        public IReadOnlyList<string>? Warnings { get; init; }
 
-        [JsonPropertyName("text_gen")]
-        public AiStudioAgentTextGenResponse? TextGen { get; init; }
-
-        [JsonPropertyName("extract")]
-        public AiStudioAgentExtractResponse? Extract { get; init; }
-
-        public AiSingleAgentResponseFull(string id, string origin, string name, string accessState) : base(id, origin, name, accessState) {
+        public AiStudioAgentLongTextToolResponse() {
             
         }
         internal new string? RawJson { get; set; } = default;
