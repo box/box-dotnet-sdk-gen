@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.9.0...v1.10.0) (2025-05-13)
+
+
+### New Features and Enhancements
+
+* Add `UploadWithPreflightCheck` convenient method (box/box-codegen[#705](https://github.com/box/box-dotnet-sdk-gen/issues/705)) ([#469](https://github.com/box/box-dotnet-sdk-gen/issues/469)) ([8dff7bb](https://github.com/box/box-dotnet-sdk-gen/commit/8dff7bb859cd034d4e43b81c7c11b9a3fdb396e8))
+* Add AI agents warnings; allow for more types of metadata value (box/box-openapi[#520](https://github.com/box/box-dotnet-sdk-gen/issues/520)) ([#474](https://github.com/box/box-dotnet-sdk-gen/issues/474)) ([a53cff5](https://github.com/box/box-dotnet-sdk-gen/commit/a53cff54395db91bad179d3c5bbae9800c1b79dd))
+* Add security settings properties on sign template schema (box/box-openapi[#518](https://github.com/box/box-dotnet-sdk-gen/issues/518)) ([#462](https://github.com/box/box-dotnet-sdk-gen/issues/462)) ([7fddaea](https://github.com/box/box-dotnet-sdk-gen/commit/7fddaeab425a859dc1aa5dc3420891047d27efdf))
+* Add support of IBM models to AI API (box/box-openapi[#522](https://github.com/box/box-dotnet-sdk-gen/issues/522)) ([#475](https://github.com/box/box-dotnet-sdk-gen/issues/475)) ([a187301](https://github.com/box/box-dotnet-sdk-gen/commit/a187301543d6741c77799b66fde0f12d4fca710d))
+* Support sensitive data sanitization in errors (box/box-codegen[#695](https://github.com/box/box-dotnet-sdk-gen/issues/695)) ([#453](https://github.com/box/box-dotnet-sdk-gen/issues/453)) ([5ee0c93](https://github.com/box/box-dotnet-sdk-gen/commit/5ee0c932254a0cd1cc7bc814c29fe5f9e2151462))
+
 ## [1.9.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.8.0...v1.9.0) (2025-03-18)
 
 
