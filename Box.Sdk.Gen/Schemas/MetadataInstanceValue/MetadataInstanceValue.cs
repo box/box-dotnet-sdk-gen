@@ -31,6 +31,8 @@ namespace Box.Sdk.Gen.Schemas {
         
         public static implicit operator MetadataInstanceValue(double value) => new MetadataInstanceValue(value);
         
+        public static implicit operator MetadataInstanceValue(ReadOnlyCollection<string> value) => new MetadataInstanceValue(value);
+        
         class MetadataInstanceValueConverter : JsonConverter<MetadataInstanceValue> {
             public override MetadataInstanceValue Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
                 using var document = JsonDocument.ParseValue(ref reader);
