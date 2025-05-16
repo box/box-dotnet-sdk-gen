@@ -10,7 +10,7 @@ using Box.Sdk.Gen;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class AuthManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestJwtAuth() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(newUser.Id != userId);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestJwtAuthDownscope() {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
@@ -44,7 +44,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await parentClient.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestJwtAuthRevoke() {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(tokenFromStorageBeforeRevoke.AccessTokenField != tokenFromStorageAfterRevoke.AccessTokenField);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public void TestOauthAuthAuthorizeUrl() {
             OAuthConfig config = new OAuthConfig(clientId: "OAUTH_CLIENT_ID", clientSecret: "OAUTH_CLIENT_SECRET");
             BoxOAuth auth = new BoxOAuth(config: config);
@@ -63,7 +63,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(authUrl == "https://account.box.com/api/oauth2/authorize?client_id=OAUTH_CLIENT_ID&response_type=code" || authUrl == "https://account.box.com/api/oauth2/authorize?response_type=code&client_id=OAUTH_CLIENT_ID");
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCcgAuth() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
@@ -81,7 +81,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(newUser.Id != userId);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCcgAuthDownscope() {
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { UserId = Utils.GetEnvVar(name: "USER_ID") };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
@@ -96,7 +96,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCcgAuthRevoke() {
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { UserId = Utils.GetEnvVar(name: "USER_ID") };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
@@ -116,7 +116,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return await authUser.RetrieveTokenAsync();
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDeveloperTokenAuthRevoke() {
             DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
             AccessToken token = await GetAccessTokenAsync();
@@ -127,7 +127,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await auth.RetrieveTokenAsync());
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDeveloperTokenAuthDownscope() {
             DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
             AccessToken token = await GetAccessTokenAsync();
@@ -143,7 +143,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await parentClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDeveloperTokenAuth() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             AccessToken token = await GetAccessTokenAsync();
@@ -153,7 +153,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(currentUser.Id == userId);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestOauthAuthRevoke() {
             AccessToken token = await GetAccessTokenAsync();
             InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage(token: token);
@@ -165,7 +165,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.Users.GetUserMeAsync());
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestOauthAuthDownscope() {
             AccessToken token = await GetAccessTokenAsync();
             InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage(token: token);

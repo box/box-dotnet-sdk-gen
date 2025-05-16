@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public EmailAliasesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestEmailAliases() {
             string newUserName = Utils.GetUUID();
             string newUserLogin = string.Concat(Utils.GetUUID(), "@boxdemo.com");

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public MembershipsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestMemberships() {
             UserFull user = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: Utils.GetUUID()) { Login = string.Concat(Utils.GetUUID(), "@boxdemo.com") });
             GroupMemberships userMemberships = await client.Memberships.GetUserMembershipsAsync(userId: user.Id);

@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class FileRequestsManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetCopyUpdateDeleteFileRequest() {
             string fileRequestId = Utils.GetEnvVar(name: "BOX_FILE_REQUEST_ID");
             string userId = Utils.GetEnvVar(name: "USER_ID");

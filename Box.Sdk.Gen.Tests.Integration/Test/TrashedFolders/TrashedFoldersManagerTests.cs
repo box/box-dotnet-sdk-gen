@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TrashedFoldersManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestTrashedFolders() {
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);

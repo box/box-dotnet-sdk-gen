@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TermsOfServicesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetTermsOfServices() {
             TermsOfService tos = await new CommonsManager().GetOrCreateTermsOfServicesAsync();
             TermsOfService updatedTos1 = await client.TermsOfServices.UpdateTermsOfServiceByIdAsync(termsOfServiceId: tos.Id, requestBody: new UpdateTermsOfServiceByIdRequestBody(status: UpdateTermsOfServiceByIdRequestBodyStatusField.Disabled, text: "TOS"));

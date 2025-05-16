@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FileVersionsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateListGetPromoteFileVersion() {
             string oldName = Utils.GetUUID();
             string newName = Utils.GetUUID();
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestRemoveAndRestoreFileVersion() {
             string oldName = Utils.GetUUID();
             string newName = Utils.GetUUID();

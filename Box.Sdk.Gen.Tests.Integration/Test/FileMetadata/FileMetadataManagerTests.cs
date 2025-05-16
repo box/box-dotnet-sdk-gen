@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FileMetadataManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUpdatingFileMetadata() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             string templateKey = string.Concat("key", Utils.GetUUID());
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGlobalFileMetadata() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             Metadatas fileMetadata = await client.FileMetadata.GetFileMetadataAsync(fileId: file.Id);
@@ -52,7 +52,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestEnterpriseFileMetadata() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             string templateKey = string.Concat("key", Utils.GetUUID());

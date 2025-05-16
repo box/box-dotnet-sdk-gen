@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public DocgenManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDocgenBatchAndJobs() {
             FileFull uploadedFile = await new CommonsManager().UploadNewFileAsync();
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();

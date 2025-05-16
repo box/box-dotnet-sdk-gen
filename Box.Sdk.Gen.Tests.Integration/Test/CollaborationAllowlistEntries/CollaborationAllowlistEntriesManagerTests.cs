@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public CollaborationAllowlistEntriesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCollaborationAllowlistEntries() {
             CollaborationAllowlistEntries allowlist = await client.CollaborationAllowlistEntries.GetCollaborationWhitelistEntriesAsync();
             Assert.IsTrue(NullableUtils.Unwrap(allowlist.Entries).Count >= 0);

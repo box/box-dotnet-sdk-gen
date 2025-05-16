@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public LegalHoldPolicyAssignmentsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestLegalHoldPolicyAssignments() {
             string legalHoldPolicyName = Utils.GetUUID();
             const string legalHoldDescription = "test description";

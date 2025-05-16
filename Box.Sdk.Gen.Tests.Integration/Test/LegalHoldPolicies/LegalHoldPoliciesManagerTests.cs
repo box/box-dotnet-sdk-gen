@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public LegalHoldPoliciesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateNotOngoingLegalHoldPolicy() {
             string legalHoldPolicyName = Utils.GetUUID();
             const string legalHoldDescription = "test description";
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId: legalHoldPolicy.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteLegalHoldPolicy() {
             string legalHoldPolicyName = Utils.GetUUID();
             const string legalHoldDescription = "test description";

@@ -10,7 +10,7 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class AppItemAssociationsManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestListFileAppItemAssocations() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             string fileId = Utils.GetEnvVar(name: "APP_ITEM_ASSOCIATION_FILE_ID");
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(NullableUtils.Unwrap(file.IsAssociatedWithAppItem) == true);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestListFolderAppItemAssocations() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             string folderId = Utils.GetEnvVar(name: "APP_ITEM_ASSOCIATION_FOLDER_ID");

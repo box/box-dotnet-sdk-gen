@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class ShieldInformationBarriersManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestShieldInformationBarriers() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");

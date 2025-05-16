@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public UserCollaborationsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUserCollaborations() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Users.DeleteUserByIdAsync(userId: user.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestConvertingUserCollaborationToOwnership() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
@@ -54,7 +54,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Users.DeleteUserByIdAsync(userId: user.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestExternalUserCollaborations() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@boxdemo.com");

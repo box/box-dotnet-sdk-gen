@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class RecentItemsManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestRecentItems() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             RecentItems recentItems = await client.RecentItems.GetRecentItemsAsync();

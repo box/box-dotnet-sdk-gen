@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public AiStudioManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAiStudioCrud() {
             string agentName = Utils.GetUUID();
             AiSingleAgentResponseFull createdAgent = await client.AiStudio.CreateAiAgentAsync(requestBody: new CreateAiAgent(name: agentName, accessState: "enabled") { Ask = new AiStudioAgentAsk(accessState: "enabled", description: "desc1") });
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(agentsAfterDelete.Entries.Count == numAgents - 1);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUseAiAgentReferenceInAiAsk() {
             string agentName = Utils.GetUUID();
             AiSingleAgentResponseFull createdAgent = await client.AiStudio.CreateAiAgentAsync(requestBody: new CreateAiAgent(name: agentName, accessState: "enabled") { Ask = new AiStudioAgentAsk(accessState: "enabled", description: "desc1") });

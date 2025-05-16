@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public IntegrationMappingsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestSlackIntegrationMappings() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             string slackAutomationUserId = Utils.GetEnvVar(name: "SLACK_AUTOMATION_USER_ID");
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await userClient.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestTeamsIntegrationMappings() {
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
             const string tenantId = "1";

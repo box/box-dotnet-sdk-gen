@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public WorkflowsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestWorkflows() {
             BoxClient adminClient = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             string workflowFolderId = Utils.GetEnvVar(name: "WORKFLOW_FOLDER_ID");

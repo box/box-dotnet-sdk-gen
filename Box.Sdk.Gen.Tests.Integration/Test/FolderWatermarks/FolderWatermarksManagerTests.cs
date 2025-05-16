@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FolderWatermarksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateGetDeleteFolderWatermark() {
             string folderName = Utils.GetUUID();
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: folderName, parent: new CreateFolderRequestBodyParentField(id: "0")));

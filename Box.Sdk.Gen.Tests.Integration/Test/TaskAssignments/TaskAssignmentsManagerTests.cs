@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TaskAssignmentsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteTaskAssignment() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             System.DateTimeOffset date = Utils.DateTimeFromString(dateTime: "2035-01-01T00:00:00Z");

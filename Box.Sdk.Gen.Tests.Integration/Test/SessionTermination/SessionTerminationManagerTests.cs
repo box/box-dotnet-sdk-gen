@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public SessionTerminationManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestSessionTerminationUser() {
             BoxClient adminClient = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             UserFull user = await adminClient.Users.GetUserMeAsync();
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(result.Message == "Request is successful, please check the admin events for the status of the job");
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestSessionTerminationGroup() {
             string groupName = Utils.GetUUID();
             GroupFull group = await client.Groups.CreateGroupAsync(requestBody: new CreateGroupRequestBody(name: groupName));

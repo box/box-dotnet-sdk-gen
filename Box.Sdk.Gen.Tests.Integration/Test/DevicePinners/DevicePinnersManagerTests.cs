@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public DevicePinnersManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDevicePinners() {
             string enterpriseId = Utils.GetEnvVar(name: "ENTERPRISE_ID");
             DevicePinners devicePinners = await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpriseId);

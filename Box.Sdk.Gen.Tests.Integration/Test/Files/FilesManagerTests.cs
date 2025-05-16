@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return NullableUtils.Unwrap(uploadedFiles.Entries)[0];
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetFileThumbnailUrl() {
             string thumbnailFileName = Utils.GetUUID();
             System.IO.Stream thumbnailContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetFileThumbnail() {
             string thumbnailFileName = Utils.GetUUID();
             byte[] thumbnailBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: thumbnailFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetFileFullExtraFields() {
             string newFileName = Utils.GetUUID();
             System.IO.Stream fileStream = Utils.GenerateByteStream(size: 1024 * 1024);
@@ -53,7 +53,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateGetAndDeleteFile() {
             string newFileName = Utils.GetUUID();
             System.IO.Stream updatedContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(file.Id == trashedFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUpdateFile() {
             FileFull fileToUpdate = await new CommonsManager().UploadNewFileAsync();
             string updatedName = Utils.GetUUID();
@@ -76,7 +76,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: updatedFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestFileLock() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             FileFull fileWithLock = await client.Files.UpdateFileByIdAsync(fileId: file.Id, requestBody: new UpdateFileByIdRequestBody() { Lock = new UpdateFileByIdRequestBodyLockField() { Access = UpdateFileByIdRequestBodyLockAccessField.Lock } }, queryParams: new UpdateFileByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"lock"}) });
@@ -86,7 +86,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCopyFile() {
             FileFull fileOrigin = await new CommonsManager().UploadNewFileAsync();
             string copiedFileName = Utils.GetUUID();

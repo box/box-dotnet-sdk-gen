@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public WeblinksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateGetDeleteWeblink() {
             const string url = "https://www.box.com";
             FolderFull parent = await client.Folders.GetFolderByIdAsync(folderId: "0");

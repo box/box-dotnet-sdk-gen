@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public CollectionsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCollections() {
             Collections collections = await client.Collections.GetCollectionsAsync();
             Collection favouriteCollection = await client.Collections.GetCollectionByIdAsync(collectionId: NullableUtils.Unwrap(NullableUtils.Unwrap(collections.Entries)[0].Id));

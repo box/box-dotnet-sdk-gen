@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public DownloadsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDownloadFile() {
             string newFileName = Utils.GetUUID();
             byte[] fileBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetDownloadUrl() {
             FileFull uploadedFile = await new CommonsManager().UploadNewFileAsync();
             string downloadUrl = await client.Downloads.GetDownloadFileUrlAsync(fileId: uploadedFile.Id);

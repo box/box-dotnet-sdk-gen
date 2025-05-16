@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class TermsOfServiceUserStatusesManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetTermsOfServiceUserStatuses() {
             string adminUserId = Utils.GetEnvVar(name: "USER_ID");
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: adminUserId);

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public CollaborationAllowlistExemptTargetsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCollaborationAllowlistExemptTargets() {
             CollaborationAllowlistExemptTargets exemptTargets = await client.CollaborationAllowlistExemptTargets.GetCollaborationWhitelistExemptTargetsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(exemptTargets.Entries).Count >= 0);

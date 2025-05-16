@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public SharedLinksAppItemsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestSharedLinksAppItems() {
             string appItemSharedLink = Utils.GetEnvVar(name: "APP_ITEM_SHARED_LINK");
             AppItem appItem = await client.SharedLinksAppItems.FindAppItemForSharedLinkAsync(headers: new FindAppItemForSharedLinkHeaders(boxapi: string.Concat("shared_link=", appItemSharedLink)));

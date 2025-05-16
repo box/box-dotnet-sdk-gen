@@ -12,19 +12,19 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public UsersManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetUsers() {
             Users users = await client.Users.GetUsersAsync();
             Assert.IsTrue(NullableUtils.Unwrap(users.TotalCount) >= 0);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetUserMe() {
             UserFull currentUser = await client.Users.GetUserMeAsync();
             Assert.IsTrue(StringUtils.ToStringRepresentation(currentUser.Type?.Value) == "user");
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteUser() {
             string userName = Utils.GetUUID();
             string userLogin = string.Concat(Utils.GetUUID(), "@gmail.com");
