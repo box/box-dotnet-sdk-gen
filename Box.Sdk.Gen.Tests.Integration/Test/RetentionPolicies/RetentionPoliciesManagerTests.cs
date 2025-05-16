@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public RetentionPoliciesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteRetentionPolicy() {
             string retentionPolicyName = Utils.GetUUID();
             const string retentionDescription = "test description";

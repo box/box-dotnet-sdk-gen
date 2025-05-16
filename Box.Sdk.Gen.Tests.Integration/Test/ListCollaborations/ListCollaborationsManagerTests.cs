@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class ListCollaborationsManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestListCollaborations() {
             BoxClient client = new CommonsManager().GetDefaultClient();
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();

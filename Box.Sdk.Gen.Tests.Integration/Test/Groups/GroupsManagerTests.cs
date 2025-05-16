@@ -15,13 +15,13 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public GroupsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetGroups() {
             Groups groups = await client.Groups.GetGroupsAsync();
             Assert.IsTrue(NullableUtils.Unwrap(groups.TotalCount) >= 0);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateGetDeleteGroup() {
             string groupName = Utils.GetUUID();
             const string groupDescription = "Group description";

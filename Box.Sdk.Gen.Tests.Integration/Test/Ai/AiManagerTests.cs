@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public AiManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAskAiSingleItem() {
             FileFull fileToAsk = await new CommonsManager().UploadNewFileAsync();
             AiResponseFull? response = await client.Ai.CreateAiAskAsync(requestBody: new AiAsk(mode: AiAskModeField.SingleItemQa, prompt: "which direction sun rises", items: Array.AsReadOnly(new [] {new AiItemAsk(id: fileToAsk.Id, type: AiItemAskTypeField.File) { Content = "Sun rises in the East" }})));
@@ -24,7 +24,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAskAiMultipleItems() {
             FileFull fileToAsk1 = await new CommonsManager().UploadNewFileAsync();
             FileFull fileToAsk2 = await new CommonsManager().UploadNewFileAsync();
@@ -35,7 +35,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk2.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAiTextGenWithDialogueHistory() {
             FileFull fileToAsk = await new CommonsManager().UploadNewFileAsync();
             AiResponse response = await client.Ai.CreateAiTextGenAsync(requestBody: new AiTextGen(prompt: "Parapharse the document.s", items: Array.AsReadOnly(new [] {new AiTextGenItemsField(id: fileToAsk.Id, type: AiTextGenItemsTypeField.File) { Content = "The Earth goes around the sun. Sun rises in the East in the morning." }})) { DialogueHistory = Array.AsReadOnly(new [] {new AiDialogueHistory() { Prompt = "What does the earth go around?", Answer = "The sun", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") },new AiDialogueHistory() { Prompt = "On Earth, where does the sun rise?", Answer = "East", CreatedAt = Utils.DateTimeFromString(dateTime: "2021-01-01T00:00:00Z") }}) });
@@ -44,17 +44,17 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: fileToAsk.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGettingAiAskAgentConfig() {
             AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAskConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.Ask) { Language = "en-US" });
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGettingAiTextGenAgentConfig() {
             AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiTextGenConfig = await client.Ai.GetAiAgentDefaultConfigAsync(queryParams: new GetAiAgentDefaultConfigQueryParams(mode: GetAiAgentDefaultConfigQueryParamsModeField.TextGen) { Language = "en-US" });
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAiExtract() {
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: string.Concat(Utils.GetUUID(), ".txt"), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.StringToByteStream(text: "My name is John Doe. I live in San Francisco. I was born in 1990. I work at Box.")));
             FileFull file = NullableUtils.Unwrap(uploadedFiles.Entries)[0];
@@ -66,7 +66,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAiExtractStructuredWithFields() {
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: string.Concat(Utils.GetUUID(), ".txt"), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.StringToByteStream(text: "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
             FileFull file = NullableUtils.Unwrap(uploadedFiles.Entries)[0];
@@ -81,7 +81,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestAiExtractStructuredWithMetadataTemplate() {
             Files uploadedFiles = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: string.Concat(Utils.GetUUID(), ".txt"), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.StringToByteStream(text: "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
             FileFull file = NullableUtils.Unwrap(uploadedFiles.Entries)[0];

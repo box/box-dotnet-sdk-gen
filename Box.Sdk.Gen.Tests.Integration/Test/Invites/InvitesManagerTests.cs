@@ -10,7 +10,7 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class InvitesManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestInvites() {
             string userId = Utils.GetEnvVar(name: "USER_ID");
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);

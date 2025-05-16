@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public StoragePoliciesManagerTests() {
             userId = Utils.GetEnvVar(name: "USER_ID");
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetStoragePolicies() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: userId);
             StoragePolicies storagePolicies = await client.StoragePolicies.GetStoragePoliciesAsync();

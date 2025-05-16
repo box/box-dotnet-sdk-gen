@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FolderMetadataManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUpdatingFolderMetadata() {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             string templateKey = string.Concat("key", Utils.GetUUID());
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGlobalFolderMetadata() {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             Metadatas folderMetadata = await client.FolderMetadata.GetFolderMetadataAsync(folderId: folder.Id);
@@ -52,7 +52,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestEnterpriseFolderMetadata() {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             string templateKey = string.Concat("key", Utils.GetUUID());

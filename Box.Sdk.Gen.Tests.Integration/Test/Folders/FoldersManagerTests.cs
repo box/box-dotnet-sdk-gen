@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FoldersManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetFolderInfo() {
             FolderFull rootFolder = await client.Folders.GetFolderByIdAsync(folderId: "0");
             Assert.IsTrue(rootFolder.Id == "0");
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(StringUtils.ToStringRepresentation(rootFolder.Type?.Value) == "folder");
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetFolderFullInfoWithExtraFields() {
             FolderFull rootFolder = await client.Folders.GetFolderByIdAsync(folderId: "0", queryParams: new GetFolderByIdQueryParams() { Fields = Array.AsReadOnly(new [] {"has_collaborations","tags"}) });
             Assert.IsTrue(rootFolder.Id == "0");
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(tagsLength == 0);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateAndDeleteFolder() {
             string newFolderName = Utils.GetUUID();
             FolderFull newFolder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: newFolderName, parent: new CreateFolderRequestBodyParentField(id: "0")));
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.Folders.GetFolderByIdAsync(folderId: newFolder.Id));
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUpdateFolder() {
             string folderToUpdateName = Utils.GetUUID();
             FolderFull folderToUpdate = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: folderToUpdateName, parent: new CreateFolderRequestBodyParentField(id: "0")));
@@ -53,7 +53,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Folders.DeleteFolderByIdAsync(folderId: updatedFolder.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCopyMoveFolderAndListFolderItems() {
             string folderOriginName = Utils.GetUUID();
             FolderFull folderOrigin = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: folderOriginName, parent: new CreateFolderRequestBodyParentField(id: "0")));

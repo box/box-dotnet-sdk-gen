@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public ClientManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestMakeRequestJsonCrud() {
             string newFolderName = Utils.GetUUID();
             string requestBodyPost = string.Concat("{\"name\": \"", newFolderName, "\", \"parent\": { \"id\": \"0\"}}");
@@ -39,7 +39,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(deleteFolderResponse.Status == 204);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestMakeRequestMultipart() {
             string newFolderName = Utils.GetUUID();
             FolderFull newFolder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: newFolderName, parent: new CreateFolderRequestBodyParentField(id: "0")));
@@ -52,7 +52,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Folders.DeleteFolderByIdAsync(folderId: newFolderId, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestMakeRequestBinaryFormat() {
             string newFileName = Utils.GetUUID();
             byte[] fileBuffer = Utils.GenerateByteBuffer(size: 1024 * 1024);
@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: uploadedFile.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestWithAsUserHeader() {
             string userName = Utils.GetUUID();
             UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
@@ -77,14 +77,14 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestWithSuppressedNotifications() {
             BoxClient newClient = client.WithSuppressedNotifications();
             UserFull user = await newClient.Users.GetUserMeAsync();
             Assert.IsTrue(user.Id != "");
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestWithExtraHeaders() {
             string userName = Utils.GetUUID();
             UserFull createdUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: userName) { IsPlatformAccessOnly = true });
@@ -96,7 +96,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Users.DeleteUserByIdAsync(userId: createdUser.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestWithCustomBaseUrls() {
             BaseUrls newBaseUrls = new BaseUrls(baseUrl: "https://box.com/", uploadUrl: "https://box.com/", oauth2Url: "https://box.com/");
             BoxClient customBaseClient = client.WithCustomBaseUrls(baseUrls: newBaseUrls);

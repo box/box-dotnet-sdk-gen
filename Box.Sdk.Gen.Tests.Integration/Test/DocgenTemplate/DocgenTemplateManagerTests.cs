@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public DocgenTemplateManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestDocgenTemplateCrud() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             DocGenTemplateBaseV2025R0 createdDocgenTemplate = await client.DocgenTemplate.CreateDocgenTemplateV2025R0Async(requestBody: new DocGenTemplateCreateRequestV2025R0(file: new FileReferenceV2025R0(id: file.Id)));

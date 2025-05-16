@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public SignRequestsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateGetCancelAndListSignRequest() {
             string signerEmail = string.Concat(Utils.GetUUID(), "@box.com");
             FileFull fileToSign = await new CommonsManager().UploadNewFileAsync();
@@ -54,7 +54,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: fileToSign.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateSignRequestWithSignerGroupId() {
             string signer1Email = string.Concat(Utils.GetUUID(), "@box.com");
             string signer2Email = string.Concat(Utils.GetUUID(), "@box.com");

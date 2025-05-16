@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TrashedFilesManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestTrashedFiles() {
             int fileSize = 1024 * 1024;
             string fileName = Utils.GetUUID();

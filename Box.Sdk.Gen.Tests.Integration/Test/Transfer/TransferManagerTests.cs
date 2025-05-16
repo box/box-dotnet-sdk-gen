@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TransferManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestTransferUserContent() {
             string newUserName = Utils.GetUUID();
             UserFull newUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: newUserName) { IsPlatformAccessOnly = true });

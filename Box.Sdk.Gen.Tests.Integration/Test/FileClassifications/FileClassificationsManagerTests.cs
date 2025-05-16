@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return classifications.ElementAt(1);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestFileClassifications() {
             ClassificationTemplate classificationTemplate = await new CommonsManager().GetOrCreateClassificationTemplateAsync();
             ClassificationTemplateFieldsOptionsField classification = await new CommonsManager().GetOrCreateClassificationAsync(classificationTemplate: classificationTemplate);

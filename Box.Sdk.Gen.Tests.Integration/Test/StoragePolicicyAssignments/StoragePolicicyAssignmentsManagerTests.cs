@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return storagePolicyAssignment;
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetStoragePolicyAssignments() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: adminUserId);
             string userName = Utils.GetUUID();

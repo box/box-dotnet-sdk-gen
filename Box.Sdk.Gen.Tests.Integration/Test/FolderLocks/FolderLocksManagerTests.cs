@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FolderLocksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestFolderLocks() {
             FolderFull folder = await new CommonsManager().CreateNewFolderAsync();
             FolderLocks folderLocks = await client.FolderLocks.GetFolderLocksAsync(queryParams: new GetFolderLocksQueryParams(folderId: folder.Id));

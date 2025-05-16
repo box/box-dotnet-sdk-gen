@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public FileVersionRetentionsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteRetentionPolicy() {
             string description = Utils.GetUUID();
             RetentionPolicy retentionPolicy = await client.RetentionPolicies.CreateRetentionPolicyAsync(requestBody: new CreateRetentionPolicyRequestBody(policyName: Utils.GetUUID(), policyType: CreateRetentionPolicyRequestBodyPolicyTypeField.Finite, dispositionAction: CreateRetentionPolicyRequestBodyDispositionActionField.RemoveRetention) { RetentionLength = "1", Description = description, CanOwnerExtendRetention = false, RetentionType = CreateRetentionPolicyRequestBodyRetentionTypeField.Modifiable });

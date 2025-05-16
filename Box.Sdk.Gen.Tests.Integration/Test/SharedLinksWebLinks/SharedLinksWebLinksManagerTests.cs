@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public SharedLinksWebLinksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestSharedLinksWebLinks() {
             FolderFull parent = await client.Folders.GetFolderByIdAsync(folderId: "0");
             WebLink webLink = await client.WebLinks.CreateWebLinkAsync(requestBody: new CreateWebLinkRequestBody(url: "https://www.box.com", parent: new CreateWebLinkRequestBodyParentField(id: parent.Id)) { Name = Utils.GetUUID(), Description = "Weblink description" });

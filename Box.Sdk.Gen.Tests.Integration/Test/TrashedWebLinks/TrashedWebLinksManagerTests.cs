@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TrashedWebLinksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestTrashedWebLinks() {
             const string url = "https://www.box.com";
             FolderFull parent = await client.Folders.GetFolderByIdAsync(folderId: "0");

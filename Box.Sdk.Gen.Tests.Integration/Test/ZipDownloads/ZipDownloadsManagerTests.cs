@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public ZipDownloadsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestZipDownload() {
             FileFull file1 = await new CommonsManager().UploadNewFileAsync();
             FileFull file2 = await new CommonsManager().UploadNewFileAsync();
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Folders.DeleteFolderByIdAsync(folderId: folder1.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestManualZipDownloadAndCheckStatus() {
             FileFull file1 = await new CommonsManager().UploadNewFileAsync();
             FileFull file2 = await new CommonsManager().UploadNewFileAsync();

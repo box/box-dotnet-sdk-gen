@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return new TestPartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadSessionId: acc.UploadSessionId, fileHash: acc.FileHash);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestChunkedManualProcessById() {
             int fileSize = 20 * 1024 * 1024;
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(size: fileSize);
@@ -87,7 +87,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             return new TestPartAccumulator(lastIndex: bytesEnd, parts: parts.Concat(Array.AsReadOnly(new [] {part})).ToList(), fileSize: acc.FileSize, uploadPartUrl: acc.UploadPartUrl, fileHash: acc.FileHash);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestChunkedManualProcessByUrl() {
             int fileSize = 20 * 1024 * 1024;
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(size: fileSize);
@@ -119,7 +119,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.ChunkedUploads.DeleteFileUploadSessionByUrlAsync(url: abortUrl);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestChunkedUploadConvenienceMethod() {
             int fileSize = 20 * 1024 * 1024;
             System.IO.Stream fileByteStream = Utils.GenerateByteStream(size: fileSize);

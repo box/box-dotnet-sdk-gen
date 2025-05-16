@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TrashedItemsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestListTrashedItems() {
             FileFull file = await new CommonsManager().UploadNewFileAsync();
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);

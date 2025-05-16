@@ -7,14 +7,14 @@ using Box.Sdk.Gen.Managers;
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
     public class SignTemplatesManagerTests {
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetSignTemplates() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             SignTemplates signTemplates = await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParams() { Limit = 2 });
             Assert.IsTrue(NullableUtils.Unwrap(signTemplates.Entries).Count >= 0);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestGetSignTemplate() {
             BoxClient client = new CommonsManager().GetDefaultClientWithUserSubject(userId: Utils.GetEnvVar(name: "USER_ID"));
             SignTemplates signTemplates = await client.SignTemplates.GetSignTemplatesAsync(queryParams: new GetSignTemplatesQueryParams() { Limit = 2 });

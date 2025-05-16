@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public CommentsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestComments() {
             const int fileSize = 256;
             string fileName = Utils.GetUUID();

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public TasksManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCreateUpdateGetDeleteTask() {
             Files files = await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 10)));
             FileFull file = NullableUtils.Unwrap(files.Entries)[0];

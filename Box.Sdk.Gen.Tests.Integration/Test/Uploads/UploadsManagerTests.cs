@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
         public UploadsManagerTests() {
             client = new CommonsManager().GetDefaultClient();
         }
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUploadFileAndFileVersion() {
             string newFileName = Utils.GetUUID();
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: newFileVersion.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestRequestCancellation() {
             int fileSize = 1024 * 1024;
             string fileName = Utils.GetUUID();
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await Assert.That.IsExceptionAsync(async() => await client.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: fileName, parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: fileByteStream), queryParams: new UploadFileQueryParams(), headers: new UploadFileHeaders(), cancellationToken: cancellationToken));
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestUploadFileWithPreflightCheck() {
             string newFileName = Utils.GetUUID();
             System.IO.Stream fileContentStream = Utils.GenerateByteStream(size: 1024 * 1024);
@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await client.Files.DeleteFileByIdAsync(fileId: file.Id);
         }
 
-        [TestMethod]
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestPreflightCheck() {
             string newFileName = Utils.GetUUID();
             UploadUrl preflightCheckResult = await client.Uploads.PreflightFileUploadCheckAsync(requestBody: new PreflightFileUploadCheckRequestBody() { Name = newFileName, Size = 1024 * 1024, Parent = new PreflightFileUploadCheckRequestBodyParentField() { Id = "0" } });
