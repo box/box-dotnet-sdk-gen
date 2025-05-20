@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_docgen_jobs_id_v2025.0 -->
 ```
-await client.Docgen.GetDocgenJobByIdV2025R0Async(jobId: NullableUtils.Unwrap(docgenJobs.Entries)[0].Id);
+await client.Docgen.GetDocgenJobByIdV2025R0Async(jobId: docgenJobItemFromList.Id);
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample get_docgen_jobs_v2025.0 -->
 ```
-await client.Docgen.GetDocgenJobsV2025R0Async();
+await client.Docgen.GetDocgenJobsV2025R0Async(queryParams: new GetDocgenJobsV2025R0QueryParams() { Limit = 500 });
 ```
 
 ### Arguments
