@@ -3,8 +3,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
+using System.Linq;
 using Box.Sdk.Gen;
 using Box.Sdk.Gen.Schemas;
+using Box.Sdk.Gen.Managers;
 
 namespace Box.Sdk.Gen.Tests.Integration {
     [TestClass]
@@ -30,7 +32,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(docgenBatchJobs.Entries)[0].Status) != "");
             Assert.IsTrue(NullableUtils.Unwrap(docgenBatchJobs.Entries)[0].TemplateFile.Id == uploadedFile.Id);
             Assert.IsTrue(NullableUtils.Unwrap(docgenBatchJobs.Entries)[0].Batch.Id == docgenBatch.Id);
-            DocGenJobsFullV2025R0 docgenJobs = await client.Docgen.GetDocgenJobsV2025R0Async();
+            DocGenJobsFullV2025R0 docgenJobs = await client.Docgen.GetDocgenJobsV2025R0Async(queryParams: new GetDocgenJobsV2025R0QueryParams() { Limit = 500 });
             Assert.IsTrue(NullableUtils.Unwrap(docgenJobs.Entries).Count >= 1);
             Assert.IsTrue(NullableUtils.Unwrap(docgenJobs.Entries)[0].Batch.Id != "");
             Assert.IsTrue(NullableUtils.Unwrap(docgenJobs.Entries)[0].CreatedBy.Id != "");
@@ -44,7 +46,9 @@ namespace Box.Sdk.Gen.Tests.Integration {
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(docgenJobs.Entries)[0].TemplateFileVersion.Type) == "file_version");
             Assert.IsTrue(NullableUtils.Unwrap(docgenJobs.Entries)[0].TemplateFileVersion.Id != "");
             Assert.IsTrue(StringUtils.ToStringRepresentation(NullableUtils.Unwrap(docgenJobs.Entries)[0].Type) == "docgen_job");
-            DocGenJobV2025R0 docgenJob = await client.Docgen.GetDocgenJobByIdV2025R0Async(jobId: NullableUtils.Unwrap(docgenJobs.Entries)[0].Id);
+            const int indexOfItem = 0;
+            DocGenJobFullV2025R0 docgenJobItemFromList = NullableUtils.Unwrap(docgenJobs.Entries).ElementAt(indexOfItem);
+            DocGenJobV2025R0 docgenJob = await client.Docgen.GetDocgenJobByIdV2025R0Async(jobId: docgenJobItemFromList.Id);
             Assert.IsTrue(docgenJob.Batch.Id != "");
             Assert.IsTrue(docgenJob.Id != "");
             Assert.IsTrue(docgenJob.OutputType != "");
