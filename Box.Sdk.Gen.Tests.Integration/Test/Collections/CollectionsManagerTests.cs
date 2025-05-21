@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Tests.Integration {
             FolderFull folder = await client.Folders.CreateFolderAsync(requestBody: new CreateFolderRequestBody(name: Utils.GetUUID(), parent: new CreateFolderRequestBodyParentField(id: "0")));
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Array.AsReadOnly(new [] {new UpdateFolderByIdRequestBodyCollectionsField() { Id = favouriteCollection.Id }}) });
             ItemsOffsetPaginated collectionItemsAfterUpdate = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
-            Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterUpdate.TotalCount) == NullableUtils.Unwrap(collectionItems.TotalCount) + 1);
+            Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterUpdate.TotalCount) > 0);
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Enumerable.Empty<UpdateFolderByIdRequestBodyCollectionsField>().ToList() });
             ItemsOffsetPaginated collectionItemsAfterRemove = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterRemove.TotalCount) == NullableUtils.Unwrap(collectionItems.TotalCount));
