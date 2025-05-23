@@ -45,6 +45,16 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
 
         [RetryableTest]
+        public async System.Threading.Tasks.Task TestJwtDownscopeTokenSucceedsIfNoTokenAvailable() {
+            JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
+            BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
+            AccessToken downscopedToken = await auth.DownscopeTokenAsync(scopes: Array.AsReadOnly(new [] {"root_readonly"}));
+            Assert.IsTrue(downscopedToken.AccessTokenField != null);
+            BoxClient downscopedClient = new BoxClient(auth: new BoxDeveloperTokenAuth(token: downscopedToken.AccessTokenField));
+            await Assert.That.IsExceptionAsync(async() => await downscopedClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 1024 * 1024))));
+        }
+
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestJwtAuthRevoke() {
             JwtConfig jwtConfig = JwtConfig.FromConfigJsonString(configJsonString: Utils.DecodeBase64(value: Utils.GetEnvVar(name: "JWT_CONFIG_BASE_64")));
             BoxJwtAuth auth = new BoxJwtAuth(config: jwtConfig);
@@ -61,6 +71,14 @@ namespace Box.Sdk.Gen.Tests.Integration {
             BoxOAuth auth = new BoxOAuth(config: config);
             string authUrl = auth.GetAuthorizeUrl();
             Assert.IsTrue(authUrl == "https://account.box.com/api/oauth2/authorize?client_id=OAUTH_CLIENT_ID&response_type=code" || authUrl == "https://account.box.com/api/oauth2/authorize?response_type=code&client_id=OAUTH_CLIENT_ID");
+        }
+
+        [RetryableTest]
+        public async System.Threading.Tasks.Task TestOauthDownscopeTokenSucceedsIfNoTokenAvailable() {
+            OAuthConfig config = new OAuthConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET"));
+            BoxOAuth auth = new BoxOAuth(config: config);
+            string resourcePath = string.Concat("https://api.box.com/2.0/files/12345");
+            await Assert.That.IsExceptionAsync(async() => await auth.DownscopeTokenAsync(scopes: Array.AsReadOnly(new [] {"item_rename","item_preview"}), resource: resourcePath));
         }
 
         [RetryableTest]
@@ -97,6 +115,16 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
 
         [RetryableTest]
+        public async System.Threading.Tasks.Task TestCcgDownscopeTokenSucceedsIfNoTokenAvailable() {
+            CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { UserId = Utils.GetEnvVar(name: "USER_ID") };
+            BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
+            AccessToken downscopedToken = await auth.DownscopeTokenAsync(scopes: Array.AsReadOnly(new [] {"root_readonly"}));
+            Assert.IsTrue(downscopedToken.AccessTokenField != null);
+            BoxClient downscopedClient = new BoxClient(auth: new BoxDeveloperTokenAuth(token: downscopedToken.AccessTokenField));
+            await Assert.That.IsExceptionAsync(async() => await downscopedClient.Uploads.UploadFileAsync(requestBody: new UploadFileRequestBody(attributes: new UploadFileRequestBodyAttributesField(name: Utils.GetUUID(), parent: new UploadFileRequestBodyAttributesParentField(id: "0")), file: Utils.GenerateByteStream(size: 1024 * 1024))));
+        }
+
+        [RetryableTest]
         public async System.Threading.Tasks.Task TestCcgAuthRevoke() {
             CcgConfig ccgConfig = new CcgConfig(clientId: Utils.GetEnvVar(name: "CLIENT_ID"), clientSecret: Utils.GetEnvVar(name: "CLIENT_SECRET")) { UserId = Utils.GetEnvVar(name: "USER_ID") };
             BoxCcgAuth auth = new BoxCcgAuth(config: ccgConfig);
@@ -105,6 +133,14 @@ namespace Box.Sdk.Gen.Tests.Integration {
             await auth.RevokeTokenAsync();
             AccessToken tokenFromStorageAfterRevoke = await auth.RetrieveTokenAsync();
             Assert.IsTrue(tokenFromStorageBeforeRevoke.AccessTokenField != tokenFromStorageAfterRevoke.AccessTokenField);
+        }
+
+        [RetryableTest]
+        public async System.Threading.Tasks.Task TestDeveloperDownscopeTokenSucceedsIfNoTokenAvailable() {
+            DeveloperTokenConfig developerTokenConfig = new DeveloperTokenConfig() { ClientId = Utils.GetEnvVar(name: "CLIENT_ID"), ClientSecret = Utils.GetEnvVar(name: "CLIENT_SECRET") };
+            BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth(token: "", config: developerTokenConfig);
+            string resourcePath = string.Concat("https://api.box.com/2.0/folders/12345");
+            await Assert.That.IsExceptionAsync(async() => await auth.DownscopeTokenAsync(scopes: Array.AsReadOnly(new [] {"item_rename","item_preview"}), resource: resourcePath));
         }
 
         public async System.Threading.Tasks.Task<AccessToken> GetAccessTokenAsync() {

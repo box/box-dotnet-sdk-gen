@@ -86,7 +86,7 @@ namespace Box.Sdk.Gen {
         /// An object to keep network session state
         /// </param>
         public async System.Threading.Tasks.Task<AccessToken> DownscopeTokenAsync(IReadOnlyList<string> scopes, string? resource = null, string? sharedLink = null, NetworkSession? networkSession = null) {
-            AccessToken? token = await this.TokenStorage.GetAsync().ConfigureAwait(false);
+            AccessToken? token = await this.RetrieveTokenAsync(networkSession: networkSession).ConfigureAwait(false);
             if (token == null || NullableUtils.Unwrap(token).AccessTokenField == null) {
                 throw new BoxSdkException(message: "No access token is available.");
             }
