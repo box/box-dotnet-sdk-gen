@@ -19,6 +19,9 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("basic_text")]
         public AiAgentBasicTextTool? BasicText { get; init; }
 
+        [JsonPropertyName("basic_image")]
+        public AiAgentBasicTextTool? BasicImage { get; init; }
+
         public AiAgentExtractStructured(AiAgentExtractStructuredTypeField type = AiAgentExtractStructuredTypeField.AiAgentExtractStructured) {
             Type = type;
         }
