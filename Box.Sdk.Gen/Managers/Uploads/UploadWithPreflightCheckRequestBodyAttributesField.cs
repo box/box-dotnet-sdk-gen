@@ -9,7 +9,10 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UploadWithPreflightCheckRequestBodyAttributesField : ISerializable {
         /// <summary>
-        /// The name of the file
+        /// The name of the file.
+        /// 
+        /// File names must be unique within their parent folder. The name check is case-insensitive, so a file
+        /// named `New File` cannot be created in a parent folder that already contains a folder named `new file`.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; }

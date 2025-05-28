@@ -22,6 +22,15 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
         /// The optional new name for this folder.
+        /// 
+        /// The following restrictions to folder names apply: names containing
+        /// non-printable ASCII characters, forward and backward slashes
+        /// (`/`, `\`), names with trailing spaces, and names `.` and `..` are
+        /// not allowed.
+        /// 
+        /// Folder names must be unique within their parent folder. The name check is case-insensitive, 
+        /// so a folder named `New Folder` cannot be created in a parent folder that already contains 
+        /// a folder named `new folder`.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
