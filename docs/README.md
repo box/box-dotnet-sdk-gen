@@ -58,6 +58,7 @@ the SDK are available by topic:
 * [Shield information barrier segment restrictions](ShieldInformationBarrierSegmentRestrictions.md)
 * [Shield information barrier segments](ShieldInformationBarrierSegments.md)
 * [Shield information barriers](ShieldInformationBarriers.md)
+* [Shield lists](ShieldLists.md)
 * [Sign requests](SignRequests.md)
 * [Sign templates](SignTemplates.md)
 * [Skills](Skills.md)
