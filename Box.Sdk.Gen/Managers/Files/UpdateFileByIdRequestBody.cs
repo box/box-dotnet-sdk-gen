@@ -29,6 +29,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// An optional different name for the file. This can be used to
         /// rename the file.
+        /// 
+        /// File names must be unique within their parent folder. The name check is case-insensitive, so a file 
+        /// named `New File` cannot be created in a parent folder that already contains a folder named `new file`.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
