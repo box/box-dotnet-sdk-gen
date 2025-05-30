@@ -11,6 +11,10 @@ namespace Box.Sdk.Gen.Managers {
         [Description("folder")]
         Folder,
         [Description("user")]
-        User
+        User,
+        [Description("ownership")]
+        Ownership,
+        [Description("interactions")]
+        Interactions
     }
 }

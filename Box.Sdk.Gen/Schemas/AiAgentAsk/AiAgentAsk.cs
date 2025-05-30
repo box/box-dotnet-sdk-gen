@@ -25,6 +25,12 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("basic_text_multi")]
         public AiAgentBasicTextTool? BasicTextMulti { get; init; }
 
+        [JsonPropertyName("basic_image")]
+        public AiAgentBasicTextTool? BasicImage { get; init; }
+
+        [JsonPropertyName("basic_image_multi")]
+        public AiAgentBasicTextTool? BasicImageMulti { get; init; }
+
         public AiAgentAsk(AiAgentAskTypeField type = AiAgentAskTypeField.AiAgentAsk) {
             Type = type;
         }
