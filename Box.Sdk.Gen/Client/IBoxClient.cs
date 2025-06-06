@@ -155,5 +155,7 @@ namespace Box.Sdk.Gen {
 
         public IDocgenManager Docgen { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
 
+        public IShieldListsManager ShieldLists { get => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it."); }
+
     }
 }

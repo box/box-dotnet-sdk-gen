@@ -157,6 +157,8 @@ namespace Box.Sdk.Gen {
 
         public IDocgenManager Docgen { get; }
 
+        public IShieldListsManager ShieldLists { get; }
+
         public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
             Auth = auth;
             NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
@@ -234,6 +236,7 @@ namespace Box.Sdk.Gen {
             AiStudio = new AiStudioManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             DocgenTemplate = new DocgenTemplateManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Docgen = new DocgenManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            ShieldLists = new ShieldListsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
         /// Make a custom http request using the client authentication and network session.
