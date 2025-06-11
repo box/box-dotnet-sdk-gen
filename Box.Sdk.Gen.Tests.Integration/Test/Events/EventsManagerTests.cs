@@ -57,8 +57,10 @@ namespace Box.Sdk.Gen.Tests.Integration {
 
         [RetryableTest]
         public async System.Threading.Tasks.Task TestGetEventsWithDateFilters() {
-            System.DateTimeOffset createdAfterDate = Utils.DateTimeFromString(dateTime: "2024-06-09T00:00:00Z");
-            System.DateTimeOffset createdBeforeDate = Utils.DateTimeFromString(dateTime: "2025-06-09T00:00:00Z");
+            long currentEpochTimeInSeconds = Utils.GetEpochTimeInSeconds();
+            long epochTimeInSecondsAWeekAgo = currentEpochTimeInSeconds - 7 * 24 * 60 * 60;
+            System.DateTimeOffset createdAfterDate = Utils.EpochSecondsToDateTime(seconds: epochTimeInSecondsAWeekAgo);
+            System.DateTimeOffset createdBeforeDate = Utils.EpochSecondsToDateTime(seconds: currentEpochTimeInSeconds);
             Events servers = await client.Events.GetEventsAsync(queryParams: new GetEventsQueryParams() { StreamType = GetEventsQueryParamsStreamTypeField.AdminLogs, Limit = 1, CreatedAfter = createdAfterDate, CreatedBefore = createdBeforeDate });
             Assert.IsTrue(NullableUtils.Unwrap(servers.Entries).Count == 1);
         }
