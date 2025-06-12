@@ -235,6 +235,26 @@ namespace Box.Sdk.Gen.Internal
         public static string DateToString(DateOnly date) => date.ToString("O", CultureInfo.InvariantCulture);
 
         /// <summary>
+        /// Converts DateTimeOffset to Epoch time (Unix time) in seconds.
+        /// </summary>
+        /// <param name="dateTime">Input DateTimeOffset</param>
+        /// <returns>Epoch time in seconds</returns>
+        public static long DateTimeToEpochSeconds(DateTimeOffset dateTime)
+        {
+            return dateTime.ToUnixTimeSeconds();
+        }
+
+        /// <summary>
+        /// Converts Epoch time (Unix time) in seconds to DateTimeOffset.
+        /// </summary>
+        /// <param name="epochSeconds">Epoch time in seconds</param>
+        /// <returns>DateTimeOffset</returns>
+        public static DateTimeOffset EpochSecondsToDateTime(long seconds)
+        {
+            return DateTimeOffset.FromUnixTimeSeconds(seconds).ToUniversalTime();
+        }
+
+        /// <summary>
         /// Indicates if SDK is running in the browser.
         /// </summary>
         /// <returns>False</returns>
@@ -244,7 +264,7 @@ namespace Box.Sdk.Gen.Internal
         /// Returns current Epoch time (Unix time) in seconds.
         /// </summary>
         /// <returns>Epoch time in seconds</returns>
-        public static int GetEpochTimeInSeconds() => (int)DateTimeOffset.Now.ToUnixTimeSeconds();
+        public static long GetEpochTimeInSeconds() => DateTimeOffset.Now.ToUnixTimeSeconds();
 
         /// <summary>
         /// Reads all text in a file.
