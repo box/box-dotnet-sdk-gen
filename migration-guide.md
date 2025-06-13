@@ -30,6 +30,8 @@
 - [Configuration](#configuration)
   - [As-User header](#as-user-header)
   - [Custom Base URLs](#custom-base-urls)
+- [Convenience methods](#convenience-methods)
+  - [Chunked upload of big files](#chunked-upload-of-big-files)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -619,4 +621,44 @@ var client = new BoxClient(new BoxCcgAuth(new CcgConfig("clientId", "clientSecre
 var clientWithCustomUrls = client.WithCustomBaseUrls(new BaseUrls("https://new-base-url.com",
     "https://my-company-upload-url.com",
     "https://my-company.com/oauth2"));
+```
+
+## Convenience methods
+
+### Chunked upload of big files
+
+For large files or in cases where the network connection is less reliable, you may want to upload the file in parts.
+This allows a single part to fail without aborting the entire upload, and failed parts are being retried automatically.
+
+**Legacy (`Box Windows V2 SDK`):**
+
+In the old SDK, you could use the `UploadUsingSessionAsync` method of the `FilesManager` class to upload a large file.
+This method accepted a `Stream` as the input stream, and the file name and parent folder ID were passed as parameters.
+
+```c#
+using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+{
+    string parentFolderId = "0";
+    var bFile = await client.FilesManager.UploadUsingSessionAsync(fileStream, "File v2.pdf", parentFolderId);
+    Console.WriteLine("{0} uploaded to folder: {1} as file: {2}", filePath, parentFolderId, bFile.Id);
+}
+```
+
+**Modern (`Box DotNet SDK`):**
+
+In the new SDK, the equivalent method is `ChunkedUploads.UploadBigFileAsync()`. It accepts a `Stream` object
+as the `file` parameter, and the `fileName` and `fileSize` parameters are now passed as arguments.
+The `parentFolderId` parameter is also required to specify the folder where the file will be uploaded.
+
+```c#
+int fileSize = 20 * 1024 * 1024;
+using var fileByteStream = new FileStream("My_Large_File.txt", FileMode.Open, FileAccess.Read);
+string fileName = "My_Large_File.txt";
+const string parentFolderId = "0";
+var uploadedFile = await client.ChunkedUploads.UploadBigFileAsync(
+  file: fileByteStream,
+  fileName: fileName,
+  fileSize: fileSize,
+  parentFolderId: parentFolderId
+);
 ```
