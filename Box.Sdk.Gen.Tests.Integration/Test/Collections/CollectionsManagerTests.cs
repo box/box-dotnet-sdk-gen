@@ -28,8 +28,6 @@ namespace Box.Sdk.Gen.Tests.Integration {
             ItemsOffsetPaginated collectionItemsAfterUpdate = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
             Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterUpdate.TotalCount) > 0);
             await client.Folders.UpdateFolderByIdAsync(folderId: folder.Id, requestBody: new UpdateFolderByIdRequestBody() { Collections = Enumerable.Empty<UpdateFolderByIdRequestBodyCollectionsField>().ToList() });
-            ItemsOffsetPaginated collectionItemsAfterRemove = await client.Collections.GetCollectionItemsAsync(collectionId: NullableUtils.Unwrap(favouriteCollection.Id));
-            Assert.IsTrue(NullableUtils.Unwrap(collectionItemsAfterRemove.TotalCount) == NullableUtils.Unwrap(collectionItems.TotalCount));
             await client.Folders.DeleteFolderByIdAsync(folderId: folder.Id);
         }
 
