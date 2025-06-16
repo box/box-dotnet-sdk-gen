@@ -10,14 +10,14 @@ namespace Box.Sdk.Gen.Managers {
     public class CreateCollaborationRequestBodyItemField : ISerializable {
         /// <summary>
         /// The type of the item that this collaboration will be
-        /// granted access to
+        /// granted access to.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CreateCollaborationRequestBodyItemTypeField>))]
         public StringEnum<CreateCollaborationRequestBodyItemTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The ID of the item that will be granted access to
+        /// The ID of the item that will be granted access to.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

@@ -87,7 +87,7 @@ await client.LegalHoldPolicies.GetLegalHoldPolicyByIdAsync(legalHoldPolicyId: le
 ### Arguments
 
 - legalHoldPolicyId `string`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - headers `GetLegalHoldPolicyByIdHeaders`
   - Headers of getLegalHoldPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -118,7 +118,7 @@ await client.LegalHoldPolicies.UpdateLegalHoldPolicyByIdAsync(legalHoldPolicyId:
 ### Arguments
 
 - legalHoldPolicyId `string`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - requestBody `UpdateLegalHoldPolicyByIdRequestBody`
   - Request body of updateLegalHoldPolicyById method
 - headers `UpdateLegalHoldPolicyByIdHeaders`
@@ -154,7 +154,7 @@ await client.LegalHoldPolicies.DeleteLegalHoldPolicyByIdAsync(legalHoldPolicyId:
 ### Arguments
 
 - legalHoldPolicyId `string`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - headers `DeleteLegalHoldPolicyByIdHeaders`
   - Headers of deleteLegalHoldPolicyById method
 - cancellationToken `System.Threading.CancellationToken?`

@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class PromoteFileVersionRequestBody : ISerializable {
         /// <summary>
-        /// The file version ID
+        /// The file version ID.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type to promote
+        /// The type to promote.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<PromoteFileVersionRequestBodyTypeField>))]

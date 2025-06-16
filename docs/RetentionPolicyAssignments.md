@@ -75,7 +75,7 @@ Returns a new retention policy assignment object.
 
 ## Get retention policy assignment
 
-Retrieves a retention policy assignment
+Retrieves a retention policy assignment.
 
 This operation is performed by calling function `GetRetentionPolicyAssignmentById`.
 

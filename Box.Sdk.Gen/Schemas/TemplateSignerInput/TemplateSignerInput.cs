@@ -33,14 +33,14 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _label { get; set; }
 
         /// <summary>
-        /// Type of input
+        /// Type of input.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TemplateSignerInputTypeField>))]
         public StringEnum<TemplateSignerInputTypeField>? Type { get; init; }
 
         /// <summary>
-        /// Content type of input
+        /// Content type of input.
         /// </summary>
         [JsonPropertyName("content_type")]
         [JsonConverter(typeof(StringEnumConverter<TemplateSignerInputContentTypeField>))]
@@ -65,13 +65,16 @@ namespace Box.Sdk.Gen.Schemas {
         public string? DocumentId { get => _documentId; init { _documentId = value; _isDocumentIdSet = true; } }
 
         /// <summary>
-        /// When the input is of the type `dropdown` this values will be filled with all the dropdown options.
+        /// When the input is of the type `dropdown` this
+        /// values will be filled with all the
+        /// dropdown options.
         /// </summary>
         [JsonPropertyName("dropdown_choices")]
         public IReadOnlyList<string>? DropdownChoices { get => _dropdownChoices; init { _dropdownChoices = value; _isDropdownChoicesSet = true; } }
 
         /// <summary>
-        /// When the input is of type `radio` they can be grouped to gather with this identifier.
+        /// When the input is of type `radio` they can be
+        /// grouped to gather with this identifier.
         /// </summary>
         [JsonPropertyName("group_id")]
         public string? GroupId { get => _groupId; init { _groupId = value; _isGroupIdSet = true; } }
@@ -95,7 +98,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Label { get => _label; init { _label = value; _isLabelSet = true; } }
 
         /// <summary>
-        /// Whether this input was defined as read-only(immutable by signers) or not
+        /// Whether this input was defined as read-only(immutable by signers) or not.
         /// </summary>
         [JsonPropertyName("read_only")]
         public bool? ReadOnly { get; init; }

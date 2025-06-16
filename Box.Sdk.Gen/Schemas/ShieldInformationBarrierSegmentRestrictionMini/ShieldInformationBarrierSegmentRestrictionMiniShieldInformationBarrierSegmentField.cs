@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of the shield information barrier segment
+        /// The type of the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>))]

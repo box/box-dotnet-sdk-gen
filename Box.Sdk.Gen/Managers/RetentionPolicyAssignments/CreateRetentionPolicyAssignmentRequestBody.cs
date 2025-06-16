@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateRetentionPolicyAssignmentRequestBody : ISerializable {
         /// <summary>
-        /// The ID of the retention policy to assign
+        /// The ID of the retention policy to assign.
         /// </summary>
         [JsonPropertyName("policy_id")]
         public string PolicyId { get; }
 
         /// <summary>
-        /// The item to assign the policy to
+        /// The item to assign the policy to.
         /// </summary>
         [JsonPropertyName("assign_to")]
         public CreateRetentionPolicyAssignmentRequestBodyAssignToField AssignTo { get; }

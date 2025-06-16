@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// When the legal hold policy assignment object was
-        /// created
+        /// created.
         /// </summary>
         [JsonPropertyName("assigned_at")]
         public System.DateTimeOffset? AssignedAt { get; init; }

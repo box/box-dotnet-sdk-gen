@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileOrFolderScope : ISerializable {
         /// <summary>
-        /// The scopes for the resource access
+        /// The scopes for the resource access.
         /// </summary>
         [JsonPropertyName("scope")]
         [JsonConverter(typeof(StringEnumConverter<FileOrFolderScopeScopeField>))]

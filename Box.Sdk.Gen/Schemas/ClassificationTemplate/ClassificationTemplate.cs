@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `metadata_template`
+        /// The value will always be `metadata_template`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateTypeField>))]
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Scope { get; }
 
         /// <summary>
-        /// `securityClassification-6VMVochwUWo`
+        /// The value will always be `securityClassification-6VMVochwUWo`.
         /// </summary>
         [JsonPropertyName("templateKey")]
         [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateTemplateKeyField>))]

@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<SkillInvocationStatusStateField>? State { get; init; }
 
         /// <summary>
-        /// Status information
+        /// Status information.
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; init; }

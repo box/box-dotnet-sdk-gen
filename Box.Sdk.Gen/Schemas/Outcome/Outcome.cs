@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class Outcome : ISerializable {
         /// <summary>
-        /// ID of a specific outcome
+        /// ID of a specific outcome.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

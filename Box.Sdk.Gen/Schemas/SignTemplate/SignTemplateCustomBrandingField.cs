@@ -34,7 +34,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _emailFooterText { get; set; }
 
         /// <summary>
-        /// Name of the company
+        /// Name of the company.
         /// </summary>
         [JsonPropertyName("company_name")]
         public string? CompanyName { get => _companyName; init { _companyName = value; _isCompanyNameSet = true; } }

@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// `webhook`
+        /// The value will always be `webhook`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WebhookMiniTypeField>))]
         public StringEnum<WebhookMiniTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The item that will trigger the webhook
+        /// The item that will trigger the webhook.
         /// </summary>
         [JsonPropertyName("target")]
         public WebhookMiniTargetField? Target { get; init; }

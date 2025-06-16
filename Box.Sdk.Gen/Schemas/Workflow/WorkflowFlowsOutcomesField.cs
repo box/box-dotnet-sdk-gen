@@ -9,20 +9,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFlowsOutcomesField : ISerializable {
         /// <summary>
-        /// The identifier of the outcome
+        /// The identifier of the outcome.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The outcomes resource type
+        /// The outcomes resource type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsOutcomesTypeField>))]
         public StringEnum<WorkflowFlowsOutcomesTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The name of the outcome
+        /// The name of the outcome.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
@@ -33,7 +33,7 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// If `action_type` is `assign_task` and the task is rejected, returns a
-        /// list of outcomes to complete
+        /// list of outcomes to complete.
         /// </summary>
         [JsonPropertyName("if_rejected")]
         public IReadOnlyList<WorkflowFlowsOutcomesIfRejectedField>? IfRejected { get; init; }

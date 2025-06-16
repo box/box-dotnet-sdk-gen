@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Lists Box Doc Gen jobs in a batch
+        /// Lists Box Doc Gen jobs in a batch.
         /// </summary>
         /// <param name="batchId">
         /// Box Doc Gen batch ID.

@@ -8,13 +8,13 @@ using System.Collections.ObjectModel;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAgentInfo : ISerializable {
         /// <summary>
-        /// The models used for the request
+        /// The models used for the request.
         /// </summary>
         [JsonPropertyName("models")]
         public IReadOnlyList<AiAgentInfoModelsField>? Models { get; init; }
 
         /// <summary>
-        /// The processor used for the request
+        /// The processor used for the request.
         /// </summary>
         [JsonPropertyName("processor")]
         public string? Processor { get; init; }

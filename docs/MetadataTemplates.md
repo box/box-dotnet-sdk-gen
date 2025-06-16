@@ -63,9 +63,9 @@ await client.MetadataTemplates.GetMetadataTemplateAsync(scope: GetMetadataTempla
 ### Arguments
 
 - scope `GetMetadataTemplateScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `GetMetadataTemplateHeaders`
   - Headers of getMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -103,9 +103,9 @@ await client.MetadataTemplates.UpdateMetadataTemplateAsync(scope: UpdateMetadata
 ### Arguments
 
 - scope `UpdateMetadataTemplateScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - requestBody `IReadOnlyList<UpdateMetadataTemplateRequestBody>`
   - Request body of updateMetadataTemplate method
 - headers `UpdateMetadataTemplateHeaders`
@@ -140,9 +140,9 @@ await client.MetadataTemplates.DeleteMetadataTemplateAsync(scope: DeleteMetadata
 ### Arguments
 
 - scope `DeleteMetadataTemplateScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `DeleteMetadataTemplateHeaders`
   - Headers of deleteMetadataTemplate method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -174,7 +174,7 @@ await client.MetadataTemplates.GetMetadataTemplateByIdAsync(templateId: template
 ### Arguments
 
 - templateId `string`
-  - The ID of the template Example: "f7a9891f"
+  - The ID of the template. Example: "f7a9891f"
 - headers `GetMetadataTemplateByIdHeaders`
   - Headers of getMetadataTemplateById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -224,7 +224,7 @@ and their corresponding schema.
 ## List all metadata templates for enterprise
 
 Used to retrieve all metadata templates created to be used specifically within
-the user's enterprise
+the user's enterprise.
 
 This operation is performed by calling function `GetEnterpriseMetadataTemplates`.
 

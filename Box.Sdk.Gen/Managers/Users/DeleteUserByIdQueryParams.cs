@@ -10,13 +10,13 @@ namespace Box.Sdk.Gen.Managers {
     public class DeleteUserByIdQueryParams {
         /// <summary>
         /// Whether the user will receive email notification of
-        /// the deletion
+        /// the deletion.
         /// </summary>
         public bool? Notify { get; init; }
 
         /// <summary>
         /// Whether the user should be deleted even if this user
-        /// still own files
+        /// still own files.
         /// </summary>
         public bool? Force { get; init; }
 

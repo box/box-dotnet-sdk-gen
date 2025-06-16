@@ -61,9 +61,9 @@ await client.FileMetadata.GetFileMetadataByIdAsync(fileId: file.Id, scope: GetFi
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - scope `GetFileMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `GetFileMetadataByIdHeaders`
   - Headers of getFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -102,9 +102,9 @@ await client.FileMetadata.CreateFileMetadataByIdAsync(fileId: file.Id, scope: Cr
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - scope `CreateFileMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - requestBody `Dictionary<string, object>`
   - Request body of createFileMetadataById method
 - headers `CreateFileMetadataByIdHeaders`
@@ -147,9 +147,9 @@ await client.FileMetadata.UpdateFileMetadataByIdAsync(fileId: file.Id, scope: Up
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - scope `UpdateFileMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - requestBody `IReadOnlyList<UpdateFileMetadataByIdRequestBody>`
   - Request body of updateFileMetadataById method
 - headers `UpdateFileMetadataByIdHeaders`
@@ -185,9 +185,9 @@ await client.FileMetadata.DeleteFileMetadataByIdAsync(fileId: file.Id, scope: De
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - scope `DeleteFileMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `DeleteFileMetadataByIdHeaders`
   - Headers of deleteFileMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`

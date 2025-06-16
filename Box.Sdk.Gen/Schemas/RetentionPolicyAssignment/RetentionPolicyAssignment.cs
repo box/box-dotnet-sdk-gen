@@ -21,7 +21,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `retention_policy_assignment`
+        /// The value will always be `retention_policy_assignment`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<RetentionPolicyAssignmentTypeField>))]

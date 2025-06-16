@@ -23,7 +23,7 @@ await client.UserCollaborations.GetCollaborationByIdAsync(collaborationId: colla
 ### Arguments
 
 - collaborationId `string`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - queryParams `GetCollaborationByIdQueryParams`
   - Query parameters of getCollaborationById method
 - headers `GetCollaborationByIdHeaders`
@@ -58,7 +58,7 @@ await client.UserCollaborations.UpdateCollaborationByIdAsync(collaborationId: co
 ### Arguments
 
 - collaborationId `string`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - requestBody `UpdateCollaborationByIdRequestBody`
   - Request body of updateCollaborationById method
 - headers `UpdateCollaborationByIdHeaders`
@@ -93,7 +93,7 @@ await client.UserCollaborations.DeleteCollaborationByIdAsync(collaborationId: co
 ### Arguments
 
 - collaborationId `string`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - headers `DeleteCollaborationByIdHeaders`
   - Headers of deleteCollaborationById method
 - cancellationToken `System.Threading.CancellationToken?`

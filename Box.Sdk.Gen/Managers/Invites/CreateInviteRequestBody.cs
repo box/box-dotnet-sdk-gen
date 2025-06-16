@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateInviteRequestBody : ISerializable {
         /// <summary>
-        /// The enterprise to invite the user to
+        /// The enterprise to invite the user to.
         /// </summary>
         [JsonPropertyName("enterprise")]
         public CreateInviteRequestBodyEnterpriseField Enterprise { get; }
 
         /// <summary>
-        /// The user to invite
+        /// The user to invite.
         /// </summary>
         [JsonPropertyName("actionable_by")]
         public CreateInviteRequestBodyActionableByField ActionableBy { get; }

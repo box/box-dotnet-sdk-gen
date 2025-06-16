@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<AiAgentReferenceTypeField> Type { get; }
 
         /// <summary>
-        /// The ID of an Agent
+        /// The ID of an Agent.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

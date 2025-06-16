@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldListsV2025R0 : ISerializable {
         /// <summary>
-        /// A list of shield list objects
+        /// A list of shield list objects.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<ShieldListMiniV2025R0>? Entries { get; init; }

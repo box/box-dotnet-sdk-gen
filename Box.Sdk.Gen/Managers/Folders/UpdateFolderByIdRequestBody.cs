@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? Name { get; init; }
 
         /// <summary>
-        /// The optional description of this folder
+        /// The optional description of this folder.
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; init; }

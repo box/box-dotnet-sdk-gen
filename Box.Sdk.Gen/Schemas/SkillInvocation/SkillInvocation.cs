@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class SkillInvocation : ISerializable {
         /// <summary>
-        /// `skill_invocation`
+        /// The value will always be `skill_invocation`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<SkillInvocationTypeField>))]
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public SkillInvocationSkillField? Skill { get; init; }
 
         /// <summary>
-        /// The read-only and read-write access tokens for this item
+        /// The read-only and read-write access tokens for this item.
         /// </summary>
         [JsonPropertyName("token")]
         public SkillInvocationTokenField? Token { get; init; }
@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// Action that triggered the invocation
+        /// Action that triggered the invocation.
         /// </summary>
         [JsonPropertyName("trigger")]
         public string? Trigger { get; init; }

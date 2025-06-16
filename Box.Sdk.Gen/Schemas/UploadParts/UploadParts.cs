@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// A list of uploaded chunks for an upload
-        /// session
+        /// session.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<UploadPart>? Entries { get; init; }

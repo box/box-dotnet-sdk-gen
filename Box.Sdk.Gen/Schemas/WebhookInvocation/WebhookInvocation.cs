@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WebhookInvocation : ISerializable {
         /// <summary>
-        /// The unique identifier for this webhook invocation
+        /// The unique identifier for this webhook invocation.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `webhook_event`
+        /// The value will always be `webhook_event`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WebhookInvocationTypeField>))]

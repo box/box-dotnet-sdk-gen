@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         /// 
         /// To get the value for the `SHA` digest, use the
         /// openSSL command to encode the file part:
-        /// `openssl sha1 -binary <FILE_PART_NAME> | base64`
+        /// `openssl sha1 -binary <FILE_PART_NAME> | base64`.
         /// 
         /// [1]: https://tools.ietf.org/html/rfc3230
         /// </summary>

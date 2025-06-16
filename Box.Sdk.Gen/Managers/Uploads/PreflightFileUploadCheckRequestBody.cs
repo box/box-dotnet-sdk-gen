@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class PreflightFileUploadCheckRequestBody : ISerializable {
         /// <summary>
-        /// The name for the file
+        /// The name for the file.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
 
         /// <summary>
-        /// The size of the file in bytes
+        /// The size of the file in bytes.
         /// </summary>
         [JsonPropertyName("size")]
         public int? Size { get; init; }

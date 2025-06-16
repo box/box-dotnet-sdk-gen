@@ -41,7 +41,7 @@ await userClient.IntegrationMappings.GetSlackIntegrationMappingAsync();
 
 This function returns a value of type `IntegrationMappings`.
 
-Returns a collection of integration mappings
+Returns a collection of integration mappings.
 
 
 ## Create Slack integration mapping
@@ -100,7 +100,7 @@ await userClient.IntegrationMappings.UpdateSlackIntegrationMappingByIdAsync(inte
 ### Arguments
 
 - integrationMappingId `string`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - requestBody `UpdateSlackIntegrationMappingByIdRequestBody`
   - Request body of updateSlackIntegrationMappingById method
 - headers `UpdateSlackIntegrationMappingByIdHeaders`
@@ -137,7 +137,7 @@ await userClient.IntegrationMappings.DeleteSlackIntegrationMappingByIdAsync(inte
 ### Arguments
 
 - integrationMappingId `string`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - headers `DeleteSlackIntegrationMappingByIdHeaders`
   - Headers of deleteSlackIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -148,7 +148,7 @@ await userClient.IntegrationMappings.DeleteSlackIntegrationMappingByIdAsync(inte
 
 This function returns a value of type `null`.
 
-Empty body in response
+Empty body in response.
 
 
 ## List Teams integration mappings
@@ -181,7 +181,7 @@ await userClient.IntegrationMappings.GetTeamsIntegrationMappingAsync();
 
 This function returns a value of type `IntegrationMappingsTeams`.
 
-Returns a collection of integration mappings
+Returns a collection of integration mappings.
 
 
 ## Create Teams integration mapping
@@ -238,7 +238,7 @@ await userClient.IntegrationMappings.UpdateTeamsIntegrationMappingByIdAsync(inte
 ### Arguments
 
 - integrationMappingId `string`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - requestBody `UpdateTeamsIntegrationMappingByIdRequestBody`
   - Request body of updateTeamsIntegrationMappingById method
 - headers `UpdateTeamsIntegrationMappingByIdHeaders`
@@ -273,7 +273,7 @@ await userClient.IntegrationMappings.DeleteTeamsIntegrationMappingByIdAsync(inte
 ### Arguments
 
 - integrationMappingId `string`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - headers `DeleteTeamsIntegrationMappingByIdHeaders`
   - Headers of deleteTeamsIntegrationMappingById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -284,6 +284,6 @@ await userClient.IntegrationMappings.DeleteTeamsIntegrationMappingByIdAsync(inte
 
 This function returns a value of type `null`.
 
-Empty body in response
+Empty body in response.
 
 

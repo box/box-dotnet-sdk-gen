@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Parameters;
 namespace Box.Sdk.Gen.Managers {
     public class GetDocgenTemplateJobByIdV2025R0Headers {
         /// <summary>
-        /// Version header
+        /// Version header.
         /// </summary>
         public StringEnum<BoxVersionHeaderV2025R0> BoxVersion { get; }
 

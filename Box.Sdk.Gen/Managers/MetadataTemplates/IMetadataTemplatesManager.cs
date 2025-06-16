@@ -30,11 +30,11 @@ namespace Box.Sdk.Gen.Managers {
     /// an enterprise or globally, or list all templates applied to a file or folder.
     /// </summary>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="headers">
@@ -55,11 +55,11 @@ namespace Box.Sdk.Gen.Managers {
     /// application of the operations, the metadata template will not be changed.
     /// </summary>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="requestBody">
@@ -78,11 +78,11 @@ namespace Box.Sdk.Gen.Managers {
     /// This deletion is permanent and can not be reversed.
     /// </summary>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="headers">
@@ -97,7 +97,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Retrieves a metadata template by its ID.
     /// </summary>
     /// <param name="templateId">
-    /// The ID of the template
+    /// The ID of the template.
     /// Example: "f7a9891f"
     /// </param>
     /// <param name="headers">
@@ -125,7 +125,7 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
     /// Used to retrieve all metadata templates created to be used specifically within
-    /// the user's enterprise
+    /// the user's enterprise.
     /// </summary>
     /// <param name="queryParams">
     /// Query parameters of getEnterpriseMetadataTemplates method

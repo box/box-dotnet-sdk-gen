@@ -84,7 +84,7 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? IsInPerson { get; init; }
 
         /// <summary>
-        /// Order of the signer
+        /// Order of the signer.
         /// </summary>
         [JsonPropertyName("order")]
         public long? Order { get; init; }
@@ -153,7 +153,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? SignerGroupId { get => _signerGroupId; init { _signerGroupId = value; _isSignerGroupIdSet = true; } }
 
         /// <summary>
-        /// If true, no emails about the sign request will be sent
+        /// If true, no emails about the sign request will be sent.
         /// </summary>
         [JsonPropertyName("suppress_notifications")]
         public bool? SuppressNotifications { get => _suppressNotifications; init { _suppressNotifications = value; _isSuppressNotificationsSet = true; } }

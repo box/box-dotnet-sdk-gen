@@ -36,7 +36,7 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<DocGenTemplatesV2025R0> GetDocgenTemplatesV2025R0Async(GetDocgenTemplatesV2025R0QueryParams? queryParams = default, GetDocgenTemplatesV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Unmarks file as Box Doc Gen template
+    /// Unmarks file as Box Doc Gen template.
     /// </summary>
     /// <param name="templateId">
     /// ID of the file which will no longer be marked as a Box Doc Gen template.

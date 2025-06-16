@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<TemplateSignerInput>? Inputs { get; init; }
 
         /// <summary>
-        /// Email address of the signer
+        /// Email address of the signer.
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get => _email; init { _email = value; _isEmailSet = true; } }
@@ -73,7 +73,7 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? IsInPerson { get; init; }
 
         /// <summary>
-        /// Order of the signer
+        /// Order of the signer.
         /// </summary>
         [JsonPropertyName("order")]
         public long? Order { get; init; }

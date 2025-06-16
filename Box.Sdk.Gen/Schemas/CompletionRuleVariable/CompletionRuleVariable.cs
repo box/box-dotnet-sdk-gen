@@ -8,7 +8,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Completion
         /// Rule object type.
-        /// 
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableTypeField>))]
@@ -18,7 +17,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// Variable type
         /// for the Completion
         /// Rule object.
-        /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
         [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableVariableTypeField>))]
@@ -28,7 +26,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// Variable
         /// values for a completion
         /// rule.
-        /// 
         /// </summary>
         [JsonPropertyName("variable_value")]
         [JsonConverter(typeof(StringEnumConverter<CompletionRuleVariableVariableValueField>))]

@@ -45,7 +45,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected long? _senderId { get; set; }
 
         /// <summary>
-        /// object type
+        /// The value will always be `sign-request`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<SignRequestTypeField>))]
@@ -114,7 +114,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FolderMini? ParentFolder { get; init; }
 
         /// <summary>
-        /// The collaborator level of the user to the sign request. Values can include "owner", "editor", and "viewer"
+        /// The collaborator level of the user to the sign request. Values can include "owner", "editor", and "viewer".
         /// </summary>
         [JsonPropertyName("collaborator_level")]
         public string? CollaboratorLevel { get => _collaboratorLevel; init { _collaboratorLevel = value; _isCollaboratorLevelSet = true; } }

@@ -75,6 +75,6 @@ await client.Invites.GetInviteByIdAsync(inviteId: invitation.Id);
 
 This function returns a value of type `Invite`.
 
-Returns an invite object
+Returns an invite object.
 
 

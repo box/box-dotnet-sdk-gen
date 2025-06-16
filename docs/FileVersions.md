@@ -64,7 +64,7 @@ await client.FileVersions.GetFileVersionByIdAsync(fileId: file.Id, fileVersionId
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
-  - The ID of the file version Example: "1234"
+  - The ID of the file version. Example: "1234"
 - queryParams `GetFileVersionByIdQueryParams`
   - Query parameters of getFileVersionById method
 - headers `GetFileVersionByIdHeaders`
@@ -105,7 +105,7 @@ await client.FileVersions.DeleteFileVersionByIdAsync(fileId: file.Id, fileVersio
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
-  - The ID of the file version Example: "1234"
+  - The ID of the file version. Example: "1234"
 - headers `DeleteFileVersionByIdHeaders`
   - Headers of deleteFileVersionById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -142,7 +142,7 @@ await client.FileVersions.UpdateFileVersionByIdAsync(fileId: file.Id, fileVersio
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - fileVersionId `string`
-  - The ID of the file version Example: "1234"
+  - The ID of the file version. Example: "1234"
 - requestBody `UpdateFileVersionByIdRequestBody`
   - Request body of updateFileVersionById method
 - headers `UpdateFileVersionByIdHeaders`

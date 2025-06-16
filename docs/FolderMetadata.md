@@ -62,9 +62,9 @@ await client.FolderMetadata.GetFolderMetadataByIdAsync(folderId: folder.Id, scop
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - scope `GetFolderMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `GetFolderMetadataByIdHeaders`
   - Headers of getFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -107,9 +107,9 @@ await client.FolderMetadata.CreateFolderMetadataByIdAsync(folderId: folder.Id, s
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - scope `CreateFolderMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - requestBody `Dictionary<string, object>`
   - Request body of createFolderMetadataById method
 - headers `CreateFolderMetadataByIdHeaders`
@@ -152,9 +152,9 @@ await client.FolderMetadata.UpdateFolderMetadataByIdAsync(folderId: folder.Id, s
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - scope `UpdateFolderMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - requestBody `IReadOnlyList<UpdateFolderMetadataByIdRequestBody>`
   - Request body of updateFolderMetadataById method
 - headers `UpdateFolderMetadataByIdHeaders`
@@ -190,9 +190,9 @@ await client.FolderMetadata.DeleteFolderMetadataByIdAsync(folderId: folder.Id, s
 - folderId `string`
   - The unique identifier that represent a folder.  The ID for any folder can be determined by visiting this folder in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/folder/123` the `folder_id` is `123`.  The root folder of a Box account is always represented by the ID `0`. Example: "12345"
 - scope `DeleteFolderMetadataByIdScope`
-  - The scope of the metadata template Example: "global"
+  - The scope of the metadata template. Example: "global"
 - templateKey `string`
-  - The name of the metadata template Example: "properties"
+  - The name of the metadata template. Example: "properties"
 - headers `DeleteFolderMetadataByIdHeaders`
   - Headers of deleteFolderMetadataById method
 - cancellationToken `System.Threading.CancellationToken?`

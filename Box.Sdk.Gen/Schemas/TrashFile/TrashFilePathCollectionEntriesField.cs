@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _etag { get; set; }
 
         /// <summary>
-        /// `folder`
+        /// The value will always be `folder`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TrashFilePathCollectionEntriesTypeField>))]
@@ -32,13 +32,13 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// This field is null for the Trash folder
+        /// This field is null for the Trash folder.
         /// </summary>
         [JsonPropertyName("sequence_id")]
         public string? SequenceId { get => _sequenceId; init { _sequenceId = value; _isSequenceIdSet = true; } }
 
         /// <summary>
-        /// This field is null for the Trash folder
+        /// This field is null for the Trash folder.
         /// </summary>
         [JsonPropertyName("etag")]
         public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }

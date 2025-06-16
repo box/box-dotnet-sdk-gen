@@ -24,7 +24,7 @@ await client.SignRequests.CancelSignRequestAsync(signRequestId: NullableUtils.Un
 ### Arguments
 
 - signRequestId `string`
-  - The ID of the signature request Example: "33243242"
+  - The ID of the signature request. Example: "33243242"
 - headers `CancelSignRequestHeaders`
   - Headers of cancelSignRequest method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -52,7 +52,7 @@ See the endpoint docs at
 ### Arguments
 
 - signRequestId `string`
-  - The ID of the signature request Example: "33243242"
+  - The ID of the signature request. Example: "33243242"
 - headers `ResendSignRequestHeaders`
   - Headers of resendSignRequest method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -84,7 +84,7 @@ await client.SignRequests.GetSignRequestByIdAsync(signRequestId: NullableUtils.U
 ### Arguments
 
 - signRequestId `string`
-  - The ID of the signature request Example: "33243242"
+  - The ID of the signature request. Example: "33243242"
 - headers `GetSignRequestByIdHeaders`
   - Headers of getSignRequestById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -127,7 +127,7 @@ await client.SignRequests.GetSignRequestsAsync();
 
 This function returns a value of type `SignRequests`.
 
-Returns a collection of sign requests
+Returns a collection of sign requests.
 
 
 ## Create Box Sign request

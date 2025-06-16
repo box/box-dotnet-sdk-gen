@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Identifies the Box partner app,
         /// with which the mapping is associated.
         /// Supports Slack and Teams.
-        /// (part of the composite key together with `id`)
+        /// (part of the composite key together with `id`).
         /// </summary>
         [JsonPropertyName("integration_type")]
         [JsonConverter(typeof(StringEnumConverter<IntegrationMappingTeamsIntegrationTypeField>))]
@@ -19,13 +19,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Identifies whether the mapping has
         /// been manually set by the team owner from UI for channels
-        /// (as opposed to being automatically created)
+        /// (as opposed to being automatically created).
         /// </summary>
         [JsonPropertyName("is_overridden_by_manual_mapping")]
         public bool? IsOverriddenByManualMapping { get; init; }
 
         /// <summary>
-        /// Mapped item object for Teams
+        /// Mapped item object for Teams.
         /// </summary>
         [JsonPropertyName("partner_item")]
         public IntegrationMappingPartnerItemTeamsUnion PartnerItem { get; }
@@ -34,13 +34,13 @@ namespace Box.Sdk.Gen.Schemas {
         public FolderReference BoxItem { get; }
 
         /// <summary>
-        /// When the integration mapping object was created
+        /// When the integration mapping object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// When the integration mapping object was last modified
+        /// When the integration mapping object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

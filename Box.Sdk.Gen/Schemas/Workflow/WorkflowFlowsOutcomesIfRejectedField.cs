@@ -9,20 +9,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFlowsOutcomesIfRejectedField : ISerializable {
         /// <summary>
-        /// The identifier of the outcome
+        /// The identifier of the outcome.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The outcomes resource type
+        /// The outcomes resource type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsOutcomesIfRejectedTypeField>))]
         public StringEnum<WorkflowFlowsOutcomesIfRejectedTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The name of the outcome
+        /// The name of the outcome.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

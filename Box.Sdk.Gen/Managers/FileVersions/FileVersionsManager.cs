@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="fileVersionId">
-        /// The ID of the file version
+        /// The ID of the file version.
         /// Example: "1234"
         /// </param>
         /// <param name="queryParams">
@@ -102,7 +102,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="fileVersionId">
-        /// The ID of the file version
+        /// The ID of the file version.
         /// Example: "1234"
         /// </param>
         /// <param name="headers">
@@ -134,7 +134,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="fileVersionId">
-        /// The ID of the file version
+        /// The ID of the file version.
         /// Example: "1234"
         /// </param>
         /// <param name="requestBody">

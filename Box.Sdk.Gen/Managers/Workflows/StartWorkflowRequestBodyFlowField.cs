@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBodyFlowField : ISerializable {
         /// <summary>
-        /// The type of the flow object
+        /// The type of the flow object.
         /// </summary>
         [JsonPropertyName("type")]
         public string? Type { get; init; }
 
         /// <summary>
-        /// The id of the flow
+        /// The id of the flow.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

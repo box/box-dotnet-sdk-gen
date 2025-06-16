@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Retrieves a single collaboration.
     /// </summary>
     /// <param name="collaborationId">
-    /// The ID of the collaboration
+    /// The ID of the collaboration.
     /// Example: "1234"
     /// </param>
     /// <param name="queryParams">
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Managers {
     /// accept collaboration invites.
     /// </summary>
     /// <param name="collaborationId">
-    /// The ID of the collaboration
+    /// The ID of the collaboration.
     /// Example: "1234"
     /// </param>
     /// <param name="requestBody">
@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Deletes a single collaboration.
     /// </summary>
     /// <param name="collaborationId">
-    /// The ID of the collaboration
+    /// The ID of the collaboration.
     /// Example: "1234"
     /// </param>
     /// <param name="headers">

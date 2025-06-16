@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Cancels a sign request.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the signature request
+        /// The ID of the signature request.
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">
@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Resends a signature request email to all outstanding signers.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the signature request
+        /// The ID of the signature request.
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">
@@ -57,7 +57,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Gets a sign request by ID.
         /// </summary>
         /// <param name="signRequestId">
-        /// The ID of the signature request
+        /// The ID of the signature request.
         /// Example: "33243242"
         /// </param>
         /// <param name="headers">

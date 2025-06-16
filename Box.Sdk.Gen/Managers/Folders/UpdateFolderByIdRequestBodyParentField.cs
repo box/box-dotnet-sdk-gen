@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFolderByIdRequestBodyParentField : ISerializable {
         /// <summary>
-        /// The ID of parent item
+        /// The ID of parent item.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

@@ -36,19 +36,19 @@ namespace Box.Sdk.Gen.Schemas {
         public string? DocumentTagId { get => _documentTagId; init { _documentTagId = value; _isDocumentTagIdSet = true; } }
 
         /// <summary>
-        /// Text prefill value
+        /// Text prefill value.
         /// </summary>
         [JsonPropertyName("text_value")]
         public string? TextValue { get => _textValue; init { _textValue = value; _isTextValueSet = true; } }
 
         /// <summary>
-        /// Checkbox prefill value
+        /// Checkbox prefill value.
         /// </summary>
         [JsonPropertyName("checkbox_value")]
         public bool? CheckboxValue { get => _checkboxValue; init { _checkboxValue = value; _isCheckboxValueSet = true; } }
 
         /// <summary>
-        /// Date prefill value
+        /// Date prefill value.
         /// </summary>
         [JsonPropertyName("date_value")]
         public System.DateOnly? DateValue { get => _dateValue; init { _dateValue = value; _isDateValueSet = true; } }

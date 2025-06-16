@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<FileBase>? SourceFiles { get => _sourceFiles; init { _sourceFiles = value; _isSourceFilesSet = true; } }
 
         /// <summary>
-        /// Force a specific color for the signature (blue, black, or red)
+        /// Force a specific color for the signature (blue, black, or red).
         /// </summary>
         [JsonPropertyName("signature_color")]
         [JsonConverter(typeof(StringEnumConverter<SignRequestCreateRequestSignatureColorField>))]

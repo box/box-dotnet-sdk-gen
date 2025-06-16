@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrierSegmentRestrictionBase : ISerializable {
         /// <summary>
-        /// Shield information barrier segment restriction
+        /// Shield information barrier segment restriction.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentRestrictionBaseTypeField>))]

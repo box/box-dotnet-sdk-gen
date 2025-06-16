@@ -135,7 +135,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="extension">
-    /// The file format for the thumbnail
+    /// The file format for the thumbnail.
     /// Example: "png"
     /// </param>
     /// <param name="queryParams">
@@ -172,7 +172,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="extension">
-    /// The file format for the thumbnail
+    /// The file format for the thumbnail.
     /// Example: "png"
     /// </param>
     /// <param name="queryParams">

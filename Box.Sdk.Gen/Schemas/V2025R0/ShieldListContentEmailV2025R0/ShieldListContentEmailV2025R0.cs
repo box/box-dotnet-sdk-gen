@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<ShieldListContentEmailV2025R0TypeField> Type { get; }
 
         /// <summary>
-        /// List of emails
+        /// List of emails.
         /// </summary>
         [JsonPropertyName("email_addresses")]
         public IReadOnlyList<string> EmailAddresses { get; }

@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// A unique identifier of a folder mapping
         /// (part of a composite key together
-        /// with `integration_type`)
+        /// with `integration_type`).
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// Mapping type
+        /// Mapping type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<IntegrationMappingBaseTypeField>))]

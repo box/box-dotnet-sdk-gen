@@ -27,14 +27,14 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _sharedLink { get; set; }
 
         /// <summary>
-        /// `web_link`
+        /// The value will always be `web_link`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TrashWebLinkTypeField>))]
         public StringEnum<TrashWebLinkTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The unique identifier for this web link
+        /// The unique identifier for this web link.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
@@ -50,13 +50,13 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Etag { get; init; }
 
         /// <summary>
-        /// The name of the web link
+        /// The name of the web link.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
 
         /// <summary>
-        /// The URL this web link points to
+        /// The URL this web link points to.
         /// </summary>
         [JsonPropertyName("url")]
         public string? Url { get; init; }
@@ -119,7 +119,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Whether this item is deleted or not. Values include `active`,
         /// `trashed` if the file has been moved to the trash, and `deleted` if
-        /// the file has been permanently deleted
+        /// the file has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
         [JsonConverter(typeof(StringEnumConverter<TrashWebLinkItemStatusField>))]

@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrierReportDetailsDetailsField : ISerializable {
         /// <summary>
-        /// Folder ID for locating this report
+        /// Folder ID for locating this report.
         /// </summary>
         [JsonPropertyName("folder_id")]
         public string? FolderId { get; init; }

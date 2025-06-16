@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class TaskAssignment : ISerializable {
         /// <summary>
-        /// The unique identifier for this task assignment
+        /// The unique identifier for this task assignment.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `task_assignment`
+        /// The value will always be `task_assignment`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TaskAssignmentTypeField>))]

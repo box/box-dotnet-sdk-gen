@@ -65,7 +65,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
-        /// `file`
+        /// The value will always be `file`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TrashFileRestoredTypeField>))]
@@ -75,7 +75,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string SequenceId { get; }
 
         /// <summary>
-        /// The name of the file
+        /// The name of the file.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
@@ -91,7 +91,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileVersionMini? FileVersion { get; init; }
 
         /// <summary>
-        /// The optional description of this file
+        /// The optional description of this file.
         /// </summary>
         [JsonPropertyName("description")]
         public string Description { get; }

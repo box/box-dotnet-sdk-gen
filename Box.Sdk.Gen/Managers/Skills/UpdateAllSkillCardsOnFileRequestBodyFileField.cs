@@ -9,14 +9,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateAllSkillCardsOnFileRequestBodyFileField : ISerializable {
         /// <summary>
-        /// `file`
+        /// The value will always be `file`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<UpdateAllSkillCardsOnFileRequestBodyFileTypeField>))]
         public StringEnum<UpdateAllSkillCardsOnFileRequestBodyFileTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The ID of the file
+        /// The ID of the file.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

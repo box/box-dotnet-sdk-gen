@@ -105,7 +105,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// new access token.
         /// 
         /// The `subject_token` will need to have all of these scopes or
-        /// the call will error with **401 Unauthorized**.
+        /// the call will error with **401 Unauthorized**..
         /// </summary>
         [JsonPropertyName("scope")]
         public string? Scope { get; init; }

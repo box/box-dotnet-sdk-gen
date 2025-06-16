@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrierReportBase : ISerializable {
         /// <summary>
-        /// The unique identifier for the shield information barrier report
+        /// The unique identifier for the shield information barrier report.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of the shield information barrier report
+        /// The type of the shield information barrier report.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierReportBaseTypeField>))]

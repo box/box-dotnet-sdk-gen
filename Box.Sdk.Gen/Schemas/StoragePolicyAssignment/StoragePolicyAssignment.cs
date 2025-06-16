@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `storage_policy_assignment`
+        /// The value will always be `storage_policy_assignment`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StoragePolicyAssignmentTypeField>))]

@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateClassificationOnFolderRequestBody : ISerializable {
         /// <summary>
-        /// `replace`
+        /// The value will always be `replace`.
         /// </summary>
         [JsonPropertyName("op")]
         [JsonConverter(typeof(StringEnumConverter<UpdateClassificationOnFolderRequestBodyOpField>))]

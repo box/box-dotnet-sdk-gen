@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class AiStudioAgentLongTextTool : AiAgentLongTextTool, ISerializable {
         /// <summary>
-        /// True if system message contains custom instructions placeholder, false otherwise
+        /// True if system message contains custom instructions placeholder, false otherwise.
         /// </summary>
         [JsonPropertyName("is_custom_instructions_included")]
         public bool? IsCustomInstructionsIncluded { get; init; }

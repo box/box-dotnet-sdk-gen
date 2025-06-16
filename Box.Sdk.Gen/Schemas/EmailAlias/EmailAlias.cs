@@ -6,26 +6,26 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class EmailAlias : ISerializable {
         /// <summary>
-        /// The unique identifier for this object
+        /// The unique identifier for this object.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `email_alias`
+        /// The value will always be `email_alias`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<EmailAliasTypeField>))]
         public StringEnum<EmailAliasTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The email address
+        /// The email address.
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; init; }
 
         /// <summary>
-        /// Whether the email address has been confirmed
+        /// Whether the email address has been confirmed.
         /// </summary>
         [JsonPropertyName("is_confirmed")]
         public bool? IsConfirmed { get; init; }

@@ -68,7 +68,7 @@ await client.ShieldInformationBarrierSegmentRestrictions.DeleteShieldInformation
 
 This function returns a value of type `null`.
 
-Empty body in response
+Empty body in response.
 
 
 ## List shield information barrier segment restrictions

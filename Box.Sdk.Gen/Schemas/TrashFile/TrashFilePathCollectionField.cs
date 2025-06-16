@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long TotalCount { get; }
 
         /// <summary>
-        /// Array of folders for this item's path collection
+        /// Array of folders for this item's path collection.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<TrashFilePathCollectionEntriesField> Entries { get; }

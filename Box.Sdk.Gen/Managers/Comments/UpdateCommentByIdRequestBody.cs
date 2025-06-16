@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateCommentByIdRequestBody : ISerializable {
         /// <summary>
-        /// The text of the comment to update
+        /// The text of the comment to update.
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; init; }

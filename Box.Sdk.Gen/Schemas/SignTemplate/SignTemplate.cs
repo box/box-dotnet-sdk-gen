@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected SignTemplateCustomBrandingField? _customBranding { get; set; }
 
         /// <summary>
-        /// object type
+        /// The value will always be `sign-template`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<SignTemplateTypeField>))]
@@ -65,19 +65,34 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Name { get => _name; init { _name = value; _isNameSet = true; } }
 
         /// <summary>
-        /// Subject of signature request email. This is cleaned by sign request. If this field is not passed, a default subject will be used.
+        /// Subject of signature request email. This is cleaned by sign
+        /// request. If this field is not passed, a default subject will be used.
         /// </summary>
         [JsonPropertyName("email_subject")]
         public string? EmailSubject { get => _emailSubject; init { _emailSubject = value; _isEmailSubjectSet = true; } }
 
         /// <summary>
-        /// Message to include in signature request email. The field is cleaned through sanitization of specific characters. However, some html tags are allowed. Links included in the message are also converted to hyperlinks in the email. The message may contain the following html tags including `a`, `abbr`, `acronym`, `b`, `blockquote`, `code`, `em`, `i`, `ul`, `li`, `ol`, and `strong`. Be aware that when the text to html ratio is too high, the email may end up in spam filters. Custom styles on these tags are not allowed. If this field is not passed, a default message will be used.
+        /// Message to include in signature request email. The field
+        /// is cleaned through sanitization of specific characters. However,
+        /// some html tags are allowed. Links included in the
+        /// message are also converted to hyperlinks in the email. The
+        /// message may contain the following html tags including `a`, `abbr`,
+        /// `acronym`, `b`, `blockquote`, `code`, `em`, `i`, `ul`, `li`, `ol`, and
+        /// `strong`. Be aware that when the text
+        /// to html ratio is too high, the email
+        /// may end up in spam filters. Custom styles on
+        /// these tags are not allowed.
+        /// If this field is not passed, a default message will be used.
         /// </summary>
         [JsonPropertyName("email_message")]
         public string? EmailMessage { get => _emailMessage; init { _emailMessage = value; _isEmailMessageSet = true; } }
 
         /// <summary>
-        /// Set the number of days after which the created signature request will automatically expire if not completed. By default, we do not apply any expiration date on signature requests, and the signature request does not expire.
+        /// Set the number of days after which the
+        /// created signature request will automatically
+        /// expire if not completed. By default, we do
+        /// not apply any expiration date on signature
+        /// requests, and the signature request does not expire.
         /// </summary>
         [JsonPropertyName("days_valid")]
         public long? DaysValid { get => _daysValid; init { _daysValid = value; _isDaysValidSet = true; } }
@@ -86,19 +101,24 @@ namespace Box.Sdk.Gen.Schemas {
         public FolderMini? ParentFolder { get; init; }
 
         /// <summary>
-        /// List of files to create a signing document from. Only the ID and type fields are required for each file.
+        /// List of files to create a signing document from.
+        /// Only the ID and type fields are required
+        /// for each file.
         /// </summary>
         [JsonPropertyName("source_files")]
         public IReadOnlyList<FileMini>? SourceFiles { get; init; }
 
         /// <summary>
-        /// Indicates if the template input fields are editable or not.
+        /// Indicates if the template input
+        /// fields are editable or not.
         /// </summary>
         [JsonPropertyName("are_fields_locked")]
         public bool? AreFieldsLocked { get; init; }
 
         /// <summary>
-        /// Indicates if the template document options are editable or not, for example renaming the document.
+        /// Indicates if the template document options
+        /// are editable or not,
+        /// for example renaming the document.
         /// </summary>
         [JsonPropertyName("are_options_locked")]
         public bool? AreOptionsLocked { get; init; }
@@ -116,7 +136,8 @@ namespace Box.Sdk.Gen.Schemas {
         public bool? AreEmailSettingsLocked { get; init; }
 
         /// <summary>
-        /// Indicates if the template files are editable or not. This includes deleting or renaming template files.
+        /// Indicates if the template files are editable or not.
+        /// This includes deleting or renaming template files.
         /// </summary>
         [JsonPropertyName("are_files_locked")]
         public bool? AreFilesLocked { get; init; }
@@ -134,13 +155,22 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<TemplateSigner>? Signers { get; init; }
 
         /// <summary>
-        /// Additional information on which fields are required and which fields are not editable.
+        /// Additional information on which fields are
+        /// required and which fields are not editable.
         /// </summary>
         [JsonPropertyName("additional_info")]
         public SignTemplateAdditionalInfoField? AdditionalInfo { get; init; }
 
         /// <summary>
-        /// Box's ready-sign link feature enables you to create a link to a signature request that you've created from a template. Use this link when you want to post a signature request on a public form — such as an email, social media post, or web page — without knowing who the signers will be. Note: The ready-sign link feature is limited to Enterprise Plus customers and not available to Box Verified Enterprises.
+        /// Box's ready-sign link feature enables you to create a
+        /// link to a signature request that
+        /// you've created from a template. Use this link
+        /// when you want to post a signature request
+        /// on a public form — such as an email, social media post,
+        /// or web page — without knowing who the signers will be.
+        /// Note: The ready-sign link feature is
+        /// limited to Enterprise Plus customers and not
+        /// available to Box Verified Enterprises.
         /// </summary>
         [JsonPropertyName("ready_sign_link")]
         public SignTemplateReadySignLinkField? ReadySignLink { get => _readySignLink; init { _readySignLink = value; _isReadySignLinkSet = true; } }

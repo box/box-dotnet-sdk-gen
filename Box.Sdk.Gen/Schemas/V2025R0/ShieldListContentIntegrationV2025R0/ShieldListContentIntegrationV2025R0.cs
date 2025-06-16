@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<ShieldListContentIntegrationV2025R0TypeField> Type { get; }
 
         /// <summary>
-        /// List of integration
+        /// List of integration.
         /// </summary>
         [JsonPropertyName("integrations")]
         public IReadOnlyList<ShieldListContentIntegrationV2025R0IntegrationsField> Integrations { get; }

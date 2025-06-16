@@ -9,32 +9,32 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class SkillCardsMetadata : ISerializable {
         /// <summary>
-        /// Whether the user can edit this metadata
+        /// Whether the user can edit this metadata.
         /// </summary>
         [JsonPropertyName("$canEdit")]
         public bool? CanEdit { get; init; }
 
         /// <summary>
-        /// A UUID to identify the metadata object
+        /// A UUID to identify the metadata object.
         /// </summary>
         [JsonPropertyName("$id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// An ID for the parent folder
+        /// An ID for the parent folder.
         /// </summary>
         [JsonPropertyName("$parent")]
         public string? Parent { get; init; }
 
         /// <summary>
         /// An ID for the scope in which this template
-        /// has been applied
+        /// has been applied.
         /// </summary>
         [JsonPropertyName("$scope")]
         public string? Scope { get; init; }
 
         /// <summary>
-        /// The name of the template
+        /// The name of the template.
         /// </summary>
         [JsonPropertyName("$template")]
         public string? Template { get; init; }

@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class StoragePolicyMini : ISerializable {
         /// <summary>
-        /// The unique identifier for this storage policy
+        /// The unique identifier for this storage policy.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// `storage_policy`
+        /// The value will always be `storage_policy`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StoragePolicyMiniTypeField>))]

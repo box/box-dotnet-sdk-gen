@@ -35,13 +35,13 @@ namespace Box.Sdk.Gen.Schemas {
         protected IReadOnlyList<StringEnum<FileFullSharedLinkPermissionOptionsField>>? _sharedLinkPermissionOptions { get; set; }
 
         /// <summary>
-        /// The version number of this file
+        /// The version number of this file.
         /// </summary>
         [JsonPropertyName("version_number")]
         public string? VersionNumber { get; init; }
 
         /// <summary>
-        /// The number of comments on this file
+        /// The number of comments on this file.
         /// </summary>
         [JsonPropertyName("comment_count")]
         public long? CommentCount { get; init; }
@@ -108,7 +108,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileFullMetadataField? Metadata { get; init; }
 
         /// <summary>
-        /// When the file will automatically be deleted
+        /// When the file will automatically be deleted.
         /// </summary>
         [JsonPropertyName("expires_at")]
         public System.DateTimeOffset? ExpiresAt { get => _expiresAt; init { _expiresAt = value; _isExpiresAtSet = true; } }
@@ -123,7 +123,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? UploaderDisplayName { get; init; }
 
         /// <summary>
-        /// The retention expiration timestamp for the given file
+        /// The retention expiration timestamp for the given file.
         /// </summary>
         [JsonPropertyName("disposition_at")]
         public System.DateTimeOffset? DispositionAt { get => _dispositionAt; init { _dispositionAt = value; _isDispositionAtSet = true; } }

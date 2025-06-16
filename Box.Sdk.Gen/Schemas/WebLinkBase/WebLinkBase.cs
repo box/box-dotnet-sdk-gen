@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class WebLinkBase : ISerializable {
         /// <summary>
-        /// The unique identifier for this web link
+        /// The unique identifier for this web link.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// `web_link`
+        /// The value will always be `web_link`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WebLinkBaseTypeField>))]

@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? Offset { get; init; }
 
         /// <summary>
-        /// Specifies the response as search result items with shared links
+        /// Specifies the response as search result items with shared links.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<SearchResultsWithSharedLinksTypeField>))]

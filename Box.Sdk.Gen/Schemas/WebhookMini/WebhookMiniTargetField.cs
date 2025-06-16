@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class WebhookMiniTargetField : ISerializable {
         /// <summary>
-        /// The ID of the item to trigger a webhook
+        /// The ID of the item to trigger a webhook.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of item to trigger a webhook
+        /// The type of item to trigger a webhook.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WebhookMiniTargetTypeField>))]

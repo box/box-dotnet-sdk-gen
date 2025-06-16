@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? TotalCount { get; init; }
 
         /// <summary>
-        /// A list of terms of service objects
+        /// A list of terms of service objects.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<TermsOfService>? Entries { get; init; }

@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class UserFull : User, ISerializable {
         /// <summary>
-        /// The user’s enterprise role
+        /// The user’s enterprise role.
         /// </summary>
         [JsonPropertyName("role")]
         [JsonConverter(typeof(StringEnumConverter<UserFullRoleField>))]
@@ -25,32 +25,32 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<TrackingCode>? TrackingCodes { get; init; }
 
         /// <summary>
-        /// Whether the user can see other enterprise users in their contact list
+        /// Whether the user can see other enterprise users in their contact list.
         /// </summary>
         [JsonPropertyName("can_see_managed_users")]
         public bool? CanSeeManagedUsers { get; init; }
 
         /// <summary>
-        /// Whether the user can use Box Sync
+        /// Whether the user can use Box Sync.
         /// </summary>
         [JsonPropertyName("is_sync_enabled")]
         public bool? IsSyncEnabled { get; init; }
 
         /// <summary>
         /// Whether the user is allowed to collaborate with users outside their
-        /// enterprise
+        /// enterprise.
         /// </summary>
         [JsonPropertyName("is_external_collab_restricted")]
         public bool? IsExternalCollabRestricted { get; init; }
 
         /// <summary>
-        /// Whether to exempt the user from Enterprise device limits
+        /// Whether to exempt the user from Enterprise device limits.
         /// </summary>
         [JsonPropertyName("is_exempt_from_device_limits")]
         public bool? IsExemptFromDeviceLimits { get; init; }
 
         /// <summary>
-        /// Whether the user must use two-factor authentication
+        /// Whether the user must use two-factor authentication.
         /// </summary>
         [JsonPropertyName("is_exempt_from_login_verification")]
         public bool? IsExemptFromLoginVerification { get; init; }
@@ -67,13 +67,13 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// The root (protocol, subdomain, domain) of any links that need to be
-        /// generated for the user
+        /// generated for the user.
         /// </summary>
         [JsonPropertyName("hostname")]
         public string? Hostname { get; init; }
 
         /// <summary>
-        /// Whether the user is an App User
+        /// Whether the user is an App User.
         /// </summary>
         [JsonPropertyName("is_platform_access_only")]
         public bool? IsPlatformAccessOnly { get; init; }

@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class RealtimeServer : ISerializable {
         /// <summary>
-        /// `realtime_server`
+        /// The value will always be `realtime_server`.
         /// </summary>
         [JsonPropertyName("type")]
         public string? Type { get; init; }
@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Url { get; init; }
 
         /// <summary>
-        /// The time in minutes for which this server is available
+        /// The time in minutes for which this server is available.
         /// </summary>
         [JsonPropertyName("ttl")]
         public string? Ttl { get; init; }

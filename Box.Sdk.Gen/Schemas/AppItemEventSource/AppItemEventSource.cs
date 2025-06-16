@@ -7,21 +7,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class AppItemEventSource : ISerializable {
         /// <summary>
-        /// The id of the `AppItem`
+        /// The id of the `AppItem`.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
         /// The type of the source that this event represents. Can only be `app_item`.
-        /// 
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AppItemEventSourceTypeField>))]
         public StringEnum<AppItemEventSourceTypeField> Type { get; }
 
         /// <summary>
-        /// The type of the `AppItem`
+        /// The type of the `AppItem`.
         /// </summary>
         [JsonPropertyName("app_item_type")]
         public string AppItemType { get; }

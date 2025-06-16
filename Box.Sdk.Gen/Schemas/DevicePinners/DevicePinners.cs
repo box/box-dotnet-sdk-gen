@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class DevicePinners : ISerializable {
         /// <summary>
-        /// A list of device pins
+        /// A list of device pins.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<DevicePinner>? Entries { get; init; }

@@ -39,6 +39,6 @@ await client.TrashedItems.GetTrashedItemsAsync();
 
 This function returns a value of type `Items`.
 
-Returns a list of items that have been deleted
+Returns a list of items that have been deleted.
 
 

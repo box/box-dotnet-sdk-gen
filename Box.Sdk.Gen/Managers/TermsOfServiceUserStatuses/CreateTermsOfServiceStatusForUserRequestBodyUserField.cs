@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         public StringEnum<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField> Type { get; }
 
         /// <summary>
-        /// The ID of user
+        /// The ID of user.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

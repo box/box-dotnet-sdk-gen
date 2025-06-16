@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long TotalCount { get; }
 
         /// <summary>
-        /// The parent folders for this item
+        /// The parent folders for this item.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FolderMini> Entries { get; }

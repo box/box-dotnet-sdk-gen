@@ -180,10 +180,10 @@ namespace Box.Sdk.Gen.Managers {
         /// parameter only takes one value. By default the API returns
         /// items that match any of these types.
         /// 
-        /// * `file` - Limits the search results to files
-        /// * `folder` - Limits the search results to folders
+        /// * `file` - Limits the search results to files,
+        /// * `folder` - Limits the search results to folders,
         /// * `web_link` - Limits the search results to web links, also known
-        ///    as bookmarks
+        ///    as bookmarks.
         /// </summary>
         public StringEnum<SearchForContentQueryParamsTypeField>? Type { get; init; }
 
@@ -243,7 +243,7 @@ namespace Box.Sdk.Gen.Managers {
         /// When this parameter has been set to true,
         /// the format of the response of this API changes to return
         /// a list of [Search Results with
-        /// Shared Links](r://search_results_with_shared_links)
+        /// Shared Links](r://search_results_with_shared_links).
         /// </summary>
         public bool? IncludeRecentSharedLinks { get; init; }
 

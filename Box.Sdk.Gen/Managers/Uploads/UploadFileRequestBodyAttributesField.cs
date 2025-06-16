@@ -18,7 +18,7 @@ namespace Box.Sdk.Gen.Managers {
         public string Name { get; }
 
         /// <summary>
-        /// The parent folder to upload the file to
+        /// The parent folder to upload the file to.
         /// </summary>
         [JsonPropertyName("parent")]
         public UploadFileRequestBodyAttributesParentField Parent { get; }

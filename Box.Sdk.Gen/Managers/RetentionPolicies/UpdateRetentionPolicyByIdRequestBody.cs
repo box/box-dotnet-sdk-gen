@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Managers {
         protected IReadOnlyList<UserBase>? _customNotificationRecipients { get; set; }
 
         /// <summary>
-        /// The name for the retention policy
+        /// The name for the retention policy.
         /// </summary>
         [JsonPropertyName("policy_name")]
         public string? PolicyName { get => _policyName; init { _policyName = value; _isPolicyNameSet = true; } }

@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
-        /// `file`
+        /// The value will always be `file`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileBaseTypeField>))]

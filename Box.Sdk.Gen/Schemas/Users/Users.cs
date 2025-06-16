@@ -71,7 +71,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<UsersOrderField>? Order { get; init; }
 
         /// <summary>
-        /// A list of users
+        /// A list of users.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<UserFull>? Entries { get; init; }

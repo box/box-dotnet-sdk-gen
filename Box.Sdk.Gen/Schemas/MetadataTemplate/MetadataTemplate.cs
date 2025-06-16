@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `metadata_template`
+        /// The value will always be `metadata_template`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<MetadataTemplateTypeField>))]

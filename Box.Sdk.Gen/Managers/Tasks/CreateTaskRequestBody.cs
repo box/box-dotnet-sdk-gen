@@ -16,9 +16,9 @@ namespace Box.Sdk.Gen.Managers {
         /// <summary>
         /// The action the task assignee will be prompted to do. Must be
         /// 
-        /// * `review` defines an approval task that can be approved or
+        /// * `review` defines an approval task that can be approved or,
         /// rejected
-        /// * `complete` defines a general task which can be completed
+        /// * `complete` defines a general task which can be completed.
         /// </summary>
         [JsonPropertyName("action")]
         [JsonConverter(typeof(StringEnumConverter<CreateTaskRequestBodyActionField>))]

@@ -83,7 +83,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Etag { get => _etag; init { _etag = value; _isEtagSet = true; } }
 
         /// <summary>
-        /// `folder`
+        /// The value will always be `folder`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TrashFolderRestoredTypeField>))]
@@ -187,8 +187,8 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Defines if this item has been deleted or not.
         /// 
-        /// * `active` when the item has is not in the trash
-        /// * `trashed` when the item has been moved to the trash but not deleted
+        /// * `active` when the item has is not in the trash,
+        /// * `trashed` when the item has been moved to the trash but not deleted,
         /// * `deleted` when the item has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]

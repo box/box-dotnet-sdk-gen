@@ -58,7 +58,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Retrieve a legal hold policy assignment.
         /// </summary>
         /// <param name="legalHoldPolicyAssignmentId">
-        /// The ID of the legal hold policy assignment
+        /// The ID of the legal hold policy assignment.
         /// Example: "753465"
         /// </param>
         /// <param name="headers">
@@ -81,7 +81,7 @@ namespace Box.Sdk.Gen.Managers {
         /// fully removed yet when the response returns.
         /// </summary>
         /// <param name="legalHoldPolicyAssignmentId">
-        /// The ID of the legal hold policy assignment
+        /// The ID of the legal hold policy assignment.
         /// Example: "753465"
         /// </param>
         /// <param name="headers">
@@ -118,7 +118,7 @@ namespace Box.Sdk.Gen.Managers {
         /// find a list of policy assignments for a given policy ID.
         /// </summary>
         /// <param name="legalHoldPolicyAssignmentId">
-        /// The ID of the legal hold policy assignment
+        /// The ID of the legal hold policy assignment.
         /// Example: "753465"
         /// </param>
         /// <param name="queryParams">

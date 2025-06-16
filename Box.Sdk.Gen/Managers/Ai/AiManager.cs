@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Get the AI agent default config
+        /// Get the AI agent default config.
         /// </summary>
         /// <param name="queryParams">
         /// Query parameters of getAiAgentDefaultConfig method

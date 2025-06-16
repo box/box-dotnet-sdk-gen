@@ -6,19 +6,19 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class AiAgentInfoModelsField : ISerializable {
         /// <summary>
-        /// The name of the model used for the request
+        /// The name of the model used for the request.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
 
         /// <summary>
-        /// The provider that owns the model used for the request
+        /// The provider that owns the model used for the request.
         /// </summary>
         [JsonPropertyName("provider")]
         public string? Provider { get; init; }
 
         /// <summary>
-        /// The supported purpose utilized by the model used for the request
+        /// The supported purpose utilized by the model used for the request.
         /// </summary>
         [JsonPropertyName("supported_purpose")]
         public string? SupportedPurpose { get; init; }

@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// Identifies the Box partner app,
         /// with which the mapping is associated.
         /// Currently only supports Slack.
-        /// (part of the composite key together with `id`)
+        /// (part of the composite key together with `id`).
         /// </summary>
         [JsonPropertyName("integration_type")]
         [JsonConverter(typeof(StringEnumConverter<IntegrationMappingIntegrationTypeField>))]
@@ -19,7 +19,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Identifies whether the mapping has
         /// been manually set
-        /// (as opposed to being automatically created)
+        /// (as opposed to being automatically created).
         /// </summary>
         [JsonPropertyName("is_manually_created")]
         public bool? IsManuallyCreated { get; init; }
@@ -29,39 +29,39 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// An object representing the user who
-        /// created the integration mapping
+        /// created the integration mapping.
         /// </summary>
         [JsonPropertyName("created_by")]
         public UserIntegrationMappings? CreatedBy { get; init; }
 
         /// <summary>
         /// The user who
-        /// last modified the integration mapping
+        /// last modified the integration mapping.
         /// </summary>
         [JsonPropertyName("modified_by")]
         public UserIntegrationMappings? ModifiedBy { get; init; }
 
         /// <summary>
-        /// Mapped item object for Slack
+        /// Mapped item object for Slack.
         /// </summary>
         [JsonPropertyName("partner_item")]
         public IntegrationMappingPartnerItemSlackUnion PartnerItem { get; }
 
         /// <summary>
         /// The Box folder, to which the object from the
-        /// partner app domain (referenced in `partner_item_id`) is mapped
+        /// partner app domain (referenced in `partner_item_id`) is mapped.
         /// </summary>
         [JsonPropertyName("box_item")]
         public FolderMini BoxItem { get; }
 
         /// <summary>
-        /// When the integration mapping object was created
+        /// When the integration mapping object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// When the integration mapping object was last modified
+        /// When the integration mapping object was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

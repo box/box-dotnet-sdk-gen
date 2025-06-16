@@ -76,7 +76,7 @@ Returns the new webhook object.
 
 ## Get webhook
 
-Retrieves a specific webhook
+Retrieves a specific webhook.
 
 This operation is performed by calling function `GetWebhookById`.
 
@@ -102,7 +102,7 @@ await client.Webhooks.GetWebhookByIdAsync(webhookId: NullableUtils.Unwrap(webhoo
 
 This function returns a value of type `Webhook`.
 
-Returns a webhook object
+Returns a webhook object.
 
 
 ## Update webhook

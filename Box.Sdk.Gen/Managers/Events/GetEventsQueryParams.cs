@@ -40,7 +40,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? StreamPosition { get; init; }
 
         /// <summary>
-        /// Limits the number of events returned
+        /// Limits the number of events returned.
         /// 
         /// Note: Sometimes, the events less than the limit requested can be returned
         /// even when there may be more events remaining. This is primarily done in

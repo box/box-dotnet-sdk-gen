@@ -57,10 +57,10 @@ namespace Box.Sdk.Gen.Schemas {
         /// (Get Memberships for Group).
         /// 
         /// * `admins_only` - the enterprise admin, co-admins, group's
-        ///   group admin
-        /// * `admins_and_members` - all admins and group members
+        ///   group admin.
+        /// * `admins_and_members` - all admins and group members.
         /// * `all_managed_users` - all managed users in the
-        ///   enterprise
+        ///   enterprise.
         /// </summary>
         [JsonPropertyName("member_viewability_level")]
         [JsonConverter(typeof(StringEnumConverter<GroupFullMemberViewabilityLevelField>))]

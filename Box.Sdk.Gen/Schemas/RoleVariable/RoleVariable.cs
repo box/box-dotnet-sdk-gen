@@ -7,7 +7,6 @@ namespace Box.Sdk.Gen.Schemas {
     public class RoleVariable : ISerializable {
         /// <summary>
         /// Role object type.
-        /// 
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<RoleVariableTypeField>))]
@@ -16,7 +15,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// The variable type used
         /// by the object.
-        /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
         [JsonConverter(typeof(StringEnumConverter<RoleVariableVariableTypeField>))]

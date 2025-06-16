@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         public StringEnum<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField> Type { get; }
 
         /// <summary>
-        /// The ID of the user or enterprise
+        /// The ID of the user or enterprise.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

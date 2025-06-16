@@ -69,7 +69,7 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="integrationMappingId">
-        /// An ID of an integration mapping
+        /// An ID of an integration mapping.
         /// Example: "11235432"
         /// </param>
         /// <param name="requestBody">
@@ -97,7 +97,7 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="integrationMappingId">
-        /// An ID of an integration mapping
+        /// An ID of an integration mapping.
         /// Example: "11235432"
         /// </param>
         /// <param name="headers">
@@ -164,7 +164,7 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="integrationMappingId">
-        /// An ID of an integration mapping
+        /// An ID of an integration mapping.
         /// Example: "11235432"
         /// </param>
         /// <param name="requestBody">
@@ -190,7 +190,7 @@ namespace Box.Sdk.Gen.Managers {
         /// use this endpoint.
         /// </summary>
         /// <param name="integrationMappingId">
-        /// An ID of an integration mapping
+        /// An ID of an integration mapping.
         /// Example: "11235432"
         /// </param>
         /// <param name="headers">

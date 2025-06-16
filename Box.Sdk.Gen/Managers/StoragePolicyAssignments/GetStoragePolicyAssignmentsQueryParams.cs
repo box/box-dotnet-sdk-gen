@@ -16,12 +16,12 @@ namespace Box.Sdk.Gen.Managers {
         public string? Marker { get; init; }
 
         /// <summary>
-        /// The target type to return assignments for
+        /// The target type to return assignments for.
         /// </summary>
         public StringEnum<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField> ResolvedForType { get; }
 
         /// <summary>
-        /// The ID of the user or enterprise to return assignments for
+        /// The ID of the user or enterprise to return assignments for.
         /// </summary>
         public string ResolvedForId { get; }
 

@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateAllSkillCardsOnFileRequestBodyUsageField : ISerializable {
         /// <summary>
-        /// `file`
+        /// The value will always be `file`.
         /// </summary>
         [JsonPropertyName("unit")]
         public string? Unit { get; init; }
 
         /// <summary>
-        /// `1`
+        /// Number of resources affected.
         /// </summary>
         [JsonPropertyName("value")]
         public double? Value { get; init; }

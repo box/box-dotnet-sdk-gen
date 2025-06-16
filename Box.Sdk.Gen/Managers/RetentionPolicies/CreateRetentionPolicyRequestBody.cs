@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateRetentionPolicyRequestBody : ISerializable {
         /// <summary>
-        /// The name for the retention policy
+        /// The name for the retention policy.
         /// </summary>
         [JsonPropertyName("policy_name")]
         public string PolicyName { get; }

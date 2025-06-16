@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class TranscriptSkillCardInvocationField : ISerializable {
         /// <summary>
-        /// `skill_invocation`
+        /// The value will always be `skill_invocation`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TranscriptSkillCardInvocationTypeField>))]

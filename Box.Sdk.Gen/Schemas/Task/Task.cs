@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class Task : ISerializable {
         /// <summary>
-        /// The unique identifier for this task
+        /// The unique identifier for this task.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `task`
+        /// The value will always be `task`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TaskTypeField>))]
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public FileMini? Item { get; init; }
 
         /// <summary>
-        /// When the task is due
+        /// When the task is due.
         /// </summary>
         [JsonPropertyName("due_at")]
         public System.DateTimeOffset? DueAt { get; init; }
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<TaskActionField>? Action { get; init; }
 
         /// <summary>
-        /// A message that will be included with the task
+        /// A message that will be included with the task.
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; init; }
@@ -46,7 +46,7 @@ namespace Box.Sdk.Gen.Schemas {
         public TaskAssignments? TaskAssignmentCollection { get; init; }
 
         /// <summary>
-        /// Whether the task has been completed
+        /// Whether the task has been completed.
         /// </summary>
         [JsonPropertyName("is_completed")]
         public bool? IsCompleted { get; init; }
@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? CreatedBy { get; init; }
 
         /// <summary>
-        /// When the task object was created
+        /// When the task object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }

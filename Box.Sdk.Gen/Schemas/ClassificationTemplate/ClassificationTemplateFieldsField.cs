@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         public StringEnum<ClassificationTemplateFieldsKeyField> Key { get; }
 
         /// <summary>
-        /// `Classification`
+        /// The value will always be `Classification`.
         /// </summary>
         [JsonPropertyName("displayName")]
         [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateFieldsDisplayNameField>))]

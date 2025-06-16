@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateWebLinkByIdRequestBodyParentField : ISerializable {
         /// <summary>
-        /// The ID of parent item
+        /// The ID of parent item.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

@@ -9,14 +9,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateLegalHoldPolicyAssignmentRequestBodyAssignToField : ISerializable {
         /// <summary>
-        /// The type of item to assign the policy to
+        /// The type of item to assign the policy to.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>))]
         public StringEnum<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField> Type { get; }
 
         /// <summary>
-        /// The ID of item to assign the policy to
+        /// The ID of item to assign the policy to.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

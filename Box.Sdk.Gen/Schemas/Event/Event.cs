@@ -7,25 +7,25 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class Event : ISerializable {
         /// <summary>
-        /// `event`
+        /// The value will always be `event`.
         /// </summary>
         [JsonPropertyName("type")]
         public string? Type { get; init; }
 
         /// <summary>
-        /// When the event object was created
+        /// When the event object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// When the event object was recorded in database
+        /// When the event object was recorded in database.
         /// </summary>
         [JsonPropertyName("recorded_at")]
         public System.DateTimeOffset? RecordedAt { get; init; }
 
         /// <summary>
-        /// The ID of the event object. You can use this to detect duplicate events
+        /// The ID of the event object. You can use this to detect duplicate events.
         /// </summary>
         [JsonPropertyName("event_id")]
         public string? EventId { get; init; }

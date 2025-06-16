@@ -106,7 +106,7 @@ await client.Groups.GetGroupByIdAsync(groupId: group.Id, queryParams: new GetGro
 
 This function returns a value of type `GroupFull`.
 
-Returns the group object
+Returns the group object.
 
 
 ## Update group

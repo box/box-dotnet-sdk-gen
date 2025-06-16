@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class AiStudioAgentBasicTextToolResponse : AiStudioAgentBasicTextTool, ISerializable {
         /// <summary>
-        /// Warnings concerning tool
+        /// Warnings concerning tool.
         /// </summary>
         [JsonPropertyName("warnings")]
         public IReadOnlyList<string>? Warnings { get; init; }

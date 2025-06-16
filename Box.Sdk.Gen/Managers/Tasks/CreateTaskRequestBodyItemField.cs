@@ -8,13 +8,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateTaskRequestBodyItemField : ISerializable {
         /// <summary>
-        /// The ID of the file
+        /// The ID of the file.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `file`
+        /// The value will always be `file`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CreateTaskRequestBodyItemTypeField>))]

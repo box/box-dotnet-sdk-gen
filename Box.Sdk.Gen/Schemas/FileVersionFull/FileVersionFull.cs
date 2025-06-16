@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileVersionFull : FileVersion, ISerializable {
         /// <summary>
-        /// The version number of this file version
+        /// The version number of this file version.
         /// </summary>
         [JsonPropertyName("version_number")]
         public string? VersionNumber { get; init; }

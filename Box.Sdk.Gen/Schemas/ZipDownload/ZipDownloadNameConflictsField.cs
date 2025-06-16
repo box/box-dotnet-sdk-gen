@@ -6,20 +6,20 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class ZipDownloadNameConflictsField : ISerializable {
         /// <summary>
-        /// The identifier of the item
+        /// The identifier of the item.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of this item
+        /// The type of this item.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ZipDownloadNameConflictsTypeField>))]
         public StringEnum<ZipDownloadNameConflictsTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The original name of this item
+        /// Box Developer Documentation.
         /// </summary>
         [JsonPropertyName("original_name")]
         public string? OriginalName { get; init; }

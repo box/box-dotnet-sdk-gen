@@ -6,20 +6,20 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldListMiniV2025R0 : ISerializable {
         /// <summary>
-        /// Unique global identifier for this list
+        /// Unique global identifier for this list.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// The type of object
+        /// The type of object.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldListMiniV2025R0TypeField>))]
         public StringEnum<ShieldListMiniV2025R0TypeField> Type { get; }
 
         /// <summary>
-        /// Name of Shield List
+        /// Name of Shield List.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; }

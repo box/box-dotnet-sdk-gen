@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateInviteRequestBodyEnterpriseField : ISerializable {
         /// <summary>
-        /// The ID of the enterprise
+        /// The ID of the enterprise.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

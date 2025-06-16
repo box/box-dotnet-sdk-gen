@@ -7,20 +7,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFlowsTriggerScopeField : ISerializable {
         /// <summary>
-        /// The trigger scope's resource type
+        /// The trigger scope's resource type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerScopeTypeField>))]
         public StringEnum<WorkflowFlowsTriggerScopeTypeField>? Type { get; init; }
 
         /// <summary>
-        /// Indicates the path of the condition value to check
+        /// Indicates the path of the condition value to check.
         /// </summary>
         [JsonPropertyName("ref")]
         public string? Ref { get; init; }
 
         /// <summary>
-        /// The object the `ref` points to
+        /// The object the `ref` points to.
         /// </summary>
         [JsonPropertyName("object")]
         public WorkflowFlowsTriggerScopeObjectField? Object { get; init; }

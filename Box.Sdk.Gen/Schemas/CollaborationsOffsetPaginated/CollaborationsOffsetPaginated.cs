@@ -38,7 +38,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? Offset { get; init; }
 
         /// <summary>
-        /// A list of collaborations
+        /// A list of collaborations.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<Collaboration>? Entries { get; init; }

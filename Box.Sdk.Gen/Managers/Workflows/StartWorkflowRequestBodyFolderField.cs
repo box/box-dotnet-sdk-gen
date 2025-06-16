@@ -9,14 +9,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBodyFolderField : ISerializable {
         /// <summary>
-        /// The type of the folder object
+        /// The type of the folder object.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StartWorkflowRequestBodyFolderTypeField>))]
         public StringEnum<StartWorkflowRequestBodyFolderTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The id of the folder
+        /// The id of the folder.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

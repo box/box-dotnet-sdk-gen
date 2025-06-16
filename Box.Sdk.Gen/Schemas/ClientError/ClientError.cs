@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected Dictionary<string, object>? _contextInfo { get; set; }
 
         /// <summary>
-        /// error
+        /// The value will always be `error`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ClientErrorTypeField>))]
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         public int? Status { get; init; }
 
         /// <summary>
-        /// A Box-specific error code
+        /// A Box-specific error code.
         /// </summary>
         [JsonPropertyName("code")]
         [JsonConverter(typeof(StringEnumConverter<ClientErrorCodeField>))]
