@@ -157,6 +157,10 @@ namespace Box.Sdk.Gen {
 
         public IDocgenManager Docgen { get; }
 
+        public IHubsManager Hubs { get; }
+
+        public IHubCollaborationsManager HubCollaborations { get; }
+
         public IShieldListsManager ShieldLists { get; }
 
         public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
@@ -236,6 +240,8 @@ namespace Box.Sdk.Gen {
             AiStudio = new AiStudioManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             DocgenTemplate = new DocgenTemplateManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Docgen = new DocgenManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Hubs = new HubsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            HubCollaborations = new HubCollaborationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             ShieldLists = new ShieldListsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
