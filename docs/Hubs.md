@@ -15,7 +15,10 @@ This operation is performed by calling function `GetHubsV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-hubs/).
 
-*Currently we don't have an example for calling `GetHubsV2025R0` in integration tests*
+<!-- sample get_hubs_v2025.0 -->
+```
+await client.Hubs.GetHubsV2025R0Async(queryParams: new GetHubsV2025R0QueryParams() { Scope = "all", Sort = "name", Direction = GetHubsV2025R0QueryParamsDirectionField.Asc });
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `GetEnterpriseHubsV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-enterprise-hubs/).
 
-*Currently we don't have an example for calling `GetEnterpriseHubsV2025R0` in integration tests*
+<!-- sample get_enterprise_hubs_v2025.0 -->
+```
+await client.Hubs.GetEnterpriseHubsV2025R0Async(queryParams: new GetEnterpriseHubsV2025R0QueryParams() { Sort = "name", Direction = GetEnterpriseHubsV2025R0QueryParamsDirectionField.Asc });
+```
 
 ### Arguments
 
@@ -74,7 +80,10 @@ This operation is performed by calling function `GetHubByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-hubs-id/).
 
-*Currently we don't have an example for calling `GetHubByIdV2025R0` in integration tests*
+<!-- sample get_hubs_id_v2025.0 -->
+```
+await client.Hubs.GetHubByIdV2025R0Async(hubId: userHub.Id);
+```
 
 ### Arguments
 
@@ -102,7 +111,10 @@ This operation is performed by calling function `DeleteHubByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/delete-hubs-id/).
 
-*Currently we don't have an example for calling `DeleteHubByIdV2025R0` in integration tests*
+<!-- sample delete_hubs_id_v2025.0 -->
+```
+await client.Hubs.DeleteHubByIdV2025R0Async(hubId: hub.Id);
+```
 
 ### Arguments
 

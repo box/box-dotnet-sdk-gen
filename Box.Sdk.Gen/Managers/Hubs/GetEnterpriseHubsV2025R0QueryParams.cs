@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? Query { get; init; }
 
         /// <summary>
-        /// The field to sort results by. 
+        /// The field to sort results by.
         /// Possible values include `name`, `updated_at`,
         /// `last_accessed_at`, `view_count`, and `relevance`.
         /// Default is `relevance`.
