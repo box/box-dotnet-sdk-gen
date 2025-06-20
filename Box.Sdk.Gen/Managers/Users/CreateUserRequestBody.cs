@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateUserRequestBody : ISerializable {
         /// <summary>
-        /// The name of the user
+        /// The name of the user.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; }
@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen.Managers {
         public bool? IsPlatformAccessOnly { get; init; }
 
         /// <summary>
-        /// The user’s enterprise role
+        /// The user’s enterprise role.
         /// </summary>
         [JsonPropertyName("role")]
         [JsonConverter(typeof(StringEnumConverter<CreateUserRequestBodyRoleField>))]
@@ -44,25 +44,25 @@ namespace Box.Sdk.Gen.Managers {
         public string? Language { get; init; }
 
         /// <summary>
-        /// Whether the user can use Box Sync
+        /// Whether the user can use Box Sync.
         /// </summary>
         [JsonPropertyName("is_sync_enabled")]
         public bool? IsSyncEnabled { get; init; }
 
         /// <summary>
-        /// The user’s job title
+        /// The user’s job title.
         /// </summary>
         [JsonPropertyName("job_title")]
         public string? JobTitle { get; init; }
 
         /// <summary>
-        /// The user’s phone number
+        /// The user’s phone number.
         /// </summary>
         [JsonPropertyName("phone")]
         public string? Phone { get; init; }
 
         /// <summary>
-        /// The user’s address
+        /// The user’s address.
         /// </summary>
         [JsonPropertyName("address")]
         public string? Address { get; init; }
@@ -85,38 +85,38 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
         /// Whether the user can see other enterprise users in their
-        /// contact list
+        /// contact list.
         /// </summary>
         [JsonPropertyName("can_see_managed_users")]
         public bool? CanSeeManagedUsers { get; init; }
 
         /// <summary>
-        /// The user's timezone
+        /// The user's timezone.
         /// </summary>
         [JsonPropertyName("timezone")]
         public string? Timezone { get; init; }
 
         /// <summary>
         /// Whether the user is allowed to collaborate with users outside
-        /// their enterprise
+        /// their enterprise.
         /// </summary>
         [JsonPropertyName("is_external_collab_restricted")]
         public bool? IsExternalCollabRestricted { get; init; }
 
         /// <summary>
-        /// Whether to exempt the user from enterprise device limits
+        /// Whether to exempt the user from enterprise device limits.
         /// </summary>
         [JsonPropertyName("is_exempt_from_device_limits")]
         public bool? IsExemptFromDeviceLimits { get; init; }
 
         /// <summary>
-        /// Whether the user must use two-factor authentication
+        /// Whether the user must use two-factor authentication.
         /// </summary>
         [JsonPropertyName("is_exempt_from_login_verification")]
         public bool? IsExemptFromLoginVerification { get; init; }
 
         /// <summary>
-        /// The user's account status
+        /// The user's account status.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<CreateUserRequestBodyStatusField>))]

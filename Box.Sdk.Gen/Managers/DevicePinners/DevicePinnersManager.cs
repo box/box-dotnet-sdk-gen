@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Retrieves information about an individual device pin.
         /// </summary>
         /// <param name="devicePinnerId">
-        /// The ID of the device pin
+        /// The ID of the device pin.
         /// Example: "2324234"
         /// </param>
         /// <param name="headers">
@@ -37,7 +37,7 @@ namespace Box.Sdk.Gen.Managers {
         /// Deletes an individual device pin.
         /// </summary>
         /// <param name="devicePinnerId">
-        /// The ID of the device pin
+        /// The ID of the device pin.
         /// Example: "2324234"
         /// </param>
         /// <param name="headers">
@@ -59,7 +59,7 @@ namespace Box.Sdk.Gen.Managers {
         /// needs the "manage enterprise" scope to make this call.
         /// </summary>
         /// <param name="enterpriseId">
-        /// The ID of the enterprise
+        /// The ID of the enterprise.
         /// Example: "3442311"
         /// </param>
         /// <param name="queryParams">

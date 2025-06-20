@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateFolderWatermarkRequestBody : ISerializable {
         /// <summary>
-        /// The watermark to imprint on the folder
+        /// The watermark to imprint on the folder.
         /// </summary>
         [JsonPropertyName("watermark")]
         public UpdateFolderWatermarkRequestBodyWatermarkField Watermark { get; }

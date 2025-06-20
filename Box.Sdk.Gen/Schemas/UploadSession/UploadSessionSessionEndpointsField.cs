@@ -6,13 +6,13 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class UploadSessionSessionEndpointsField : ISerializable {
         /// <summary>
-        /// The URL to upload parts to
+        /// The URL to upload parts to.
         /// </summary>
         [JsonPropertyName("upload_part")]
         public string? UploadPart { get; init; }
 
         /// <summary>
-        /// The URL used to commit the file
+        /// The URL used to commit the file.
         /// </summary>
         [JsonPropertyName("commit")]
         public string? Commit { get; init; }

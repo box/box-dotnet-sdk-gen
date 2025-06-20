@@ -70,7 +70,7 @@ A list of Box Doc Gen jobs.
 
 ## Get Box Doc Gen jobs by batch ID
 
-Lists Box Doc Gen jobs in a batch
+Lists Box Doc Gen jobs in a batch.
 
 This operation is performed by calling function `GetDocgenBatchJobByIdV2025R0`.
 

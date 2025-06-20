@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateFileUploadSessionCommitByUrlRequestBody : ISerializable {
         /// <summary>
-        /// The list details for the uploaded parts
+        /// The list details for the uploaded parts.
         /// </summary>
         [JsonPropertyName("parts")]
         public IReadOnlyList<UploadPart> Parts { get; }

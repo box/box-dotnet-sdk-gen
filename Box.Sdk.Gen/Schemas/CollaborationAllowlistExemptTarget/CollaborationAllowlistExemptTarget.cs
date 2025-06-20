@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class CollaborationAllowlistExemptTarget : ISerializable {
         /// <summary>
-        /// The unique identifier for this exemption
+        /// The unique identifier for this exemption.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `collaboration_whitelist_exempt_target`
+        /// The value will always be `collaboration_whitelist_exempt_target`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistExemptTargetTypeField>))]
@@ -26,13 +26,13 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? User { get; init; }
 
         /// <summary>
-        /// The time the entry was created
+        /// The time the entry was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// The time the entry was modified
+        /// The time the entry was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

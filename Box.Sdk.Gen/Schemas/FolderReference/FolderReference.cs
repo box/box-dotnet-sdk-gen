@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class FolderReference : ISerializable {
         /// <summary>
-        /// `folder`
+        /// The value will always be `folder`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FolderReferenceTypeField>))]
         public StringEnum<FolderReferenceTypeField> Type { get; }
 
         /// <summary>
-        /// ID of the folder
+        /// ID of the folder.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

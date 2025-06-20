@@ -6,20 +6,20 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowMini : ISerializable {
         /// <summary>
-        /// The unique identifier for the workflow
+        /// The unique identifier for the workflow.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `workflow`
+        /// The value will always be `workflow`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowMiniTypeField>))]
         public StringEnum<WorkflowMiniTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The name of the workflow
+        /// The name of the workflow.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Description { get; init; }
 
         /// <summary>
-        /// Specifies if this workflow is enabled
+        /// Specifies if this workflow is enabled.
         /// </summary>
         [JsonPropertyName("is_enabled")]
         public bool? IsEnabled { get; init; }

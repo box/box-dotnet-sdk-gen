@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Parent { get; init; }
 
         /// <summary>
-        /// `securityClassification-6VMVochwUWo`
+        /// The value will always be `securityClassification-6VMVochwUWo`.
         /// </summary>
         [JsonPropertyName("$template")]
         [JsonConverter(typeof(StringEnumConverter<ClassificationTemplateField>))]

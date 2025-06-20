@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class TimelineSkillCardSkillField : ISerializable {
         /// <summary>
-        /// `service`
+        /// The value will always be `service`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TimelineSkillCardSkillTypeField>))]

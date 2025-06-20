@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class TermsOfService : TermsOfServiceBase, ISerializable {
         /// <summary>
-        /// Whether these terms are enabled or not
+        /// Whether these terms are enabled or not.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<TermsOfServiceStatusField>))]
@@ -17,7 +17,7 @@ namespace Box.Sdk.Gen.Schemas {
         public TermsOfServiceEnterpriseField? Enterprise { get; init; }
 
         /// <summary>
-        /// Whether to apply these terms to managed users or external users
+        /// Whether to apply these terms to managed users or external users.
         /// </summary>
         [JsonPropertyName("tos_type")]
         [JsonConverter(typeof(StringEnumConverter<TermsOfServiceTosTypeField>))]
@@ -31,7 +31,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Text { get; init; }
 
         /// <summary>
-        /// When the legal item was created
+        /// When the legal item was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }

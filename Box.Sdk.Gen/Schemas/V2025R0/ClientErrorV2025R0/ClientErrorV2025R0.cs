@@ -1,6 +1,7 @@
 using Box.Sdk.Gen;
-using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -9,10 +10,10 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("_iscontext_infoSet")]
         protected bool _isContextInfoSet { get; set; }
 
-        protected ClientErrorV2025R0ContextInfoField? _contextInfo { get; set; }
+        protected Dictionary<string, object>? _contextInfo { get; set; }
 
         /// <summary>
-        /// error
+        /// The value will always be `error`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ClientErrorV2025R0TypeField>))]
@@ -25,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         public int? Status { get; init; }
 
         /// <summary>
-        /// A Box-specific error code
+        /// A Box-specific error code.
         /// </summary>
         [JsonPropertyName("code")]
         [JsonConverter(typeof(StringEnumConverter<ClientErrorV2025R0CodeField>))]
@@ -43,7 +44,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// a per-endpoint basis. `message` is only one example.
         /// </summary>
         [JsonPropertyName("context_info")]
-        public ClientErrorV2025R0ContextInfoField? ContextInfo { get => _contextInfo; init { _contextInfo = value; _isContextInfoSet = true; } }
+        public Dictionary<string, object>? ContextInfo { get => _contextInfo; init { _contextInfo = value; _isContextInfoSet = true; } }
 
         /// <summary>
         /// A URL that links to more information about why this error occurred.

@@ -51,7 +51,7 @@ namespace Box.Sdk.Gen.Managers {
         /// document file types in Box using the `[extracted_text]`
         /// representation.
         /// 
-        /// `x-rep-hints: [extracted_text]`
+        /// `x-rep-hints: [extracted_text]`.
         /// </summary>
         public string? XRepHints { get; init; }
 

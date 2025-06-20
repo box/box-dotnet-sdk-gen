@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Name { get; }
 
         /// <summary>
-        /// Description of Shield List: Optional.
+        /// Optional description of Shield List.
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; init; }

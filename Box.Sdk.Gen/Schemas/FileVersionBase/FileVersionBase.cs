@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `file_version`
+        /// The value will always be `file_version`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileVersionBaseTypeField>))]

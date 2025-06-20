@@ -61,7 +61,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Retrieves a retention policy assignment
+        /// Retrieves a retention policy assignment.
         /// </summary>
         /// <param name="retentionPolicyAssignmentId">
         /// The ID of the retention policy assignment.

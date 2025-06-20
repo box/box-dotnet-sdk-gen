@@ -20,19 +20,20 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Description { get; init; }
 
         /// <summary>
-        /// * 'active' - the policy is not in a transition state
+        /// Possible values:
+        /// * 'active' - the policy is not in a transition state.
         /// * 'applying' - that the policy is in the process of
-        ///   being applied
+        ///   being applied.
         /// * 'releasing' - that the process is in the process
-        ///   of being released
-        /// * 'released' - the policy is no longer active
+        ///   of being released.
+        /// * 'released' - the policy is no longer active.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<LegalHoldPolicyStatusField>))]
         public StringEnum<LegalHoldPolicyStatusField>? Status { get; init; }
 
         /// <summary>
-        /// Counts of assignments within this a legal hold policy by item type
+        /// Counts of assignments within this a legal hold policy by item type.
         /// </summary>
         [JsonPropertyName("assignment_counts")]
         public LegalHoldPolicyAssignmentCountsField? AssignmentCounts { get; init; }
@@ -41,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? CreatedBy { get; init; }
 
         /// <summary>
-        /// When the legal hold policy object was created
+        /// When the legal hold policy object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
@@ -65,14 +66,14 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// User-specified, optional date filter applies to
-        /// Custodian assignments only
+        /// Custodian assignments only.
         /// </summary>
         [JsonPropertyName("filter_started_at")]
         public System.DateTimeOffset? FilterStartedAt { get; init; }
 
         /// <summary>
         /// User-specified, optional date filter applies to
-        /// Custodian assignments only
+        /// Custodian assignments only.
         /// </summary>
         [JsonPropertyName("filter_ended_at")]
         public System.DateTimeOffset? FilterEndedAt { get; init; }

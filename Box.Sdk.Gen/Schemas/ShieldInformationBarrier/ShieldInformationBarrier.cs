@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrier : ISerializable {
         /// <summary>
-        /// The unique identifier for the shield information barrier
+        /// The unique identifier for the shield information barrier.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of the shield information barrier
+        /// The type of the shield information barrier.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierTypeField>))]
@@ -26,7 +26,7 @@ namespace Box.Sdk.Gen.Schemas {
         public EnterpriseBase? Enterprise { get; init; }
 
         /// <summary>
-        /// Status of the shield information barrier
+        /// Status of the shield information barrier.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierStatusField>))]

@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateInviteRequestBodyActionableByField : ISerializable {
         /// <summary>
-        /// The login of the invited user
+        /// The login of the invited user.
         /// </summary>
         [JsonPropertyName("login")]
         public string? Login { get; init; }

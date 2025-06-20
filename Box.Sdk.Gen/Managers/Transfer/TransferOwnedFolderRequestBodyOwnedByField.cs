@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Managers {
     public class TransferOwnedFolderRequestBodyOwnedByField : ISerializable {
         /// <summary>
         /// The ID of the user who the folder will be
-        /// transferred to
+        /// transferred to.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

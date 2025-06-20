@@ -22,7 +22,7 @@ await client.DevicePinners.GetDevicePinnerByIdAsync(devicePinnerId: devicePinner
 ### Arguments
 
 - devicePinnerId `string`
-  - The ID of the device pin Example: "2324234"
+  - The ID of the device pin. Example: "2324234"
 - headers `GetDevicePinnerByIdHeaders`
   - Headers of getDevicePinnerById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -53,7 +53,7 @@ await client.DevicePinners.DeleteDevicePinnerByIdAsync(devicePinnerId: devicePin
 ### Arguments
 
 - devicePinnerId `string`
-  - The ID of the device pin Example: "2324234"
+  - The ID of the device pin. Example: "2324234"
 - headers `DeleteDevicePinnerByIdHeaders`
   - Headers of deleteDevicePinnerById method
 - cancellationToken `System.Threading.CancellationToken?`
@@ -87,7 +87,7 @@ await client.DevicePinners.GetEnterpriseDevicePinnersAsync(enterpriseId: enterpr
 ### Arguments
 
 - enterpriseId `string`
-  - The ID of the enterprise Example: "3442311"
+  - The ID of the enterprise. Example: "3442311"
 - queryParams `GetEnterpriseDevicePinnersQueryParams`
   - Query parameters of getEnterpriseDevicePinners method
 - headers `GetEnterpriseDevicePinnersHeaders`

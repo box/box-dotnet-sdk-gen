@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class EventSourceClassificationField : ISerializable {
         /// <summary>
-        /// The classification's name
+        /// The classification's name.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

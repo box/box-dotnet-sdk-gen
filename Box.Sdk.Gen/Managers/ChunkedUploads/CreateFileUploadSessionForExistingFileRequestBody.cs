@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateFileUploadSessionForExistingFileRequestBody : ISerializable {
         /// <summary>
-        /// The total number of bytes of the file to be uploaded
+        /// The total number of bytes of the file to be uploaded.
         /// </summary>
         [JsonPropertyName("file_size")]
         public long FileSize { get; }
 
         /// <summary>
-        /// The optional new name of new file
+        /// The optional new name of new file.
         /// </summary>
         [JsonPropertyName("file_name")]
         public string? FileName { get; init; }

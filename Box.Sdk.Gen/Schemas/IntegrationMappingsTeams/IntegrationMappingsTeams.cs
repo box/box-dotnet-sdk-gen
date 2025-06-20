@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMappingsTeams : ISerializable {
         /// <summary>
-        /// A list of integration mappings
+        /// A list of integration mappings.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<IntegrationMappingTeams>? Entries { get; init; }

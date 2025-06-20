@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class TerminateUsersSessionsRequestBody : ISerializable {
         /// <summary>
-        /// A list of user IDs
+        /// A list of user IDs.
         /// </summary>
         [JsonPropertyName("user_ids")]
         public IReadOnlyList<string> UserIds { get; }
 
         /// <summary>
-        /// A list of user logins
+        /// A list of user logins.
         /// </summary>
         [JsonPropertyName("user_logins")]
         public IReadOnlyList<string> UserLogins { get; }

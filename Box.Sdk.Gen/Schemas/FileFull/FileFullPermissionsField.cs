@@ -70,14 +70,14 @@ namespace Box.Sdk.Gen.Schemas {
         public bool CanUpload { get; }
 
         /// <summary>
-        /// Specifies if the user view all annotations placed on this file
+        /// Specifies if the user view all annotations placed on this file.
         /// </summary>
         [JsonPropertyName("can_view_annotations_all")]
         public bool CanViewAnnotationsAll { get; }
 
         /// <summary>
         /// Specifies if the user view annotations placed by themselves
-        /// on this file
+        /// on this file.
         /// </summary>
         [JsonPropertyName("can_view_annotations_self")]
         public bool CanViewAnnotationsSelf { get; }

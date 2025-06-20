@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? TotalCount { get; init; }
 
         /// <summary>
-        /// A list of email aliases
+        /// A list of email aliases.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<EmailAlias>? Entries { get; init; }

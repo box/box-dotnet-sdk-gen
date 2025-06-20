@@ -30,7 +30,7 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// A list of shield information barrier
-        /// segments
+        /// segments.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<ShieldInformationBarrierSegment>? Entries { get; init; }

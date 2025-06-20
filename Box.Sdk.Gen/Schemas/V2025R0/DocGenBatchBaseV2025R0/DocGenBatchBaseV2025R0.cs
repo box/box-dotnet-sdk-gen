@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `docgen_batch`
+        /// The value will always be `docgen_batch`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<DocGenBatchBaseV2025R0TypeField>))]

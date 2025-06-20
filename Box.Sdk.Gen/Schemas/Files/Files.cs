@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? TotalCount { get; init; }
 
         /// <summary>
-        /// A list of files
+        /// A list of files.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FileFull>? Entries { get; init; }

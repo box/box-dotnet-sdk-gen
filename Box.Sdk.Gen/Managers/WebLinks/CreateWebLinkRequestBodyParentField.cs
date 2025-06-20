@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateWebLinkRequestBodyParentField : ISerializable {
         /// <summary>
-        /// The ID of parent folder
+        /// The ID of parent folder.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

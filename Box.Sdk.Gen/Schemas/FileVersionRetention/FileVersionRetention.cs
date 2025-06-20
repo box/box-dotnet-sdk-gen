@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// `file_version_retention`
+        /// The value will always be `file_version_retention`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileVersionRetentionTypeField>))]
@@ -27,14 +27,14 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// When this file version retention object was
-        /// created
+        /// created.
         /// </summary>
         [JsonPropertyName("applied_at")]
         public System.DateTimeOffset? AppliedAt { get; init; }
 
         /// <summary>
         /// When the retention expires on this file
-        /// version retention
+        /// version retention.
         /// </summary>
         [JsonPropertyName("disposition_at")]
         public System.DateTimeOffset? DispositionAt { get; init; }

@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class StoragePolicy : StoragePolicyMini, ISerializable {
         /// <summary>
-        /// A descriptive name of the region
+        /// A descriptive name of the region.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

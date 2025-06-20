@@ -68,7 +68,7 @@ await client.TermsOfServices.CreateTermsOfServiceAsync(requestBody: new CreateTe
 
 This function returns a value of type `TermsOfService`.
 
-Returns a new task object
+Returns a new task object.
 
 
 ## Get terms of service

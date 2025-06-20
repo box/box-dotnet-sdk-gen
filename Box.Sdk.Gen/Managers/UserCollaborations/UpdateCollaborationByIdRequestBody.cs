@@ -16,7 +16,6 @@ namespace Box.Sdk.Gen.Managers {
         public StringEnum<UpdateCollaborationByIdRequestBodyRoleField> Role { get; }
 
         /// <summary>
-        /// <!--alex ignore reject-->
         /// Set the status of a `pending` collaboration invitation,
         /// effectively accepting, or rejecting the invite.
         /// </summary>

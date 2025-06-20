@@ -10,7 +10,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Collaborator
         /// object type.
-        /// 
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CollaboratorVariableTypeField>))]
@@ -20,7 +19,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// Variable type 
         /// for the Collaborator
         /// object.
-        /// 
         /// </summary>
         [JsonPropertyName("variable_type")]
         [JsonConverter(typeof(StringEnumConverter<CollaboratorVariableVariableTypeField>))]

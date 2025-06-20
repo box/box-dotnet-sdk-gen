@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
-        /// A list of metadata templates
+        /// A list of metadata templates.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<MetadataTemplate>? Entries { get; init; }

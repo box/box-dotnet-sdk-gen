@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class RecentItem : ISerializable {
         /// <summary>
-        /// `recent_item`
+        /// The value will always be `recent_item`.
         /// </summary>
         [JsonPropertyName("type")]
         public string? Type { get; init; }

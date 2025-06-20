@@ -22,20 +22,20 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
         /// Set this to `null` to roll the user out of the enterprise
-        /// and make them a free user
+        /// and make them a free user.
         /// </summary>
         [JsonPropertyName("enterprise")]
         public string? Enterprise { get => _enterprise; init { _enterprise = value; _isEnterpriseSet = true; } }
 
         /// <summary>
         /// Whether the user should receive an email when they
-        /// are rolled out of an enterprise
+        /// are rolled out of an enterprise.
         /// </summary>
         [JsonPropertyName("notify")]
         public bool? Notify { get; init; }
 
         /// <summary>
-        /// The name of the user
+        /// The name of the user.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
@@ -50,7 +50,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? Login { get; init; }
 
         /// <summary>
-        /// The user’s enterprise role
+        /// The user’s enterprise role.
         /// </summary>
         [JsonPropertyName("role")]
         [JsonConverter(typeof(StringEnumConverter<UpdateUserByIdRequestBodyRoleField>))]
@@ -64,25 +64,25 @@ namespace Box.Sdk.Gen.Managers {
         public string? Language { get; init; }
 
         /// <summary>
-        /// Whether the user can use Box Sync
+        /// Whether the user can use Box Sync.
         /// </summary>
         [JsonPropertyName("is_sync_enabled")]
         public bool? IsSyncEnabled { get; init; }
 
         /// <summary>
-        /// The user’s job title
+        /// The user’s job title.
         /// </summary>
         [JsonPropertyName("job_title")]
         public string? JobTitle { get; init; }
 
         /// <summary>
-        /// The user’s phone number
+        /// The user’s phone number.
         /// </summary>
         [JsonPropertyName("phone")]
         public string? Phone { get; init; }
 
         /// <summary>
-        /// The user’s address
+        /// The user’s address.
         /// </summary>
         [JsonPropertyName("address")]
         public string? Address { get; init; }
@@ -98,44 +98,44 @@ namespace Box.Sdk.Gen.Managers {
 
         /// <summary>
         /// Whether the user can see other enterprise users in their
-        /// contact list
+        /// contact list.
         /// </summary>
         [JsonPropertyName("can_see_managed_users")]
         public bool? CanSeeManagedUsers { get; init; }
 
         /// <summary>
-        /// The user's timezone
+        /// The user's timezone.
         /// </summary>
         [JsonPropertyName("timezone")]
         public string? Timezone { get; init; }
 
         /// <summary>
         /// Whether the user is allowed to collaborate with users outside
-        /// their enterprise
+        /// their enterprise.
         /// </summary>
         [JsonPropertyName("is_external_collab_restricted")]
         public bool? IsExternalCollabRestricted { get; init; }
 
         /// <summary>
-        /// Whether to exempt the user from enterprise device limits
+        /// Whether to exempt the user from enterprise device limits.
         /// </summary>
         [JsonPropertyName("is_exempt_from_device_limits")]
         public bool? IsExemptFromDeviceLimits { get; init; }
 
         /// <summary>
-        /// Whether the user must use two-factor authentication
+        /// Whether the user must use two-factor authentication.
         /// </summary>
         [JsonPropertyName("is_exempt_from_login_verification")]
         public bool? IsExemptFromLoginVerification { get; init; }
 
         /// <summary>
-        /// Whether the user is required to reset their password
+        /// Whether the user is required to reset their password.
         /// </summary>
         [JsonPropertyName("is_password_reset_required")]
         public bool? IsPasswordResetRequired { get; init; }
 
         /// <summary>
-        /// The user's account status
+        /// The user's account status.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<UpdateUserByIdRequestBodyStatusField>))]

@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? NextMarker { get => _nextMarker; init { _nextMarker = value; _isNextMarkerSet = true; } }
 
         /// <summary>
-        /// A list of shield information barrier objects
+        /// A list of shield information barrier objects.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<ShieldInformationBarrier>? Entries { get; init; }

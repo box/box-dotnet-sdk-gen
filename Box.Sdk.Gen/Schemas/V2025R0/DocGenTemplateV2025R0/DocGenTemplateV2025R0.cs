@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _fileName { get; set; }
 
         /// <summary>
-        /// The name of the template
+        /// The name of the template.
         /// </summary>
         [JsonPropertyName("file_name")]
         public string? FileName { get => _fileName; init { _fileName = value; _isFileNameSet = true; } }

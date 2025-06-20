@@ -25,25 +25,25 @@ namespace Box.Sdk.Gen.Schemas {
         protected System.DateTimeOffset? _purgedAt { get; set; }
 
         /// <summary>
-        /// The name of the file version
+        /// The name of the file version.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
 
         /// <summary>
-        /// Size of the file version in bytes
+        /// Size of the file version in bytes.
         /// </summary>
         [JsonPropertyName("size")]
         public long? Size { get; init; }
 
         /// <summary>
-        /// When the file version object was created
+        /// When the file version object was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// When the file version object was last updated
+        /// When the file version object was last updated.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

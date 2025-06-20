@@ -55,7 +55,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Unmarks file as Box Doc Gen template
+        /// Unmarks file as Box Doc Gen template.
         /// </summary>
         /// <param name="templateId">
         /// ID of the file which will no longer be marked as a Box Doc Gen template.

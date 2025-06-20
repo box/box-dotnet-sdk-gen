@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
-        /// A list of collaborations
+        /// A list of collaborations.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<Collaboration>? Entries { get; init; }

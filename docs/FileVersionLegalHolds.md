@@ -22,7 +22,7 @@ await client.FileVersionLegalHolds.GetFileVersionLegalHoldByIdAsync(fileVersionL
 ### Arguments
 
 - fileVersionLegalHoldId `string`
-  - The ID of the file version legal hold Example: "2348213"
+  - The ID of the file version legal hold. Example: "2348213"
 - headers `GetFileVersionLegalHoldByIdHeaders`
   - Headers of getFileVersionLegalHoldById method
 - cancellationToken `System.Threading.CancellationToken?`

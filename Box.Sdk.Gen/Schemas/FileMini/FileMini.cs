@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? SequenceId { get; init; }
 
         /// <summary>
-        /// The name of the file
+        /// The name of the file.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

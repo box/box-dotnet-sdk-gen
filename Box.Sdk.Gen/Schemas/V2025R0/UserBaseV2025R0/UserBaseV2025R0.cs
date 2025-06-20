@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class UserBaseV2025R0 : ISerializable {
         /// <summary>
-        /// The unique identifier for this user
+        /// The unique identifier for this user.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// user
+        /// The value will always be `user`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<UserBaseV2025R0TypeField>))]

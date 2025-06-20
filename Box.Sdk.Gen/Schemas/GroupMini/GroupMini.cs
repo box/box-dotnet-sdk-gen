@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class GroupMini : GroupBase, ISerializable {
         /// <summary>
-        /// The name of the group
+        /// The name of the group.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

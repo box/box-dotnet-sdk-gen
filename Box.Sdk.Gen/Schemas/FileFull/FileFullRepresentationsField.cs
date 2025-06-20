@@ -10,7 +10,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileFullRepresentationsField : ISerializable {
         /// <summary>
-        /// A list of files
+        /// A list of files.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FileFullRepresentationsEntriesField>? Entries { get; init; }

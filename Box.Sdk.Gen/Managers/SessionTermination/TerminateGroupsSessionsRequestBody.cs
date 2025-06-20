@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class TerminateGroupsSessionsRequestBody : ISerializable {
         /// <summary>
-        /// A list of group IDs
+        /// A list of group IDs.
         /// </summary>
         [JsonPropertyName("group_ids")]
         public IReadOnlyList<string> GroupIds { get; }

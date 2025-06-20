@@ -9,14 +9,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBodyFilesField : ISerializable {
         /// <summary>
-        /// The type of the file object
+        /// The type of the file object.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StartWorkflowRequestBodyFilesTypeField>))]
         public StringEnum<StartWorkflowRequestBodyFilesTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The id of the file
+        /// The id of the file.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }

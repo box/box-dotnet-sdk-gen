@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _nextMarker { get; set; }
 
         /// <summary>
-        /// A list of retention policy assignments
+        /// A list of retention policy assignments.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<RetentionPolicyAssignment>? Entries { get; init; }

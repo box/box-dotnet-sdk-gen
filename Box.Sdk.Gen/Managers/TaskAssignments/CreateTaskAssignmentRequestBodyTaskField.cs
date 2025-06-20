@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateTaskAssignmentRequestBodyTaskField : ISerializable {
         /// <summary>
-        /// The ID of the task
+        /// The ID of the task.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

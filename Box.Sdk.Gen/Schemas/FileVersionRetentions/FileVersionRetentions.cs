@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
-        /// A list of file version retentions
+        /// A list of file version retentions.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FileVersionRetention>? Entries { get; init; }

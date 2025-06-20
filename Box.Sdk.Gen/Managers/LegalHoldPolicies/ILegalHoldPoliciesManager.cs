@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Retrieve a legal hold policy.
     /// </summary>
     /// <param name="legalHoldPolicyId">
-    /// The ID of the legal hold policy
+    /// The ID of the legal hold policy.
     /// Example: "324432"
     /// </param>
     /// <param name="headers">
@@ -56,7 +56,7 @@ namespace Box.Sdk.Gen.Managers {
     /// Update legal hold policy.
     /// </summary>
     /// <param name="legalHoldPolicyId">
-    /// The ID of the legal hold policy
+    /// The ID of the legal hold policy.
     /// Example: "324432"
     /// </param>
     /// <param name="requestBody">
@@ -77,7 +77,7 @@ namespace Box.Sdk.Gen.Managers {
     /// fully deleted yet when the response returns.
     /// </summary>
     /// <param name="legalHoldPolicyId">
-    /// The ID of the legal hold policy
+    /// The ID of the legal hold policy.
     /// Example: "324432"
     /// </param>
     /// <param name="headers">

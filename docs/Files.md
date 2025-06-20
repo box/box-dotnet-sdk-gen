@@ -179,7 +179,7 @@ await client.Files.GetFileThumbnailUrlAsync(fileId: thumbnailFile.Id, extension:
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - extension `GetFileThumbnailUrlExtension`
-  - The file format for the thumbnail Example: "png"
+  - The file format for the thumbnail. Example: "png"
 - queryParams `GetFileThumbnailUrlQueryParams`
   - Query parameters of getFileThumbnailById method
 - headers `GetFileThumbnailUrlHeaders`
@@ -231,7 +231,7 @@ await client.Files.GetFileThumbnailByIdAsync(fileId: thumbnailFile.Id, extension
 - fileId `string`
   - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
 - extension `GetFileThumbnailByIdExtension`
-  - The file format for the thumbnail Example: "png"
+  - The file format for the thumbnail. Example: "png"
 - queryParams `GetFileThumbnailByIdQueryParams`
   - Query parameters of getFileThumbnailById method
 - headers `GetFileThumbnailByIdHeaders`

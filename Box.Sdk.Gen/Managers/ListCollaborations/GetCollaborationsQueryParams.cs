@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class GetCollaborationsQueryParams {
         /// <summary>
-        /// The status of the collaborations to retrieve
+        /// The status of the collaborations to retrieve.
         /// </summary>
         public StringEnum<GetCollaborationsQueryParamsStatusField> Status { get; }
 

@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `retention_policy`
+        /// The value will always be `retention_policy`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<RetentionPolicyBaseTypeField>))]

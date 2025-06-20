@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<RetentionPolicyAssignment> CreateRetentionPolicyAssignmentAsync(CreateRetentionPolicyAssignmentRequestBody requestBody, CreateRetentionPolicyAssignmentHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Retrieves a retention policy assignment
+    /// Retrieves a retention policy assignment.
     /// </summary>
     /// <param name="retentionPolicyAssignmentId">
     /// The ID of the retention policy assignment.

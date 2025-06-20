@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FileVersionLegalHold : ISerializable {
         /// <summary>
-        /// The unique identifier for this file version legal hold
+        /// The unique identifier for this file version legal hold.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `file_version_legal_hold`
+        /// The value will always be `file_version_legal_hold`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileVersionLegalHoldTypeField>))]

@@ -37,7 +37,7 @@ await client.MetadataCascadePolicies.GetMetadataCascadePoliciesAsync(queryParams
 
 This function returns a value of type `MetadataCascadePolicies`.
 
-Returns a list of metadata cascade policies
+Returns a list of metadata cascade policies.
 
 
 ## Create metadata cascade policy
@@ -73,7 +73,7 @@ await client.MetadataCascadePolicies.CreateMetadataCascadePolicyAsync(requestBod
 
 This function returns a value of type `MetadataCascadePolicy`.
 
-Returns a new of metadata cascade policy
+Returns a new of metadata cascade policy.
 
 
 ## Get metadata cascade policy
@@ -104,7 +104,7 @@ await client.MetadataCascadePolicies.GetMetadataCascadePolicyByIdAsync(metadataC
 
 This function returns a value of type `MetadataCascadePolicy`.
 
-Returns a metadata cascade policy
+Returns a metadata cascade policy.
 
 
 ## Remove metadata cascade policy

@@ -6,13 +6,13 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class WatermarkWatermarkField : ISerializable {
         /// <summary>
-        /// When this watermark was created
+        /// When this watermark was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// When this task was modified
+        /// When this task was modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

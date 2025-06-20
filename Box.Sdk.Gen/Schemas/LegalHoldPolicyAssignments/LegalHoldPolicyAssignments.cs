@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
 
         /// <summary>
         /// A list of legal hold
-        /// policy assignments
+        /// policy assignments.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<LegalHoldPolicyAssignment>? Entries { get; init; }

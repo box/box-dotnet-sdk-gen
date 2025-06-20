@@ -7,26 +7,26 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class SkillInvocationSkillField : ISerializable {
         /// <summary>
-        /// The unique identifier for this skill
+        /// The unique identifier for this skill.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `skill`
+        /// The value will always be `skill`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<SkillInvocationSkillTypeField>))]
         public StringEnum<SkillInvocationSkillTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The name of the skill
+        /// The name of the skill.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }
 
         /// <summary>
-        /// The client ID of the application
+        /// The client ID of the application.
         /// </summary>
         [JsonPropertyName("api_key")]
         public string? ApiKey { get; init; }

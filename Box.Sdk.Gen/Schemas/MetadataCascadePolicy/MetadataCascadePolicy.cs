@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataCascadePolicy : ISerializable {
         /// <summary>
-        /// The ID of the metadata cascade policy object
+        /// The ID of the metadata cascade policy object.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// `metadata_cascade_policy`
+        /// The value will always be `metadata_cascade_policy`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<MetadataCascadePolicyTypeField>))]

@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
-        /// A list of metadata cascade policies
+        /// A list of metadata cascade policies.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<MetadataCascadePolicy>? Entries { get; init; }

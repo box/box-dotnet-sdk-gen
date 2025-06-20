@@ -27,7 +27,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _iframeableEmbedUrl { get; set; }
 
         /// <summary>
-        /// Set to `true` if the signer views the document
+        /// Set to `true` if the signer views the document.
         /// </summary>
         [JsonPropertyName("has_viewed_document")]
         public bool? HasViewedDocument { get; init; }
@@ -42,7 +42,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<SignRequestSignerInput>? Inputs { get; init; }
 
         /// <summary>
-        /// URL to direct a signer to for signing
+        /// URL to direct a signer to for signing.
         /// </summary>
         [JsonPropertyName("embed_url")]
         public string? EmbedUrl { get => _embedUrl; init { _embedUrl = value; _isEmbedUrlSet = true; } }

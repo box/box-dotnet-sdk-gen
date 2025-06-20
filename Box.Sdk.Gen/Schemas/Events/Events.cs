@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public EventsNextStreamPositionField? NextStreamPosition { get; init; }
 
         /// <summary>
-        /// A list of events
+        /// A list of events.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<Event>? Entries { get; init; }

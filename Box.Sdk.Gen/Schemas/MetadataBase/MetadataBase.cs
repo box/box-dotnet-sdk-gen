@@ -14,7 +14,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Parent { get; init; }
 
         /// <summary>
-        /// The name of the template
+        /// The name of the template.
         /// </summary>
         [JsonPropertyName("$template")]
         public string? Template { get; init; }

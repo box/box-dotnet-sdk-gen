@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class GetLegalHoldPolicyAssignmentsQueryParams {
         /// <summary>
-        /// The ID of the legal hold policy
+        /// The ID of the legal hold policy.
         /// </summary>
         public string PolicyId { get; }
 

@@ -9,14 +9,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class StartWorkflowRequestBody : ISerializable {
         /// <summary>
-        /// The type of the parameters object
+        /// The type of the parameters object.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StartWorkflowRequestBodyTypeField>))]
         public StringEnum<StartWorkflowRequestBodyTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The flow that will be triggered
+        /// The flow that will be triggered.
         /// </summary>
         [JsonPropertyName("flow")]
         public StartWorkflowRequestBodyFlowField Flow { get; }

@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class IntegrationMappingPartnerItemTeamsCreateRequest : ISerializable {
         /// <summary>
-        /// Type of the mapped item referenced in `id`
+        /// Type of the mapped item referenced in `id`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<IntegrationMappingPartnerItemTeamsCreateRequestTypeField>))]
         public StringEnum<IntegrationMappingPartnerItemTeamsCreateRequestTypeField> Type { get; }
 
         /// <summary>
-        /// ID of the mapped item (of type referenced in `type`)
+        /// ID of the mapped item (of type referenced in `type`).
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

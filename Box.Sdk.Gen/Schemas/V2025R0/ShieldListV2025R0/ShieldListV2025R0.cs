@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         public EnterpriseReferenceV2025R0 Enterprise { get; }
 
         /// <summary>
-        /// Description of Shield List
+        /// Description of Shield List.
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; init; }

@@ -73,7 +73,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// Whether this item is deleted or not. Values include `active`,
         /// `trashed` if the file has been moved to the trash, and `deleted` if
-        /// the file has been permanently deleted
+        /// the file has been permanently deleted.
         /// </summary>
         [JsonPropertyName("item_status")]
         [JsonConverter(typeof(StringEnumConverter<WebLinkItemStatusField>))]

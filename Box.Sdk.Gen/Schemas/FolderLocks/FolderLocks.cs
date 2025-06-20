@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _nextMarker { get; set; }
 
         /// <summary>
-        /// A list of folder locks
+        /// A list of folder locks.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FolderLock>? Entries { get; init; }

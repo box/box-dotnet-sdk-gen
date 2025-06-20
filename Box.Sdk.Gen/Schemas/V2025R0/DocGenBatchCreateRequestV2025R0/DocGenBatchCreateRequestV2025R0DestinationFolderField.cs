@@ -7,14 +7,14 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class DocGenBatchCreateRequestV2025R0DestinationFolderField : ISerializable {
         /// <summary>
-        /// `folder`
+        /// The value will always be `folder`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>))]
         public StringEnum<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField> Type { get; }
 
         /// <summary>
-        /// ID of the folder
+        /// ID of the folder.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

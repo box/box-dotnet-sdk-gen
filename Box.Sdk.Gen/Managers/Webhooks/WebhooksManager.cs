@@ -62,7 +62,7 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
-        /// Retrieves a specific webhook
+        /// Retrieves a specific webhook.
         /// </summary>
         /// <param name="webhookId">
         /// The ID of the webhook.

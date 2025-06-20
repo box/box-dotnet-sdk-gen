@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<GroupMembershipsOrderField>? Order { get; init; }
 
         /// <summary>
-        /// A list of group memberships
+        /// A list of group memberships.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<GroupMembership>? Entries { get; init; }

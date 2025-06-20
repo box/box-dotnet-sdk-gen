@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<CollectionsOrderField>? Order { get; init; }
 
         /// <summary>
-        /// A list of collections
+        /// A list of collections.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<Collection>? Entries { get; init; }

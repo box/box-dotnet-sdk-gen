@@ -138,7 +138,7 @@ namespace Box.Sdk.Gen.Schemas {
         /// 
         ///   * The **Allow uploads to this folder via email** setting is enabled for a folder in the Admin Console, and the **Only allow email uploads from collaborators in this folder** setting is deactivated (unchecked).
         /// 
-        /// If the conditions are not met, the parameter will have the following value: `folder_upload_email: null`
+        /// If the conditions are not met, the parameter will have the following value: `folder_upload_email: null`.
         /// </summary>
         [JsonPropertyName("folder_upload_email")]
         public FolderFolderUploadEmailField? FolderUploadEmail { get => _folderUploadEmail; init { _folderUploadEmail = value; _isFolderUploadEmailSet = true; } }

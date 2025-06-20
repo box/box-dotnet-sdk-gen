@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateGroupMembershipRequestBodyUserField : ISerializable {
         /// <summary>
-        /// The ID of the user to add to the group
+        /// The ID of the user to add to the group.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

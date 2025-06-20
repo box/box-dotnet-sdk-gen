@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class MetadataCascadePolicyOwnerEnterpriseField : ISerializable {
         /// <summary>
-        /// `enterprise`
+        /// The value will always be `enterprise`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<MetadataCascadePolicyOwnerEnterpriseTypeField>))]

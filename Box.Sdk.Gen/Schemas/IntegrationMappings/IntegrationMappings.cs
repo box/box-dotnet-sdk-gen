@@ -29,7 +29,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? NextMarker { get => _nextMarker; init { _nextMarker = value; _isNextMarkerSet = true; } }
 
         /// <summary>
-        /// A list of integration mappings
+        /// A list of integration mappings.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<IntegrationMapping>? Entries { get; init; }

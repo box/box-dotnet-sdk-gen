@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// `enterprise`
+        /// The value will always be `enterprise`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CollaborationAllowlistEntryEnterpriseTypeField>))]
         public StringEnum<CollaborationAllowlistEntryEnterpriseTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The name of the enterprise
+        /// The name of the enterprise.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

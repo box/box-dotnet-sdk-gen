@@ -68,8 +68,8 @@ await client.Avatars.CreateUserAvatarAsync(userId: user.Id, requestBody: new Cre
 
 This function returns a value of type `UserAvatar`.
 
-* `ok`: Returns the `pic_urls` object with URLs to existing
-user avatars that were updated.* `created`: Returns the `pic_urls` object with URLS to user avatars
+`ok`: Returns the `pic_urls` object with URLs to existing
+user avatars that were updated.`created`: Returns the `pic_urls` object with URLS to user avatars
 uploaded to Box with the request.
 
 
@@ -102,6 +102,6 @@ await client.Avatars.DeleteUserAvatarAsync(userId: user.Id);
 
 This function returns a value of type `null`.
 
-* `no_content`: Removes the avatar and returns an empty response.
+`no_content`: Removes the avatar and returns an empty response.
 
 

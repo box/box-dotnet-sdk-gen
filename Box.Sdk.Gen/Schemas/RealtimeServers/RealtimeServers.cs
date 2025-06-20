@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? ChunkSize { get; init; }
 
         /// <summary>
-        /// A list of real-time servers
+        /// A list of real-time servers.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<RealtimeServer>? Entries { get; init; }

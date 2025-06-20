@@ -15,13 +15,13 @@ namespace Box.Sdk.Gen.Managers {
         public string FolderId { get; }
 
         /// <summary>
-        /// The total number of bytes of the file to be uploaded
+        /// The total number of bytes of the file to be uploaded.
         /// </summary>
         [JsonPropertyName("file_size")]
         public long FileSize { get; }
 
         /// <summary>
-        /// The name of new file
+        /// The name of new file.
         /// </summary>
         [JsonPropertyName("file_name")]
         public string FileName { get; }

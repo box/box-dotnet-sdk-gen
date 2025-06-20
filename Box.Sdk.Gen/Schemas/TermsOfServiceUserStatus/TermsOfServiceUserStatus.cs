@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class TermsOfServiceUserStatus : ISerializable {
         /// <summary>
-        /// The unique identifier for this terms of service user status
+        /// The unique identifier for this terms of service user status.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// `terms_of_service_user_status`
+        /// The value will always be `terms_of_service_user_status`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<TermsOfServiceUserStatusTypeField>))]
@@ -26,13 +26,13 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? User { get; init; }
 
         /// <summary>
-        /// If the user has accepted the terms of services
+        /// If the user has accepted the terms of services.
         /// </summary>
         [JsonPropertyName("is_accepted")]
         public bool? IsAccepted { get; init; }
 
         /// <summary>
-        /// When the legal item was created
+        /// When the legal item was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }

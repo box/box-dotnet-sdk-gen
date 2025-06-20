@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WebLinkMini : WebLinkBase, ISerializable {
         /// <summary>
-        /// The URL this web link points to
+        /// The URL this web link points to.
         /// </summary>
         [JsonPropertyName("url")]
         public string? Url { get; init; }
@@ -16,7 +16,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? SequenceId { get; init; }
 
         /// <summary>
-        /// The name of the web link
+        /// The name of the web link.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

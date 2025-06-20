@@ -21,27 +21,29 @@ namespace Box.Sdk.Gen.Managers {
         public long? Limit { get; init; }
 
         /// <summary>
-        /// Mapped item type, for which the mapping should be returned
+        /// Mapped item type, for which the mapping should be returned.
         /// </summary>
         public StringEnum<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>? PartnerItemType { get; init; }
 
         /// <summary>
-        /// ID of the mapped item, for which the mapping should be returned
+        /// ID of the mapped item,
+        /// for which the mapping should be returned.
         /// </summary>
         public string? PartnerItemId { get; init; }
 
         /// <summary>
-        /// Box item ID, for which the mappings should be returned
+        /// Box item ID, for which the mappings should be returned.
         /// </summary>
         public string? BoxItemId { get; init; }
 
         /// <summary>
-        /// Box item type, for which the mappings should be returned
+        /// Box item type, for
+        /// which the mappings should be returned.
         /// </summary>
         public StringEnum<GetSlackIntegrationMappingQueryParamsBoxItemTypeField>? BoxItemType { get; init; }
 
         /// <summary>
-        /// Whether the mapping has been manually created
+        /// Whether the mapping has been manually created.
         /// </summary>
         public bool? IsManuallyCreated { get; init; }
 

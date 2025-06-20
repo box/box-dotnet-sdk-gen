@@ -8,7 +8,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateShieldInformationBarrierSegmentMemberRequestBody : ISerializable {
         /// <summary>
-        /// -| A type of the shield barrier segment member.
+        /// A type of the shield barrier segment member.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>))]

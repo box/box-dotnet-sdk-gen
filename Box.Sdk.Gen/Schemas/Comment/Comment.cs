@@ -8,13 +8,13 @@ namespace Box.Sdk.Gen.Schemas {
     public class Comment : CommentBase, ISerializable {
         /// <summary>
         /// Whether or not this comment is a reply to another
-        /// comment
+        /// comment.
         /// </summary>
         [JsonPropertyName("is_reply_comment")]
         public bool? IsReplyComment { get; init; }
 
         /// <summary>
-        /// The text of the comment, as provided by the user
+        /// The text of the comment, as provided by the user.
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; init; }
@@ -23,13 +23,13 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? CreatedBy { get; init; }
 
         /// <summary>
-        /// The time this comment was created
+        /// The time this comment was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// The time this comment was last modified
+        /// The time this comment was last modified.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

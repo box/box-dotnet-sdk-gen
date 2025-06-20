@@ -9,13 +9,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFlowsField : ISerializable {
         /// <summary>
-        /// The identifier of the flow
+        /// The identifier of the flow.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The flow's resource type
+        /// The flow's resource type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTypeField>))]
@@ -28,7 +28,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<WorkflowFlowsOutcomesField>? Outcomes { get; init; }
 
         /// <summary>
-        /// When this flow was created
+        /// When this flow was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }

@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// `device_pinner`
+        /// The value will always be `device_pinner`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<DevicePinnerTypeField>))]
@@ -23,7 +23,7 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? OwnedBy { get; init; }
 
         /// <summary>
-        /// The type of device being pinned
+        /// The type of device being pinned.
         /// </summary>
         [JsonPropertyName("product_name")]
         public string? ProductName { get; init; }

@@ -10,7 +10,7 @@ namespace Box.Sdk.Gen.Schemas {
         public ShieldInformationBarrierReference? ShieldInformationBarrier { get; init; }
 
         /// <summary>
-        /// Status of the shield information report
+        /// Status of the shield information report.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierReportStatusField>))]

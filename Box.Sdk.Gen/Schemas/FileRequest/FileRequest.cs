@@ -25,7 +25,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `file_request`
+        /// The value will always be `file_request`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileRequestTypeField>))]

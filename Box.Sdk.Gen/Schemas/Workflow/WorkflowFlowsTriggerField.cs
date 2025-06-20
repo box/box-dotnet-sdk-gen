@@ -9,21 +9,21 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFlowsTriggerField : ISerializable {
         /// <summary>
-        /// The trigger's resource type
+        /// The trigger's resource type.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerTypeField>))]
         public StringEnum<WorkflowFlowsTriggerTypeField>? Type { get; init; }
 
         /// <summary>
-        /// The type of trigger selected for this flow
+        /// The type of trigger selected for this flow.
         /// </summary>
         [JsonPropertyName("trigger_type")]
         [JsonConverter(typeof(StringEnumConverter<WorkflowFlowsTriggerTriggerTypeField>))]
         public StringEnum<WorkflowFlowsTriggerTriggerTypeField>? TriggerType { get; init; }
 
         /// <summary>
-        /// List of trigger scopes
+        /// List of trigger scopes.
         /// </summary>
         [JsonPropertyName("scope")]
         public IReadOnlyList<WorkflowFlowsTriggerScopeField>? Scope { get; init; }

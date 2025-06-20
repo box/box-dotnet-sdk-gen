@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class CommentItemField : ISerializable {
         /// <summary>
-        /// The unique identifier for this object
+        /// The unique identifier for this object.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type for this object
+        /// The type for this object.
         /// </summary>
         [JsonPropertyName("type")]
         public string? Type { get; init; }

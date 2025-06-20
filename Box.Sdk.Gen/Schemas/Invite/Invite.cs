@@ -7,20 +7,20 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class Invite : ISerializable {
         /// <summary>
-        /// The unique identifier for this invite
+        /// The unique identifier for this invite.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }
 
         /// <summary>
-        /// `invite`
+        /// The value will always be `invite`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<InviteTypeField>))]
         public StringEnum<InviteTypeField> Type { get; }
 
         /// <summary>
-        /// A representation of a Box enterprise
+        /// A representation of a Box enterprise.
         /// </summary>
         [JsonPropertyName("invited_to")]
         public InviteInvitedToField? InvitedTo { get; init; }
@@ -32,13 +32,13 @@ namespace Box.Sdk.Gen.Schemas {
         public UserMini? InvitedBy { get; init; }
 
         /// <summary>
-        /// The status of the invite
+        /// The status of the invite.
         /// </summary>
         [JsonPropertyName("status")]
         public string? Status { get; init; }
 
         /// <summary>
-        /// When the invite was created
+        /// When the invite was created.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }

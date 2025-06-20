@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
-    public class ClientErrorV2025R0ContextInfoField : ISerializable {
+    public class HubCollaborationUpdateRequestV2025R0 : ISerializable {
         /// <summary>
-        /// More details on the error.
+        /// The level of access granted to hub.
+        /// Possible values are `editor`, `viewer`, and `co-owner`.
         /// </summary>
-        [JsonPropertyName("message")]
-        public string? Message { get; init; }
+        [JsonPropertyName("role")]
+        public string? Role { get; init; }
 
-        public ClientErrorV2025R0ContextInfoField() {
+        public HubCollaborationUpdateRequestV2025R0() {
             
         }
         internal string? RawJson { get; set; } = default;

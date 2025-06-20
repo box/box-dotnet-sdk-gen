@@ -6,13 +6,13 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class UploadSession : ISerializable {
         /// <summary>
-        /// The unique identifier for this session
+        /// The unique identifier for this session.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `upload_session`
+        /// The value will always be `upload_session`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<UploadSessionTypeField>))]

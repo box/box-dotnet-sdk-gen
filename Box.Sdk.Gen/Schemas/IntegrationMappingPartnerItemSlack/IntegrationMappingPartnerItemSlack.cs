@@ -18,14 +18,14 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _slackOrgId { get; set; }
 
         /// <summary>
-        /// Type of the mapped item referenced in `id`
+        /// Type of the mapped item referenced in `id`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<IntegrationMappingPartnerItemSlackTypeField>))]
         public StringEnum<IntegrationMappingPartnerItemSlackTypeField> Type { get; }
 
         /// <summary>
-        /// ID of the mapped item (of type referenced in `type`)
+        /// ID of the mapped item (of type referenced in `type`).
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

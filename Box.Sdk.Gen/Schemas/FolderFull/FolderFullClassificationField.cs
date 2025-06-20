@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class FolderFullClassificationField : ISerializable {
         /// <summary>
-        /// The name of the classification
+        /// The name of the classification.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; init; }

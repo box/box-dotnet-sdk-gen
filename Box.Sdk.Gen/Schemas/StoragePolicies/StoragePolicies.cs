@@ -41,7 +41,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? PrevMarker { get => _prevMarker; init { _prevMarker = value; _isPrevMarkerSet = true; } }
 
         /// <summary>
-        /// A list of storage policies
+        /// A list of storage policies.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<StoragePolicy>? Entries { get; init; }

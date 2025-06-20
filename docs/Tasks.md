@@ -136,7 +136,7 @@ await client.Tasks.UpdateTaskByIdAsync(taskId: NullableUtils.Unwrap(task.Id), re
 
 This function returns a value of type `Task`.
 
-Returns the updated task object
+Returns the updated task object.
 
 
 ## Remove task

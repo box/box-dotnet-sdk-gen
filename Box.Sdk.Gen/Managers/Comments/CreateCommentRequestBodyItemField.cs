@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class CreateCommentRequestBodyItemField : ISerializable {
         /// <summary>
-        /// The ID of the item
+        /// The ID of the item.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; }

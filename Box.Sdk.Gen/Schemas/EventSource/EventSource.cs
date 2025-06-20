@@ -15,7 +15,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// The type of the item that the event
         /// represents. Can be `file` or `folder`.
-        /// 
         /// </summary>
         [JsonPropertyName("item_type")]
         [JsonConverter(typeof(StringEnumConverter<EventSourceItemTypeField>))]
@@ -24,14 +23,12 @@ namespace Box.Sdk.Gen.Schemas {
         /// <summary>
         /// The unique identifier that represents the
         /// item.
-        /// 
         /// </summary>
         [JsonPropertyName("item_id")]
         public string ItemId { get; }
 
         /// <summary>
         /// The name of the item.
-        /// 
         /// </summary>
         [JsonPropertyName("item_name")]
         public string ItemName { get; }

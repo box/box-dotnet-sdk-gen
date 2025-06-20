@@ -9,7 +9,7 @@ namespace Box.Sdk.Gen.Managers {
     public class UpdateStoragePolicyAssignmentByIdRequestBody : ISerializable {
         /// <summary>
         /// The storage policy to assign to the user or
-        /// enterprise
+        /// enterprise.
         /// </summary>
         [JsonPropertyName("storage_policy")]
         public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField StoragePolicy { get; }

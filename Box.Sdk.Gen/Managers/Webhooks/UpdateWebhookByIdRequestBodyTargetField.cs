@@ -10,13 +10,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class UpdateWebhookByIdRequestBodyTargetField : ISerializable {
         /// <summary>
-        /// The ID of the item to trigger a webhook
+        /// The ID of the item to trigger a webhook.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of item to trigger a webhook
+        /// The type of item to trigger a webhook.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<UpdateWebhookByIdRequestBodyTargetTypeField>))]

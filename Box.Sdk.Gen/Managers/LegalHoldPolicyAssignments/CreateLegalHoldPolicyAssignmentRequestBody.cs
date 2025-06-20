@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Managers {
         public string PolicyId { get; }
 
         /// <summary>
-        /// The item to assign the policy to
+        /// The item to assign the policy to.
         /// </summary>
         [JsonPropertyName("assign_to")]
         public CreateLegalHoldPolicyAssignmentRequestBodyAssignToField AssignTo { get; }

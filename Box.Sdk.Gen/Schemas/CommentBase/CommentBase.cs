@@ -12,7 +12,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// `comment`
+        /// The value will always be `comment`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<CommentBaseTypeField>))]

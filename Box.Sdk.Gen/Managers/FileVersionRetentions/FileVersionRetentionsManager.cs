@@ -48,7 +48,7 @@ namespace Box.Sdk.Gen.Managers {
         /// see [files under retention](e://get-retention-policy-assignments-id-files-under-retention) or [file versions under retention](e://get-retention-policy-assignments-id-file-versions-under-retention) endpoints.
         /// </summary>
         /// <param name="fileVersionRetentionId">
-        /// The ID of the file version retention
+        /// The ID of the file version retention.
         /// Example: "3424234"
         /// </param>
         /// <param name="headers">

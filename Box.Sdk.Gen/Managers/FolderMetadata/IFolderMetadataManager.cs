@@ -51,11 +51,11 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="headers">
@@ -91,11 +91,11 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="requestBody">
@@ -133,11 +133,11 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="requestBody">
@@ -168,11 +168,11 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="scope">
-    /// The scope of the metadata template
+    /// The scope of the metadata template.
     /// Example: "global"
     /// </param>
     /// <param name="templateKey">
-    /// The name of the metadata template
+    /// The name of the metadata template.
     /// Example: "properties"
     /// </param>
     /// <param name="headers">

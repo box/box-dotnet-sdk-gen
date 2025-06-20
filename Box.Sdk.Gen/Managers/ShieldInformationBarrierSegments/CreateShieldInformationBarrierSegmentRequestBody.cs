@@ -11,13 +11,13 @@ namespace Box.Sdk.Gen.Managers {
         public ShieldInformationBarrierBase ShieldInformationBarrier { get; }
 
         /// <summary>
-        /// Name of the shield information barrier segment
+        /// Name of the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; }
 
         /// <summary>
-        /// Description of the shield information barrier segment
+        /// Description of the shield information barrier segment.
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; init; }

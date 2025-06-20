@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class GroupMembership : ISerializable {
         /// <summary>
-        /// The unique identifier for this group membership
+        /// The unique identifier for this group membership.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `group_membership`
+        /// The value will always be `group_membership`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<GroupMembershipTypeField>))]

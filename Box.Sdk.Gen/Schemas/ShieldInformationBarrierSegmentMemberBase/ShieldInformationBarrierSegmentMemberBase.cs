@@ -7,13 +7,13 @@ namespace Box.Sdk.Gen.Schemas {
     public class ShieldInformationBarrierSegmentMemberBase : ISerializable {
         /// <summary>
         /// The unique identifier for the
-        /// shield information barrier segment member
+        /// shield information barrier segment member.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// The type of the shield information barrier segment member
+        /// The type of the shield information barrier segment member.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<ShieldInformationBarrierSegmentMemberBaseTypeField>))]

@@ -9,7 +9,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class TransferOwnedFolderRequestBody : ISerializable {
         /// <summary>
-        /// The user who the folder will be transferred to
+        /// The user who the folder will be transferred to.
         /// </summary>
         [JsonPropertyName("owned_by")]
         public TransferOwnedFolderRequestBodyOwnedByField OwnedBy { get; }

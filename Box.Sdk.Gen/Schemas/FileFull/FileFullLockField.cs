@@ -13,13 +13,13 @@ namespace Box.Sdk.Gen.Schemas {
         protected StringEnum<FileFullLockAppTypeField>? _appType { get; set; }
 
         /// <summary>
-        /// The unique identifier for this lock
+        /// The unique identifier for this lock.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `lock`
+        /// The value will always be `lock`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<FileFullLockTypeField>))]

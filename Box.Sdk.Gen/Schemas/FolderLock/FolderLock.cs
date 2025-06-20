@@ -34,7 +34,6 @@ namespace Box.Sdk.Gen.Schemas {
         /// The operations that have been locked. Currently the `move`
         /// and `delete` operations cannot be locked separately, and both need to be
         /// set to `true`.
-        /// 
         /// </summary>
         [JsonPropertyName("locked_operations")]
         public FolderLockLockedOperationsField? LockedOperations { get; init; }

@@ -6,7 +6,7 @@ using Box.Sdk.Gen.Internal;
 namespace Box.Sdk.Gen.Schemas {
     public class SessionTerminationMessage : ISerializable {
         /// <summary>
-        /// The unique identifier for the termination job status
+        /// The unique identifier for the termination job status.
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; init; }

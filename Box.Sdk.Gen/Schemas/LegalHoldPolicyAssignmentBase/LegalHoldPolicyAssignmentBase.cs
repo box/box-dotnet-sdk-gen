@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Box.Sdk.Gen.Schemas {
     public class LegalHoldPolicyAssignmentBase : ISerializable {
         /// <summary>
-        /// The unique identifier for this legal hold assignment
+        /// The unique identifier for this legal hold assignment.
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; init; }
 
         /// <summary>
-        /// `legal_hold_policy_assignment`
+        /// The value will always be `legal_hold_policy_assignment`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<LegalHoldPolicyAssignmentBaseTypeField>))]

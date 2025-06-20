@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<CommentsOrderField>? Order { get; init; }
 
         /// <summary>
-        /// A list of comments
+        /// A list of comments.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<CommentFull>? Entries { get; init; }

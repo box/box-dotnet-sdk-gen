@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen.Schemas {
         public IReadOnlyList<FileVersionsOrderField>? Order { get; init; }
 
         /// <summary>
-        /// A list of file versions
+        /// A list of file versions.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<FileVersionFull>? Entries { get; init; }

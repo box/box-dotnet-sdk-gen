@@ -20,7 +20,7 @@ namespace Box.Sdk.Gen.Managers {
         public string? Marker { get; init; }
 
         /// <summary>
-        /// If given, returns only app items for this application type
+        /// If given, returns only app items for this application type.
         /// </summary>
         public string? ApplicationType { get; init; }
 

@@ -43,7 +43,7 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<Webhook> CreateWebhookAsync(CreateWebhookRequestBody requestBody, CreateWebhookHeaders? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
-    /// Retrieves a specific webhook
+    /// Retrieves a specific webhook.
     /// </summary>
     /// <param name="webhookId">
     /// The ID of the webhook.

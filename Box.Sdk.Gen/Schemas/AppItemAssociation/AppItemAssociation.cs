@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         public string Id { get; }
 
         /// <summary>
-        /// `app_item_association`
+        /// The value will always be `app_item_association`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AppItemAssociationTypeField>))]

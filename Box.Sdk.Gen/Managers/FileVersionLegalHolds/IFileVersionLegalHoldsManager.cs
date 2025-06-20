@@ -11,7 +11,7 @@ namespace Box.Sdk.Gen.Managers {
     /// assigned to a file version.
     /// </summary>
     /// <param name="fileVersionLegalHoldId">
-    /// The ID of the file version legal hold
+    /// The ID of the file version legal hold.
     /// Example: "2348213"
     /// </param>
     /// <param name="headers">

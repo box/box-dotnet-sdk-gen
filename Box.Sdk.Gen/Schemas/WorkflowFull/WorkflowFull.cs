@@ -7,13 +7,13 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Schemas {
     public class WorkflowFull : Workflow, ISerializable {
         /// <summary>
-        /// The date and time when the workflow was created on Box
+        /// The date and time when the workflow was created on Box.
         /// </summary>
         [JsonPropertyName("created_at")]
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// The date and time when the workflow was last updated on Box
+        /// The date and time when the workflow was last updated on Box.
         /// </summary>
         [JsonPropertyName("modified_at")]
         public System.DateTimeOffset? ModifiedAt { get; init; }

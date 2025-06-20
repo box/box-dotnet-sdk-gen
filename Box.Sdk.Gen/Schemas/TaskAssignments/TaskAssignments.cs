@@ -15,7 +15,7 @@ namespace Box.Sdk.Gen.Schemas {
         public long? TotalCount { get; init; }
 
         /// <summary>
-        /// A list of task assignments
+        /// A list of task assignments.
         /// </summary>
         [JsonPropertyName("entries")]
         public IReadOnlyList<TaskAssignment>? Entries { get; init; }

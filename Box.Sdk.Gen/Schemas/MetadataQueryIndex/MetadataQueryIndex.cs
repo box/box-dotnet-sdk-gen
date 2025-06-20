@@ -14,13 +14,13 @@ namespace Box.Sdk.Gen.Schemas {
         public string? Id { get; init; }
 
         /// <summary>
-        /// Value is always `metadata_query_index`
+        /// Value is always `metadata_query_index`.
         /// </summary>
         [JsonPropertyName("type")]
         public string Type { get; }
 
         /// <summary>
-        /// The status of the metadata query index
+        /// The status of the metadata query index.
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(StringEnumConverter<MetadataQueryIndexStatusField>))]

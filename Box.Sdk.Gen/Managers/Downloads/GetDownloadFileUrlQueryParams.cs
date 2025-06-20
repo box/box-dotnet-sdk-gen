@@ -7,7 +7,7 @@ using Box.Sdk.Gen.Schemas;
 namespace Box.Sdk.Gen.Managers {
     public class GetDownloadFileUrlQueryParams {
         /// <summary>
-        /// The file version to download
+        /// The file version to download.
         /// </summary>
         public string? Version { get; init; }
 

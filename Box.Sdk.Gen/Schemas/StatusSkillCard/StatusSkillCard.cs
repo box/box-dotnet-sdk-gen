@@ -12,14 +12,14 @@ namespace Box.Sdk.Gen.Schemas {
         public System.DateTimeOffset? CreatedAt { get; init; }
 
         /// <summary>
-        /// `skill_card`
+        /// The value will always be `skill_card`.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<StatusSkillCardTypeField>))]
         public StringEnum<StatusSkillCardTypeField> Type { get; }
 
         /// <summary>
-        /// `status`
+        /// The value will always be `status`.
         /// </summary>
         [JsonPropertyName("skill_card_type")]
         [JsonConverter(typeof(StringEnumConverter<StatusSkillCardSkillCardTypeField>))]
