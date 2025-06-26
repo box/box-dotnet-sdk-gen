@@ -19,6 +19,9 @@ namespace Box.Sdk.Gen.Schemas {
         [JsonPropertyName("basic_text")]
         public AiAgentBasicTextTool? BasicText { get; init; }
 
+        [JsonPropertyName("spreadsheet")]
+        public AiAgentSpreadsheetTool? Spreadsheet { get; init; }
+
         [JsonPropertyName("long_text_multi")]
         public AiAgentLongTextTool? LongTextMulti { get; init; }
 
