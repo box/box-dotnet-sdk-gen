@@ -187,10 +187,10 @@ namespace Box.Sdk.Gen.Managers {
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() {  }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/files/", StringUtils.ToStringRepresentation(fileId), "/thumbnail.", StringUtils.ToStringRepresentation(extension)), method: "GET", responseFormat: Box.Sdk.Gen.ResponseFormat.NoContent) { Parameters = queryParamsMap, Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken, FollowRedirects = false }).ConfigureAwait(false);
             if (response.Headers.ContainsKey("location")) {
-                return response.Headers["location"];
+                return NullableUtils.Unwrap(response.Headers["location"]);
             }
             if (response.Headers.ContainsKey("Location")) {
-                return response.Headers["Location"];
+                return NullableUtils.Unwrap(response.Headers["Location"]);
             }
             throw new BoxSdkException(message: "No location header in response");
         }
