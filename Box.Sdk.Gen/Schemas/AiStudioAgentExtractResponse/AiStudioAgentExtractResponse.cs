@@ -13,7 +13,7 @@ namespace Box.Sdk.Gen.Schemas {
         protected string? _customInstructions { get; set; }
 
         /// <summary>
-        /// The type of AI agent to be used for extraction.
+        /// The type of AI agent to be used for metadata extraction.
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(StringEnumConverter<AiStudioAgentExtractResponseTypeField>))]
@@ -26,13 +26,13 @@ namespace Box.Sdk.Gen.Schemas {
         public string AccessState { get; }
 
         /// <summary>
-        /// The description of the AI Agent.
+        /// The description of the AI agent.
         /// </summary>
         [JsonPropertyName("description")]
         public string Description { get; }
 
         /// <summary>
-        /// Custom instructions for the agent.
+        /// Custom instructions for the AI agent.
         /// </summary>
         [JsonPropertyName("custom_instructions")]
         public string? CustomInstructions { get => _customInstructions; init { _customInstructions = value; _isCustomInstructionsSet = true; } }
@@ -42,6 +42,9 @@ namespace Box.Sdk.Gen.Schemas {
 
         [JsonPropertyName("basic_text")]
         public AiStudioAgentBasicTextToolResponse? BasicText { get; init; }
+
+        [JsonPropertyName("basic_image")]
+        public AiStudioAgentBasicTextToolResponse? BasicImage { get; init; }
 
         public AiStudioAgentExtractResponse(string accessState, string description, AiStudioAgentExtractResponseTypeField type = AiStudioAgentExtractResponseTypeField.AiAgentExtract) {
             Type = type;

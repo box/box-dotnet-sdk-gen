@@ -1,7 +1,9 @@
 using Box.Sdk.Gen;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Box.Sdk.Gen.Internal;
-using System.Collections.Generic;
 using Box.Sdk.Gen.Schemas;
 
 namespace Box.Sdk.Gen.Schemas {
@@ -26,16 +28,22 @@ namespace Box.Sdk.Gen.Schemas {
         public string AccessState { get; }
 
         /// <summary>
-        /// The description of the AI Agent.
+        /// The description of the AI agent.
         /// </summary>
         [JsonPropertyName("description")]
         public string Description { get; }
 
         /// <summary>
-        /// Custom instructions for the agent.
+        /// Custom instructions for the AI agent.
         /// </summary>
         [JsonPropertyName("custom_instructions")]
         public string? CustomInstructions { get => _customInstructions; init { _customInstructions = value; _isCustomInstructionsSet = true; } }
+
+        /// <summary>
+        /// Suggested questions for the AI agent. If null, suggested question will be generated. If empty, no suggested questions will be displayed.
+        /// </summary>
+        [JsonPropertyName("suggested_questions")]
+        public IReadOnlyList<string>? SuggestedQuestions { get; init; }
 
         [JsonPropertyName("basic_gen")]
         public AiStudioAgentBasicGenToolResponse? BasicGen { get; init; }
