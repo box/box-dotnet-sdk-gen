@@ -1,14 +1,7 @@
 using Microsoft.IdentityModel.Tokens;
-using Org.BouncyCastle.Asn1.Pkcs;
-using Org.BouncyCastle.Crypto.Asymmetric;
-using Org.BouncyCastle.OpenSsl;
-using Org.BouncyCastle.Operators;
-using Org.BouncyCastle.Pkcs;
-using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -51,7 +44,7 @@ namespace Box.Sdk.Gen.Internal
             var jwtPayload = new JwtPayload(options.Issuer, options.Audience,
                 jwtClaims, null, DateTimeOffset.FromUnixTimeSeconds(expTime).LocalDateTime);
 
-            var signingCredentials = GetSigningCredentials(key);
+            var signingCredentials = GetSigningCredentials(key, options);
 
             var header = new JwtHeader(signingCredentials);
 
@@ -61,70 +54,15 @@ namespace Box.Sdk.Gen.Internal
             return assertion;
         }
 
-        private static SigningCredentials GetSigningCredentials(JwtKey key)
+        private static SigningCredentials GetSigningCredentials(JwtKey key, JwtSignOptions options)
         {
-            using (var keyReader = new StringReader(key.Key))
-            {
-                var reader = new OpenSslPemReader(keyReader);
-                var privateCrtKeyParams = reader.ReadObject();
+            var rsa = options.PrivateKeyDecryptor.DecryptPrivateKey(key.Key, key.Passphrase);
 
-                if (privateCrtKeyParams == null)
-                {
-                    throw new ArgumentException("Invalid private JWT key!");
-                }
+            var rsaKey = new RsaSecurityKey(rsa);
 
-                if (privateCrtKeyParams is Pkcs8EncryptedPrivateKeyInfo)
-                {
-                    var pkcs8 = (Pkcs8EncryptedPrivateKeyInfo)privateCrtKeyParams;
-                    PrivateKeyInfo privateKeyInfo = pkcs8.DecryptPrivateKeyInfo(
-                new PkixPbeDecryptorProviderBuilder().Build(key.Passphrase.ToCharArray()));
-                    var bcKey = AsymmetricKeyFactory.CreatePrivateKey(privateKeyInfo.GetEncoded());
-
-                    if (bcKey is AsymmetricRsaPrivateKey)
-                    {
-                        var bcRsaKey = (AsymmetricRsaPrivateKey)bcKey;
-                        var rsaParams = ToRSAParameters(bcRsaKey);
-                        var rsaKey = new RsaSecurityKey(rsaParams);
-
-                        return new SigningCredentials(rsaKey, SecurityAlgorithms.RsaSha256);
-                    }
-                }
-
-                throw new ArgumentException("Provided JWT Key format is not supported");
-            }
+            return new SigningCredentials(rsaKey, SecurityAlgorithms.RsaSha256);
         }
 
-        private static RSAParameters ToRSAParameters(AsymmetricRsaPrivateKey privateKey)
-        {
-            RSAParameters rp = new RSAParameters();
-            rp.Modulus = privateKey.Modulus.ToByteArrayUnsigned();
-            rp.Exponent = privateKey.PublicExponent.ToByteArrayUnsigned();
-            rp.P = privateKey.P.ToByteArrayUnsigned();
-            rp.Q = privateKey.Q.ToByteArrayUnsigned();
-            rp.D = ConvertRSAParametersField(privateKey.PrivateExponent, rp.Modulus.Length);
-            rp.DP = ConvertRSAParametersField(privateKey.DP, rp.P.Length);
-            rp.DQ = ConvertRSAParametersField(privateKey.DQ, rp.Q.Length);
-            rp.InverseQ = ConvertRSAParametersField(privateKey.QInv, rp.Q.Length);
-            return rp;
-        }
-
-        private static byte[] ConvertRSAParametersField(Org.BouncyCastle.Math.BigInteger n, int size)
-        {
-            byte[] bs = n.ToByteArrayUnsigned();
-            if (bs.Length == size)
-            {
-                return bs;
-            }
-
-            if (bs.Length > size)
-            {
-                throw new ArgumentException("Specified size too small", "size");
-            }
-
-            byte[] padded = new byte[size];
-            Array.Copy(bs, 0, padded, size - bs.Length, bs.Length);
-            return padded;
-        }
     }
 
     enum JwtAlgorithm
@@ -152,8 +90,9 @@ namespace Box.Sdk.Gen.Internal
         internal string Issuer { get; }
         internal string Jwtid { get; }
         internal string Keyid { get; }
+        internal IPrivateKeyDecryptor PrivateKeyDecryptor { get; }
 
-        public JwtSignOptions(JwtAlgorithm algorithm, string audience, string subject, string issuer, string jwtid, string keyid)
+        public JwtSignOptions(JwtAlgorithm algorithm, string audience, string subject, string issuer, string jwtid, string keyid, IPrivateKeyDecryptor privateKeyDecryptor)
         {
             Algorithm = algorithm;
             Audience = audience;
@@ -161,6 +100,7 @@ namespace Box.Sdk.Gen.Internal
             Issuer = issuer;
             Jwtid = jwtid;
             Keyid = keyid;
+            PrivateKeyDecryptor = privateKeyDecryptor;
         }
     }
 }

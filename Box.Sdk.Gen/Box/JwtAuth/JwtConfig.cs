@@ -46,13 +46,16 @@ namespace Box.Sdk.Gen {
 
         public ITokenStorage TokenStorage { get; }
 
-        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage? tokenStorage = default) {
+        public IPrivateKeyDecryptor PrivateKeyDecryptor { get; }
+
+        public JwtConfig(string clientId, string clientSecret, string jwtKeyId, string privateKey, string privateKeyPassphrase, ITokenStorage? tokenStorage = default, IPrivateKeyDecryptor? privateKeyDecryptor = default) {
             ClientId = clientId;
             ClientSecret = clientSecret;
             JwtKeyId = jwtKeyId;
             PrivateKey = privateKey;
             PrivateKeyPassphrase = privateKeyPassphrase;
             TokenStorage = tokenStorage ?? new InMemoryTokenStorage();
+            PrivateKeyDecryptor = privateKeyDecryptor ?? new DefaultPrivateKeyDecryptor();
         }
         /// <summary>
         /// Create an auth instance as defined by a string content of JSON file downloaded from the Box Developer Console.
@@ -62,11 +65,16 @@ namespace Box.Sdk.Gen {
         /// String content of JSON file containing the configuration.
         /// </param>
         /// <param name="tokenStorage">
-        /// Object responsible for storing token. If no custom implementation provided, the token will be stored in memory.g
+        /// Object responsible for storing token. If no custom implementation provided, the token will be stored in memory
         /// </param>
-        public static JwtConfig FromConfigJsonString(string configJsonString, ITokenStorage? tokenStorage = null) {
+        /// <param name="privateKeyDecryptor">
+        /// Object responsible for decrypting private key for jwt auth. If no custom implementation provided, the DefaultPrivateKeyDecryptor will be used.
+        /// </param>
+        public static JwtConfig FromConfigJsonString(string configJsonString, ITokenStorage? tokenStorage = null, IPrivateKeyDecryptor? privateKeyDecryptor = null) {
             JwtConfigFile configJson = SimpleJsonSerializer.Deserialize<JwtConfigFile>(JsonUtils.JsonToSerializedData(text: configJsonString));
-            JwtConfig newConfig = tokenStorage != null ? new JwtConfig(clientId: configJson.BoxAppSettings.ClientId, clientSecret: configJson.BoxAppSettings.ClientSecret, jwtKeyId: configJson.BoxAppSettings.AppAuth.PublicKeyId, privateKey: configJson.BoxAppSettings.AppAuth.PrivateKey, privateKeyPassphrase: configJson.BoxAppSettings.AppAuth.Passphrase, tokenStorage: tokenStorage) { EnterpriseId = configJson.EnterpriseId, UserId = configJson.UserId } : new JwtConfig(clientId: configJson.BoxAppSettings.ClientId, clientSecret: configJson.BoxAppSettings.ClientSecret, jwtKeyId: configJson.BoxAppSettings.AppAuth.PublicKeyId, privateKey: configJson.BoxAppSettings.AppAuth.PrivateKey, privateKeyPassphrase: configJson.BoxAppSettings.AppAuth.Passphrase) { EnterpriseId = configJson.EnterpriseId, UserId = configJson.UserId };
+            ITokenStorage? tokenStorageToUse = tokenStorage == null ? new InMemoryTokenStorage() : tokenStorage;
+            IPrivateKeyDecryptor? privateKeyDecryptorToUse = privateKeyDecryptor == null ? new DefaultPrivateKeyDecryptor() : privateKeyDecryptor;
+            JwtConfig newConfig = new JwtConfig(clientId: configJson.BoxAppSettings.ClientId, clientSecret: configJson.BoxAppSettings.ClientSecret, jwtKeyId: configJson.BoxAppSettings.AppAuth.PublicKeyId, privateKey: configJson.BoxAppSettings.AppAuth.PrivateKey, privateKeyPassphrase: configJson.BoxAppSettings.AppAuth.Passphrase, tokenStorage: tokenStorageToUse, privateKeyDecryptor: privateKeyDecryptorToUse) { EnterpriseId = configJson.EnterpriseId, UserId = configJson.UserId };
             return newConfig;
         }
 
@@ -80,9 +88,12 @@ namespace Box.Sdk.Gen {
         /// <param name="tokenStorage">
         /// Object responsible for storing token. If no custom implementation provided, the token will be stored in memory.
         /// </param>
-        public static JwtConfig FromConfigFile(string configFilePath, ITokenStorage? tokenStorage = null) {
+        /// <param name="privateKeyDecryptor">
+        /// Object responsible for decrypting private key for jwt auth. If no custom implementation provided, the DefaultPrivateKeyDecryptor will be used.
+        /// </param>
+        public static JwtConfig FromConfigFile(string configFilePath, ITokenStorage? tokenStorage = null, IPrivateKeyDecryptor? privateKeyDecryptor = null) {
             string configJsonString = Utils.ReadTextFromFile(filepath: configFilePath);
-            return JwtConfig.FromConfigJsonString(configJsonString: configJsonString, tokenStorage: tokenStorage);
+            return JwtConfig.FromConfigJsonString(configJsonString: configJsonString, tokenStorage: tokenStorage, privateKeyDecryptor: privateKeyDecryptor);
         }
 
     }
