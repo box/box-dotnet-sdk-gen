@@ -47,7 +47,7 @@ namespace Box.Sdk.Gen {
             }
             JwtAlgorithm alg = this.Config.Algorithm != null ? NullableUtils.Unwrap(this.Config.Algorithm) : JwtAlgorithm.Rs256;
             Dictionary<string, object> claims = new Dictionary<string, object>() { { "exp", Utils.GetEpochTimeInSeconds() + 30 }, { "box_sub_type", this.SubjectType } };
-            JwtSignOptions jwtOptions = new JwtSignOptions(algorithm: alg, audience: "https://api.box.com/oauth2/token", subject: this.SubjectId, issuer: this.Config.ClientId, jwtid: Utils.GetUUID(), keyid: this.Config.JwtKeyId);
+            JwtSignOptions jwtOptions = new JwtSignOptions(algorithm: alg, audience: "https://api.box.com/oauth2/token", subject: this.SubjectId, issuer: this.Config.ClientId, jwtid: Utils.GetUUID(), keyid: this.Config.JwtKeyId, privateKeyDecryptor: this.Config.PrivateKeyDecryptor);
             JwtKey jwtKey = new JwtKey(key: this.Config.PrivateKey, passphrase: this.Config.PrivateKeyPassphrase);
             string assertion = JwtUtils.CreateJwtAssertion(claims: claims, key: jwtKey, options: jwtOptions);
             AuthorizationManager authManager = new AuthorizationManager(networkSession: networkSession != null ? NullableUtils.Unwrap(networkSession) : new NetworkSession());
