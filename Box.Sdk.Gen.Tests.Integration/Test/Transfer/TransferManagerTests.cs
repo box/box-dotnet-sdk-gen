@@ -14,13 +14,13 @@ namespace Box.Sdk.Gen.Tests.Integration {
         }
         [RetryableTest]
         public async System.Threading.Tasks.Task TestTransferUserContent() {
-            string newUserName = Utils.GetUUID();
-            UserFull newUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: newUserName) { IsPlatformAccessOnly = true });
-            UserFull currentUser = await client.Users.GetUserMeAsync();
-            FolderFull transferedFolder = await client.Transfer.TransferOwnedFolderAsync(userId: newUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: currentUser.Id)), queryParams: new TransferOwnedFolderQueryParams() { Notify = false });
-            Assert.IsTrue(NullableUtils.Unwrap(transferedFolder.OwnedBy).Id == currentUser.Id);
-            await client.Folders.DeleteFolderByIdAsync(folderId: transferedFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });
-            await client.Users.DeleteUserByIdAsync(userId: newUser.Id, queryParams: new DeleteUserByIdQueryParams() { Notify = false, Force = true });
+            string sourceUserName = Utils.GetUUID();
+            UserFull sourceUser = await client.Users.CreateUserAsync(requestBody: new CreateUserRequestBody(name: sourceUserName) { IsPlatformAccessOnly = true });
+            UserFull targetUser = await client.Users.GetUserMeAsync();
+            FolderFull transferredFolder = await client.Transfer.TransferOwnedFolderAsync(userId: sourceUser.Id, requestBody: new TransferOwnedFolderRequestBody(ownedBy: new TransferOwnedFolderRequestBodyOwnedByField(id: targetUser.Id)), queryParams: new TransferOwnedFolderQueryParams() { Notify = false });
+            Assert.IsTrue(NullableUtils.Unwrap(transferredFolder.OwnedBy).Id == targetUser.Id);
+            await client.Folders.DeleteFolderByIdAsync(folderId: transferredFolder.Id, queryParams: new DeleteFolderByIdQueryParams() { Recursive = true });
+            await client.Users.DeleteUserByIdAsync(userId: sourceUser.Id, queryParams: new DeleteUserByIdQueryParams() { Notify = false, Force = true });
         }
 
     }
