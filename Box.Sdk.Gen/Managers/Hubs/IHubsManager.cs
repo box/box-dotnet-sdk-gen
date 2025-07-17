@@ -22,6 +22,20 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<HubsV2025R0> GetHubsV2025R0Async(GetHubsV2025R0QueryParams? queryParams = default, GetHubsV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
+    /// Creates a new Hub.
+    /// </summary>
+    /// <param name="requestBody">
+    /// Request body of createHubV2025R0 method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of createHubV2025R0 method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<HubV2025R0> CreateHubV2025R0Async(HubCreateRequestV2025R0 requestBody, CreateHubV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
     /// Retrieves all hubs for a given enterprise.
     /// 
     /// Admins or Hub Co-admins of an enterprise
@@ -60,6 +74,30 @@ namespace Box.Sdk.Gen.Managers {
     public System.Threading.Tasks.Task<HubV2025R0> GetHubByIdV2025R0Async(string hubId, GetHubByIdV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
         /// <summary>
+    /// Updates a Hub. Can be used to change title, description, or Hub settings.
+    /// </summary>
+    /// <param name="hubId">
+    /// The unique identifier that represent a hub.
+    /// 
+    /// The ID for any hub can be determined
+    /// by visiting this hub in the web application
+    /// and copying the ID from the URL. For example,
+    /// for the URL `https://*.app.box.com/hubs/123`
+    /// the `hub_id` is `123`.
+    /// Example: "12345"
+    /// </param>
+    /// <param name="requestBody">
+    /// Request body of updateHubByIdV2025R0 method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of updateHubByIdV2025R0 method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<HubV2025R0> UpdateHubByIdV2025R0Async(string hubId, HubUpdateRequestV2025R0 requestBody, UpdateHubByIdV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
     /// Deletes a single hub.
     /// </summary>
     /// <param name="hubId">
@@ -79,6 +117,32 @@ namespace Box.Sdk.Gen.Managers {
     /// Token used for request cancellation.
     /// </param>
     public System.Threading.Tasks.Task DeleteHubByIdV2025R0Async(string hubId, DeleteHubByIdV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+
+        /// <summary>
+    /// Creates a copy of a Hub.
+    /// 
+    /// The original Hub will not be modified.
+    /// </summary>
+    /// <param name="hubId">
+    /// The unique identifier that represent a hub.
+    /// 
+    /// The ID for any hub can be determined
+    /// by visiting this hub in the web application
+    /// and copying the ID from the URL. For example,
+    /// for the URL `https://*.app.box.com/hubs/123`
+    /// the `hub_id` is `123`.
+    /// Example: "12345"
+    /// </param>
+    /// <param name="requestBody">
+    /// Request body of createHubCopyV2025R0 method
+    /// </param>
+    /// <param name="headers">
+    /// Headers of createHubCopyV2025R0 method
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token used for request cancellation.
+    /// </param>
+    public System.Threading.Tasks.Task<HubV2025R0> CreateHubCopyV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }

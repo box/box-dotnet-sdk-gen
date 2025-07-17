@@ -2,9 +2,12 @@
 
 
 - [List all hubs](#list-all-hubs)
+- [Create hub](#create-hub)
 - [List all hubs for requesting enterprise](#list-all-hubs-for-requesting-enterprise)
 - [Get hub information by ID](#get-hub-information-by-id)
+- [Update hub information by ID](#update-hub-information-by-id)
 - [Delete hub](#delete-hub)
+- [Copy hub](#copy-hub)
 
 ## List all hubs
 
@@ -35,6 +38,34 @@ await client.Hubs.GetHubsV2025R0Async(queryParams: new GetHubsV2025R0QueryParams
 This function returns a value of type `HubsV2025R0`.
 
 Returns all hubs for the given user or enterprise.
+
+
+## Create hub
+
+Creates a new Hub.
+
+This operation is performed by calling function `CreateHubV2025R0`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/v2025.0/post-hubs/).
+
+*Currently we don't have an example for calling `CreateHubV2025R0` in integration tests*
+
+### Arguments
+
+- requestBody `HubCreateRequestV2025R0`
+  - Request body of createHubV2025R0 method
+- headers `CreateHubV2025R0Headers`
+  - Headers of createHubV2025R0 method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `HubV2025R0`.
+
+Returns a new Hub object.
 
 
 ## List all hubs for requesting enterprise
@@ -102,6 +133,36 @@ This function returns a value of type `HubV2025R0`.
 Returns a hub object.
 
 
+## Update hub information by ID
+
+Updates a Hub. Can be used to change title, description, or Hub settings.
+
+This operation is performed by calling function `UpdateHubByIdV2025R0`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/v2025.0/put-hubs-id/).
+
+*Currently we don't have an example for calling `UpdateHubByIdV2025R0` in integration tests*
+
+### Arguments
+
+- hubId `string`
+  - The unique identifier that represent a hub.  The ID for any hub can be determined by visiting this hub in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/hubs/123` the `hub_id` is `123`. Example: "12345"
+- requestBody `HubUpdateRequestV2025R0`
+  - Request body of updateHubByIdV2025R0 method
+- headers `UpdateHubByIdV2025R0Headers`
+  - Headers of updateHubByIdV2025R0 method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `HubV2025R0`.
+
+Returns a Hub object.
+
+
 ## Delete hub
 
 Deletes a single hub.
@@ -132,5 +193,37 @@ This function returns a value of type `null`.
 
 A blank response is returned if the hub was
 successfully deleted.
+
+
+## Copy hub
+
+Creates a copy of a Hub.
+
+The original Hub will not be modified.
+
+This operation is performed by calling function `CreateHubCopyV2025R0`.
+
+See the endpoint docs at
+[API Reference](https://developer.box.com/reference/v2025.0/post-hubs-id-copy/).
+
+*Currently we don't have an example for calling `CreateHubCopyV2025R0` in integration tests*
+
+### Arguments
+
+- hubId `string`
+  - The unique identifier that represent a hub.  The ID for any hub can be determined by visiting this hub in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/hubs/123` the `hub_id` is `123`. Example: "12345"
+- requestBody `HubCopyRequestV2025R0`
+  - Request body of createHubCopyV2025R0 method
+- headers `CreateHubCopyV2025R0Headers`
+  - Headers of createHubCopyV2025R0 method
+- cancellationToken `System.Threading.CancellationToken?`
+  - Token used for request cancellation.
+
+
+### Returns
+
+This function returns a value of type `HubV2025R0`.
+
+Returns a new Hub object.
 
 
