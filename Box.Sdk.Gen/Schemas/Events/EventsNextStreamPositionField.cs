@@ -7,18 +7,18 @@ using Box.Sdk.Gen.Internal;
 
 namespace Box.Sdk.Gen.Schemas {
     [JsonConverter(typeof(EventsNextStreamPositionFieldConverter))]
-    public class EventsNextStreamPositionField : OneOf<string, double> {
+    public class EventsNextStreamPositionField : OneOf<string, long> {
         public string? StringVal => _val0;
         
-        public double? DoubleVal => _val1;
+        public long? LongVal => _val1;
         
         public EventsNextStreamPositionField(string value) : base(value) {}
         
-        public EventsNextStreamPositionField(double value) : base(value) {}
+        public EventsNextStreamPositionField(long value) : base(value) {}
         
         public static implicit operator EventsNextStreamPositionField(string value) => new EventsNextStreamPositionField(value);
         
-        public static implicit operator EventsNextStreamPositionField(double value) => new EventsNextStreamPositionField(value);
+        public static implicit operator EventsNextStreamPositionField(long value) => new EventsNextStreamPositionField(value);
         
         class EventsNextStreamPositionFieldConverter : JsonConverter<EventsNextStreamPositionField> {
             public override EventsNextStreamPositionField Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
@@ -32,7 +32,7 @@ namespace Box.Sdk.Gen.Schemas {
                     
                 }
                 try {
-                    var result = JsonSerializer.Deserialize<double>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
+                    var result = JsonSerializer.Deserialize<long>(document, new JsonSerializerOptions() { UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow });
                     return result;
                 } catch {
                     
@@ -45,8 +45,8 @@ namespace Box.Sdk.Gen.Schemas {
                     JsonSerializer.Serialize(writer, value.StringVal, options);
                     return;
                 }
-                if (value?.DoubleVal != null) {
-                    JsonSerializer.Serialize(writer, value.DoubleVal, options);
+                if (value?.LongVal != null) {
+                    JsonSerializer.Serialize(writer, value.LongVal, options);
                     return;
                 }
             }
