@@ -161,6 +161,8 @@ namespace Box.Sdk.Gen {
 
         public IHubCollaborationsManager HubCollaborations { get; }
 
+        public IHubItemsManager HubItems { get; }
+
         public IShieldListsManager ShieldLists { get; }
 
         public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
@@ -242,6 +244,7 @@ namespace Box.Sdk.Gen {
             Docgen = new DocgenManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             Hubs = new HubsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             HubCollaborations = new HubCollaborationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            HubItems = new HubItemsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             ShieldLists = new ShieldListsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>

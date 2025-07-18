@@ -36,6 +36,25 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Creates a new Hub.
+        /// </summary>
+        /// <param name="requestBody">
+        /// Request body of createHubV2025R0 method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createHubV2025R0 method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<HubV2025R0> CreateHubV2025R0Async(HubCreateRequestV2025R0 requestBody, CreateHubV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new CreateHubV2025R0Headers();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
+            FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<HubV2025R0>(NullableUtils.Unwrap(response.Data));
+        }
+
+        /// <summary>
         /// Retrieves all hubs for a given enterprise.
         /// 
         /// Admins or Hub Co-admins of an enterprise
@@ -86,6 +105,35 @@ namespace Box.Sdk.Gen.Managers {
         }
 
         /// <summary>
+        /// Updates a Hub. Can be used to change title, description, or Hub settings.
+        /// </summary>
+        /// <param name="hubId">
+        /// The unique identifier that represent a hub.
+        /// 
+        /// The ID for any hub can be determined
+        /// by visiting this hub in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/hubs/123`
+        /// the `hub_id` is `123`.
+        /// Example: "12345"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of updateHubByIdV2025R0 method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of updateHubByIdV2025R0 method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<HubV2025R0> UpdateHubByIdV2025R0Async(string hubId, HubUpdateRequestV2025R0 requestBody, UpdateHubByIdV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new UpdateHubByIdV2025R0Headers();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
+            FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs/", StringUtils.ToStringRepresentation(hubId)), method: "PUT", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<HubV2025R0>(NullableUtils.Unwrap(response.Data));
+        }
+
+        /// <summary>
         /// Deletes a single hub.
         /// </summary>
         /// <param name="hubId">
@@ -108,6 +156,37 @@ namespace Box.Sdk.Gen.Managers {
             headers = headers ?? new DeleteHubByIdV2025R0Headers();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs/", StringUtils.ToStringRepresentation(hubId)), method: "DELETE", responseFormat: Box.Sdk.Gen.ResponseFormat.NoContent) { Headers = headersMap, Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Creates a copy of a Hub.
+        /// 
+        /// The original Hub will not be modified.
+        /// </summary>
+        /// <param name="hubId">
+        /// The unique identifier that represent a hub.
+        /// 
+        /// The ID for any hub can be determined
+        /// by visiting this hub in the web application
+        /// and copying the ID from the URL. For example,
+        /// for the URL `https://*.app.box.com/hubs/123`
+        /// the `hub_id` is `123`.
+        /// Example: "12345"
+        /// </param>
+        /// <param name="requestBody">
+        /// Request body of createHubCopyV2025R0 method
+        /// </param>
+        /// <param name="headers">
+        /// Headers of createHubCopyV2025R0 method
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Token used for request cancellation.
+        /// </param>
+        public async System.Threading.Tasks.Task<HubV2025R0> CreateHubCopyV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new CreateHubCopyV2025R0Headers();
+            Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
+            FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs/", StringUtils.ToStringRepresentation(hubId), "/copy"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
+            return SimpleJsonSerializer.Deserialize<HubV2025R0>(NullableUtils.Unwrap(response.Data));
         }
 
     }
