@@ -49,7 +49,10 @@ This operation is performed by calling function `CreateHubV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/post-hubs/).
 
-*Currently we don't have an example for calling `CreateHubV2025R0` in integration tests*
+<!-- sample post_hubs_v2025.0 -->
+```
+await client.Hubs.CreateHubV2025R0Async(requestBody: new HubCreateRequestV2025R0(title: hubTitle) { Description = hubDescription });
+```
 
 ### Arguments
 
@@ -113,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample get_hubs_id_v2025.0 -->
 ```
-await client.Hubs.GetHubByIdV2025R0Async(hubId: userHub.Id);
+await client.Hubs.GetHubByIdV2025R0Async(hubId: hubId);
 ```
 
 ### Arguments
@@ -142,7 +145,10 @@ This operation is performed by calling function `UpdateHubByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/put-hubs-id/).
 
-*Currently we don't have an example for calling `UpdateHubByIdV2025R0` in integration tests*
+<!-- sample put_hubs_id_v2025.0 -->
+```
+await client.Hubs.UpdateHubByIdV2025R0Async(hubId: hubId, requestBody: new HubUpdateRequestV2025R0() { Title = newHubTitle, Description = newHubDescription });
+```
 
 ### Arguments
 
@@ -174,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample delete_hubs_id_v2025.0 -->
 ```
-await client.Hubs.DeleteHubByIdV2025R0Async(hubId: hub.Id);
+await client.Hubs.DeleteHubByIdV2025R0Async(hubId: hubId);
 ```
 
 ### Arguments
@@ -201,21 +207,24 @@ Creates a copy of a Hub.
 
 The original Hub will not be modified.
 
-This operation is performed by calling function `CreateHubCopyV2025R0`.
+This operation is performed by calling function `CopyHubV2025R0`.
 
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/post-hubs-id-copy/).
 
-*Currently we don't have an example for calling `CreateHubCopyV2025R0` in integration tests*
+<!-- sample post_hubs_id_copy_v2025.0 -->
+```
+await client.Hubs.CopyHubV2025R0Async(hubId: createdHub.Id, requestBody: new HubCopyRequestV2025R0() { Title = copiedHubTitle, Description = copiedHubDescription });
+```
 
 ### Arguments
 
 - hubId `string`
   - The unique identifier that represent a hub.  The ID for any hub can be determined by visiting this hub in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/hubs/123` the `hub_id` is `123`. Example: "12345"
 - requestBody `HubCopyRequestV2025R0`
-  - Request body of createHubCopyV2025R0 method
-- headers `CreateHubCopyV2025R0Headers`
-  - Headers of createHubCopyV2025R0 method
+  - Request body of copyHubV2025R0 method
+- headers `CopyHubV2025R0Headers`
+  - Headers of copyHubV2025R0 method
 - cancellationToken `System.Threading.CancellationToken?`
   - Token used for request cancellation.
 

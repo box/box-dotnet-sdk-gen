@@ -35,15 +35,15 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="requestBody">
-    /// Request body of createHubManageItemV2025R0 method
+    /// Request body of manageHubItemsV2025R0 method
     /// </param>
     /// <param name="headers">
-    /// Headers of createHubManageItemV2025R0 method
+    /// Headers of manageHubItemsV2025R0 method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<HubItemsManageResponseV2025R0> CreateHubManageItemV2025R0Async(string hubId, HubItemsManageRequestV2025R0 requestBody, CreateHubManageItemV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<HubItemsManageResponseV2025R0> ManageHubItemsV2025R0Async(string hubId, HubItemsManageRequestV2025R0 requestBody, ManageHubItemsV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }
