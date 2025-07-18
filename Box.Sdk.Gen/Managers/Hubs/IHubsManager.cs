@@ -134,15 +134,15 @@ namespace Box.Sdk.Gen.Managers {
     /// Example: "12345"
     /// </param>
     /// <param name="requestBody">
-    /// Request body of createHubCopyV2025R0 method
+    /// Request body of copyHubV2025R0 method
     /// </param>
     /// <param name="headers">
-    /// Headers of createHubCopyV2025R0 method
+    /// Headers of copyHubV2025R0 method
     /// </param>
     /// <param name="cancellationToken">
     /// Token used for request cancellation.
     /// </param>
-    public System.Threading.Tasks.Task<HubV2025R0> CreateHubCopyV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
+    public System.Threading.Tasks.Task<HubV2025R0> CopyHubV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CopyHubV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) => throw new System.NotImplementedException("This method needs to be implemented by the derived class before calling it.");
 
     }
 }

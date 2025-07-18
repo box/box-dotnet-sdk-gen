@@ -174,16 +174,16 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of createHubCopyV2025R0 method
+        /// Request body of copyHubV2025R0 method
         /// </param>
         /// <param name="headers">
-        /// Headers of createHubCopyV2025R0 method
+        /// Headers of copyHubV2025R0 method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<HubV2025R0> CreateHubCopyV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateHubCopyV2025R0Headers();
+        public async System.Threading.Tasks.Task<HubV2025R0> CopyHubV2025R0Async(string hubId, HubCopyRequestV2025R0 requestBody, CopyHubV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new CopyHubV2025R0Headers();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs/", StringUtils.ToStringRepresentation(hubId), "/copy"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<HubV2025R0>(NullableUtils.Unwrap(response.Data));

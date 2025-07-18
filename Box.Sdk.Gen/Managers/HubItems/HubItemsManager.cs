@@ -48,16 +48,16 @@ namespace Box.Sdk.Gen.Managers {
         /// Example: "12345"
         /// </param>
         /// <param name="requestBody">
-        /// Request body of createHubManageItemV2025R0 method
+        /// Request body of manageHubItemsV2025R0 method
         /// </param>
         /// <param name="headers">
-        /// Headers of createHubManageItemV2025R0 method
+        /// Headers of manageHubItemsV2025R0 method
         /// </param>
         /// <param name="cancellationToken">
         /// Token used for request cancellation.
         /// </param>
-        public async System.Threading.Tasks.Task<HubItemsManageResponseV2025R0> CreateHubManageItemV2025R0Async(string hubId, HubItemsManageRequestV2025R0 requestBody, CreateHubManageItemV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
-            headers = headers ?? new CreateHubManageItemV2025R0Headers();
+        public async System.Threading.Tasks.Task<HubItemsManageResponseV2025R0> ManageHubItemsV2025R0Async(string hubId, HubItemsManageRequestV2025R0 requestBody, ManageHubItemsV2025R0Headers? headers = default, System.Threading.CancellationToken? cancellationToken = null) {
+            headers = headers ?? new ManageHubItemsV2025R0Headers();
             Dictionary<string, string> headersMap = Utils.PrepareParams(map: DictionaryUtils.MergeDictionaries(new Dictionary<string, string?>() { { "box-version", StringUtils.ToStringRepresentation(headers.BoxVersion) } }, headers.ExtraHeaders));
             FetchResponse response = await this.NetworkSession.NetworkClient.FetchAsync(options: new FetchOptions(url: string.Concat(this.NetworkSession.BaseUrls.BaseUrl, "/2.0/hubs/", StringUtils.ToStringRepresentation(hubId), "/manage_items"), method: "POST", contentType: "application/json", responseFormat: Box.Sdk.Gen.ResponseFormat.Json) { Headers = headersMap, Data = SimpleJsonSerializer.Serialize(requestBody), Auth = this.Auth, NetworkSession = this.NetworkSession, CancellationToken = cancellationToken }).ConfigureAwait(false);
             return SimpleJsonSerializer.Deserialize<HubItemsManageResponseV2025R0>(NullableUtils.Unwrap(response.Data));
