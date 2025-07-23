@@ -134,7 +134,7 @@ await client.Uploads.UploadWithPreflightCheckAsync(requestBody: new UploadWithPr
 ### Arguments
 
 - requestBody `UploadWithPreflightCheckRequestBody`
-  - 
+  
 - queryParams `UploadWithPreflightCheckQueryParams`
   - Query parameters of uploadFile method
 - headers `UploadWithPreflightCheckHeaders`
