@@ -48,9 +48,9 @@ namespace Box.Sdk.Gen.Schemas {
         public double? TopP { get => _topP; init { _topP = value; _isTopPSet = true; } }
 
         /// <summary>
-        /// `Top-K` changes how the model selects tokens for output. A `top-K` of 1 means the next selected token is
+        /// `Top-K` changes how the model selects tokens for output. A low `top-K` means the next selected token is
         /// the most probable among all tokens in the model's vocabulary (also called greedy decoding),
-        /// while a `top-K` of 3 means that the next token is selected from among the three most probable tokens by using temperature.
+        /// while a high `top-K` means that the next token is selected from among the three most probable tokens by using temperature.
         /// </summary>
         [JsonPropertyName("top_k")]
         public double? TopK { get => _topK; init { _topK = value; _isTopKSet = true; } }
