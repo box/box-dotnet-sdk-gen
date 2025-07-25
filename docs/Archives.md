@@ -14,7 +14,10 @@ This operation is performed by calling function `GetArchivesV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-archives/).
 
-*Currently we don't have an example for calling `GetArchivesV2025R0` in integration tests*
+<!-- sample get_archives_v2025.0 -->
+```
+await client.Archives.GetArchivesV2025R0Async(queryParams: new GetArchivesV2025R0QueryParams() { Limit = 100 });
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `CreateArchiveV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/post-archives/).
 
-*Currently we don't have an example for calling `CreateArchiveV2025R0` in integration tests*
+<!-- sample post_archives_v2025.0 -->
+```
+await client.Archives.CreateArchiveV2025R0Async(requestBody: new CreateArchiveV2025R0RequestBody(name: archiveName));
+```
 
 ### Arguments
 
@@ -70,7 +76,10 @@ This operation is performed by calling function `DeleteArchiveByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/delete-archives-id/).
 
-*Currently we don't have an example for calling `DeleteArchiveByIdV2025R0` in integration tests*
+<!-- sample delete_archives_id_v2025.0 -->
+```
+await client.Archives.DeleteArchiveByIdV2025R0Async(archiveId: archive.Id);
+```
 
 ### Arguments
 
