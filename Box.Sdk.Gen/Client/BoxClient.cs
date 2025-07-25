@@ -165,6 +165,8 @@ namespace Box.Sdk.Gen {
 
         public IShieldListsManager ShieldLists { get; }
 
+        public IArchivesManager Archives { get; }
+
         public BoxClient(IAuthentication auth, NetworkSession? networkSession = default) {
             Auth = auth;
             NetworkSession = networkSession ?? new NetworkSession(baseUrls: new BaseUrls());
@@ -246,6 +248,7 @@ namespace Box.Sdk.Gen {
             HubCollaborations = new HubCollaborationsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             HubItems = new HubItemsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
             ShieldLists = new ShieldListsManager(networkSession: this.NetworkSession) { Auth = this.Auth };
+            Archives = new ArchivesManager(networkSession: this.NetworkSession) { Auth = this.Auth };
         }
         /// <summary>
         /// Make a custom http request using the client authentication and network session.
