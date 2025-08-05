@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.10.0...v1.11.0) (2025-08-05)
+
+
+### Bug Fixes
+
+* Fix downscope token to use `retrieveToken` method for token retrieval (box/box-codegen[#731](https://github.com/box/box-dotnet-sdk-gen/issues/731)) ([#492](https://github.com/box/box-dotnet-sdk-gen/issues/492)) ([292360e](https://github.com/box/box-dotnet-sdk-gen/commit/292360efe86797e42dbfb388a5bd2f5b41efa0c1))
+* Specify events `next_stream_position` property type as `long` (box/box-openapi[#535](https://github.com/box/box-dotnet-sdk-gen/issues/535)) ([#536](https://github.com/box/box-dotnet-sdk-gen/issues/536)) ([da265bd](https://github.com/box/box-dotnet-sdk-gen/commit/da265bd5c40defc4b2036811aefad59447faca09))
+
+
+### New Features and Enhancements
+
+* Add `ReadOnlyCollection` implicit operator for Unions (box/box-codegen[#633](https://github.com/box/box-dotnet-sdk-gen/issues/633)) ([#483](https://github.com/box/box-dotnet-sdk-gen/issues/483)) ([a1fc2c5](https://github.com/box/box-dotnet-sdk-gen/commit/a1fc2c584021c151fc9d1815877ffe73c972f711))
+* Add AI spreadsheet processor (box/box-openapi[#533](https://github.com/box/box-dotnet-sdk-gen/issues/533)) ([#519](https://github.com/box/box-dotnet-sdk-gen/issues/519)) ([c344023](https://github.com/box/box-dotnet-sdk-gen/commit/c34402355243145a1cab7da78c6c2facde39fb36))
+* Add Archive Public API (box/box-openapi[#540](https://github.com/box/box-dotnet-sdk-gen/issues/540)) ([#543](https://github.com/box/box-dotnet-sdk-gen/issues/543)) ([be0bb9d](https://github.com/box/box-dotnet-sdk-gen/commit/be0bb9d3e58f97bc87f749d08d828c990c71789b))
+* Add new Hubs APIs and Hubs items API (box/box-openapi[#538](https://github.com/box/box-dotnet-sdk-gen/issues/538)) ([#537](https://github.com/box/box-dotnet-sdk-gen/issues/537)) ([f2584cd](https://github.com/box/box-dotnet-sdk-gen/commit/f2584cd9be40b67eaa3a500411b367543a26f830))
+* Add new schema for `Metadata Error` (box/box-openapi[#539](https://github.com/box/box-dotnet-sdk-gen/issues/539)) ([#538](https://github.com/box/box-dotnet-sdk-gen/issues/538)) ([425b4ad](https://github.com/box/box-dotnet-sdk-gen/commit/425b4add7975d49584c8ed18a791caf72559203c))
+* add Shield Lists APIs (box/box-openapi[#528](https://github.com/box/box-dotnet-sdk-gen/issues/528)) ([#496](https://github.com/box/box-dotnet-sdk-gen/issues/496)) ([8b81c87](https://github.com/box/box-dotnet-sdk-gen/commit/8b81c879c8b8bb5c020ecb573e527e2a5d9f1701))
+* Allow injecting private key decryption mechanism for JWT (box/box-codegen[#754](https://github.com/box/box-dotnet-sdk-gen/issues/754)) ([#528](https://github.com/box/box-dotnet-sdk-gen/issues/528)) ([865c729](https://github.com/box/box-dotnet-sdk-gen/commit/865c729395556a3c4a8bb1f1418c3932d268bdc4))
+* Make `OneOf` classes public (box/box-codegen[#773](https://github.com/box/box-dotnet-sdk-gen/issues/773)) ([#551](https://github.com/box/box-dotnet-sdk-gen/issues/551)) ([f7dcc32](https://github.com/box/box-dotnet-sdk-gen/commit/f7dcc3262b289da55ebc6210c5656cc98e3b14b4))
+* Support Hubs beta endpoints (box/box-openapi[#531](https://github.com/box/box-dotnet-sdk-gen/issues/531)) ([#511](https://github.com/box/box-dotnet-sdk-gen/issues/511)) ([59c43b8](https://github.com/box/box-dotnet-sdk-gen/commit/59c43b868e46edd26be0be13a5e1772a4d731128))
+* Support new tools in AI Studio (box/box-openapi[#534](https://github.com/box/box-dotnet-sdk-gen/issues/534)) ([#520](https://github.com/box/box-dotnet-sdk-gen/issues/520)) ([0b47597](https://github.com/box/box-dotnet-sdk-gen/commit/0b47597f259884a2a5f567608e9e07997e3c6dc9))
+* Update legal holds and AI models (box/box-openapi[#526](https://github.com/box/box-dotnet-sdk-gen/issues/526)) ([#494](https://github.com/box/box-dotnet-sdk-gen/issues/494)) ([6310e56](https://github.com/box/box-dotnet-sdk-gen/commit/6310e560df6d9520598295139f55ec8a0a4d69d9))
+
 ## [1.10.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.9.0...v1.10.0) (2025-05-13)
 
 
