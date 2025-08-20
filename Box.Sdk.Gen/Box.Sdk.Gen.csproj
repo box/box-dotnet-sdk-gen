@@ -42,7 +42,7 @@
     
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Box.Sdk.Gen.Tests.Integration" />
+    <InternalsVisibleTo Include="Box.Sdk.Gen.Tests.Integration"/>
   </ItemGroup>
 
 </Project>
