@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.11.0...v1.12.0) (2025-09-05)
+
+
+### New Features and Enhancements
+
+* Add missing webhook events (box/box-openapi[#554](https://github.com/box/box-dotnet-sdk-gen/issues/554)) ([#600](https://github.com/box/box-dotnet-sdk-gen/issues/600)) ([46c6d33](https://github.com/box/box-dotnet-sdk-gen/commit/46c6d33238b7a97352a434333e18054d8adccd03))
+
 ## [1.11.0](https://github.com/box/box-dotnet-sdk-gen/compare/v1.10.0...v1.11.0) (2025-08-05)
 
 
