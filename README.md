@@ -4,13 +4,18 @@
 
 # Deprecation notice
 
-As of September 17, 2025 Box Next Generation SDKs are no longer supported as separate artifacts. Don't worry, your existing code will continue to work without changes. You can still use your applications based on Box Next Generation SDKs with no impact, but you won't receive new features, updates, or bug fixes. We will be still providing patches for security vulnerabilities until version 6 (containing both Box.V2 and Box.Sdk.Gen packages) of [box-windows-sdk-v2](https://github.com/box/box-windows-sdk-v2) is released. In keeping with industry best practices, we are consolidating the Box Next Generation SDKs and Box core SDKs into a single package for each programming language. This makes migration efforts much easier and allows to seamlessly add new capabilities to existing applications still powered by the manually maintained Box core SDKs. Box Next Generation SDKs are available as the latest major version release (`v10`) of Box core SDKs. Currently, it’s available as a separate [branch](https://github.com/box/box-windows-sdk-v2/tree/sdk-gen).
+As of September 17, 2025, Box Next Generation SDKs are no longer supported as separate artifacts. Your existing code will continue to work without changes, but you won't receive new features, updates, bug fixes, or security patches.
+
+In keeping with industry best practices, we are consolidating the Box Next Generation SDKs and Box core SDKs into a single package. This makes migration easier and allows you to seamlessly add new capabilities to existing applications. Two consolidated versions are available in [box-windows-sdk-v2](https://github.com/box/box-windows-sdk-v2):
+
+- [Version 6](https://github.com/box/box-windows-sdk-v2/tree/combined-sdk) (combined-sdk branch): Contains both `Box.V2` and `Box.Sdk.Gen` namespaces for gradual migration.
+- [Version 10](https://github.com/box/box-windows-sdk-v2/tree/main) (main branch): The latest major release containing only `Box.Sdk.Gen`.
 
 For more details, see our [SDK versioning strategy document](https://developer.box.com/guides/tooling/sdks/sdk-versioning/).
 
 # Box Dotnet SDK Gen
 
-[![Project Status](http://opensource.box.com/badges/stable.svg)](http://opensource.box.com/badges)
+[![Project Status](http://opensource.box.com/badges/deprecated.svg)](http://opensource.box.com/badges)
 ![build](https://github.com/box/box-dotnet-sdk-gen/actions/workflows/build.yml/badge.svg)
 [![nuget version](https://img.shields.io/nuget/v/box.sdk.gen.svg)](https://badge.fury.io/nu/box.sdk.gen)
 [![image](https://img.shields.io/nuget/dt/box.sdk.gen.svg)](https://badge.fury.io/nu/box.sdk.gen)
@@ -34,6 +39,7 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Deprecation notice](#deprecation-notice)
 - [Box Dotnet SDK Gen](#box-dotnet-sdk-gen)
 - [Table of contents](#table-of-contents)
 - [Installing](#installing)
