@@ -1,5 +1,12 @@
 # IAppItemAssociationsManager
 
+<!-- box-dotnet-sdk-gen deprecation banner -->
+> [!CAUTION]
+> **`box-dotnet-sdk-gen` is deprecated and no longer maintained.** As of September 17, 2025, it receives no new features, bug fixes, or security patches. Do not use it for new projects.
+>
+> Use [`box-windows-sdk-v2`](https://github.com/box/box-windows-sdk-v2) v10+ instead: `Install-Package Box.V2.Core`.
+> The equivalent of this page is [box-windows-sdk-v2/docs/AppItemAssociations.md](https://github.com/box/box-windows-sdk-v2/blob/main/docs/AppItemAssociations.md). To migrate existing code, see the [migration guide](https://github.com/box/box-windows-sdk-v2/blob/main/migration-guides/from-dotnet-sdk-gen-v1-to-box-windows-sdk.md).
+
 
 - [List file app item associations](#list-file-app-item-associations)
 - [List folder app item associations](#list-folder-app-item-associations)
